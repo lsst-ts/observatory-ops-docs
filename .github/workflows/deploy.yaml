@@ -1,0 +1,31 @@
+name: Deployment
+
+on: [push]
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check links
+        run: make linkcheck
+
+      - name: Build site
+        run: make html
+
+      - name: Upload to LSST the Docs
+        env:
+          LTD_USERNAME: ts-ci
+          LTD_PASSWORD: ${{ secrets.LTD_PASSWORD }}
+        run: ltd upload --product obs-ops --gh --dir _build/html
