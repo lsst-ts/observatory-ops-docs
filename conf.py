@@ -29,7 +29,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'Rubin Observatory Operations Documentation'
+project = 'Vera C. Rubin Observatory Operations Documentation'
 copyright = '2020 Association of Universities for Research in Astronomy (AURA), Inc.'
 author = 'Rubin Observatory'
 
