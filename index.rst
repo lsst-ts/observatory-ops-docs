@@ -43,7 +43,7 @@ Operational Procedures
 
    Operational-Procedures/Emergencies
    Operational-Procedures/Main-Telescope
-   Operational-Procedures/Auxiliary-Telescope
+   Operational-Procedures/Auxiliary-Telescope/index
 
 
 Project info
