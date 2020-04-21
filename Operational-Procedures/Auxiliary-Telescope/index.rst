@@ -1,9 +1,10 @@
+.. _Auxiliary-Telescope-Procedures:
+
 ##############################
 Auxiliary Telescope Procedures
 ##############################
 
 .. What is the best way to arrange this? Arrange by systems, then by use-case? Or arrange by use-case, then by system?
-
 
 Procedures are divided into multiple categories based on the affected hardware and user's application.
 

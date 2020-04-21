@@ -39,11 +39,14 @@ Operational Procedures
 - Describes procedures related to regular night-time operations (e.g. opening/closing, troubleshooting)
 
 .. toctree::
-   :maxdepth: 1
+    :maxdepth: 2
+    :glob:
+    :titlesonly:
 
-   Operational-Procedures/Emergencies
-   Operational-Procedures/Main-Telescope
-   Operational-Procedures/Auxiliary-Telescope/index
+    */index
+
+
+
 
 
 Project info

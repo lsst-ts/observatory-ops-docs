@@ -7,5 +7,6 @@ These procedures perform activities that coordinate the movement of all aspects 
 .. toctree::
     :maxdepth: 1
     :glob:
+    :titlesonly:
 
     *
