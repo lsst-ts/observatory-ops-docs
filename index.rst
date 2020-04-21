@@ -43,6 +43,7 @@ Operational Procedures
     :glob:
     :titlesonly:
 
+    *
     */index
 
 
