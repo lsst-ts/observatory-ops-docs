@@ -104,7 +104,7 @@ Do not use underscores or spaces.
 Templates
 ---------
 
-A template folder is located in the `project directory <https://github.com/lsst-ts/observatory-ops-docs/tree/master/project>`_.
+A template folder is located in the :ref:`project directory <Project-Information>`.
 It contains template pages for the Observatory Operations Documentation area, including a directory index and a procedure template.
 Users wishing to create a new folder in this area should copy/paste the template folder, then update the contents accordingly.
 
