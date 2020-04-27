@@ -14,8 +14,6 @@ Template Index Section Title
 
 This is the top-level description of what this section is about and what it includes. Below is a table of contents which is used to show the levels below this level. If there are no levels beneath this one, make sure the 2nd line is commented out
 
-
-
 .. toctree::
     :maxdepth: 2
     :titlesonly:
@@ -24,3 +22,4 @@ This is the top-level description of what this section is about and what it incl
     *
 ..    */index
 
+.. Any Figures should be stored in the _static subdirectory. See the README in that directory for how to insert a figure

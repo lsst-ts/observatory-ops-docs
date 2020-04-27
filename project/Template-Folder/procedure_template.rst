@@ -1,7 +1,14 @@
-.. This is a template for procedures
+.. This is a template for operational procedures
 
 .. This is the label that can be used as for cross referencing in the given area
 .. _Procedure_Template-reference-label:
+
+.. Primary Author
+.. add your name between the *'s below
+.. |author| replace::  *Replace-with-your-name*
+.. If making contribution, add your name between *'s below (first person will have to add the **'s.
+.. Names should be separated by commas.
+.. |contributors| replace:: *Replace-with-list-of-contributors*
 
 ##########################
 Title of Example Procedure
@@ -14,6 +21,8 @@ Overview
 ^^^^^^^^
 
 This section should give a top level description of what this procedure is for and when it should be performed.
+
+.. Any Figures should be stored in the _static subdirectory. See the README in that directory for how to insert a figure
 
 Prerequisites
 ^^^^^^^^^^^^^
@@ -46,6 +55,9 @@ In the case of a very straightforward procedure, a simple numbered list could be
 #. This is Step in a numbered list
 #. This is step two.
 
+There is no strict formatting structure for procedures. It is left to the author to decide which format is most relevant
+
+
 
 Separate into Subsections
 -------------------------
@@ -62,3 +74,12 @@ Issues relating *only* to this specific procedure.
 Other troubleshooting pages that may be applicable are:
 
 - Itemized list of links to other applicable troubleshooting sections
+
+
+Contact Personnel
+^^^^^^^^^^^^^^^^^
+
+This procedure was last modified |today|.
+
+This procedure was written by |author|. The following are contributors: |contributors|.
+

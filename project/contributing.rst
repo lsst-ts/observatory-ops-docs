@@ -99,7 +99,15 @@ File names
 ----------
 
 Always use hyphens to separate words in file names.
-Don’t use underscores or spaces.
+Do not use underscores or spaces.
+
+Templates
+---------
+
+A template folder is located in the `project directory <https://github.com/lsst-ts/observatory-ops-docs/tree/master/project>`_.
+It contains template pages for the Observatory Operations Documentation area, including a directory index and a procedure template.
+Users wishing to create a new folder in this area should copy/paste the template folder, then update the contents accordingly.
+
 
 Prose formatting in plain text
 ------------------------------
@@ -108,8 +116,8 @@ LSST DM's user documentation is written with soft wrapping, meaning that lines a
 Never hard wrap to an arbitrary line length.
 Soft wrapping makes editing more approachable for more people (particularly those using the GitHub editor) and makes pull request line comments more useful.
 
-More specifically, use `semantic line formatting <http://rhodesmill.org/brandon/2012/one-sentence-per-line/>`__.
-Generally this means that each sentence should be its own line in the text file.
+More specifically, use `semantic line formatting <https://rhodesmill.org/brandon/2012/one-sentence-per-line/>`__.
+Generally this means that each sentence should be its own line in the text file. This makes examining the differences between documentation versions easier while appearing as a single paragraph in the Sphinx rendered text.
 
 Titles and headings
 -------------------

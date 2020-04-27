@@ -3,6 +3,13 @@
 
 .. _Full-Observatory-Open-for-On-Sky-Operations:
 
+.. Primary Author
+.. add your name between the *'s below
+.. |author| replace::  *Tiago Ribeiro*
+.. If making contribution, add your name between *'s below (first person will have to add the **'s.
+.. Names should be separated by commas.
+.. |contributors| replace:: *Patrick Ingraham*
+
 ###########################
 Open on On-Sky Observations
 ###########################
@@ -16,9 +23,26 @@ Overview
 ^^^^^^^^
 This procedure takes the telescope from the nominal state of how it was (most likely) left at the end of the day, to getting the telescope fully open and ready to take observations. This includes things like enabling all components, opening the dome, mirror covers etc.
 
+Prerequisites
+^^^^^^^^^^^^^
+
+- Assumes observatory is fully ready to operate, as would be the case if it was shutdown the night before using the shutdown procedure.
+
+
+
+
+Post-Condition
+^^^^^^^^^^^^^^
+
+- Telescope will be left read to observe.
+
+- It is recommended to try slewing and taking an image to ensure all functionality is operational. Because the telescope and dome is positioned optimally away from the sun, only a very small (~3 degree) slew in azimuth should be performed.
+
+
+
 Open using scriptQueue
 ^^^^^^^^^^^^^^^^^^^^^^
-TBR.
+Running this procedure via the scriptQueue is not currently implemented.
 
 Open using example Notebook
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -84,11 +108,6 @@ will make sure to verify that all CSCs are in their proper state, will close the
 covers before opening the dome and then proceed to open the dome and so on.
 
 
-.. TODO ::
-
-    - Link to example notebook
-
-
 Troubleshooting for this Procedure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -97,3 +116,10 @@ Address things here that are specific *only* to this procedure
     - Links to other applicable troubleshooting activities (hosted elsewhere)
 
         - Dome won't open due to cRIO communication error *INSERT LINK*
+
+Contact Personnel
+^^^^^^^^^^^^^^^^^
+
+This procedure was last modified |today|.
+
+This procedure was written by |author|. The following are contributors: |contributors|.

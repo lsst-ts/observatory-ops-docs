@@ -43,19 +43,21 @@ Operational Procedures
     :glob:
     :titlesonly:
 
-    *
-    */index
+    Operational-Procedures/index
+..    *
 
 
 
 
+Project Documentation Information
+=================================
 
-Project info
-============
+- Describes information regarding this documentation tree, including how to contribute.
+
 
 .. toctree::
-   :maxdepth: 1
+    :maxdepth: 2
+    :glob:
+    :titlesonly:
 
-   project/implementation
-   project/contributing
-   project/license
+    project/index
