@@ -22,4 +22,10 @@ This is the top-level description of what this section is about and what it incl
     *
 ..    */index
 
-.. Any Figures should be stored in the _static subdirectory. See the README in that directory for how to insert a figure
+..  Any Figures should be stored in the same directory as this file.
+    To add images, add the image file (png, svg or jpeg preferred) to the same directory as this .rst file.
+    The reST syntax for adding the image is:
+    .. figure:: /filename.ext
+        :name: fig-label
+        :target: http://target.link/url
+        Caption text.
