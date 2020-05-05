@@ -8,6 +8,11 @@ This documentation is built with `Sphinx <https://www.sphinx-doc.org/en/master/>
 Contributing
 ============
 
+.. note::
+
+   New to Sphinx and the reStructuredText format?
+   Check out our `ReStructuredText Style Guide <https://developer.lsst.io/restructuredtext/style.html>`__.
+
 1. Create a virtual environment (if you haven't already):
 
    .. code-block:: bash
@@ -47,13 +52,22 @@ Contributing
    If some links are behind a login, you might need to ignore them.
    Look at the ``linkcheck_ignore`` variable in ``conf.py`` for examples of how to do this.
 
-New to Sphinx and the reStructuredText format?
-Check out our `ReStructuredText Style Guide <https://developer.lsst.io/restructuredtext/style.html>`__.
-
 Deployment
 ==========
 
 Whenever you push a GitHub, the site is built for the corresponding branch.
-Find your build at https://obs-ops.lsst.io/v.
+Find your build at https://obs-ops.lsst.io/v. You can push to branch you've created at any time.
 
-The ``master`` branch is always published as https://obs-ops.lsst.io.
+The ``master`` branch is always published as https://obs-ops.lsst.io. Only authorized individuals can push to ``master``.
+To incorperate your suggestions, create a PR.
+
+Approval Procedure
+------------------
+
+#. Contact Patrick.
+
+#. Validate content.
+
+#. Push Request submittion.
+
+#. Code review process.

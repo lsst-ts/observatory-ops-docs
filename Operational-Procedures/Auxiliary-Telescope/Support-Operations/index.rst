@@ -14,5 +14,4 @@ This directory is to host procedures that are part of regular operations (e.g. o
     :glob:
     :titlesonly:
 
-    *
     */index
