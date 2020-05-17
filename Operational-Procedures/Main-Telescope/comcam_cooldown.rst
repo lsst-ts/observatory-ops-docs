@@ -61,7 +61,7 @@ Power Up Quadbox
 #. start power for PDUs and corresponding masters (quadbox GUI)
 #. Power up 120VAC transformers for external utilities
 
-   a) Access via ssh to dimm laptop @ dimm@139.229.136.127  (S1+-c0M2019)
+   a) Access via ssh to dimm laptop @ dimm@139.229.136.127
    b) telnet to PDUs, info as follows:
 
 ::
