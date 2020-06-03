@@ -19,6 +19,5 @@ This page defines the different types of operational procedures.
     :titlesonly:
     :glob:
 
-    *
     */index
 

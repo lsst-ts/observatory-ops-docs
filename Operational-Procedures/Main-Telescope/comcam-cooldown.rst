@@ -8,12 +8,12 @@
 .. |author| replace::  *Brian Stalder*
 .. If making contribution, add your name between *'s below (first person will have to add the **'s.
 .. Names should be separated by commas.
-.. |contributors| replace:: 
+.. |contributors| replace:: *temporary replace statement*
 
 
-##########################
+##############################
 ComCam Cooldown (CCS-specific)
-##########################
+##############################
 
 .. note::
     This is a procedure document that is in a state of continuing development while ComCam is being integrated with the other observatory subsystems and not expected to be needed once in steady-state observations.  It is expected that these procedures will only be needed as reference by expert engineers and scientists.
