@@ -21,6 +21,4 @@ This is the top-level description of what this section is about and what it incl
     :titlesonly:
     :glob:
 
-    *
 ..    */index
-

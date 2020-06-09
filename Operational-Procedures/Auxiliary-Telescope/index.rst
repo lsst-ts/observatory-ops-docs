@@ -15,6 +15,7 @@ The procedures are part of regular activities, such as opening the observatory, 
 
 .. toctree::
     :maxdepth: 2
+    :titlesonly:
     :glob:
 
     Support-Operations/*
@@ -27,6 +28,12 @@ On-sky Operations
 The procedures part of regular on-sky observations activities of astronomical targets, such as slewing the telescope and tracking the target.
 
 
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+    :glob:
+
+    Full-Observatory/*
 
 Troubleshooting
 ===============
