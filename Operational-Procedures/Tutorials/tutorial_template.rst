@@ -1,4 +1,4 @@
-.. This is a template for procedures
+.. This is a template for tutorials. This comment may be deleted when the template is copied to the destination.
 
 .. This is the label that can be used as for cross referencing in the given area
 .. _Tutorial_Template-reference-label:
@@ -8,7 +8,7 @@ Title of Example Tutorial
 ##########################
 
 .. note::
-    This is a tutorial template file that is associated with a template directory structure. This note be deleted when the section is properly populated.
+    This is a tutorial template file that is associated with a template directory structure. This note should be deleted when the section is properly populated.
 
 Overview
 ^^^^^^^^

@@ -9,7 +9,7 @@ Operational Interface Setup
 
 .. note::
     This is a template file that is associated with a template directory structure.
-    This note will be deleted when the section is properly populated
+    This note should be deleted when the section is properly populated
 
 This page defines how to setup the interfaces for observations, notably the LOVE interface.
 

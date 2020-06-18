@@ -8,7 +8,7 @@ Operational Constraints
 #####################################
 
 .. note::
-    This is a template file that is associated with a template directory structure. This note will be deleted when
+    This is a template file that is associated with a template directory structure. This note should be deleted when
     the section is properly populated
 
 This page defines the different types of operational constraints.

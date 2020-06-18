@@ -1,5 +1,3 @@
-.. This is a template top-level index file for a directory in the procedure's arm of the documentation
-
 .. This is the label that can be used as for cross referencing in the given area
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hypens
 .. _Project-Information:

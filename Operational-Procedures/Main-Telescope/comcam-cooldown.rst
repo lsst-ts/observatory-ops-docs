@@ -1,5 +1,3 @@
-.. This is a template for procedures
-
 .. This is the label that can be used as for cross referencing in the given area
 .. _ComCam-cooldown:
 
