@@ -1,5 +1,7 @@
 .. This is a template top-level index file for a directory in the procedure's arm of the documentation. Each procedure will have its own sub-directory. This comment may be deleted when the template folder is copied to the destination.
 
+.. Static objects, such as figures, should be stored in the _static directory. Instructions for using static objects are included in _static/README.
+
 .. This is the label that can be used as for cross referencing in the given area
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hypens
 .. _Template-Folder-Template-Index-Section-Title:
@@ -21,4 +23,3 @@ This is the top-level description of what this section is about and what it incl
 
     *
 
-..  Any static objects such as figures should be stored in the /_static/ directory located with this file. Instructions for using static objects are included in /_static/README.

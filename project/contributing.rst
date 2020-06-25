@@ -6,7 +6,7 @@ This documentation is open source.
 Rubin Observatory welcomes contributions that make this documentation more useful and accurate.
 
 .. todo::
-   Provide agreed upon style guide.
+   Change LSST to Rubin.
 
 .. Keep in mind that everyone participating in this project is expected to follow the LSST DM `Team Culture and Conduct Standards <https://developer.lsst.io/team/code-of-conduct.html>`__.
 
@@ -63,7 +63,8 @@ These are the basic steps to clone and build the docs:
       python -m pip install --upgrade pip
       python -m pip install -r requirements.txt
 
-#. You are now able to edit the cloned repository. The remaining items below are commands used to build and validate the documentation.
+#. You are now able to edit the cloned repository.
+The remaining items below are commands used to build and validate the documentation. These commands must be executed from the top-level directory.
 
 #. Build the site:
 
@@ -74,14 +75,14 @@ These are the basic steps to clone and build the docs:
    .. note::
       Open ``_build/html/index.html`` in a browser to review it.
 
-#. Validate the documetation build:
+#. Validate the documentation build:
 
    .. code-block:: bash
 
       make linkcheck
 
    .. note::
-      If some links are bheind a login, you might need to ignore them.
+      If some links are behind a login, you might need to ignore them.
       Look at the ``linkcheck_ignore`` variable in ``conf.py`` for examples of how to do this.
 
 #. Completely clear the build:
@@ -99,7 +100,7 @@ Whenever you push to the GitHub repository, the site is built for the correspond
 Find your build at https://obs-ops.lsst.io/v. You can push to a branch you've created at any time.
 
 The ``master`` branch is always published as https://obs-ops.lsst.io. Only authorize individuals can push to ``master``.
-To incorperate your suggestions, create a :ref:`pull request <contributing-pr>`.
+To incorporate your suggestions, create a :ref:`pull request <contributing-pr>`.
 
 Approval Process
 ----------------
@@ -125,6 +126,9 @@ Approval Process
 
 Documentation style guide
 =========================
+
+.. todo:: 
+   Provide agreed upon style guide.
 
 This documentation is written in reStructuredText and built with `Sphinx <https://www.sphix-doc.org/en/master>`__.
 The `LSST DM reStructuredText style guide <https://developer.lsst.io/restructuredtext/style.html>`__ can help you create effective reStructuredText.
