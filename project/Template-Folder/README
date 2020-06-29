@@ -1,9 +1,15 @@
-This is a template top-level README file for a directory in the procedure's arm of the documentation.
+This is a template README file for a directory in the procedure's arm of the documentation. This line may be deleted when the template folder is copied to the destination.
+
+This README includes information on contributing to this directory.
 
 Create a new directory:
 
 1. Copy Template-Folder to the destination, then rename appropriately.
 
 2. Contribute to the README. The file should describe the purpose of the directory with directions on contributing and releasing.
+   - Delete the first line in the README file.
 
 3. Contribute to the _static/README. The file should explain how to include static elements.
+   - Delete the first line in the /_static/README file.
+
+See https://obs-ops.lsst.io/project/contributing.html for details on contributing to the documents.

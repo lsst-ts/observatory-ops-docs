@@ -11,7 +11,7 @@ The following describes the various directories and their use in the GITHUB repo
 ::
 
   Top-level of Repository
-  |---Observing-Constraints         # Information about observing constraits
+  |---Observing-Constraints         # Information about observing constraints
       |-index.rst                   # Source of page for Observing Constraints
   |---Observing-Interface-Setup     # Information about interface setup
       |-index.rst                   # Source of page for setting up the interface for observations

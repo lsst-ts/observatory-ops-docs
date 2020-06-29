@@ -1,43 +1,73 @@
-.. This is the label that can be used as for cross referencing in the given area
-.. _ComCam-cooldown:
+.. Review the README in this procedure's directory on instructions to contribute.
+.. Static objects, such as figures, should be stored in the _static directory. Review the _static/README in this procedure's directory on instructions to contribute.
+.. Do not remove the comments that describe each section. They are included to provide guidance to contributors.
+.. Do not remove other content provided in the templates, such as a section. Instead, comment out the content and include comments to explain the situation. For example:
+	- If a section within the template is not needed, comment out the section title and label reference. Include a comment explaining why this is not required.
+    - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
 
-.. Primary Author
-.. add your name between the *'s below
-.. |author| replace::  *Brian Stalder*
-.. If making contribution, add your name between *'s below (first person will have to add the **'s.
-.. Names should be separated by commas.
-.. |contributors| replace:: *temporary replace statement*
+.. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
+.. |author| replace:: *Brian Stalder*
+.. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
+.. |contributors| replace:: *List-of-contributors*
 
+.. This is the label that can be used as for cross referencing this procedure.
+.. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
+.. _Main-Telescope-ComCam-Cooldown:
+.. Each section should includes a label for cross referencing to a given area.
+.. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
+.. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
+.. An error will alert you of identical labels during the build process.
 
 ##############################
 ComCam Cooldown (CCS-specific)
 ##############################
 
 .. note::
-    This is a procedure document that is in a state of continuing development while ComCam is being integrated with the other observatory subsystems and not expected to be needed once in steady-state observations.  It is expected that these procedures will only be needed as reference by expert engineers and scientists.
+    This is a procedure document that is in a state of continuing development while ComCam is being integrated with the other observatory subsystems and not expected to be needed once in steady-state observations. It is expected that these procedures will only be needed as reference by expert engineers and scientists.
+
+.. _ComCam-Cooldown-Overview:
 
 Overview
 ^^^^^^^^
 
+.. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
+
 This procedure describes the starting up and cooling down of the ComCam cryostat.
 
+.. _ComCam-Cooldown-Prerequisites:
 
 Prerequisites
 ^^^^^^^^^^^^^
 
+.. This section should provide simple overview of prerequisites before executing the procedure; for example, state of equipment, telescope or seeing conditions or notifications prior to execution.
+.. It is preferred to include them as a bulleted or enumerated list.
+.. Do not include actions in this section. Any action by the user should be included at the beginning of the Procedure section below. For example: Do not include "Notify specified SLACK channel. Confirmation is not required." Instead, include this statement as the first step of the procedure, and include "Notification to specified SLACK channel." in the Prerequisites section.
+.. If there is a different procedure that is critical before execution, carefully consider if it should be linked within this section or as part of the Procedure section below (or both).
+
 - Quadbox is connected to 3-phase power, all breakers are open and the PLC protection is active.
 - All ComCam servers are booted and running the applicable CCS subsystems.
 
+.. _ComCam-Cooldown-Post-Condition:
 
 Post-Condition
 ^^^^^^^^^^^^^^
 
+.. This section should provide a simple overview of conditions or results after executing the procedure; for example, state of equipment or resulting data products.
+.. It is preferred to include them as a bulleted or enumerated list.
+.. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
+
 - This procedure leaves ComCam in a state where it is ready to take exposures via CCS or OCS.
 
+.. _ComCam-Cooldown-Procedure-Steps:
 
 Procedure Steps
 ^^^^^^^^^^^^^^^
 
+.. This section should include the procedure. There is no strict formatting or structure required for procedures. It is left to the authors to decide which format and structure is most relevant.
+.. In the case of more complicated procedures, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked procedures to be performed in the specified order.
+.. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
+
+.. _ComCam-Cooldown-Power-Up-Quadbox:
 
 Power Up Quadbox
 -------------------------
@@ -84,9 +114,9 @@ Power Up Quadbox
    7: unassigned7
    8: VIBRATIONALARM
 
-
 Power on KOOLANCE, Fan1, Fan2, VIBRATIONALARM
 
+.. _ComCam-Cooldown-Pump-Down:
 
 Pump Down
 -------------------------
@@ -97,6 +127,7 @@ Pump Down
 
 #. Turn on Turbo Pump if not already on (after pressure reaches ~1.0E-2 torr).  Click Cryo Turbo Pump on quadbox GUI to power on, then Click the Cryo Turbo Pump On button on vacuum GUI.
 
+.. _ComCam-Cooldown-Cool-Down:
 
 Cool Down
 -------------------------
@@ -107,6 +138,7 @@ Cool Down
 
 #. Turn on Cryotel(s) (If AVC on pause between each and evaluate), from vacuum GUI.
 
+.. _ComCam-Cooldown-Power-On-REBs:
 
 Power on REBs
 -------------------------
@@ -118,6 +150,7 @@ Power on REBs
 .. note::
    Rebs may powerdown if the resistances go out of spec, then may need to manually power off/on from ccs-shell e.g. comcam-rebpower/R22/Reb0 powerRebOff, comcam-rebpower/R22/Reb0 powerRebOn
 
+.. _ComCam-Cooldown-Power-On-CCDs:
 
 Power on CCDs
 -------------------------
@@ -153,6 +186,8 @@ Power on CCDs
 .. note::
    REBs may fail hardware checking and default CCD Type to None, which won't allow the CCDs to turn on.  Once at low enough temperature, they will pass checks.  Restart the fp subsystem will allow them to pass, and turn on.
 
+.. _ComCam-Cooldown-Turn-On-CCD-HV-Biases:
+
 Turn on CCD HV Biases
 -------------------------
 
@@ -183,6 +218,7 @@ Turn on CCD HV Biases
 
 Similarly with Reb1, Reb2
 
+.. _ComCam-Cooldown-Ion-Pump:
 
 Ion Pump
 -------------------------
@@ -195,11 +231,20 @@ Can turn on ion pump once pressure is below 1E-6.  Usually takes a few tried (wi
 
 Watch vacuum pressure, and ion pump current.
 
-
+.. _ComCam-Cooldown-Troublshooting:
 
 Troublshooting
 ^^^^^^^^^^^^^^^
 
+.. This section should include troubleshooting information. Information in this section should be strictly related to this procedure.
+
+.. If there is no content for this section, remove the indentation on the following line instead of deleting this sub-section.
+
+     No troubleshooting information is applicable to this procedure.
+
+Content for section under development (if required).
+
+.. _ComCam-Cooldown-Contact-Personnel:
 
 Contact Personnel
 ^^^^^^^^^^^^^^^^^

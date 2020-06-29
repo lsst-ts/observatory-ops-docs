@@ -79,7 +79,7 @@ rst_epilog = """
 linkcheck_retries = 2
 linkcheck_timeout = 5  # seconds
 linkcheck_ignore = [
-    r'^http://localhost', r'http://amor01.cp.lsst.org/login',
+    r'^http://localhost', r'http://amor01.cp.lsst.org/login', r'https://github.com/lsst-ts/ts_atcs',
 ]
 
 # -- Options for HTML output ----------------------------------------------
