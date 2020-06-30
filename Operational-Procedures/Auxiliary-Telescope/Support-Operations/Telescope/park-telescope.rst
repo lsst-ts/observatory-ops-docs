@@ -63,7 +63,7 @@ Post-Condition
 - This is an example bullet of a post-condition (Telescope azimuth is 0 degrees.)
 - This is another example of a post-condition (This procedure leaves the telescope with the E-stop activated.)
 
-.. _Part-the-Telescope-Procedure-Steps:
+.. _Park-the-Telescope-Procedure-Steps:
 
 Procedure Steps
 ^^^^^^^^^^^^^^^
@@ -74,7 +74,7 @@ Procedure Steps
 
 This paragraph describes some general guidance for this procedure. This paragraph is optional depending on its usefulness and the complexity of the procedure.
 
-.. _Part-the-Telescope-Troubleshooting:
+.. _Park-the-Telescope-Troubleshooting:
 
 Troubleshooting
 ^^^^^^^^^^^^^^^
@@ -87,7 +87,7 @@ Troubleshooting
 
 - This is an example bullet (If the following error is given during :ref:`Step 5 <Title-of-Procedure-Final-Step>`, resolve it using a specified action.)
 
-.. _Part-the-Telescope-Contact-Personnel:
+.. _Park-the-Telescope-Contact-Personnel:
 
 Contact Personnel
 ^^^^^^^^^^^^^^^^^
