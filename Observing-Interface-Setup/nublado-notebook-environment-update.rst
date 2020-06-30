@@ -6,9 +6,9 @@
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
 
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
-.. |author| replace:: *Tiago Riberio*
+.. |author| replace:: *Tiago Ribeiro*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Wil O'Mullane, Patrick Ingraham*
+.. |contributors| replace:: *none*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -44,7 +44,7 @@ A jupyter-lab environment is provided for users to launch notebooks. By default,
 
 - the `LSST stack <https://pipelines.lsst.io>`__, 
 - interfaces (*e.g.*, `xml <https://ts-xml.lsst.io/>`__, `IDL <https://github.com/lsst-ts/ts_idl>`__, `SAL <https://ts-sal.lsst.io/>`__, `Salobj <https://ts-salobj.lsst.io/>`__), and
-- high-level control algorithms (*e.g.*, `ATCS <https://github.com/lsst-ts/ts_atcs>`__, LATISS, MTCS, ComCam).
+- high-level control algorithms (*e.g.*, `ATCS <https://ts-observatory-control.lsst.io/>`__, LATISS, MTCS, ComCam).
 
 .. _Update-Notebook-Environment-in-Nublado-Prerequisites:
 
