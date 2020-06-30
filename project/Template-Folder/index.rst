@@ -24,7 +24,8 @@ Template Index Section Title
 .. note::
     This is a template file that is associated with a template directory structure. This note should be deleted when the section is properly populated
 
-This is a template for the index.rst of a directory. If there are no levels beneath this one, make sure the 2nd line of ``toctree`` is commented out.
+This is a template for the index.rst of a directory.
+If there are no levels beneath this one, make sure the last line containing the asterisk (*) of ``toctree`` is commented out.
 
 .. toctree::
     :maxdepth: 2
