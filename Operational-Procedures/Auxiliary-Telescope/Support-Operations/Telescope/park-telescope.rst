@@ -25,7 +25,7 @@ Park the Telescope
 .. note::
     This is a procedure template file that is associated with a template directory structure. This note should be deleted when the section is properly populated.
 
-.. _Part-the-Telescope-Overview:
+.. _Park-the-Telescope-Overview:
 
 Overview
 ^^^^^^^^
@@ -34,7 +34,7 @@ Overview
 
 This is a template for a procedure. It is performed by authorized and trained users.
 
-.. _Part-the-Telescope-Prerequisites:
+.. _Park-the-Telescope-Prerequisites:
 
 Prerequisites
 ^^^^^^^^^^^^^
@@ -51,7 +51,7 @@ Prerequisites
 - This is another example bullet of a prerequisite (Notification to specified SLACK channel.)
 - This example refers to a required action at the beginning of the procedure (It is critical the correct status of the equipment. This will be verified during :ref:`a critical step <Title-of-Procedure-Critical-Step-1>` in the procedure.)
 
-.. _Part-the-Telescope-Post-Conditions:
+.. _Park-the-Telescope-Post-Conditions:
 
 Post-Condition
 ^^^^^^^^^^^^^^
