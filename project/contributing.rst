@@ -116,7 +116,7 @@ Deployment
 Whenever you push to the GitHub repository, the site is built for the corresponding branch.
 Find your build at https://obs-ops.lsst.io/v/. You can push to a branch you've created at any time.
 
-The ``master`` branch is always published as https://obs-ops.lsst.io. Only authorize individuals can push to ``master``.
+The ``master`` branch is always published as https://obs-ops.lsst.io. Only authorized individuals can merge to ``master`` (may be delegated).
 To incorporate your suggestions, create a :ref:`pull request <contributing-pr>`.
 
 Approval Process
