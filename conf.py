@@ -56,6 +56,7 @@ exclude_patterns = [
     'README.rst',
     '.venv',
     'venv',
+    'project/Templates/Template-Folder',
 ]
 
 # The name of the Pygments (syntax highlighting) style to use.

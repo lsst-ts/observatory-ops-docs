@@ -29,6 +29,6 @@ This is a template for the index.rst of a directory. If there are no levels bene
     :titlesonly:
     :glob:
 
-    *
+..    *
 
 This template may also be used for other pages within the directory. In this case, feel free to remove the ``toctree``.

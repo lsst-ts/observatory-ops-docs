@@ -30,7 +30,8 @@ Procedures are divided into multiple categories based on the affected hardware a
 
 Standard Support Operations
 ===========================
-The procedures are part of regular activities that do not include on-sky observations of astronomical targets, such as opening the observatory.
+
+These procedures are part of observatory activities that do not include on-sky observations of astronomical targets; for example, opening the mirror cover.
 
 .. toctree::
     :maxdepth: 2
@@ -45,7 +46,8 @@ The procedures are part of regular activities that do not include on-sky observa
 
 On-sky Operations
 =================
-The procedures part of regular on-sky observations activities of astronomical targets, such as slewing the telescope and tracking the target.
+
+These procedures part of regular on-sky observations activities of astronomical targets, such as slewing the telescope and tracking the target.
 
 .. toctree::
     :maxdepth: 2

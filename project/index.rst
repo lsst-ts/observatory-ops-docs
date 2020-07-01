@@ -28,7 +28,7 @@ This section contains files related to the setup of this documentation tree, inc
 
     *
 
-.. _Project-Template:
+.. _Project-Templates:
 
 Template Folder
 ===============
@@ -36,8 +36,8 @@ Template Folder
 This section is provided so the template folder files are available.
 
 .. toctree::
-    :maxdepth: 1 
+    :maxdepth: 2
     :titlesonly:
     :glob:
 
-    Template-Folder/*
+    Templates/index

@@ -13,7 +13,7 @@
 
 .. This is the label that can be used as for cross referencing this file.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _Top-Rubin-Observatory-Operations-Documentation:
+.. _Obs-Ops-Rubin-Observatory-Operations-Documentation:
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
@@ -37,7 +37,7 @@ The scope of this area of documentation is to provide a centralized, version con
 The content is provided as reference only.
 All aspects of the project that go through strict change control (e.g. mirror procedures) should only be linked to these pages.
 
-.. _Top-Daytime-Nighttime-Interactions:
+.. _Obs-Ops-Daytime-Nighttime-Interactions:
 
 Daytime/Nighttime Interactions
 ==============================
@@ -47,7 +47,7 @@ This area of contains information related to summit operations, specifically nig
 - This also includes the mechanism to facilitate daytime work by the night crew (e.g. diagnose a re-occurring fault)
 - Nightlog instructions
 
-.. _Top-Observing-Interface-Setup:
+.. _Obs-Ops-Observing-Interface-Setup:
 
 Observing Interface Setup
 =========================
@@ -61,7 +61,7 @@ Information on getting setup for observations - also tools etc
 
     Observing-Interface-Setup/index
 
-.. _Top-Observing-Constraints:
+.. _Obs-Ops-Observing-Constraints:
 
 Observing Constraints
 =====================
@@ -75,7 +75,7 @@ Describes different physical and meteorological factors that affect operation (e
 
     Observing-Constraints/index
 
-.. _Top-Operational-Procedures:
+.. _Obs-Ops-Operational-Procedures:
 
 Operational Procedures
 ======================
@@ -89,7 +89,7 @@ Content in this section procedures related to regular night-time operations (e.g
 
     Operational-Procedures/index
 
-.. _Top-Safety:
+.. _Obs-Ops-Safety:
 
 Safety
 ======
@@ -103,7 +103,7 @@ This includes:
 - Procedures to enter telescope spaces during operations (e.g. AuxTel)
 - Emergency meeting locations etc.
 
-.. _Top-Project-Documentation-Information:
+.. _Obs-Ops-Project-Documentation-Information:
 
 Project Documentation Information
 =================================

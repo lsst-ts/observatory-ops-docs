@@ -49,15 +49,16 @@ Here are some tips:
 
 - Write confidently and precisely, yet also casually.
 
-For further discussion about specific style issues, refer to the `Google Developer Documentation Style Guide <https://developers.google.com/style/>`_.
-
 .. _Observatory-Operations-Style-Guide-File-Names:
 
 File Names
 ----------
 
-Always use hyphens to separate words in file names.
+Always use hyphens to separate words in directory and file names.
 Do not use underscores or spaces.
+This choice is based on the `Google Developer Documentation Style Guide <https://developers.google.com/style>`__ for search engine optimization.
+
+Use start case for directory names unless it is appropriate otherwise (such as a common acronym like LSST).
 
 .. _Observatory-Operations-Style-Guide-Templates:
 
