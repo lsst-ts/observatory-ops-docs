@@ -7,68 +7,28 @@
 
 .. This is the label that can be used as for cross referencing this file.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _Auxiliary-Telescope-Procedures:
+.. _Operational-Procedures-Tutorials:
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
-##############################
-Auxiliary Telescope Procedures
-##############################
+#########
+Tutorials
+#########
 
 .. This section should provide a brief, top-level description of the page.
 
 .. note::
     This is a template file that is associated with a template directory structure. This note should be deleted when the section is properly populated
 
-Procedures are divided into multiple categories based on the affected hardware and user's application.
-
-.. What is the best way to arrange this? Arrange by systems, then by use-case? Or arrange by use-case, then by system?
-
-.. _Auxiliary-Telescope-Procedures-Standard-Support-Operations:
-
-Standard Support Operations
-===========================
-
-These procedures are part of observatory activities that do not include on-sky observations of astronomical targets; for example, opening the mirror cover.
+Tutorials are for learning about how to understand a certain system or overall concept.
 
 .. toctree::
     :maxdepth: 2
     :titlesonly:
     :glob:
 
-    Support-Operations/*
+..    *
 
-..  Opening-Dome?
-
-.. _Auxiliary-Telescope-Procedures-On-Sky-Operations:
-
-On-sky Operations
-=================
-
-These procedures part of regular on-sky observations activities of astronomical targets, such as slewing the telescope and tracking the target.
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-    :glob:
-
-    Full-Observatory/*
-
-.. _Auxiliary-Telescope-Procedures-Maintenance-Operations:
-
-Maintenance Operations
-======================
-
-Content for this section is under development.
-
-.. _Auxiliary-Telescope-Procedures-Troubleshooting:
-
-Troubleshooting
-===============
-
-.. toctree::
-    :maxdepth: 1
-
-    Troubleshooting/E-stop
+This template may also be used for other pages within the directory. In this case, feel free to remove the ``toctree``.

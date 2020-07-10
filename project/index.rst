@@ -19,25 +19,26 @@ Project Documentation Information
 
 .. This section should provide a brief, top-level description of the page.
 
-This section contains files related to the setup of this documentation tree, including how to contribute.
+:doc:`Learn how to contribute to this site </project/contributing>`.
+
+:doc:`Learn how to write content for this site </project/observatory-operations-style-guide>`.
+
+Learn about :doc:`licensing </project/license>` and :doc:`implementation </project/implementation>`.
+
+:doc:`Learn how this repository is structured </project/repository-map>`.
 
 .. toctree::
     :maxdepth: 2 
     :titlesonly:
     :glob:
+    :hidden:
 
     *
-
-.. _Project-Templates:
-
-Template Folder
-===============
-
-This section is provided so the template folder files are available.
 
 .. toctree::
     :maxdepth: 2
     :titlesonly:
     :glob:
+    :hidden:
 
     Templates/index

@@ -7,27 +7,21 @@
 
 .. This is the label that can be used as for cross referencing this file.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _Operational-Procedures:
+.. _Auxiliary-Telescope-Procedures:
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
-######################
-Operational Procedures
-######################
+###################
+Auxiliary Telescope
+###################
 
 .. This section should provide a brief, top-level description of the page.
 
 .. note::
     This is a template file that is associated with a template directory structure. This note should be deleted when the section is properly populated
 
-This page defines the different types of operational procedures.
+This is about the Auxiliary Telescope.
 
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-    :glob:
-
-    */index
-
+:doc:`Move onto preparing interfaces for operations </interfaces/index>`.

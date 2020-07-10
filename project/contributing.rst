@@ -161,9 +161,4 @@ Check out these resources and guides. Sources files are available to compare raw
 
   * `reStructuredText Style Guide for Rubin Observatory Data Management Developers <https://developer.lsst.io/restructuredtext/style.html>`__
 
-.. _Contributing-Style-Guide:
-
-Observatory Operations Style Guide
-----------------------------------
-
-.. include:: observatory-operations-style-guide.inc
+The :doc:`repository style guide </project/observatory-operations-style-guide>` will help you content for this site.

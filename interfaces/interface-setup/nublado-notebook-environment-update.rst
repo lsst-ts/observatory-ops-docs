@@ -8,7 +8,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Tiago Ribeiro*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *none*
+.. |contributors| replace:: *Tiago Ribeiro*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -22,6 +22,9 @@
 Update Notebook Environment in Nublado
 ######################################
 
+:contributors: |contributors| 
+:date-modified: |today|
+
 .. _Update-Notebook-Environment-in-Nublado-Overview:
 
 Overview
@@ -29,22 +32,8 @@ Overview
 
 .. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
 
-This procedure describes how change the software versions in the jupyter-lab environment on the nublado platform.
+This procedure describes how to change the software versions in the jupyter-lab environment on :doc:`/interfaces/nublado`.
 The version change will override versions available on the servers. This can be performed locally or remotely.
-
-.. _Update-Notebook-Environment-in-Nublado-What-is-the-Nublado-Platform:
-
-The Nublado Platform
---------------------
-
-The nublado platform is the initial entry point for users to interact with the Rubin Observatory control system.
-It is highly flexible, allowing you to work on one or more components to accomplish both, high and low level operations.
-
-A jupyter-lab environment is provided for users to launch notebooks. By default, the platform provides a set of environments with released software versions and tools, including:
-
-- the `LSST stack <https://pipelines.lsst.io>`__, 
-- interfaces (*e.g.*, `xml <https://ts-xml.lsst.io/>`__, `IDL <https://github.com/lsst-ts/ts_idl>`__, `SAL <https://ts-sal.lsst.io/>`__, `Salobj <https://ts-salobj.lsst.io/>`__), and
-- high-level control algorithms (*e.g.*, `ATCS <https://ts-observatory-control.lsst.io/>`__, LATISS, MTCS, ComCam).
 
 .. _Update-Notebook-Environment-in-Nublado-Prerequisites:
 
@@ -63,16 +52,8 @@ Prerequisites
 
     Screenshot of nublado interface after successful login.
 
-.. _Update-Notebook-Environment-in-Nublado-Post-Conditions:
 
-Post-Condition
-^^^^^^^^^^^^^^
 
-.. This section should provide a simple overview of conditions or results after executing the procedure; for example, state of equipment or resulting data products.
-.. It is preferred to include them as a bulleted or enumerated list.
-.. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
-
-- The requested software version(s) is deployed for use in the jupyter-lab notebook. This will over-ride the versions available on the server.
 
 .. _Update-Notebook-Environment-in-Nublado-Procedure-Steps:
 
@@ -241,6 +222,20 @@ Use the following steps to update software versions with ScriptQueue.
 
       $ git pull
 
+
+.. _Update-Notebook-Environment-in-Nublado-Post-Conditions:
+
+Post-Condition
+^^^^^^^^^^^^^^
+
+.. This section should provide a simple overview of conditions or results after executing the procedure; for example, state of equipment or resulting data products.
+.. It is preferred to include them as a bulleted or enumerated list.
+.. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
+
+- The requested software version(s) is deployed for use in the jupyter-lab notebook.
+  This will over-ride the versions available on the server.
+
+
 .. _Update-Notebook-Environment-in-Nublado-Troubleshooting:
 
 Troubleshooting
@@ -251,12 +246,3 @@ Troubleshooting
 .. If there is no content for this section, remove the indentation on the following line instead of deleting this sub-section.
 
 No troubleshooting information is applicable to this procedure.
-
-.. _Update-Notebook-Environment-in-Nublado-Contact-Personnel:
-
-Contact Personnel
-^^^^^^^^^^^^^^^^^
-
-This procedure was last modified |today|.
-
-This procedure was written by |author|. The following are contributors: |contributors|.

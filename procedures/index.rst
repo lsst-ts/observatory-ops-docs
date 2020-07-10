@@ -7,28 +7,33 @@
 
 .. This is the label that can be used as for cross referencing this file.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _Support-Operations-Telescope-Support-Procedures:
+.. _Operational-Procedures:
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
-############################
-Telescope Support Procedures
-############################
+##########
+Procedures
+##########
 
 .. This section should provide a brief, top-level description of the page.
 
 .. note::
     This is a template file that is associated with a template directory structure. This note should be deleted when the section is properly populated
 
-This is a template for the index.rst of a directory. If there are no levels beneath this one, make sure the 2nd line of ``toctree`` is commented out.
+A procedure is a series of actions undertaken to perform an operation with the observatory.
+
+For these procedures, it is assumed that the :doc:`interface setup for observing </interfaces/interface-setup/index>` has been performed.
+It is also assumed that you have read about the :doc:`Main Telescope </main-telescope/index>` and :doc:`Auxiliary Telescope </auxiliary-telescope/index>`.
+
+There are procedures for :doc:`commissioning </procedures/commissioning/index>`, :doc:`operations </procedures/operations/index>` and :doc:`emergencies </procedures/emergency/index>`.
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :titlesonly:
     :glob:
+    :hidden:
 
-    *
+    */index
 
-This template may also be used for other pages within the directory. In this case, feel free to remove the ``toctree``.

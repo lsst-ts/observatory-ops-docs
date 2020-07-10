@@ -14,10 +14,10 @@
 .. An error will alert you of identical labels during the build process.
 
 .. This file does not contain a title so it can match formatting in another location (contributing.rst).
-.. title:: Observatory Operations Style Guide
-.. ##################################
-.. Observatory Operations Style Guide
-.. ##################################
+
+##################################
+Observatory Operations Style Guide
+##################################
 
 .. This section should provide a brief, top-level description of the page.
 

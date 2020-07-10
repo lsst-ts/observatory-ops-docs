@@ -8,7 +8,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Brian Stalder*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *List-of-contributors*
+.. |contributors| replace:: *Brian Stalder*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -22,8 +22,12 @@
 ComCam Cooldown (CCS-specific)
 ##############################
 
+:contributors: |contributors|
+:date-modified: |today|
+
 .. note::
-    This is a procedure document that is in a state of continuing development while ComCam is being integrated with the other observatory subsystems and not expected to be needed once in steady-state observations. It is expected that these procedures will only be needed as reference by expert engineers and scientists.
+    This is a procedure document that is in a state of continuing development while ComCam is being integrated with the other observatory subsystems and not expected to be needed once in steady-state observations.
+    It is expected that these procedures will only be needed as reference by expert engineers and scientists.
 
 .. _ComCam-Cooldown-Overview:
 
@@ -47,16 +51,7 @@ Prerequisites
 - Quadbox is connected to 3-phase power, all breakers are open and the PLC protection is active.
 - All ComCam servers are booted and running the applicable CCS subsystems.
 
-.. _ComCam-Cooldown-Post-Condition:
 
-Post-Condition
-^^^^^^^^^^^^^^
-
-.. This section should provide a simple overview of conditions or results after executing the procedure; for example, state of equipment or resulting data products.
-.. It is preferred to include them as a bulleted or enumerated list.
-.. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
-
-- This procedure leaves ComCam in a state where it is ready to take exposures via CCS or OCS.
 
 .. _ComCam-Cooldown-Procedure-Steps:
 
@@ -70,7 +65,7 @@ Procedure Steps
 .. _ComCam-Cooldown-Power-Up-Quadbox:
 
 Power Up Quadbox
--------------------------
+----------------
 
 (As Executed In Base datacenter)
 
@@ -119,7 +114,7 @@ Power on KOOLANCE, Fan1, Fan2, VIBRATIONALARM
 .. _ComCam-Cooldown-Pump-Down:
 
 Pump Down
--------------------------
+---------
 
 #. Turn on Roughing Pump (quadbox GUI, BFR switch)
 
@@ -130,7 +125,7 @@ Pump Down
 .. _ComCam-Cooldown-Cool-Down:
 
 Cool Down
--------------------------
+---------
 
 #. Make sure liquid cooling is running.
 
@@ -141,7 +136,7 @@ Cool Down
 .. _ComCam-Cooldown-Power-On-REBs:
 
 Power on REBs
--------------------------
+-------------
 
 #. Turn on REB boards once COLD channels are below 0C.
    - Click REB PS on quadbox 48V Dirty GUI
@@ -153,7 +148,7 @@ Power on REBs
 .. _ComCam-Cooldown-Power-On-CCDs:
 
 Power on CCDs
--------------------------
+-------------
 
 #. Start ccs-shell on any CCS machine
    
@@ -184,12 +179,14 @@ Power on CCDs
    c) > comcam-fp/R22/Reb2 powerCCDsOn
 
 .. note::
-   REBs may fail hardware checking and default CCD Type to None, which won't allow the CCDs to turn on.  Once at low enough temperature, they will pass checks.  Restart the fp subsystem will allow them to pass, and turn on.
+   REBs may fail hardware checking and default CCD Type to None, which won't allow the CCDs to turn on.
+   Once at low enough temperature, they will pass checks.
+   Restart the fp subsystem will allow them to pass, and turn on.
 
 .. _ComCam-Cooldown-Turn-On-CCD-HV-Biases:
 
 Turn on CCD HV Biases
--------------------------
+---------------------
 
 #. Check if Back Bias is already on
    
@@ -221,7 +218,7 @@ Similarly with Reb1, Reb2
 .. _ComCam-Cooldown-Ion-Pump:
 
 Ion Pump
--------------------------
+--------
 
 Can turn on ion pump once pressure is below 1E-6.  Usually takes a few tried (will "burp" and kick off as pressure releases).
 
@@ -231,9 +228,21 @@ Can turn on ion pump once pressure is below 1E-6.  Usually takes a few tried (wi
 
 Watch vacuum pressure, and ion pump current.
 
-.. _ComCam-Cooldown-Troublshooting:
 
-Troublshooting
+.. _ComCam-Cooldown-Post-Condition:
+
+Post-Condition
+^^^^^^^^^^^^^^
+
+.. This section should provide a simple overview of conditions or results after executing the procedure; for example, state of equipment or resulting data products.
+.. It is preferred to include them as a bulleted or enumerated list.
+.. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
+
+- This procedure leaves ComCam in a state where it is ready to take exposures via CCS or OCS.
+
+.. _ComCam-Cooldown-Troubleshooting:
+
+Troubleshooting
 ^^^^^^^^^^^^^^^
 
 .. This section should include troubleshooting information. Information in this section should be strictly related to this procedure.
@@ -243,12 +252,3 @@ Troublshooting
      No troubleshooting information is applicable to this procedure.
 
 Content for section under development (if required).
-
-.. _ComCam-Cooldown-Contact-Personnel:
-
-Contact Personnel
-^^^^^^^^^^^^^^^^^
-
-This procedure was last modified |today|.
-
-This procedure was written by |author|. The following are contributors: |contributors|.

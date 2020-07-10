@@ -15,47 +15,74 @@ The following describes the various directories and their use in the GITHUB repo
 
 ::
 
-  Top-level of Repository
-  |---Observing-Constraints         # Information about observing constraints
-      |-index.rst                   # Source of page for Observing Constraints
-  |---Observing-Interface-Setup     # Information about interface setup
-      |-index.rst                   # Source of page for setting up the interface for observations
-  |---Operational-Procedures        # Collection of operational procedures
-      |---Auxiliary-Telescope       # Directory for Auxiliary Telescope Procedures
-          |---Full-Observatory      # Information about Auxiliary Telescope that impacts the full observatory
-              |-Open-for-On-Sky-Operations.rst      # Information about ???
-              |-index.rst                           # Source of page for ???
-          |---Support-Operations    # Information about Support Operations
-              |---LATISS            # Directory for Auxiliary Telescope LATISS procedures
-                  |-index.rst                           # Source of page for LATISS procedures
-              |---Telescope         # Directory for Auxiliary Telescope observing procedures
-                  |-index.rst                           # Source of page for Telescope procedures
-                  |-park-telescope.rst                  # Procedure to park the Auxiliary Telescope
-          |---Troubleshooting       # Information about troubleshooting Auxiliary Telescope elements
-              |-E-stop.rst          # Information on emergency stopping of observations
-      |---Main-Telescope            # Directory for Main Telescope Procedures
-          |-README                  # Information on use and development for Main Telescope procedures
-          |-index.rst               # Source of page for Main Telescope procedures
-          |-comcam-cooldown.rst     # Procedure to prepare the operating environment and power-up the Commissioning Camera
-      |---Tutorials                 # Directory of tutorials
-          |-README.rst              # Information on development for tutorials
-          |-index.rst               # Source of page for tutorials
-          |-tutorial-template.rst   # Template for Main Telescope tutorials 
-      |-index.rst                   # Source of page for operational procedures
-  |---_static                       # Common directory for static objects
-      |-README                      # Describes use of _static directory
-  |---project                       # Directory for site information and template use
-      |---Template-Folder               # Template directory to create new folders
-          |-README.rst                  # README.rst file should describe use and development for a directory
-          |-index.rst                   # Source of front-facing page for a directory on the site
-          |-procedure-template.rst      # Template for source of a procedure
-      |-contributing.rst                # Source describing contributing to the site
-      |-index.rst                       # Source of page for Template-Folder directory
-      |-license.rst                     # License information
-  |-.gitignore                      # Configures GIT ignore functionality
-  |-LICENSE                         # License information
-  |-README.rst                      # Describes contributing to site
-  |-Makefile                        # Configures building site in Sphinx
-  |-conf.py                         # Configures building site in Sphinx
-  |-requirements.txt                # Defines requirements and dependencies
+    repository-repo
+    ├── auxiliary-telescope # info related to auxiliary telescope
+    │   ├── index.rst
+    │   ├── README
+    │   └── _static
+    │       └── README
+    ├── _build
+    ├── conf.py
+    ├── index.rst
+    ├── interfaces # info related to interfaces/tools
+    │   ├── index.rst
+    │   ├── interface-setup
+    │   │   ├── index.rst
+    │   │   ├── nublado-notebook-environment-update.rst
+    │   │   ├── README
+    │   │   └── _static
+    │   │       ├── nublado-interface.png
+    │   │       └── README
+    │   └── nublado.rst
+    ├── LICENSE
+    ├── main-telescope # Info related to the Main Telescope
+    │   ├── index.rst
+    │   ├── README
+    │   └── _static
+    │       └── README
+    ├── Makefile
+    ├── observing-constraints.rst
+    ├── procedures # Procedures directory
+    │   ├── commissioning # type of procedure, in this case commissioning
+    │   │   ├── comcam-cooldown.rst
+    │   │   └── index.rst
+    │   ├── emergency
+    │   │   ├── E-stop.rst
+    │   │   └── index.rst
+    │   ├── index.rst
+    │   ├── operations
+    │   │   ├── index.rst
+    │   │   └── Open-for-On-Sky-Operations.rst
+    │   ├── README
+    │   └── _static
+    │       └── README
+    ├── project # For site related information
+    │   ├── contributing.rst
+    │   ├── implementation.rst
+    │   ├── index.rst
+    │   ├── license.rst
+    │   ├── observatory-operations-style-guide.rst
+    │   ├── repository-map.rst
+    │   └── Templates
+    │       ├── index.rst
+    │       ├── index-template.rst
+    │       ├── procedure-template.rst
+    │       ├── Template-Folder
+    │       │   ├── index.rst
+    │       │   ├── README
+    │       │   └── _static
+    │       │       └── README
+    │       └── tutorial-template.rst
+    ├── README
+    ├── requirements.txt
+    ├── safety.rst # a general topic which does not have information yet, to split into more detailed topics
+    ├── _static
+    │   ├── README
+    │   ├── Sunset_cropped_resampled_16x9.jpg
+    │   └── Sunset_cropped_resampled.jpg
+    └── tutorials # for tutorials
+        ├── index.rst
+        ├── README
+        └── _static
+            └── README
 

@@ -20,9 +20,11 @@ Operational Interface Setup
 .. This section should provide a brief, top-level description of the page.
 
 .. note::
-    This is a template file that is associated with a template directory structure. This note should be deleted when the section is properly populated
+    This is a template file that is associated with a template directory structure.
+    This note should be deleted when the section is properly populated
 
 This page defines how to setup the interfaces for observations, notably the LOVE interface.
+Once the interfaces are setup, procede to :doc:`operating the observatory </procedures/operations/index>`.
 
 The summit LOVE interface can be accessed at `<http://amor01.cp.lsst.org/login>`__.
 You must be logged on the LSST-WAP or into the VPN to access this site.
