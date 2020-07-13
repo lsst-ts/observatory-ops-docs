@@ -22,6 +22,14 @@ Auxiliary Telescope
 .. note::
     This is a template file that is associated with a template directory structure. This note should be deleted when the section is properly populated
 
-This is about the Auxiliary Telescope.
+This is about the Auxiliary Telescope, it holds information for procedures on the various subsystems.
 
-:doc:`Move onto preparing interfaces for operations </interfaces/index>`.
+.. toctree::
+    :glob:
+    :titlesonly:
+    :maxdepth: 1
+
+    atcs/index
+    latiss/index
+    uncategorized/index
+    *

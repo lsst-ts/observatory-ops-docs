@@ -10,8 +10,7 @@ It also includes knowledge on how to :doc:`prepare these interfaces for observin
 .. toctree::
     :glob:
     :titlesonly:
-    :maxdepth: 2
-    :hidden:
+    :maxdepth: 1
 
     *
     interface-setup/index

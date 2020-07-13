@@ -25,15 +25,11 @@ Procedures
 A procedure is a series of actions undertaken to perform an operation with the observatory.
 
 For these procedures, it is assumed that the :doc:`interface setup for observing </interfaces/interface-setup/index>` has been performed.
-It is also assumed that you have read about the :doc:`Main Telescope </main-telescope/index>` and :doc:`Auxiliary Telescope </auxiliary-telescope/index>`.
-
-There are procedures for :doc:`commissioning </procedures/commissioning/index>`, :doc:`operations </procedures/operations/index>` and :doc:`emergencies </procedures/emergency/index>`.
 
 .. toctree::
     :maxdepth: 1
     :titlesonly:
     :glob:
-    :hidden:
 
     */index
 

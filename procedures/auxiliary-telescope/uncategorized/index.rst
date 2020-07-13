@@ -1,0 +1,9 @@
+#############
+Uncategorized
+#############
+
+.. toctree::
+    :glob:
+    :titlesonly:
+
+    *

@@ -28,17 +28,9 @@ Learn about :doc:`licensing </project/license>` and :doc:`implementation </proje
 :doc:`Learn how this repository is structured </project/repository-map>`.
 
 .. toctree::
-    :maxdepth: 2 
+    :maxdepth: 1
     :titlesonly:
     :glob:
-    :hidden:
-
-    *
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-    :glob:
-    :hidden:
 
     Templates/index
+    *

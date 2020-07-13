@@ -32,7 +32,7 @@ Rubin Observatory Operations Documentation
 
 Observatory Operations consists of multiple levels of :ref:`interactions <Obs-Ops-Daytime-Nighttime-Interactions>` and :doc:`procedures </procedures/index>` occurring simultaneously in many places and timezones.
 There are also :doc:`tutorials for the observatory </tutorials/index>`.
-This section of documentation focuses on the resources needed for observers, commissioning personnel, and support staff to facilitate :doc:`night-time operations </procedures/operations/index>`.
+This section of documentation focuses on the resources needed for observers, commissioning personnel, and support staff to facilitate night-time operations.
 This site also provides information for :doc:`safety reference </safety>`.
 
 The scope of this area of documentation is to provide a centralized, version controlled space where resources are either located, or linked appropriately.
@@ -53,21 +53,13 @@ This area contains information related to summit operations, specifically nightt
 
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :glob:
     :titlesonly:
-    :hidden:
+    :caption: Pages
 
     interfaces/index
     procedures/index
     project/index
-    auxiliary-telescope/index
-    main-telescope/index
     tutorials/index
-
-
-.. toctree::
-    :glob:
-    :hidden:
-
     *

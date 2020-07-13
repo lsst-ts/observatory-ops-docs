@@ -13,9 +13,9 @@
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
-#########################
-Main Telescope Procedures
-#########################
+##############
+Main Telescope
+##############
 
 .. This section should provide a brief, top-level description of the page.
 
@@ -24,4 +24,10 @@ Main Telescope Procedures
 
 This is about the Main Telescope.
 
-:doc:`Move onto preparing interfaces for setup </interfaces/index>`.
+.. toctree::
+    :glob:
+    :titlesonly:
+    :maxdepth: 1
+
+    uncategorized/index
+    *

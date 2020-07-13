@@ -24,13 +24,12 @@ Operational Interface Setup
     This note should be deleted when the section is properly populated
 
 This page defines how to setup the interfaces for observations, notably the LOVE interface.
-Once the interfaces are setup, procede to :doc:`operating the observatory </procedures/operations/index>`.
 
 The summit LOVE interface can be accessed at `<http://amor01.cp.lsst.org/login>`__.
 You must be logged on the LSST-WAP or into the VPN to access this site.
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :titlesonly:
     :glob:
 
