@@ -30,7 +30,6 @@ You must be logged on the LSST-WAP or into the VPN to access this site.
 
 .. toctree::
     :maxdepth: 1
-    :titlesonly:
     :glob:
 
     *

@@ -22,9 +22,6 @@
 ComCam Cooldown (CCS-specific)
 ##############################
 
-:contributors: |contributors|
-:date-modified: |today|
-
 .. note::
     This is a procedure document that is in a state of continuing development while ComCam is being integrated with the other observatory subsystems and not expected to be needed once in steady-state observations.
     It is expected that these procedures will only be needed as reference by expert engineers and scientists.
@@ -32,7 +29,7 @@ ComCam Cooldown (CCS-specific)
 .. _ComCam-Cooldown-Overview:
 
 Overview
-^^^^^^^^
+========
 
 .. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
 
@@ -41,7 +38,7 @@ This procedure describes the starting up and cooling down of the ComCam cryostat
 .. _ComCam-Cooldown-Prerequisites:
 
 Prerequisites
-^^^^^^^^^^^^^
+-------------
 
 .. This section should provide simple overview of prerequisites before executing the procedure; for example, state of equipment, telescope or seeing conditions or notifications prior to execution.
 .. It is preferred to include them as a bulleted or enumerated list.
@@ -52,11 +49,24 @@ Prerequisites
 - All ComCam servers are booted and running the applicable CCS subsystems.
 
 
+.. _ComCam-Cooldown-Post-Condition:
+
+Post-Condition
+--------------
+
+.. This section should provide a simple overview of conditions or results after executing the procedure; for example, state of equipment or resulting data products.
+.. It is preferred to include them as a bulleted or enumerated list.
+.. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
+
+- This procedure leaves ComCam in a state where it is ready to take exposures via CCS or OCS.
+
+
+
 
 .. _ComCam-Cooldown-Procedure-Steps:
 
 Procedure Steps
-^^^^^^^^^^^^^^^
+===============
 
 .. This section should include the procedure. There is no strict formatting or structure required for procedures. It is left to the authors to decide which format and structure is most relevant.
 .. In the case of more complicated procedures, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked procedures to be performed in the specified order.
@@ -229,21 +239,10 @@ Can turn on ion pump once pressure is below 1E-6.  Usually takes a few tried (wi
 Watch vacuum pressure, and ion pump current.
 
 
-.. _ComCam-Cooldown-Post-Condition:
-
-Post-Condition
-^^^^^^^^^^^^^^
-
-.. This section should provide a simple overview of conditions or results after executing the procedure; for example, state of equipment or resulting data products.
-.. It is preferred to include them as a bulleted or enumerated list.
-.. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
-
-- This procedure leaves ComCam in a state where it is ready to take exposures via CCS or OCS.
-
 .. _ComCam-Cooldown-Troubleshooting:
 
 Troubleshooting
-^^^^^^^^^^^^^^^
+===============
 
 .. This section should include troubleshooting information. Information in this section should be strictly related to this procedure.
 
@@ -252,3 +251,10 @@ Troubleshooting
      No troubleshooting information is applicable to this procedure.
 
 Content for section under development (if required).
+
+Contact Information
+===================
+
+:primary author: |author|
+:contributors: |contributors|
+:date-modified: |today|

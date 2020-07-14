@@ -53,13 +53,10 @@ This area contains information related to summit operations, specifically nightt
 
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 0
     :glob:
     :titlesonly:
     :caption: Pages
 
-    interfaces/index
-    procedures/index
-    project/index
-    tutorials/index
+    */index
     *

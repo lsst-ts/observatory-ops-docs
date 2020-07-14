@@ -29,5 +29,5 @@ This is about the Main Telescope.
     :titlesonly:
     :maxdepth: 1
 
-    uncategorized/index
+    */index
     *

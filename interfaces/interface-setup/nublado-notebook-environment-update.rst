@@ -22,13 +22,10 @@
 Update Notebook Environment in Nublado
 ######################################
 
-:contributors: |contributors| 
-:date-modified: |today|
-
 .. _Update-Notebook-Environment-in-Nublado-Overview:
 
 Overview
-^^^^^^^^
+========
 
 .. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
 
@@ -38,7 +35,7 @@ The version change will override versions available on the servers. This can be 
 .. _Update-Notebook-Environment-in-Nublado-Prerequisites:
 
 Prerequisites
-^^^^^^^^^^^^^
+-------------
 
 .. This section should provide simple overview of prerequisites before executing the procedure; for example, state of equipment, telescope or seeing conditions or notifications prior to execution.
 .. It is preferred to include them as a bulleted or enumerated list.
@@ -53,12 +50,24 @@ Prerequisites
     Screenshot of nublado interface after successful login.
 
 
+.. _Update-Notebook-Environment-in-Nublado-Post-Conditions:
+
+Post-Condition
+--------------
+
+.. This section should provide a simple overview of conditions or results after executing the procedure; for example, state of equipment or resulting data products.
+.. It is preferred to include them as a bulleted or enumerated list.
+.. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
+
+- The requested software version(s) is deployed for use in the jupyter-lab notebook.
+  This will over-ride the versions available on the server.
+
 
 
 .. _Update-Notebook-Environment-in-Nublado-Procedure-Steps:
 
 Procedure Steps
-^^^^^^^^^^^^^^^
+===============
 
 .. This section should include the procedure. There is no strict formatting or structure required for procedures. It is left to the authors to decide which format and structure is most relevant.
 .. In the case of more complicated procedures, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked procedures to be performed in the specified order.
@@ -223,26 +232,23 @@ Use the following steps to update software versions with ScriptQueue.
       $ git pull
 
 
-.. _Update-Notebook-Environment-in-Nublado-Post-Conditions:
 
-Post-Condition
-^^^^^^^^^^^^^^
-
-.. This section should provide a simple overview of conditions or results after executing the procedure; for example, state of equipment or resulting data products.
-.. It is preferred to include them as a bulleted or enumerated list.
-.. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
-
-- The requested software version(s) is deployed for use in the jupyter-lab notebook.
-  This will over-ride the versions available on the server.
 
 
 .. _Update-Notebook-Environment-in-Nublado-Troubleshooting:
 
 Troubleshooting
-^^^^^^^^^^^^^^^
+===============
 
 .. This section should include troubleshooting information. Information in this section should be strictly related to this procedure.
 
 .. If there is no content for this section, remove the indentation on the following line instead of deleting this sub-section.
 
 No troubleshooting information is applicable to this procedure.
+
+Contact Information
+===================
+
+:primary author: |author|
+:contributors: |contributors| 
+:date-modified: |today|

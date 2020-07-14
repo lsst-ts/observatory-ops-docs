@@ -29,7 +29,5 @@ This is about the Auxiliary Telescope, it holds information for procedures on th
     :titlesonly:
     :maxdepth: 1
 
-    atcs/index
-    latiss/index
-    uncategorized/index
+    */index
     *
