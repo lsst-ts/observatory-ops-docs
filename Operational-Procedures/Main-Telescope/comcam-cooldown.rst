@@ -8,7 +8,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Brian Stalder*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *List-of-contributors*
+.. |contributors| replace:: *Kevin Reil*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -126,6 +126,7 @@ Pump Down
 #. Open VAT Valve after roughing pump (and turbo if already pumped down) has been on for ~10 minutes.  (Click the VAT Valve Open button on the vacuum GUI)
 
 #. Turn on Turbo Pump if not already on (after pressure reaches ~1.0E-2 torr).  Click Cryo Turbo Pump on quadbox GUI to power on, then Click the Cryo Turbo Pump On button on vacuum GUI.
+   a) comcam-vacuum/turbo startTurboPump
 
 .. _ComCam-Cooldown-Cool-Down:
 
@@ -231,6 +232,20 @@ Can turn on ion pump once pressure is below 1E-6.  Usually takes a few tried (wi
 
 Watch vacuum pressure, and ion pump current.
 
+.. _ComCam-Steady-State:
+
+Moving to ComCam Steady State
+-------------------------------------
+Once you are cold and well below 1E-6 you will want to
+
+#. Close (power off) the VAT valve from the comcam-vacuum Control Panel or comcam-quadbox control Panel or
+    a) comcam-quadbox (??)
+
+#. Spin down the turbo pump by clicking Off on comcam-vacuum control Panel or
+   a) comcam-vacuum/turbo stopTurboPump
+
+#. Once RPM reaches zero on turbo pump you should power off to the scroll pump. Turn on Roughing Pump (quadbox GUI, BFR switch). Turbo pump power should stay on as the pump produces important telemetry even while not spinning.
+
 .. _ComCam-Cooldown-Troublshooting:
 
 Troublshooting
@@ -248,6 +263,7 @@ Content for section under development (if required).
 
 Contact Personnel
 ^^^^^^^^^^^^^^^^^
+Kevin Reil - WhatsApp/Cell/Text 650-898-7345
 
 This procedure was last modified |today|.
 
