@@ -51,6 +51,8 @@ The building electrical drawings are:
 
 - `Collection of Building Electrical Drawings <https://docushare.lsst.org/docushare/dsweb/View/Collection-6442>`__
 
+TEST EXAMPLE FOR DAVID
+
 Ancillary Equipment
 -------------------
 Located on Calibration hill is also the allsky camera(s), weather tower, the DIMM, and a modified container for storage.
