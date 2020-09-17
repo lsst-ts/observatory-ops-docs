@@ -10,6 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install Tree
+        run: brew install tree
+
       - name: Set up Python
         uses: actions/setup-python@v1
         with:
