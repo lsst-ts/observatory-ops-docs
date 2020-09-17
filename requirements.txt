@@ -1,3 +1,4 @@
 documenteer<0.6.0
 lsst_sphinx_bootstrap_theme
 ltd-conveyor
+sphinxcontrib-programoutput

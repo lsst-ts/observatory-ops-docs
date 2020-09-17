@@ -17,7 +17,8 @@ sys.setrecursionlimit(2000)
 extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
-    'documenteer.sphinxext'
+    'documenteer.sphinxext',
+    'sphinxcontrib.programoutput'
 ]
 
 # The suffix(es) of source filenames.
