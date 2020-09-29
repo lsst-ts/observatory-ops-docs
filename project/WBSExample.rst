@@ -13,7 +13,7 @@ Transmission variations are primarily due to water and aerosol (dust, smoke etc)
 A high-level description of the Auxiliary Telescope system is found in the `Auxiliary Telescope Concept of Operations <https://docushare.lsst.org/docushare/dsweb/Get/LSE-379>`__.
 
 This page provides an index of the major components with links to applicable documentation.
-Effort has been dedicated to provide guidance to finding the most pertinent documentation, however further content may be available in Docushare.
+Effort has been dedicated to provide guidance to finding the most pertinent documentation, however further content may be available in `Auxiliary Telescope Base Collection <https://docushare.lsst.org/docushare/dsweb/View/Collection-277>`__ on Docushare.
 
 .. contents::
    :depth: 1
@@ -32,13 +32,9 @@ Architectural
 The building and site preparation was done by Besalco as part of the main summit facility contract.
 Below are documents specifically related to the Auxiliary Telescope area.
 
-The applicable architectural drawings for the building are as follows:
+- `Architectural drawings for the building <https://docushare.lsst.org/docushare/dsweb/View/Collection-4668>`__. The fully as-built drawings are not yet available. The AuxTel drawings are the last ~5 in the list.
 
-- Link to drawings
-
-The applicable survey drawings for the mountain top may also be useful.
-
-- Link to drawings
+- Applicable Survey Drawings (TBR)
 
 Electrical
 ----------
@@ -47,11 +43,7 @@ The Auxiliary Telescope summit is provided with the same 3-phase power with a ge
 However, inside the building, no 120V outlets are available.
 A commercial UPS is used to provide backup power in case of an outage.
 
-The building electrical drawings are:
-
 - `Collection of Building Electrical Drawings <https://docushare.lsst.org/docushare/dsweb/View/Collection-6442>`__
-
-TEST EXAMPLE FOR DAVID
 
 Ancillary Equipment
 -------------------
@@ -112,7 +104,7 @@ The mount control software was written in LabVIEW by a team at CTIO.
 Maintenance
 -----------
 
-- Mirror Installation Procedure(s)
+- `Mirror Installation Procedures <https://docushare.lsst.org/docushare/dsweb/View/Collection-9999>`__
 
 - Motor and Encoder Procedures
 
