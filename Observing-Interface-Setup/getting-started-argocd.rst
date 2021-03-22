@@ -22,6 +22,10 @@
 Getting Started With ArgoCD
 ###########################
 
+.. note::
+
+	This page is still under development and not yet populated.
+
 .. _Observing-Interface-Getting-Started-ArgoCD-Overview:
 
 Overview

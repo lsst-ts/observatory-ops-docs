@@ -75,7 +75,7 @@ Post-Condition
 .. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
 
 - The requested software version(s) is deployed for use in the jupyter-lab notebook.
-  This will over-ride the versions available on the server.
+  This will overwrite the versions available on the server.
 
 .. _Update-Notebook-Environment-in-Nublado-Procedure-Steps:
 
@@ -170,8 +170,8 @@ Here is a summary of the user's command inputs described in the procedure above:
 
    $ source /opt/lsst/software/stack/loadLSST.bash
    $ git clone <package-github-location>
-   $ git checkout <branch-name>
    $ cd <package>
+   $ git checkout <branch-name>
    $ eups declare -r . -t $(whoami)
    $ vim ${HOME}/notebooks/.user_setups
    # Include ``setup PACKAGE -t $(whoami)`` at the end of file

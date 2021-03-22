@@ -35,7 +35,8 @@ It contains basic information (with links and description) on how to connect to 
 
 - Each environment is composed of a `nublado`_ instance, an EFD instance (with Chronograf and other visualization tools) and LOVE interface.
 - Coordination on the use of each environment is managed through Slack channels.
-- Container deployment is orchestrated via ArgoCD and Kubernetes.
+- Most components are deployed as docker containers, orchestrated via ArgoCD and Kubernetes.
+  A small subset of components are deployed with docker-compose and, in some cases, deployment is still done directly on bare metal nodes manually.
 
 .. _nublado: https://nb.lsst.io
 
@@ -51,7 +52,7 @@ Prerequisites
 .. If there is a different procedure that is critical before execution, carefully consider if it should be linked within this section or as part of the Procedure section below (or both).
 
 
-- You must be logged on the LSST-WAP or into the NOAO VPN.
+- You must be logged on the LSST-WAP, into the NOAO or summit VPN.
 
 .. _Observing-Interface-Environments-Post-Conditions:
 
@@ -63,6 +64,7 @@ Post-Condition
 .. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
 
 - Successfully access nublado and other observing interface tools.
+- Ability to command components.
 
 .. _Observing-Interface-Environments-Procedure-Steps:
 
@@ -73,7 +75,7 @@ Procedure Steps
 .. In the case of more complicated procedures, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked procedures to be performed in the specified order.
 .. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
 
-In a browser open the links specified above to the environment you want to interact with.
+In a browser open the links below under the heading corresponding to the environment you want to interact with.
 
 For instance, open the nublado link in :ref:`NTS <Observing-Interface-Environments-NTS>` to interact with the observatory control system in that environment.
 
@@ -89,22 +91,31 @@ Once deployment is tested here, the platform is made available for general users
 - Nublado: https://lsst-nts-k8s.ncsa.illinois.edu/
 - Chronograf: https://lsst-chronograf-nts-efd.ncsa.illinois.edu/
 - LOVE:
-    .. prompt:: bash
 
-       ssh -L 8080:lsst-teststand-ts1.ncsa.illinois.edu:80 -J lsst-login03.ncsa.illinois.edu lsst-teststand-ts1.ncsa.illinois.edu
+    - Run the following line which will open a tunnel and allow viewing of the LOVE interface from your local web-browser.
+
+      .. prompt:: bash
+
+         ssh -L 8080:lsst-teststand-ts1.ncsa.illinois.edu:80 -J lsst-login03.ncsa.illinois.edu lsst-teststand-ts1.ncsa.illinois.edu
 
     - Use your NCSA account to login when prompted.
-    - You will be prompted for your password twice after running the command above.
+    - If you do not have Kerberos setup, you will be prompted for your password twice after running the command above.
+      You can follow the `ssh with Kerberos`_ instructions to setup your computer so it does not require the password entries.
     - Once logged in, open http://localhost:8080/ on a browser.
 
-- ArgoCD: https://lsst-argocd-nts-efd.ncsa.illinois.edu/
+- ArgoCD: https://lsst-argocd-nts-efd.ncsa.illinois.edu/argo-cd
+  For now there is only one admin account that can perform actions on this ArgoCD instance.
+  This is going to be fixed by `DM-28465`_.
+
 - Slack: ncsa-integ-teststand
 
+.. _DM-28465: https://jira.lsstcorp.org/browse/DM-28465
+.. _ssh with Kerberos: https://developer.lsst.io/services/lsst-login.html?highlight=kerberos#ssh-with-kerberos
 
 .. _Observing-Interface-Environments-BTS:
 
-Base Test Stand (BTS)
----------------------
+Base Facility Test Stand (BTS)
+------------------------------
 
 BTS is a simulation environment running at the base facility in La Serena.
 The main difference between the :ref:`NTS <Observing-Interface-Environments-NTS>` and this environment is that some systems will run using hardware simulators.
@@ -143,7 +154,7 @@ Systems running here will be directly controlling hardware or communicating with
   .. important::
 
       In the case of the Summit it is required to have personnel present at the site prior to any activity that involves moving hardware.
-      You may also be required to issue a jira ticket in the `summit activity project <https://jira.lsstcorp.org/projects/SUMMIT>`__.
+      These must be planned activities and require an accompanying `summit activity project <https://jira.lsstcorp.org/projects/SUMMIT>`__ Jira ticket organized by appropriate personnel.
 
 - Nublado: https://summit-lsp.lsst.codes/
 - Chronograf: https://chronograf-summit-efd.lsst.codes/
@@ -162,7 +173,7 @@ Troubleshooting
 
 If you can not open the links to the environment you intend to work with, make sure you are connected to the LSST-WAP wifi network in one of the designed areas (Tucson, La Serena or Summit facilities) or that you are connected to the NOAO VPN.
 
-If problems persist, you can ask for help in the designed Slack channels or in the com-square channel.
+If problems persist, you can ask for help in the designated Slack channels or in the com-square channel.
 
 .. _Observing-Interface-Getting-Started-Personnel:
 

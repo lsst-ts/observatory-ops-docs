@@ -22,6 +22,10 @@
 Getting Started With LOVE
 #########################
 
+.. note::
+
+	This page is still under development and not yet populated.
+
 .. _Observing-Interface-Getting-Started-LOVE-Overview:
 
 Overview
@@ -29,7 +33,7 @@ Overview
 
 .. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
 
-This procedure is intended for users of the Rubin Observatory that are interested in interacting with the  Observatory Control System using LOVE.
+This procedure is intended for users of the Rubin Observatory that are interested in interacting with the  Observatory Control System using the LSST Operations and Visualization Environment (LOVE).
 It contains basic procedures on how to get started with the LOVE.
 
 To get a list of the different environments see :ref:`Observing-Interface-Environments`

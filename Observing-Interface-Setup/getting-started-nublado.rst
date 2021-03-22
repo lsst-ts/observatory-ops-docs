@@ -29,8 +29,8 @@ Overview
 
 .. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
 
-This procedure is intended for users of the Rubin Observatory that are interested in interacting with the  Observatory Control System using nublado.
-It contains basic procedures on how to get started with the nublado observing tools.
+This procedure is intended for users of the Rubin Observatory that are interested in interacting with the  Observatory Control System using Nublado.
+It contains basic procedures on how to get started with the Nublado observing tools.
 
 To get a list of the different environments see :ref:`Observing-Interface-Environments`
 
@@ -46,7 +46,7 @@ Prerequisites
 
 - Make sure you read and understand the :ref:`environments procedure <Observing-Interface-Environments>`.
 
-  - Once you have identified which environment you want to interact with, you must be able to load the link to the nublado instance to that environment.
+  - Once you have identified which environment you want to interact with, you must be able to load the link to the Nublado instance to that environment.
 
 .. _Observing-Interface-Getting-Started-Nublado-Post-Conditions:
 
@@ -57,7 +57,7 @@ Post-Condition
 .. It is preferred to include them as a bulleted or enumerated list.
 .. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
 
-- Successfully access nublado.
+- Successfully access Nublado.
 
 .. _Observing-Interface-Getting-Started-Nublado-Procedure-Steps:
 
@@ -78,29 +78,29 @@ Procedure Steps
     In the case of the :ref:`Summit <Observing-Interface-Environments-Summit>` it is required to have personnel present at the site prior to any activity that involves moving hardware.
     You may also be required to issue a jira ticket in the `summit activity project <https://jira.lsstcorp.org/projects/SUMMIT>`__.
 
-Once you announced your intention to operate one of the environments in the appropriate Slack channel and, if appropriate, coordinated the activities for the :ref:`Summit <Observing-Interface-Environments-Summit>`, you are ready to open nublado on your browser.
+Once you announced your intention to operate one of the environments in the appropriate Slack channel and, if appropriate, coordinated the activities for the :ref:`Summit <Observing-Interface-Environments-Summit>`, you are ready to open Nublado on your browser.
 
-Once you open the link on your browser, you should see the :ref:`nublado welcome page <Observing-Interface-Getting-Started-Nublado-Welcome>`.
-To start your nublado instance, click in the icon below "Notebook Aspect".
+Once you open the link on your browser, you should see the :ref:`Nublado welcome page <Observing-Interface-Getting-Started-Nublado-Welcome>`.
+To start your Nublado instance, click in the icon below "Notebook Aspect".
 
 .. figure:: ./_static/nublado-welcome.png
     :name: Observing-Interface-Getting-Started-Nublado-Welcome
 
-    Screenshot of nublado welcome page.
+    Screenshot of Nublado welcome page.
 
-This should take you to the :ref:`nublado launch page <Observing-Interface-Getting-Started-Nublado-Launch>`, if this is the first time you login or if you are logged off.
+This should take you to the :ref:`Nublado launch page <Observing-Interface-Getting-Started-Nublado-Launch>`, if this is the first time you login or if you are logged off.
 
 .. figure:: ./_static/nublado-launch.png
     :name: Observing-Interface-Getting-Started-Nublado-Launch
 
-    Screenshot of nublado launch page.
+    Screenshot of Nublado launch page.
 
 If you now click the "Launch Server" button, you will be taken to the :ref:`Server Options <Observing-Interface-Getting-Started-Nublado-Server-Options>` page.
 
 .. figure:: ./_static/nublado-server-options.png
     :name: Observing-Interface-Getting-Started-Nublado-Server-Options
 
-    Screenshot of nublado server options page.
+    Screenshot of Nublado server options page.
 
 In this page, you can now select the image and the resources you need for your work.
 
@@ -117,7 +117,7 @@ You will be redirected to a :ref:`loading page <Observing-Interface-Getting-Star
 .. figure:: ./_static/nublado-startup.png
     :name: Observing-Interface-Getting-Started-Nublado-Loading
 
-    Screenshot of nublado loading page.
+    Screenshot of Nublado loading page.
 
 In general, sections will load pretty quickly, though they may take longer if the "Image" you selected is still not available in the server.
 
@@ -147,6 +147,7 @@ To clone the `ts_notebooks`_ repository do;
 
 You can than navigate to the location where the repository was cloned using the file browser on the left hand side of the screen, clicking on "notebooks" and than "ts_notebooks".
 There are useful notebooks to start with in the "examples" and "procedures" folders.
+You may also be interested in looking at the :ref:`Observing-Interface-Update-Notebook-Environment-in-Nublado` to see how you can customize your environment.
 
 .. _Observing-Interface-Getting-Started-Nublado-Troubleshooting:
 
