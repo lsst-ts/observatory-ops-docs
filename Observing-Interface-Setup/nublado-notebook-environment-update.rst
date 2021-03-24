@@ -29,8 +29,9 @@ Overview
 
 .. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
 
-This procedure describes how change the software versions in the jupyter-lab environment on the nublado platform.
-The version change will override versions available on the servers. This can be performed locally or remotely.
+This procedure describes how to change/customize software versions in the jupyter-lab environment on the nublado platform.
+Version changes will (temporarily) override versions available on the servers.
+This can be performed locally or remotely.
 
 .. _Update-Notebook-Environment-in-Nublado-What-is-the-Nublado-Platform:
 
@@ -40,9 +41,10 @@ The Nublado Platform
 The nublado platform is the initial entry point for users to interact with the Rubin Observatory control system.
 It is highly flexible, allowing you to work on one or more components to accomplish both, high and low level operations.
 
-A jupyter-lab environment is provided for users to launch notebooks. By default, the platform provides a set of environments with released software versions and tools, including:
+A jupyter-lab environment is provided for users to launch notebooks.
+By default, the platform provides a set of environments with released software versions and tools, including:
 
-- the `LSST stack <https://pipelines.lsst.io>`__, 
+- the `LSST stack <https://pipelines.lsst.io>`__,
 - interfaces (*e.g.*, `xml <https://ts-xml.lsst.io/>`__, `IDL <https://github.com/lsst-ts/ts_idl>`__, `SAL <https://ts-sal.lsst.io/>`__, `Salobj <https://ts-salobj.lsst.io/>`__), and
 - high-level control algorithms (*e.g.*, `ATCS <https://ts-observatory-control.lsst.io/>`__, LATISS, MTCS, ComCam).
 
@@ -72,7 +74,8 @@ Post-Condition
 .. It is preferred to include them as a bulleted or enumerated list.
 .. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
 
-- The requested software version(s) is deployed for use in the jupyter-lab notebook. This will over-ride the versions available on the server.
+- The requested software version(s) is deployed for use in the jupyter-lab notebook.
+  This will overwrite the versions available on the server.
 
 .. _Update-Notebook-Environment-in-Nublado-Procedure-Steps:
 
@@ -104,12 +107,13 @@ Skip down to the :ref:`summary section <Update-Notebook-Environment-in-Nublado-S
 
 .. important::
    Because these changes are local, applied changes will persist even if the notebook server is restarted.
-   
+
    To revert changes, you must comment out the added line in the :ref:`user setups script <Update-Notebook-Environment-in-Nublado-User-Setups-Script-Step>`.
 
 .. note::
 
-    This procedure uses the `ts_observatory_control <https://github.com/lsst-ts/ts_observatory_control>`__ package as an example. Replace this with the package name you want to update.
+    This procedure uses the `ts_observatory_control <https://github.com/lsst-ts/ts_observatory_control>`__ package as an example.
+    Replace this with the package name you want to update.
     Some other examples are `ts_standardscript <https://github.com/lsst-ts/ts_standardscripts>`__ and `ts_externalscripts <https://github.com/lsst-ts/ts_externalscripts>`__.
 
 #. Load the LSST stack.
@@ -163,11 +167,11 @@ Skip down to the :ref:`summary section <Update-Notebook-Environment-in-Nublado-S
 Here is a summary of the user's command inputs described in the procedure above:
 
 .. code-block:: bash
-   
+
    $ source /opt/lsst/software/stack/loadLSST.bash
    $ git clone <package-github-location>
-   $ git checkout <branch-name>
    $ cd <package>
+   $ git checkout <branch-name>
    $ eups declare -r . -t $(whoami)
    $ vim ${HOME}/notebooks/.user_setups
    # Include ``setup PACKAGE -t $(whoami)`` at the end of file
@@ -176,7 +180,7 @@ Here is a summary of the user's command inputs described in the procedure above:
 
 .. note::
    It is possible to setup different environments that co-exists with different versions of software. This is a more advanced feature.
-   
+
    See the :ref:`User-defined Environments section <Update-Notebook-Environment-in-Nublado-User-Defined-Environments>`
 
 .. _Update-Notebook-Environment-in-Nublado-Updating-Interface-Versions:
