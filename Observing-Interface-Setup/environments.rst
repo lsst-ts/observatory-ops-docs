@@ -17,13 +17,13 @@
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
-.. _Observing-Interface-Environments:
+.. _Observing-Interface-Operational-Environments:
 
-############
-Environments
-############
+########################
+Operational Environments
+########################
 
-.. _Observing-Interface-Environments-Overview:
+.. _Observing-Interface-Operational-Environments-Overview:
 
 Overview
 ========
@@ -33,15 +33,15 @@ Overview
 This procedure is intended for users of the Rubin Observatory that are interested in interacting with the  Observatory Control System.
 It contains basic information (with links and description) on how to connect to the observing interface tools at the summit and at the different test stands.
 
-- Each environment is composed of a `nublado`_ instance, an EFD instance (with Chronograf and other visualization tools) and LOVE interface.
-- Coordination on the use of each environment is managed through Slack channels.
+- Each operational environment is composed of a `nublado`_ instance, an EFD instance (with Chronograf and other visualization tools) and LOVE interface.
+- Coordination on the use of each operational environment is managed through Slack channels.
 - Most components are deployed as docker containers, orchestrated via ArgoCD and Kubernetes.
   A small subset of components are deployed with docker-compose and, in some cases, deployment is still done directly on bare metal nodes manually.
 
 .. _nublado: https://nb.lsst.io
 
 
-.. _Observing-Interface-Environments-Prerequisites:
+.. _Observing-Interface-Operational-Environments-Prerequisites:
 
 Prerequisites
 =============
@@ -54,7 +54,7 @@ Prerequisites
 
 - You must be logged on the LSST-WAP, into the NOAO or summit VPN.
 
-.. _Observing-Interface-Environments-Post-Conditions:
+.. _Observing-Interface-Operational-Environments-Post-Conditions:
 
 Post-Condition
 ==============
@@ -66,7 +66,7 @@ Post-Condition
 - Successfully access nublado and other observing interface tools.
 - Ability to command components.
 
-.. _Observing-Interface-Environments-Procedure-Steps:
+.. _Observing-Interface-Operational-Environments-Procedure-Steps:
 
 Procedure Steps
 ===============
@@ -75,17 +75,17 @@ Procedure Steps
 .. In the case of more complicated procedures, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked procedures to be performed in the specified order.
 .. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
 
-In a browser open the links below under the heading corresponding to the environment you want to interact with.
+In a browser open the links below under the heading corresponding to the operational environment you want to interact with.
 
-For instance, open the nublado link in :ref:`NTS <Observing-Interface-Environments-NTS>` to interact with the observatory control system in that environment.
+For instance, open the nublado link in :ref:`NTS <Observing-Interface-Operational-Environments-NTS>` to interact with the observatory control system in that operational environment.
 
-.. _Observing-Interface-Environments-NTS:
+.. _Observing-Interface-Operational-Environments-NTS:
 
 NCSA Test Stand (NTS)
 ---------------------
 
 The NTS is currently being used as a staging platform to test software deployment prior to deployment at the summit.
-Systems that control hardware at the :ref:`Summit <Observing-Interface-Environments-Summit>` run here in simulation mode.
+Systems that control hardware at the :ref:`Summit <Observing-Interface-Operational-Environments-Summit>` run here in simulation mode.
 Once deployment is tested here, the platform is made available for general users for training, testing and developing of control algorithm and procedures.
 
 - Nublado: https://lsst-nts-k8s.ncsa.illinois.edu/
@@ -112,16 +112,17 @@ Once deployment is tested here, the platform is made available for general users
 .. _DM-28465: https://jira.lsstcorp.org/browse/DM-28465
 .. _ssh with Kerberos: https://developer.lsst.io/services/lsst-login.html?highlight=kerberos#ssh-with-kerberos
 
-.. _Observing-Interface-Environments-BTS:
+.. _Observing-Interface-Operational-Environments-BTS:
 
 Base Facility Test Stand (BTS)
 ------------------------------
 
-BTS is a simulation environment running at the base facility in La Serena.
-The main difference between the :ref:`NTS <Observing-Interface-Environments-NTS>` and this environment is that some systems will run using hardware simulators.
+BTS is a simulation operational environment running at the base facility in La Serena.
+The main difference between the :ref:`NTS <Observing-Interface-Operational-Environments-NTS>` and this operational environment is that some systems will run using hardware simulators.
 
-Hardware simulators are, in general, higher fidelity than those of pure software available at :ref:`NTS <Observing-Interface-Environments-NTS>`.
+Hardware simulators are, in general, higher fidelity than those of pure software available at :ref:`NTS <Observing-Interface-Operational-Environments-NTS>`.
 For that, BTS will be used mostly for higher fidelity testing, development and debugging.
+It will also be particularly useful for testing lower-level hardware interfaces.
 
 - Nublado: https://base-lsp.lsst.codes/
 - Chronograf: https://chronograf-base-efd.lsst.codes/
@@ -129,13 +130,13 @@ For that, BTS will be used mostly for higher fidelity testing, development and d
 - ArgoCD: https://base-lsp.lsst.codes/argo-cd/
 - Slack: N/A
 
-.. _Observing-Interface-Environments-TTS:
+.. _Observing-Interface-Operational-Environments-TTS:
 
 Tucson Test Stand (TTS)
 -----------------------
 
 TTS is being assembled in Tucson and is still not available for use.
-This environment will be similar to that of :ref:`NTS <Observing-Interface-Environments-NTS>` and will be used mainly for development of deployment strategies.
+This operational environment will be similar to that of :ref:`NTS <Observing-Interface-Operational-Environments-NTS>` and will be used mainly for development of deployment strategies.
 
 - Nublado: https://tucson-teststand.lsst.codes/
 - Chronograf: https://chronograf-tucson-teststand-efd.lsst.codes/
@@ -143,12 +144,12 @@ This environment will be similar to that of :ref:`NTS <Observing-Interface-Envir
 - ArgoCD: https://tucson-teststand.lsst.codes/argo-cd
 - Slack: N/A
 
-.. _Observing-Interface-Environments-Summit:
+.. _Observing-Interface-Operational-Environments-Summit:
 
 Summit
 ------
 
-Summit is our main production environment.
+Summit is our main production operational environment.
 Systems running here will be directly controlling hardware or communicating with components that control actual hardware.
 
   .. important::
@@ -171,7 +172,7 @@ Troubleshooting
 
 .. If there is no content for this section, remove the indentation on the following line instead of deleting this sub-section.
 
-If you can not open the links to the environment you intend to work with, make sure you are connected to the LSST-WAP wifi network in one of the designed areas (Tucson, La Serena or Summit facilities) or that you are connected to the NOAO VPN.
+If you can not open the links to the operational environment you intend to work with, make sure you are connected to the LSST-WAP wifi network in one of the designed areas (Tucson, La Serena or Summit facilities) or that you are connected to the NOAO VPN.
 
 If problems persist, you can ask for help in the designated Slack channels or in the com-square channel.
 

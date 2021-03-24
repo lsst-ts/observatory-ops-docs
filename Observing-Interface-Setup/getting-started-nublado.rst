@@ -108,8 +108,10 @@ In this page, you can now select the image and the resources you need for your w
 
   - The "size" option specify the amount of computing resources that will be made available for your jupyter-lab instance.
 
-In most cases, you will want to select the "Recommended" image and "Medium" size.
-If you plan to do more computing intensive tasks you may also select a "Large" image.
+In most cases, you will want to select the "Recommended" image.
+
+For anyone performing tasks involving image data analysis and/or control operations, a "Large" container should be used as these can require significant resources.
+"Small" or "Medium" container should only be used when performing simple tasks, such as updating notebooks, or files, or performing simple EFD queries.
 
 Once you selected your "Image" and "Size" you can click in the big orange "Start" button.
 You will be redirected to a :ref:`loading page <Observing-Interface-Getting-Started-Nublado-Loading>`.
