@@ -67,6 +67,7 @@ default_role = "py:obj"
 
 # Intersphinx
 intersphinx_mapping = {
+    'obs-controls': ('https://obs-controls.lsst.io', None)
     # 'python': ('https://docs.python.org/3/', None),
 }
 

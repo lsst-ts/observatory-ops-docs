@@ -17,18 +17,12 @@
 Operational Procedures Tutorials
 ################################
 
-.. This section should provide a brief, top-level description of the page.
-
-.. note::
-    This is a template file that is associated with a template directory structure. This note should be deleted when the section is properly populated
-
-This is a template for the index.rst of a directory. If there are no levels beneath this one, make sure the 2nd line of ``toctree`` is commented out.
 
 .. toctree::
     :maxdepth: 2
     :titlesonly:
     :glob:
 
-..    *
+    *
 
-This template may also be used for other pages within the directory. In this case, feel free to remove the ``toctree``.
+
