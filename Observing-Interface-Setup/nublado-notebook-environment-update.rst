@@ -219,7 +219,7 @@ Use the following steps to update software versions with ScriptQueue.
 
 #. Run ScriptQueue.
 
-#. Login to the ScriptQueue CSC by following `Step 3 in Section 3.1 of TSTN-020 <https://tstn-020.lsst.io/#on-the-fly-changes>`__.
+#. Login to the ScriptQueue CSC by following `Step 3 in Section 3.1 of TSTN-020 <https://tstn-020.lsst.io/#on-the-fly-configuration-changes>`__.
 
 #. Go to the package you want to update, then update the repository.
 

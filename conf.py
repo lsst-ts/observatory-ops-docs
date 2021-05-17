@@ -139,4 +139,9 @@ linkcheck_ignore = [
     r"https://lsst-nts-k8s.ncsa.illinois.edu/",
     r"https://summit-lsp.lsst.codes/*",
     r"https://tucson-teststand.lsst.codes/*",
+    r"https://www.jenkins.io/doc/book/glossary/#controller",
+    r"https://www.jenkins.io/doc/book/glossary/#agent",
+    r"https://www.jenkins.io/doc/book/glossary/#pipeline",
+    r"https://www.jenkins.io/doc/book/glossary/#project",
+    r"https://anaconda.org",
 ]
