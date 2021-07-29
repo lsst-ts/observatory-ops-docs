@@ -40,6 +40,8 @@ These procedures are part of observatory activities that do not include on-sky o
 
     Support-Operations/*
 
+    LATISS-Master-Bias-Procedure/*
+
 ..  Opening-Dome?
 
 .. _Auxiliary-Telescope-Procedures-On-Sky-Operations:
