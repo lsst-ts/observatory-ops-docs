@@ -20,7 +20,7 @@ The script will:
 - command LSSTComCam to take a number of bias frames,
 - call the Rubin Science Pipelines bias generation pipetask via the OCS-Controlled Pipeline System (OCPS),
 - verify the resulting bias (see the package `cp_verify`_ and `DMTN-101`_)
-- certify the resulting bias. 
+- certify the resulting bias with a given range of validity dates.
   
 For more information about calibrations production (including verification and certification), please consult the `Constructing Calibrations documentation`_.
 
@@ -34,8 +34,8 @@ Prerequisites
 =============
 
 - You should be logged into the LSST Operations and Visualization Enviroment (LOVE) at the Summit :ref:`operational environment <Observing-Interface-Operational-Environments>`.
-- The script assumes  that the LSSTComcam and OCPS are both ``ENABLED``.
-- A gen-three `butler`_ is needed to run the pipetask bias command.
+- The script assumes  that the LSSTComcam and OCPS are both ``ENABLED``, and that latter has been ``ENABLED`` with the configuration of ``LSSTComCam``.
+- A `butler`_ is needed to run the pipetask bias command.
 
 .. _butler: https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/index.html
 
@@ -83,7 +83,7 @@ After loading the script, a window that contains two sections, ``SCHEMA`` (top) 
 - ``input_collections_bias``: This is a list of comma-separated input collections for the bias pipetask. The pipetask is called via the OCPS, and it adds as default ``-i LSSTComCam/raw/all`` as input collection aftering enabling the OCPS with the ``LSSTComCam`` configuration.
 - ``input_collections_verify``: This is a list of comma-separated input collections for the cpVerify pipetask.
 - ``calib_collection``: This is the CALIBRATION collection where the calibrations will be certified into, for example, ``LSSTComCam/calib/u/plazas/YYYYMMMDD.test``.
-- ``repo``: Gen-three butler repository. For example, ``/repo/LSSTComCam``.
+- ``repo``: Butler repository. For example, ``/repo/LSSTComCam``.
 - ``n_processes``: Number of processes that the pipetasks will use.
 - ``certify_calib_begin_date``: The beginning date for the validity range of the certified calibration. For example, ``2021-07-15``.
 - ``certify_calib_end_date``: The end date for the validity range of the certified calibration. For example, ``2021-07-16``.
