@@ -59,25 +59,25 @@ Tutorial Steps
 .. In the case of more complicated tutorials, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked tutorials to be performed in the specified order.
 .. For highly complicated tutorials, consider breaking them into separate tutorials. Some options are a high-level tutorial with links, separating into smaller tutorials or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
 
-* Announcements are to be made in the summit-testing-annoucements Slack channel
+* Announcements are to be made in the summit-annouce Slack channel
 * People who participate in testing or infrastructure support/development must be actively monitoring that channel
 * All announcements for all work that may affect the summit DDS network or its infrastructure are required
 
     * Includes Nublado updates, invasive networking changes etc.
 
 * Announcement Guidelines/Procedure:
-    
+
     * Make announcement when ready to begin work
-        
+
         * Include estimate of how long the systems will be in use
         * Include name of other channel where conversation on the work will take place
-    
+
     * List the CSC(s) you plan on using and a 1 or 2-sentence synopsis of what you are doing
-        
+
         * You can refer to systems like AT, MT, ComCam etc. in lieu of listing all the CSCs to be used
 
     * Make announcement when ready to begin work
-        
+
         * A 1 or 2 sentence summary of the tests performed is strongly encouraged
 
 
