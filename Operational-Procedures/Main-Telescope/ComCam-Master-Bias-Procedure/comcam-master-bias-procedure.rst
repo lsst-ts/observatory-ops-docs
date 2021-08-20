@@ -43,7 +43,7 @@ Prerequisites
 Post-Condition
 ==============
 
-- A master bias image per detector will be certified in an individual butler CALIBRATION `collection`_ that can be grouped into a butler CHAINED collection to connect all of the various calibrations into a single collection.
+- A (daily) master bias image per detector will be certified in butler ``CALIBRATION`` `collection`_.
 
 .. _collection: https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/organizing.html
 
@@ -77,21 +77,32 @@ Enter configuration parameters
 
 After loading the script, a window that contains two sections, ``SCHEMA`` (top) and ``CONFIG`` (bottom), will appear. The former will show the configuration options (and the default values of some of them) available that should be entered in the latter. The configuration options are as follows:
 
-- ``n_bias``: number of bias frames that shoudl be taken.
+- ``n_bias``: number of bias frames to be taken.
 - ``detectors``: Detector IDs, e.g., (0,1,2,3,4,5,6,7,8) for all LSSTComCam CCDs.
-- ``input_collections_bias``: This is a list of comma-separated input collections for the bias pipetask. The pipetask is called via the OCPS, and it adds as default ``-i LSSTComCam/raw/all`` as input collection aftering enabling the OCPS with the ``LSSTComCam`` configuration.
-- ``input_collections_verify``: This is a list of comma-separated input collections for the cpVerify pipetask.
-- ``calib_collection``: This is the CALIBRATION collection where the calibrations will be certified into, for example, ``LSSTComCam/calib/u/plazas/YYYYMMMDD.test``.
+- ``input_collections_bias``: List of additional (the ``OCPS`` already adds ``LSSTComCam/raw/all`` as a default) comma-separated input collections for the bias pipetask. The pipetask is called via the ``OCPS`` after enabling it with the ``LSSTComCam`` configuration.
+- ``calib_collection``: ``CALIBRATION`` collection where the calibrations will be certified into, for example, ``LSSTComCam/calib/u/plazas/YYYYMMMDD.test``.
 - ``repo``: Butler repository. For example, ``/repo/LSSTComCam``.
 - ``n_processes``: Number of processes that the pipetasks will use.
 - ``certify_calib_begin_date``: The beginning date for the validity range of the certified calibration. For example, ``2021-07-15``.
 - ``certify_calib_end_date``: The end date for the validity range of the certified calibration. For example, ``2021-07-16``.
 - ``max_counter_archiver_check``: After the camera takes images, this is the maxmimum number of loops to wait for confirmation that the images taken are archived and available.
-- ``oods_timeout``: Timeout value, in seconds, for the Observatory Operations Data Service (OODS).
+- ``oods_timeout``: Timeout value, in seconds, for the Observatory Operations Data Service (``OODS``).
+
+An example set of configuration parameters is as follows:
+
+.. code-block:: text
+
+    n_bias: 5
+    detectors: (0,1,2,3,4,5,6,7,8)
+    input_collections_bias: LSSTComCam/calib
+    calib_dir: LSSTComCam/calib/daily
+    certify_calib_begin_date: 2021-07-15
+    certify_calib_end_date: 2021-07-16    
+    repo: /repo/LSSTComCam
 
 Launch the script
 -----------------
-When the configuration options have been entered and the script is ready to be launched, click on ``ADD`` in the lower right.
+When the configuration options have been entered and the script is ready to be launched, click on the ``ADD`` button in the lower right of tthe screen (refer to image above).
 
 Troubleshooting
 ===============
