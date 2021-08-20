@@ -52,9 +52,9 @@ Post-Condition
 Procedure Steps
 ===============
 
-Once you are logged into LOVE, click on the ``MTQueue`` panel, as shown in the figure below: 
+Once you are logged into LOVE, click on the ``MTQueue`` panel, as circled on the right side of the figure below (for completeness, ``ATQueue`` to lauch ``LATISS`` scripts is circled on the left):
 
-.. figure:: ./_static/love-mtqueue-panel.png
+.. figure:: ./_static/love-mtqueue-atqueue-panel.png
     :name: MTQueue-love
 
      Screenshot of LOVE interface with the "MTQueue" pannel.
