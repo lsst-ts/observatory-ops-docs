@@ -34,8 +34,7 @@ Prerequisites
 =============
 
 - You should be logged into the LSST Operations and Visualization Enviroment (LOVE) at the Summit :ref:`operational environment <Observing-Interface-Operational-Environments>`.
-- The script assumes  that the LSSTComcam and OCPS are both ``ENABLED``, and that latter has been ``ENABLED`` with the configuration of ``LSSTComCam``.
-- A `butler`_ is needed to run the pipetask bias command.
+- The script assumes (and checks) that ``LSSTComCam`` and ``OCPS`` components are all ``ENABLED``, and that latter has been ``ENABLED`` with the configuration of ``LSSTComCam``.
 
 .. _butler: https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/index.html
 
