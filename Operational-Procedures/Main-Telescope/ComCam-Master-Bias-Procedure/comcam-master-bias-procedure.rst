@@ -148,7 +148,7 @@ The certified master bias will be available in the ``calib_collection`` collecti
 Troubleshooting
 ===============
 
-    After checking the configuration options and the ``LOVE`` error messages, the file ``/scratch/uws/${jobId}/outs/ocps.log`` might contain additional technical information on which pipetask failed, if any. ``{jobID}`` is returned by the OCPS and can be retrieved from the ``LOVE`` output messages.
+    After checking the configuration options and the ``LOVE`` error messages, the file ``/scratch/uws/${jobId}/outs/ocps.log`` might contain additional technical information on which pipetask failed, if any. ``{jobId}`` is returned by the OCPS and can be retrieved from the ``LOVE`` output messages.
 
 
 .. _ComCam-Master-Bias-Procedure-Conditions-Contact-Personnel:
