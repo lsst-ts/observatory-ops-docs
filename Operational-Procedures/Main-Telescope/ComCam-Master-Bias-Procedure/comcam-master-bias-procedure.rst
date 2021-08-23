@@ -34,7 +34,34 @@ Prerequisites
 =============
 
 - You should be logged into the LSST Operations and Visualization Enviroment (LOVE) at the Summit :ref:`operational environment <Observing-Interface-Operational-Environments>`.
-- The script assumes (and checks) that ``LSSTComCam`` and ``OCPS`` components are all ``ENABLED``, and that latter has been ``ENABLED`` with the configuration of ``LSSTComCam``.
+- The script assumes (and checks) that ``LSSTComCam`` and ``OCPS`` components are all ``ENABLED``, and that latter has been ``ENABLED`` with the configuration of ``LSSTComCam``. The instrument and the ``OCPS`` can be enabled, for example, from a notebook: 
+
+.. code-block:: python
+
+    import asyncio
+    from lsst.ts import salobj
+    from lsst.ts.observatory.control.maintel.comcam import ComCam
+
+    do_enable_camera = True
+    do_enable_ocps = True
+
+    domain = salobj.Domain()
+    comcam = ComCam(domain)
+    ocps = salobj.Remote(domain, "OCPS")
+    await asyncio.gather(comcam.start_task, ocps.start_task)
+
+    if do_enable_camera:
+       await comcam.enable()
+
+    if do_enable_ocps:
+        instrument="LSSTComCam"
+        ack = await ocps.cmd_start.set_start(settingsToApply=instrument)
+        if ack.ack != salobj.SalRetCode.CMD_COMPLETE:
+            ack.print_vars()
+
+        ack = await ocps.cmd_enable.set_start()
+        if ack.ack != salobj.SalRetCode.CMD_COMPLETE:
+            ack.print_vars()
 
 .. _butler: https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/index.html
 
