@@ -122,7 +122,7 @@ An example set of configuration parameters is as follows:
     n_bias: 5
     detectors: (0,1,2,3,4,5,6,7,8)
     input_collections_bias: LSSTComCam/calib
-    calib_dir: LSSTComCam/calib/daily
+    calib_collection: LSSTComCam/calib/daily
     certify_calib_begin_date: 2021-07-15
     certify_calib_end_date: 2021-07-16    
     repo: /repo/LSSTComCam
@@ -131,10 +131,25 @@ Launch the script
 -----------------
 When the configuration options have been entered and the script is ready to be launched, click on the ``ADD`` button in the lower right of tthe screen (refer to image above).
 
+The certified master bias will be available in the ``calib_collection`` collection. It could be retrieved from a notebook for visualization: 
+
+.. code-block:: python
+    
+    import lsst.daf.butler as dB
+
+    butler = dB.Butler("/repo/LSSTComCam", collections=["LSSTComCam/calib/daily"])
+    detector = (0, 1, 2, 3, 4, 5, 6, 7, 8)
+    exposure = [bias1ID, bias2ID] # e.g., [2021071500001, 2021071500002]
+    
+    bias = butler.get('bias', detector=detector[0], exposure=exposure[0], instrument='LSSTComCam')
+
+
+
 Troubleshooting
 ===============
 
-No troubleshooting information is currently available.
+    After checking the configuration options and the ``LOVE`` error messages, the file ``/scratch/uws/${jobId}/outs/ocps.log`` might contain additional technical information on which pipetask failed, if any. ``{jobID}`` is returned by the OCPS and can be retrieved from the ``LOVE`` output messages.
+
 
 .. _ComCam-Master-Bias-Procedure-Conditions-Contact-Personnel:
 
