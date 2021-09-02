@@ -43,18 +43,18 @@ Prerequisites
 
     import asyncio
     from lsst.ts import salobj
-    from lsst.ts.observatory.control.maintel.comcam import Latiss
+    from lsst.ts.observatory.control.maintel.latiss import Latiss
 
     do_enable_camera = True
     do_enable_ocps = True
 
     domain = salobj.Domain()
-    comcam = Latiss(domain)
+    latiss = Latiss(domain)
     ocps = salobj.Remote(domain, "OCPS")
-    await asyncio.gather(comcam.start_task, ocps.start_task)
+    await asyncio.gather(latiss.start_task, ocps.start_task)
 
     if do_enable_camera:
-       await comcam.enable()
+       await latiss.enable()
 
     if do_enable_ocps:
         instrument="LATISS"
@@ -82,7 +82,7 @@ Post-Condition
 Procedure Steps
 ===============
 
-Once you are logged into LOVE, click on the ``MTQueue`` panel, as circled on the right side of the figure below (for completeness, ``ATQueue`` to lauch ``LATISS`` scripts is circled on the left):
+Once you are logged into LOVE, click on the ``MTQueue`` panel, as circled on the right side of the figure below (for completeness, ``ATQueue`` to lauch ``LSSTComCam`` scripts is circled on the right):
 
 .. figure:: ./_static/love-mtqueue-atqueue-panel.png
     :name: MTQueue-love
@@ -93,7 +93,7 @@ Once you are logged into LOVE, click on the ``MTQueue`` panel, as circled on the
 Load the Script
 ---------------
 
-After clicking on the ``MTQueue`` panel, search for the script ``maintel/make_comcam_bias.py`` under ``AVAILABLE SCRIPTS`` on the left, as shown in the figure below:
+After clicking on the ``MTQueue`` panel, search for the script ``maintel/make_latiss_bias.py`` under ``AVAILABLE SCRIPTS`` on the left, as shown in the figure below:
 
 .. figure:: ./_static/love-available-scripts.png
     :name: available-scripts-love
