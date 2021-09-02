@@ -30,3 +30,5 @@ Procedures are divided into multiple categories based on the affected hardware a
     :glob:
 
     *
+
+    ComCam-Master-Bias-Procedure/*

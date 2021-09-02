@@ -25,7 +25,7 @@ Operational Procedures
 This page defines the different types of operational procedures.
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
     :titlesonly:
     :glob:
 
