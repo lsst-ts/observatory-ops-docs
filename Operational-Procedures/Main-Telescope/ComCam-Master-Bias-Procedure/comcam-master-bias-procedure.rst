@@ -19,9 +19,12 @@ The script will:
 
 - command LSSTComCam to take a number of bias frames,
 - call the Rubin Science Pipelines bias generation pipetask via the OCS-Controlled Pipeline System (OCPS),
-- verify the resulting bias (see the package `cp_verify`_ and `DMTN-101`_)
 - certify the resulting bias with a given range of validity dates.
-  
+
+Future versions of the code will also:
+
+- verify the resulting bias (see the package `cp_verify`_ and `DMTN-101`_), between bias generation and certification.
+
 For more information about calibrations production (including verification and certification), please consult the `Constructing Calibrations documentation`_.
 
 .. _cp_verify: https://github.com/lsst/cp_verify
