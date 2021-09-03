@@ -144,4 +144,9 @@ linkcheck_ignore = [
     r"https://www.jenkins.io/doc/book/glossary/#pipeline",
     r"https://www.jenkins.io/doc/book/glossary/#project",
     r"https://anaconda.org",
+    r"https://lsst-argocd-nts-efd.ncsa.illinois.edu/argo-cd",
+    r"https://base-lsp.lsst.codes/argo-cd",
+    r"https://tucson-teststand.lsst.codes/argo-cd",
+    r"https://summit-lsp.lsst.codes/argo-cd",
+    r"https://rancher.cp.lsst.org/login",
 ]
