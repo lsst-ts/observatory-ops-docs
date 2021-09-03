@@ -13,22 +13,22 @@ Resources
 * Chronograf: https://chronograf-summit-efd.lsst.codes/
 * Nublado: https://summit-lsp.lsst.codes/
 * Rancher: https://rancher.cp.lsst.org/login (1)
-* Slack: #summit-testing-announcements
+* Slack: #summit-announce
 
 (1) Need to get kubeconfig file from here.
 File a `Jira ticket <https://jira.lsstcorp.org/projects/IHS>`_ with Chilean IT for access.
 Once able to log into Rancher:
 
-#. Select the andes cluster
-#. Click the Kubeconfig File button in top-right
-#. Near bottom of dialog, click the download link
+#. Select the andes cluster.
+#. Click the Kubeconfig File button in top-right.
+#. Near bottom of dialog, click the download link.
 
 .. _Deployment-Activities-Summit-Non-Production:
 
 Non-Production Systems
 ----------------------
 
-The non-production domain systems list is kept here: `Summit deployment <https://confluence.lsstcorp.org/display/LTS/Summit+deployment>`_
+The non-production domain systems list is kept here: `Summit deployment <https://confluence.lsstcorp.org/display/LTS/Summit+deployment>`_.
 
 .. _Deployment-Activities-Summit-BareMetal:
 
@@ -39,9 +39,9 @@ Bare Metal Machines
 * T&S CSCs: azar2.cp.lsst.org
 * LOVE: amor01.cp.lsst.org
 * LOVE2: amor02.cp.lsst.org
-* Kubernetes: Can be done from own machine, just need kubeconfig file and kubectl installed
-    * Systems run on the andes cluster
-    * Can also use: https://k8slens.dev/
+* Kubernetes: Can be done from own machine, just need kubeconfig file and kubectl installed.
+    * Systems run on the andes cluster.
+    * Can also use: https://k8slens.dev/.
 * ATCamera (Tony Johnson): atsccs1.cp.lsst.org
 * CCCamera(Tony Johnson): comcam-mcm.cp.lsst.org
 * ATArchiver (Steve Pietrowicz): atarchiver.cp.lsst.org
@@ -76,22 +76,22 @@ Shutdown DM and Camera Services
     * CCCamera: *sudo systemctl stop ocs-bridge-comcam.service*
 * Shutdown Camera Daemons
     * *sudo systemctl stop opensplice.service*
-    * Command is the same everywhere
+    * Command is the same everywhere.
 
 .. _Deployment-Activities-Summit-LOVE-Shutdown:
 
 Shutdown LOVE
 -------------
 
-This needs to be done from amor01
+This needs to be done from amor01.
 
-* Uses the ``docker-compose-admin`` scripts in ``summit/amor01`` directory
+* Uses the ``docker-compose-admin`` scripts in ``summit/amor01`` directory.
     * *./shutdown_love*
     * *./shutdown_daemon*
 
-If LOVE2 is operating, go to amor02
+If LOVE2 is operating, go to amor02.
 
-* Uses the ``docker-compose-admin`` scripts in ``summit/amor02`` directory
+* Uses the ``docker-compose-admin`` scripts in ``summit/amor02`` directory.
     * *./shutdown_love*
     * *./shutdown_daemon*
 
@@ -100,55 +100,55 @@ If LOVE2 is operating, go to amor02
 Shutdown T&S Bare Metal Services
 --------------------------------
 
-Handle azar2
+Handle azar2:
 
-* Uses the ``docker-compose-admin`` scripts in ``summit/azar2`` directory
+* Uses the ``docker-compose-admin`` scripts in ``summit/azar2`` directory.
     * *./shutdown_eas*
     * *./shutdown_daemon*
 
-Handle AT systems (ATMCS and ATPneumatics)
+Handle AT systems (ATMCS and ATPneumatics):
 
 * *ssh admin@139.229.170.47*
 * *vim /usr/ts_ddsconfig/config/ospl-shmem.xml*
-* Line 4: replace 0 with 2 in the <Id> tag
+* Line 4: replace 0 with 2 in the <Id> tag.
 * *reboot && exit*
 
-Handle M1M3 cRIO
+Handle M1M3 cRIO:
 
 * *ssh admin@139.229.178.182*
 * */etc/init.d/ts-M1M3support stop*
 
-Handle M1M3 VMS cRIO
+Handle M1M3 VMS cRIO:
 
 * *ssh admin@139.229.178.183*
 * */etc/init.d/ts-VMS stop*
 
-Handle M2 VMS cRIO
+Handle M2 VMS cRIO:
 
 * *ssh admin@139.229.178.193*
 * */etc/init.d/ts-VMS stop*
 
-Handle M1M3 Dev & Test
+Handle M1M3 Dev & Test:
 
-* ssh to those machines
+* ssh to those machines.
 * *ps wuax | grep splice*
-* *sudo kill <PID>* on any processes turned up by the previous command
+* *sudo kill <PID>* on any processes turned up by the previous command.
 
 Handle Hexpod/Rotator (hexrot):
 
-* Uses the ``docker-compose-admin`` scripts in ``summit/hexrot`` directory
+* Uses the ``docker-compose-admin`` scripts in ``summit/hexrot`` directory.
     * *./shutdown_hexrot*
     * *./shutdown_daemon*
 
-AT PMD (at-keener)
+AT PMD (at-keener):
 
-* Uses ``docker-compose-ops``, so should be similar to hexrot (just doesn't have ``docker-compose-admin`` scripts)
+* Uses ``docker-compose-ops``, so should be similar to hexrot (just doesn't have ``docker-compose-admin`` scripts).
 
 M2 Control:
 
-* ssh to that machine
+* ssh to that machine.
 * *ps wuax | grep splice*
-* *sudo kill <PID>* on any processes turned up by the previous command
+* *sudo kill <PID>* on any processes turned up by the previous command.
 
 .. _Deployment-Activities-Summit-Kubernetes:
 
@@ -162,9 +162,9 @@ Commands can be executed from your own machine with *kubectl* and the proper kub
 Shutdown Main Daemon
 --------------------
 
-This needs to be done from azar1
+This needs to be done from azar1.
 
-* Uses the ``docker-compose-admin`` scripts in ``summit/azar1`` directory
+* Uses the ``docker-compose-admin`` scripts in ``summit/azar1`` directory.
     * *./shutdown_daemon*
 
 .. _Deployment-Activities-Summit-Update-Configuration:
@@ -172,8 +172,8 @@ This needs to be done from azar1
 Update Configuration
 --------------------
 
-* Gather the branch for the configurations and version number for ``ts_ddsconfig``
-* Uses the ``docker-compose-admin`` scripts in ``summit`` directory
+* Gather the branch for the configurations and version number for ``ts_ddsconfig``.
+* Uses the ``docker-compose-admin`` scripts in ``summit`` directory.
 * Directories to update:
     * ``/deploy-lsstts/docker-compose-ops`` (azar1, azar2, amor01, amor02)
     * ``/deploy-lsstts/ts_ddsconfig`` (azar1, azar2, amor01, amor02)
@@ -183,16 +183,16 @@ Update Configuration
     * *cd /deploy-lsstts/<problem directory>*
     * *git status*
     * *sudo git reset --hard origin/<current ticket branch>*
-    * Return to the ``docker-compose-admin`` scripts and run the *update_repo* command again
+    * Return to the ``docker-compose-admin`` scripts and run the *update_repo* command again.
 
 .. _Deployment-Activities-Summit-Main-Daemon-Startup:
 
 Startup Main Daemon
 -------------------
 
-This needs to be done from azar1
+This needs to be done from azar1.
 
-* Uses the ``docker-compose-admin`` scripts in ``summit/azar1`` directory
+* Uses the ``docker-compose-admin`` scripts in ``summit/azar1`` directory.
     * *./launch_daemon*
 
 .. _Deployment-Activities-Summit-LOVE-Startup:
@@ -200,18 +200,18 @@ This needs to be done from azar1
 Startup LOVE
 -------------
 
-This needs to be done from amor01
+This needs to be done from amor01.
 
-* Uses the ``docker-compose-admin`` scripts in ``summit/amor01`` directory
+* Uses the ``docker-compose-admin`` scripts in ``summit/amor01`` directory.
     * *./launch_daemon*
-    * Ensure daemon is ready before proceeding
+    * Ensure daemon is ready before proceeding.
     * *./launch_love*
 
-If LOVE2 is operating, go to amor02
+If LOVE2 is operating, go to amor02.
 
-* Uses the ``docker-compose-admin`` scripts in ``summit/amor02`` directory
+* Uses the ``docker-compose-admin`` scripts in ``summit/amor02`` directory.
     * *./launch_daemon*
-    * Ensure daemon is ready before proceeding
+    * Ensure daemon is ready before proceeding.
     * *./launch_love*
 
 .. _Deployment-Activities-Summit-TandS-BM-Startup:
@@ -219,16 +219,16 @@ If LOVE2 is operating, go to amor02
 Startup T&S Bare Metal Services
 -------------------------------
 
-Handle azar2
+Handle azar2:
 
-* Uses the ``docker-compose-admin`` scripts in ``summit/azar2`` directory
+* Uses the ``docker-compose-admin`` scripts in ``summit/azar2`` directory.
     * *./launch_daemon*
-    * Ensure daemon is ready before proceeding
+    * Ensure daemon is ready before proceeding.
     * *./launch_eas*
 
 Handle Hexapod/Rotator (hexrot):
 
-* Uses the ``docker-compose-admin`` scripts in ``summit/hexrot`` directory
+* Uses the ``docker-compose-admin`` scripts in ``summit/hexrot`` directory.
     * *./launch_daemon*
     * Ensure daemon is ready before proceeding
     * *./launch_hexrot*

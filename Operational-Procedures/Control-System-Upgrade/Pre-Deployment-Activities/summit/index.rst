@@ -23,7 +23,7 @@ Please note that the summit work **MUST** be put on the Summit Jira calendar by 
 By filling in the ``Start Date`` and ``End Date`` fields, the ticket will automatically appear on the calendar.
 Set the ticket priority level to one.
 Make sure Andy Clements is aware of the ticket.
-The summit work **MUST** take place between 4 to 8 PM Chilean time on the given day to avoid bothering the day crew
+The summit work **MUST** take place between 4 to 8 PM Chilean time on the given day to avoid bothering the day crew.
 
 .. _Pre-Deployment-Activities-Summit-Slack-Announce:
 

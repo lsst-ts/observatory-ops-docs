@@ -12,7 +12,7 @@ Resources
 * ArgoCD: https://lsst-argocd-nts-efd.ncsa.illinois.edu/argo-cd
 * Chronograf: https://lsst-chronograf-nts-efd.ncsa.illinois.edu/
 * Nublado: https://lsst-nts-k8s.ncsa.illinois.edu/
-* Kubeconfig: File a `Jira ticket <https://jira.lsstcorp.org/projects/IHS>`_ for NCSA IT for access and kubeconfig file
+* Kubeconfig: File a `Jira ticket <https://jira.lsstcorp.org/projects/IHS>`_ for NCSA IT for access and kubeconfig file.
 * Slack: #ncsa-integ-teststand
 
 .. _Deployment-Activities-NTS-Non-Production:
@@ -57,23 +57,23 @@ Shutdown DM and Camera Services
     * CCCamera: *sudo systemctl stop ocs-bridge-comcam.service*
 * Shutdown Camera Daemons
     * *sudo systemctl stop opensplice.service*
-    * Command is the same everywhere
+    * Command is the same everywhere.
 * Shutdown the HeaderService Daemon
     * *sudo su felipe*
     * *screen -ls*
-    * Find the screen ID that has *daemon* in the name
+    * Find the screen ID that has *daemon* in the name.
     * *screen -r <daemon screen id>*
-    * *Crtl+c* to stop the running daemon
-    * Exit the screen session (*Ctrl+a d*)
+    * *Crtl+c* to stop the running daemon.
+    * Exit the screen session (*Ctrl+a d*).
 
 .. _Deployment-Activities-NTS-LOVE-Shutdown:
 
 Shutdown LOVE
 -------------
 
-This needs to be done from lsst-teststand-ts1
+This needs to be done from lsst-teststand-ts1.
 
-* Uses the ``docker-compose-admin`` scripts in ``ncsa-teststand/lsst-teststand-ts1`` directory
+* Uses the ``docker-compose-admin`` scripts in ``ncsa-teststand/lsst-teststand-ts1`` directory.
     * *./shutdown_love*
     * *./shutdown_daemon*
 
@@ -82,9 +82,9 @@ This needs to be done from lsst-teststand-ts1
 Shutdown T&S Bare Metal Services
 --------------------------------
 
-Handle lsst-teststand-ts2
+Handle lsst-teststand-ts2:
 
-* Uses the ``docker-compose-admin`` scripts in ``ncsa-teststand/lsst-teststand-ts2`` directory
+* Uses the ``docker-compose-admin`` scripts in ``ncsa-teststand/lsst-teststand-ts2`` directory.
     * *./shutdown_atmcs_atp*
     * *./shutdown_m1m3_m2*
     * *./shutdown_daemon*
@@ -101,9 +101,9 @@ Commands can be executed from the NCSA login machines (lsst-login0X.ncsa.illinoi
 Shutdown Main Daemon
 --------------------
 
-This needs to be done from lsst-l1-cl-ocs
+This needs to be done from lsst-l1-cl-ocs.
 
-* Uses the ``docker-compose-admin`` scripts in ``ncsa-teststand/lsst-l1-cl-ocs`` directory
+* Uses the ``docker-compose-admin`` scripts in ``ncsa-teststand/lsst-l1-cl-ocs`` directory.
     * *./shutdown_daemon*
 
 .. _Deployment-Activities-NTS-Update-Configuration:
@@ -111,8 +111,8 @@ This needs to be done from lsst-l1-cl-ocs
 Update Configuration
 --------------------
 
-* Gather the branch for the configurations and version number for ``ts_ddsconfig``
-* Uses the ``docker-compose-admin`` scripts in ``ncsa-teststand`` directory
+* Gather the branch for the configurations and version number for ``ts_ddsconfig``.
+* Uses the ``docker-compose-admin`` scripts in ``ncsa-teststand`` directory.
 * Directories to update:
     * ``/deploy-lsstts/docker-compose-ops`` (lsst-l1-cl-ocs, lsst-teststand-ts1, lsst-teststand-ts2)
     * ``/deploy-lsstts/ts_ddsconfig`` (lsst-l1-cl-ocs, lsst-teststand-ts1, lsst-teststand-ts2)
@@ -122,16 +122,16 @@ Update Configuration
     * *cd /deploy-lsstts/<problem directory>*
     * *git status*
     * *sudo git reset --hard origin/<current ticket branch>*
-    * Return to the ``docker-compose-admin`` scripts and run the *update_repo* command again
+    * Return to the ``docker-compose-admin`` scripts and run the *update_repo* command again.
 
 .. _Deployment-Activities-NTS-Main-Daemon-Startup:
 
 Startup Main Daemon
 -------------------
 
-This needs to be done from lsst-l1-cl-ocs
+This needs to be done from lsst-l1-cl-ocs.
 
-* Uses the ``docker-compose-admin`` scripts in ``ncsa-teststand/lsst-l1-cl-ocs`` directory
+* Uses the ``docker-compose-admin`` scripts in ``ncsa-teststand/lsst-l1-cl-ocs`` directory.
     * *./launch_daemon*
 
 .. _Deployment-Activities-NTS-LOVE-Startup:
@@ -139,11 +139,11 @@ This needs to be done from lsst-l1-cl-ocs
 Startup LOVE
 ------------
 
-This needs to be done from lsst-teststand-ts1
+This needs to be done from lsst-teststand-ts1.
 
-* Uses the ``docker-compose-admin`` scripts in ``ncsa-teststand/lsst-teststand-ts1`` directory
+* Uses the ``docker-compose-admin`` scripts in ``ncsa-teststand/lsst-teststand-ts1`` directory.
     * *./launch_daemon*
-    * Ensure daemon is ready before proceeding
+    * Ensure daemon is ready before proceeding.
     * *./launch_love*
 
 .. _Deployment-Activities-NTS-TandS-BM-Startup:
@@ -153,9 +153,9 @@ Startup T&S Bare Metal Services
 
 Handle lsst-teststand-ts2
 
-* Uses the ``docker-compose-admin`` scripts in ``ncsa-teststand/lsst-teststand-ts2`` directory
+* Uses the ``docker-compose-admin`` scripts in ``ncsa-teststand/lsst-teststand-ts2`` directory.
     * *./launch_daemon*
-    * Ensure daemon is ready before proceeding
+    * Ensure daemon is ready before proceeding.
     * *./launch_atmcs_atp*
     * *./launch_m1m3_m2*
 
