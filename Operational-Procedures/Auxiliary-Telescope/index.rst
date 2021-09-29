@@ -40,7 +40,7 @@ These procedures are part of observatory activities that do not include on-sky o
 
     Support-Operations/*
 
-    LATISS-Master-Bias-Procedure/*
+    LATISS-Master-Calibrations-Procedure/*
 
 ..  Opening-Dome?
 
