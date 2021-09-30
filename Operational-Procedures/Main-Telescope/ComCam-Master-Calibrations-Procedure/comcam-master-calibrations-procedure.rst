@@ -13,7 +13,7 @@ ComCam Master Calibrations Generation Procedure
 Overview
 ========
 
-This procedure describes how to call scripts to produce master calibrations for LSSTComCam from the LSST Operations and Visualization Enviroment (LOVE) at the Summit :ref:`operational environment <Observing-Interface-Operational-Environments>`. 
+This procedure describes how to execute the SAL Script to produce master calibrations for LSSTComCam on the ScriptQueue from the LSST Operations and Visualization Enviroment (LOVE) at the Summit :ref:`operational environment <Observing-Interface-Operational-Environments>`. 
 
 The script will have the option to: 
 
@@ -48,7 +48,8 @@ Prerequisites
 =============
 
 - You should be logged into the LSST Operations and Visualization Enviroment (LOVE) at the Summit :ref:`operational environment <Observing-Interface-Operational-Environments>`.
-- The script assumes (and checks) that the ``LSSTComCam`` and ``OCPS`` components are all ``ENABLED``, and that the latter has been ``ENABLED`` with the configuration of ``LSSTComCam``. The instrument and the ``OCPS`` can be enabled with the following procedures:
+- The script assumes (and checks) that the ``LSSTComCam`` and ``OCPS`` components are all ``ENABLED``, and that the latter has been ``ENABLED`` with the configuration of ``LSSTComCam``. 
+The instrument and the ``OCPS`` can be enabled with the following procedures:
     - :ref:`Enable ComCam Procedure <Enable-ComCam-Procedure>`
     - :ref:`Enable OCPS ComCam Procedure <Enable-OCPS-ComCam-Procedure>`
 
@@ -67,7 +68,7 @@ Post-Condition
 Procedure Steps
 ===============
 
-Once you are logged into LOVE, click on the ``MTQueue`` panel, as circled on the right side of the figure below (for completeness, ``ATQueue`` to lauch ``LATISS`` scripts is circled on the left):
+Once you are logged into LOVE, click on the ``MTQueue`` panel, as circled on the right side of the figure below (for reference, ``ATQueue`` to lauch ``LATISS`` scripts is circled on the left):
 
 .. figure:: ./_static/love-mtqueue-atqueue-panel.png
     :name: MTQueue-love

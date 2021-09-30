@@ -13,7 +13,7 @@ Latiss Master Calibrations Generation Procedure
 Overview
 ========
 
-This procedure describes how to call scripts to produce master calibrations for LATISS from the LSST Operations and Visualization Enviroment (LOVE) at the Summit :ref:`operational environment <Observing-Interface-Operational-Environments>`. 
+This procedure describes how to execute the SAL Script to produce master calibrations for LATISS on the ScriptQueue from the LSST Operations and Visualization Enviroment (LOVE) at the Summit :ref:`operational environment <Observing-Interface-Operational-Environments>`. 
 
 The script will have the option to: 
 
@@ -48,11 +48,12 @@ Prerequisites
 =============
 
 - You should be logged into the LSST Operations and Visualization Enviroment (LOVE) at the Summit :ref:`operational environment <Observing-Interface-Operational-Environments>`.
-- The script assumes (and checks) that the ``LATISS`` and ``OCPS`` components are all ``ENABLED``, and that the latter has been ``ENABLED`` with the configuration of ``LATISS``. The instrument and the ``OCPS`` can be enabled with the following procedures: 
+- The script assumes (and checks) that the ``LATISS`` and ``OCPS`` components are all ``ENABLED``, and that the latter has been ``ENABLED`` with the configuration of ``LATISS``.
+The instrument and the ``OCPS`` can be enabled with the following procedures: 
     - :ref:`Enable LATISS Procedure <Enable-LATISS-Procedure>`
     - :ref:`Enable OCPS Auxiliary Telescope Procedure <Enable-OCPS-Auxiliary-Telescope-Procedure>`
 
-For LATISS, in addition, the telescope needs to be in the Flat Field position when taking flat fields:
+If you plan to take flat fields as well, make sure the Auxiliary Telescope is prepared to do so:
     - :ref:`Prepare ATCS For Flat Fields Procedure <Prepare-ATCS-For-Flat-Fields-Procedure>`
 
 .. _Latiss-Master-Calibrations-Procedure-Post-Conditions:
@@ -70,7 +71,7 @@ Post-Condition
 Procedure Steps
 ===============
 
-Once you are logged into LOVE, click on the ``ATQueue`` panel, as circled on the left side of the figure below (for completeness, ``MTQueue`` to launch ``LSSTComCam`` scripts is circled on the right):
+Once you are logged into LOVE, click on the ``ATQueue`` panel, as circled on the left side of the figure below (for reference, ``MTQueue`` to launch ``LSSTComCam`` scripts is circled on the right):
 
 .. figure:: ./_static/love-mtqueue-atqueue-panel.png
     :name: ATQueue-love
