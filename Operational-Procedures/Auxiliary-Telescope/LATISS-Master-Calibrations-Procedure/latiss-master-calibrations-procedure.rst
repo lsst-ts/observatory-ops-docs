@@ -93,18 +93,18 @@ Post-Condition
 Procedure Steps
 ===============
 
-Once you are logged into LOVE, click on the ``MTQueue`` panel, as circled on the right side of the figure below (for completeness, ``ATQueue`` to launch ``LSSTComCam`` scripts is circled on the right):
+Once you are logged into LOVE, click on the ``ATQueue`` panel, as circled on the right side of the figure below (for completeness, ``MTQueue`` to launch ``LSSTComCam`` scripts is circled on the right):
 
 .. figure:: ./_static/love-mtqueue-atqueue-panel.png
-    :name: MTQueue-love
+    :name: ATQueue-love
 
-     Screenshot of LOVE interface with the "MTQueue" pannel.
+     Screenshot of LOVE interface with the "ATQueue" pannel.
 
 
 Load the Script
 ---------------
 
-After clicking on the ``MTQueue`` panel, search for the script ``maintel/make_latiss_calibrations.py`` under ``AVAILABLE SCRIPTS`` on the left, as shown in the figure below:
+After clicking on the ``ATQueue`` panel, search for the script ``auxtel/make_latiss_calibrations.py`` under ``AVAILABLE SCRIPTS`` on the left, as shown in the figure below:
 
 .. figure:: ./_static/love-available-scripts.png
     :name: available-scripts-love
