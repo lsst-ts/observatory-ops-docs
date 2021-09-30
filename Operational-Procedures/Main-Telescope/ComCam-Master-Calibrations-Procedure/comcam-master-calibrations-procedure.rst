@@ -48,44 +48,18 @@ Prerequisites
 =============
 
 - You should be logged into the LSST Operations and Visualization Enviroment (LOVE) at the Summit :ref:`operational environment <Observing-Interface-Operational-Environments>`.
-- The script assumes (and checks) that the ``LSSTComCam`` and ``OCPS`` components are all ``ENABLED``, and that the latter has been ``ENABLED`` with the configuration of ``LSSTComCam``. The instrument and the ``OCPS`` can be enabled, for example, from a notebook: 
-
-.. code-block:: python
-
-    import asyncio
-    from lsst.ts import salobj
-    from lsst.ts.observatory.control.maintel.comcam import ComCam
-
-    do_enable_camera = True
-    do_enable_ocps = True
-
-    domain = salobj.Domain()
-    comcam = ComCam(domain)
-    ocps = salobj.Remote(domain, "OCPS")
-    await asyncio.gather(comcam.start_task, ocps.start_task)
-
-    if do_enable_camera:
-       await comcam.enable()
-
-    if do_enable_ocps:
-        instrument="LSSTComCam"
-        ack = await ocps.cmd_start.set_start(settingsToApply=instrument)
-        if ack.ack != salobj.SalRetCode.CMD_COMPLETE:
-            ack.print_vars()
-
-        ack = await ocps.cmd_enable.set_start()
-        if ack.ack != salobj.SalRetCode.CMD_COMPLETE:
-            ack.print_vars()
-
-.. _butler: https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/index.html
+- The script assumes (and checks) that the ``LSSTComCam`` and ``OCPS`` components are all ``ENABLED``, and that the latter has been ``ENABLED`` with the configuration of ``LSSTComCam``. The instrument and the ``OCPS`` can be enabled with the following procedures:
+    - :ref:`Enable ComCam Procedure <Enable-ComCam-Procedure>`
+    - :ref:`Enable OCPS ComCam Procedure <Enable-OCPS-ComCam-Procedure>`
 
 .. _ComCam-Master-Calibrations-Procedure-Post-Conditions:
 
 Post-Condition
 ==============
 
-- A (daily) master calibration image per detector will be certified in a butler ``CALIBRATION`` `collection`_.
+- A (daily) master calibration image per detector will be certified in a `butler`_ ``CALIBRATION`` `collection`_.
 
+.. _butler: https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/index.html
 .. _collection: https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/organizing.html
 
 .. _ComCam-Master-Calibrations-Procedure-Steps:

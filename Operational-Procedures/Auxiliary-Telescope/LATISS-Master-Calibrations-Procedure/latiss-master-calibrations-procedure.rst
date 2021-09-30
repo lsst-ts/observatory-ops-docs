@@ -48,44 +48,21 @@ Prerequisites
 =============
 
 - You should be logged into the LSST Operations and Visualization Enviroment (LOVE) at the Summit :ref:`operational environment <Observing-Interface-Operational-Environments>`.
-- The script assumes (and checks) that the ``LATISS`` and ``OCPS`` components are all ``ENABLED``, and that the latter has been ``ENABLED`` with the configuration of ``LATISS``. The instrument and the ``OCPS`` can be enabled, for example, from a notebook: 
+- The script assumes (and checks) that the ``LATISS`` and ``OCPS`` components are all ``ENABLED``, and that the latter has been ``ENABLED`` with the configuration of ``LATISS``. The instrument and the ``OCPS`` can be enabled with the following procedures: 
+    - :ref:`Enable LATISS Procedure <Enable-LATISS-Procedure>`
+    - :ref:`Enable OCPS Auxiliary Telescope Procedure <Enable-OCPS-Auxiliary-Telescope-Procedure>`
 
-.. code-block:: python
-
-    import asyncio
-    from lsst.ts import salobj
-    from lsst.ts.observatory.control.maintel.latiss import Latiss
-
-    do_enable_camera = True
-    do_enable_ocps = True
-
-    domain = salobj.Domain()
-    latiss = Latiss(domain)
-    ocps = salobj.Remote(domain, "OCPS")
-    await asyncio.gather(latiss.start_task, ocps.start_task)
-
-    if do_enable_camera:
-       await latiss.enable()
-
-    if do_enable_ocps:
-        instrument="LATISS"
-        ack = await ocps.cmd_start.set_start(settingsToApply=instrument)
-        if ack.ack != salobj.SalRetCode.CMD_COMPLETE:
-            ack.print_vars()
-
-        ack = await ocps.cmd_enable.set_start()
-        if ack.ack != salobj.SalRetCode.CMD_COMPLETE:
-            ack.print_vars()
-
-.. _butler: https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/index.html
+For LATISS, in addition, the telescope needs to be in the Flat Field position when taking flat fields:
+    - :ref:`Prepare ATCS For Flat Fields Procedure <Prepare-ATCS-For-Flat-Fields-Procedure>`
 
 .. _Latiss-Master-Calibrations-Procedure-Post-Conditions:
 
 Post-Condition
 ==============
 
-- A (daily) master calibration image per detector will be certified in a butler ``CALIBRATION`` `collection`_.
+- A (daily) master calibration image per detector will be certified in a `butler`_ ``CALIBRATION`` `collection`_.
 
+.. _butler: https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/index.html
 .. _collection: https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/organizing.html
 
 .. _Latiss-Master-Calibrations-Procedure-Steps:
@@ -93,7 +70,7 @@ Post-Condition
 Procedure Steps
 ===============
 
-Once you are logged into LOVE, click on the ``ATQueue`` panel, as circled on the right side of the figure below (for completeness, ``MTQueue`` to launch ``LSSTComCam`` scripts is circled on the right):
+Once you are logged into LOVE, click on the ``ATQueue`` panel, as circled on the left side of the figure below (for completeness, ``MTQueue`` to launch ``LSSTComCam`` scripts is circled on the right):
 
 .. figure:: ./_static/love-mtqueue-atqueue-panel.png
     :name: ATQueue-love

@@ -42,6 +42,12 @@ These procedures are part of observatory activities that do not include on-sky o
 
     LATISS-Master-Calibrations-Procedure/*
 
+    Enable-LATISS-Procedure/*
+
+    Enable-OCPS-Auxiliary-Telescope-Procedure/*
+
+    Prepare-ATCS-For-Flat-Fields-Procedure/*
+
 ..  Opening-Dome?
 
 .. _Auxiliary-Telescope-Procedures-On-Sky-Operations:
