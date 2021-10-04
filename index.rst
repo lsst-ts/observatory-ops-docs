@@ -44,8 +44,12 @@ Daytime/Nighttime Interactions
 
 This area of contains information related to summit operations, specifically nighttime activities and the handoff to/from daytime personnel
 
-- This also includes the mechanism to facilitate daytime work by the night crew (e.g. diagnose a re-occurring fault)
-- Nightlog instructions
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :titlesonly:
+
+   Daytime-Nighttime-Interactions/index
 
 .. _Obs-Ops-Observing-Interface-Setup:
 
