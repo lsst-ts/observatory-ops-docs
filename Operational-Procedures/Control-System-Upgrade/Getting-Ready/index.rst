@@ -1,7 +1,7 @@
 Upgrading the Interface (XML)
 =============================
 
-#. Coordinate with the major stakeholders at the Commissioning Activites Planning (CAP) meeting to discuss a new release.
+#. Coordinate with the major stakeholders at the Commissioning Activities Planning (CAP) meeting to discuss a new release.
 #. Determine a date for deploying to the summit and work backwards to arrive at a date for closing the necessary work (usually XML).
     * Keep in mind dates for observing runs and special overnight work within the observatory.
     * The approximate look back time is two weeks from the end of work to summit deployment.
@@ -42,7 +42,7 @@ The second phase happens when the full system is built as part of the standard d
 Setting a Schedule
 ==================
 
-While below is an example, use your best judgement to set dates and make sure the major stakeholders are informed of the schedule by the CAP meeting.
+While below is an example, use your best judgment to set dates and make sure the major stakeholders are informed of the schedule by the CAP meeting.
 
 * Close of release work : Day 1.
 * Artifact (RPMs/JARs) build on Day 2.
@@ -52,10 +52,10 @@ While below is an example, use your best judgement to set dates and make sure th
 * Summit deployment on the afternoon of Day 16.
 
 From the time that the work closes to the end of deployment artifact is about one week.
-When things go well, the time can be slightly shorter, but the one week timeframe allows for issues to be discovered and resolved.
+When things go well, the time can be slightly shorter, but the one week time frame allows for issues to be discovered and resolved.
 The gap between the initial NTS deployment and all CSCs available is to give the developers enough time to react to changes in the interface.
 If possible, try to inform folks of those changes ahead of time, but this is not always possible.
 Integration testing is confined to a day and a half in order to not keep the NTS closed for general use for too long.
-The summit deployment time is always after 4 PM summit time the following Tuesday after the NTS deployment.
+The summit deployment time is always after 5 PM summit time the following Tuesday after the NTS deployment.
 
 .. _vanward: https://vanward.lsst.io

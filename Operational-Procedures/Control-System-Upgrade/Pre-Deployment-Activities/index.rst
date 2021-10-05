@@ -17,10 +17,10 @@ There are a few things that must be done before the deployment happens and while
     #. Use the ``release_announcement.py`` script from vanward_ to craft the announcement.
     #. If you want to work with the System Principles for DM and Camera machines, make sure to inform them you will require their help standing down services.
 #. Coordinate with SQuaRE to make sure that a new nublado with the current XML/SAL will be available for the deployment day.
-    #. Make a PR for the site-specific science-platform configuration here: https://github.com/lsst-sqre/phalanx.
+    #. Make a PR for the site specific science-platform configuration here: https://github.com/lsst-sqre/phalanx.
     #. Edit the appropriate configuration file: :ref:`Summit <Pre-Deployment-Activities-Summit-RSP-Config>`, :ref:`NTS <Pre-Deployment-Activities-NTS-RSP-Config>`.
     #. Notify SQuaRE when the PR is ready to merge.
-    #. SQuaRE will sync the appropriate services when notified during the deployment process.
+    #. Syncing the ``cachemachine`` app will take place during the deployment.
 
 .. _Control-System-Upgrade-Pre-Deployment-Activities-Repositories:
 
@@ -32,6 +32,16 @@ As noted above, following repositories contain the configuration as code.
 * https://github.com/lsst-it/docker-compose-ops
 * https://github.com/lsst-ts/argocd-csc
 * https://github.com/lsst-ts/LOVE-integration-tools
+
+Deployment Helper Repositories
+==============================
+
+The following repositories contain helper scripts that aid in the deployment process.
+Specific uses for each repository are handled within the deployment documentation.
+
+* https://github.com/lsst-ts/docker-compose-admin
+* https://github.com/lsst-ts/k8s-admin
+* https://github.com/lsst-ts/argocd-admin
 
 Site Specific Variations
 ========================

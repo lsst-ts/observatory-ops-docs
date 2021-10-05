@@ -9,7 +9,7 @@ Resources
 ---------
 
 * LOVE: http://amor01.cp.lsst.org
-* ArgoCD: https://summit-lsp.lsst.codes/argo-cd
+* Argo CD: https://summit-lsp.lsst.codes/argo-cd
 * Chronograf: https://chronograf-summit-efd.lsst.codes/
 * Nublado: https://summit-lsp.lsst.codes/
 * Rancher: https://rancher.cp.lsst.org/login (1)
@@ -56,6 +56,14 @@ Bare Metal Machines
 * AT PMD (Eric Coughlin): at-keener.cp.lsst.org
 * M2 Control (Te-Wei Tsai): m2-control.cp.lsst.org
 
+.. _Deployment-Activities-Summit-Odd-State:
+
+Odd State Components
+--------------------
+
+ATMCS and ATPneumatics do not respond to being sent to OFFLINE and will remain in STANDBY with heartbeats still present.
+ATPtg has some race condition where it looks to remain in STANDBY but the CSC is actually OFFLINE (no heartbeat is seen).
+
 .. _Deployment-Activities-Summit-LOVE-Summary:
 
 LOVE Summary View
@@ -72,8 +80,8 @@ Shutdown DM and Camera Services
     * *docker stop ospl-daemon*
     * *docker rm ospl-daemon*
 * Shutdown Camera OCS Bridges:
-    * ATCamera: *sudo systemctl stop ocs-bridge-atcamera.service*
-    * CCCamera: *sudo systemctl stop ocs-bridge-comcam.service*
+    * ATCamera: *sudo systemctl stop ats-ocs-bridge.service*
+    * CCCamera: *sudo systemctl stop comcam-ocs-bridge.service*
 * Shutdown Camera Daemons
     * *sudo systemctl stop opensplice.service*
     * Command is the same everywhere.
@@ -175,8 +183,8 @@ Update Configuration
 * Gather the branch for the configurations and version number for ``ts_ddsconfig``.
 * Uses the ``docker-compose-admin`` scripts in ``summit`` directory.
 * Directories to update:
-    * ``/deploy-lsstts/docker-compose-ops`` (azar1, azar2, amor01, amor02)
-    * ``/deploy-lsstts/ts_ddsconfig`` (azar1, azar2, amor01, amor02)
+    * ``/deploy-lsstts/docker-compose-ops`` (azar1, azar2, amor01, amor02, hexrot)
+    * ``/deploy-lsstts/ts_ddsconfig`` (azar1, azar2, amor01, amor02, hexrot)
     * ``/deploy-lsstts/LOVE-integration-tools`` (amor01, amor02)
     * *sudo ./update_repo <repo path> <branch or version>*
 * This will fail if the branch has local modifications. At that point you may as well just do the job manually. Here is one way to do that:
@@ -231,27 +239,31 @@ Handle Hexapod/Rotator (hexrot):
 * Uses the ``docker-compose-admin`` scripts in ``summit/hexrot`` directory.
     * *./launch_daemon*
     * Ensure daemon is ready before proceeding
+    * If running all hardware CSCs, do:
     * *./launch_hexrot*
+    * If running rotator and camera hexapod as hardware CSCs and the M2 hexapod as a simulator, do:
+    * *./launch_hexrot 1*
+    * *./launch_hexrot 3*
+    * *./launch_hexrot 4*
 
 .. _Deployment-Activities-Summit-Enabled-CSCs:
 
 Enabled CSCs
 ------------
 
-There are a few CSCs that must be put into ENABLED state before declaring an end to the deployment.
-These are:
+The following CSCs are configured to go into ENABLED state automatically upon launching:
 
 * Watcher
 * ScriptQueue:1
 * ScriptQueue:2
+
+There are a few CSCs that must be put into ENABLED state before declaring an end to the deployment.
+These are:
+
 * WeatherStation:1
 
-The ScriptQueues can be started in the LOVE Queue view.
-Click the cog wheel next to the Summary State display to chose Disable.
-Click the cog wheel next to the Summary State display to chose Enable.
-
-The Watcher and WeatherStation:1 can be started by using the ``set_summary_state..py`` script once the ScriptQueues are ENABLED.
-Both systems require specific configuration settings for optimal operation.
+The WeatherStation:1 can be started by using the ``set_summary_state.py`` script once the ScriptQueues are ENABLED.
+The systems require specific configuration settings for optimal operation.
 They are:
-* Watcher - summit
+
 * WeatherStation:1 - default
