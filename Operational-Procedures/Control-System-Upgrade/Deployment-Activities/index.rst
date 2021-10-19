@@ -22,8 +22,8 @@ If changes are necessary to these scripts from work described in the previous se
 #. Use LOVE or Nublado to send all CSC systems to OFFLINE state.
 
     * **WARNING**: Not all CSCs report OFFLINE; these will instead report STANDBY as the last state seen.
-      Check for heartbeats to be sure.
-    * Preference is to use LOVE, but Nublado is a good fallback in case LOVE isn't working.
+      Check for heartbeats to be sure. (:ref:`Summit <Deployment-Activities-Summit-Odd-State>`)
+    * Preference is to use LOVE, but Nublado is a good fall back in case LOVE isn't working.
     * An overall status view is available from LOVE (:ref:`Summit <Deployment-Activities-Summit-LOVE-Summary>`, :ref:`NTS <Deployment-Activities-NTS-LOVE-Summary>`).
         * **NOTE**: MTM1M3 does not show status on the LOVE board due to technical limitations.
           Check ``MT Summary State Monitor`` Chronograf dashboard to be sure.
@@ -35,7 +35,6 @@ If changes are necessary to these scripts from work described in the previous se
     * The Watcher and the ScriptQueues should come down last if running from LOVE.
 
 #. With all the systems OFFLINE, you can log out of your Nubaldo instance as we will clean them up soon.
-#. While you are working on the cleanup, merge the ArgoCD branch onto master and push.
 #. Once all systems are in OFFLINE, still running CSCs/systems and OSPL daemons need to be cleaned up.
     #. Get number of currently running daemons/CSCs still in OFFLINE from main OSPL daemon:
         * *docker exec ospl-daemon grep "federations" durability.log*
@@ -50,15 +49,15 @@ If changes are necessary to these scripts from work described in the previous se
         * This uses a script in this repo: https://github.com/lsst-ts/k8s-admin.
         * Execute the following (:ref:`Summit <Deployment-Activities-Summit-Kubernetes>`, :ref:`NTS <Deployment-Activities-NTS-Kubernetes>`): *./cleanup_all -d*
             * The *-d* is important as that cleans up the OSPL daemons too.
-        * If the script fails, you can use ArgoCD to delete the **job/deployment/daemonset** associated with each application you wish to stop. Be sure to delete the job/deployment/daemonset box not the application itself. Note that auxtel and the other "app of apps" meta applications have no jobs; you have to deal with each application individually.
+        * If the script fails, you can use Argo CD to delete the **job/deployment/daemonset** associated with each application you wish to stop. Be sure to delete the job/deployment/daemonset box not the application itself. Note that auxtel and the other "app of apps" meta applications have no jobs; you have to deal with each application individually.
     #. Cleanup Nublado namespaces (:ref:`Summit <Deployment-Activities-Summit-Kubernetes>`, :ref:`NTS <Deployment-Activities-NTS-Kubernetes>`).
         * *kubectl delete ns -l argocd.argoproj.io/instance=nublado-users*
     #. Check to ensure all daemons have disconnected.
         * If the reported number is not 0, you will need to investigate further to find the source of the rogue process.
     #. Shutdown and Cleanup Main Daemon (:ref:`Summit <Deployment-Activities-Summit-Main-Daemon-Shutdown>`, :ref:`NTS <Deployment-Activities-NTS-Main-Daemon-Shutdown>`).
 #. With everything shutdown, the configurations need to be updated before deployment starts.
-    * Inform SQuaRE that they can merge the PR for the Nublado update and start the pre-puller.
-    * Rebase ArgoCD branch to single commit, create and merge PR (if this has not been done previously).
+    * Ensure SQuaRE has approved the ``cachemachine`` PR and then merge the PR.
+    * Rebase Argo CD branch to single commit, create a PR and merge PR.
     * All other configuration repositories should have the necessary commits already on branches and pushed to GitHub.
     * Update configuration repositories on bare metal machine deployments (:ref:`Summit <Deployment-Activities-Summit-Update-Configuration>`, :ref:`NTS <Deployment-Activities-NTS-Update-Configuration>`).
         * Unlike shutdown, only the T&S systems are handled here. DM and Camera are handled by the system principles.
@@ -66,6 +65,12 @@ If changes are necessary to these scripts from work described in the previous se
 #. Once all configuration in place, deployment of the new system can now begin.
     * Be patient with container pulling (goes for everything containerized here).
 
+    #. Update Nublado
+        * From the site specific Argo CD UI, find the ``cachemachine`` app.
+        * It should indicate ``OutOfSync`` (yellow) status, so click the ``Sync`` button to begin the process.
+        * Once it syncs, a new pod will start from the ``cachemachine`` **deployment**.
+        * Delete that running pod so a new one starts up.
+        * The Nublado pull will be completed when the child processes from the new pod all complete and no downstream APIs are shown in the UI.
     #. Startup Main OSPL daemon (:ref:`Summit <Deployment-Activities-Summit-Main-Daemon-Startup>`, :ref:`NTS <Deployment-Activities-NTS-Main-Daemon-Startup>`) and verify that it has started.
         * Verify that each daemon has actually started by running: *docker logs ospl-daemon* and checking for a line that says "daemon ready".
         * To monitor the number of daemons ("federations") as you bring up daemons and single-process CSCs, run the following: *docker exec ospl-daemon grep "federations" durability.log*
@@ -73,26 +78,27 @@ If changes are necessary to these scripts from work described in the previous se
         * This uses the ``sync_apps.py`` script found in https://github.com/lsst-ts/argocd-admin.
         * The script is run in the same place that Kubernetes (*kubectl*) interactions are run.
         * Log into the argocd pod by doing the following:
-            * *kubectl port-forward svc/argocd-server -n argocd 8888:443 &*
-            * *argocd login localhost:8888*
-            * Requires username/password for the appropriate site.
-        * *python sync_apps.py \-\-no-sync=love*
+            * *python argocd_login.py /path/to/auth_file*
+            * The *auth_file* must contain the appropriate site username/password on separate lines.
+        * *python sync_apps.py -p \-\-no-sync=love*
         * csc-cluster-config, ospl-config and ospl-daemon apps will be synced automatically.
         * Once the ospl-daemon app is synced, the script will pause.
-        * Check the logs on ArgoCD UI to see if daemons are ready.
+        * Check the logs on Argo CD UI to see if daemons are ready.
         * Type ``go`` and enter to move onto syncing the kafka-producers app.
         * Script will again pause once the kafka-producers are synced.
         * Check that all the logs say "Running" at the bottom. M1M3 now has an indicator saying: "Partial producers are all running".
-        * Once all the kafka-producers are verified to be running, type ``go`` and enter to move onto syncing the obssys apps.
-        * Use the ArgoCD UI to verify that the containers are pulling and running.
-        * The script will pause again here. Do not proceed further with the script, but leave it alive.
+        * Once all the kafka-producers are verified to be running, stop here but leave the script alive.
     #. Startup LOVE (:ref:`Summit <Deployment-Activities-Summit-LOVE-Startup>`, :ref:`NTS <Deployment-Activities-NTS-LOVE-Startup>`).
+    #. Continue Kubernetes Deployment
+        * Go back to where your running ``sync_apps.py`` script is and type ``go`` and enter to move onto syncing the obssys apps.
+        * Use the Argo CD UI to verify that the containers are pulling and running.
+        * The script will pause again here. Do not proceed further with the script, but leave it alive.
     #. The above now represents a minimal system that other system principles can be allowed to start their daemons/CSCs.
         * Use the site specific Slack channel (:ref:`Summit <Pre-Deployment-Activities-Summit-Slack-Announce>`, :ref:`NTS <Pre-Deployment-Activities-NTS-Slack-Announce>`) to inform the system principles.
     #. Startup Rest of Kubernetes Services.
         * Go back to where your running ``sync_apps.py`` script is and type ``go`` and enter to proceed with syncing the rest of the apps.
         * The rest of the apps will be synced automatically so no further intervention is necessary.
-        * **NOTE**: The mtrotator-sim is currently deployed on the summit. Stop the running job once the container pull completes.
+        * **NOTE**: The mtrotator-sim is currently deployed on the summit. Delete the **job** via the site specific Argo CD UI as soon as possible.
     #. Startup Services on Bare Metal Deployments (:ref:`Summit <Deployment-Activities-Summit-TandS-BM-Startup>`, :ref:`NTS <Deployment-Activities-NTS-TandS-BM-Startup>`).
 #. Once the deployment steps have been executed, the system should be monitored to see if all CSCs come up into STANDBY/OFFLINE. Daemons can also be monitored for connection using the methods listed above.
     * Use the site specific resources to help ascertain this condition.

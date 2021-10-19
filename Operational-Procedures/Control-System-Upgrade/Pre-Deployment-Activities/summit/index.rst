@@ -12,7 +12,7 @@ Use the following options:
 
 * ``docker-compose-ops``: ``summit``
 * ``argocd-csc``: ``values-summit.yaml``
-* ``LOVE-integration-tools``: ``deploy/summit``
+* ``LOVE-integration-tools``: ``deploy/summit`` (amor01) and ``deploy/summit2`` (amor02)
 
 .. _Pre-Deployment-Activities-Summit-Scheduling:
 
@@ -23,7 +23,7 @@ Please note that the summit work **MUST** be put on the Summit Jira calendar by 
 By filling in the ``Start Date`` and ``End Date`` fields, the ticket will automatically appear on the calendar.
 Set the ticket priority level to one.
 Make sure Andy Clements is aware of the ticket.
-The summit work **MUST** take place between 4 to 8 PM Chilean time on the given day to avoid bothering the day crew.
+The summit work **MUST** take place after 5 PM Chilean time on the given day to avoid bothering the day crew.
 
 .. _Pre-Deployment-Activities-Summit-Slack-Announce:
 
@@ -37,4 +37,4 @@ Slack Channel for Announcements
 RSP Configuration File
 ----------------------
 
-``science-platform/values-summit.yaml``
+``services/cachemachine/values-summit.yaml``

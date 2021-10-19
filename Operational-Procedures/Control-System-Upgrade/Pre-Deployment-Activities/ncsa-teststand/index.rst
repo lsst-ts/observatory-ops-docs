@@ -26,4 +26,4 @@ Slack Channel for Announcements
 RSP Configuration File
 ----------------------
 
-``science-platform/values-nts.yaml``
+``services/cachemachine/values-nts.yaml``

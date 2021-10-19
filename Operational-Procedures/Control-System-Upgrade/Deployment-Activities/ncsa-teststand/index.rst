@@ -9,7 +9,7 @@ Resources
 ---------
 
 * LOVE: ssh -L 8080:lsst-teststand-ts1.ncsa.illinois.edu:80 -J <username>@lsst-login01.ncsa.illinois.edu lsst-teststand-ts1.ncsa.illinois.edu
-* ArgoCD: https://lsst-argocd-nts-efd.ncsa.illinois.edu/argo-cd
+* Argo CD: https://lsst-argocd-nts-efd.ncsa.illinois.edu/argo-cd
 * Chronograf: https://lsst-chronograf-nts-efd.ncsa.illinois.edu/
 * Nublado: https://lsst-nts-k8s.ncsa.illinois.edu/
 * Kubeconfig: File a `Jira ticket <https://jira.lsstcorp.org/projects/IHS>`_ for NCSA IT for access and kubeconfig file.
@@ -53,8 +53,8 @@ Shutdown DM and Camera Services
     * *docker stop ospl-daemon*
     * *docker rm ospl-daemon*
 * Shutdown Camera OCS Bridges:
-    * ATCamera: *sudo systemctl stop ocs-bridge-atcamera.service*
-    * CCCamera: *sudo systemctl stop ocs-bridge-comcam.service*
+    * ATCamera: *sudo systemctl stop ats-ocs-bridge.service*
+    * CCCamera: *sudo systemctl stop comcam-ocs-bridge.service*
 * Shutdown Camera Daemons
     * *sudo systemctl stop opensplice.service*
     * Command is the same everywhere.
@@ -165,23 +165,23 @@ Enabled CSCs
 ------------
 
 If proceeding with integration testing, the CSCs will be brought to ENABLED state as part of that process.
-You can be using all of the startup processes to recovery the NTS from the quarterly maintenance.
+All of the startup processes maybe necessary to recovery the NTS from the quarterly maintenance.
 In this case, all of the CSCs must be returned to ENABLED state.
-The ScriptQueues can be ENABLED using the ATQueue and MTQueue views in LOVE.
-Click the cog wheel next to the Summary State display to chose Disable.
-Click the cog wheel next to the Summary State display to chose Enable.
+The following components will automatically transition to ENABLED state when launched:
+
+* Watcher
+* ScriptQueue:1
+* ScriptQueue:2
+* DSM:1
+* DSM:2
+
 For the other components, leverage the following scripts.
 Required configurations will be given for each script execution.
 
-* ``set_summary_state.py``
+.. note::
 
-  .. code:: bash
+    Both ATCamera and CCCamera must be in OFFLINE_AVAILABLE state before putting them into ENABLED state.
 
-    data:
-      -
-        - Watcher
-        - ENABLED
-        - ncsa
 * ``auxtel/enable_atcs.py``
 
   .. code:: bash
@@ -213,29 +213,22 @@ Required configurations will be given for each script execution.
 
     data:
       -
-        - DSM:1
-        - ENABLED
-      -
-        - DSM:2
-        - ENABLED
-* ``set_summary_state.py``
-
-  .. code:: bash
-
-    data:
-      -
         - Scheduler:1
         - ENABLED
       -
         - Scheduler:2
         - ENABLED
       -
-        - OCPS
+        - OCPS:1
         - ENABLED
-        - default
+        - LATISS
+      -
+        - OCPS:2
+        - ENABLED
+        - LSSTComCam
 
 .. note::
 
-  The Schedulers **MUST** be ENABLED after ATPtg and MTPtg have been ENABLED.
+  The Schedulers **MUST** be ENABLED **AFTER** ATPtg and MTPtg have been ENABLED.
   Otherwise they will go into FAULT state.
   That is why this script execution is run last.
