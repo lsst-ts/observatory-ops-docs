@@ -20,8 +20,9 @@ Daytime/Nighttime Interactions
 
 .. This section should provide a brief, top-level description of the page.
 
-.. note::
-    This is a template file that is associated with a template directory structure. This note should be deleted when the section is properly populated
+.. 
+    note::
+        This is a template file that is associated with a template directory structure. This note should be deleted when the section is properly populated
 
 This page provides descriptions of the different communications tools used for observers and daytime staff. Telescope handoff procedures, night logs, and fault reporting procedures are listed below. 
 

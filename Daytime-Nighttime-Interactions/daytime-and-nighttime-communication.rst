@@ -30,8 +30,8 @@ Observers scheduled for the night must arrange to arrive to the telescope contro
 
 These sections describe afternoon checkout and fault reporting:
 
-  * :ref:`Afternoon-checkout`
-  * :ref:`Reporting-a-fault`
+  * :ref:`daytime-and-nighttime-communication-Afternoon-checkout`
+  * :ref:`daytime-and-nighttime-communication-Reporting-a-fault`
 
 Staff that work on the summit depart for La Serena at 16:30 Monday-Friday. Mario Rivera and Patrick Ingraham currently coordinate much of the work done for AuxTel. If Mario is not available, Ian Ordenes can report if daytime work such as mirror cleaning, filter changes, structural work or janitorial work is scheduled in order to confirm telescope motion is safe during the daytime.  
 
@@ -42,8 +42,7 @@ Night Logs
 
 Details of work done during the day, such as software changes or mechanical work such as filter changes, mirror cleaning, and maintenance are published to the `Night Logs <https://confluence.lsstcorp.org/display/LSSTCOM/Night+Logs>`__ before the start of the night. Daytime staff publish the details before the end of day at the summit - 16:30 local time.
 
-More information about creating and writing night logs is found on the Night Logs page.    
-`Nighttime Logging <>`__
+More information about creating and writing night logs is found on the :ref:`Daytime-Nighttime-Interactions-nighttime-logging` page.
 
 .. _daytime-and-nighttime-communication-Afternoon-Checkout:
 
@@ -63,4 +62,13 @@ Afternoon checkouts are important procedures to ensure that the telescopes and i
 Reporting a fault
 =================
 
-The JIRA project called Observing Operations (OBS) for all night time or telescope faults is specifically to raise issues that impair data being taken on sky. In case there is a telescope or instrument issue found during the day or during :ref:`Afternoon-checkout`, the daystaff or observer must file a `fault report <https://jira.lsstcorp.org/projects/OBS/issues/OBS-4?filter=allopenissues>`__ and flag it to recive priority attention before the night begins. Observers are also encouraged to communicate directly with summit staff or Tucson support to address an issue quickly, but must file a fault report describing the issue and the recovery procedure. 
+The JIRA project called Observing Operations (OBS) for all night time or telescope faults is specifically to raise issues that impair data being taken on sky. In case there is a telescope or instrument issue found during the day or during the afternoon checkout, the daystaff or observer must file a `fault report <https://jira.lsstcorp.org/projects/OBS/issues/OBS-4?filter=allopenissues>`__ and flag it to recive priority attention before the night begins. Observers are also encouraged to communicate directly with summit staff or Tucson support to address an issue quickly, but must file a fault report describing the issue and the recovery procedure. 
+
+.. _daytime-and-nighttime-communication-Contact-Personnel:
+
+Contact Personnel
+^^^^^^^^^^^^^^^^^
+
+This procedure was last modified |today|.
+
+This procedure was written by Alysha Shugart.
