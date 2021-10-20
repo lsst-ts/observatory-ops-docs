@@ -33,14 +33,14 @@ These sections describe afternoon checkout and fault reporting:
   * :ref:`daytime-and-nighttime-communication-Afternoon-checkout`
   * :ref:`daytime-and-nighttime-communication-Reporting-a-fault`
 
-Staff that work on the summit depart for La Serena at 16:30 Monday-Friday. Mario Rivera and Patrick Ingraham currently coordinate much of the work done for AuxTel. If Mario is not available, Ian Ordenes can report if daytime work such as mirror cleaning, filter changes, structural work or janitorial work is scheduled in order to confirm telescope motion is safe during the daytime.  
+Staff that work on the summit depart for La Serena at 16:30 Monday-Friday. Mario Rivera and Patrick Ingraham currently coordinate much of the work done for AuxTel. If Mario is not available, Ian Ordenes or Claudio Araya can report if daytime work such as mirror cleaning, filter changes, structural work or janitorial work is scheduled in order to confirm telescope motion is safe during the daytime.  
 
 .. _daytime-and-nighttime-communication-Night-Logs:
 
 Night Logs
 ==========
 
-Details of work done during the day, such as software changes or mechanical work such as filter changes, mirror cleaning, and maintenance are published to the `Night Logs <https://confluence.lsstcorp.org/display/LSSTCOM/Night+Logs>`__ before the start of the night. Daytime staff publish the details before the end of day at the summit - 16:30 local time.
+Details of work done during the day, such as software changes or mechanical work such as filter changes, mirror cleaning, and maintenance are published to the `Night Logs <https://confluence.lsstcorp.org/display/LSSTCOM/Night+Logs>`__ before the start of the night. Daytime staff publish the details before the end of day at the summit - 16:30 summit time.
 
 More information about creating and writing night logs is found on the :ref:`Daytime-Nighttime-Interactions-nighttime-logging` page.
 
@@ -51,11 +51,11 @@ Afternoon Checkout
 
 Afternoon checkouts are important procedures to ensure that the telescopes and instruments are functional before the beginning of the night. The full procedures for the different afternoon or recommended daily checkouts are described on these pages:
 
-  * AuxTel daily checkout
-  * LATISS calibrations
-        * `LATISS master calibrations generation procedure <https://obs-ops.lsst.io/Operational-Procedures/Auxiliary-Telescope/LATISS-Master-Calibrations-Procedure/latiss-master-calibrations-procedure.html>`__
-  * Comcam calibrations
-        * `Comcam master bias generation procedure <https://obs-ops.lsst.io/Operational-Procedures/Main-Telescope/ComCam-Master-Calibrations-Procedure/comcam-master-calibrations-procedure.html>`__
+* AuxTel daily checkout
+* LATISS calibrations
+    * `LATISS master calibrations generation procedure <https://obs-ops.lsst.io/Operational-Procedures/Auxiliary-Telescope/LATISS-Master-Calibrations-Procedure/latiss-master-calibrations-procedure.html>`__
+* Comcam calibrations
+    * `Comcam master bias generation procedure <https://obs-ops.lsst.io/Operational-Procedures/Main-Telescope/ComCam-Master-Calibrations-Procedure/comcam-master-calibrations-procedure.html>`__
  
 .. _daytime-and-nighttime-communication-Reporting-a-fault:
 
