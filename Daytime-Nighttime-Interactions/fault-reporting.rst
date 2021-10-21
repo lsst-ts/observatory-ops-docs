@@ -25,7 +25,8 @@ Fault Reporting
 ###############
 
 .. note::
-    This is a procedure template file that is associated with a template directory structure. This note should be deleted when the section is properly populated.
+    This is a procedure template file that is associated with a template directory structure. 
+    This note should be deleted when the section is properly populated.
 
 .. _Title-of-Procedure-Overview:
 
