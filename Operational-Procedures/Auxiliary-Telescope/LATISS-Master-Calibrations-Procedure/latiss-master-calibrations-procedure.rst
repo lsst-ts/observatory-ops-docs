@@ -105,6 +105,7 @@ After loading the script, a window that contains two sections, ``SCHEMA`` (top) 
 - `exp_times_flat`: The exposure time of each flat image (sec). If a single value, then the same exposure time is used for each exposure. Default: 0
 - `detectors`: Detector IDs, e.g., ``(0,1,2,3,4,5,6,7,8)`` for all LATISS CCDs. Default: "(0,1,2,3,4,5,6,7,8)"
 - `do_verify`: Should the master calibrations be verified? (c.f., ``cp_verify``). Default:  True
+- `number_verification_tests_threshold`: Minimum number of verification tests per detector per exposure per test type that should pass to certify the master calibration. Default: 8
 - `config_options_bias`: Options to be passed to the command-line bias pipetask. They will overwrite the values in ``cpBias.yaml``. Default: "-c isr:doDefect=False -c isr:doLinearize=False -c isr:doCrosstalk=False -c isr:overscan.fitType='MEDIAN_PER_ROW'"
 - `config_options_dark`: Options to be passed to the command-line dark pipetask. They will overwrite the values in ``cpDark.yaml``. Default: "-c isr:doDefect=False -c isr:doLinearize=False -c isr:doCrosstalk=False"
 - `config_options_flat`: Options to be passed to the command-line flat pipetask. They will overwrite the values in ``cpFlat.yaml``. Default: "-c isr:doDefect=False -c isr:doLinearize=False -c isr:doCrosstalk=False -c cpFlatMeasure:doVignette=False "
@@ -133,21 +134,19 @@ An example set of configuration parameters is as follows:
 
     n_bias: 6
     n_dark: 6
-    exp_ttimes_dark: [5, 5, 5, 10, 15, 20]
+    exp_times_dark: [5, 5, 5, 10, 15, 20]
     n_flat: 14
     exp_times_flat: [0.1, 0.1, 0.35, 0.35, 0.6, 0.6, 0.8, 0.8, 1.0, 1.0, 1.35, 1.35, 1.6, 1.6]
-    detectors: (0,1,2,3,4,5,6,7,8)
-    calib_collection: LATISS/calib/u/plazas/daily.2021SEP13.test1
-    do_verify: True
-    input_collections_verify_bias: u/czw/DM-28920/calib.20210720,LATISS/calib
-    input_collections_verify_dark: u/czw/DM-28920/calib.20210720,LATISS/calib
-    input_collections_verify_flat: u/czw/DM-28920/calib.20210720,LATISS/calib
-    certify_calib_begin_date: 2021-07-15
-    certify_calib_end_date: 2021-07-16
-    script_mode": BIAS_DARK_FLAT
+    detectors: "(0)"
+    calib_collection: "LATISS/calib/u/plazas/daily.2021SEP13.test1"
+    input_collections_verify_bias: "u/czw/DM-28920/calib.20210720,LATISS/calib"
+    input_collections_verify_dark: "u/czw/DM-28920/calib.20210720,LATISS/calib"
+    input_collections_verify_flat: "u/czw/DM-28920/calib.20210720,LATISS/calib"
+    certify_calib_begin_date: "2021-07-15"
+    certify_calib_end_date: "2021-07-16"
+    script_mode: "BIAS_DARK_FLAT"
     do_defects: True
     do_ptc: True
-    repo: /repo/LATISS
 
 Launch the script
 -----------------
