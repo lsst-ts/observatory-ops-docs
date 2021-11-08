@@ -23,7 +23,9 @@ The script will have the option to:
    - flats
 - call the corresponding Rubin Science Pipelines calibration generation pipetask to produce biases, darks, flats, defects and Photon Transfer Curves (PTCs) via the OCS-Controlled Pipeline System (OCPS),
 - verify the resulting calibration (see the package `cp_verify`_ and `DMTN-101`_),
-- certify the resulting calibration with a given range of validity dates.
+- certify the resulting calibration with a given range of validity dates, if a minimum number of verification tests passed.
+
+For at least one type of test (as defined in `DMTN-101`_), if the majority of tests fail in the majority of detectors and the majority of exposures, thenthe script will terminate by raising a `RuntimeError` after calculating the verification statistics, and the calibration will not be certified. The configuration parameters `number_verification_tests_threshold_bias`, `number_verification_tests_threshold_dark`, and `number_verification_tests_threshold_flat` will be used to define thresholds to decide whether the calibration will pass verification and should be certified or not. Currently, verification is only implemented for ``BIAS``, ``DARK``, and ``FLAT`` calibration types. If the configuration parameters `do_defects` and `do_ptc` are set to ``True``, verification will be skipped for the ``DEFECTS`` and ``PTC`` calibrations and they will be automatically certified.
 
 The script currently has the option (via the `script_mode` parameter in the configuration options) to:
 
@@ -33,7 +35,7 @@ The script currently has the option (via the `script_mode` parameter in the conf
   
 These options are constrained by the fact that one calibration depends on the existence of the previous one (i.e., to build a dark, a bias is necessary, and to build a flat, a dark and a bias are necessary).
 
-If desired, defects can be constructed from darks and flats (in which case  `script_mode` must be ``BIAS_DARK_FLAT``), and a PTC per detector per amplifier constructed form the flats. Note that the PTC assumes that a sequence of flat pairs has been taken, each pair taken at the same exposure time (in order to produce a PTC, `script_mode` must be ``BIAS_DARK_FLAT`` too).
+If desired, defects can be constructed from darks and flats, and a PTC per detector per amplifier constructed from the flats. Note that the PTC assumes that a sequence of flat pairs has been taken, each pair taken at the same exposure time. In both cases, `script_mode` must be set to ``BIAS_DARK_FLAT``.
 
 For more information about calibrations production (including verification and certification), please consult the `Constructing Calibrations documentation`_.
 
@@ -102,7 +104,9 @@ After loading the script, a window that contains two sections, ``SCHEMA`` (top) 
 - `exp_times_flat`: The exposure time of each flat image (sec). If a single value, then the same exposure time is used for each exposure. Default: 0
 - `detectors`: Detector IDs, e.g., ``(0,1,2,3,4,5,6,7,8)`` for all LSSTComCam CCDs. Default: ``(0,1,2,3,4,5,6,7,8)``
 - `do_verify`: Should the master calibrations be verified? (c.f., ``cp_verify``). Default:  True
-- `number_verification_tests_threshold`: Minimum number of verification tests per detector per exposure per test type that should pass to certify the master calibration. Default: 8
+- `number_verification_tests_threshold_bias`: Minimum number of verification tests per detector per exposure per test type that should pass to certify the bias master calibration. Default: 8
+- `number_verification_tests_threshold_dark`: Minimum number of verification tests per detector per exposure per test type that should pass to certify the dark master calibration. Default: 16
+- `number_verification_tests_threshold_flat`: Minimum number of verification tests per detector per exposure per test type that should pass to certify the flat master calibration. Default: 8
 - `config_options_bias`: Options to be passed to the command-line bias pipetask. They will overwrite the values in ``cpBias.yaml``. Default: "-c isr:doDefect=False -c isr:doLinearize=False -c isr:doCrosstalk=False -c isr:overscan.fitType='MEDIAN_PER_ROW'"
 - `config_options_dark`: Options to be passed to the command-line dark pipetask. They will overwrite the values in ``cpDark.yaml``. Default: "-c isr:doDefect=False -c isr:doLinearize=False -c isr:doCrosstalk=False"
 - `config_options_flat`: Options to be passed to the command-line flat pipetask. They will overwrite the values in ``cpFlat.yaml``. Default: "-c isr:doDefect=False -c isr:doLinearize=False -c isr:doCrosstalk=False -c cpFlatMeasure:doVignette=False "
@@ -139,17 +143,19 @@ An example set of configuration parameters is as follows:
     input_collections_verify_bias: "LSSTComCam/calib/u/plazas/2021SEP16.1,LSSTComCam/calib"
     input_collections_verify_dark: "LSSTComCam/calib/u/plazas/2021SEP16.1,LSSTComCam/calib"
     input_collections_verify_flat: "LSSTComCam/calib/u/plazas/2021SEP16.1,LSSTComCam/calib"
-    certify_calib_begin_date: "2021-07-15"
-    certify_calib_end_date: "2021-07-17"
     script_mode: "BIAS_DARK_FLAT"
     do_defects: True
     do_ptc: True
 
 Launch the script
 -----------------
+
 When the configuration options have been entered and the script is ready to be launched, click on the ``ADD`` button in the lower right of the screen (refer to image above).
 
-The certified master calibrations will be available in the `calib_collection` collection. They could be retrieved from a notebook for manipulation and visualization: 
+Accessing the calibrations
+--------------------------
+
+The certified master calibrations will be available via the collection specified by the `calib_collection` parameter. They could be retrieved from a notebook for manipulation and visualization:
 
 .. code-block:: python
     
