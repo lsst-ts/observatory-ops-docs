@@ -4,9 +4,9 @@
 
 .. _Enable-OCPS-Auxiliary-Telescope-Procedure:
 
-###########################
+#########################################
 Enable OCPS Auxiliary Telescope Procedure
-###########################
+#########################################
 
 Under construction.
 
