@@ -4,9 +4,9 @@
 
 .. _Prepare-ATCS-For-Flat-Fields-Procedure:
 
-###########################
+######################################
 Prepare ATCS For Flat Fields Procedure
-###########################
+######################################
 
 Under construction.
 
