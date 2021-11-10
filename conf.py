@@ -149,4 +149,5 @@ linkcheck_ignore = [
     r"https://tucson-teststand.lsst.codes/argo-cd",
     r"https://summit-lsp.lsst.codes/argo-cd",
     r"https://rancher.cp.lsst.org/login",
+    r"https://www.adlinktech.com/en/vortex-opensplice-data-distribution-service",
 ]
