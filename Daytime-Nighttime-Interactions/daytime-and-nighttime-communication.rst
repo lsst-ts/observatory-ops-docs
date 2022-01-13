@@ -57,6 +57,7 @@ Afternoon checkouts are important procedures to ensure that the telescopes and i
 The full procedures for the different afternoon or recommended daily checkouts are described on these pages:
 
 * AuxTel daily checkout
+    * `AuxTel daily checkout procedure notebook <https://github.com/lsst-ts/ts_notebooks/blob/develop/procedures/auxtel/observation_procedures/DayTime-Checkout.ipynb>`__
 * LATISS calibrations
     * `LATISS master calibrations generation procedure <https://obs-ops.lsst.io/Operational-Procedures/Auxiliary-Telescope/LATISS-Master-Calibrations-Procedure/latiss-master-calibrations-procedure.html>`__
 * Comcam calibrations
@@ -69,7 +70,9 @@ Reporting a fault
 
 The JIRA project called Observing Operations (OBS) for all night time or telescope faults is specifically to raise issues that impair data being taken on sky. 
 In case there is a telescope or instrument issue found during the day or during the afternoon checkout, the daystaff or observer must file a `fault report <https://jira.lsstcorp.org/projects/OBS/issues/OBS-4?filter=allopenissues>`__ and flag it to recive priority attention before the night begins. 
-Observers are also encouraged to communicate directly with summit staff or Tucson support to address an issue quickly, but must file a fault report describing the issue and the recovery procedure. 
+Observers are also encouraged to communicate directly with summit staff or Tucson support to address an issue quickly, but must file a fault report describing the issue and the recovery procedure, if known.
+
+More details about filing a fault report can be found here :ref:`Daytime-Nighttime-Interactions-fault-reporting`.
 
 .. _daytime-and-nighttime-communication-Contact-Personnel:
 
@@ -78,4 +81,4 @@ Contact Personnel
 
 This procedure was last modified |today|.
 
-This procedure was written by Alysha Shugart.
+This procedure was written by *Alysha Shugart*.
