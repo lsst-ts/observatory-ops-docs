@@ -4,6 +4,10 @@
 .. Do not remove other content provided in the templates, such as a section. Instead, comment out the content and include comments to explain the situation. For example:
 	- If a section within the template is not needed, comment out the section title and label reference. Do not delete the expected section title, reference or related comments provided from the template.
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
+.. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
+.. |author| replace:: *Alysha Shugart*
+.. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
+.. |contributors| replace:: *Patrick Ingraham, Tiago Ribeiro*
 
 .. This is the label that can be used as for cross referencing this file.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -32,7 +36,7 @@ It is recommended to arrive and begin the afternoon checkout at 16:00 summit tim
 These sections describe afternoon checkout and fault reporting:
 
   * :ref:`daytime-and-nighttime-communication-Afternoon-checkout`
-  * :ref:`daytime-and-nighttime-communication-Reporting-a-fault`
+  * :ref:`daytime-and-nighttime-communication-Reporting-Faults`
 
 Staff that work on the summit depart for La Serena at 16:30 summit time Monday-Friday. 
 Mario Rivera and Patrick Ingraham currently coordinate much of the work done for AuxTel. 
@@ -56,20 +60,22 @@ Afternoon Checkout
 Afternoon checkouts are important procedures to ensure that the telescopes and instruments are functional before the beginning of the night. 
 The full procedures for the different afternoon or recommended daily checkouts are described on these pages:
 
-* AuxTel daily checkout
-* LATISS calibrations
-    * `LATISS master calibrations generation procedure <https://obs-ops.lsst.io/Operational-Procedures/Auxiliary-Telescope/LATISS-Master-Calibrations-Procedure/latiss-master-calibrations-procedure.html>`__
-* Comcam calibrations
-    * `Comcam master bias generation procedure <https://obs-ops.lsst.io/Operational-Procedures/Main-Telescope/ComCam-Master-Calibrations-Procedure/comcam-master-calibrations-procedure.html>`__
- 
-.. _daytime-and-nighttime-communication-Reporting-a-fault:
+* AuxTel Daily Checkout
+    * `AuxTel Daily Checkout Procedure Notebook <https://github.com/lsst-ts/ts_notebooks/blob/develop/procedures/auxtel/observation_procedures/DayTime-Checkout.ipynb>`__
+* LATISS Calibrations
+    * :ref:`LATISS daily checkout procedure notebook <Latiss-Master-Calibrations-Procedure>`.
+* Comcam Calibrations
+    * :ref:`Comcam master bias generation procedure <ComCam-Master-Calibrations-Procedure>`.
+.. _daytime-and-nighttime-communication-Reporting-Faults:
 
-Reporting a fault
-=================
+Reporting Faults
+================
 
 The JIRA project called Observing Operations (OBS) for all night time or telescope faults is specifically to raise issues that impair data being taken on sky. 
-In case there is a telescope or instrument issue found during the day or during the afternoon checkout, the daystaff or observer must file a `fault report <https://jira.lsstcorp.org/projects/OBS/issues/OBS-4?filter=allopenissues>`__ and flag it to recive priority attention before the night begins. 
-Observers are also encouraged to communicate directly with summit staff or Tucson support to address an issue quickly, but must file a fault report describing the issue and the recovery procedure. 
+In case there is a telescope or instrument issue found during the day or during the afternoon checkout, the daystaff or observer must file a `fault report <https://jira.lsstcorp.org/projects/OBS>`__ and flag it to recive priority attention before the night begins. 
+Observers are also encouraged to communicate directly with summit staff or Tucson support to address an issue quickly, but must file a fault report describing the issue and the recovery procedure, if known.
+
+More details about filing a fault report can be found :ref:`here <Daytime-Nighttime-Interactions-fault-reporting>`.
 
 .. _daytime-and-nighttime-communication-Contact-Personnel:
 
@@ -78,4 +84,4 @@ Contact Personnel
 
 This procedure was last modified |today|.
 
-This procedure was written by Alysha Shugart.
+This procedure was written by |author|.

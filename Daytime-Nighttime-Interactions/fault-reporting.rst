@@ -8,9 +8,9 @@
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
 
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
-.. |author| replace:: *Name-of-Primary-Author*
+.. |author| replace:: *Alysha Shugart*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *List-of-contributors*
+.. |contributors| replace:: *Patrick Ingraham, Tiago Ribeiro*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -24,120 +24,112 @@
 Fault Reporting
 ###############
 
-.. note::
-    This is a procedure template file that is associated with a template directory structure. 
-    This note should be deleted when the section is properly populated.
+Reporting telescope and observatory faults - whether they are mechanical errors, software bugs, or facilities issues - is a crucial aspect of observatory operations. 
+Understanding the observatory and its efficiency begins with robust fault reporting, documenting recovery, and knowledge-sharing. 
+This section describes the process to file a fault report for any incident that happens during nighttime operations in the Observing Operations `(OBS) <https://jira.lsstcorp.org/projects/OBS>`__ JIRA project.
 
-.. _Title-of-Procedure-Overview:
 
-Overview
-^^^^^^^^
+.. _fault-reporting-Guidelines-For-Productive-Reporting:
 
-.. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
+Guidelines For Productive Reporting
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This is a template for a procedure. It is performed by authorized and trained users.
+The most important part of fault-reporting is that the team can understand the problem well. 
+Some guidelines to keep in mind are:
 
-.. _Title-of-Procedure-Prerequisites:
+- Facts first. 
+  The author of the fault report should provide as many details as possible, including screenshots, telescope telemetry, and timestamps for future investigation.
+- If the reporter is unsure of who to assign the ticket to, leave it unassigned and alert the day time staff for further triage.
+- Ideas are welcome, but let the facts speak first.
+- Report a problem, not a person. Identifying the problem and reporting it effectively ensures that the Rubin team will move forward with a solution. 
+  Identifying a person as being "at-fault" for a problem reported in the night is not productive. 
+  Learn and grow, not blame and shame.
+ 
 
-Prerequisites
-^^^^^^^^^^^^^
+
+.. _fault-reporting-Filing-Fault-Reports:
+
+Filing Fault Reports
+^^^^^^^^^^^^^^^^^^^^
 
 .. This section should provide simple overview of prerequisites before executing the procedure; for example, state of equipment, telescope or seeing conditions or notifications prior to execution.
 .. It is preferred to include them as a bulleted or enumerated list.
 .. Do not include actions in this section. Any action by the user should be included at the beginning of the Procedure section below. For example: Do not include "Notify specified SLACK channel. Confirmation is not required." Instead, include this statement as the first step of the procedure, and include "Notification to specified SLACK channel." in the Prerequisites section.
 .. If there is a different procedure that is critical before execution, carefully consider if it should be linked within this section or as part of the Procedure section below (or both).
 
-- This is an example bullet of a prerequisite (Telescope azimuth must be at 0 degrees.)
+Upon navigating to the `(OBS) <https://jira.lsstcorp.org/projects/OBS>`__ project in JIRA, click the "create" option on the right-hand side of the top tool-bar.
 
-  - This is an example describing an exception (If the dome is closed, telescope elevation position is not important.)
+When creating a ticket, make sure to fill in the following fields:
 
-- This is another example bullet of a prerequisite (Notification to specified SLACK channel.)
-- This example refers to a required action at the beginning of the procedure (It is critical the correct status of the equipment. This will be verified during :ref:`a critical step <Title-of-Procedure-Critical-Step-1>` in the procedure.)
+.. figure:: ./_static/Fault_report_example_page_1.png
+    :name: Fault-report-example-page-1
 
-.. _Title-of-Procedure-Post-Conditions:
+    Screenshot of an example fault report. 
+- Project: The reporter should ensure that the OBS project is selected to include all things affecting nighttime operations.
 
-Post-Condition
-^^^^^^^^^^^^^^
+- Issue type: If unsure, select "problem."
+    - Problem: issue type usually refers to a hardware issue. 
+    - Bug: issue type typically refers to a software issue.
+    - Improvement:  issue type refers to suggestions for improvements to a procedure, software or else.
+    - Information: issue type refers to alerting the team of a new behavior. 
+      This does not immediately impact operations, but informs of a change noticed. 
+
+- Summary: Describe the problem in one phrase. Be as clear and succinct as possible.
+
+- Urgent: IMPORTANT. This field is crucial to allocate time to solve a problem. 
+  If the fault obstructs observing at night, data collection, or endangers equipment,
+  toggle this flag and alert the team as soon as possible. 
+
+- Time lost (hr): More details about calculating time lost due to a fault are in the :ref:`fault-reporting-Guidelines-For-Calculating-Time-Loss` section. 
+  Time loss is reported in the 0.1 decimal hour.
+
+- Components: Be as accurate as possible to select the correct component - i.e. software, hardware: M2, etc. 
+  If the component does not exist, contact |author| and they will add it to the list.
+
+- Description: Provide details and a timeline as accurately as possible to help people more efficiently search telemetry logs for diagnosis. 
+  Facts first.
+
+.. figure:: ./_static/Fault_report_example_page_2.png
+    :name: Fault-report-example-page-2
+
+    Continuing fields of an example fault report. 
+- Assignee: The reporter should leave the ticket unassgined unless they are absolutely sure of the correct person to follow-up on the fault report. 
+  The team will review the fault reports after the night is over and determine the best person or group for follow-up.
+
+- Labels: This is not a required field, but may provide more information to the components involved. 
+
+- Attachment: Upload any screenshots, images, or files to support the facts reported or to help the problem-solving effort. 
+
+.. _fault-reporting-Guidelines-For-Calculating-Time-Loss:
+
+Guidelines For Calculating Time Loss
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. This section should provide a simple overview of conditions or results after executing the procedure; for example, state of equipment or resulting data products.
 .. It is preferred to include them as a bulleted or enumerated list.
 .. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
 
-- This is an example bullet of a post-condition (Telescope azimuth is 0 degrees.)
-- This is another example of a post-condition (This procedure leaves the telescope with the E-stop activated.)
+- If the problem can be troubleshooted while taking images on sky, or proceeding with another task, that time won’t count to fault loss.
+- If the problem happens before or after 12 degree twilight, there is no need to account for fault loss.
+    - As soon as science time begins however, the clock starts ticking.
+- If the problem happens during bad weather, or no observing is taking place, there is no need to deduct for time loss.
+- It is better to overestimate than to underestimate. Sky time is very valuable - emphasize the importance to address problems in this way.
 
-.. _Title-of-Procedure-Procedure-Steps:
+.. _fault-reporting-Filling-Out-Night-Logs:
 
-Procedure Steps
-^^^^^^^^^^^^^^^
+Filling Out Night Logs
+^^^^^^^^^^^^^^^^^^^^^^
 
-.. todo::
-   Include utilization of admonishments (caution, warning, etc.)
+More details about writing night logs are provided on the :ref:`Daytime-Nighttime-Interactions-nighttime-logging` page. 
+Concerning fault reports filed during the night, it is important that the observer lists all the problems that occurred during the night 
+in the fault report section of the night log. This will provide higher visibility and allow to calculate total time lost to faults at the end of the observing night.
 
-.. This section should include the procedure. There is no strict formatting or structure required for procedures. It is left to the authors to decide which format and structure is most relevant.
-.. In the case of more complicated procedures, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked procedures to be performed in the specified order.
-.. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
+.. figure:: ./_static/Night_log_fault_reports_list.png
+    :name: Night-log-fault-reports-list
 
-This paragraph describes some general guidance for this procedure. This paragraph is optional depending on its usefulness and the complexity of the procedure.
+    List of all the fault reports that happened during the night for the night log. 
 
-In the case of a very straightforward procedure, a simple numbered list could be used, like as follows:
-
-.. warning::
-    For this example, this step is critical.
-
-.. _Title-of-Procedure-Critical-Step-1:
-
-#. This is Step 1 in a enumerated list. It happens to be very important.
-
-#. This is Step 2.
-
-#. This is step 3.
-
-#. Step 4 has two branches, but Step 5 is independent of Step 4.
-
-   a. If Condition A, do the following action in :ref:`Condition A Instructions <Title-of-Procedure-Condition-A-for-Step-4>`.
-
-   b. If Condition B, do the following action in :ref:`Condition B instructions <Title-of-Procedure-Condition-B-for-Step-4>`.
-
-   .. _Title-of-Procedure-Final-Step:
-
-#. Complete the procedure's final step.
-
-
-.. _Title-of-Procedure-Condition-A-for-Step-4:
-
-Condition A for Step 4
-----------------------
-
-This is an example of a sub-section, used when Condition A applied. Complete the steps in this section:
-
-#. Step 1 for Condition A.
-#. Return to :ref:`Step 5 <Title-of-Procedure-Final-Step>` in the section above.
-
-.. _Title-of-Procedure-Condition-B-for-Step-4:
-
-Condition B for Step 4
-----------------------
-
-This is an example of a sub-section, used when Condition B applied. Complete the steps in this section:
-
-#. Step 1 for Condition B.
-#. Return to :ref:`Step 5 <Title-of-Procedure-Final-Step>` in the section above.
-
-.. _Title-of-Procedure-Troubleshooting:
-
-Troubleshooting
-^^^^^^^^^^^^^^^
-
-.. This section should include troubleshooting information. Information in this section should be strictly related to this procedure.
-
-.. If there is no content for this section, remove the indentation on the following line instead of deleting this sub-section.
-
-     No troubleshooting information is applicable to this procedure.
-
-- This is an example bullet (If the following error is given during :ref:`Step 5 <Title-of-Procedure-Final-Step>`, resolve it using a specified action.)
-
-.. _Title-of-Procedure-Contact-Personnel:
+.. _fault-reporting-Contact-Personnel:
 
 Contact Personnel
 ^^^^^^^^^^^^^^^^^
