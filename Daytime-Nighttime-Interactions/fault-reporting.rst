@@ -77,8 +77,8 @@ When creating a ticket, make sure to fill in the following fields:
 - Summary: Describe the problem in one phrase. Be as clear and succinct as possible.
 
 - Urgent: IMPORTANT. This field is crucial to allocate time to solve a problem. 
-  If this fault obstructs observing at night, data collection, or endangers equipment,
-  toggle this flag and alert night time staff as soon as possible. 
+  If the fault obstructs observing at night, data collection, or endangers equipment,
+  toggle this flag and alert the team as soon as possible. 
 
 - Time lost (hr): More details about calculating time lost due to a fault are in the :ref:`fault-reporting-Guidelines-For-Calculating-Time-Loss` section. 
   Time loss is reported in the 0.1 decimal hour.
