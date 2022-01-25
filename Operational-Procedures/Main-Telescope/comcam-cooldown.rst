@@ -87,34 +87,7 @@ Power Up Quadbox
    a) open quadbox, vacuum, rebpower, fp GUI windows
 
 #. start power for PDUs and corresponding masters (quadbox GUI)
-#. Power up 120VAC transformers for external utilities
 
-   a) Access via ssh to dimm laptop @ dimm@139.229.136.127
-   b) telnet to PDUs, info as follows:
-
-::
-
-   PDU1 at 192.168.2.2 (apc:apc)
-   1: unassigned1
-   2: unassigned2
-   3: Laptop
-   4: unassigned4
-   5: unassigned5
-   6: KOOLANCE
-   7: Fan1 (to PDUs)
-   8: Fan2 (to REB PS)
-
-   PDU15 at 192.168.1.2 (apc:apc)
-   1: VQM
-   2: LEDLamp
-   3: QTHLamp
-   4: FilterWheel
-   5: Shutter
-   6: unassigned6
-   7: unassigned7
-   8: VIBRATIONALARM
-
-Power on KOOLANCE, Fan1, Fan2, VIBRATIONALARM
 
 .. _ComCam-Cooldown-Pump-Down:
 
