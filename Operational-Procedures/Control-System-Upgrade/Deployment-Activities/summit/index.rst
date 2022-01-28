@@ -19,7 +19,7 @@ Resources
 File a `Jira ticket <https://jira.lsstcorp.org/projects/IHS>`_ with Chilean IT for access.
 Once able to log into Rancher:
 
-#. Select the andes cluster.
+#. Select the yagan cluster.
 #. Click the Kubeconfig File button in top-right.
 #. Near bottom of dialog, click the download link.
 
@@ -40,7 +40,7 @@ Bare Metal Machines
 * LOVE: amor01.cp.lsst.org
 * LOVE2: amor02.cp.lsst.org
 * Kubernetes: Can be done from own machine, just need kubeconfig file and kubectl installed.
-    * Systems run on the andes cluster.
+    * Systems run on the yagan cluster.
     * Can also use: https://k8slens.dev/.
 * ATCamera (Tony Johnson): atsccs1.cp.lsst.org
 * CCCamera(Tony Johnson): comcam-mcm.cp.lsst.org
