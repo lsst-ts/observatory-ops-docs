@@ -19,7 +19,7 @@ Resources
 File a `Jira ticket <https://jira.lsstcorp.org/projects/IHS>`_ with Chilean IT for access.
 Once able to log into Rancher:
 
-#. Select the andes cluster.
+#. Select the yagan cluster.
 #. Click the Kubeconfig File button in top-right.
 #. Near bottom of dialog, click the download link.
 
@@ -40,7 +40,7 @@ Bare Metal Machines
 * LOVE: amor01.cp.lsst.org
 * LOVE2: amor02.cp.lsst.org
 * Kubernetes: Can be done from own machine, just need kubeconfig file and kubectl installed.
-    * Systems run on the andes cluster.
+    * Systems run on the yagan cluster.
     * Can also use: https://k8slens.dev/.
 * ATCamera (Tony Johnson): atsccs1.cp.lsst.org
 * CCCamera(Tony Johnson): comcam-mcm.cp.lsst.org
@@ -52,7 +52,6 @@ Bare Metal Machines
 * M1M3 VMS cRIO (Petr Kubánek): 139.229.178.183
 * M2 VMS cRIO (Petr Kubánek): 139.229.178.193
 * ATMCS/ATPneumatics cRIO (Tiago Ribeiro): 139.229.170.47
-* Hexapod/Rotator (Tiago Ribeiro): hexrot.cp.lsst.org
 * AT PMD (Eric Coughlin): at-keener.cp.lsst.org
 * M2 Control (Te-Wei Tsai): m2-control.cp.lsst.org
 
@@ -142,15 +141,9 @@ Handle M1M3 Dev & Test:
 * *ps wuax | grep splice*
 * *sudo kill <PID>* on any processes turned up by the previous command.
 
-Handle Hexpod/Rotator (hexrot):
-
-* Uses the ``docker-compose-admin`` scripts in ``summit/hexrot`` directory.
-    * *./shutdown_hexrot*
-    * *./shutdown_daemon*
-
 AT PMD (at-keener):
 
-* Uses ``docker-compose-ops``, so should be similar to hexrot (just doesn't have ``docker-compose-admin`` scripts).
+* Uses ``docker-compose-ops``, so should be similar to azar2 (just doesn't have ``docker-compose-admin`` scripts).
 
 M2 Control:
 
@@ -183,8 +176,8 @@ Update Configuration
 * Gather the branch for the configurations and version number for ``ts_ddsconfig``.
 * Uses the ``docker-compose-admin`` scripts in ``summit`` directory.
 * Directories to update:
-    * ``/deploy-lsstts/docker-compose-ops`` (azar1, azar2, amor01, amor02, hexrot)
-    * ``/deploy-lsstts/ts_ddsconfig`` (azar1, azar2, amor01, amor02, hexrot)
+    * ``/deploy-lsstts/docker-compose-ops`` (azar1, azar2, amor01, amor02)
+    * ``/deploy-lsstts/ts_ddsconfig`` (azar1, azar2, amor01, amor02)
     * ``/deploy-lsstts/LOVE-integration-tools`` (amor01, amor02)
     * *sudo ./update_repo <repo path> <branch or version>*
 * This will fail if the branch has local modifications. At that point you may as well just do the job manually. Here is one way to do that:
@@ -233,18 +226,6 @@ Handle azar2:
     * *./launch_daemon*
     * Ensure daemon is ready before proceeding.
     * *./launch_eas*
-
-Handle Hexapod/Rotator (hexrot):
-
-* Uses the ``docker-compose-admin`` scripts in ``summit/hexrot`` directory.
-    * *./launch_daemon*
-    * Ensure daemon is ready before proceeding
-    * If running all hardware CSCs, do:
-    * *./launch_hexrot*
-    * If running rotator and camera hexapod as hardware CSCs and the M2 hexapod as a simulator, do:
-    * *./launch_hexrot 1*
-    * *./launch_hexrot 3*
-    * *./launch_hexrot 4*
 
 .. _Deployment-Activities-Summit-Enabled-CSCs:
 
