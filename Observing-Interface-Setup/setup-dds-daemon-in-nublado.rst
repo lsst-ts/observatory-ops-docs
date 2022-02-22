@@ -41,10 +41,10 @@ Procedure Steps
 Once you are logged to nublado, open a "terminal tab".
 If you are in the :ref:`Launcher <Observing-Interface-Getting-Started-Nublado-JupyterLab>` view, click on the "Terminal" icon in the "Other" tab at the bottom.
 
-If you don't see the :ref:`Launcher <Observing-Interface-Getting-Started-Nublado-JupyterLab>` view, click on the plus sign at the top-left hand side of the view, as indicated in the :ref:`figure bellow <Setup-DDS-Daemon-in-Nublado-New-Launcher>`.
+If you don't see the :ref:`Launcher <Observing-Interface-Getting-Started-Nublado-JupyterLab>` view, click on the plus sign at the top-left hand side of the view, as indicated in the :ref:`figure below <Setup-DDS-Daemon-in-Nublado-New-Launcher>`.
 
 .. figure:: ./_static/nublado-jupyter-lab-new-launcher.png
-    :name: Observing-Interface-Getting-Started-Nublado-JupyterLab
+    :name: Setup-DDS-Daemon-in-Nublado-New-Launcher
 
     Screenshot of jupyter-lab section highlighting the "New Launcher" button.
 
@@ -103,13 +103,11 @@ Nublado User Setup
 
 .. note::
 
-	This step need to be done only once per environment.
-  Once this step is performed it will survive any restart of the nublado instance.
+	This step need to be done only once per environment. Once this step is performed it will survive any restart of the nublado instance.
 
 .. warning::
 
-	If the OpenSpliceDDS library is updated you may need to redo this step to update the library locally.
-  If in doubt contact the :ref:`appropriate personnel <Setup-DDS-Daemon-in-Nublado-Contact-Personnel>`.
+	If the OpenSpliceDDS library is updated you may need to redo this step to update the library locally. If in doubt contact the :ref:`appropriate personnel <Setup-DDS-Daemon-in-Nublado-Contact-Personnel>`.
 
 
 On the terminal used in the :ref:`previous step <Setup-DDS-Daemon-in-Nublado-Procedure-Steps-Setup-and-Start-DDS-Daemon>` open the user setup file using your preferred text editor.

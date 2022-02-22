@@ -13,10 +13,6 @@
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
 .. _Observing-Interface-Getting-Started-Nublado:
-.. Each section should includes a label for cross referencing to a given area.
-.. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
-.. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
-.. An error will alert you of identical labels during the build process.
 
 ############################
 Getting Started With Nublado
@@ -32,7 +28,7 @@ Overview
 This procedure is intended for users of the Rubin Observatory that are interested in interacting with the  Observatory Control System using Nublado.
 It contains basic procedures on how to get started with the Nublado observing tools.
 
-To get a list of the different environments see :ref:`Observing-Interface-Environments`
+To get a list of the different environments see :ref:`Observing-Interface-Operational-Environments`
 
 .. _Observing-Interface-Getting-Started-Nublado-Prerequisites:
 
@@ -44,7 +40,7 @@ Prerequisites
 .. Do not include actions in this section. Any action by the user should be included at the beginning of the Procedure section below. For example: Do not include "Notify specified SLACK channel. Confirmation is not required." Instead, include this statement as the first step of the procedure, and include "Notification to specified SLACK channel." in the Prerequisites section.
 .. If there is a different procedure that is critical before execution, carefully consider if it should be linked within this section or as part of the Procedure section below (or both).
 
-- Make sure you read and understand the :ref:`environments procedure <Observing-Interface-Environments>`.
+- Make sure you read and understand the :ref:`environments procedure <Observing-Interface-Operational-Environments>`.
 
   - Once you have identified which environment you want to interact with, you must be able to load the link to the Nublado instance to that environment.
 
@@ -68,17 +64,19 @@ Procedure Steps
 .. In the case of more complicated procedures, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked procedures to be performed in the specified order.
 .. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
 
+Request access to the *RSP access* team in the `Rubin Observatory summit GitHub organization <https://github.com/rubin-summit>`_
+
 .. important::
 
-    If you are planning on interacting with the control system in any of the observatory :ref:`environments <Observing-Interface-Environments>`, you must first announce your intention in the assigned Slack channel.
+    If you are planning on interacting with the control system in any of the observatory :ref:`environments <Observing-Interface-Operational-Environments>`, you must first announce your intention in the assigned Slack channel.
     These are shared resources and, as such, require coordination to avoid interference with other activities.
 
 .. important::
 
-    In the case of the :ref:`Summit <Observing-Interface-Environments-Summit>` it is required to have personnel present at the site prior to any activity that involves moving hardware.
+    In the case of the :ref:`Summit <Observing-Interface-Operational-Environments-Summit>` it is required to have personnel present at the site prior to any activity that involves moving hardware.
     You may also be required to issue a jira ticket in the `summit activity project <https://jira.lsstcorp.org/projects/SUMMIT>`__.
 
-Once you announced your intention to operate one of the environments in the appropriate Slack channel and, if appropriate, coordinated the activities for the :ref:`Summit <Observing-Interface-Environments-Summit>`, you are ready to open Nublado on your browser.
+Once you announced your intention to operate one of the environments in the appropriate Slack channel and, if appropriate, coordinated the activities for the :ref:`Summit <Observing-Interface-Operational-Environments-Summit>`, you are ready to open Nublado on your browser.
 
 Once you open the link on your browser, you should see the :ref:`Nublado welcome page <Observing-Interface-Getting-Started-Nublado-Welcome>`.
 To start your Nublado instance, click in the icon below "Notebook Aspect".
@@ -149,7 +147,7 @@ To clone the `ts_notebooks`_ repository do;
 
 You can than navigate to the location where the repository was cloned using the file browser on the left hand side of the screen, clicking on "notebooks" and than "ts_notebooks".
 There are useful notebooks to start with in the "examples" and "procedures" folders.
-You may also be interested in looking at the :ref:`Observing-Interface-Update-Notebook-Environment-in-Nublado` to see how you can customize your environment.
+You may also be interested in looking at the :ref:`Update-Notebook-Environment-in-Nublado` to see how you can customize your environment.
 
 .. _Observing-Interface-Getting-Started-Nublado-Troubleshooting:
 

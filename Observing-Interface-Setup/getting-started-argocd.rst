@@ -13,18 +13,10 @@
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
 .. _Observing-Interface-Getting-Started-ArgoCD:
-.. Each section should includes a label for cross referencing to a given area.
-.. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
-.. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
-.. An error will alert you of identical labels during the build process.
 
-###########################
-Getting Started With ArgoCD
-###########################
-
-.. note::
-
-	This page is still under development and not yet populated.
+############################
+Getting Started With Argo CD
+############################
 
 .. _Observing-Interface-Getting-Started-ArgoCD-Overview:
 
@@ -33,9 +25,11 @@ Overview
 
 .. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
 
-TBD
+This procedure is intended for users of the Rubin Observatory that are interested in interacting with the Observatory Control System using Argo CD.
+It contains basic procedures on how to get started with Argo CD.
+Argo CD is the system used to deploy and maintain the configuration of many control system components and summit services.
 
-To get a list of the different environments see :ref:`Observing-Interface-Environments`
+To get a list of the different environments see :ref:`Observing-Interface-Operational-Environments`
 
 .. _Observing-Interface-Getting-Started-ArgoCD-Prerequisites:
 
@@ -47,9 +41,9 @@ Prerequisites
 .. Do not include actions in this section. Any action by the user should be included at the beginning of the Procedure section below. For example: Do not include "Notify specified SLACK channel. Confirmation is not required." Instead, include this statement as the first step of the procedure, and include "Notification to specified SLACK channel." in the Prerequisites section.
 .. If there is a different procedure that is critical before execution, carefully consider if it should be linked within this section or as part of the Procedure section below (or both).
 
-- Make sure you read and understand the :ref:`environments procedure <Observing-Interface-Environments>`.
+- Make sure you read and understand the :ref:`environments procedure <Observing-Interface-Operational-Environments>`.
 
-  - Once you have identified which environment you want to interact with, you must be able to load the link to the ArgoCD instance to that environment.
+  - Once you have identified which environment you want to interact with, you must be able to load the link to the Argo  CD instance to that environment.
 
 .. _Observing-Interface-Getting-Started-ArgoCD-Post-Conditions:
 
@@ -60,7 +54,7 @@ Post-Condition
 .. It is preferred to include them as a bulleted or enumerated list.
 .. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
 
-- Successfully access ArgoCD.
+- Successfully access Argo CD.
 
 .. _Observing-Interface-Getting-Started-ArgoCD-Procedure-Steps:
 
@@ -71,7 +65,9 @@ Procedure Steps
 .. In the case of more complicated procedures, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked procedures to be performed in the specified order.
 .. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
 
-TBD
+- Request access to the `IT 1Password <https://lsstit.1password.com/home>`_ system.
+- Request access to the *ArgoCD Admin* vault.
+- Log into the site specific Argo CD instance using the credentials found in the vault.
 
 .. _Observing-Interface-Getting-Started-ArgoCD-Troubleshooting:
 
@@ -82,7 +78,7 @@ Troubleshooting
 
 .. If there is no content for this section, remove the indentation on the following line instead of deleting this sub-section.
 
-TBD
+If you are having trouble accessing an Argo CD site, please use the site specific Slack channel for further assistance.
 
 .. _Observing-Interface-Getting-Started-ArgoCD-Personnel:
 

@@ -77,40 +77,7 @@ Procedure Steps
 
 In a browser open the links below under the heading corresponding to the operational environment you want to interact with.
 
-For instance, open the nublado link in :ref:`NTS <Observing-Interface-Operational-Environments-NTS>` to interact with the observatory control system in that operational environment.
-
-.. _Observing-Interface-Operational-Environments-NTS:
-
-NCSA Test Stand (NTS)
----------------------
-
-The NTS is currently being used as a staging platform to test software deployment prior to deployment at the summit.
-Systems that control hardware at the :ref:`Summit <Observing-Interface-Operational-Environments-Summit>` run here in simulation mode.
-Once deployment is tested here, the platform is made available for general users for training, testing and developing of control algorithm and procedures.
-
-- Nublado: https://lsst-nts-k8s.ncsa.illinois.edu/
-- Chronograf: https://lsst-chronograf-nts-efd.ncsa.illinois.edu/
-- LOVE:
-
-    - Run the following line which will open a tunnel and allow viewing of the LOVE interface from your local web-browser.
-
-      .. prompt:: bash
-
-         ssh -L 8080:lsst-teststand-ts1.ncsa.illinois.edu:80 -J lsst-login03.ncsa.illinois.edu lsst-teststand-ts1.ncsa.illinois.edu
-
-    - Use your NCSA account to login when prompted.
-    - If you do not have Kerberos setup, you will be prompted for your password twice after running the command above.
-      You can follow the `ssh with Kerberos`_ instructions to setup your computer so it does not require the password entries.
-    - Once logged in, open http://localhost:8080/ on a browser.
-
-- ArgoCD: https://lsst-argocd-nts-efd.ncsa.illinois.edu/argo-cd
-  For now there is only one admin account that can perform actions on this ArgoCD instance.
-  This is going to be fixed by `DM-28465`_.
-
-- Slack: ncsa-integ-teststand
-
-.. _DM-28465: https://jira.lsstcorp.org/browse/DM-28465
-.. _ssh with Kerberos: https://developer.lsst.io/services/lsst-login.html?highlight=kerberos#ssh-with-kerberos
+For instance, open the nublado link in :ref:`TTS <Observing-Interface-Operational-Environments-TTS>` to interact with the observatory control system in that operational environment.
 
 .. _Observing-Interface-Operational-Environments-BTS:
 
@@ -118,9 +85,9 @@ Base Facility Test Stand (BTS)
 ------------------------------
 
 BTS is a simulation operational environment running at the base facility in La Serena.
-The main difference between the :ref:`NTS <Observing-Interface-Operational-Environments-NTS>` and this operational environment is that some systems will run using hardware simulators.
+The main difference between the :ref:`TTS <Observing-Interface-Operational-Environments-TTS>` and this operational environment is that some systems will run using hardware simulators.
 
-Hardware simulators are, in general, higher fidelity than those of pure software available at :ref:`NTS <Observing-Interface-Operational-Environments-NTS>`.
+Hardware simulators are, in general, higher fidelity than those of pure software available at :ref:`TTS <Observing-Interface-Operational-Environments-TTS>`.
 For that, BTS will be used mostly for higher fidelity testing, development and debugging.
 It will also be particularly useful for testing lower-level hardware interfaces.
 
@@ -128,21 +95,29 @@ It will also be particularly useful for testing lower-level hardware interfaces.
 - Chronograf: https://chronograf-base-efd.lsst.codes/
 - LOVE: N/A
 - ArgoCD: https://base-lsp.lsst.codes/argo-cd/
+- Rancher: https://rancher.ls.lsst.org/
+- Kubernetes Cluster: kueyen
 - Slack: N/A
+- Alarm Slack: N/A
 
 .. _Observing-Interface-Operational-Environments-TTS:
 
 Tucson Test Stand (TTS)
 -----------------------
 
-TTS is being assembled in Tucson and is still not available for use.
-This operational environment will be similar to that of :ref:`NTS <Observing-Interface-Operational-Environments-NTS>` and will be used mainly for development of deployment strategies.
+The TTS is currently being used as a staging platform to test a software deployment prior to deployment at the summit.
+Systems that control hardware at the :ref:`Summit <Observing-Interface-Operational-Environments-Summit>` run here in simulation mode.
+Once a deployment is tested here, the platform is made available for general users for training, testing and developing of control algorithm and procedures.
 
 - Nublado: https://tucson-teststand.lsst.codes/
 - Chronograf: https://chronograf-tucson-teststand-efd.lsst.codes/
-- LOVE: N/A
+- LOVE: http://love1.tu.lsst.org
+- LOVE (k8s): http://love.tu.lsst.org
 - ArgoCD: https://tucson-teststand.lsst.codes/argo-cd
-- Slack: N/A
+- Rancher: https://rancher.tu.lsst.org/
+- Kubernetes Cluster: pillan
+- Slack: rubinobs-tucson-teststand
+- Alarm Slack: tucson-teststand-watcher
 
 .. _Observing-Interface-Operational-Environments-Summit:
 
@@ -161,7 +136,10 @@ Systems running here will be directly controlling hardware or communicating with
 - Chronograf: https://chronograf-summit-efd.lsst.codes/
 - LOVE: http://amor01.cp.lsst.org/
 - ArgoCD: https://summit-lsp.lsst.codes/argo-cd
-- Slack: N/A
+- Rancher: https://rancher.cp.lsst.org/
+- Kubernetes Cluster: yagan
+- Slack: summit-announce
+- Alarm Slack: summit-watcher
 
 .. _Observing-Interface-Getting-Started-Troubleshooting:
 
@@ -174,7 +152,7 @@ Troubleshooting
 
 If you can not open the links to the operational environment you intend to work with, make sure you are connected to the LSST-WAP wifi network in one of the designed areas (Tucson, La Serena or Summit facilities) or that you are connected to the NOAO VPN.
 
-If problems persist, you can ask for help in the designated Slack channels or in the com-square channel.
+If problems persist, you can ask for help in the designated Slack channels or in the com-square-support channel.
 
 .. _Observing-Interface-Getting-Started-Personnel:
 

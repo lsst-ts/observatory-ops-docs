@@ -13,18 +13,10 @@
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
 .. _Observing-Interface-Getting-Started-LOVE:
-.. Each section should includes a label for cross referencing to a given area.
-.. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
-.. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
-.. An error will alert you of identical labels during the build process.
 
 #########################
 Getting Started With LOVE
 #########################
-
-.. note::
-
-	This page is still under development and not yet populated.
 
 .. _Observing-Interface-Getting-Started-LOVE-Overview:
 
@@ -33,10 +25,10 @@ Overview
 
 .. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
 
-This procedure is intended for users of the Rubin Observatory that are interested in interacting with the  Observatory Control System using the LSST Operations and Visualization Environment (LOVE).
+This procedure is intended for users of the Rubin Observatory that are interested in interacting with the Observatory Control System using the LSST Operations and Visualization Environment (LOVE).
 It contains basic procedures on how to get started with the LOVE.
 
-To get a list of the different environments see :ref:`Observing-Interface-Environments`
+To get a list of the different environments see :ref:`Observing-Interface-Operational-Environments`
 
 .. _Observing-Interface-Getting-Started-LOVE-Prerequisites:
 
@@ -48,7 +40,7 @@ Prerequisites
 .. Do not include actions in this section. Any action by the user should be included at the beginning of the Procedure section below. For example: Do not include "Notify specified SLACK channel. Confirmation is not required." Instead, include this statement as the first step of the procedure, and include "Notification to specified SLACK channel." in the Prerequisites section.
 .. If there is a different procedure that is critical before execution, carefully consider if it should be linked within this section or as part of the Procedure section below (or both).
 
-- Make sure you read and understand the :ref:`environments procedure <Observing-Interface-Environments>`.
+- Make sure you read and understand the :ref:`environments procedure <Observing-Interface-Operational-Environments>`.
 
   - Once you have identified which environment you want to interact with, you must be able to load the link to the LOVE instance to that environment.
 
@@ -72,7 +64,15 @@ Procedure Steps
 .. In the case of more complicated procedures, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked procedures to be performed in the specified order.
 .. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
 
-TBD
+- Request access to the `IT 1Password <https://lsstit.1password.com/home>`_ system.
+- Request access to the site specific vault:
+    - *Summit*
+    - *Tucson Teststand (TTS)*
+- Log into the site specific LOVE instance.
+
+.. note::
+
+  Since LOVE uses a shared login, it may not be necessary to log in when contacting the site specific URL. The credentials are necessary if the shared account is logged out.
 
 .. _Observing-Interface-Getting-Started-LOVE-Troubleshooting:
 

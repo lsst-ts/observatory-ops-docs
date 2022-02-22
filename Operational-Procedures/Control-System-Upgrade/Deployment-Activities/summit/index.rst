@@ -12,7 +12,7 @@ Resources
 * Argo CD: https://summit-lsp.lsst.codes/argo-cd
 * Chronograf: https://chronograf-summit-efd.lsst.codes/
 * Nublado: https://summit-lsp.lsst.codes/
-* Rancher: https://rancher.cp.lsst.org/login (1)
+* Rancher: https://rancher.cp.lsst.org (1)
 * Slack: #summit-announce
 
 (1) Need to get kubeconfig file from here.
