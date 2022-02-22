@@ -151,4 +151,7 @@ linkcheck_ignore = [
     r"https://rancher.cp.lsst.org/login",
     r"https://www.adlinktech.com/en/vortex-opensplice-data-distribution-service",
     r"https://developers.google.com/style",
+    r"http://love.tu.lsst.org",
+    r"http://love1.tu.lsst.org",
+    r"https://rancher.tu.lsst.org",
 ]
