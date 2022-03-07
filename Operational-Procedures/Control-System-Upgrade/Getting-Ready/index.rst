@@ -32,7 +32,7 @@ Upgrading the communication backplane via updating the OpenSplice version requir
 The DDS oversight committee (Dave Mills, Russell Owens, Tiago Ribeiro, Michael Reuter [advisory]) will make the determination if a new version of OpenSplice is ready for incorporation into a new cycle.
 This determination requires dedicated testing from the main members of committee to ensure readiness.
 Cycle builds upgrading OpenSplice have longer testing periods split into two phases.
-The first phase builds a smaller section of the control system components and deploys them for testing on the NTS.
+The first phase builds a smaller section of the control system components and deploys them for testing on the TTS.
 Work is done to ensure that this small system is operating within the normal parameters.
 The second phase happens when the full system is built as part of the standard deployment operations.
 
@@ -47,15 +47,15 @@ While below is an example, use your best judgment to set dates and make sure the
 * Close of release work : Day 1.
 * Artifact (RPMs/JARs) build on Day 2.
 * Build conda packages and deployment artifacts Day 3 to Day 5.
-* Initial deployment to NTS on Day 8 with all CSCs available on NTS by Day 11 at noon PT.
+* Initial deployment to TTS on Day 8 with all CSCs available on TTS by Day 11 at noon PT.
 * Integration testing from afternoon of Day 11 to Day 12.
 * Summit deployment on the afternoon of Day 16.
 
 From the time that the work closes to the end of deployment artifact is about one week.
 When things go well, the time can be slightly shorter, but the one week time frame allows for issues to be discovered and resolved.
-The gap between the initial NTS deployment and all CSCs available is to give the developers enough time to react to changes in the interface.
+The gap between the initial TTS deployment and all CSCs available is to give the developers enough time to react to changes in the interface.
 If possible, try to inform folks of those changes ahead of time, but this is not always possible.
-Integration testing is confined to a day and a half in order to not keep the NTS closed for general use for too long.
-The summit deployment time is always after 5 PM summit time the following Tuesday after the NTS deployment.
+Integration testing is confined to a day and a half in order to not keep the TTS closed for general use for too long.
+The summit deployment time is always after 5 PM summit time the following Wednesday after the TTS deployment.
 
 .. _vanward: https://vanward.lsst.io
