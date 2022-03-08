@@ -15,7 +15,6 @@ We identify an upgrade with a label: ``Cycle N`` where ``N`` is the next revisio
 
 When referencing deployment sites, we use the following shorthand for the various test stands:
 
-* NTS: NCSA test stand (retired as of 2022-02-11)
 * TTS: Tucson test stand
 * BTS: Base (La Serena) test stand
 
