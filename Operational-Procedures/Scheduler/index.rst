@@ -69,4 +69,6 @@ Procedures
     :titlesonly:
     :glob:
 
-    */index
+    startup/index
+    night-time-operations/index
+    troubleshooting-the-scheduling-algorithm/index
