@@ -149,7 +149,7 @@ In these cases, users can recover by simply :ref:`resuming the ScriptQueue on LO
 .. figure:: ./_static/atqueue-resume.png
     :name: fig-atqueue-resume
 
-    ATQueue view on LOVE with the ScriptQueue paused, indicating the "resume" buttom.
+    ATQueue view on LOVE with the ScriptQueue paused, indicating the "resume" button.
 
 In some cases, the a Script might fail because one or more components involved in its execution went to ``FAULT``.
 This happens, for instance, when the ATMCS goes to ``FAULT`` due to motor slippage, which also causes the ATPtg to go to ``FAULT``.
@@ -183,15 +183,22 @@ In this case, you may need to :ref:`troubleshoot the scheduling algorithm <troub
 In principle, recovering the Scheduler from a ``FAULT`` is no different from any other CSC, albeit some additional steps should be taken beforehand.
 
 * The first action to take when realizing the Scheduler is in ``FAULT``, is to pause the ScriptQueue.
+
+    .. figure:: ./_static/atqueue-pause.png
+        :name: fig-atqueue-pause
+
+        ATQueue view on LOVE indicating the "pause" button.
+
 * If there is a Script executing it is best to leave it running until completion.
 * If there are Scripts in the queue waiting to be executed, :ref:`stop them using LOVE <fig-atqueue-stop-script>`.
+
+    .. figure:: ./_static/atqueue-stop-script.png
+        :name: fig-atqueue-stop-script
+
+        A Script is shown in the queue, waiting to be executed, while the ScriptQueue is paused with the "Stop Script" button is highlighted.
+        If the button is pressed the Script will exit the queue without executing.
+
 * Finally, :ref:`resume the ScriptQueue <fig-atqueue-resume>`.
-
-.. figure:: ./_static/atqueue-stop-script.png
-    :name: fig-atqueue-stop-script
-
-    A Script is shown in the queue, waiting to be executed, while the ScriptQueue is paused with the "Stop Script" button is highlighted.
-    If the button is pressed the Script will exit the queue without executing.
 
 .. _scheduler-night-time-operation-troubleshooting-recovering-from-a-scheduler-fault-find-last-scheduler-snapshot:
 
@@ -253,3 +260,49 @@ The command above may take some time to execute, hence the large timeout.
 
 Once the snapshot is loaded by the Scheduler CSC, we are ready to resume scheduler operation.
 For that, simply follow the :ref:`scheduler-night-time-operation-starting-scheduler` procedure.
+
+.. _scheduler-night-time-operation-troubleshooting-pausing-scheduler:
+
+Pausing Scheduler
+=================
+
+In some conditions users may want to pause the Scheduler to execute some operations through nublado.
+
+There are two ways of pausing the Scheduler execution; pausing the ScriptQueue or stopping the Scheduler.
+
+.. _scheduler-night-time-operation-troubleshooting-pausing-the-scriptqueue:
+
+Pausing the ScriptQueue
+-----------------------
+
+When the ScriptQueue is paused using the :ref:`pause button on LOVE <fig-atqueue-pause>` any currently executing Script will continue until completed.
+Nevertheless, once that Script is done, any waiting Script will be left in the waiting list and won't start executing until the ScriptQueue :ref:`resumes <fig-atqueue-resume>`.
+
+In this situation the Scheduler, which is monitoring the state of the queue, will pause while the ScriptQueue is paused, and will resume automatically when the ScriptQueue resumes.
+
+If the planned interruption is short (less than 5 minutes or so), there is nothing that needs to be done to resume, besides :ref:`resuming the ScriptQueue <fig-atqueue-resume>`.
+
+If the interruption is going to take longer than that, make sure you :ref:`stop <fig-atqueue-stop-script>` the Scripts launched by the Scheduler to the ScriptQueue (that are in the waiting queue), before resuming.
+
+.. _scheduler-night-time-operation-troubleshooting-stopping-the-scheduler:
+
+Stopping the Scheduler
+----------------------
+
+If you are having issues with the *scheduling algorithm*, which may require some :ref:`troubleshooting <troubleshooting-the-scheduling-algorithm>`, you may want to stop the Scheduler in the meantime, especially if you will need to load a new snapshot afterwards.
+
+To stop the Scheduler, you can send the command ``stop`` to the CSC.
+
+From nublado:
+
+.. code:: ipython3
+
+    await remote.cmd_stop.start(timeout=30)
+
+By default, the Scheduler will stop and leave any scheduled observations in the ScriptQueue.
+It is possible to request the Scheduler to stop those Scripts as well by specifying ``abort=True``, e.g.:
+
+
+.. code:: ipython3
+
+    await remote.cmd_stop.set_start(abort=True, timeout=30)
