@@ -7,10 +7,10 @@ Scheduler Operational Procedures
 The Scheduler CSC is in charge of computing an observing queue for the observatory.
 There are two instances of the CSC running at all times, one dedicated to the Main Telescope and another to the Auxiliary Telescope, with indexes 1 and 2 respectively.
 
-Both CSCs share the exact same code-base, which means operating and throubleshooting shares several commonalities.
+Both CSCs share the exact same code-base, which means both operating and troubleshooting share several commonalities.
 
-This page focus on the operational aspects of the Scheduler CSC, in general.
-Any difference between the operation of MT and AT Scheduler will be appropriately highlighted. 
+This page focuses on the general operational aspects of the Scheduler CSC.
+Any difference between the operation of MT and AT Scheduler are appropriately highlighted. 
 
 For more details about the CSC, see the `Scheduler CSC documentation`_.
 
@@ -28,9 +28,9 @@ Overview
 
 Before diving in the operational procedures, let's have a quick overview of how the Scheduler CSC operates.
 
-The Scheduler CSC can be divided into two main domains; *observatory interaction* and the *scheduling algorithm*.
+Internally, the Scheduler CSC is subdived into two main components; an *observatory interaction* component and a *scheduling algorithm* component.
 
-The observatory interaction part of the CSC is responsible for the business logic of the component.
+The *observatory interaction* part of the CSC is responsible for the business logic of the component.
 Its main tasks are:
 
 * configuring the component with a user-provided set of parameters,
@@ -55,7 +55,8 @@ It is important for users to understand this hierarchical structure for throuble
 .. figure:: ./_static/fbs-architecture.png
     :name: fig-fbs-architecture
 
-    Feature Based Scheduler architecture diagram
+    Feature Based Scheduler architecture diagram.
+    For more information see the `Feature Based Scheduler documentation`_.
 
 For the most part, users will be monitoring what is happening at the *observatory interaction* level, occasionally glimpsing at the *scheduling algorithm* level for troubleshooting.
 

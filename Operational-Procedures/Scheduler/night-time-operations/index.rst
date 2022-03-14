@@ -4,20 +4,21 @@
 Scheduler Night-time Operation
 ##############################
 
-.. _scheduler-night-time-operation-initial-optical-alignement:
+.. _scheduler-night-time-operation-initial-optical-alignment:
 
-Initial Optical Alignement
+Initial Optical Alignment
 ==========================
 
-When the Scheduler is initialized at the beginning of the night, the first thing it will perform is an optical alignement, by running a curvature wavefront sensing script.
-This is a special configuration done on the *scheduling algorithm* side alonside the survey operation.
+When the Scheduler is initialized at the beginning of the night, the first thing it will perform is an optical alignment.
+In the case of the Auxiliary Telescope, this means running the curvature wavefront sensing script.
+This is a special setup done on the *scheduling algorithm* side alonside the survey operation.
 
-Nevertheless, because at the beginning of the night the optics may be far from the optimum position, it is recommended that a initial alignement is done before starting the Scheduler.
+Nevertheless, because at the beginning of the night the optics may be far from the optimum position, it is recommended that a initial alignment is done before starting the Scheduler.
 
 The best way to accomplish this is to execute the same SAL Script used by the Scheduler on the ScriptQueue.
 For the AT, this is ``auxtel/latiss_cwfs_align.py``.
 This SAL Script accepts as inputs an az/el position on the sky and the magnitude limit for a source finding algorithm.
-It will then, query Simbad to find a suitable target around the specified position with the specified magnitude limit and perform wavefront sensing.
+It will then query Simbad to find a suitable target around the specified position with the specified magnitude limit and perform wavefront sensing.
 An example configuration is as follows:
 
 .. code-block:: text
@@ -32,7 +33,7 @@ An example configuration is as follows:
 Starting the Scheduler
 ======================
 
-After the initial optical alignment is completed successfully. it is safe to start the Scheduler.
+After the initial optical alignment is completed successfully, it is safe to start the Scheduler.
 For that, we simply need to send the ``resume`` command to the CSC.
 This command has no parameters and can be executed directly from the ScriptQueue, using the ``run_command`` script with the following configuration:
 
@@ -52,8 +53,8 @@ or from nublado:
 
     await remote.cmd_resume.set_start(timeout=5)
 
-Once the Scheduler CSC starts, it will gather talemetry and compute a set of targets to send to the ScriptQueue.
-At this point it is important to keep and eye on the Scheduler logging output, to follow up the different steps it takes during the process.
+Once the Scheduler CSC starts, it will gather telemetry and compute a set of targets to send to the ScriptQueue.
+At this point, it is important to keep and eye on the Scheduler logging output to follow up the different steps it takes during the process.
 
 For the Auxiliary Telescope, the `AT Summary State`_ view provides a good overview of the system.
 A screen shot of this view, taken whith most of the AT components in ``STANDBY`` state is shown :ref:`below <fig-at-summary-state-view>`.
@@ -70,7 +71,9 @@ As the scripts finishes executing, the Scheduler will continue to add targets to
 
     AT Summary State view from LOVE at the summit.
     At the top the view contains the summary state of the most relevant components. 
-    At the bottom, on the right-hand side, is shown the dome and telescope position and on the left-hand side the logging from the Scheduler.
+    On the bottom right, the dome and telescope position are shown.
+    The left-hand side shows the logging output from the Scheduler.
+
 
 .. _scheduler-night-time-operation-troubleshooting:
 
