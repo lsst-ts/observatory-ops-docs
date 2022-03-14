@@ -48,7 +48,7 @@ This command has no parameters and can be executed directly from the ScriptQueue
 
 or from nublado:
 
-.. code:: ipython3
+.. code-block:: python
 
     await remote.cmd_resume.set_start(timeout=5)
 
@@ -208,7 +208,7 @@ Find Last Scheduler Snapshot
 Once those steps are taken, and **before** enabling the Scheduler, find the last *scheduling algorithm* _`snapshot` produced by the Scheduler.
 This can be done from nublado with the following command:
 
-.. code:: ipython3
+.. code-block:: python
 
     large_file_object = await remote.evt_largeFileObjectAvailable.aget(timeout=5)
 
@@ -247,7 +247,7 @@ In order to do that, we send the ``load`` command to the Scheduler, providing th
 
 From nublado one could do:
 
-.. code:: ipython3
+.. code-block:: python
 
     await remote.cmd_load.set_start(uri=large_file_object.url, timeout=60.0)
 
@@ -295,7 +295,7 @@ To stop the Scheduler, you can send the command ``stop`` to the CSC.
 
 From nublado:
 
-.. code:: ipython3
+.. code-block:: python
 
     await remote.cmd_stop.start(timeout=30)
 
@@ -303,6 +303,6 @@ By default, the Scheduler will stop and leave any scheduled observations in the 
 It is possible to request the Scheduler to stop those Scripts as well by specifying ``abort=True``, e.g.:
 
 
-.. code:: ipython3
+.. code-block:: python
 
     await remote.cmd_stop.set_start(abort=True, timeout=30)

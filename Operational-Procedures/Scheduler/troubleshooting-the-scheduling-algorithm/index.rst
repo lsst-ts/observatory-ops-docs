@@ -88,7 +88,7 @@ Once you have the ``url`` you can retrieve the snapshot directly from a notebook
 
 We will use this same notebook to analyse the data, so we start by loading all the libraries we will need.
 
-.. code:: ipython3
+.. code-block:: python
 
     import io
     import os
@@ -103,19 +103,19 @@ We will use this same notebook to analyse the data, so we start by loading all t
 
 In the cell below we use the same ``url`` found in :ref:`scheduler-night-time-operation-troubleshooting-recovering-from-a-scheduler-fault-find-last-scheduler-snapshot`, make sure to update the entire string with the appropriate value.
 
-.. code:: ipython3
+.. code-block:: python
 
     uri = "https://s3.cp.lsst.org/rubinobs-lfa-cp/Scheduler:2/Scheduler:2/2022/02/17/Scheduler:2_Scheduler:2_2022-02-18T09:26:04.347.p"
 
 Now we use ``urlretrieve`` to download the file and save it to a local file named ``scheduler_snapshot.p``.
 
-.. code:: ipython3
+.. code-block:: python
 
     dest, _ = urllib.request.urlretrieve(url=uri, filename="./scheduler_snapshot.p")
 
 Finally, we load the content of the snapshot.
 
-.. code:: ipython3
+.. code-block:: python
 
     with open(dest, "rb") as fp:
         scheduler, conditions = pickle.load(fp)
@@ -135,7 +135,7 @@ Before diving into the *scheduler* snapshot, let us take a quick glance at the *
 As mentioned above this object contains a snapshot of the telemetry stream.
 You can check what are all the attributes on this object with the following:
 
-.. code:: ipython3
+.. code-block:: python
 
     [attr for attr in dir(conditions) if not attr.startswith("__")]
 
@@ -147,7 +147,7 @@ Nevertheless, the telemetry stream also contains some healpix maps.
 Probably the most interesting one is ``slewtime``, which contains a map of the slew time constructed by the observatory model.
 We can visualize the slew time healpix map with the following:
 
-.. code:: ipython3
+.. code-block:: python
 
     hp.mollview(conditions.slewtime)
 
@@ -164,7 +164,7 @@ As mentioned in :ref:`scheduler-operational-procedures-overview` and shown in th
 
 On the ``scheduler`` snapshot that can be seen by the following:
 
-.. code:: ipython3
+.. code-block:: python
 
     scheduler.survey_lists
 

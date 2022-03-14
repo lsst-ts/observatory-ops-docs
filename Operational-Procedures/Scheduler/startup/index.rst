@@ -34,36 +34,36 @@ This information is also published by the CSC in the ``settingVersions`` event, 
 
 From a notebook one would do something like:
 
-.. code:: ipython3
+.. code-block:: python
 
     import logging
 
     from lsst.ts import salobj
 
-.. code:: ipython3
+.. code-block:: python
 
     logging.basicConfig(level=logging.DEBUG)
 
-.. code:: ipython3
+.. code-block:: python
 
     domain = salobj.Domain()
 
 Below, note the use of ``index=2``, which means AT Scheduler.
 For MT we would use ``index=1``.
 
-.. code:: ipython3
+.. code-block:: python
 
     remote = salobj.Remote(domain, "Scheduler", index=2)
 
-.. code:: ipython3
+.. code-block:: python
 
     await remote.start_task
 
-.. code:: ipython3
+.. code-block:: python
 
     setting_versions = await remote.evt_settingVersions.aget(timeout=5)
 
-.. code:: ipython3
+.. code-block:: python
 
     print(setting_versions.recommendedSettingsLabels)
 
@@ -100,7 +100,7 @@ This can be done from the using the `ATQueue`_ LOVE interface by executing the S
 
 It is also possible to do this from nublado with:
 
-.. code:: ipython3
+.. code-block:: python
 
     await remote.cmd_setLogLevel.set_start(level=logging.DEBUG, timeout=5)
 
@@ -140,7 +140,7 @@ From the `ATQueue`_, this can done using the ``set_summary_state.py`` SAL Script
 
 From nublado, one would do:
 
-.. code:: ipython3
+.. code-block:: python
 
     await salobj.set_summary_state(remote, salobj.State.STANDBY)
 
