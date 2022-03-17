@@ -23,6 +23,14 @@ For an overview of the full set of parameters see the `Scheduler CSC configurati
 Determining Configuration
 =========================
 
+.. important::
+
+    In general the run manager will agree ahead of time on a set of configuration labels that will be available during a run.
+    These labels should be written down in the run planning page (currently done on confluence).
+
+    The following procedure shows how to verify the available labels.
+
+
 For now it suffices to say that, before enabling the CSC, the user must know in advance which configuration should be used for the night.
 During commmissioning it is likely that we will have more than one suitable configurations for every single night, that prioritizes different surveys that can be selected dependending on the conditions.
 These will, in general, be in the form of a configuration label.
