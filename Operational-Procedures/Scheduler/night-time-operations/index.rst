@@ -291,7 +291,7 @@ If the interruption is going to take longer than that, make sure you :ref:`stop 
 
 Stopping the Scheduler
 ----------------------
-
+    
 If you want to switch configurations (which will required recycling the state of the CSC), load a new snapshot or are having issues with the *scheduling algorithm* (which may require some :ref:`troubleshooting <troubleshooting-the-scheduling-algorithm>`), you may want to stop the Scheduler CSC.
 
 To stop the Scheduler, you can send the command ``stop``.
@@ -333,3 +333,7 @@ It is possible to request the Scheduler to stop those Scripts as well by specify
 .. code-block:: python
 
     await remote.cmd_stop.set_start(abort=True, timeout=30)
+
+.. important::
+
+    After stopping the Scheduler, and before doing anything else with it, make sure you store the latest snapshot (preferrably in the night log), using the procedure :ref:`above <scheduler-night-time-operation-troubleshooting-recovering-from-a-scheduler-fault-find-last-scheduler-snapshot>`.
