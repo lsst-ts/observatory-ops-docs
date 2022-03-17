@@ -292,9 +292,33 @@ If the interruption is going to take longer than that, make sure you :ref:`stop 
 Stopping the Scheduler
 ----------------------
 
-If you are having issues with the *scheduling algorithm*, which may require some :ref:`troubleshooting <troubleshooting-the-scheduling-algorithm>`, you may want to stop the Scheduler in the meantime, especially if you will need to load a new snapshot afterwards.
+If you want to switch configurations (which will required recycling the state of the CSC), load a new snapshot or are having issues with the *scheduling algorithm* (which may require some :ref:`troubleshooting <troubleshooting-the-scheduling-algorithm>`), you may want to stop the Scheduler CSC.
 
-To stop the Scheduler, you can send the command ``stop`` to the CSC.
+To stop the Scheduler, you can send the command ``stop``.
+
+From the ScriptQueue, you can use the ``run_command`` script with the following configuration:
+
+.. code-block:: text
+
+    component: Scheduler:2
+    cmd: stop
+    parameters:
+        abort: true
+
+The ``abort: true`` option will make sure the Scheduler cleans up any remaining Script in the ScriptQueue.
+If you rather interrupt the Scripts yourself simply omit the ``parameters`` session, e.g.;
+
+.. code-block:: text
+
+    component: Scheduler:2
+    cmd: stop
+
+It is possible to add the Script while the Scheduler is running and, once it appears in the ScriptQueue, you can move it up the queue by pressing the Move script up buttom, as shown below.
+
+.. figure:: ./_static/atqueue-move-script-up.png
+    :name: fig-atqueue-move-script-up
+
+    ScriptQueue view highlighting the "move script up" buttom.
 
 From nublado:
 
