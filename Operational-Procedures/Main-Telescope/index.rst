@@ -36,3 +36,5 @@ Procedures are divided into multiple categories based on the affected hardware a
     Enable-ComCam-Procedure/*
     
     Enable-OCPS-ComCam-Procedure/*
+
+    Refrigeration-System-Pathfinder/*
