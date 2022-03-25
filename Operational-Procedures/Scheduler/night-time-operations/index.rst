@@ -124,7 +124,7 @@ The message also explains what the Scheduler is going to do now, which consists 
 
             Next target will be observable in {time-to-target}s...
 
-    In the message from the Scheduler, the `{time-to-target}` above is replaced by how long it will take for the next target to be available, in seconds.
+    In the message from the Scheduler, the ``{time-to-target}`` above is replaced by how long it will take for the next target to be available, in seconds.
 
     At this point, the Scheduler is going to wait for half that time and try to obtain a target again.
     This operation will continue until the Scheduler is close enough such that it can queue the target in the ScriptQueue.

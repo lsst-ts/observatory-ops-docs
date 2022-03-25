@@ -46,7 +46,7 @@ The process is as follows:
 
     .. prompt:: bash
 
-        mamba install -c lsstts -c conda-forge rubin-sim
+        mamba install -c lsstts -c conda-forge rubin-sim ipykernel
 
     The rubin-sim package contains several modules for simulating and analysing Rubin data, and includes the feature based scheduler module, we will need to inspect the snapshots.
 
