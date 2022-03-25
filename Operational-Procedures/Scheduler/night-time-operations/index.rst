@@ -96,42 +96,40 @@ In general, users can be aware of these ahead of time by simulating the observin
 
 Regardless of when this happen during the night, the user should expect the same response from the Scheduler.
 
-By looking at the log messages commming out from the Scheduler, the user will see the following debug message:
+By looking at the log messages commming out from the Scheduler, the user will see the following warning message:
 
 .. code-block:: text
 
-    No target from the scheduler. Stopping with 0.
+    Handling no targets on queue condition.
+    This consist of queuing a stop tracking script and estimating the time until the next target.
 
-As the message suggests, the Scheduler was unble to determine a suitable target for observing.
-The first time this condition occurrs, the Scheduler will take the following steps:
+As the message suggests, the Scheduler was unble to determine a suitable target for observing and is going to take actions to handle this condition.
+The message also explains what the Scheduler is going to do now, which consists of:
 
-* Send the ``stop_tracking`` Script to the ScriptQueue.
+* Sending the ``stop_tracking`` Script to the ScriptQueue.
+
   This makes sure the telescope will stop while the Scheduler continues to search for new targets.
 
 * Estimate how long it takes for the next target to be available.
 
-  * If it _`can not determine a target` in the next 2 hours, the Scheduler will go to ``FAULT`` with error code 401.
+  * If it _`can not determine a target` in the next hour, the Scheduler will go to ``FAULT`` with error code 402.
 
     .. code-block:: text
 
-            Error on advance target production loop.
+            Unable to find target in the next 1 hours.
 
-    The traceback of the error will be something like:
-
-    .. code-block:: text
-
-            Could not determine next target in alloted window
-
-  * If a target is found in the next 2 hours, the Scheduler will log the following info message:
+  * If a target is found in the next hour window, the Scheduler will log the following info message:
 
     .. code-block:: text
 
-            Could not determine next target in alloted window
+            Next target will be observable in {time-to-target}s...
 
-    Then it is going to wait for half that time and try to obtain a target again.
+    In the message from the Scheduler, the `{time-to-target}` above is replaced by how long it will take for the next target to be available, in seconds.
+
+    At this point, the Scheduler is going to wait for half that time and try to obtain a target again.
     This operation will continue until the Scheduler is close enough such that it can queue the target in the ScriptQueue.
 
-If for any reason you expect the Scheduler should be able to provide a target and is not, there might be something wrong with the telemetry stream or the *scheduling algorithm* configuration.
+If for any reason you expect the Scheduler should be able to provide a target and it is not, there might be something wrong with the telemetry stream or the *scheduling algorithm* configuration.
 To throubleshoot these conditions, see :ref:`troubleshooting-the-scheduling-algorithm`.
 
 .. _scheduler-night-time-operation-troubleshooting-recovering-from-a-script-execution-failure:
