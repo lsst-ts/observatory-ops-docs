@@ -20,6 +20,20 @@ If you are interested in the official scheduling algorithm, that is used to comp
 
 .. _Feature Based Scheduler documentation: https://rubin-sim.lsst.io
 
+.. _scheduler-operational-procedures-procedures:
+
+Procedures
+==========
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+    :glob:
+
+    startup/index
+    night-time-operations/index
+    troubleshooting-the-scheduling-algorithm/index
+
 
 .. _scheduler-operational-procedures-overview:
 
@@ -59,17 +73,3 @@ It is important for users to understand this hierarchical structure for throuble
     For more information see the `Feature Based Scheduler documentation`_.
 
 For the most part, users will be monitoring what is happening at the *observatory interaction* level, occasionally glimpsing at the *scheduling algorithm* level for troubleshooting.
-
-.. _scheduler-operational-procedures-procedures:
-
-Procedures
-==========
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-    :glob:
-
-    startup/index
-    night-time-operations/index
-    troubleshooting-the-scheduling-algorithm/index
