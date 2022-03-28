@@ -142,9 +142,9 @@ The Scripts that were queued by the Scheduler will still be waiting to execute w
 
 There are several different levels of Script failures that we may encounter during the night, they all need different levels of attention from the users on the console.
 
-In the most simple cases, a Script may fail because of a transient condition that does not require any corrective measurement.
+In the most simple case, a Script may fail because of a transient condition that does not require any corrective measurement.
 
-For instance, the ``latiss_cwfs_align`` Script, that performs curvature wavefront sensing to align the telescope optics, may fail because it could not find a suitable target for the wavefront estimation pipeline, or some other non-critical reason.
+For instance, the ``latiss_cwfs_align`` Script, which performs curvature wavefront sensing to align the telescope optics, may fail because it could not find a suitable target for the wavefront estimation pipeline, or some other non-critical reason.
 In these cases, users can recover by simply :ref:`resuming the ScriptQueue on LOVE <fig-atqueue-resume>`.
 
 .. figure:: ./_static/atqueue-resume.png
@@ -152,7 +152,7 @@ In these cases, users can recover by simply :ref:`resuming the ScriptQueue on LO
 
     ATQueue view on LOVE with the ScriptQueue paused, indicating the "resume" button.
 
-In some cases, the a Script might fail because one or more components involved in its execution went to ``FAULT``.
+In some cases, a Script might fail because one or more components involved in its execution went to ``FAULT``.
 This happens, for instance, when the ATMCS goes to ``FAULT`` due to motor slippage, which also causes the ATPtg to go to ``FAULT``.
 When recovering issues like this with the Scheduler running, it is import to recover the CSCs before resuming the ScriptQueue.
 
@@ -162,7 +162,7 @@ In this case, one would send all the CSCs that are in ``FAULT`` to ``ENABLED`` *
 
     Before resuming the ScriptQueue, make sure you corrected the condition that caused the Script to failure.
 
-One thing to keep an eye on, is if you start to experience a series of Script failures.
+One thing to keep an eye on is when the Scheduler starts to experience a series of Script failures.
 In some occasions it may happen that the parameters specified by the *scheduling algorithm* for the Scripts turn out to be invalid (like rotator out of range).
 This can happen for multiple reasons, the most common being a mis-configuratino of the *scheduling algorithm*.
 Debuging and fixing these issues will require :ref:`troubleshooting-the-scheduling-algorithm`.
@@ -175,7 +175,7 @@ Recovering From a Scheduler FAULT
 There are some known conditions that will cause the Scheduler CSC to go to ``FAULT``.
 As mentioned in :ref:`initializing-the-scheduler-csc-the-scheduler-enabled-state`, one of the most common is when the Scheduler cannot determine the observatory state (error code 500), because one or more of the CSCs required to do so have stopped publishing telemetry.
 
-Furthermore, as mentioned above, the Scheduler CSC will also transition to ``FAULT`` if it `can not determine a target`_ to observe in a 2 hours window.
+Furthermore, as mentioned above, the Scheduler CSC will also transition to ``FAULT`` if it `can not determine a target`_ to observe in a 2-hour window.
 This is a common occurence at the end of the night, when the next suitable target will be at the beginning of the following night.
 
 The Scheduler may also go to ``FAULT`` if there is an error generating the list of targets (error code 401).
@@ -197,7 +197,7 @@ In principle, recovering the Scheduler from a ``FAULT`` is no different from any
         :name: fig-atqueue-stop-script
 
         A Script is shown in the queue, waiting to be executed, while the ScriptQueue is paused with the "Stop Script" button is highlighted.
-        If the button is pressed the Script will exit the queue without executing.
+        If the button is pressed, the Script will exit the queue without executing.
 
 * Finally, :ref:`resume the ScriptQueue <fig-atqueue-resume>`.
 
@@ -290,7 +290,7 @@ If the interruption is going to take longer than that, make sure you :ref:`stop 
 Stopping the Scheduler
 ----------------------
     
-If you want to switch configurations (which will required recycling the state of the CSC), load a new snapshot or are having issues with the *scheduling algorithm* (which may require some :ref:`troubleshooting <troubleshooting-the-scheduling-algorithm>`), you may want to stop the Scheduler CSC.
+If you want to switch configurations, (which will required recycling the state of the CSC), load a new snapshot, or you are having issues with the *scheduling algorithm* (which may require some :ref:`troubleshooting <troubleshooting-the-scheduling-algorithm>`), you may want to stop the Scheduler CSC.
 
 To stop the Scheduler, you can send the command ``stop``.
 
