@@ -67,7 +67,7 @@ default_role = "py:obj"
 
 # Intersphinx
 intersphinx_mapping = {
-    'obs-controls': ('https://obs-controls.lsst.io', None)
+    "obs-controls": ("https://obs-controls.lsst.io", None)
     # 'python': ('https://docs.python.org/3/', None),
 }
 
@@ -154,4 +154,5 @@ linkcheck_ignore = [
     r"http://love.tu.lsst.org",
     r"http://love1.tu.lsst.org",
     r"https://rancher.tu.lsst.org",
+    r"https://tssw-ci.lsst.org/",
 ]
