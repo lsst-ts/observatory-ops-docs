@@ -3,3 +3,4 @@ documenteer<0.6.0
 lsst_sphinx_bootstrap_theme
 ltd-conveyor
 sphinx-prompt
+jinja2==3.0.3
