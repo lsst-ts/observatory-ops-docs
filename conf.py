@@ -148,11 +148,12 @@ linkcheck_ignore = [
     r"https://base-lsp.lsst.codes/argo-cd",
     r"https://tucson-teststand.lsst.codes/argo-cd",
     r"https://summit-lsp.lsst.codes/argo-cd",
-    r"https://rancher.cp.lsst.org/login",
+    r"https://rancher.cp.lsst.org",
     r"https://www.adlinktech.com/en/vortex-opensplice-data-distribution-service",
     r"https://developers.google.com/style",
     r"http://love.tu.lsst.org",
     r"http://love1.tu.lsst.org",
     r"https://rancher.tu.lsst.org",
+    r"https://rancher.ls.lsst.org",
     r"https://tssw-ci.lsst.org/",
 ]
