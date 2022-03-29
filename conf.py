@@ -147,4 +147,5 @@ linkcheck_ignore = [
     r"https://rancher.ls.lsst.org",
     r"https://tssw-ci.lsst.org/",
     r"^https://lsstit.1password.com",
+    r"^ls.st",  # TLS cert on ls.st is invalid and may cause issues
 ]
