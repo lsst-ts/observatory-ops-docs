@@ -1,10 +1,4 @@
-import sys
-
 import lsst_sphinx_bootstrap_theme
-
-
-# Work around Sphinx bug related to large and highly-nested source files
-sys.setrecursionlimit(2000)
 
 # -- General configuration ------------------------------------------------
 
