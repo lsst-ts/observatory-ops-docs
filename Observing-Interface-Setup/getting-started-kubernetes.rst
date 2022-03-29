@@ -85,8 +85,8 @@ Procedure Steps
 
 - Using the *kubeconfig* file requires the *kubectl* executable.
     - See the `kubectl installation <https://kubernetes.io/docs/tasks/tools/>`_ instructions for OS specific details.
-    - The `LENS <https://k8slens.dev/>`_ platform can be used in conjunction with a *kuectl* installation to access Kubernetes resources
-- The *kubeconfig* file should be copied to you home directory's *.kube* directory once *kubectl* is installed.
+    - The `LENS <https://k8slens.dev/>`_ platform can be used in conjunction with a *kubectl* installation to access Kubernetes resources
+- The *kubeconfig* file should be copied to your home directory's *.kube* directory once *kubectl* is installed.
 - How to use the *kubectl* command accessing and manipulating Kubernetes resources is out of scope for this section.
 
 .. _Observing-Interface-Getting-Started-Kubernetes-Troubleshooting:

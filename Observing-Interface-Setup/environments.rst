@@ -105,14 +105,15 @@ It will also be particularly useful for testing lower-level hardware interfaces.
 Tucson Test Stand (TTS)
 -----------------------
 
-The TTS is currently being used as a staging platform to test a software deployment prior to deployment at the summit.
+The TTS is currently being used as a staging platform to test new software versions and procedures prior to deployment at the summit.
 Systems that control hardware at the :ref:`Summit <Observing-Interface-Operational-Environments-Summit>` run here in simulation mode.
 Once a deployment is tested here, the platform is made available for general users for training, testing and developing of control algorithm and procedures.
 
 - Nublado: https://tucson-teststand.lsst.codes/
 - Chronograf: https://chronograf-tucson-teststand-efd.lsst.codes/
-- LOVE: http://love1.tu.lsst.org
-- LOVE (k8s): http://love.tu.lsst.org
+- LOVE
+   - bare metal: http://love1.tu.lsst.org
+   - kubernetes: http://love.tu.lsst.org
 - ArgoCD: https://tucson-teststand.lsst.codes/argo-cd
 - Rancher: https://rancher.tu.lsst.org/
 - Kubernetes Cluster: pillan
