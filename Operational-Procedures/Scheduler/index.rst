@@ -53,12 +53,12 @@ Its main tasks are:
 * executing the scheduling algorithm to obtain a list of targets,
 * sending the targets to the ScriptQueue.
 
-The CSC defines an API for *scheduling algorithm*, providing a highly flexible architecture allowing for a range of applications to be designed and used.
+The CSC defines an Application Programming Interface (API) for *scheduling algorithm*, providing a highly flexible architecture allowing for a range of applications to be designed and used.
 
 The official *scheduling algorithm* adopted by the project is the so-called "**Feature Based Scheduler**".
 The most relevant aspects of this application are:
 
-* scheduling routines are expressed in terms of *Features*, which are basically some kind of "information".
+* scheduling routines are expressed in terms of *Features*, which are basically some kind of "information"; weather data, telescope position, number of observations of a particular field, and any other kind of data that the underlying algorithm may use.
 * *Basis functions* computes rewards from a collection of *Features*.
 * *Surveys* linearly combine a collection of *Basis functions* to compute a final reward.
 * A collection of *Surveys* can be combined and, at any time, the survey with the highest reward value is selected to produce a target.
