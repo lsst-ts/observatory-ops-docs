@@ -76,15 +76,6 @@ rst_epilog = """
 
 """
 
-# -- Options for linkcheck builder ----------------------------------------
-
-linkcheck_retries = 2
-linkcheck_timeout = 5  # seconds
-linkcheck_ignore = [
-    r"^http://localhost",
-    r"http://amor01.cp.lsst.org/login",
-]
-
 # -- Options for HTML output ----------------------------------------------
 
 templates_path = ["_templates", lsst_sphinx_bootstrap_theme.get_html_templates_path()]
@@ -126,6 +117,11 @@ html_static_path = []
 # If true, links to the reST sources are added to the pages.
 html_show_sourcelink = False
 
+# -- Options for linkcheck builder ----------------------------------------
+
+linkcheck_retries = 2
+linkcheck_timeout = 5  # seconds
+
 linkcheck_ignore = [
     r"http://amor01.cp.lsst.org/*",
     r"http://localhost:\d+/*",
@@ -156,4 +152,5 @@ linkcheck_ignore = [
     r"https://rancher.tu.lsst.org",
     r"https://rancher.ls.lsst.org",
     r"https://tssw-ci.lsst.org/",
+    r"^https://lsstit.1password.com",
 ]
