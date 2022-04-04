@@ -116,8 +116,8 @@ Handle azar2:
 Handle AT systems (ATMCS and ATPneumatics):
 
 * *ssh admin@139.229.170.47*
-* *vim /usr/ts_ddsconfig/config/ospl-shmem.xml*
-* Line 4: replace 0 with 2 in the <Id> tag.
+* *vim setup.env*
+* Line 60: replace 0 with 2 in the **LSST_DDS_DOMAIN_ID** variable.
 * *reboot && exit*
 
 Handle M1M3 cRIO:
