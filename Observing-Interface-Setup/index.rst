@@ -24,7 +24,7 @@ Operational Interface Setup
 
 This page defines how to access and setup the interfaces for interacting with the observatory systems, notably LOVE, nublado and EFD interfaces, for both the summit and the test stands.
 
-.. The summit LOVE interface can be accessed at `<http://amor01.cp.lsst.org/login>`__.
+.. The summit LOVE interface can be accessed at `<http://love01.cp.lsst.org/login>`__.
 .. You must be logged on the LSST-WAP or into the VPN to access this site.
 
 .. toctree::

@@ -63,8 +63,8 @@ It is also highly recommended to have the `ATQueue`_ view opened at all times.
 The Scheduler will queue 2 observations ahead of time, so you should expect to have one observation executing and another 2 waiting to be executed.
 As the scripts finishes executing, the Scheduler will continue to add targets to the queue.
 
-.. _AT Summary State: http://amor01.cp.lsst.org/uif/view?id=62
-.. _ATQueue: http://amor01.cp.lsst.org/uif/view?id=41
+.. _AT Summary State: http://love01.cp.lsst.org/uif/view?id=62
+.. _ATQueue: http://love01.cp.lsst.org/uif/view?id=41
 
 .. figure:: ./_static/at-summary-state-view.png
     :name: fig-at-summary-state-view
