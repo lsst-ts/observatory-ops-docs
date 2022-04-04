@@ -118,6 +118,7 @@ linkcheck_timeout = 5  # seconds
 
 linkcheck_ignore = [
     r"http://amor01.cp.lsst.org/*",
+    r"http://love01.cp.lsst.org/*",
     r"http://localhost:\d+/*",
     r"https://base-lsp.lsst.codes/*",
     r"https://chronograf-base-efd.lsst.codes/",

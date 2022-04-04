@@ -8,7 +8,7 @@ This section contains site specific variations for the summit.
 Resources
 ---------
 
-* LOVE: http://amor01.cp.lsst.org
+* LOVE: http://love01.cp.lsst.org
 * Argo CD: https://summit-lsp.lsst.codes/argo-cd
 * Chronograf: https://chronograf-summit-efd.lsst.codes/
 * Nublado: https://summit-lsp.lsst.codes/
@@ -37,15 +37,15 @@ Bare Metal Machines
 
 * Main OSPL Daemon: azar1.cp.lsst.org
 * T&S CSCs: azar2.cp.lsst.org
-* LOVE: amor01.cp.lsst.org
-* LOVE2: amor02.cp.lsst.org
+* LOVE: love01.cp.lsst.org
+* LOVE2: love02.cp.lsst.org
 * Kubernetes: Can be done from own machine, just need kubeconfig file and kubectl installed.
     * Systems run on the yagan cluster.
     * Can also use: https://k8slens.dev/.
-* ATCamera (Tony Johnson): atsccs1.cp.lsst.org
+* ATCamera (Tony Johnson): auxtel-mcm.cp.lsst.org
 * CCCamera(Tony Johnson): comcam-mcm.cp.lsst.org
-* ATArchiver (Steve Pietrowicz): atarchiver.cp.lsst.org
-* CCArchiver (Steve Pietrowicz): comcam-arctl01.cp.lsst.org
+* ATArchiver (Steve Pietrowicz): auxtel-archiver.cp.lsst.org
+* CCArchiver (Steve Pietrowicz): comcam-archiver.cp.lsst.org
 * M1M3 Dev (Petr Kubánek): m1m3-dev.cp.lsst.org
 * M1M3 Test (Petr Kubánek): m1m3-test.cp.lsst.org
 * M1M3 Support cRIO (Petr Kubánek): 139.229.178.182
@@ -90,15 +90,15 @@ Shutdown DM and Camera Services
 Shutdown LOVE
 -------------
 
-This needs to be done from amor01.
+This needs to be done from love01.
 
-* Uses the ``docker-compose-admin`` scripts in ``summit/amor01`` directory.
+* Uses the ``docker-compose-admin`` scripts in ``summit/love01`` directory.
     * *./shutdown_love*
     * *./shutdown_daemon*
 
-If LOVE2 is operating, go to amor02.
+If LOVE2 is operating, go to love02.
 
-* Uses the ``docker-compose-admin`` scripts in ``summit/amor02`` directory.
+* Uses the ``docker-compose-admin`` scripts in ``summit/love02`` directory.
     * *./shutdown_love*
     * *./shutdown_daemon*
 
@@ -176,9 +176,9 @@ Update Configuration
 * Gather the branch for the configurations and version number for ``ts_ddsconfig``.
 * Uses the ``docker-compose-admin`` scripts in ``summit`` directory.
 * Directories to update:
-    * ``/deploy-lsstts/docker-compose-ops`` (azar1, azar2, amor01, amor02)
-    * ``/deploy-lsstts/ts_ddsconfig`` (azar1, azar2, amor01, amor02)
-    * ``/deploy-lsstts/LOVE-integration-tools`` (amor01, amor02)
+    * ``/deploy-lsstts/docker-compose-ops`` (azar1, azar2, love01, love02)
+    * ``/deploy-lsstts/ts_ddsconfig`` (azar1, azar2, love01, love02)
+    * ``/deploy-lsstts/LOVE-integration-tools`` (love01, love02)
     * *sudo ./update_repo <repo path> <branch or version>*
 * This will fail if the branch has local modifications. At that point you may as well just do the job manually. Here is one way to do that:
     * *cd /deploy-lsstts/<problem directory>*
@@ -201,16 +201,16 @@ This needs to be done from azar1.
 Startup LOVE
 -------------
 
-This needs to be done from amor01.
+This needs to be done from love01.
 
-* Uses the ``docker-compose-admin`` scripts in ``summit/amor01`` directory.
+* Uses the ``docker-compose-admin`` scripts in ``summit/love01`` directory.
     * *./launch_daemon*
     * Ensure daemon is ready before proceeding.
     * *./launch_love*
 
-If LOVE2 is operating, go to amor02.
+If LOVE2 is operating, go to love02.
 
-* Uses the ``docker-compose-admin`` scripts in ``summit/amor02`` directory.
+* Uses the ``docker-compose-admin`` scripts in ``summit/love02`` directory.
     * *./launch_daemon*
     * Ensure daemon is ready before proceeding.
     * *./launch_love*
