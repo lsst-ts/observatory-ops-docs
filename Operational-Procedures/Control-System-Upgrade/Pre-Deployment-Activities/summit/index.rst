@@ -12,7 +12,7 @@ Use the following options:
 
 * ``docker-compose-ops``: ``summit``
 * ``argocd-csc``: ``values-summit.yaml``
-* ``LOVE-integration-tools``: ``deploy/summit`` (amor01) and ``deploy/summit2`` (amor02)
+* ``LOVE-integration-tools``: ``deploy/summit`` (love01) and ``deploy/summit2`` (love02)
 
 .. _Pre-Deployment-Activities-Summit-Scheduling:
 

@@ -8,9 +8,9 @@ Most of the startup operations described here are done through LOVE, using the `
 We concetrate on the Auxiliary Telescope Scheduler for now because, at the time of this writting, it is the focus of operations.
 Nevertheless, as pointed out in :ref:`scheduler-operational-procedures`, the processes are similar for both schedulers.
 
-.. _ATQueue: http://amor01.cp.lsst.org/uif/view?id=41
-.. _ASummary State: http://amor01.cp.lsst.org/uif/view?id=51
-.. _AT Summary State: http://amor01.cp.lsst.org/uif/view?id=62
+.. _ATQueue: http://love01.cp.lsst.org/uif/view?id=41
+.. _ASummary State: http://love01.cp.lsst.org/uif/view?id=51
+.. _AT Summary State: http://love01.cp.lsst.org/uif/view?id=62
 
 As with other CSCs, the Scheduler is configured when transitioning from ``STANDBY`` to ``DISABLED``.
 In addition to configuring the *scheduling algorithm*, the CSC also configures a number of ancillary modules and operation modes.
