@@ -1,0 +1,14 @@
+This README includes information on contributing to this directory.
+
+The Simulation Environments directory is separated into two independent sub-directories:
+  - Tucson Test Stand
+  - Base Test Stand
+
+Content common to both should be help on the parent page(s).
+
+Contributing:
+ - Refer to the respective README and /_static/README for contributing in each location.
+ - Operational-Procedures/_static/ can be used for shared static objects between these two locations.
+
+See https://obs-ops.lsst.io/project/contributing.html for details on contributing to the documents.
+
