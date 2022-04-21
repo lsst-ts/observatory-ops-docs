@@ -22,7 +22,7 @@ The script will have the option to:
    - darks
    - flats
 - call the corresponding Rubin Science Pipelines calibration generation pipetask to produce biases, darks, flats, defects and Photon Transfer Curves (PTCs) via the OCS-Controlled Pipeline System (OCPS),
-- verify the images taken using as reference the calibration generated in the previous step (see the package `cp_verify`_ and `DMTN-101`_), or using pre-existing calibrations (via the `generate_calibrations` boolean parameter in the configuration file), and
+- verify the images taken using as reference the calibration generated in the previous step (see the package `cp_verify`_ and `DMTN-101`_), or using pre-existing calibrations (via the ``generate_calibrations`` boolean parameter in the configuration file), and
 - certify the resulting calibration with a given range of validity dates.
 
 For at least one type of test (as defined in `DMTN-101`_), if the majority of tests fail in the majority of detectors and the majority of exposures, then the script will terminate by raising a **RuntimeError** after calculating the verification statistics, and the calibration will not be certified. The configuration parameters **number_verification_tests_threshold_bias**, **number_verification_tests_threshold_dark**, and **number_verification_tests_threshold_flat** will be used to define thresholds to decide whether the calibration will pass verification and should be certified or not. Currently, verification is only implemented for ``BIAS``, ``DARK``, and ``FLAT`` calibration types. If the configuration parameters **do_defects** and **do_ptc** are set to ``True``, verification will be skipped for the ``DEFECTS`` and ``PTC`` calibrations and they will be automatically certified.
@@ -79,7 +79,7 @@ Once you are logged into LOVE, click on the ``ATQueue`` panel, as circled on the
 .. figure:: ./_static/love-mtqueue-atqueue-panel.png
     :name: ATQueue-love
 
-     Screenshot of LOVE interface with the "ATQueue" pannel.
+    Screenshot of LOVE interface with the "ATQueue" pannel.
 
 
 Load the Script
@@ -88,9 +88,9 @@ Load the Script
 After clicking on the ``ATQueue`` panel, search for the script ``auxtel/make_latiss_calibrations.py`` under ``AVAILABLE SCRIPTS`` on the left, as shown in the figure below:
 
 .. figure:: ./_static/love-available-scripts.png
-    :name: available-scripts-love
+    :name: latiss-available-scripts-love
 
-      Screenshot of LOVE interface with the "AVAILABEL SCRIPTS" list.
+    Screenshot of LOVE interface with the "AVAILABEL SCRIPTS" list.
       
 Load the script by clicking on the button in front of the name of the script that has a triangle.
 
@@ -101,35 +101,35 @@ After loading the script, a window that contains two sections, ``SCHEMA`` (top) 
 
 - **script_mode**: Currently, the script can be run  in three modes, in which  it  will  produce only biases (``BIAS``), biases and darks (``BIAS_DARK``), or biases, darks,
   and flats (``BIAS_DARK_FLAT``). Default: ``BIAS_DARK_FLAT``
-- `n_bias`: number of bias frames to be taken. Default: 1 
-- `n_dark`: number of dark frames to be taken. Default: 1
-- `exp_times_dark`: The exposure time of each dark image (sec). If a single value, then the same exposure time is used for each exposure. Default: 0
-- `n_flat`: number of flat frames to be taken. Default: 1
-- `exp_times_flat`: The exposure time of each flat image (sec). If a single value, then the same exposure time is used for each exposure. Default: 0
-- `detectors`: Detector IDs, e.g., ``(0,1,2,3,4,5,6,7,8)`` for all LATISS CCDs. Default: "(0,1,2,3,4,5,6,7,8)"
-- `do_verify`: Should the master calibrations be verified? (c.f., ``cp_verify``). Default:  True
-- `generate_calibrations`: Should the master calibrations be generated from the images taken and use them as reference for image verification? If `False` and and `do_verify = True`, pre-existing calibrations will be used as reference for verification, and they should be provided in the input collections for the verification pipetasks. Default: False
-- `config_options_bias`: Options to be passed to the command-line bias pipetask. They will overwrite the values in ``cpBias.yaml``. Default: "-c isr:doDefect=False -c isr:doLinearize=False -c isr:doCrosstalk=False -c isr:overscan.fitType='MEDIAN_PER_ROW'"
-- `config_options_dark`: Options to be passed to the command-line dark pipetask. They will overwrite the values in ``cpDark.yaml``. Default: "-c isr:doDefect=False -c isr:doLinearize=False -c isr:doCrosstalk=False"
-- `config_options_flat`: Options to be passed to the command-line flat pipetask. They will overwrite the values in ``cpFlat.yaml``. Default: "-c isr:doDefect=False -c isr:doLinearize=False -c isr:doCrosstalk=False -c cpFlatMeasure:doVignette=False "
-- `do_defects`: Should defects be built using darks and flats?. `script_mode` must be ``BIAS_DARK_FLAT``.Default: False
-- `config_options_defects`: Options to be passed to the command-line defects pipetask. They will overwrite the values in ``findDefects.yaml``. Default: "-c isr:doDefect=False "
-- `do_ptc`: Should a Photon Transfer Curve be constructed from the flats taken? ``script_mode`` must be ``BIAS_DARK_FLAT``. Default: False
-- `config_options_ptc`: Options to be passed to the command-line PTC pipetask. They will overwrite the values in ``measurePhotonTransferCurve.yaml``. Default: "-c ptcSolve:ptcFitType=EXPAPPROXIMATION -c isr:doCrosstalk=False "
-- `input_collections_bias`: List of additional (the ``OCPS`` already adds ``LATISS/raw/all`` as a default) comma-separated input collections for the bias pipetask. The pipetask is called via the ``OCPS`` after enabling it with the ``LATISS`` configuration. Default: "LATISS/calib".
-- `input_collections_verify_bias`: Additional comma-separated input collections to pass to the verify (bias) pipetask. Default: "LATISS/calib".
-- `input_collections_dark`: Additional comma-separarted input collections to pass to the dark pipetask. Default: "LATISS/calib"
-- `input_collections_verify_dark`: Additional comma-separated input collections to pass to the verify (dark) pipetask. Default: "LATISS/calib"
-- `input_collections_flat`: Additional comma-separated input collections to pass to the flat pipetask. Default: "LATISS/calib"
-- `input_collections_verify_flat`: Additional comma-separated input collections to pass to the verify (flat) pipetask. Default: "LATISS/calib"
-- `input_collections_defects`: Additional comma-separated input collections to pass to the defects pipetask. Default: "LATISS/calib"
-- `input_collections_ptc`: Additional comma-separated input collections to pass to the Photon Transfer Curve pipetask. Default: "LATISS/calib"
-- `calib_collection`: ``CALIBRATION`` collection where the calibrations will be certified into, for example, ``LATISS/calib/u/plazas/YYYYMMMDD.test``. Default: "LATISS/calib/daily".
-- `repo`: Butler repository. Default: ``/repo/LATISS``.
-- `n_processes`: Number of processes that the pipetasks will use. Default: 8
-- `certify_calib_begin_date`: The beginning date for the validity range of the certified calibration. For example, ``2021-07-15``. Default: "1950-01-01"
-- `certify_calib_end_date`: The end date for the validity range of the certified calibration. For example, ``2021-07-16``. Default: "2050-01-01"
-- `oods_timeout`: Timeout value, in seconds, for the Observatory Operations Data Service (``OODS``). Default: 120
+- ``n_bias``: number of bias frames to be taken. Default: 1 
+- ``n_dark``: number of dark frames to be taken. Default: 1
+- ``exp_times_dark``: The exposure time of each dark image (sec). If a single value, then the same exposure time is used for each exposure. Default: 0
+- ``n_flat``: number of flat frames to be taken. Default: 1
+- ``exp_times_flat``: The exposure time of each flat image (sec). If a single value, then the same exposure time is used for each exposure. Default: 0
+- ``detectors``: Detector IDs, e.g., ``(0,1,2,3,4,5,6,7,8)`` for all LATISS CCDs. Default: "(0,1,2,3,4,5,6,7,8)"
+- ``do_verify``: Should the master calibrations be verified? (c.f., ``cp_verify``). Default:  True
+- ``generate_calibrations``: Should the master calibrations be generated from the images taken and use them as reference for image verification? If ``False`` and and ``do_verify = True``, pre-existing calibrations will be used as reference for verification, and they should be provided in the input collections for the verification pipetasks. Default: False
+- ``config_options_bias``: Options to be passed to the command-line bias pipetask. They will overwrite the values in ``cpBias.yaml``. Default: "-c isr:doDefect=False -c isr:doLinearize=False -c isr:doCrosstalk=False -c isr:overscan.fitType='MEDIAN_PER_ROW'"
+- ``config_options_dark``: Options to be passed to the command-line dark pipetask. They will overwrite the values in ``cpDark.yaml``. Default: "-c isr:doDefect=False -c isr:doLinearize=False -c isr:doCrosstalk=False"
+- ``config_options_flat``: Options to be passed to the command-line flat pipetask. They will overwrite the values in ``cpFlat.yaml``. Default: "-c isr:doDefect=False -c isr:doLinearize=False -c isr:doCrosstalk=False -c cpFlatMeasure:doVignette=False "
+- ``do_defects``: Should defects be built using darks and flats?. ``script_mode`` must be ``BIAS_DARK_FLAT``.Default: False
+- ``config_options_defects``: Options to be passed to the command-line defects pipetask. They will overwrite the values in ``findDefects.yaml``. Default: "-c isr:doDefect=False "
+- ``do_ptc``: Should a Photon Transfer Curve be constructed from the flats taken? ``script_mode`` must be ``BIAS_DARK_FLAT``. Default: False
+- ``config_options_ptc``: Options to be passed to the command-line PTC pipetask. They will overwrite the values in ``measurePhotonTransferCurve.yaml``. Default: "-c ptcSolve:ptcFitType=EXPAPPROXIMATION -c isr:doCrosstalk=False "
+- ``input_collections_bias``: List of additional (the ``OCPS`` already adds ``LATISS/raw/all`` as a default) comma-separated input collections for the bias pipetask. The pipetask is called via the ``OCPS`` after enabling it with the ``LATISS`` configuration. Default: "LATISS/calib".
+- ``input_collections_verify_bias``: Additional comma-separated input collections to pass to the verify (bias) pipetask. Default: "LATISS/calib".
+- ``input_collections_dark``: Additional comma-separarted input collections to pass to the dark pipetask. Default: "LATISS/calib"
+- ``input_collections_verify_dark``: Additional comma-separated input collections to pass to the verify (dark) pipetask. Default: "LATISS/calib"
+- ``input_collections_flat``: Additional comma-separated input collections to pass to the flat pipetask. Default: "LATISS/calib"
+- ``input_collections_verify_flat``: Additional comma-separated input collections to pass to the verify (flat) pipetask. Default: "LATISS/calib"
+- ``input_collections_defects``: Additional comma-separated input collections to pass to the defects pipetask. Default: "LATISS/calib"
+- ``input_collections_ptc``: Additional comma-separated input collections to pass to the Photon Transfer Curve pipetask. Default: "LATISS/calib"
+- ``calib_collection``: ``CALIBRATION`` collection where the calibrations will be certified into, for example, ``LATISS/calib/u/plazas/YYYYMMMDD.test``. Default: "LATISS/calib/daily".
+- ``repo``: Butler repository. Default: ``/repo/LATISS``.
+- ``n_processes``: Number of processes that the pipetasks will use. Default: 8
+- ``certify_calib_begin_date``: The beginning date for the validity range of the certified calibration. For example, ``2021-07-15``. Default: "1950-01-01"
+- ``certify_calib_end_date``: The end date for the validity range of the certified calibration. For example, ``2021-07-16``. Default: "2050-01-01"
+- ``oods_timeout``: Timeout value, in seconds, for the Observatory Operations Data Service (``OODS``). Default: 120
 
 An example set of configuration parameters is as follows:
 

@@ -14,7 +14,7 @@
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _Templates-Title-of-Procedure:
+.. _observing-run-planning:
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
@@ -27,7 +27,7 @@ Observing Run Planning
 .. note::
     This is a procedure template file that is associated with a template directory structure. This note should be deleted when the section is properly populated.
 
-.. _Title-of-Procedure-Overview:
+.. _observing-run-planning-Overview:
 
 Overview
 ^^^^^^^^
@@ -36,7 +36,7 @@ Overview
 
 This is a template for a procedure. It is performed by authorized and trained users.
 
-.. _Title-of-Procedure-Prerequisites:
+.. _observing-run-planning-Prerequisites:
 
 Prerequisites
 ^^^^^^^^^^^^^
@@ -51,9 +51,9 @@ Prerequisites
   - This is an example describing an exception (If the dome is closed, telescope elevation position is not important.)
 
 - This is another example bullet of a prerequisite (Notification to specified SLACK channel.)
-- This example refers to a required action at the beginning of the procedure (It is critical the correct status of the equipment. This will be verified during :ref:`a critical step <Title-of-Procedure-Critical-Step-1>` in the procedure.)
+- This example refers to a required action at the beginning of the procedure (It is critical the correct status of the equipment. This will be verified during :ref:`a critical step <observing-run-planning-Critical-Step-1>` in the procedure.)
 
-.. _Title-of-Procedure-Post-Conditions:
+.. _observing-run-planning-Post-Conditions:
 
 Post-Condition
 ^^^^^^^^^^^^^^
@@ -65,7 +65,7 @@ Post-Condition
 - This is an example bullet of a post-condition (Telescope azimuth is 0 degrees.)
 - This is another example of a post-condition (This procedure leaves the telescope with the E-stop activated.)
 
-.. _Title-of-Procedure-Procedure-Steps:
+.. _observing-run-planning-Procedure-Steps:
 
 Procedure Steps
 ^^^^^^^^^^^^^^^
@@ -84,7 +84,7 @@ In the case of a very straightforward procedure, a simple numbered list could be
 .. warning::
     For this example, this step is critical.
 
-.. _Title-of-Procedure-Critical-Step-1:
+.. _observing-run-planning-Critical-Step-1:
 
 #. This is Step 1 in a enumerated list. It happens to be very important.
 
@@ -94,16 +94,16 @@ In the case of a very straightforward procedure, a simple numbered list could be
 
 #. Step 4 has two branches, but Step 5 is independent of Step 4.
 
-   a. If Condition A, do the following action in :ref:`Condition A Instructions <Title-of-Procedure-Condition-A-for-Step-4>`.
+   a. If Condition A, do the following action in :ref:`Condition A Instructions <observing-run-planning-Condition-A-for-Step-4>`.
 
-   b. If Condition B, do the following action in :ref:`Condition B instructions <Title-of-Procedure-Condition-B-for-Step-4>`.
+   b. If Condition B, do the following action in :ref:`Condition B instructions <observing-run-planning-Condition-B-for-Step-4>`.
 
-   .. _Title-of-Procedure-Final-Step:
+   .. _observing-run-planning-Final-Step:
 
 #. Complete the procedure's final step.
 
 
-.. _Title-of-Procedure-Condition-A-for-Step-4:
+.. _observing-run-planning-Condition-A-for-Step-4:
 
 Condition A for Step 4
 ----------------------
@@ -111,9 +111,9 @@ Condition A for Step 4
 This is an example of a sub-section, used when Condition A applied. Complete the steps in this section:
 
 #. Step 1 for Condition A.
-#. Return to :ref:`Step 5 <Title-of-Procedure-Final-Step>` in the section above.
+#. Return to :ref:`Step 5 <observing-run-planning-Final-Step>` in the section above.
 
-.. _Title-of-Procedure-Condition-B-for-Step-4:
+.. _observing-run-planning-Condition-B-for-Step-4:
 
 Condition B for Step 4
 ----------------------
@@ -121,9 +121,9 @@ Condition B for Step 4
 This is an example of a sub-section, used when Condition B applied. Complete the steps in this section:
 
 #. Step 1 for Condition B.
-#. Return to :ref:`Step 5 <Title-of-Procedure-Final-Step>` in the section above.
+#. Return to :ref:`Step 5 <observing-run-planning-Final-Step>` in the section above.
 
-.. _Title-of-Procedure-Troubleshooting:
+.. _observing-run-planning-Troubleshooting:
 
 Troubleshooting
 ^^^^^^^^^^^^^^^
@@ -134,9 +134,9 @@ Troubleshooting
 
      No troubleshooting information is applicable to this procedure.
 
-- This is an example bullet (If the following error is given during :ref:`Step 5 <Title-of-Procedure-Final-Step>`, resolve it using a specified action.)
+- This is an example bullet (If the following error is given during :ref:`Step 5 <observing-run-planning-Final-Step>`, resolve it using a specified action.)
 
-.. _Title-of-Procedure-Contact-Personnel:
+.. _observing-run-planning-Contact-Personnel:
 
 Contact Personnel
 ^^^^^^^^^^^^^^^^^

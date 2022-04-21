@@ -14,7 +14,7 @@
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _Templates-Title-of-Procedure:
+.. _Daytime-Nighttime-Interactions-fault-reporting:
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
@@ -64,7 +64,8 @@ When creating a ticket, make sure to fill in the following fields:
 .. figure:: ./_static/Fault_report_example_page_1.png
     :name: Fault-report-example-page-1
 
-    Screenshot of an example fault report. 
+    Screenshot of an example fault report.
+
 - Project: The reporter should ensure that the OBS project is selected to include all things affecting nighttime operations.
 
 - Issue type: If unsure, select "problem."
@@ -92,7 +93,8 @@ When creating a ticket, make sure to fill in the following fields:
 .. figure:: ./_static/Fault_report_example_page_2.png
     :name: Fault-report-example-page-2
 
-    Continuing fields of an example fault report. 
+    Continuing fields of an example fault report.
+
 - Assignee: The reporter should leave the ticket unassgined unless they are absolutely sure of the correct person to follow-up on the fault report. 
   The team will review the fault reports after the night is over and determine the best person or group for follow-up.
 
