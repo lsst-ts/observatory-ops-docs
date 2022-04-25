@@ -81,13 +81,13 @@ or from chronograf with the following query:
 Load Snapshot
 =============
 
-Loading a snapshot allows users to modify the *scheduling algorithm* configuration on-the-fly, without the need to change the state of the Scheduler.
+Loading a snapshot allows users to modify the *scheduling algorithm* configuration on-the-fly without the need to change the state of the Scheduler.
 
 .. note::
 
-    With the implementation of warm-start and hot-start capabilities on the Scheduler it is no longer necessary to load a snapshot at the start of the night or when recovering from a FAULT state, respectively.
+    With the implementation of warm-start and hot-start capabilities on the Scheduler, it is no longer necessary to load a snapshot at the start of the night or when recovering from a FAULT state.
 
-    Therefore, loading snapshots now should be reserved for those cases where users want to load a modified version of the *scheduling algorithm*, probably following some tweak to its properties.
+    Therefore, loading snapshots now should be reserved for those cases when users want to load a modified version of the *scheduling algorithm*, probably following some tweak to its properties.
 
 The prodecure to load a snapshot is as follows:
 
