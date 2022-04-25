@@ -133,8 +133,6 @@ After loading the script, a window that contains two sections, ``SCHEMA`` (top) 
 - ``certify_calib_begin_date``: The beginning date for the validity range of the certified calibration. For example, ``2021-07-15``. Default: ``1950-01-01``
 - ``certify_calib_end_date``: The end date for the validity range of the certified calibration. For example, ``2021-07-16``. Default: ``2050-01-01``.
 - ``oods_timeout``: Timeout value, in seconds, for the Observatory Operations Data Service (``OODS``). Default: ``120``
-- ``oods_timeout_retry_rate``: Number of seconds to wait before trying again the ``image_in_oods`` command. Default: ``10``
-- ``oods_timeout_max_retry``: Maximum number or re-tries for the ``image_in_oods`` command. Default: ``5``
 
 An example set of configuration parameters is as follows:
 
