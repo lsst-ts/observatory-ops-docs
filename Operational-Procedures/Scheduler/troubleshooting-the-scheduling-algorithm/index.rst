@@ -82,7 +82,7 @@ Retrieving Snapshots
 ====================
 
 To retrieve a snapshot created by Scheduler, first we need to find its ``url``.
-For that, follow the :ref:`scheduler-night-time-operation-troubleshooting-recovering-from-a-scheduler-fault-find-last-scheduler-snapshot` procedure.
+For that, follow the :ref:`advanced-scheduler-operations-find-last-scheduler-snapshot` procedure.
 
 Once you have the ``url`` you can retrieve the snapshot directly from a notebook.
 
@@ -101,7 +101,7 @@ We will use this same notebook to analyse the data, so we start by loading all t
     import numpy as np
     import healpy as hp
 
-In the cell below we use the same ``url`` found in :ref:`scheduler-night-time-operation-troubleshooting-recovering-from-a-scheduler-fault-find-last-scheduler-snapshot`, make sure to update the entire string with the appropriate value.
+In the cell below we use the same ``url`` found in :ref:`advanced-scheduler-operations-find-last-scheduler-snapshot`, make sure to update the entire string with the appropriate value.
 
 .. code-block:: python
 

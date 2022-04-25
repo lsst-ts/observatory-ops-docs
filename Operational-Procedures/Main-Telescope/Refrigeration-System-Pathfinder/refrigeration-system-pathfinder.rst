@@ -2,7 +2,7 @@
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
 .. |contributors| replace:: *Bruno Quint, Kevin Reil*
 
-.. _ComCam-Master-Calibrations-Procedure:
+.. _Refigeration-System-Pathfinder:
 
 ###############################################
 Refrigeration System - Pathfinder
@@ -19,7 +19,7 @@ In this page you find information about the design, reviews and procedures of th
 .. _Refigeration-System-Pathfinder-Procedures:
 
 Procedures
-=============
+==========
 
 Here you find some of the start up procedures of pathfinder. 
 The information is constantly being updated. 
@@ -28,15 +28,18 @@ The safest way of find the procedures is to search on the docushare.
 - `Maintenance Procedures - note: it might be outdated <https://confluence.slac.stanford.edu/display/LSSTCAM/Integrated+Camera+Maintenance>`__
 - `Startup and Shut Down Procedure for Cryo Refrigeration System <https://jira.lsstcorp.org/browse/SUMMIT-5882>`__ 
 
+.. _Refigeration-System-Pathfinder-Procedures-How-To-Search-For-A-procedure:
+
 How To Search For A Procedure
----------------
+-----------------------------
+
 - In `Jira <https://jira.lsstcorp.org/browse/DM-33431?jql=text%20~%20Pathfinder%20ORDER%20BY%20created%20DESC>`__ you find the most recent tests perfomed on the summit. Usually the followed procedure is linked in the description of the test. The reviewed procedure is a document with names LCA-#####.
 - In `Docushare <https://docushare.lsst.org/docushare/dsweb/HomePage>`__ you can find all the procedures that have been reviewed. "Search entire site" or "Search this collection". It'll work best if it's searching the entire site, which it should do if you're on the main page. Type in LCA-##### and it should give you the document.
 
 .. _Refigeration-System-Pathfinder-Design:
 
 Design And Reviews
-=============
+==================
 .. figure:: ./_static/pathfinder-design.jpg
     :name: PathfinderDesign
 
@@ -54,7 +57,8 @@ Design And Reviews
 .. _Refigeration-System-Pathfinder-Arrival:
 
 Arrival On The Summit
-=============
+=====================
+
 The log of pathfinder installation and first tests up to the end of 2020 can be found on the conluence page `https://confluence.lsstcorp.org/display/LSSTCOM/Pathfinder+Refrigeration+Activities+in+Chile <https://confluence.lsstcorp.org/display/LSSTCOM/Pathfinder+Refrigeration+Activities+in+Chile>`__. 
 After 2021 the activites on pathfinder were logged on Jira. 
 

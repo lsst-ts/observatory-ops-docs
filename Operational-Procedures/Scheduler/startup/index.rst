@@ -4,8 +4,11 @@
 Initializing the Scheduler CSC
 ##############################
 
-Most of the startup operations described here are done through LOVE, using the `ATQueue`_, the `ASummary State`_ and the `AT Summary State`_  views (links are only accessible internal network, e.g., LSS-WAP, VPN, etc).
-We concetrate on the Auxiliary Telescope Scheduler for now because, at the time of this writting, it is the focus of operations.
+Most of the startup operations described here are done through LOVE, using the `ATQueue`_, the `ASummary State`_ and the `AT Summary State`_  views (links are only accessible in the internal network, e.g., LSS-WAP, VPN, etc).
+The system contains a set of :ref:`custom scripts <scheduler-operational-scripts>` intended to facilitate Scheduler operations.
+In the future it is expected that most of these operations will be done through a custom LOVE interface.
+
+These procedures concetrate on the Auxiliary Telescope Scheduler because at the time of this writting, it is the focus of operations.
 Nevertheless, as pointed out in :ref:`scheduler-operational-procedures`, the processes are similar for both schedulers.
 
 .. _ATQueue: http://love01.cp.lsst.org/uif/view?id=41
@@ -25,28 +28,39 @@ Determining Configuration
 
 .. important::
 
-    In general the run manager will agree ahead of time on a set of configuration labels that will be available during a run.
-    These labels should be written down in the run planning page (currently done on confluence).
+    In general, the run manager will agree ahead of time on a set of configurations that will be available during a run.
+    These configurations will be written down in the run planning page (currently done on confluence).
 
-    The following procedure shows how to verify the available labels.
+    The following procedure shows how to verify the available configurations.
 
 
-For now it suffices to say that, before enabling the CSC, the user must know in advance which configuration should be used for the night.
+For now, it suffices to say that before enabling the CSC, the user must know in advance which configuration should be used for the night.
 During commmissioning it is likely that we will have more than one suitable configurations for every single night, that prioritizes different surveys that can be selected dependending on the conditions.
-These will, in general, be in the form of a configuration label.
+These will generally be in the form of different configuration names.
 
-The available labels (and associated configuration files) can be found in the Scheduler configuration directory of the `OCS configuration repository`_.
-This information is also published by the CSC in the ``settingVersions`` event, which can be inspected via SAL from a notebook in nublado or in the EFD from chronograf.
+The available configurations (and associated configuration files) can be found in the Scheduler configuration directory of the `OCS configuration repository`_.
+This information is also published by the CSC in the ``configurationsAvailable`` event, which can be found in LOVE detailed summary state view, inspected via SAL from a notebook in nublado or in the EFD from chronograf.
 
 .. _OCS configuration repository: https://github.com/lsst-ts/ts_config_ocs
 
-From a notebook one would do something like:
+From LOVE's `ASummary State`_ view, you can select the Scheduler you want to interact with (Scheduler:1 or Scheduler:2 for the Main Telescope and Auxiliary Telescope, respectively) to see the detailed view.
+Then, select the "start" command on the "Summary state command" dropdown menu.
+This should immediatelly show the configurations available menu, which can be expanded to show them.
+The process is shown :ref:`below <fig-scheduler-configurations>`.
+
+.. figure:: ./_static/scheduler-configurations.gif
+    :name: fig-scheduler-configurations
+
+    AT Scheduler configurations available from LOVE's Summary State view
+
+From a notebook you would do something like:
 
 .. code-block:: python
 
     import logging
 
     from lsst.ts import salobj
+    from lsst.ts.idl.enums.Scheduler import SalIndex
 
 .. code-block:: python
 
@@ -56,12 +70,12 @@ From a notebook one would do something like:
 
     domain = salobj.Domain()
 
-Below, note the use of ``index=2``, which means AT Scheduler.
-For the MT, we would use ``index=1``.
+Below, note the use of ``index=SalIndex.AUX_TEL``, which means AT Scheduler.
+For the MT, you would use ``index=SalIndex.MAIN_TEL``.
 
 .. code-block:: python
 
-    remote = salobj.Remote(domain, "Scheduler", index=2)
+    remote = salobj.Remote(domain, "Scheduler", index=SalIndex.AUX_TEL)
 
 .. code-block:: python
 
@@ -69,22 +83,22 @@ For the MT, we would use ``index=1``.
 
 .. code-block:: python
 
-    setting_versions = await remote.evt_settingVersions.aget(timeout=5)
+    configurations_available = await remote.evt_configurationsAvailable.aget(timeout=5)
 
 .. code-block:: python
 
-    print(setting_versions.recommendedSettingsLabels)
+    print(configurations_available.overrides)
 
-From chronograf, the following query would also give you the :ref:`latest available labels <fig-chronograf-scheduler-labels>` (again, note we are explicitly specifying AT Scheduler by selecting ``"SchedulerID" = 2``):
+From chronograf, the following query would also give you the :ref:`latest available configurations <fig-chronograf-scheduler-labels>` (again, note we are explicitly specifying AT Scheduler by selecting ``"SchedulerID" = 2``):
 
 .. code-block:: text
 
-    SELECT "recommendedSettingsLabels" FROM "efd"."autogen"."lsst.sal.Scheduler.logevent_settingVersions"  WHERE "SchedulerID" = 2 ORDER BY DESC LIMIT 1
+    SELECT "overrides" FROM "efd"."autogen"."lsst.sal.Scheduler.logevent_configurationsAvailable"  WHERE "SchedulerID" = 2 ORDER BY DESC LIMIT 1
 
 .. figure:: ./_static/chronograf_scheduler_labels.png
     :name: fig-chronograf-scheduler-labels
 
-    Latest AT Scheduler setting versions labels from chronograf
+    Latest AT Scheduler configurations available from chronograf
 
 .. _initializing-the-scheduler-csc-setting-csc-log-level:
 
@@ -92,7 +106,7 @@ Setting CSC Log Level
 =====================
 
 Before starting, it is recommended to set the Scheduler logging level to ``DEBUG``.
-This can be done from the using the `ATQueue`_ LOVE interface by executing the SAL Script ``run_command.py`` with the following configuration:
+This can be done from the the `ATQueue`_ LOVE interface by executing the SAL Script ``run_command.py`` with the following configuration:
 
 .. code-block:: text
 
@@ -105,8 +119,8 @@ This can be done from the using the `ATQueue`_ LOVE interface by executing the S
     :name: fig-atqueue-run-cmd-scheduler-set-log-level
 
     Setting log level of the AT Scheduler from the ATQueue view on LOVE.
-    The "Log Level" dropdown menu at the bottom of the "Configuration" widget allows one to chose the log level of the Script that will be executed on the Script Queue.
-    It is import to keep in mind that this is different than the log level of the Scheduler CSC we are about to set when running this Script.
+    The "Log Level" dropdown menu at the bottom of the "Configuration" widget allows you to chose the log level of the Script that will be executed on the Script Queue.
+    It is import to keep in mind that this is different than the log level of the Scheduler CSC this is going to be set when running this Script.
 
 It is also possible to do this from nublado with:
 
@@ -119,50 +133,56 @@ It is also possible to do this from nublado with:
 Enabling the Scheduler CSC
 ==========================
 
-Next we can transition the Scheduler CSC to ``ENABLED`` state.
-If the CSC is already in ``ENABLED`` state, you may want to send it back to ``STANDBY`` to make sure it will be configured with the set of parameters we want.
-From the `ATQueue`_, this can done using the ``set_summary_state.py`` SAL Script with the following configurations:
+Next you can transition the Scheduler CSC to ``ENABLED`` state.
+
+The easiest way to perform the afternoon "enable" startup step is to run the custom ``auxtel/scheduler/enable.py`` script from the ScriptQueue with the following configuration:
 
 .. code-block:: text
 
-    data: 
-      -
-        - Scheduler:2
-        - STANDBY
+    config: auxtel_fbs_summit_202202.yaml
 
-..  figure:: ./_static/atqueue-run-set-summary-state-scheduler-standby.png
-    :name: fig-atqueue-run-set-summary-state-scheduler-standby
+This script will take care of most conditions, even sending the CSC to ``STANDBY`` before enabling it, in case it is already enabled in advance and we want to reconfigure it.
+As you can see, this script takes a single parameter (``config``), which is the scheduler configuration, discussed :ref:`above <initializing-the-scheduler-csc-determining-configuration>`.
 
-    Setting log level of the AT Scheduler from the ATQueue view on LOVE
+..  figure:: ./_static/atqueue-run-auxtel-scheduler-enable.png
+    :name: fig-atqueue-run-auxtel-scheduler-enable
 
-.. code-block:: text
+    Launch ``auxtel/scheduler/enable.py`` script on ATQueue on LOVE.
 
-    data: 
-      -
-        - Scheduler:2
-        - ENABLED
-        - auxtel_summit_image_spec
-
-..  figure:: ./_static/atqueue-run-set-summary-state-scheduler-enabled.png
-    :name: fig-atqueue-run-set-summary-state-scheduler-enabled
-
-    Setting log level of the AT Scheduler from the ATQueue view on LOVE
-
-From nublado, one would do:
-
-.. code-block:: python
-
-    await salobj.set_summary_state(remote, salobj.State.STANDBY)
-
-    await salobj.set_summary_state(remote, salobj.State.ENABLED, settingsToApply="auxtel_summit_image_spec")
-
-As mentioned above, these will send the CSC to ``STANDBY`` first and then to ``ENABLED``, respectively, thus guaranteeing it is configured with the expected setting.
+As mentioned above, this script will send the CSC to ``STANDBY`` first and then to ``ENABLED``, respectively, thus guaranteeing it is configured with the expected setting.
 
 .. note::
 
-    The configuration selected above is ``auxtel_summit_image_spec``.
-    This will likely change depending on the campain in question, not to mention that it is definitely not suitable for MT.
-    As mentioned before, **make sure you know ahead of time which configuration should be used** for the particular run. 
+    The configuration selected above is ``auxtel_fbs_summit_202202.yaml``.
+    This will likely change depending on the campaign in question, not to mention that it is definitely not suitable for MT.
+    As mentioned :ref:`above <initializing-the-scheduler-csc-determining-configuration>`, **make sure you know ahead of time which configuration should be used** for the particular run. 
+
+Alternatively, it is also possible to use LOVE's CSC detailed view to transition the Scheduler to ENABLED.
+In this case, you must execute the summary state transition commands indivually, selecting the appropriate configuration when executing the ``start`` command.
+
+The process is as follows:
+
+#.  From the `AT Summary State`_, select the Scheduler you want to interact with; ``Scheduler.1`` for Main Telescope Scheduler, ``Scheduler.2`` for Auxiliary Telescope Scheduler.
+
+#.  Make sure the CSC is in STANDBY state.
+    If it is not :ref:`send it to STANDBY <advanced-scheduler-operations-send-scheduler-to-standby>` first.
+
+#.  On the "Summary state command" dropdown menu, select "start".
+    The "Configurations available" dropdown menu should appear on the side.
+
+#.  Select the configuration from the dropdown menu.
+
+#.  Click on "SET" button.
+
+#.  Select "enable" in the "Summary state command" dropdown menu.
+
+#.  Click on "SET" button.
+
+.. figure:: ./_static/scheduler-enable.gif
+    :name: fig-scheduler-enable
+
+    Enabling the AT Scheduler from LOVE's Summary State view
+
 
 .. _initializing-the-scheduler-csc-final-remarks:
 
@@ -174,44 +194,47 @@ Final Remarks
 The Scheduler ENABLED State
 ---------------------------
 
-Once the CSC is in ``ENABLED`` state it will continuously monitor the observatory state, updating its internal model and publishing that information through ``observatoryState`` telemetry.
+Once the Scheduler CSC transitions to ``ENABLED`` state it is ready to operate but is initially "paused", in the sense that it will not perform any action.
 
-If, for any reason, the Scheduler can not determine the observatory state, the CSC transitions to ``FAULT`` with error code ``500``.
-Below we show an example :ref:`Summary State view <fig-summary-state-atscheduler-in-fault-01>` where the AT Scheduler went to ``FAULT`` because the ``ATPtg`` is in ``STANDBY``.
-The same view with the :ref:`expanded Scheduler components <fig-summary-state-atscheduler-in-fault-02>` is also shown, displaying the associated error message.
+At this point it will continuously monitor the observatory state, updating its internal model and publishing that information through the ``observatoryState`` telemetry.
+In this initial state, if the Scheduler can not determine the observatory state, the CSC will send a warning message but will remain in ``ENABLED`` state.
 
-
-..  figure:: ./_static/summary-state-atscheduler-in-fault-01.png
-    :name: fig-summary-state-atscheduler-in-fault-01
-
-    Summary State view showing the Scheduler in ``FAULT`` with the ``ATPtg`` in ``STANDBY``
-
-..  figure:: ./_static/summary-state-atscheduler-in-fault-02.png
-    :name: fig-summary-state-atscheduler-in-fault-02
-
-    Summary State view showing the Scheduler in ``FAULT`` with the ``ATPtg`` in ``STANDBY``.
-    In this case the Scheduler component was expanded (by clicking on the Scheduler "icon") to show the error code and log information.
-
-
-Initially the CSC will not do anything else, so it is safe to enable it at any time, so long as the componentes required to determine the observatory state are also enabled.
-Those are the ``MTCS`` and ``ATCS`` componentes for the MT and AT Scheduler, respectively.
+Since initially the CSC will not do anything, it is safe to enable it at any time.
 
 .. _initializing-the-scheduler-csc-the-scheduling-algorithm-initial-state:
 
-The *scheduling algorithm* initial state
-----------------------------------------
+The Scheduler Startup Mode
+--------------------------
 
-During the startup procedure, the CSC configures the *scheduling algorithm* with an empty initial state.
-That means, the algorithm has no knowledge of previous observations taken with this or any other configuration.
+As observations are successfully taken driven by the Scheduler, the *scheduling algorithm* internal state is updated accordingly.
+This makes sure observations are not repeated and that the different surveys progress is properly managed.
 
-The Scheduler CSC provides a couple different mechanism to rebuild the desired state of *scheduling algorithm*; "warm start" and "hot start".
+As you can imagine, maintaining this internal state of the *scheduling algorithm* is crucial for the proper operation of the Scheduler, especially after interruptions, e.g. due to faults, normal nighttime/daytime transitions or else.
 
-When performing a warm start, the CSC will read a database with previous observations and will register these observations on the *scheduling algorithm*, essentially replaying the observations.
-This will be, most likely, the mode users at the beginning of the night during commmissioning and operations.
-Unfortunately, at the time of this writting this mode is still not implemented.
+During its normal operation, the Scheduler makes sure enough information is stored in different locations that would allow recovery and/or reconstruction of its internal state.
+For example, before computing new targets, the Scheduler saves a snapshot of its internal state to the large file annex of the EFD.
+Furthermore, after every observation is completed successfully, the scheduler publishes information about the observation to the EFD and stores it to a local database.
+All these can later be used independently to restore the state of the *scheduling algorithm*.
 
-When using a hot start, the Scheduler CSC replaces the currently *scheduling algorithm* by a snapshot provided by the users.
-This snapshot can be either one previously generated by the Scheduler CSC or one that the user manually crafts and customizes locally.
-For now hot start is the only additional initialization mode available, besides the default initialization.
+The Scheduler CSC provides a couple different mechanisms to rebuild its internal state; through one of its startup modes or by loading a snapshot.
 
-How to execute a hot start will be covered in more details in :ref:`scheduler-night-time-operation`.
+There are three different startup modes: hot-, warm- and cold-start, which run while configuring the CSC when going from STANDBY to DISABLED.
+In short, hot-start and warm-start are designed to rapidly recover the state by loading previously saved snapshots.
+The main difference is that when performing hot-start, the Scheduler will retain any previously existing state, whereas warm-start will reload the state provided in the configuration (or reset to the initial state if none is provided).
+
+During regular operations, you would start the night by using a configuration with warm-start, loading a pre-existing snapshot, and performing any subsequent restarts using hot-start (assuming that no change in the *scheduling algorithm* configuration is necessary).
+If you want to load a new configuration, you should rely again on warm-start.
+
+In summary, in most cases you would:
+
+- Start the night with a warm-start configuration.
+- Perform recoveries from FAULT, or similar situations during the night, using a compatible hot-start configuration.
+
+Cold-start is reserved for those cases where there are substantial changes in the *scheduling algorithm* that make it impossible to provide a valid snapshot.
+In these cases, you must start from an initial configuration and rebuild the state by performing a "playback" of the observations.
+In these cases, the run manager and observer specialists will work with the survey strategy team to develop an appropriate cold-start strategy.
+It is outside the scope of this document to go into details of how cold-start works.
+For more information, see the `Scheduler CSC configuration documentation`_.
+
+Alternatively, it is also possible to load a snapshot "on-the-fly".
+This process is covered in more details in :ref:`scheduler-night-time-operation`.

@@ -62,10 +62,14 @@ The full procedures for the different afternoon or recommended daily checkouts a
 
 * AuxTel Daily Checkout
     * `AuxTel Daily Checkout Procedure Notebook <https://github.com/lsst-ts/ts_notebooks/blob/develop/procedures/auxtel/observation_procedures/DayTime-Checkout.ipynb>`__
+
 * LATISS Calibrations
+
     * :ref:`LATISS daily checkout procedure notebook <Latiss-Master-Calibrations-Procedure>`.
+
 * Comcam Calibrations
     * :ref:`Comcam master bias generation procedure <ComCam-Master-Calibrations-Procedure>`.
+
 .. _daytime-and-nighttime-communication-Reporting-Faults:
 
 Reporting Faults

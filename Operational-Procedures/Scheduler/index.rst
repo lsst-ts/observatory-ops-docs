@@ -30,9 +30,11 @@ Procedures
     :titlesonly:
     :glob:
 
+    scripts/index
     startup/index
     night-time-operations/index
     troubleshooting-the-scheduling-algorithm/index
+    misc/index
 
 
 .. _scheduler-operational-procedures-overview:

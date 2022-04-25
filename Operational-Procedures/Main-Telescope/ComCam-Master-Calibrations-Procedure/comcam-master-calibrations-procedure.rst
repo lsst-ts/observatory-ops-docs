@@ -22,7 +22,7 @@ The script will have the option to:
    - darks 
    - flats
 - call the corresponding Rubin Science Pipelines calibration generation pipetask to produce biases, darks, flats, defects and Photon Transfer Curves (PTCs) via the OCS-Controlled Pipeline System (OCPS),
-- verify the images taken using as reference the calibration generated in the previous step (see the package `cp_verify`_ and `DMTN-101`_), or using pre-existing calibrations (via the `generate_calibrations` boolean parameter in the configuration file), and
+- verify the images taken using as reference the calibration generated in the previous step (see the package `cp_verify`_ and `DMTN-101`_), or using pre-existing calibrations (via the ``generate_calibrations`` boolean parameter in the configuration file), and
 - certify the resulting calibration with a given range of validity dates.
 
 For at least one type of test (as defined in `DMTN-101`_), if the majority of tests fail in the majority of detectors and the majority of exposures, then the script will terminate by raising a **RuntimeError** after calculating the verification statistics, and the calibration will not be certified. The configuration parameters **number_verification_tests_threshold_bias**, **number_verification_tests_threshold_dark**, and **number_verification_tests_threshold_flat** will be used to define thresholds to decide whether the calibration will pass verification and should be certified or not. Currently, verification is only implemented for ``BIAS``, ``DARK``, and ``FLAT`` calibration types. If the configuration parameters **do_defects** and **do_ptc** are set to ``True``, verification will be skipped for the ``DEFECTS`` and ``PTC`` calibrations and they will be automatically certified.
@@ -49,10 +49,12 @@ For more information about calibrations production (including verification and c
 Prerequisites
 =============
 
-- You should be logged into the LSST Operations and Visualization Enviroment (LOVE) at the Summit :ref:`operational environment <Observing-Interface-Operational-Environments>`.
+-   You should be logged into the LSST Operations and Visualization Enviroment (LOVE) at the Summit :ref:`operational environment <Observing-Interface-Operational-Environments>`.
 
-- The script assumes (and checks) that the ``LSSTComCam`` and ``OCPS`` components are all ``ENABLED``, and that the latter has been ``ENABLED`` with the configuration of ``LSSTComCam``. 
-The instrument and the ``OCPS`` can be enabled with the following procedures:
+-   The script assumes (and checks) that the ``LSSTComCam`` and ``OCPS`` components are all ``ENABLED``, and that the latter has been ``ENABLED`` with the configuration of ``LSSTComCam``. 
+
+    The instrument and the ``OCPS`` can be enabled with the following procedures:
+
     - :ref:`Enable ComCam Procedure <Enable-ComCam-Procedure>`
     - :ref:`Enable OCPS ComCam Procedure <Enable-OCPS-ComCam-Procedure>`
 
@@ -76,7 +78,7 @@ Once you are logged into LOVE, click on the ``MTQueue`` panel, as circled on the
 .. figure:: ./_static/love-mtqueue-atqueue-panel.png
     :name: MTQueue-love
 
-     Screenshot of LOVE interface with the "MTQueue" pannel.
+    Screenshot of LOVE interface with the "MTQueue" pannel.
 
 
 Load the Script
@@ -85,7 +87,7 @@ Load the Script
 After clicking on the ``MTQueue`` panel, search for the script ``maintel/make_comcam_calibrations.py`` under ``AVAILABLE SCRIPTS`` on the left, as shown in the figure below:
 
 .. figure:: ./_static/love-available-scripts.png
-    :name: available-scripts-love
+    :name: comcam-available-scripts-love
 
     Screenshot of LOVE interface with the "AVAILABEL SCRIPTS" list.
       
@@ -98,35 +100,35 @@ After loading the script, a window that contains two sections, ``SCHEMA`` (top) 
 
 - **script_mode**: Currently, the script can be run  in three modes, in which  it  will  produce only biases (``BIAS``), biases and darks (``BIAS_DARK``), or biases, darks,
   and flats (``BIAS_DARK_FLAT``). Default: ``BIAS_DARK_FLAT``
-- `n_bias`: number of bias frames to be taken. Default: 1 
-- `n_dark`: number of dark frames to be taken. Default: 1
-- `exp_times_dark`: The exposure time of each dark image (sec). If a single value, then the same exposure time is used for each exposure. Default: 0
-- `n_flat`: number of flat frames to be taken. Default: 1
-- `exp_times_flat`: The exposure time of each flat image (sec). If a single value, then the same exposure time is used for each exposure. Default: 0
-- `detectors`: Detector IDs, e.g., ``(0,1,2,3,4,5,6,7,8)`` for all LSSTComCam CCDs. Default: "(0,1,2,3,4,5,6,7,8)"
-- `do_verify`: Should the master calibrations be verified? (c.f., ``cp_verify``). Default:  True
-- `generate_calibrations`: Should the master calibrations be generated from the images taken and use them as reference for image verification? If `False` and and `do_verify = True`, pre-existing calibrations will be used as reference for verification, and they should be provided in the input collections for the verification pipetasks. Default: False
-- `config_options_bias`: Options to be passed to the command-line bias pipetask. They will overwrite the values in ``cpBias.yaml``. Default: "-c isr:doDefect=False -c isr:doLinearize=False -c isr:doCrosstalk=False -c isr:overscan.fitType='MEDIAN_PER_ROW'"
-- `config_options_dark`: Options to be passed to the command-line dark pipetask. They will overwrite the values in ``cpDark.yaml``. Default: "-c isr:doDefect=False -c isr:doLinearize=False -c isr:doCrosstalk=False"
-- `config_options_flat`: Options to be passed to the command-line flat pipetask. They will overwrite the values in ``cpFlat.yaml``. Default: "-c isr:doDefect=False -c isr:doLinearize=False -c isr:doCrosstalk=False -c cpFlatMeasure:doVignette=False "
-- `do_defects`: Should defects be built using darks and flats?. `script_mode` must be ``BIAS_DARK_FLAT``.Default: False
-- `config_options_defects`: Options to be passed to the command-line defects pipetask. They will overwrite the values in ``findDefects.yaml``. Default: "-c isr:doDefect=False "
-- `do_ptc`: Should a Photon Transfer Curve be constructed from the flats taken? ``script_mode`` must be ``BIAS_DARK_FLAT``. Default: False
-- `config_options_ptc`: Options to be passed to the command-line PTC pipetask. They will overwrite the values in ``measurePhotonTransferCurve.yaml``. Default: "-c ptcSolve:ptcFitType=EXPAPPROXIMATION -c isr:doCrosstalk=False "
-- `input_collections_bias`: List of additional (the ``OCPS`` already adds ``LSSTComCam/raw/all`` as a default) comma-separated input collections for the bias pipetask. The pipetask is called via the ``OCPS`` after enabling it with the ``LSSTComCam`` configuration. Default: "LSSTComCam/calib".
-- `input_collections_verify_bias`: Additional comma-separated input collections to pass to the verify (bias) pipetask. Default: "LSSTComCam/calib".
-- `input_collections_dark`: Additional comma-separarted input collections to pass to the dark pipetask. Default: "LSSTComCam/calib"
-- `input_collections_verify_dark`: Additional comma-separated input collections to pass to the verify (dark) pipetask. Default: "LSSTComCam/calib"
-- `input_collections_flat`: Additional comma-separated input collections to pass to the flat pipetask. Default: "LSSTComCam/calib"
-- `input_collections_verify_flat`: Additional comma-separated input collections to pass to the verify (flat) pipetask. Default: "LSSTComCam/calib"
-- `input_collections_defects`: Additional comma-separated input collections to pass to the defects pipetask. Default: "LSSTComCam/calib"
-- `input_collections_ptc`: Additional comma-separated input collections to pass to the Photon Transfer Curve pipetask. Default: "LSSTComCam/calib"
-- `calib_collection`: ``CALIBRATION`` collection where the calibrations will be certified into, for example, ``LSSTComCam/calib/u/plazas/YYYYMMMDD.test``. Default: "LSSTComCam/calib/daily".
-- `repo`: Butler repository. Default: ``/repo/LSSTComCam``.
-- `n_processes`: Number of processes that the pipetasks will use. Default: 8
-- `certify_calib_begin_date`: The beginning date for the validity range of the certified calibration. For example, ``2021-07-15``. Default: "1950-01-01"
-- `certify_calib_end_date`: The end date for the validity range of the certified calibration. For example, ``2021-07-16``. Default: "2050-01-01"
-- `oods_timeout`: Timeout value, in seconds, for the Observatory Operations Data Service (``OODS``). Default: 120
+- ``n_bias``: number of bias frames to be taken. Default: 1 
+- ``n_dark``: number of dark frames to be taken. Default: 1
+- ``exp_times_dark``: The exposure time of each dark image (sec). If a single value, then the same exposure time is used for each exposure. Default: 0
+- ``n_flat``: number of flat frames to be taken. Default: 1
+- ``exp_times_flat``: The exposure time of each flat image (sec). If a single value, then the same exposure time is used for each exposure. Default: 0
+- ``detectors``: Detector IDs, e.g., ``(0,1,2,3,4,5,6,7,8)`` for all LSSTComCam CCDs. Default: "(0,1,2,3,4,5,6,7,8)"
+- ``do_verify``: Should the master calibrations be verified? (c.f., ``cp_verify``). Default:  True
+- ``generate_calibrations``: Should the master calibrations be generated from the images taken and use them as reference for image verification? If ``False`` and and ``do_verify = True``, pre-existing calibrations will be used as reference for verification, and they should be provided in the input collections for the verification pipetasks. Default: False
+- ``config_options_bias``: Options to be passed to the command-line bias pipetask. They will overwrite the values in ``cpBias.yaml``. Default: "-c isr:doDefect=False -c isr:doLinearize=False -c isr:doCrosstalk=False -c isr:overscan.fitType='MEDIAN_PER_ROW'"
+- ``config_options_dark``: Options to be passed to the command-line dark pipetask. They will overwrite the values in ``cpDark.yaml``. Default: "-c isr:doDefect=False -c isr:doLinearize=False -c isr:doCrosstalk=False"
+- ``config_options_flat``: Options to be passed to the command-line flat pipetask. They will overwrite the values in ``cpFlat.yaml``. Default: "-c isr:doDefect=False -c isr:doLinearize=False -c isr:doCrosstalk=False -c cpFlatMeasure:doVignette=False "
+- ``do_defects``: Should defects be built using darks and flats?. ``script_mode`` must be ``BIAS_DARK_FLAT``.Default: False
+- ``config_options_defects``: Options to be passed to the command-line defects pipetask. They will overwrite the values in ``findDefects.yaml``. Default: "-c isr:doDefect=False "
+- ``do_ptc``: Should a Photon Transfer Curve be constructed from the flats taken? ``script_mode`` must be ``BIAS_DARK_FLAT``. Default: False
+- ``config_options_ptc``: Options to be passed to the command-line PTC pipetask. They will overwrite the values in ``measurePhotonTransferCurve.yaml``. Default: "-c ptcSolve:ptcFitType=EXPAPPROXIMATION -c isr:doCrosstalk=False "
+- ``input_collections_bias``: List of additional (the ``OCPS`` already adds ``LSSTComCam/raw/all`` as a default) comma-separated input collections for the bias pipetask. The pipetask is called via the ``OCPS`` after enabling it with the ``LSSTComCam`` configuration. Default: "LSSTComCam/calib".
+- ``input_collections_verify_bias``: Additional comma-separated input collections to pass to the verify (bias) pipetask. Default: "LSSTComCam/calib".
+- ``input_collections_dark``: Additional comma-separarted input collections to pass to the dark pipetask. Default: "LSSTComCam/calib"
+- ``input_collections_verify_dark``: Additional comma-separated input collections to pass to the verify (dark) pipetask. Default: "LSSTComCam/calib"
+- ``input_collections_flat``: Additional comma-separated input collections to pass to the flat pipetask. Default: "LSSTComCam/calib"
+- ``input_collections_verify_flat``: Additional comma-separated input collections to pass to the verify (flat) pipetask. Default: "LSSTComCam/calib"
+- ``input_collections_defects``: Additional comma-separated input collections to pass to the defects pipetask. Default: "LSSTComCam/calib"
+- ``input_collections_ptc``: Additional comma-separated input collections to pass to the Photon Transfer Curve pipetask. Default: "LSSTComCam/calib"
+- ``calib_collection``: ``CALIBRATION`` collection where the calibrations will be certified into, for example, ``LSSTComCam/calib/u/plazas/YYYYMMMDD.test``. Default: "LSSTComCam/calib/daily".
+- ``repo``: Butler repository. Default: ``/repo/LSSTComCam``.
+- ``n_processes``: Number of processes that the pipetasks will use. Default: 8
+- ``certify_calib_begin_date``: The beginning date for the validity range of the certified calibration. For example, ``2021-07-15``. Default: "1950-01-01"
+- ``certify_calib_end_date``: The end date for the validity range of the certified calibration. For example, ``2021-07-16``. Default: "2050-01-01"
+- ``oods_timeout``: Timeout value, in seconds, for the Observatory Operations Data Service (``OODS``). Default: 120
 
 An example set of configuration parameters is as follows:
 

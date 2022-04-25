@@ -76,7 +76,7 @@ Procedure Steps
 
     Screenshot of selecting a Kubernetes cluster.
 
-- With the cluster selected, click the `Download KubeConfig` button to get a *kubeconfig* file.
+- With the cluster selected, click the ``Download KubeConfig`` button to get a *kubeconfig* file.
 
 .. figure:: ./_static/rancher-download-kubeconfig.png
     :name: Observing-Interface-Getting-Started-Rancher-Download-Kubeconfig
