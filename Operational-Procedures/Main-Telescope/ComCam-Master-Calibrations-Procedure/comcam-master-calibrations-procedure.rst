@@ -19,7 +19,7 @@ The script will have the option to:
 
 - command LSSTComCam to take a number of calibrations frames:
    - biases
-   - darks 
+   - darks
    - flats
 - call the corresponding Rubin Science Pipelines calibration generation pipetask to produce biases, darks, flats, defects and Photon Transfer Curves (PTCs) via the OCS-Controlled Pipeline System (OCPS),
 - verify the images taken using as reference the calibration generated in the previous step (see the package `cp_verify`_, and the technical notes `DMTN-101`_ and `DMTN-222`_), or using pre-existing calibrations (via the ``generate_calibrations`` boolean parameter in the configuration file), and
@@ -156,7 +156,8 @@ An example set of configuration parameters is as follows:
     do_defects: True
     do_ptc: True
 
-Notes:
+Notes
+^^^^^
 
 - The ``detectors`` parameters was omitted, therefore, by default, all nine LSSTComCam detectors will be passed to the LSST Science Pipelines pipetasks. For testing purposes it might be convinient to process fewer detectors in the pipetasks, as the script will execute faster.
 - The ``generate_calibrations`` parameters was omitted, and therefore combined calibrations will not be generated from the individual images taken (biases, darks, and flats since ``script_mode`` is ``BIAS_DARK_FLAT``), as its default value is ``False``. Pipetasks that require combined calibrations to run will search for them in their input collections. For example, since ``do_verify`` is ``True``, the bias, dark, and flat verification tasks will look for combined reference calibrations in their input collections, given by the ``input_collections_verify_bias``, ``input_collections_verify_dark```, and ``input_collections_verify_flat`` parameters. Since the collection ``LSSTComCam/calib/u/plazas/2021SEP16.1`` is located before the standard collection ``LSSTComCam/calib`` in these parameters, the verification tasks will look there first. On the other hand, since ``do_ptc`` is ``True`` and ``input_collections_ptc`` is omitted, the PTC task will look for combined calibrations (e.g., bias, dark) in the standard calibration collection ``LSSTComCam/calib``, which is the default for this parameter.
