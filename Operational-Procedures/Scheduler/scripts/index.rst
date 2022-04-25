@@ -5,10 +5,10 @@ Scheduler Operational Scripts
 #############################
 
 The ScriptQueue has a set of scripts specifically designed to facilitate Scheduler operations.
-Throughout the operatinoal procedures we will be constantly referring to these scripts.
-Here we will give a quick overview of each one of those.
+The operational procedures will constantly refer to these scripts.
+Here is a quick overview of each one of those.
 
-To begin with, you can find these scripts in the LOVE queue interface by typing "auxtel/scheduler" or "maintel/scheduler" in the "Filter" field.
+To begin, you can find these scripts in the LOVE queue interface by typing "auxtel/scheduler" or "maintel/scheduler" in the "Filter" field.
 
 .. figure:: ./_static/atqueue-scheduler-scripts.png
     :name: fig-atqueue-scheduler-scripts
