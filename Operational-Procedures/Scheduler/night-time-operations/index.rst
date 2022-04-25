@@ -13,7 +13,7 @@ When the Scheduler is initialized at the beginning of the night, the first thing
 In the case of the Auxiliary Telescope, this means running the curvature wavefront sensing script.
 This is a special setup done on the *scheduling algorithm* side alonside the survey operation.
 
-Nevertheless, because at the beginning of the night the optics may be far from the optimum position, it is recommended that a initial alignment is done before starting the Scheduler.
+Nevertheless, at the beginning of the night the optics may be far from the optimum position, it is recommended that a initial alignment is done before starting the Scheduler.
 
 The best way to accomplish this is to execute the same SAL Script used by the Scheduler on the ScriptQueue.
 For the AT, this is ``auxtel/latiss_cwfs_align.py``.
@@ -36,7 +36,7 @@ Starting the Scheduler
 After the initial optical alignment is completed successfully, it is safe to start the Scheduler.
 For that, we simply need to send the ``resume`` command to the CSC.
 This command has no parameters and can be executed directly from the ScriptQueue, using the ``auxtel/scheduler/resume.py`` or the ``maintel/scheduler/resume.py`` script, for the Auxiliary and Main Telescopes, respectively.
-Note that the script also does not have any parameter, so it is simply a matter of "adding" it to the queue.
+Note that the script also does not have any parameters, so it is simply a matter of "adding" it to the queue.
 
 .. figure:: ./_static/atqueue-run-cmd-scheduler-resume.png
     :name: fig-atqueue-run-cmd-scheduler-resume
@@ -86,7 +86,7 @@ No Target
 Multiple factors dictate not only which target the Scheduler will provide next but if *there is a suitable target for observing*.
 
 One of the most common occurrences at the beginning of the night is that the Scheduler is initialized early enough that it has no suitable targets for observing.
-In general, that happens because the most common Scheduler configurations only produces valid targets between nautical down and dusk (sun elevation below 12 degrees).
+In general, that happens because the most common Scheduler configurations only produces valid targets between nautical twilight (sun elevation below 12 degrees).
 Nevertheless, this condition may also occurr during the night, if there are gaps in the scheduling configuration.
 In general, users can be aware of these ahead of time by simulating the observing night.
 
@@ -133,7 +133,7 @@ To throubleshoot these conditions, see :ref:`troubleshooting-the-scheduling-algo
 Recovering From a Script Execution Failure
 ------------------------------------------
 
-When a Script execution fails the ScriptQueue pauses, and the Scheduler will also pause.
+When a Script execution fails the ScriptQueue pauses, the Scheduler will also pause.
 The Scripts that were queued by the Scheduler will still be waiting to execute when the ScriptQueue resumes and the Scheduler will continue to monitor the state of the ScriptQueue and the Scripts.
 
 There are several different levels of Script failures that we may encounter during the night, they all need different levels of attention from the users on the console.
@@ -169,7 +169,7 @@ Recovering From a Scheduler FAULT
 ---------------------------------
 
 There are some known conditions that will cause the Scheduler CSC to go to ``FAULT``.
-As mentioned in :ref:`initializing-the-scheduler-csc-the-scheduler-enabled-state`, one of the most common is when the Scheduler cannot determine the observatory state (error code 500), because one or more of the CSCs required to do so have stopped publishing telemetry.
+As mentioned in :ref:`initializing-the-scheduler-csc-the-scheduler-enabled-state`, one of the most common conditions is when the Scheduler cannot determine the observatory state (error code 500) because one or more of the CSCs required to do so have stopped publishing telemetry.
 
 Furthermore, as mentioned above, the Scheduler CSC will also transition to ``FAULT`` if it `can not determine a target`_ to observe in an one-hour window.
 This is a common occurence at the end of the night, when the next suitable target will be at the beginning of the following night.
@@ -202,11 +202,11 @@ In principle, recovering the Scheduler from a ``FAULT`` is no different from any
 Enable Scheduler CSC
 ^^^^^^^^^^^^^^^^^^^^
 
-At this point the Scheduler CSC can be safely transitioned back to ``ENABLED`` state, using the ``auxtel/scheduler/enable.py`` or ``maintel/scheduler/enabled.py``, for the Auxiliary and Main Telescope Scheduler respectively (see :ref:`initializing-the-scheduler-csc-enabling-the-scheduler-csc`).
+At this point the Scheduler CSC can be safely transitioned back to ``ENABLED`` state, using the ``auxtel/scheduler/enable.py`` or ``maintel/scheduler/enabled.py``, for the Auxiliary and Main Telescope Schedulers respectively (see :ref:`initializing-the-scheduler-csc-enabling-the-scheduler-csc`).
 
 .. important::
 
-    When recovering the Scheduler CSC from a ``FAULT`` state make sure you enable it using the hot-start equivalent version of the configuration that was last used.
+    When recovering the Scheduler CSC from a ``FAULT`` state, make sure you enable it using the hot-start version of the configuration that was last used.
 
 When enabled with hot-start the scheduler preserves the internal state before it went to ``FAULT``, therefore it should be ready to :ref:`resume operations <fig-atqueue-run-cmd-scheduler-resume>`.
 
@@ -241,7 +241,7 @@ Stopping the Scheduler
 If you want to switch configurations, (which will required recycling the state of the CSC), load a new snapshot, or you are having issues with the *scheduling algorithm* (which may require some :ref:`troubleshooting <troubleshooting-the-scheduling-algorithm>`), you may want to stop the Scheduler CSC.
 
 From the ScriptQueue, you can use the ``auxtel/scheduler/stop.py`` or ``maintel/scheduler/stop.py`` scripts for the Auxiliary and Main Telescope, respectively.
-These scripts require no configuration to execute.
+These scripts require no configurations to execute.
 
 .. figure:: ./_static/atqueue-run-cmd-scheduler-stop-no-config.png
     :name: fig-atqueue-run-cmd-scheduler-stop-no-config
@@ -261,10 +261,10 @@ Nevertheless, you could provide the following:
     Stopping the AT Scheduler using the ``auxtel/scheduler/stop.py`` script using the ``stop=true`` option.
     This will make the Scheduler cleanup all queued scripts from the ScriptQueue.
 
-This would cause the Scheduler to clean up any remaining Script in the ScriptQueue.
-If you rather interrupt the Scripts yourself simply run the script with no configuration.
+This would cause the Scheduler to clean up any remaining Scripts in the ScriptQueue.
+If you would rather interrupt the Scripts yourself, simply run the script with no configuration.
 
-It is possible to add the Script while the Scheduler is running and, once it appears in the ScriptQueue, you can move it up the queue by pressing the Move script up buttom, as shown below.
+It is possible to add the Script while the Scheduler is running and once it appears in the ScriptQueue, you can move it up the queue by pressing the Move script up button as shown below.
 
 .. figure:: ./_static/atqueue-move-script-up.png
     :name: fig-atqueue-move-script-up
