@@ -7,7 +7,7 @@
 No Historical Data
 ##################
 
-This issue usually manifest by a failure to perform state transitions (enable a component or send them to STANDBY) using the higher level software.
+This issue usually manifests by a failure to perform state transitions (enable a component or send them to STANDBY) using the higher level software.
 
 In most cases it will be possible to see the following error message in the traceback:
 
@@ -50,3 +50,12 @@ The state transition works as follows:
 
 .. figure:: ./_static/no-historical-love-mtptg-fault.png
     :name: fig-no-historical-love-mtptg-fault
+
+The figure :ref:`below <fig-csc-state-machine>` shows a diagram of the state machine and the associated commands.
+The dashed lines represent internal behavior that are not controlled by the user.
+For example, CSCs will transition to FAULT if some internal error condition occurs.
+
+.. figure:: ./_static/csc-state-machine.png
+    :name: fig-csc-state-machine
+
+    CSC State machine showing the associated commands.
