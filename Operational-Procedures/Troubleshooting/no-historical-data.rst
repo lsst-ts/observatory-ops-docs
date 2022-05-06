@@ -7,7 +7,7 @@
 No Historical Data
 ##################
 
-This issue usually manifests by a failure to perform state transitions (enable a component or send them to STANDBY) using the higher level software.
+This issue usually manifests by a failure to perform state transitions (send a component to ENABLED or STANDBY state) using the higher level software.
 
 In most cases it will be possible to see the following error message in the traceback:
 

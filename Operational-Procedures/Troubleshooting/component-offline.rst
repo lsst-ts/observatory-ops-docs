@@ -3,18 +3,18 @@
 
 .. _troubleshooting-component-offline:
 
-#################
-Component Offline
-#################
+####################################################
+Restoring CSC from OFFLINE state (and no heartbeats)
+####################################################
 
 .. warning::
 
-    This procedure contains steps that may affect the system in crical ways.
+    This procedure contains steps that may affect the system in critical ways.
 
     If you are unsure about any of the steps described here, contact support personnel.
 
 
-* Most (but not all) components in the Rubin Observatory Control System, when sent to OFFLINE will terminate its execution process and will no longer be available in the system.
+* Most components in the Rubin Observatory Control System, when sent to OFFLINE, will terminate its execution process and will no longer be available in the system.
 
 * This condition only happens if someone sends the ``exitControl`` command to the CSC.
 
@@ -22,9 +22,9 @@ Component Offline
 
 * A reduced number of CSCs will continue to run after receiving ``exitControl``.
 
-  At the time of this writting, only the camera systems have this behavior.
+  At the time of this writting, only the camera systems have this behavior, and will continue to run after receiving and ``exitControl`` command.
 
-Restoring a CSC that exited after responding to ``exitControl`` requires one to restart the process that runs it.
+Restoring a CSC after sending an ``exitControl`` requires one to restart the process that runs it.
 
 This condition manifests by the CSC appearing in OFFLINE state with no heartbeats, and can be seen in the figure :ref:`below <fig-love-mtptg-offline>`.
 
@@ -46,7 +46,7 @@ For more details about what is behind this behavior see the `observatory control
 .. _observatory control: https://obs-controls.lsst.io
 
 Most components on Rubin system runs as containers on a Kubernetes cluster.
-Therefore, most-likely, when restoring a component after it was sent to OFFLINE state, requires restarting the process on the Kubernetes cluster.
+Therefore, it is likely that restoring a component after it was sent to OFFLINE state requires restarting the process on the Kubernetes cluster.
 
 This can be done via the argo-cd application and works similarly regardless of the environment; Summit, TTS or BTS.
 
