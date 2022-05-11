@@ -197,8 +197,32 @@ If ``do_gain_from_flat_pair`` is ``True``, the estimated gains (as well as the m
     gain_values = cpCov.gain
     noise_values = cpCov.noise
 
+The gain estimated in this way (from single pairs of flats) is an approximation that is likely to be more accurate at lower fluxes. This method has the advantage that it allows to obtain a quick estimate of the gain without having to take multiple flat pairs to construct a full PTC and to fit a model to it.
 
-In addition, the statistics produced by the verification step can be analized by running the Jupyter notebooks in the ``examples`` folder in ``cp_verify``.
+In addition, the statistics produced by the verification step can be analized by running the Jupyter notebooks in the ``examples`` folder in ``cp_verify``. As it is shown in these notebooks, useful statistics and information about the results of the ``cp_verify`` tests can be retrieved from the butler via (using flat verification as an example):
+
+.. code-block:: python
+
+    runStats = butler.get('verifyFlatStats', instrument='LSSTComCam')
+    runDetStats = butler.get('verifyFlatDetStats', instrument='LSSTComCam', detector=0, exposure=flatExposureID)
+
+
+The images processed by ``cp_verify`` can also be retrieved for visual inspection:
+
+.. code-block:: python
+    
+    import lsst.afw.display as afwDisplay
+    afwDisplay.setDefaultBackend("matplotlib")
+
+    imProc = butler.get('verifyFlatProc', detector=0, exposure=flatExposureID, instrument='LSSTComCam')
+    calibArray = imProc.getImage().getArray()
+    # Get simple stats
+    q25, q50, q75 = np.percentile(calibArray.flatten(), [25, 50, 75]) 
+    sigma = 0.74 * (q75 - q25)
+    display = afwDisplay.Display(dims=(1000, 1000))
+    display.scale('asinh', 'zscale')
+    display.scale('linear', (q50 - 3.0 * sigma), (q50 + 3.0* sigma), "")
+    display.mtv(imProc)
 
 Troubleshooting
 ===============
