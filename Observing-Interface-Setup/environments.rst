@@ -110,7 +110,7 @@ Systems that control hardware at the :ref:`Summit <Observing-Interface-Operation
 Once a deployment is tested here, the platform is made available for general users for training, testing and developing of control algorithm and procedures.
 
 - Nublado: https://tucson-teststand.lsst.codes/
-- Chronograf: https://chronograf-tucson-teststand-efd.lsst.codes/
+- Chronograf: https://tucson-teststand-efd.lsst.codes/chronograf
 - LOVE
    - bare metal: http://love1.tu.lsst.org
    - kubernetes: http://love.tu.lsst.org
