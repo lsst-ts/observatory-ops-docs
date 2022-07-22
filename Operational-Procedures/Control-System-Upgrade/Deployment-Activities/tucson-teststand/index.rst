@@ -11,7 +11,7 @@ Resources
 * LOVE: http://love1.tu.lsst.org
 * LOVE (k8s): http://love.tu.lsst.org
 * Argo CD: https://tucson-teststand.lsst.codes/argo-cd
-* Chronograf: https://chronograf-tucson-teststand-efd.lsst.codes/
+* Chronograf: https://tucson-teststand-efd.lsst.codes/chronograf
 * Nublado: https://tucson-teststand.lsst.codes/
 * Rancher: https://rancher.tu.lsst.org (1)
 * Slack: #rubinobs-tucson-teststand

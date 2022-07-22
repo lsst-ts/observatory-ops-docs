@@ -122,7 +122,7 @@ linkcheck_ignore = [
     r"https://base-lsp.lsst.codes/*",
     r"https://chronograf-base-efd.lsst.codes/",
     r"https://chronograf-summit-efd.lsst.codes/",
-    r"https://chronograf-tucson-teststand-efd.lsst.codes/",
+    r"https://tucson-teststand-efd.lsst.codes/chronograf",
     r"https://jira.lsstcorp.org/*",
     r"https://lsst-argocd-nts-efd.ncsa.illinois.edu/",
     r"https://lsst-chronograf-nts-efd.ncsa.illinois.edu/",
