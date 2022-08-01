@@ -75,7 +75,7 @@ If changes are necessary to these scripts from work described in the previous se
         * Verify that each daemon has actually started by running: *docker logs ospl-daemon* and checking for a line that says "daemon ready".
         * To monitor the number of daemons ("federations") as you bring up daemons and single-process CSCs, run the following: *docker exec ospl-daemon grep "federations" durability.log* (:ref:`TTS <Deployment-Activities-TTS-Federation-Check>`)
     #. Startup Minimal Kubernetes Services (:ref:`TTS <Deployment-Activities-TTS-Minimal-K8S-System>`)
-        * This uses the ``sync_apps.py`` script found in https://github.com/lsst-ts/argocd-admin.
+        * This uses the ``sync_apps.py`` script found in `https://github.com/lsst-ts/argocd-csc/bin <https://github.com/lsst-ts/argocd-csc/tree/main/bin>`_.
         * The script is run in the same place that Kubernetes (*kubectl*) interactions are run.
         * Log into the argocd pod by doing the following:
             * *python argocd_login.py /path/to/auth_file*

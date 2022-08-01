@@ -41,7 +41,7 @@ Specific uses for each repository are handled within the deployment documentatio
 
 * https://github.com/lsst-ts/docker-compose-admin
 * https://github.com/lsst-ts/k8s-admin
-* https://github.com/lsst-ts/argocd-admin
+* `https://github.com/lsst-ts/argocd-csc/bin <https://github.com/lsst-ts/argocd-csc/tree/main/bin>`_
 
 Site Specific Variations
 ========================
