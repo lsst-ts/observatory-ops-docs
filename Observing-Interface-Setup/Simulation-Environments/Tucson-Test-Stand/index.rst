@@ -113,6 +113,5 @@ It also shows how to verify it was ingested properly.
 #. Can query all collections to verify that the LATISS-test-data-tts collection is visible 
 
    .. code-block:: bash
+      
       butler query-collections /repo/LATISS
-.. 
-    

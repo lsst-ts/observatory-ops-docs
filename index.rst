@@ -37,62 +37,6 @@ The scope of this area of documentation is to provide a centralized, version con
 The content is provided as reference only.
 All aspects of the project that go through strict change control (e.g. mirror procedures) should only be linked to these pages.
 
-.. _Obs-Ops-Daytime-Nighttime-Interactions:
-
-Daytime/Nighttime Interactions
-==============================
-
-This area of contains information related to summit operations, specifically nighttime activities and the handoff to/from daytime personnel
-
-.. toctree::
-   :maxdepth: 2
-   :glob:
-   :titlesonly:
-
-   Daytime-Nighttime-Interactions/index
-
-.. _Obs-Ops-Observing-Interface-Setup:
-
-Observing Interface Setup
-=========================
-
-Information on getting setup for observations - also tools etc
-
-.. toctree::
-    :maxdepth: 2
-    :glob:
-    :titlesonly:
-
-    Observing-Interface-Setup/index
-
-.. _Obs-Ops-Observing-Constraints:
-
-Observing Constraints
-=====================
-
-Describes different physical and meteorological factors that affect operation (e.g. opening/closing)
-
-.. toctree::
-    :maxdepth: 2
-    :glob:
-    :titlesonly:
-
-    Observing-Constraints/index
-
-.. _Obs-Ops-Operational-Procedures:
-
-Operational Procedures
-======================
-
-Content in this section procedures related to regular night-time operations (e.g. opening/closing, troubleshooting)
-
-.. toctree::
-    :maxdepth: 2
-    :glob:
-    :titlesonly:
-
-    Operational-Procedures/index
-
 .. _Obs-Ops-Safety:
 
 Safety
@@ -107,6 +51,69 @@ This includes:
 - Procedures to enter telescope spaces during operations (e.g. AuxTel)
 - Emergency meeting locations etc.
 
+.. toctree::
+   :glob:
+   :titlesonly:
+   :maxdepth: 2
+   
+   Safety/index
+
+
+.. _Obs-Ops-Daytime-Operations:
+
+Daytime Operations
+======================
+
+.. toctree::
+    :glob: 
+    :titlesonly:
+    :maxdepth: 4
+
+    Daytime-Operations/index
+
+
+.. _Obs-Ops-Daytime-Nighttime-Interactions:
+
+Daytime/Nighttime Interactions
+==============================
+
+This area contains information related to the summit operations and the handoff to/from daytime personnel
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :titlesonly:
+
+   Daytime-Nighttime-Interactions/index
+
+
+.. _Obs-Ops-NightTime-Operations:
+
+Nighttime Operations
+======================
+
+.. toctree::
+    :maxdepth: 4
+    :glob:
+    :titlesonly:
+
+    Nighttime-Operations/index
+
+.. _Obs-Ops-Troubleshooting:
+
+Troubleshooting
+======================
+
+All related to troubleshooting is included in this section. 
+
+.. toctree::
+    :maxdepth: 4
+    :glob:
+    :titlesonly:
+    
+    Troubleshooting/index
+ 
+
 .. _Obs-Ops-Project-Documentation-Information:
 
 Project Documentation Information
@@ -120,3 +127,33 @@ Describes information regarding this documentation tree, including how to contri
     :titlesonly:
 
     project/index
+
+
+.. _Obs-Ops-Observing-Interface-Setup:
+
+Observing Interface Setup
+==================================
+
+Contains detailed instructions on how to set the required environment for operations and/or interaction with the system during testing and commissioning. 
+
+.. toctree::
+    :maxdepth: 2
+    :glob:
+    :titlesonly:
+
+    Observing-Interface-Setup/index
+
+
+.. _Obs-Ops-Operational-Procedures-Tutorials:
+
+Operational Procedures - System testing, deployment and upgrade
+==================================================================
+
+Procedures for system testing, software build, deployment and upgrades at the summit and at TTS are compiled here (To eventually be displayed under https://obs-controls.lsst.io/)
+
+.. toctree::
+    :maxdepth: 2
+    :glob:
+    :titlesonly:
+
+    Operational-Procedures-Tutorials/index
