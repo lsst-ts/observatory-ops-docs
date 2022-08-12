@@ -61,7 +61,7 @@ These are the basic steps to clone and build the docs:
    .. code-block:: bash
 
       git clone https://github.com/lsst-ts/observatory-ops-docs
-      cd nb_lsst_io
+      cd observatory-ops-docs
 
 #. Create a Python virtual environment (with `venv <https://docs.python.org/3/tutorial/venv.html>`__, for example):
 
