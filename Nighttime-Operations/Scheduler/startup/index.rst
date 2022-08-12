@@ -9,7 +9,7 @@ The system contains a set of :ref:`custom scripts <scheduler-operational-scripts
 In the future it is expected that most of these operations will be done through a custom LOVE interface.
 
 These procedures concetrate on the Auxiliary Telescope Scheduler because at the time of this writting, it is the focus of operations.
-Nevertheless, as pointed out in :ref:`scheduler-operational-procedures`, the processes are similar for both schedulers.
+Nevertheless, as pointed out in :ref:`Scheduler-Scheduler-Operational-Procedures`, the processes are similar for both schedulers.
 
 .. _ATQueue: http://love01.cp.lsst.org/uif/view?id=41
 .. _ASummary State: http://love01.cp.lsst.org/uif/view?id=51

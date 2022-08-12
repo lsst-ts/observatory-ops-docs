@@ -65,10 +65,10 @@ The full procedures for the different afternoon or recommended daily checkouts a
 
 * LATISS Calibrations
 
-    * :ref:`LATISS daily checkout procedure notebook <Latiss-Master-Calibrations-Procedure>`.
+    * :ref:`LATISS daily checkout procedure notebook <LATISS-Master-Calibrations-Procedure-LATISS-Master-Calibrations-Generation-Procedure>`.
 
 * Comcam Calibrations
-    * :ref:`Comcam master bias generation procedure <ComCam-Master-Calibrations-Procedure>`.
+    * :ref:`Comcam master bias generation procedure <ComCam-Master-Calibrations-Procedure-ComCam-Master-Calibrations-Generation-Procedure>`.
 
 .. _daytime-and-nighttime-communication-Reporting-Faults:
 

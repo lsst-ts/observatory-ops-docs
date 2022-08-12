@@ -2,7 +2,7 @@
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
 .. |contributors| replace:: *none*
 
-.. LATISS-Master-Calibrations-Procedure-LATISS-Master-Calibrations-Generation-Procedure:
+.. _LATISS-Master-Calibrations-Procedure-LATISS-Master-Calibrations-Generation-Procedure:
 
 ###############################################
 Latiss Master Calibrations Generation Procedure

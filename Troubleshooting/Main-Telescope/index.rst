@@ -2,7 +2,7 @@
 
 ###########################
 Troubleshooting MainTel
-############################
+###########################
 
 This page contains some common troubleshooting procedures for Auxiliary Telescope.
 

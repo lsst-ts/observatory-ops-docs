@@ -2,7 +2,7 @@
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
 .. |contributors| replace:: *none*
 
-.. _ComCam-Master-Calibrations-Procedure:
+.. _ComCam-Master-Calibrations-Procedure-ComCam-Master-Calibrations-Generation-Procedure:
 
 ###############################################
 ComCam Master Calibrations Generation Procedure

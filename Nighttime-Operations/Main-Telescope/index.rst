@@ -7,7 +7,7 @@
 
 .. This is the label that can be used as for cross referencing this file.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _Main-Telescope-Procedures:
+.. _Nighttime-Main-Telescope-Main-Telescope:
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
@@ -22,11 +22,45 @@ Main Telescope
 .. note::
     This is a template file that is associated with a template directory structure. This note should be deleted when the section is properly populated
 
-Procedures are divided into multiple categories based on the affected hardware and user's application.
+
+
+.. This section should provide a brief, top-level description of the page.
+
+Procedures are displayed into preparation, on-sky and shutdown:
+
+.. _Main-Telescope-Preparation:
+
+Preparation
+=====================
+
 
 .. toctree::
-    :maxdepth: 2
+    :glob:
+    :titlesonly:
+
+    MT-Pre/index
+
+
+.. _Main-Telescope-On-sky:
+
+On-sky
+================
+
+.. toctree::
+    :maxdepth: 5
     :titlesonly:
     :glob:
 
-    *
+    MT-On-Sky/index
+
+.. _Main-Telescope-Shutdown:
+
+Shutdown
+================
+
+.. toctree::
+    :maxdepth: 5
+    :titlesonly:
+    :glob:
+
+    MT-Shutdown/index
