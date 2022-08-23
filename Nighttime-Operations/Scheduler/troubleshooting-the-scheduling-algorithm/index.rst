@@ -211,7 +211,7 @@ The following code snippet can produce a textual overview of the structure of th
                         
             for k, basis_function in enumerate(survey.basis_functions):
                 ppprefix = generate_prefix(display_parent_prefix_middle + display_parent_prefix_last + display_parent_prefix_middle + display_parent_prefix_last, len(survey.basis_functions))
-                is_healpix = "[helpix map]" if hasattr(basis_function(conditions), '__len__') else ""
+                is_healpix = "[healpix map]" if hasattr(basis_function(conditions), '__len__') else ""
                 print(f"{ppprefix} {get_classname(basis_function)} :: Feasibility: {basis_function.check_feasibility(conditions)} {is_healpix}")
 
 The code above will show something like the following:
@@ -223,34 +223,34 @@ The code above will show something like the following:
         ├── Number of surveys in list 1: 1
         │       └── Greedy_survey[cwfs]
         │       │   ├── Not_twilight_basis_function :: Feasibility: True 
-        │       │   ├── Slewtime_basis_function :: Feasibility: True [helpix map]
+        │       │   ├── Slewtime_basis_function :: Feasibility: True [healpix map]
         │       │   ├── Slewtime_basis_function :: Feasibility: True 
         │       │   ├── Slewtime_basis_function :: Feasibility: True 
-        │       │   ├── Moon_avoidance_basis_function :: Feasibility: True [helpix map]
-        │       │   ├── Zenith_shadow_mask_basis_function :: Feasibility: True [helpix map]
+        │       │   ├── Moon_avoidance_basis_function :: Feasibility: True [healpix map]
+        │       │   ├── Zenith_shadow_mask_basis_function :: Feasibility: True [healpix map]
         │       │   ├── VisitGap :: Feasibility: False 
         ├── Number of surveys in list 2: 212
         │       ├── FieldSurvey[LATISS_MD02_00000001]
         │       │   ├── Not_twilight_basis_function :: Feasibility: True 
         │       │   ├── Hour_Angle_limit_basis_function :: Feasibility: False 
-        │       │   ├── Slewtime_basis_function :: Feasibility: True [helpix map]
+        │       │   ├── Slewtime_basis_function :: Feasibility: True [healpix map]
         │       │   ├── Slewtime_basis_function :: Feasibility: True 
         │       │   ├── Slewtime_basis_function :: Feasibility: True 
-        │       │   ├── Moon_avoidance_basis_function :: Feasibility: True [helpix map]
-        │       │   ├── Zenith_shadow_mask_basis_function :: Feasibility: True [helpix map]
+        │       │   ├── Moon_avoidance_basis_function :: Feasibility: True [healpix map]
+        │       │   ├── Zenith_shadow_mask_basis_function :: Feasibility: True [healpix map]
         │       │   ├── VisitGap :: Feasibility: False 
-        │       │   ├── AvoidDirectWind :: Feasibility: True [helpix map]
+        │       │   ├── AvoidDirectWind :: Feasibility: True [healpix map]
         │       │   ├── BalanceVisits :: Feasibility: True 
         │       ├── FieldSurvey[LATISS_MD02_00000002]
         │       │   ├── Not_twilight_basis_function :: Feasibility: True 
         │       │   ├── Hour_Angle_limit_basis_function :: Feasibility: False 
-        │       │   ├── Slewtime_basis_function :: Feasibility: True [helpix map]
+        │       │   ├── Slewtime_basis_function :: Feasibility: True [healpix map]
         │       │   ├── Slewtime_basis_function :: Feasibility: True 
         │       │   ├── Slewtime_basis_function :: Feasibility: True 
-        │       │   ├── Moon_avoidance_basis_function :: Feasibility: True [helpix map]
-        │       │   ├── Zenith_shadow_mask_basis_function :: Feasibility: True [helpix map]
+        │       │   ├── Moon_avoidance_basis_function :: Feasibility: True [healpix map]
+        │       │   ├── Zenith_shadow_mask_basis_function :: Feasibility: True [healpix map]
         │       │   ├── VisitGap :: Feasibility: False 
-        │       │   ├── AvoidDirectWind :: Feasibility: True [helpix map]
+        │       │   ├── AvoidDirectWind :: Feasibility: True [healpix map]
         │       │   ├── BalanceVisits :: Feasibility: True 
         ...
 
@@ -307,7 +307,7 @@ We can show each of these maps with the current position of the telescope and th
         if hasattr(bfs_value, "__len__"):        
             hp.mollview(bfs_value, title=get_classname(bfs), fig=fig_num)
             hp.projscatter(np.degrees(survey.ra), np.degrees(survey.dec), lonlat=True, coord="E", color="red")
-            hp.projscatter(np.degrees(conditions.telDec), np.degrees(conditions.telDec), lonlat=True, coord="E", color="green")
+            hp.projscatter(np.degrees(conditions.telRA), np.degrees(conditions.telDec), lonlat=True, coord="E", color="green")
             fig_num += 1    
 
 The position of the field is shown as a red dot in the map, and the position of the telescope as a green dot.
