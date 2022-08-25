@@ -15,7 +15,7 @@
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
 
-.. _Operational-Procedures-Tutorials-Annouce-Component-Usage:
+.. _Operational-Tutorials-Annouce-Component-Usage:
 
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.

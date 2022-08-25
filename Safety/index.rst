@@ -14,9 +14,9 @@
 .. An error will alert you of identical labels during the build process.
 
 
-##############################
-Safety 
-##############################
+##############################################
+Quick Safety Reference for Nighttime Personnel
+##############################################
 
 .. This section should provide a brief, top-level description of the page.
 
@@ -24,7 +24,8 @@ Safety
     note::
         This is a template file that is associated with a template directory structure. This note should be deleted when the section is properly populated
 
-This page provides procedures for the safety of personnel and equipment. 
+This page provides quick-reference procedures for the safety of personnel and equipment. 
+This does not replace the required safety orientation for summit personnel.
 
 .. toctree::
     :maxdepth: 2
