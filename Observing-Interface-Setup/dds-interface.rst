@@ -27,14 +27,17 @@ Checking the status of the Daemon
 ---------------------------------
 In the case that a CSC has trouble starting due to DDS failures.
 Check the status of the ospl daemon using the following procedure.
-1. Check that the daemon is running:
+
+#. Setup the appropriate environment variables, as is shown in `Setup and Start DDS Daemon`_.
+
+#. Check that the daemon is running:
    
    .. prompt:: bash
 
         ospl status
         Vortex OpenSplice System with domain name "ospl_sp_ddsi" has died
 
-2. Start the daemon
+#. Start the daemon
    
    .. prompt:: bash
         
