@@ -107,6 +107,8 @@ After loading the script, a window that contains two sections, ``SCHEMA`` (top) 
 - ``exp_times_dark``: The exposure time of each dark image (sec). If a single value, then the same exposure time is used for each exposure. Default: ``5``
 - ``n_flat``: number of flat frames to be taken. Default: ``20``
 - ``exp_times_flat``: The exposure time of each flat image (sec). If a single value, then the same exposure time is used for each exposure. If ``do_ptc`` is ``True``, the exposure times should form an adecuate secuence of flat pairs, each pair with the same exposure time. If ``do_gain_from_flat_pairs`` is ``True``, at least two flats with the same exposure time should be taken.  Default: ``5``
+- ``filter``: Filter name or ID; if omitted the filter is not changed. Default: ``null``.
+- ``grating``: Grating name; if omitted the grating is not changed. Default: ``null`.
 - ``detectors``: Detector IDs that will be pased to the pipeline tasks, given as an array of integers, e.g., ``[0,1,2,3]``. The default value is an empty array, which will translate in using all the detectors (a single detector for LATISS). Default: ``[]``
 - ``do_verify``: Should the combined calibrations be verified? (c.f., ``cp_verify``). Default:  ``True``
 - ``generate_calibrations``: Should the combined calibrations be generated from the images taken and used as references for image verification? ("internal verification"). If ``False`` and and ``do_verify`` is ``True``, pre-existing calibrations will be used as reference for verification ("external verification"), and they should be provided in the input collections for the verification pipetasks. Default: ``False``
