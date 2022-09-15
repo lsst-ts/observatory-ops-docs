@@ -12,4 +12,4 @@ This page contains some common calibrations procedures.
     :glob:
 
     *
-    LATISS-Master-Calibrations-Procedure/*
+    LATISS-Combined-Calibrations-Procedure/*
