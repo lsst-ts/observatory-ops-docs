@@ -68,7 +68,7 @@ or from chronograf with the following query:
 
 .. code-block:: text
 
-    SELECT "url" FROM "efd"."autogen"."lsst.sal.Scheduler.logevent_largeFileObjectAvailable" WHERE "SchedulerID" = 2 ORDER BY DESC LIMIT 1
+    SELECT "url" FROM "efd"."autogen"."lsst.sal.Scheduler.logevent_largeFileObjectAvailable" WHERE "salIndex" = 2 ORDER BY DESC LIMIT 1
 
 .. figure:: ./_static/chronograf-scheduler-lfoa.png
     :name: fig-chronograf-scheduler-lfoa
