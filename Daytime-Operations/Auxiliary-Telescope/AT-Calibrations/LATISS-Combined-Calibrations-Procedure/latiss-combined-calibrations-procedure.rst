@@ -2,18 +2,18 @@
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
 .. |contributors| replace:: *none*
 
-.. _LATISS-Master-Calibrations-Procedure-LATISS-Master-Calibrations-Generation-Procedure:
+.. _LATISS-Combined-Calibrations-Procedure-LATISS-Combined-Calibrations-Generation-Procedure:
 
 ###############################################
-Latiss Master Calibrations Generation Procedure
+Latiss Combined Calibrations Generation Procedure
 ###############################################
 
-.. _Latiss-Master-Calibrations-Procedure-Overview:
+.. _Latiss-Combined-Calibrations-Procedure-Overview:
 
 Overview
 ========
 
-This procedure describes how to execute the SAL Script to produce combined/master calibrations for LATISS on the ScriptQueue from the LSST Operations and Visualization Enviroment (LOVE) at the Summit. 
+This procedure describes how to execute the SAL Script to produce combined calibrations for LATISS on the ScriptQueue from the LSST Operations and Visualization Enviroment (LOVE) at the Summit. 
 
 The script will have the option to: 
 
@@ -45,7 +45,7 @@ For more information about calibrations production (including verification and c
 .. _DMTN-222: https://dmtn-222.lsst.io/
 .. _Constructing Calibrations documentation: https://pipelines.lsst.io/v/daily/modules/lsst.cp.pipe/constructing-calibrations.html
 
-.. _Latiss-Master-Calibrations-Procedure-Prerequisites:
+.. _Latiss-Combined-Calibrations-Procedure-Prerequisites:
 
 
 Prerequisites
@@ -60,7 +60,7 @@ The instrument and the ``OCPS`` can be enabled with the following procedures:
 If you plan to take flat fields as well, make sure the Auxiliary Telescope is prepared to do so:
     - :ref:`Prepare ATCS For Flat Fields Procedure <AT-Calibrations-Prepare-ATCS-For-Flat-Fields-Procedure>`
 
-.. _Latiss-Master-Calibrations-Procedure-Post-Conditions:
+.. _Latiss-Combined-Calibrations-Procedure-Post-Conditions:
 
 Post-Condition
 ==============
@@ -70,12 +70,12 @@ Post-Condition
 .. _butler: https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/index.html
 .. _collection: https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/organizing.html
 
-.. _Latiss-Master-Calibrations-Procedure-Steps:
+.. _Latiss-Combined-Calibrations-Procedure-Steps:
 
 Procedure Steps
 ===============
 
-Once you are logged into LOVE, click on the ``ATQueue`` panel, as circled on the right side of the figure below (for reference, ``MTQueue`` to launch ``LATISS`` scripts is circled on the left):
+Once you are logged into LOVE, click on the ``ATQueue`` panel, as circled on the left side of the figure below (for reference, ``MTQueue`` to launch ``LSSTComCam`` scripts is circled on the right):
 
 .. figure:: ./_static/love-mtqueue-atqueue-panel.png
     :name: ATQueue-love
@@ -107,6 +107,8 @@ After loading the script, a window that contains two sections, ``SCHEMA`` (top) 
 - ``exp_times_dark``: The exposure time of each dark image (sec). If a single value, then the same exposure time is used for each exposure. Default: ``5``
 - ``n_flat``: number of flat frames to be taken. Default: ``20``
 - ``exp_times_flat``: The exposure time of each flat image (sec). If a single value, then the same exposure time is used for each exposure. If ``do_ptc`` is ``True``, the exposure times should form an adecuate secuence of flat pairs, each pair with the same exposure time. If ``do_gain_from_flat_pairs`` is ``True``, at least two flats with the same exposure time should be taken.  Default: ``5``
+- ``filter``: Filter name or ID; if omitted the filter is not changed. Default: ``null``.
+- ``grating``: Grating name; if omitted the grating is not changed. Default: ``null`.
 - ``detectors``: Detector IDs that will be pased to the pipeline tasks, given as an array of integers, e.g., ``[0,1,2,3]``. The default value is an empty array, which will translate in using all the detectors (a single detector for LATISS). Default: ``[]``
 - ``do_verify``: Should the combined calibrations be verified? (c.f., ``cp_verify``). Default:  ``True``
 - ``generate_calibrations``: Should the combined calibrations be generated from the images taken and used as references for image verification? ("internal verification"). If ``False`` and and ``do_verify`` is ``True``, pre-existing calibrations will be used as reference for verification ("external verification"), and they should be provided in the input collections for the verification pipetasks. Default: ``False``
@@ -231,7 +233,7 @@ Troubleshooting
     After checking the configuration options and the ``LOVE`` error messages, the file ``/scratch/uws/${jobId}/outs/ocps.log`` will contain additional technical information on which pipetask failed, if any. ``{jobId}`` is returned by the OCPS and can be retrieved from the ``LOVE`` output messages.
 
 
-.. _Latiss-Master-Calibrations-Procedure-Conditions-Contact-Personnel:
+.. _Latiss-Combined-Calibrations-Procedure-Conditions-Contact-Personnel:
 
 Contact Personnel
 =================

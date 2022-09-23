@@ -11,7 +11,7 @@ This page contains some common calibrations procedures.
     :titlesonly:
     :glob:
 
-    ComCam-Master-Calibrations-Procedure/*
+    ComCam-Combined-Calibrations-Procedure/*
     Enable-ComCam-Procedure/*
     Enable-OCPS-ComCam-Procedure/*
 

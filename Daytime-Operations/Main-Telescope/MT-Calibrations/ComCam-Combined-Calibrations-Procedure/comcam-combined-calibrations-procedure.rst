@@ -2,18 +2,18 @@
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
 .. |contributors| replace:: *none*
 
-.. _ComCam-Master-Calibrations-Procedure-ComCam-Master-Calibrations-Generation-Procedure:
+.. _ComCam-Combined-Calibrations-Procedure-ComCam-Combined-Calibrations-Generation-Procedure:
 
 ###############################################
-ComCam Master Calibrations Generation Procedure
+ComCam Combined Calibrations Generation Procedure
 ###############################################
 
-.. _ComCam-Master-Calibrations-Procedure-Overview:
+.. _ComCam-Combined-Calibrations-Procedure-Overview:
 
 Overview
 ========
 
-This procedure describes how to execute the SAL Script to produce combined/master calibrations for LSSTComCam on the ScriptQueue from the LSST Operations and Visualization Enviroment (LOVE) at the Summit. 
+This procedure describes how to execute the SAL Script to produce combined calibrations for LSSTComCam on the ScriptQueue from the LSST Operations and Visualization Enviroment (LOVE) at the Summit. 
 
 The script will have the option to: 
 
@@ -45,7 +45,7 @@ For more information about calibrations production (including verification and c
 .. _DMTN-222: https://dmtn-222.lsst.io/
 .. _Constructing Calibrations documentation: https://pipelines.lsst.io/v/daily/modules/lsst.cp.pipe/constructing-calibrations.html
 
-.. _ComCam-Master-Calibrations-Procedure-Prerequisites:
+.. _ComCam-Combined-Calibrations-Procedure-Prerequisites:
 
 
 Prerequisites
@@ -60,7 +60,7 @@ Prerequisites
     - :ref:`Enable ComCam Procedure <Enable-ComCam-Procedure>`
     - :ref:`Enable OCPS ComCam Procedure <Enable-OCPS-ComCam-Procedure>`
 
-.. _ComCam-Master-Calibrations-Procedure-Post-Conditions:
+.. _ComCam-Combined-Calibrations-Procedure-Post-Conditions:
 
 Post-Condition
 ==============
@@ -70,7 +70,7 @@ Post-Condition
 .. _butler: https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/index.html
 .. _collection: https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/organizing.html
 
-.. _ComCam-Master-Calibrations-Procedure-Steps:
+.. _ComCam-Combined-Calibrations-Procedure-Steps:
 
 Procedure Steps
 ===============
@@ -230,7 +230,7 @@ Troubleshooting
     After checking the configuration options and the ``LOVE`` error messages, the file ``/scratch/uws/${jobId}/outs/ocps.log`` will contain additional technical information on which pipetask failed, if any. ``{jobId}`` is returned by the OCPS and can be retrieved from the ``LOVE`` output messages.
 
 
-.. _ComCam-Master-Calibrations-Procedure-Conditions-Contact-Personnel:
+.. _ComCam-Combined-Calibrations-Procedure-Conditions-Contact-Personnel:
 
 Contact Personnel
 =================
