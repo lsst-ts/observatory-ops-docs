@@ -50,10 +50,8 @@ It does not replace the required safety training to be on the summit at night.
 This includes:
 
 - procedures on who (and how) to call when there is an issue
-- location of keys, passwords etc
 - what to do in case of vehicle failure, power-outage, fire etc.
-- Procedures to enter telescope spaces during operations (e.g. AuxTel)
-- Emergency meeting locations etc.
+- emergency meeting locations
 
 .. toctree::
    :glob:
