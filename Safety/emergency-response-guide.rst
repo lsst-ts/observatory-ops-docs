@@ -30,14 +30,14 @@ This does not replace safety training required to be on the summit.
 It is recommended to contact the safety team to complete summit driver's training in addition to the required summit training. 
 
 .. note::
-    Observing specialists serve as the Nighttime Safety Officers if there is not a member of the safety team on the summit.
+    Observing specialists serve as the Nighttime Safety Officers if there is not a member of the safety team physically on the summit.
     If they take the decision to close the telescope or evacuate the summit for inclement weather, that decision is not negotiable.
     The priority of safety will always be given to staff first, equipment second. 
 
 .. _emergency-response-guide-medical-emergency:
 
 Medical Emergency
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 .. Preconditions
 

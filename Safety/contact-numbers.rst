@@ -30,7 +30,7 @@ They are internal to AURA.
 .. _contact-numbers-emergency-numbers:
 
 Emergency Numbers
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 .. Preconditions
 
 - Polyclinic Paramedic: 577
@@ -50,7 +50,7 @@ Emergency Numbers
 .. _contact-numbers-non-emergency-numbers:
 
 Non-Emergency Numbers
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 - Rubin Casino: 593
 
@@ -60,7 +60,7 @@ Non-Emergency Numbers
   
   Staff primarily speak Spanish, but some operators are bilingual.
 
-- Gemini Base Facility in La Serena: 758
+- Gemini Base Facility (operations control room) in La Serena: 758
   
   Staff are bilingual.
 
@@ -68,7 +68,7 @@ Non-Emergency Numbers
 
 
 Calling Hotel Pachon
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 If there is something wrong with the room you have organized to stay in, you may call 440 from the hotel foyer and request help.
 Some examples are if the key is not hanging on the second floor for you, there is no hot water, or the heat is off and you want to request a space heater, etc.
@@ -103,7 +103,7 @@ Using the control room phones
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note::
-  When dialing a large number, leave the phone in the cradle and dial the numebr using the keypad. 
+  When dialing a large number, leave the phone in the cradle and dial the number using the keypad. 
   Then pick up the phone after you have entered the full number.
 
 - To dial a landline in Chile: 9 2 XXXX XXXX
