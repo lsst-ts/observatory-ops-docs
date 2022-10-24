@@ -12,16 +12,16 @@
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _Observing-Interface-Production-Environment-Package-Management:
+.. _Observing-Interface-Observing-Environment-Package-Management:
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
-.. _Production-Environment-Package-Management:
+.. _Observing-Environment-Package-Management:
 
 #########################################
-Production Environment Package Management
+Observing Environment Package Management
 #########################################
 
 Introduction
@@ -54,10 +54,10 @@ Any commands issued by that user must be done via sudo, and that user must have 
 ``obs_user`` is the owner of the summit environment packages that are used by observers and the scriptQueue.
 
 The number of actual commands performed by ``obs_user`` is very limited and dependent upon the end-user.
-There will be by a few sanctioned individuals who maintain the observing environment(s), they will have extensive sudo privileges such that they can manage the packages accordingly, however, they should really only need to perform a few commands.
+There will be a few sanctioned individuals who maintain the observing environment(s), they will have extensive sudo privileges such that they can manage the packages accordingly, however, they should really only need to perform a few commands.
 Observers will also have access to the ``obs_user`` account, but *only* to execute a script that will roll back to the base environment.
 
-All commands using the ``obs_user`` account must be executed as follows, to command itself is only an example:
+All commands using the ``obs_user`` account must be executed as follows, the command itself is only an example:
 
 .. code-block:: bash
 
@@ -79,7 +79,7 @@ Note that this is a destructive action that takes time to revert.
 
    sudo -u obs_user FIXME
 
-This command will move your current ``~/notebooks/.user_setups`` file to your home directory with a timestamp, then create a new file which points to the base environment.
+This command will move your current ``~/notebooks/.user_setups`` file to a new file with a timestamp (e.g. ``~/notebooks/.user_setups.<date>.bkp``, then create a new file which points to the base environment.
 
 Use of the deploy branch
 ^^^^^^^^^^^^^^^^^^^^^^^^
