@@ -102,13 +102,13 @@ After loading the script, a window that contains two sections, ``SCHEMA`` (top) 
 
 - ``script_mode``: Currently, the script can be run  in three modes, in which  it  will  produce only biases (``BIAS``), biases and darks (``BIAS_DARK``), or biases, darks,
   and flats (``BIAS_DARK_FLAT``). Default: ``BIAS_DARK_FLAT``
-- ``n_bias``: Number of biases taken that will be used in pipetasks, after discarding the first ``n_discard_bias`` biases taken. Default: ``20``
-- ``n_discard_bias``: Number of first biases taken to be discarded. Default: ``1``
-- ``n_dark``: Number of darks taken that will be used in pipetasks, after discarding the first ``n_discard_dark`` darks taken. Default: ``20``
-- ``n_discard_dark``: Number of first darks taken to be discarded. Default: ``1``
+- ``n_bias``: Number of biases to take. Default: ``20``
+- ``n_discard_bias``: Additional number of bias images to take and discard before starting the sequence. Default: ``1``
+- ``n_dark``: Number of darks to take. Default: ``20``
+- ``n_discard_dark``: Additional number of dark images to take and discard before starting the sequence. Default: ``1``
 - ``exp_times_dark``: The exposure time of each dark image (sec). If a single value, then the same exposure time is used for each exposure. Default: ``5``
-- ``n_flat``:  Number of flats taken that will be used in pipetasks, after discarding the first ``n_discard_flat`` flats taken. Default: ``20``
-- ``n_discard_flat``: Number of first flats taken to be discarded. Default: ``1``
+- ``n_flat``:  Number of flats to take. Default: ``20``
+- ``n_discard_flat``: Additional number of flat images to take and discard before starting the sequence. Default: ``1``
 - ``exp_times_flat``: The exposure time of each flat image (sec). If a single value, then the same exposure time is used for each exposure. If ``do_ptc`` is ``True``, the exposure times should form an adecuate secuence of flat pairs, each pair with the same exposure time. If ``do_gain_from_flat_pairs`` is ``True``, at least two flats with the same exposure time should be taken.  Default: ``5``
 - ``detectors``: Detector IDs that will be pased to the pipeline tasks, given as an array of integers, e.g., ``[0,1,2,3]``. The default value is an empty array, which will translate in using all the detectors (9, for LSSTComCam). Default: ``[]``
 - ``do_verify``: Should the combined calibrations be verified? (c.f., ``cp_verify``). Default:  ``True``
