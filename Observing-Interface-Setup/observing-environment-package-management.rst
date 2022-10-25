@@ -29,19 +29,22 @@ Introduction
 
 .. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
 
-This page explains how package management in controlled on production environments, specifically the summit.
-Nominally, the CSC versions and supporting software packages deployed on the summit are managed by the `cycle build <https://ts-cycle-build.lsst.io/>`_.
-However, during commissioning it will be required to deploy new versions for testing, and/or deploy on-the-fly hotfixes that won't yet have been included as part of the cycle build.
-These fixes must be simultaneously available to the ScriptQueue CSC as well as the observer's notebook environments.
+This page explains how package management is controlled on the Observing Environment, specifically the summit.
+The Observing Environment is mainly composed of the ScriptQueue and user's Nublado instance, which are the primary high-level tools responsible for driving observatory operations.
+
+Even though the Observing Environment is initially built and deployed alongside the rest of the Observatory Control System components (e.g. CSCs), it needs to follow a slightly different management approach to support on-the-fly updates.
+These updates will primary consist of bug fixes and or workarounds to unforeseen circumstances.
+Nominally, the CSC versions and supporting software packages deployed on the summit are managed by the `cycle build <https://ts-cycle-build.lsst.io/>`_
+Nevertheless, the procedure to deploy hot-fixes for CSCs (e.g. create an alpha tag on the package, update the cycle build and redeploy), is not suitable for the Observing Environment, which requires a much larger set of packages and therefore, longer build times.
+These patches to the Observing Environment needs to be rapidly rolled out to the summit and must be simultaneously available to the ScriptQueue CSC as well as the observer's notebook environments.
 Most importantly, when testing new software on the summit, which may not be entirely stable, it is critical to have a mechanism to immediately roll back all packages to a designated stable version.
-We call this the **base environment**.
-Note that this version may include bug fixes and/or new functionalities that are not included in the previously released cycle build.
+We call this suite of stable versions the **base observing environment**.
 
 
 Shared packages
 ^^^^^^^^^^^^^^^
 To ensure consistency between all observers and the ScriptQueue, packages are hosted on an NFS mounted disk.
-The NFS mount is hosted on machine XYZ FIXME and mounted to all machines in ``/opt/obs_env``.
+The NFS mount is hosted on machine ``XYZ (FIXME)`` and mounted to all machines in ``/opt/obs_env``.
 The directory is owned by ``obs_user`` and mounted as read-only.
 In that directory includes packages such as: ``ts_observatory_control``,  ``ts_standardscripts``, ``ts_externalscripts``, ``summit_utils``, ``summit_extras``, ``ts_observing_utilities`` and any other packages which may get updated during an observing run.
 Note that these are packages *used* by observers and/or CSCs, but are not the CSCs themselves.
@@ -81,38 +84,75 @@ Note that this is a destructive action that takes time to revert.
 
 This command will move your current ``~/notebooks/.user_setups`` file to a new file with a timestamp (e.g. ``~/notebooks/.user_setups.<date>.bkp``, then create a new file which points to the base environment.
 
-Use of the deploy branch
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-For all packages that are subject to potentially rapid changes during nighttime operations, a ``deploy`` branch is used to manage which commits are currently being used by the observing environment.
-
-In a normal case, the deploy branch is updated merging a tagged commit from the main branch.
-Middle-of-the-night hot-fixes will be deployed by directly pushing to the deploy branch.
-The deploy branch is configured to automatically pull in changes and maintain the HEAD of the branch.
-This means that as soon as a fix is pushed, the ScriptQueue gets it instantaneously, and users need only to restart their notebook kernels.
-
-Under no circumstances should the deploy branch be merged back into main or develop.
-Any hot-fixes that were made during the night should be incorporated by making a ticket, creating a branch from develop, and going through the standard development procedure.
-Commits cannot be squashed or overwritten and must be kept to ensure traceability.
-
-Question: Do we need CI on the deploy branch? FIXME
-
-Question: Ideally, even hot-fixes should have a tag. Do we care? Is there a way to do this automatically?
 
 Managing the base environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The base environment is defined by a list of tags, or commit hashes, representing the packages which are deemed to be stable.
-Note that this list needs to be maintained daily, and can only be updated by the production environment maintainers.
-The list itself is stored in ``/opt/obs_user/base_environment.yaml`` (FIXME-better way to do this? CSV file with package name and branch (or commit hash?)). 
-The default for each package should be a tagged commit that has been merged to the deploy branch.
-However, in certain cases it may be a specific commit of the deploy branch, specifically if bug-fixes have been applied that are not yet incorporated into the main branch.
+The base environment is defined by a list of packages and associated tags, or commit hashes, representing the packages which are deemed to be stable (to the best of everyone's collective knowledge).
+Note that the base environment needs to be maintained daily, and can only be updated by the production environment maintainers.
+The list itself is stored in ``/opt/obs_user/base_env_repo/base_environment.yaml``  (TBR), 
+The default for each package should be a tagged version that corresponds to the current cycle build.
+However, in certain cases it may contain a specific commit or tag of a certain package that employs a bug fix that was identified the previous night but not yet incorporated into the main branch and pulled back into the cycle build.
+Another possibility is that the main branch will have diverged from what is currently deployed and the changes will be brought into the base environment when a cycle upgrade is completed.
 
-Question: How do we update this when a new cycle build occurs? Just part of a procedure? FIXME
+The base environment is a github repository managed by sanctioned individuals and led by the software architect.
+It is their responsibility to ensure that the summit environment stays stable and that appropriate hot fixes make it into the package's repository.
+The are also responsible for keeping the run environment (described below) identical to the base environment to the maximum extent possible.
+The base environment repository also contains the scripts used to modify the environment that are executed by observers and/or maintainers.
 
+.. Question: How do we update this when a new cycle build occurs? Just part of a procedure? FIXME
+
+
+Modifying the run environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For all packages that are subject to potentially rapid changes during nighttime operations, a **run environment** is used to manage which commits are currently in use by the observing environment.
+In standard operations, where the situation is stable, the run environment is identical to the base environment.
+However, during commissioning and early operations, we are expecting the run environment to be more dynamic.
+
+Like the base environment, the run environment is defined by a list of packages and associated tags, or commit hashes, stored in ``/opt/obs_user/run_environment.yaml``.
+However, unlike the base environment configuration, this file *only* contains the packages that are to be overridden from the base environment; analogous to how CSC configurations are managed.
+
+This file is *not* required to be managed by a GitHub repository, as it can be edited by a user, and therefore must be writeable by project personnel.
+
+.. note::
+
+   In the future, it is suspected that we'll write scripts to edit this file.
+   Doing this ensures traceability regarding how the file was edited and by whom.
+
+The script is executed using a sudo command such as:
+
+.. code-block:: bash
+
+   sudo -u obs_user bash setup_run_environment 
+
+Not only does this script setup the environment, but it also writes a (read-only) log file to `/var/logs/obs_user/run_env_<datetime>.log` listing each package and tag used in the setup. This includes both overrides and the base environment packages.
+
+Optionally, the script can setup the environment using a previously written log file.
+
+.. code-block:: bash
+
+   sudo -u obs_user bash setup_run_environment /var/logs/obs_user/run_env_<datetime>.log
+
+Again, because all commands are run via sudo using the ``obs_user`` id, the retrospection capability is preserved.
+Also, due to the NFS mounted environment, the ScriptQueue gets the changes instantaneously, and observers need only to restart their notebook kernels.
+
+Using the run environment
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- During the day, it is expected that developers and other personnel will modify the run environment to perform tests.
+- It is quite possible that people will share the environment, especially if the scriptQueue is required.
+  If running notebooks, then users should change their environment from within their local Nublado instance.
+- At the beginning of the night, observers should run the script that sets up the base environment. 
+  In the special case where a previous run environment needs to be loaded, this should be communicated to the observers by the run manager.
 
 On-sky testing then rolling back a CSC
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. note::
+
+   This section is here temporarily.
+   It is more a use-case on how we should handle CSCs that need to be tested and then rolled back, not about package management.
 
 In the event that a new CSC is rolled out for on-sky testing, but is not considered to be stable, this is to be performed by ... manually deploying a detached head inside the container? Then the container just has to be sent to offline and re-synced to pull the sanctioned version?
 
@@ -127,7 +167,7 @@ Prerequisites
 .. Do not include actions in this section. Any action by the user should be included at the beginning of the Procedure section below. For example: Do not include "Notify specified SLACK channel. Confirmation is not required." Instead, include this statement as the first step of the procedure, and include "Notification to specified SLACK channel." in the Prerequisites section.
 .. If there is a different procedure that is critical before execution, carefully consider if it should be linked within this section or as part of the Procedure section below (or both).
 
-- You must have write access to the deploy branch
+- You must have sudo privileges to run the appropriate scripts.
 
 
 .. _Update-Notebook-Environment-in-Nublado-Post-Conditions:
@@ -149,9 +189,9 @@ Updating the "base" environment
 
 If the changes should be included in base environment there are two options:
 
-#. Updated the cycle build, create a new tag, and merge the main branch onto the deploy branch.
+#. Updated the cycle build, and create a new tag.
    Then change the base-environment definition file
-   This is the best option, but 
+
 
 .. _Update-Notebook-Environment-in-Nublado-Procedure-Steps:
 
