@@ -100,43 +100,78 @@ Enter configuration parameters
 
 After loading the script, a window that contains two sections, ``SCHEMA`` (top) and ``CONFIG`` (bottom), will appear. The former will show the available configuration options (and the default values of some of them) that should be entered in the latter. The configuration options are as follows:
 
-- ``script_mode``: Currently, the script can be run  in three modes, in which  it  will  produce only biases (``BIAS``), biases and darks (``BIAS_DARK``), or biases, darks,
-  and flats (``BIAS_DARK_FLAT``). Default: ``BIAS_DARK_FLAT``
+- ``script_mode``: Currently, the script can be run  in three modes, in which  it  will  produce only biases (``BIAS``), biases and darks (``BIAS_DARK``), or biases, darks, and flats (``BIAS_DARK_FLAT``).
+  Default: ``BIAS_DARK_FLAT``
 - ``n_bias``: Number of biases to take.
-- ``n_discard_bias``: Additional number of bias images to take and discard before starting the sequence. Default: ``1`` 
-- ``n_dark``: Number of darks to take. Default: ``20``
-- ``n_discard_dark``: Additional number of dark images to take and discard before starting the sequence. Default: ``1``
-- ``exp_times_dark``: The exposure time of each dark image (sec). If a single value, then the same exposure time is used for each exposure. Default: ``5``
-- ``n_flat``:  Number of flats to take. Default: ``20``
-- ``n_discard_flat``: Additional number of flat images to take and discard before starting the sequence. Default: ``1``
-- ``exp_times_flat``: The exposure time of each flat image (sec). If a single value, then the same exposure time is used for each exposure. If ``do_ptc`` is ``True``, the exposure times should form an adecuate secuence of flat pairs, each pair with the same exposure time. If ``do_gain_from_flat_pairs`` is ``True``, at least two flats with the same exposure time should be taken.  Default: ``5``
-- ``filter``: Filter name or ID; if omitted the filter is not changed. Default: ``null``.
-- ``grating``: Grating name; if omitted the grating is not changed. Default: ``null`.
-- ``detectors``: Detector IDs that will be pased to the pipeline tasks, given as an array of integers, e.g., ``[0,1,2,3]``. The default value is an empty array, which will translate in using all the detectors (a single detector for LATISS). Default: ``[]``
-- ``do_verify``: Should the combined calibrations be verified? (c.f., ``cp_verify``). Default:  ``True``
-- ``generate_calibrations``: Should the combined calibrations be generated from the images taken and used as references for image verification? ("internal verification"). If ``False`` and and ``do_verify`` is ``True``, pre-existing calibrations will be used as reference for verification ("external verification"), and they should be provided in the input collections for the verification pipetasks. Default: ``False``
-- ``config_options_bias``: Options to be passed to the command-line bias pipetask. They will overwrite the values in ``cpBias.yaml``. Default: ``-c isr:doDefect=False``
-- ``config_options_dark``: Options to be passed to the command-line dark pipetask. They will overwrite the values in ``cpDark.yaml``. Default: ``-c isr:doDefect=False``
-- ``config_options_flat``: Options to be passed to the command-line flat pipetask. They will overwrite the values in ``cpFlat.yaml``. Default: ``-c isr:doDefect=False``
-- ``do_defects``: Should defects be built using darks and flats?. ``script_mode`` must be ``BIAS_DARK_FLAT``. Default: ``False``
-- ``config_options_defects``: Options to be passed to the command-line defects pipetask. They will overwrite the values in ``findDefects.yaml``. Default: ``-c isr:doDefect=False``
-- ``do_ptc``: Should a Photon Transfer Curve be constructed from the flats taken? ``script_mode`` must be ``BIAS_DARK_FLAT``. Default: ``False``
-- ``config_options_ptc``: Options to be passed to the command-line PTC pipetask. They will overwrite the values in ``cpPtc.yaml``. Default: ``-c isr:doCrosstalk=False``
-- ``do_gain_from_flat_pairs``: Should the gain be estimated from each pair of flats taken at the same exposure time? Runs the ``cpPtc.yaml#generateGainFromFlatPair`` pipeline. Since this pipeline is a subset of the PTC pipeline, you can use use the ``config_options_ptc`` parameter to pass options to the ``ISR`` (Instrument Signature Removal) and ``cpExtract`` tasks which form this pipeline. Default: ``False``
-- ``input_collections_bias``: List of additional (the ``OCPS`` already adds ``LATISS/raw/all`` as a default) comma-separated input collections for the bias pipetask. The pipetask is called via the ``OCPS`` after enabling it with the ``LATISS`` configuration. Default: ``LATISS/calib``.
-- ``input_collections_verify_bias``: Additional comma-separated input collections to pass to the verify (bias) pipetask. Default: ``LATISS/calib``.
-- ``input_collections_dark``: Additional comma-separarted input collections to pass to the dark pipetask. Default: ``LATISS/calib``
-- ``input_collections_verify_dark``: Additional comma-separated input collections to pass to the verify (dark) pipetask. Default: ``LATISS/calib``
-- ``input_collections_flat``: Additional comma-separated input collections to pass to the flat pipetask. Default: ``LATISS/calib``
-- ``input_collections_verify_flat``: Additional comma-separated input collections to pass to the verify (flat) pipetask. Default: ``LATISS/calib``
-- ``input_collections_defects``: Additional comma-separated input collections to pass to the defects pipetask. Default: ``LATISS/calib``
-- ``input_collections_ptc``: Additional comma-separated input collections to pass to the Photon Transfer Curve pipetask. Default: ``LATISS/calib``
-- ``calib_collection``: ``CALIBRATION`` collection where the calibrations will be certified into, for example, ``LATISS/calib/u/plazas/YYYYMMMDD.test`` or ``LATISS/calib/daily``. Default: ``LATISS/calib/daily``.
-- ``repo``: Butler repository. Default: ``/repo/LATISS``.
-- ``n_processes``: Number of processes that the pipetasks will use. Default: ``8``
-- ``certify_calib_begin_date``: The beginning date for the validity range of the certified calibration. For example, ``2021-07-15``. Default: ``1950-01-01``
-- ``certify_calib_end_date``: The end date for the validity range of the certified calibration. For example, ``2021-07-16``. Default: ``2050-01-01``.
-- ``oods_timeout``: Timeout value, in seconds, for the Observatory Operations Data Service (``OODS``). Default: ``120``
+  Default: ``20``.
+- ``n_discard_bias``: Additional number of bias images to take and discard before starting the sequence.
+  Default: ``1``.
+- ``n_dark``: Number of darks to take.
+  Default: ``20``.
+- ``n_discard_dark``: Additional number of dark images to take and discard before starting the sequence.
+  Default: ``1``.
+- ``exp_times_dark``: The exposure time of each dark image (sec). If a single value, then the same exposure time is used for each exposure.
+  Default: ``5``.
+- ``n_flat``:  Number of flats to take.
+  Default: ``20``.
+- ``n_discard_flat``: Additional number of flat images to take and discard before starting the sequence.
+  Default: ``1``.
+- ``exp_times_flat``: The exposure time of each flat image (sec). If a single value, then the same exposure time is used for each exposure. If ``do_ptc`` is ``True``, the exposure times should form an adecuate secuence of flat pairs, each pair with the same exposure time. If ``do_gain_from_flat_pairs`` is ``True``, at least two flats with the same exposure time should be taken.
+  Default: ``5``.
+- ``filter``: Filter name or ID; if omitted the filter is not changed.
+  Default: ``null``.
+- ``grating``: Grating name; if omitted the grating is not changed.
+  Default: ``null``.
+- ``detectors``: Detector IDs that will be pased to the pipeline tasks, given as an array of integers, e.g., ``[0,1,2,3]``. The default value is an empty array, which will translate in using all the detectors (a single detector for LATISS).
+  Default: ``[]``
+- ``do_verify``: Should the combined calibrations be verified? (c.f., ``cp_verify``).
+  Default:  ``True``.
+- ``generate_calibrations``: Should the combined calibrations be generated from the images taken and used as references for image verification? ("internal verification"). If ``False`` and and ``do_verify`` is ``True``, pre-existing calibrations will be used as reference for verification ("external verification"), and they should be provided in the input collections for the verification pipetasks.
+  Default: ``False``.
+- ``config_options_bias``: Options to be passed to the command-line bias pipetask. They will overwrite the values in ``cpBias.yaml``.
+  Default: ``-c isr:doDefect=False``.
+- ``config_options_dark``: Options to be passed to the command-line dark pipetask. They will overwrite the values in ``cpDark.yaml``.
+  Default: ``-c isr:doDefect=False``.
+- ``config_options_flat``: Options to be passed to the command-line flat pipetask. They will overwrite the values in ``cpFlat.yaml``.
+  Default: ``-c isr:doDefect=False``.
+- ``do_defects``: Should defects be built using darks and flats?. ``script_mode`` must be ``BIAS_DARK_FLAT``.
+  Default: ``False``
+- ``config_options_defects``: Options to be passed to the command-line defects pipetask. They will overwrite the values in ``findDefects.yaml``.
+  Default: ``-c isr:doDefect=False``.
+- ``do_ptc``: Should a Photon Transfer Curve be constructed from the flats taken? ``script_mode`` must be ``BIAS_DARK_FLAT``.
+  Default: ``False``.
+- ``config_options_ptc``: Options to be passed to the command-line PTC pipetask. They will overwrite the values in ``cpPtc.yaml``.
+  Default: ``-c isr:doCrosstalk=False``.
+- ``do_gain_from_flat_pairs``: Should the gain be estimated from each pair of flats taken at the same exposure time? Runs the ``cpPtc.yaml#generateGainFromFlatPair`` pipeline. Since this pipeline is a subset of the PTC pipeline, you can use use the ``config_options_ptc`` parameter to pass options to the ``ISR`` (Instrument Signature Removal) and ``cpExtract`` tasks which form this pipeline.
+  Default: ``False``.
+- ``input_collections_bias``: List of additional (the ``OCPS`` already adds ``LATISS/raw/all`` as a default) comma-separated input collections for the bias pipetask. The pipetask is called via the ``OCPS`` after enabling it with the ``LATISS`` configuration.
+  Default: ``LATISS/calib``.
+- ``input_collections_verify_bias``: Additional comma-separated input collections to pass to the verify (bias) pipetask.
+  Default: ``LATISS/calib``.
+- ``input_collections_dark``: Additional comma-separarted input collections to pass to the dark pipetask.
+  Default: ``LATISS/calib``.
+- ``input_collections_verify_dark``: Additional comma-separated input collections to pass to the verify (dark) pipetask.
+  Default: ``LATISS/calib``.
+- ``input_collections_flat``: Additional comma-separated input collections to pass to the flat pipetask.
+  Default: ``LATISS/calib``.
+- ``input_collections_verify_flat``: Additional comma-separated input collections to pass to the verify (flat) pipetask.
+  Default: ``LATISS/calib``.
+- ``input_collections_defects``: Additional comma-separated input collections to pass to the defects pipetask.
+  Default: ``LATISS/calib``.
+- ``input_collections_ptc``: Additional comma-separated input collections to pass to the Photon Transfer Curve pipetask.
+  Default: ``LATISS/calib``.
+- ``calib_collection``: ``CALIBRATION`` collection where the calibrations will be certified into, for example, ``LATISS/calib/u/plazas/YYYYMMMDD.test`` or ``LATISS/calib/daily``.
+  Default: ``LATISS/calib/daily``.
+- ``repo``: Butler repository.
+  Default: ``/repo/LATISS``.
+- ``n_processes``: Number of processes that the pipetasks will use.
+  Default: ``8``.
+- ``certify_calib_begin_date``: The beginning date for the validity range of the certified calibration, for example, ``2021-07-15``.
+  Default: ``1950-01-01``.
+- ``certify_calib_end_date``: The end date for the validity range of the certified calibration, for example, ``2021-07-16``.
+  Default: ``2050-01-01``.
+- ``oods_timeout``: Timeout value, in seconds, for the Observatory Operations Data Service (``OODS``).
+  Default: ``120``.
 
 An example set of configuration parameters is as follows:
 
