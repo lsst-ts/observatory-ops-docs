@@ -25,9 +25,12 @@ Emergency Response Guide
 ########################
 
 This is a basic emergency response guide organized by the type of emergency. 
-This is not a comprehensive first responder training guide.
-This does not replace safety training required to be on the summit.
-It is recommended to contact the safety team to complete summit driver's training in addition to the required summit training. 
+
+- This is not a comprehensive first responder training guide.
+
+- This does not replace safety training required to be on the summit.
+
+- It is recommended to contact the safety team to complete summit driver's training in addition to the required summit training. 
 
 .. note::
     Observing specialists serve as the Nighttime Safety Officers if there is not a member of the safety team physically on the summit.
@@ -41,7 +44,7 @@ Medical Emergency
 
 .. Preconditions
 
-Contact the PolyClinic Paramedic at extension 577
+Contact the PolyClinic (the Paramedic on summit) at extension 577
 
 .. note::
     If no one answers the telephone, use any Rubin radio tuned to Channel 1. Put out the call:
@@ -81,6 +84,9 @@ Describe the emergency:
 
 - How many people are injured
 
+    There are [two, three, ...] people injured.
+        - "Hay [dos, tres ...] personas heridas."
+
 - Name any hazardous conditions present IF you can identify them. 
   Speak only to the details you know.
 
@@ -91,7 +97,7 @@ Describe the emergency:
 Fire
 ^^^^
 
-- If you know of anyone else in the building not with you, use a Rubin radio tuned to Channel 3. 
+- If you that someone else is in the building, but not currently with you, use a Rubin radio tuned to Channel 3. 
   
   Attention Rubin Personnel, FIRE!
   Evacuate the building!
@@ -120,12 +126,16 @@ Fire
 
 Earthquake
 ^^^^^^^^^^^
+If the building begins to shake for more than 1 or 2 seconds, it is a terramoto (earthquake) not a tremblor (tremor). 
+If it is a small earthquake and shaking stops quickly, there is no need to evacuate.
 
 - Drop, cover, and remain still.
 
 - Stay away from windows and any electrical panels.
 
-- After the shakes stop, give directions to meet at the emergency assembly point at first level parking.
+- After the shaking stops, give directions to everyone with you to meet at the emergency assembly point at first level parking.
+
+- Use the Rubin radio on channel 3 to alert other personnel in the building to meet at the safety point. 
 
 - Call the Mountain Assistant at extension 440.
     - If they don't respond, call Control Puerta at 434.
