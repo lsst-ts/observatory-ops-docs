@@ -13,19 +13,21 @@ ComCam Combined Calibrations Generation Procedure
 Overview
 ========
 
-This procedure describes how to execute the SAL Script to produce combined calibrations for LSSTComCam on the ScriptQueue from the LSST Operations and Visualization Enviroment (LOVE) at the Summit. 
+This procedure describes how to execute the SAL Script to take individual calibration frames (biases, darks, and flats) and verify them via the `cp_verify`_ package for LSSTComCam on the ScriptQueue from the LSST Operations and Visualization Enviroment (LOVE) at the Summit.
 
 The script will have the option to: 
 
-- command LSSTComCam to take a number of calibrations frames:
+- command LSSTComCam to take a number of individual calibrations frames:
    - biases
    - darks
    - flats
-- call the corresponding Rubin Science Pipelines calibration generation pipetask to produce biases, darks, flats, defects and Photon Transfer Curves (PTCs) via the OCS-Controlled Pipeline System (OCPS),
-- verify the images taken using as reference the calibration generated in the previous step (see the package `cp_verify`_, and the technical notes `DMTN-101`_ and `DMTN-222`_), or using pre-existing calibrations (via the ``generate_calibrations`` boolean parameter in the configuration file), and
-- certify the resulting calibration with a given range of validity dates.
+- call the corresponding Rubin Science Pipelines calibration generation pipetask to produce combined biases, combined darks, combined flats, defects, and Photon Transfer Curves (PTCs) via the OCS-Controlled Pipeline System (OCPS),
+- verify the images taken using as reference the calibration generated in the previous step via the ``generate_calibrations`` boolean parameter in the configuration file (this mode is referred to as "internal verification"; see the package `cp_verify`_, and the technical notes `DMTN-101`_ and `DMTN-222`_), or using pre-existing calibrations that are usually located in the ``LSSTComCam/calib`` standard calibration collection (this mode is referred to as "external verification"), and
+- automatically certify the newly-generated combined calibration (if ``generate_calibrations`` is set to ``True``) with a given range of validity dates (usually one day).
 
-For at least one type of test (as defined in `DMTN-101`_), if the majority of tests fail in the majority of detectors and the majority of exposures, then the script will terminate by raising a ``RuntimeError`` after calculating the verification statistics, and the calibration will not be certified. The configuration parameters ``number_verification_tests_threshold_bias``, ``number_verification_tests_threshold_dark``, and ``number_verification_tests_threshold_flat`` will be used to define thresholds to decide whether the calibration will pass verification and should be certified or not. Currently, verification is only implemented for ``BIAS``, ``DARK``, and ``FLAT`` calibration types. If the configuration parameters ``do_defects`` and ``do_ptc`` are set to ``True``, verification will be skipped for the ``DEFECTS`` and ``PTC`` calibrations and they will be automatically certified.
+The verification step is currently only implemented for biases, darks, and flats. In order to run `cp_verify`_, the verification pipetask uses as input individual images and the combined image for a particular calibration type as a reference. This reference combined image may already exist in the default calibration collection ``LSSTComCam/calib`` (a location that can be changed via the ``input_collections_verify_bias`` and similar parameters), or, the user can indicate the script to generate a new combined calibration from the individual images taken via the ``generate_calibrations`` parameter. The former is known as ``external verification``, and the latter as ``internal verification``. The two verification modes are designed to answer slightly different questions using the same tools; for ``external verification``, the question is "are the data taken with the camera consistent with what they were in the recent past?"  This covers stability ranges on the day/week/month time scales.  ``Internal verification`` asks "are the data taken with the camera consistent with themselves?", covering stability ranges on the minute/hour level. By default, the script will run in ``external verification`` mode.
+
+For at least one type of test (as defined in `DMTN-101`_), if the majority of tests fail verification in the majority of detectors and the majority of exposures, then the script will terminate after calculating these verification statistics. If ``generate_calibrations`` is ``True``, the calibration will not be certified into the ``calibration_collection`` collection. The configuration parameters ``number_verification_tests_threshold_bias``, ``number_verification_tests_threshold_dark``, and ``number_verification_tests_threshold_flat`` will be used to define thresholds to decide whether the calibration will pass verification and should be certified or not. Currently, verification is only implemented for ``BIAS``, ``DARK``, and ``FLAT`` calibration types. If the configuration parameters ``do_defects`` and ``do_ptc`` are set to ``True``, verification will be skipped for the ``DEFECTS`` and ``PTC`` calibrations and they will be automatically certified.
 
 The script currently has the option (via the ``script_mode`` parameter in the configuration options) to:
 
@@ -33,7 +35,9 @@ The script currently has the option (via the ``script_mode`` parameter in the co
 - take biases and darks, and 
 - take biases, darks, and flats. 
   
-These options are constrained by the fact that the generation or construction of one calibration depends on the existence of the previous one (i.e., to generate a combined dark, a combined bias is necessary, and to generate a flat, a combined dark and a combined bias are necessary). Calibration generation from the images taken can be skipped by setting ``generate_calibrations``. This will speed up the execution time of the script, and subsequent tasks (for example, verification tasks or the PTC construction task) will look for necessary calibrations in their input collections (whose default is the standard calibrations collection: ``LSSTComCam/calib``).
+These options are constrained by the fact that the generation or construction of one calibration depends on the existence of the previous one (i.e., to generate a combined dark, a combined bias is necessary, and to generate a flat, a combined dark and a combined bias are necessary). If ``generate_calibrations`` is ``True``, calibrations will eventually end up in the collection specified by the ``calib_collection`` configuration parameter and, if certified, will have a validity span range from ``certify_calib_begin_date`` to ``certify_calib_end_date``.
+
+Calibration generation from the images taken can also be skipped by setting ``generate_calibrations`` to ``False``. This will speed up the execution time of the script, and subsequent tasks (for example, verification tasks or the PTC construction task) will look for necessary calibrations in their input collections (whose default is the standard calibrations collection: ``LSSTComCam/calib``).
 
 If desired, defects can be constructed from darks and flats, and a PTC per detector per amplifier constructed from the flats. Note that the PTC assumes that a sequence of flat pairs has been taken, each pair taken at the same exposure time. In both cases, ``script_mode`` must be set to ``BIAS_DARK_FLAT``.
 
@@ -65,7 +69,8 @@ Prerequisites
 Post-Condition
 ==============
 
-- A (daily) combined calibration image per detector will be certified in a `butler`_ ``CALIBRATION`` `collection`_.
+- Individual calibration images will be taken and verified using the `cp_verify`_ framework.
+- If ``generate_calibrations`` is ``True``, a (daily) combined calibration image per detector will be certified in a `butler`_ ``CALIBRATION`` `collection`_.
 
 .. _butler: https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/index.html
 .. _collection: https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/organizing.html
@@ -137,8 +142,8 @@ After loading the script, a window that contains two sections, ``SCHEMA`` (top) 
   Default: ``False``.
 - ``config_options_ptc``: Options to be passed to the command-line PTC pipetask. They will overwrite the values in ``cpPtc.yaml``.
   Default: ``-c isr:doCrosstalk=False``.
-- ``do_gain_from_flat_pairs``: Should the gain be estimated from each pair of flats taken at the same exposure time? Runs the ``cpPtc.yaml#generateGainFromFlatPair`` pipeline. Since this pipeline is a subset of the PTC pipeline, you can use use the ``config_options_ptc`` parameter to pass options to the ``ISR`` (Instrument Signature Removal) and ``cpExtract`` tasks which form this pipeline.
-  Default: ``False``.
+- ``do_gain_from_flat_pairs``: Should the gain be estimated from each pair of flats taken at the same exposure time? Runs the ``cpPtc.yaml#generateGainFromFlatPair`` pipeline. Since this pipeline is a subset of the PTC pipeline, you can use use the ``config_options_ptc`` parameter to pass options to the ``ISR`` (Instrument Signature Removal) and ``cpExtract`` tasks which form this pipeline. If ``True``, the script mode should be ``BIAS_DARK_FLAT``.
+  Default: ``True``.
 - ``input_collections_bias``: List of additional (the ``OCPS`` already adds ``LSSTComCam/raw/all`` as a default) comma-separated input collections for the bias pipetask. The pipetask is called via the ``OCPS`` after enabling it with the ``LSSTComCam`` configuration.
   Default: ``LSSTComCam/calib``.
 - ``input_collections_verify_bias``: Additional comma-separated input collections to pass to the verify (bias) pipetask.
@@ -167,7 +172,56 @@ After loading the script, a window that contains two sections, ``SCHEMA`` (top) 
 - ``oods_timeout``: Timeout value, in seconds, for the Observatory Operations Data Service (``OODS``).
   Default: ``120``.
 
-An example set of configuration parameters is as follows:
+
+Configuration examples
+-----------------------
+
+**Preferred daily script mode to be run**: if no configuration parameters are passed to LOVE and the default parameters are used, the script will take 21 biases, 21 darks of 5 seconds each one, and 21 flats of 5 seconds each one. In each case, the first image will be discarded. New combined calibrations will not be generated, and verification of the images taken will be performed using the existing combined calibrations in the ``LSSTComCam/calib`` collection (i.e., th script will do ``external verification``). In this case, no defects will be made.  Following DMTN-222, a gain estimate will be produced from each of the 10 flat pairs taken. **Users should adjust parameters when needed, for example, the exposure times or the number of exposures taken**.
+
+If the exposure times need to change, it can be done as follows:
+
+.. code-block:: text
+    exp_times_dark: 20
+    exp_times_flats: 30
+
+If both the number of exposures and exposure times need to change, it can be done like this:
+
+.. code-block:: text
+
+    n_bias: 30
+    n_dark: 5
+    exp_times_dark: [5, 10, 15, 20, 25]
+    n_flat: 10
+    exp_times_flat: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
+
+Example of a configuration file for ``internal_verification``. Note that the newly-generated combined calibrations
+will be certified in the ``calib_collection`` collection, so this parameter must be specified, and new validity ranges should be provided (spanning one day for daily calibrations). The name of the collection needs to be changed if the script needs to be run again (or the validity range), as it is not possible to certify the same type of calibration in the same collection with the same validity range:
+
+.. code-block:: text
+
+    generate_calibrations: True
+    calibration_collection: LSSTComCam/calib/daily/calib.2022NOV04.1
+    certify_calib_begin_date: "2022-11-04"
+    certify_calib_begin_date: "2022-11-05"
+
+
+In the following example, a new set of calibrations is generated, including a PTC (note that the exposure times need to be given by pairs and the total length must correspond to ``n_flat``) and defects. If the individual images taken pass verification using as reference the newly generated combined bias, dark, and flat, the combined calibrations will be certified in the ``calib_collection`` collection with the validity range given by ``certify_calib_begin_date`` and ``certify_calib_end_date``. There is the option to take flats with a particular filter (the appropiate names/ID should be replaced in ``${FILTER_NAME_OR_ID}`` below):
+
+.. code-block:: text
+
+    script_mode: BIAS_DARK_FLAT
+    n_flat: 14
+    exp_times_flat: [5, 5, 10, 10, 15, 15, 20, 20, 25, 25, 30, 30, 35, 35]
+    filter: ${FILTER_NAME_OR_ID}
+    generate_calibrations=True
+    calib_collection: "LSSTComCam/calib/daily/calibs.2022NOV04.1"
+    certify_calib_begin_date: "2022-11-04"
+    certify_calib_end_date: "2022-11-05"
+    do_defects: True
+    do_ptc: True
+
+
+Another example set of configuration parameters is as follows:
 
 .. code-block:: text
 
@@ -212,22 +266,22 @@ The certified combined calibrations will be available via the collection specifi
     import lsst.daf.butler as dB
 
     butler = dB.Butler("/repo/LSSTComCam", collections=["LSSTComCam/calib/daily.2021SEP13.test1"])
-    detector = (0, 1, 2, 3, 4, 5, 6, 7, 8)
+    detectors = (0, 1, 2, 3, 4, 5, 6, 7, 8)
     exposure = [bias1ID, bias2ID] # e.g., [2021071500001, 2021071500002]
     
     # For detector "0":
-    bias = butler.get('bias', detector=detector[0], exposure=exposure[0], instrument='LSSTComCam')
-    dark = butler.get('dark', detector=detector[0], exposure=exposure[0], instrument='LSSTComCam')
-    flat = butler.get('flat', detector=detector[0], exposure=exposure[0], instrument='LSSTComCam')
-    defects = butler.get('defects', detector=detector[0], exposure=exposure[0], instrument='LSSTComCam')
-    ptc = butler.get('ptc', detector=detector[0], exposure=exposure[0], instrument='LSSTComCam')
+    bias = butler.get('bias', detector=detectors[0], exposure=exposure[0], instrument='LSSTComCam')
+    dark = butler.get('dark', detector=detectors[0], exposure=exposure[0], instrument='LSSTComCam')
+    flat = butler.get('flat', detector=detectors[0], exposure=exposure[0], instrument='LSSTComCam')
+    defects = butler.get('defects', detector=detectors[0], exposure=exposure[0], instrument='LSSTComCam')
+    ptc = butler.get('ptc', detector=detectors[0], exposure=exposure[0], instrument='LSSTComCam')
 
 
-If ``do_gain_from_flat_pair`` is ``True``, the estimated gains (as well as the measured empirical readout noise from the overscan during Instrument Signature Removal) can be found by requesting the ``cpCovariances`` data structure. In this case, the exposure ID should be one of the two flats used to estimate the gain:
+If ``do_gain_from_flat_pair`` is ``True``, the estimated gains (as well as the measured empirical readout noise from the overscan during Instrument Signature Removal) can be found by requesting the ``cpPtcExtract`` data structure. In this case, the exposure ID should be one of the two flats used to estimate the gain:
 
 .. code-block:: python
 
-    cpCovs = butler.get('cpCovariances', detector=detector[0], exposure=flat1ID, instrument='LSSTComCam')
+    cpCovs = butler.get('cpPtcExtract', detector=detector[0], exposure=flat1ID, instrument='LSSTComCam')
     gain_values = cpCov.gain
     noise_values = cpCov.noise
 
