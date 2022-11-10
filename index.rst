@@ -40,7 +40,7 @@ All aspects of the project that go through strict change control (e.g. mirror pr
 .. _Obs-Ops-Safety:
 
 Safety: Quick Reference for Nighttime Personnel
-===============================================
+================================================
 
 .. warning::
     Safety of personnel first and equipment second is the utmost priority of Rubin Observatory. 
@@ -50,8 +50,10 @@ It does not replace the required safety training to be on the summit at night.
 This includes:
 
 - Procedures on who (and how) to call when there is an issue
+- Location of keys, passwords etc
 - What to do in case of vehicle failure, power-outage, fire etc.
-- Emergency meeting locations
+- Procedures to enter telescope spaces during operations (e.g. AuxTel)
+- Emergency meeting locations etc.
 
 .. toctree::
    :glob:
@@ -64,7 +66,7 @@ This includes:
 .. _Obs-Ops-Daytime-Operations:
 
 Daytime Operations
-==================
+======================
 
 This section encapsulates procedures for normal operations, such as calibrations routines and standard telescope checkout. 
 Any non-standard procedures, such as shutdown recovery and non-standard operations are featured in a different section (link TBD).

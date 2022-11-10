@@ -22,7 +22,7 @@ Weather Constraints
 
 This page defines the different types of operational constraints.
 
-Operating conditions used to define the Rubin construction project are found in `LTS-54 <ls.st/lts-54>`__.
+Operating conditions used to define the Rubin construction project are found in `LTS-54 <https://ls.st/lts-54>`__. 
 
 As commissioning gets underway the operating conditions will be better constrained and different situations will apply to the Main telescope and Auxiliary Telescope.
 
