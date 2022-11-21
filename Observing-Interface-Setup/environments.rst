@@ -95,7 +95,7 @@ It will also be particularly useful for testing lower-level hardware interfaces.
 - Chronograf: https://chronograf-base-efd.lsst.codes/
 - LOVE: N/A
 - ArgoCD: https://base-lsp.lsst.codes/argo-cd/
-- Rancher: https://rancher.ls.lsst.org/
+- Rancher: https://rancher.cp.lsst.org/
 - Kubernetes Cluster: kueyen
 - Slack: N/A
 - Alarm Slack: N/A
