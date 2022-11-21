@@ -45,13 +45,13 @@ For more details about what is behind this behavior see the `observatory control
 
 .. _observatory control: https://obs-controls.lsst.io
 
-Most components on Rubin system runs as containers on a Kubernetes cluster.
+Most components on Rubin system run as containers on a Kubernetes cluster.
 Therefore, it is likely that restoring a component after it was sent to OFFLINE state requires restarting the process on the Kubernetes cluster.
 
 This can be done via the argo-cd application and works similarly regardless of the environment; Summit, TTS or BTS.
 
 The first step in the process is finding the argo-cd application link for the environment you are working on.
-For that see Operational Environments page. 
+For that see Operational Environments page.
 
 The credentials are in the 1Password ArgoCD Admin vault.
 If you do not have access to the vault and feel like you should, contact |author| or |contributors|.
@@ -119,7 +119,7 @@ For that we will;
 
         Under no circumstances you should delete the Application!
 
-    Deleting the pod **when it is completed** has no effect for the purpose of this procedure. 
+    Deleting the pod **when it is completed** has no effect for the purpose of this procedure.
 
 #.  Synchronize the Application.
 
