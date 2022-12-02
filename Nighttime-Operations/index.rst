@@ -24,13 +24,13 @@ Nighttime Operations
 Weather Constraints
 ===========================
 
-Observing Contraints are perscribed in this section
+Operations contraints due to weather are described in this section.
 
 .. toctree::
    :glob:
    :titlesonly:
 
-   Observing-Constraints/index
+   Weather-Constraints/index
 
 
 .. _NightTime-Operations-Scheduler:
