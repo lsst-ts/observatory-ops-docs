@@ -34,7 +34,7 @@ This covers stability ranges on the day/week/month time scales.
 ``Internal verification`` asks "are the data taken with the camera consistent with themselves?", covering stability ranges on the minute/hour level.
 By default, the script will run in ``external verification`` mode.
 
-For at least one type of test (as defined in `DMTN-101`_), if the majority of tests fail verification in the majority of detectors and the majority of exposures, then the script will terminate after calculating these verification statistics.
+For at least one type of test (as defined in the sections of `DMTN-101`_), if the majority of tests fail verification in the majority of detectors and the majority of exposures, then the script will terminate after calculating these verification statistics.
 If ``generate_calibrations`` is ``True``, the calibration will not be certified into the ``calibration_collection`` collection.
 The configuration parameters ``number_verification_tests_threshold_bias``, ``number_verification_tests_threshold_dark``, and ``number_verification_tests_threshold_flat`` will be used to define thresholds to decide whether the calibration will pass verification and should be certified or not.
 Currently, verification is only implemented for ``BIAS``, ``DARK``, and ``FLAT`` calibration types.
@@ -42,9 +42,9 @@ If the configuration parameters ``do_defects`` and ``do_ptc`` are set to ``True`
 
 The script currently has the option (via the ``script_mode`` parameter in the configuration options) to:
 
-- take only biases, 
-- take biases and darks, and 
-- take biases, darks, and flats. 
+- work with  only biases (including talking the exposures and optionally generating and verifying a combined calibration), 
+- work with biases and darks, and 
+- work with biases, darks, and flats. 
   
 These options are constrained by the fact that the generation or construction of one calibration depends on the existence of the previous one (i.e., to generate a combined dark, a combined bias is necessary, and to generate a flat, a combined dark and a combined bias are necessary).
 If ``generate_calibrations`` is ``True``, calibrations will eventually end up in the collection specified by the ``calib_collection`` configuration parameter and, if certified, will have a validity span range from ``certify_calib_begin_date`` to ``certify_calib_end_date``.
@@ -52,7 +52,7 @@ If ``generate_calibrations`` is ``True``, calibrations will eventually end up in
 Calibration generation from the images taken can also be skipped by setting ``generate_calibrations`` to ``False``.
 This will speed up the execution time of the script, and subsequent tasks (for example, verification tasks or the PTC construction task) will look for necessary calibrations in their input collections (whose default is the standard calibrations collection: ``LATISS/calib`` or ``LSSTComCam/calib``).
 
-If desired, defects can be constructed from darks and flats, and a PTC per detector per amplifier constructed from the flats.
+If desired, defects can be constructed from darks and flats (if ``do_defects=True``), and a PTC per detector per amplifier constructed from the flats (if ``do_ptc=True``).
 Note that the PTC assumes that a sequence of flat pairs has been taken, each pair taken at the same exposure time. In both cases, ``script_mode`` must be set to ``BIAS_DARK_FLAT``.
 
 For more information about calibrations production (including verification and certification), please consult the `Constructing Calibrations documentation`_.

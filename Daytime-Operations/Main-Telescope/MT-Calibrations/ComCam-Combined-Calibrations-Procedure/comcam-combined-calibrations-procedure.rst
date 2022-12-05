@@ -4,9 +4,9 @@
 
 .. _ComCam-Combined-Calibrations-Procedure-ComCam-Combined-Calibrations-Generation-Procedure:
 
-###############################################
+#################################################
 ComCam Combined Calibrations Generation Procedure
-###############################################
+#################################################
 
 .. _ComCam-Combined-Calibrations-Procedure-Overview:
 
@@ -134,6 +134,9 @@ The configuration options are as follows:
 Configuration examples
 -----------------------
 
+Daily Default
+^^^^^^^^^^^^^
+
 **Preferred daily script mode to be run**: if no configuration parameters are passed to LOVE and the default parameters are used, the script will take 21 biases, 21 darks of 5 seconds each one, and 21 flats of 5 seconds each one.
 In each case, the first image will be discarded. New combined calibrations will not be generated, and verification of the images taken will be performed using the existing combined calibrations in the ``LSSTComCam/calib`` collection (i.e., th script will do ``external verification``).
 In this case, no defects will be made.
@@ -142,13 +145,17 @@ Following DMTN-222, a gain estimate will be produced from each of the 10 flat pa
 
 If the exposure times need to change, it can be done as follows:
 
-.. code-block:: text
+.. code-block:: yaml
+    
     exp_times_dark: 20
     exp_times_flats: 30
 
+Changing the exposure times and the number of exposures
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 If both the number of exposures and exposure times need to change, it can be done like this:
 
-.. code-block:: text
+.. code-block:: yaml
 
     n_bias: 30
     n_dark: 5
@@ -157,23 +164,27 @@ If both the number of exposures and exposure times need to change, it can be don
     exp_times_flat: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
 
 Example of a configuration file for ``internal_verification``.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Note that the newly-generated combined calibrations
 will be certified in the ``calib_collection`` collection, so this parameter must be specified, and new validity ranges should be provided (spanning one day for daily calibrations).
 The name of the collection needs to be changed if the script needs to be run again (or the validity range), as it is not possible to certify the same type of calibration in the same collection with the same validity range:
 
-.. code-block:: text
+.. code-block:: yaml
 
     generate_calibrations: True
     calibration_collection: LSSTComCam/calib/daily/calib.2022NOV04.1
     certify_calib_begin_date: "2022-11-04"
     certify_calib_begin_date: "2022-11-05"
 
+Including a Photon Transfer Curve (PTC)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In the following example, a new set of calibrations is generated, including a PTC (note that the exposure times need to be given by pairs and the total length must correspond to ``n_flat``) and defects.
 If the individual images taken pass verification using as reference the newly generated combined bias, dark, and flat, the combined calibrations will be certified in the ``calib_collection`` collection with the validity range given by ``certify_calib_begin_date`` and ``certify_calib_end_date``.
 There is the option to take flats with a particular filter (the appropiate names/ID should be replaced in ``${FILTER_NAME_OR_ID}`` below):
 
-.. code-block:: text
+.. code-block:: yaml
 
     script_mode: BIAS_DARK_FLAT
     n_flat: 14
@@ -186,10 +197,12 @@ There is the option to take flats with a particular filter (the appropiate names
     do_defects: True
     do_ptc: True
 
+Another example including PTC and defects generation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Another example set of configuration parameters is as follows:
 
-.. code-block:: text
+.. code-block:: yaml
 
     n_bias: 6
     n_dark: 6
@@ -207,8 +220,7 @@ Another example set of configuration parameters is as follows:
     do_defects: True
     do_ptc: True
 
-Notes
-^^^^^
+Notes:
 
 - The ``detectors`` parameters was omitted, therefore, by default, all nine LSSTComCam detectors will be passed to the LSST Science Pipelines pipetasks.
   For testing purposes it might be convenient to process fewer detectors in the pipetasks, as the script will execute faster.
@@ -217,7 +229,7 @@ Notes
   For example, since ``do_verify`` is ``True``, the bias, dark, and flat verification tasks will look for combined reference calibrations in their input collections, given by the ``input_collections_verify_bias``, ``input_collections_verify_dark``, and ``input_collections_verify_flat`` parameters.
   Since the collection ``LSSTComCam/calib/u/plazas/2021SEP16.1`` is located before the standard collection ``LSSTComCam/calib`` in these parameters, the verification tasks will look there first.
   On the other hand, since ``do_ptc`` is ``True`` and ``input_collections_ptc`` is omitted, the PTC task will look for combined calibrations (e.g., bias, dark) in the standard calibration collection ``LSSTComCam/calib``, which is the default for this parameter.
--  Sometimes running the PTC can take a long time.
+- Sometimes running the PTC can take a long time.
   In order to obtain a quick estimation for the gain (and monitor, for example, its stability with time), the parameter ``do_gain_from_flat_pairs`` can be set to ``True``.
   In that case, only one pair of flats is required, so the parameter ``exp_times_flat`` could be set to, e.g., ``[1.2, 1.2]``. However, the task will estimate a gain for every flat pair that has been taken (``LOVE`` will report the values per exposure pair per detector per amplifier).
   For example, if ``exp_times_flat`` is  ``[0.1, 0.1, 0.35, 0.35, 0.6, 0.6, 1, 1.5, 1.7, 2.1, 2.3]``, gains will be estimated from the first three flat pairs.

@@ -138,23 +138,28 @@ The former will show the available configuration options (and the default values
 Configuration examples
 ----------------------
 
+Daily Default
+^^^^^^^^^^^^^
+
 **Preferred daily script mode to be run**: if no configuration parameters are passed to LOVE and the default parameters are used, the script will take 21 biases, 21 darks of 5 seconds each one, and 21 flats of 5 seconds each one.
 In each case, the first image will be discarded. New combined calibrations will not be generated, and verification of the images taken will be performed using the existing combined calibrations in the ``LATISS/calib`` collection (i.e., the script will do ``external verification``).
 In this case, no defects will be made.
 Following DMTN-222, a gain estimate will be produced from each of the 10 flat pairs taken.
 **Users should adjust parameters when needed, for example, the exposure times or the number of exposures taken**.
 
-
 If the exposure times need to change, it can be done as follows:
 
-.. code-block:: text
+.. code-block:: yaml
     
     exp_times_dark: 20
     exp_times_flats: 30
 
+Changing the exposure times and the number of exposures
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 If both the number of exposures and exposure times need to change, it can be done like this:
 
-.. code-block:: text
+.. code-block:: yaml
 
     n_bias: 30
     n_dark: 5
@@ -162,24 +167,29 @@ If both the number of exposures and exposure times need to change, it can be don
     n_flat: 10
     exp_times_flat: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
 
+
 Example of a configuration file for ``internal_verification``.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Note that the newly-generated combined calibrations
 will be certified in the ``calib_collection`` collection, so this parameter must be specified, and new validity ranges should be provided (spanning one day for daily calibrations).
 The name of the collection needs to be changed if the script needs to be run again (or the validity range), as it is not possible to certify the same type of calibration in the same collection with the same validity range:
 
-.. code-block:: text
+.. code-block:: yaml
 
     generate_calibrations: True
     calibration_collection: LATISS/calib/daily/calib.2022NOV04.1
     certify_calib_begin_date: "2022-11-04"
     certify_calib_begin_date: "2022-11-05"
 
+Including a Photon Transfer Curve (PTC)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In the following example, a new set of calibrations is generated, including a PTC (note that the exposure times need to be given by pairs and the total length must correspond to ``n_flat``) and defects.
 If the individual images taken pass verification using as reference the newly generated combined bias, dark, and flat, the combined calibrations will be certified in the ``calib_collection`` collection with the validity range given by ``certify_calib_begin_date`` and ``certify_calib_end_date``.
 There is the option to take flats with a particular filter and grating (the appropiate names/ID should be replaced in ``${FILTER_NAME_OR_ID}`` and ``${GRATING_NAME_OR_ID}`` below):
 
-.. code-block:: text
+.. code-block:: yaml
 
     script_mode: BIAS_DARK_FLAT
     n_flat: 14
@@ -193,10 +203,12 @@ There is the option to take flats with a particular filter and grating (the appr
     do_defects: True
     do_ptc: True
 
+Another example including PTC and defects generation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Another example set of configuration parameters is as follows:
 
-.. code-block:: text
+.. code-block:: yaml
 
     n_bias: 6
     n_dark: 6
@@ -214,20 +226,11 @@ Another example set of configuration parameters is as follows:
     do_defects: True
     do_ptc: True
 
-Notes
-^^^^^
+Notes:
 
 - The ``detectors`` parameters was omitted, therefore, by default, the single LATISS detector will be passed to the LSST Science Pipelines pipetasks. 
-- The ``generate_calibrations`` parameters was omitted, and therefore combined calibrations will not be generated from the individual images taken (biases, darks, and flats since ``script_mode`` is ``BIAS_DARK_FLAT``), as its default value is ``False``.
-Pipetasks that require combined calibrations to run will search for them in their input collections.
-For example, since ``do_verify`` is ``True``, the bias, dark, and flat verification tasks will look for combined reference calibrations in their input collections, given by the ``input_collections_verify_bias``, ``input_collections_verify_dark``, and ``input_collections_verify_flat`` parameters.
-Since the collection ``u/czw/DM-28920/calib.20210720`` is located before the standard collection ``LATISS/calib`` in these parameters, the verification tasks will look there first.
-On the other hand, since ``do_ptc`` is ``True`` and ``input_collections_ptc`` is omitted, the PTC task will look for combined calibrations (e.g., bias, dark) in the standard calibration collection ``LATISS/calib``, which is the default for this parameter.
--  Sometimes running the PTC can take a long time.
-In order to obtain a quick estimation for the gain (and monitor, for example, its stability with time), the parameter ``do_gain_from_flat_pairs`` can be set to ``True``.
-In that case, only one pair of flats is required, so the parameter ``exp_times_flat`` could be set to, e.g., ``[1.2, 1.2]``.
-However, the task will estimate a gain for every flat pair that has been taken (``LOVE`` will report the values per exposure pair per detector per amplifier).
-For example, if ``exp_times_flat`` is  ``[0.1, 0.1, 0.35, 0.35, 0.6, 0.6, 1, 1.5, 1.7, 2.1, 2.3]``, gains will be estimated from the first three flat pairs.
+- The ``generate_calibrations`` parameters was omitted, and therefore combined calibrations will not be generated from the individual images taken (biases, darks, and flats since ``script_mode`` is ``BIAS_DARK_FLAT``), as its default value is ``False``. Pipetasks that require combined calibrations to run will search for them in their input collections. For example, since ``do_verify`` is ``True``, the bias, dark, and flat verification tasks will look for combined reference calibrations in their input collections, given by the ``input_collections_verify_bias``, ``input_collections_verify_dark``, and ``input_collections_verify_flat`` parameters. Since the collection ``u/czw/DM-28920/calib.20210720`` is located before the standard collection ``LATISS/calib`` in these parameters, the verification tasks will look there first. On the other hand, since ``do_ptc`` is ``True`` and ``input_collections_ptc`` is omitted, the PTC task will look for combined calibrations (e.g., bias, dark) in the standard calibration collection ``LATISS/calib``, which is the default for this parameter.
+- Sometimes running the PTC can take a long time. In order to obtain a quick estimation for the gain (and monitor, for example, its stability with time), the parameter ``do_gain_from_flat_pairs`` can be set to ``True``. In that case, only one pair of flats is required, so the parameter ``exp_times_flat`` could be set to, e.g., ``[1.2, 1.2]``. However, the task will estimate a gain for every flat pair that has been taken (``LOVE`` will report the values per exposure pair per detector per amplifier). For example, if ``exp_times_flat`` is  ``[0.1, 0.1, 0.35, 0.35, 0.6, 0.6, 1, 1.5, 1.7, 2.1, 2.3]``, gains will be estimated from the first three flat pairs.
 - See `DMTN-222`_ for a discussion on calibration generation, verification, acceptance, and certfication, including suggested naming conventions for parameters such as ``calib_collection``.
 
 .. _DMTN-222: https://dmtn-222.lsst.io/
@@ -299,9 +302,9 @@ The images processed by ``cp_verify`` can also be retrieved for visual inspectio
 
 
 DMTN-222 recomends taking 20 individual images for each calibration type.
-The following example failed verification because only 3 images of each type weretaken:
+The following example failed verification because only 3 images of each type were taken:
 
-.. code-block:: text
+.. code-block:: yaml
     
     script_mode: BIAS_DARK
     n_bias: 3
@@ -317,7 +320,7 @@ The following example failed verification because only 3 images of each type wer
 This failed verification, in particular, the ``NOISE`` test, likely because of using only 3 images to build the combined images.
 The script, at the end, printed in the LOVE output interface:
 
-.. code-block:: text
+.. code-block:: yaml
    
     BIAS calibration failed verification and will not be certified.
 
@@ -327,7 +330,7 @@ All this information is useful to follow up: look at the images, make plots and 
 The observer or user will find this info in LOVE as the script runs.
 The warning, in this case, is as follows:
 
-.. code-block:: text
+.. code-block:: yaml
     
     Script WARNING: Exposures with verification tests that failed:
         2022092900001  2022092900002  2022092900003  
@@ -430,83 +433,83 @@ The warning, in this case, is as follows:
 
 Trying again with 20 images per calibration type, the majority of verification tests pass in this case. The warning message displayed on the LOVE output will be as follows: 
 
-.. code-block:: text
-	
-        Script WARNING: BIAS calibration passed the overall verification  criteria and will be certified, but the are tests that did not pass: 
-        BIAS calibration passed the overall verification  criteria and will be certified, but the are tests that did not pass: 
-        Script WARNING: Exposures with verification tests that failed:
-        2022092900004  
-        Number of tests that failed per test type:
-           Exposure ID: 2022092900004
-               CR_NOISE: 6
-               MEAN: 4
-        Test types that failed verification per exposure,
-        detector, and amplifier:
-            Exposure ID: 2022092900004
-                RXX_S00 C01 CR_NOISE
-                RXX_S00 C01 MEAN
-                RXX_S00 C04 CR_NOISE
-                RXX_S00 C04 MEAN
-                RXX_S00 C05 CR_NOISE
-                RXX_S00 C11 CR_NOISE
-                RXX_S00 C11 MEAN
-                RXX_S00 C13 CR_NOISE
-                RXX_S00 C14 CR_NOISE
-                RXX_S00 C14 MEAN
-            Exposure ID: 2022092900005
-        No failures in 'verify_stats' for this exposure. 
-            Exposure ID: 2022092900006
-        No failures in 'verify_stats' for this exposure. 
-            Exposure ID: 2022092900007
-        No failures in 'verify_stats' for this exposure. 
-            Exposure ID: 2022092900008
-        No failures in 'verify_stats' for this exposure. 
-            Exposure ID: 2022092900009
-        No failures in 'verify_stats' for this exposure. 
-            Exposure ID: 2022092900010
-        No failures in 'verify_stats' for this exposure. 
-            Exposure ID: 2022092900011
-        No failures in 'verify_stats' for this exposure. 
-            Exposure ID: 2022092900012
-        No failures in 'verify_stats' for this exposure. 
-            Exposure ID: 2022092900013
-        No failures in 'verify_stats' for this exposure. 
-            Exposure ID: 2022092900014
-        No failures in 'verify_stats' for this exposure. 
-            Exposure ID: 2022092900015
-        No failures in 'verify_stats' for this exposure. 
-            Exposure ID: 2022092900016
-        No failures in 'verify_stats' for this exposure. 
-            Exposure ID: 2022092900017
-        No failures in 'verify_stats' for this exposure. 
-            Exposure ID: 2022092900018
-        No failures in 'verify_stats' for this exposure. 
-            Exposure ID: 2022092900019
-        No failures in 'verify_stats' for this exposure. 
-            Exposure ID: 2022092900020
-        No failures in 'verify_stats' for this exposure. 
-            Exposure ID: 2022092900021
-        No failures in 'verify_stats' for this exposure. 
-            Exposure ID: 2022092900022
-        No failures in 'verify_stats' for this exposure. 
-            Exposure ID: 2022092900023
-        No failures in 'verify_stats' for this exposure. 
-            Threshold values:
-                Acceptable maximum number of failures per detector per test type: 8
-                This value is controlled by the configuration parameter: 'number_verification_tests_threshold_<IMGTYPE>'
-                Acceptable maximum number of failed detectors: 1
-                Acceptable maximum number of failed tests per exposure: 8
-                Acceptable maximum number of failed exposures: 11
-                Final number of exposures that failed verification: 0
-        Verification failure criterium: if, for at least une type of test,
-        the majority of tests fail in the majority of detectors and the
-        the majority of exposures, verification will fail and the calibration
-        will not be certified. In terms of the threshold values, this amounts for the condition that
-        the final number of exposures that failed verification is greater than
-        or equal to the acceptable maximum number of failed exposures. 
+.. code-block:: yaml
+
+    Script WARNING: BIAS calibration passed the overall verification  criteria and will be certified, but the are tests that did not pass: 
+    BIAS calibration passed the overall verification  criteria and will be certified, but the are tests that did not pass: 
+    Script WARNING: Exposures with verification tests that failed:
+    2022092900004  
+    Number of tests that failed per test type:
+       Exposure ID: 2022092900004
+           CR_NOISE: 6
+           MEAN: 4
+    Test types that failed verification per exposure,
+    detector, and amplifier:
+        Exposure ID: 2022092900004
+            RXX_S00 C01 CR_NOISE
+            RXX_S00 C01 MEAN
+            RXX_S00 C04 CR_NOISE
+            RXX_S00 C04 MEAN
+            RXX_S00 C05 CR_NOISE
+            RXX_S00 C11 CR_NOISE
+            RXX_S00 C11 MEAN
+            RXX_S00 C13 CR_NOISE
+            RXX_S00 C14 CR_NOISE
+            RXX_S00 C14 MEAN
+        Exposure ID: 2022092900005
+    No failures in 'verify_stats' for this exposure. 
+        Exposure ID: 2022092900006
+    No failures in 'verify_stats' for this exposure. 
+        Exposure ID: 2022092900007
+    No failures in 'verify_stats' for this exposure. 
+        Exposure ID: 2022092900008
+    No failures in 'verify_stats' for this exposure. 
+        Exposure ID: 2022092900009
+    No failures in 'verify_stats' for this exposure. 
+        Exposure ID: 2022092900010
+    No failures in 'verify_stats' for this exposure. 
+        Exposure ID: 2022092900011
+    No failures in 'verify_stats' for this exposure. 
+        Exposure ID: 2022092900012
+    No failures in 'verify_stats' for this exposure. 
+        Exposure ID: 2022092900013
+    No failures in 'verify_stats' for this exposure. 
+        Exposure ID: 2022092900014
+    No failures in 'verify_stats' for this exposure. 
+        Exposure ID: 2022092900015
+    No failures in 'verify_stats' for this exposure. 
+        Exposure ID: 2022092900016
+    No failures in 'verify_stats' for this exposure. 
+        Exposure ID: 2022092900017
+    No failures in 'verify_stats' for this exposure. 
+        Exposure ID: 2022092900018
+    No failures in 'verify_stats' for this exposure. 
+        Exposure ID: 2022092900019
+    No failures in 'verify_stats' for this exposure. 
+        Exposure ID: 2022092900020
+    No failures in 'verify_stats' for this exposure. 
+        Exposure ID: 2022092900021
+    No failures in 'verify_stats' for this exposure. 
+        Exposure ID: 2022092900022
+    No failures in 'verify_stats' for this exposure. 
+        Exposure ID: 2022092900023
+    No failures in 'verify_stats' for this exposure. 
+        Threshold values:
+            Acceptable maximum number of failures per detector per test type: 8
+            This value is controlled by the configuration parameter: 'number_verification_tests_threshold_<IMGTYPE>'
+            Acceptable maximum number of failed detectors: 1
+            Acceptable maximum number of failed tests per exposure: 8
+            Acceptable maximum number of failed exposures: 11
+            Final number of exposures that failed verification: 0
+    Verification failure criterium: if, for at least une type of test,
+    the majority of tests fail in the majority of detectors and the
+    the majority of exposures, verification will fail and the calibration
+    will not be certified. In terms of the threshold values, this amounts for the condition that
+    the final number of exposures that failed verification is greater than
+    or equal to the acceptable maximum number of failed exposures. 
         
-        Generation collection: u/ocps/def62fc0cc6645d089edee4eb797e3f1 
-        Verification collection: u/ocps/85f23b5af0ba44cf967f183c59b1073e
+    Generation collection: u/ocps/def62fc0cc6645d089edee4eb797e3f1 
+    Verification collection: u/ocps/85f23b5af0ba44cf967f183c59b1073e
 
 If we take the generation and verificaton collections at the end of the message above, we can make a copy of the bias verification notebook in ``examples`` of ``cp_verify`` and get a table with a summary of the results from running ``cp_verify``:
 
@@ -521,7 +524,7 @@ In this case, "external verification" was used (i.e., ``generate_calibrations`` 
 As mentioned before, external calibration is currently the default, per DMTN-222.
 In order to make the ``cp_verify`` summary table, we use the following verification collections (note that we don't have generation collections in this case, as "external verification" was used and there were not newly generated combined calibrations):
 
-.. code-block:: text
+.. code-block:: yaml
     
     Verification collections:
         flat: a8382fe83cd24376afe0e3c1a03892c0
