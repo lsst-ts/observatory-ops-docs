@@ -12,16 +12,13 @@ AuxTel Calibration Illumination System Control Procedure
 Overview
 ========
 
-.. note:: The AuxTel Calibration Illumination System is not yet installed. It should be ready to use by Dec. 9, 2022.
 
 The AuxTel Calibration Illumination system is described in https://tstn-032.lsst.io. It is used to illuminate the white calibration screen mounted inside the AuxTel dome. The wavelength of the illumination can be changed to any wavelength between 300 and 1150 nm. Within the system, we can monitor the wavelength and relative brightness of the illumination during an exposure. 
 
-There are no scripts written for this system yet. Everything will have to be completed in notebooks until there is agreement on how it will be used.
+Here, I describe the components of the system that can be controlled. Please see this `Functional Test Notebook <https://github.com/lsst-tstn/tstn-032/blob/main/_static/AuxTelCalIll_FunctionalTest.ipynb>`__ for a full example of its use.
 
-Here, I describe the parts of the system that can be controlled. Please see these notebooks for examples:
-
-- https://github.com/lsst-tstn/tstn-032/blob/main/_static/AuxTelCalIll_FunctionalTest.ipynb
 - 
+
 
 Components
 ==========
@@ -49,7 +46,7 @@ Check out the `XML <https://ts-xml.lsst.io/sal_interfaces/ATWhiteLight.html>`__ 
    :name: power
 
    await WhiteLightSource.cmd_turnLampOn.set_start(power=800)
-   await WhiteLightSource.cmd_turnLampOff.set_start(force=True)
+   await WhiteLightSource.cmd_turnLampOff.set_start()
 
 * **Shutter:** You must open the shutter when beginning. Close the shutter at the end of the calibration to keep out dust. The shutter does not move quickly
 
@@ -70,56 +67,95 @@ Check out the `XML <https://ts-xml.lsst.io/sal_interfaces/ATMonochromator.html>`
 .. code-block:: py
    :name: grating
 
-   atmonochromator.cmd_selectGrating.set_start(gratingType=grating)
+   atmonochromator.cmd_selectGrating.set_start(gratingType=<grating>)
 
 * **Wavelength:** Wavelength can be changed in 1nm steps from 300 to 1200 nm 
 
 .. code-block:: py
    :name: wavelength
 
-   atmonochromator.cmd_changeWavelength.set_start(wavelength=wave)
+   atmonochromator.cmd_changeWavelength.set_start(wavelength=<wave>)
 
 * **Slit Widths:** There is an entry and exit slit. Both can be moved from 0 - 5 mm (not including 5 mm).
 
 .. code-block:: py
    :name: slits
 
-   await atmonochromator.cmd_changeSlitWidth.set_start(slit=1, slitWidth=entry_width)
-   await atmonochromator.cmd_changeSlitWidth.set_start(slit=2, slitWidth=exit_width)
+   await atmonochromator.cmd_changeSlitWidth.set_start(slit=1, slitWidth=<entry_width>)
+   await atmonochromator.cmd_changeSlitWidth.set_start(slit=2, slitWidth=<exit_width>)
 
 Electrometer
 ------------
 This is how the relative brightness of the beam can be tracked.
 
+The override configuration for this electrometer is ``tts_cimacs3_v3.yaml`` and the index is ``201``.
+
 Check out the `XML <https://ts-xml.lsst.io/sal_interfaces/Electrometer.html>`__
 
 * Use it in "Current mode" [1]
-* Take a measurement like this:
+* Before making a measurement, make sure to perform a zero calibration
 
 .. code-block:: py
-   :name: electrometer
+   :name: zero_calib
+
+   await electrometer.cmd_performZeroCalib.set_start(timeout=10)
+   
+
+* You will likely want to disable all filters:
+
+.. code-block:: py
+   :name: filters
+
+   await electrometer.cmd_setDigitalFilter.set_start(activateFilter=False, activateAvgFilter=False, activateMedFilter=False, timeout=10) 
+
+* Take a measurement. The data is saved in the lfa. 
+
+.. code-block:: py
+   :name: electrometer meas
 
    await electrometer.cmd_startScan.set_start(timeout=10)
-   await asyncio.sleep(exp_time)
+   await asyncio.sleep(<exp_time>)
    await electrometer.cmd_stopScan.set_start(timeout=10)
+   lfa = await electrometer.evt_largeFileObjectAvailable.next(flush=True timeout=10)
+   filename = os.path.split(lfa.url)[1]
 
-* The way we get the data is being updated, but will be similar to the fiber spectrograph.
+* The data output is a fits file with a table that includes the elapsed time since start of the exposure and the signal measured. The start of the exposure is saved in the header as is the mode of measurement. To access the data, transfer it to your machine and run the following, with ``elec_filen`` being the filename from the step above. 
+
+.. code-block:: py
+   :name: open_file
+
+   from astropy.io import fits
+   hdu = fits.open(f'{elec_filen}') 
+   data = hdu[1].data
+   elapsed_time, signal = data['ElapsedTime'], data['Signal']
 
 Fiber Spectrograph
 ------------------
-This is how the wavelength of the output light is tracked
+This is how the wavelength of the output light is tracked.
+
+The index for this fiber spectrograph is ``3``. There is no override configuration.
 
 Check out the `XML <https://ts-xml.lsst.io/sal_interfaces/FiberSpectrograph.html>`__
 
-* Data is saved in the lfa
-* Sample data taking:
+* Take a spectra. The data is saved in the lfa.
 
 .. code-block:: py
    :name: fiber-spectrograph
 
-   wait FiberSpectrograph.cmd_expose.set_start(duration=exp_time, numExposures=1)
-   lfa = await FiberSpectrograph.evt_largeFileObjectAvailable.next(flush=False, timeout=10)
-   filename=lfa.url.split('FiberSpectrograph')[-1]
+   await FiberSpectrograph.cmd_expose.set_start(duration=<exp_time>, numExposures=<1>)
+   lfa = await FiberSpectrograph.evt_largeFileObjectAvailable.next(flush=True, timeout=10)
+   filename = os.path.split(lfa.url)[1]
+
+* The data output is a fits file with a table that includes the elapsed time since start of the exposure and the signal measured. The start of the exposure is saved in the header as is the mode of measurement. To access the data, transfer it to your machine and run the following, with ``spectra_filen`` being the filename from the step above. 
+
+.. code-block:: py
+   :name: open_fiber_file
+
+   from astropy.io import fits
+   hdu = fits.open(f'{spectra_filen}') 
+   wavelength = hdu[1].data['wavelength'].flatten()
+   spectra = hdu[0].data
+
 
 Contact Personnel
 =================
