@@ -4,69 +4,28 @@
 
 .. _ComCam-Combined-Calibrations-Procedure-ComCam-Combined-Calibrations-Generation-Procedure:
 
-###############################################
+#################################################
 ComCam Combined Calibrations Generation Procedure
-###############################################
+#################################################
 
 .. _ComCam-Combined-Calibrations-Procedure-Overview:
 
 Overview
 ========
 
-This procedure describes how to execute the SAL Script to produce combined calibrations for LSSTComCam on the ScriptQueue from the LSST Operations and Visualization Enviroment (LOVE) at the Summit. 
+This page assumes the reader is familiar with the content explained in the Daytime Calibrations section:
 
-The script will have the option to: 
-
-- command LSSTComCam to take a number of calibrations frames:
-   - biases
-   - darks
-   - flats
-- call the corresponding Rubin Science Pipelines calibration generation pipetask to produce biases, darks, flats, defects and Photon Transfer Curves (PTCs) via the OCS-Controlled Pipeline System (OCPS),
-- verify the images taken using as reference the calibration generated in the previous step (see the package `cp_verify`_, and the technical notes `DMTN-101`_ and `DMTN-222`_), or using pre-existing calibrations (via the ``generate_calibrations`` boolean parameter in the configuration file), and
-- certify the resulting calibration with a given range of validity dates.
-
-For at least one type of test (as defined in `DMTN-101`_), if the majority of tests fail in the majority of detectors and the majority of exposures, then the script will terminate by raising a ``RuntimeError`` after calculating the verification statistics, and the calibration will not be certified. The configuration parameters ``number_verification_tests_threshold_bias``, ``number_verification_tests_threshold_dark``, and ``number_verification_tests_threshold_flat`` will be used to define thresholds to decide whether the calibration will pass verification and should be certified or not. Currently, verification is only implemented for ``BIAS``, ``DARK``, and ``FLAT`` calibration types. If the configuration parameters ``do_defects`` and ``do_ptc`` are set to ``True``, verification will be skipped for the ``DEFECTS`` and ``PTC`` calibrations and they will be automatically certified.
-
-The script currently has the option (via the ``script_mode`` parameter in the configuration options) to:
-
-- take only biases, 
-- take biases and darks, and 
-- take biases, darks, and flats. 
-  
-These options are constrained by the fact that the generation or construction of one calibration depends on the existence of the previous one (i.e., to generate a combined dark, a combined bias is necessary, and to generate a flat, a combined dark and a combined bias are necessary). Calibration generation from the images taken can be skipped by setting ``generate_calibrations``. This will speed up the execution time of the script, and subsequent tasks (for example, verification tasks or the PTC construction task) will look for necessary calibrations in their input collections (whose default is the standard calibrations collection: ``LSSTComCam/calib``).
-
-If desired, defects can be constructed from darks and flats, and a PTC per detector per amplifier constructed from the flats. Note that the PTC assumes that a sequence of flat pairs has been taken, each pair taken at the same exposure time. In both cases, ``script_mode`` must be set to ``BIAS_DARK_FLAT``.
-
-
-For more information about calibrations production (including verification and certification), please consult the `Constructing Calibrations documentation`_.
-
-.. _cp_verify: https://github.com/lsst/cp_verify
-.. _DMTN-101: https://dmtn-101.lsst.io/
-.. _DMTN-222: https://dmtn-222.lsst.io/
-.. _Constructing Calibrations documentation: https://pipelines.lsst.io/v/daily/modules/lsst.cp.pipe/constructing-calibrations.html
-
-.. _ComCam-Combined-Calibrations-Procedure-Prerequisites:
-
-
-Prerequisites
-=============
-
--   You should be logged into the LSST Operations and Visualization Enviroment (LOVE) at the Summit.
-
--   The script assumes (and checks) that the ``LSSTComCam`` and ``OCPS`` components are all ``ENABLED``, and that the latter has been ``ENABLED`` with the configuration of ``LSSTComCam``. 
-
-    The instrument and the ``OCPS`` can be enabled with the following procedures:
-
-    - :ref:`Enable ComCam Procedure <Enable-ComCam-Procedure>`
-    - :ref:`Enable OCPS ComCam Procedure <Enable-OCPS-ComCam-Procedure>`
+- :ref:`Introduction to the combined calibrations generation procedure <Introduction-Combined-Calibrations-Generation-Procedure>`
 
 .. _ComCam-Combined-Calibrations-Procedure-Post-Conditions:
 
 Post-Condition
 ==============
 
-- A (daily) combined calibration image per detector will be certified in a `butler`_ ``CALIBRATION`` `collection`_.
+- Individual calibration images will be taken and verified using the `cp_verify`_ framework.
+- If ``generate_calibrations`` is ``True``, a (daily) combined calibration image per detector will be certified in a `butler`_ ``CALIBRATION`` `collection`_.
 
+.. _cp_verify: https://github.com/lsst/cp_verify
 .. _butler: https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/index.html
 .. _collection: https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/organizing.html
 
@@ -98,7 +57,9 @@ Load the script by clicking on the button in front of the name of the script tha
 Enter configuration parameters
 ------------------------------
 
-After loading the script, a window that contains two sections, ``SCHEMA`` (top) and ``CONFIG`` (bottom), will appear. The former will show the available configuration options (and the default values of some of them) that should be entered in the latter. The configuration options are as follows:
+After loading the script, a window that contains two sections, ``SCHEMA`` (top) and ``CONFIG`` (bottom), will appear.
+The former will show the available configuration options (and the default values of some of them) that should be entered in the latter.
+The configuration options are as follows:
 
 - ``script_mode``: Currently, the script can be run  in three modes, in which  it  will  produce only biases (``BIAS``), biases and darks (``BIAS_DARK``), or biases, darks, and flats (``BIAS_DARK_FLAT``).
   Default: ``BIAS_DARK_FLAT``.
@@ -137,8 +98,10 @@ After loading the script, a window that contains two sections, ``SCHEMA`` (top) 
   Default: ``False``.
 - ``config_options_ptc``: Options to be passed to the command-line PTC pipetask. They will overwrite the values in ``cpPtc.yaml``.
   Default: ``-c isr:doCrosstalk=False``.
-- ``do_gain_from_flat_pairs``: Should the gain be estimated from each pair of flats taken at the same exposure time? Runs the ``cpPtc.yaml#generateGainFromFlatPair`` pipeline. Since this pipeline is a subset of the PTC pipeline, you can use use the ``config_options_ptc`` parameter to pass options to the ``ISR`` (Instrument Signature Removal) and ``cpExtract`` tasks which form this pipeline.
-  Default: ``False``.
+- ``do_gain_from_flat_pairs``: Should the gain be estimated from each pair of flats taken at the same exposure time?
+  Runs the ``cpPtc.yaml#generateGainFromFlatPair`` pipeline.
+  Since this pipeline is a subset of the PTC pipeline, you can use use the ``config_options_ptc`` parameter to pass options to the ``ISR`` (Instrument Signature Removal) and ``cpExtract`` tasks which form this pipeline. If ``True``, the script mode should be ``BIAS_DARK_FLAT``.
+  Default: ``True``.
 - ``input_collections_bias``: List of additional (the ``OCPS`` already adds ``LSSTComCam/raw/all`` as a default) comma-separated input collections for the bias pipetask. The pipetask is called via the ``OCPS`` after enabling it with the ``LSSTComCam`` configuration.
   Default: ``LSSTComCam/calib``.
 - ``input_collections_verify_bias``: Additional comma-separated input collections to pass to the verify (bias) pipetask.
@@ -167,9 +130,79 @@ After loading the script, a window that contains two sections, ``SCHEMA`` (top) 
 - ``oods_timeout``: Timeout value, in seconds, for the Observatory Operations Data Service (``OODS``).
   Default: ``120``.
 
-An example set of configuration parameters is as follows:
 
-.. code-block:: text
+Configuration examples
+-----------------------
+
+Daily Default
+^^^^^^^^^^^^^
+
+**Preferred daily script mode to be run**: if no configuration parameters are passed to LOVE and the default parameters are used, the script will take 21 biases, 21 darks of 5 seconds each one, and 21 flats of 5 seconds each one.
+In each case, the first image will be discarded. New combined calibrations will not be generated, and verification of the images taken will be performed using the existing combined calibrations in the ``LSSTComCam/calib`` collection (i.e., th script will do ``external verification``).
+In this case, no defects will be made.
+Following DMTN-222, a gain estimate will be produced from each of the 10 flat pairs taken.
+**Users should adjust parameters when needed, for example, the exposure times or the number of exposures taken**.
+
+If the exposure times need to change, it can be done as follows:
+
+.. code-block:: yaml
+    
+    exp_times_dark: 20
+    exp_times_flats: 30
+
+Changing the exposure times and the number of exposures
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If both the number of exposures and exposure times need to change, it can be done like this:
+
+.. code-block:: yaml
+
+    n_bias: 30
+    n_dark: 5
+    exp_times_dark: [5, 10, 15, 20, 25]
+    n_flat: 10
+    exp_times_flat: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
+
+Example of a configuration file for ``internal_verification``.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Note that the newly-generated combined calibrations
+will be certified in the ``calib_collection`` collection, so this parameter must be specified, and new validity ranges should be provided (spanning one day for daily calibrations).
+The name of the collection needs to be changed if the script needs to be run again (or the validity range), as it is not possible to certify the same type of calibration in the same collection with the same validity range:
+
+.. code-block:: yaml
+
+    generate_calibrations: True
+    calibration_collection: LSSTComCam/calib/daily/calib.2022NOV04.1
+    certify_calib_begin_date: "2022-11-04"
+    certify_calib_begin_date: "2022-11-05"
+
+Including a Photon Transfer Curve (PTC)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the following example, a new set of calibrations is generated, including a PTC (note that the exposure times need to be given by pairs and the total length must correspond to ``n_flat``) and defects.
+If the individual images taken pass verification using as reference the newly generated combined bias, dark, and flat, the combined calibrations will be certified in the ``calib_collection`` collection with the validity range given by ``certify_calib_begin_date`` and ``certify_calib_end_date``.
+There is the option to take flats with a particular filter (the appropiate names/ID should be replaced in ``${FILTER_NAME_OR_ID}`` below):
+
+.. code-block:: yaml
+
+    script_mode: BIAS_DARK_FLAT
+    n_flat: 14
+    exp_times_flat: [5, 5, 10, 10, 15, 15, 20, 20, 25, 25, 30, 30, 35, 35]
+    filter: ${FILTER_NAME_OR_ID}
+    generate_calibrations=True
+    calib_collection: "LSSTComCam/calib/daily/calibs.2022NOV04.1"
+    certify_calib_begin_date: "2022-11-04"
+    certify_calib_end_date: "2022-11-05"
+    do_defects: True
+    do_ptc: True
+
+Another example including PTC and defects generation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Another example set of configuration parameters is as follows:
+
+.. code-block:: yaml
 
     n_bias: 6
     n_dark: 6
@@ -187,12 +220,19 @@ An example set of configuration parameters is as follows:
     do_defects: True
     do_ptc: True
 
-Notes
-^^^^^
+Notes:
 
-- The ``detectors`` parameters was omitted, therefore, by default, all nine LSSTComCam detectors will be passed to the LSST Science Pipelines pipetasks. For testing purposes it might be convenient to process fewer detectors in the pipetasks, as the script will execute faster.
-- The ``generate_calibrations`` parameters was omitted, and therefore combined calibrations will not be generated from the individual images taken (biases, darks, and flats since ``script_mode`` is ``BIAS_DARK_FLAT``), as its default value is ``False``. Pipetasks that require combined calibrations to run will search for them in their input collections. For example, since ``do_verify`` is ``True``, the bias, dark, and flat verification tasks will look for combined reference calibrations in their input collections, given by the ``input_collections_verify_bias``, ``input_collections_verify_dark``, and ``input_collections_verify_flat`` parameters. Since the collection ``LSSTComCam/calib/u/plazas/2021SEP16.1`` is located before the standard collection ``LSSTComCam/calib`` in these parameters, the verification tasks will look there first. On the other hand, since ``do_ptc`` is ``True`` and ``input_collections_ptc`` is omitted, the PTC task will look for combined calibrations (e.g., bias, dark) in the standard calibration collection ``LSSTComCam/calib``, which is the default for this parameter.
--  Sometimes running the PTC can take a long time. In order to obtain a quick estimation for the gain (and monitor, for example, its stability with time), the parameter ``do_gain_from_flat_pairs`` can be set to ``True``. In that case, only one pair of flats is required, so the parameter ``exp_times_flat`` could be set to, e.g., ``[1.2, 1.2]``. However, the task will estimate a gain for every flat pair that has been taken (``LOVE`` will report the values per exposure pair per detector per amplifier). For example, if ``exp_times_flat`` is  ``[0.1, 0.1, 0.35, 0.35, 0.6, 0.6, 1, 1.5, 1.7, 2.1, 2.3]``, gains will be estimated from the first three flat pairs.
+- The ``detectors`` parameters was omitted, therefore, by default, all nine LSSTComCam detectors will be passed to the LSST Science Pipelines pipetasks.
+  For testing purposes it might be convenient to process fewer detectors in the pipetasks, as the script will execute faster.
+- The ``generate_calibrations`` parameters was omitted, and therefore combined calibrations will not be generated from the individual images taken (biases, darks, and flats since ``script_mode`` is ``BIAS_DARK_FLAT``), as its default value is ``False``.
+  Pipetasks that require combined calibrations to run will search for them in their input collections.
+  For example, since ``do_verify`` is ``True``, the bias, dark, and flat verification tasks will look for combined reference calibrations in their input collections, given by the ``input_collections_verify_bias``, ``input_collections_verify_dark``, and ``input_collections_verify_flat`` parameters.
+  Since the collection ``LSSTComCam/calib/u/plazas/2021SEP16.1`` is located before the standard collection ``LSSTComCam/calib`` in these parameters, the verification tasks will look there first.
+  On the other hand, since ``do_ptc`` is ``True`` and ``input_collections_ptc`` is omitted, the PTC task will look for combined calibrations (e.g., bias, dark) in the standard calibration collection ``LSSTComCam/calib``, which is the default for this parameter.
+- Sometimes running the PTC can take a long time.
+  In order to obtain a quick estimation for the gain (and monitor, for example, its stability with time), the parameter ``do_gain_from_flat_pairs`` can be set to ``True``.
+  In that case, only one pair of flats is required, so the parameter ``exp_times_flat`` could be set to, e.g., ``[1.2, 1.2]``. However, the task will estimate a gain for every flat pair that has been taken (``LOVE`` will report the values per exposure pair per detector per amplifier).
+  For example, if ``exp_times_flat`` is  ``[0.1, 0.1, 0.35, 0.35, 0.6, 0.6, 1, 1.5, 1.7, 2.1, 2.3]``, gains will be estimated from the first three flat pairs.
 - See `DMTN-222`_ for a discussion on calibration generation, verification, acceptance, and certfication, including suggested naming conventions for parameters such as ``calib_collection``.
 
 .. _DMTN-222: https://dmtn-222.lsst.io/
@@ -212,28 +252,30 @@ The certified combined calibrations will be available via the collection specifi
     import lsst.daf.butler as dB
 
     butler = dB.Butler("/repo/LSSTComCam", collections=["LSSTComCam/calib/daily.2021SEP13.test1"])
-    detector = (0, 1, 2, 3, 4, 5, 6, 7, 8)
+    detectors = (0, 1, 2, 3, 4, 5, 6, 7, 8)
     exposure = [bias1ID, bias2ID] # e.g., [2021071500001, 2021071500002]
     
     # For detector "0":
-    bias = butler.get('bias', detector=detector[0], exposure=exposure[0], instrument='LSSTComCam')
-    dark = butler.get('dark', detector=detector[0], exposure=exposure[0], instrument='LSSTComCam')
-    flat = butler.get('flat', detector=detector[0], exposure=exposure[0], instrument='LSSTComCam')
-    defects = butler.get('defects', detector=detector[0], exposure=exposure[0], instrument='LSSTComCam')
-    ptc = butler.get('ptc', detector=detector[0], exposure=exposure[0], instrument='LSSTComCam')
+    bias = butler.get('bias', detector=detectors[0], exposure=exposure[0], instrument='LSSTComCam')
+    dark = butler.get('dark', detector=detectors[0], exposure=exposure[0], instrument='LSSTComCam')
+    flat = butler.get('flat', detector=detectors[0], exposure=exposure[0], instrument='LSSTComCam')
+    defects = butler.get('defects', detector=detectors[0], exposure=exposure[0], instrument='LSSTComCam')
+    ptc = butler.get('ptc', detector=detectors[0], exposure=exposure[0], instrument='LSSTComCam')
 
 
-If ``do_gain_from_flat_pair`` is ``True``, the estimated gains (as well as the measured empirical readout noise from the overscan during Instrument Signature Removal) can be found by requesting the ``cpCovariances`` data structure. In this case, the exposure ID should be one of the two flats used to estimate the gain:
+If ``do_gain_from_flat_pair`` is ``True``, the estimated gains (as well as the measured empirical readout noise from the overscan during Instrument Signature Removal) can be found by requesting the ``cpPtcExtract`` data structure. In this case, the exposure ID should be one of the two flats used to estimate the gain:
 
 .. code-block:: python
 
-    cpCovs = butler.get('cpCovariances', detector=detector[0], exposure=flat1ID, instrument='LSSTComCam')
+    cpCovs = butler.get('cpPtcExtract', detector=detector[0], exposure=flat1ID, instrument='LSSTComCam')
     gain_values = cpCov.gain
     noise_values = cpCov.noise
 
-The gain estimated in this way (from single pairs of flats) is an approximation that is likely to be more accurate at lower fluxes. This method has the advantage that it allows to obtain a quick estimate of the gain without having to take multiple flat pairs to construct a full PTC and to fit a model to it.
+The gain estimated in this way (from single pairs of flats) is an approximation that is likely to be more accurate at lower fluxes.
+This method has the advantage that it allows to obtain a quick estimate of the gain without having to take multiple flat pairs to construct a full PTC and to fit a model to it.
 
-In addition, the statistics produced by the verification step can be analized by running the Jupyter notebooks in the ``examples`` folder in ``cp_verify``. As it is shown in these notebooks, useful statistics and information about the results of the ``cp_verify`` tests can be retrieved from the butler via (using flat verification as an example):
+In addition, the statistics produced by the verification step can be analized by running the Jupyter notebooks in the ``examples`` folder in ``cp_verify``.
+As it is shown in these notebooks, useful statistics and information about the results of the ``cp_verify`` tests can be retrieved from the butler via (using flat verification as an example):
 
 .. code-block:: python
 
@@ -261,7 +303,8 @@ The images processed by ``cp_verify`` can also be retrieved for visual inspectio
 Troubleshooting
 ===============
 
-    After checking the configuration options and the ``LOVE`` error messages, the file ``/scratch/uws/${jobId}/outs/ocps.log`` will contain additional technical information on which pipetask failed, if any. ``{jobId}`` is returned by the OCPS and can be retrieved from the ``LOVE`` output messages.
+    After checking the configuration options and the ``LOVE`` error messages, the file ``/scratch/uws/${jobId}/outs/ocps.log`` will contain additional technical information on which pipetask failed, if any.
+    ``{jobId}`` is returned by the OCPS and can be retrieved from the ``LOVE`` output messages.
 
 
 .. _ComCam-Combined-Calibrations-Procedure-Conditions-Contact-Personnel:
