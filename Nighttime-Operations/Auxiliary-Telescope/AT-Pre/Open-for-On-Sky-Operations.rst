@@ -47,6 +47,8 @@ Prerequisites
 
 - Assumes observatory is fully ready to operate, as would be the case if it was shutdown the night before using the shutdown procedure.
 
+- Before taking the decision to open, review the weather conditions and :ref:`weather constraints <Nighttime-Operations-Weather-Constraints>` page.
+
 .. _Open-for-On-Sky-Operations-Post-Condition:
 
 Post-Condition
