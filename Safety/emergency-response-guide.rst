@@ -50,8 +50,8 @@ Contact the PolyClinic (the Paramedic on summit) at extension 577
     If no one answers the telephone, use any Rubin radio tuned to Channel 1. Put out the call:
     
     - "Atento paramedico, habla [your name]."
-    Wait for a response.
-    If there is no response on the radio, call 440 to the Mountain Assistant.
+      Wait for a response.
+      If there is no response on the radio, call 440 to the Mountain Assistant.
 
 Describe the emergency:
 

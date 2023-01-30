@@ -1,5 +1,5 @@
 .. |author| replace:: *Wouter van Reeven*
-.. |contributors| replace:: **
+.. |contributors| replace:: *Tiago Ribeiro*
 
 .. _remote-login:
 

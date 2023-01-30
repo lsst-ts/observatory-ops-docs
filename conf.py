@@ -149,4 +149,5 @@ linkcheck_ignore = [
     r"^https://lsstit.1password.com",
     r"https://github.com/lsst-ts/ts_dimm_app",
     r"^ls.st",  # TLS cert on ls.st is invalid and may cause issues
+    r"https://start.1password.com/open/i\?a=EJGC5QLBFNAJ3ODCNVC2I3HIPM&v=mqlr5qdkpipoyamzhty5kg365y&i=tu4v5aa4tvhbm4e3rc5siiwada&h=lsstit.1password.com",
 ]
