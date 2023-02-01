@@ -57,16 +57,16 @@ Setup and Start DDS Daemon
 
 .. note::
 
-	This step needs to be performed every time the user nublado instance is restarted, or if the user shuts down the daemon.
+	This step needs to be performed every time the user Nublado instance is restarted, or if the user shuts down the daemon.
 
 In the terminal enter the following sequence of commands to setup your environment;
 
 .. prompt:: bash
 
   source ${LOADSTACK}
-  export OSPL_HOME=/scratch/opt/OpenSpliceDDS/V6.10.4/HDE/x86_64.linux/
   source $OSPL_HOME/release.com
   export OSPL_URI=$(python -c "from lsst.ts import ddsconfig; print( (ddsconfig.get_config_dir() / 'ospl-shmem.xml').as_uri())")
+
 
 Before starting the daemon, make sure to check if it is already running or not;
 
@@ -119,7 +119,6 @@ Nublado ships with both ``vim`` and ``emacs``, e.g.;
 
 Add the following lines at the top of the file::
 
-  export OSPL_HOME=/scratch/opt/OpenSpliceDDS/V6.10.4/HDE/x86_64.linux/
   source $OSPL_HOME/release.com
   export OSPL_URI=$(python -c "from lsst.ts import ddsconfig; print( (ddsconfig.get_config_dir() / 'ospl-shmem.xml').as_uri())")
 
