@@ -14,20 +14,20 @@
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _Safety-contact-numbers:
+.. _Safety-summit-contact-numbers:
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
-###############
-Contact Numbers
-###############
+######################
+Summit Contact Numbers
+######################
 
 These extensions can be dialed from any telephone in the Rubin Control room or on the Rubin summit. 
 They are internal to AURA.
 
-.. _contact-numbers-emergency-numbers:
+.. _summit-contact-numbers-emergency-numbers:
 
 Emergency Numbers
 ^^^^^^^^^^^^^^^^^
@@ -47,7 +47,7 @@ Emergency Numbers
     - "Atento [paramedico/asistante montaña/control puerta] - habla [your name] del Observatorio Rubin" and await a response.
 
 
-.. _contact-numbers-non-emergency-numbers:
+.. _summit-contact-numbers-non-emergency-numbers:
 
 Non-Emergency Numbers
 ^^^^^^^^^^^^^^^^^^^^^
@@ -64,7 +64,7 @@ Non-Emergency Numbers
   
   Staff are bilingual.
 
-.. _contact-numbers-calling-hotel-pachon:
+.. _summit-contact-numbers-calling-hotel-pachon:
 
 
 Calling Hotel Pachon
@@ -97,7 +97,7 @@ Staff mostly speak Spanish only.
   - Room 17: 557
   - Room 18: 558
 
-.. _contact_numbers_using_the_control_room_phones:
+.. _summit-contact-numbers-using-the-control-room-phones:
 
 Using the control room phones 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -114,7 +114,7 @@ Using the control room phones
 
 - To dial another country: 9 + 188 + 0 + Country Code + Area Code + Phone Number
 
-.. _Daytime-Operations-Safety-contact-numbers-contact-personnel:
+.. _Safety-summit-contact-numbers-contact-personnel:
 
 Contact Personnel
 ^^^^^^^^^^^^^^^^^

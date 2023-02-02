@@ -14,6 +14,8 @@
 .. An error will alert you of identical labels during the build process.
 .. _`Gemini weather station`: https://gemini.edu/sciops/telescopes-and-sites/weather/cerro-pachon/envmon/
 .. _`Gemini cloud cameras`: https://www.gemini.edu/sciops/telescopes-and-sites/weather/cerro-pachon/cloud-cam/stills.html
+.. _`site webcams`: https://noirlab.edu/science/observing-noirlab/weather-webcams
+.. _`SOAR weather station`: https://noirlab.edu/science/observing-noirlab/weather-webcams/cerro-pachon/environmental-conditions
 
 
 ###################
@@ -45,6 +47,8 @@ Humidity (especially the dew point difference), cloud cover, and wind speed are 
 Observers should inspect the forecast for the night, and review the weather trends on the Rubin weather station (currently unavailable) and the `Gemini weather station`_.
 The weather data updates every 2 minutes. 
 The wind speed data reported is the average over the previous 10 minutes. 
+
+NOIRLab also hosts additional links to Cerro Pachón weather, including `site webcams`_, and the `SOAR weather station`_. 
 
 Go outside and look for incoming cloud fronts, and inspect the buildings and cars for condensation if humidity is above 70%.
 Be more cautious to open if there will not be someone in the control room to montior changing weather conditions, e.g. opening before going to dinner, or leaving the control room to complete another task.
