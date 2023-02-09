@@ -61,7 +61,7 @@ Tutorial Steps
 .. In the case of more complicated tutorials, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked tutorials to be performed in the specified order.
 .. For highly complicated tutorials, consider breaking them into separate tutorials. Some options are a high-level tutorial with links, separating into smaller tutorials or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
 
-* Announcements are to be made in the summit-annouce Slack channel
+* Announcements are to be made in the ``#summit-announce`` Slack channel
 * People who participate in testing or infrastructure support/development must be actively monitoring that channel
 * All announcements for all work that may affect the summit DDS network or its infrastructure are required
 
@@ -69,6 +69,8 @@ Tutorial Steps
 
 * Announcement Guidelines/Procedure:
 
+  The following rules are also bookmarked in the channel.
+  
     * Make announcement when ready to begin work
 
         * Include estimate of how long the systems will be in use
