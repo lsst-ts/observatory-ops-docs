@@ -165,12 +165,4 @@ Contains detailed instructions on how to set the required environment for operat
 System Testing, Deployments, and Upgrades
 ==================================================================
 
-Procedures for system testing, software build, deployment and upgrades at the summit and at TTS are compiled here.
-(To eventually be displayed under https://obs-controls.lsst.io/)
-
-.. toctree::
-    :maxdepth: 2
-    :glob:
-    :titlesonly:
-
-    Operational-Tutorials/index
+Content moved to https://obs-controls.lsst.io/.
