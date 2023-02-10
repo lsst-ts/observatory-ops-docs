@@ -45,3 +45,14 @@ Daytime Checkout
     :glob:
 
     AT-Daytime-Checkout/index
+
+
+E-Stop Procedure
+================
+
+.. toctree::
+    :maxdepth: 5
+    :titlesonly:
+    :glob:
+
+    AuxTel-E-Stop-Procedure/index
