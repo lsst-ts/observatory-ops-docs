@@ -10,15 +10,16 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Alysha Shugart*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Patrick Ingraham, Tiago Ribeiro*
+.. |contributors| replace:: *Patrick Ingraham, Erik Dennihy, Tiago Ribeiro*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _Daytime-Nighttime-Interactions-fault-reporting:
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
+
+.. _Daytime-Nighttime-Interactions-fault-reporting:
 
 ###############
 Fault Reporting
@@ -28,6 +29,7 @@ Reporting telescope and observatory faults - whether they are mechanical errors,
 Understanding the observatory and its efficiency begins with robust fault reporting, documenting recovery, and knowledge-sharing. 
 This section describes the process to file a fault report for any incident that happens during nighttime operations in the Observing Operations `(OBS) <https://jira.lsstcorp.org/projects/OBS>`__ JIRA project.
 
+The process describing the OBS Jira project workflow and process management is described in the section specific to the :ref:`Daytime-Nighttime-Interactions-fault-handling-workflow`. 
 
 .. _fault-reporting-Guidelines-For-Productive-Reporting:
 
@@ -39,11 +41,11 @@ Some guidelines to keep in mind are:
 
 - Facts first. 
   The author of the fault report should provide as many details as possible, including screenshots, telescope telemetry, and timestamps for future investigation.
-- If the reporter is unsure of who to assign the ticket to, leave it unassigned and alert the day time staff for further triage.
+- Leave the ticket unassigned, it will be triaged in the morning or self-assigned. 
+  If observers think people need to be aware of the ticket (e.g. prospective assignees), they should be @'d in a comment
 - Ideas are welcome, but let the facts speak first.
-- Report a problem, not a person. Identifying the problem and reporting it effectively ensures that the Rubin team will move forward with a solution. 
-  Identifying a person as being "at-fault" for a problem reported in the night is not productive. 
-  Learn and grow, not blame and shame.
+- Report a problem, and do not lay blame. 
+  Identifying the problem and reporting it effectively ensures that the Rubin team will move forward with a solution. 
  
 
 
@@ -52,12 +54,10 @@ Some guidelines to keep in mind are:
 Filing Fault Reports
 ^^^^^^^^^^^^^^^^^^^^
 
-.. This section should provide simple overview of prerequisites before executing the procedure; for example, state of equipment, telescope or seeing conditions or notifications prior to execution.
-.. It is preferred to include them as a bulleted or enumerated list.
-.. Do not include actions in this section. Any action by the user should be included at the beginning of the Procedure section below. For example: Do not include "Notify specified SLACK channel. Confirmation is not required." Instead, include this statement as the first step of the procedure, and include "Notification to specified SLACK channel." in the Prerequisites section.
-.. If there is a different procedure that is critical before execution, carefully consider if it should be linked within this section or as part of the Procedure section below (or both).
+Fault reports and resolutions utilize the `OBS Jira project <https://jira.lsstcorp.org/projects/OBS>`_.
+In many cases, there is already a Jira ticket associated with a given problem, and the action is primarily to log an instance of re-occurrence. 
+This should be done by adding a comment to the ticket and not by editing the ticket description.
 
-Upon navigating to the `(OBS) <https://jira.lsstcorp.org/projects/OBS>`__ project in JIRA, click the "create" option on the right-hand side of the top tool-bar.
 
 When creating a ticket, make sure to fill in the following fields:
 
@@ -66,41 +66,45 @@ When creating a ticket, make sure to fill in the following fields:
 
     Screenshot of an example fault report.
 
-- Project: The reporter should ensure that the OBS project is selected to include all things affecting nighttime operations.
+- **Project:** The reporter should ensure that the OBS project is selected to include all things affecting nighttime operations.
 
-- Issue type: If unsure, select "problem."
-    - Problem: issue type usually refers to a hardware issue. 
-    - Bug: issue type typically refers to a software issue.
-    - Improvement:  issue type refers to suggestions for improvements to a procedure, software or else.
-    - Information: issue type refers to alerting the team of a new behavior. 
+- **Issue type:** If unsure, select "problem."
+    - *Problem:* issue type usually refers to a hardware issue. 
+    - *Bug:* issue type typically refers to a software issue.
+    - *Improvement:*  issue type refers to suggestions for improvements to a procedure, software or else.
+    - *Information:* issue type refers to alerting the team of a new behavior. 
       This does not immediately impact operations, but informs of a change noticed. 
 
-- Summary: Describe the problem in one phrase. Be as clear and succinct as possible.
+- **Summary:** Describe the problem in one phrase. Be as clear and succinct as possible.
 
-- Urgent: IMPORTANT. This field is crucial to allocate time to solve a problem. 
-  If the fault obstructs observing at night, data collection, or endangers equipment,
+- **Urgent:** IMPORTANT. This field is crucial to allocate time to solve a problem. 
+  If the issue results in a significant loss of telescope efficiency, then a task should be marked as urgent.
+  This includes issues observing at night, data collection, or anything that endangers equipment,
   toggle this flag and alert the team as soon as possible. 
 
-- Time lost (hr): More details about calculating time lost due to a fault are in the :ref:`fault-reporting-Guidelines-For-Calculating-Time-Loss` section. 
+- **Time lost (hr):** More details about calculating time lost due to a fault are in the :ref:`fault-reporting-Guidelines-For-Calculating-Time-Loss` section. 
   Time loss is reported in the 0.1 decimal hour.
 
-- Components: Be as accurate as possible to select the correct component - i.e. software, hardware: M2, etc. 
+- **Components:** Be as accurate as possible to select the correct component - i.e. software, hardware: M2, etc. 
   If the component does not exist, contact |author| and they will add it to the list.
 
-- Description: Provide details and a timeline as accurately as possible to help people more efficiently search telemetry logs for diagnosis. 
-  Facts first.
+- **Description:** Provide details and a timeline as accurately as possible to help people more efficiently search telemetry logs for diagnosis. 
+  Include a timestamp of the occurrence as well as the salIndex of the script (if applicable). 
+  The traceback should be added as well (if applicable).
+  Tracebacks are best copy/pasted into the ticket rather than using a screenshot so the error is searchable.
 
 .. figure:: ./_static/Fault_report_example_page_2.png
     :name: Fault-report-example-page-2
 
     Continuing fields of an example fault report.
 
-- Assignee: The reporter should leave the ticket unassgined unless they are absolutely sure of the correct person to follow-up on the fault report. 
-  The team will review the fault reports after the night is over and determine the best person or group for follow-up.
+- **Assignee:** The reporter should leave the ticket unassigned.
+  In the case they are certain of who correct person to follow-up on the fault report, they should be added as a watcher and flagged in a comment. 
+  A team will review the fault reports after the night is over and determine the best person or group for follow-up.
 
-- Labels: This is not a required field, but may provide more information to the components involved. 
+- **Labels:** This is not a required field, but may provide more information to the components involved. 
 
-- Attachment: Upload any screenshots, images, or files to support the facts reported or to help the problem-solving effort. 
+- **Attachment:** Upload any screenshots, images, or files to support the facts reported or to help the problem-solving effort. 
 
 .. _fault-reporting-Guidelines-For-Calculating-Time-Loss:
 
@@ -111,11 +115,10 @@ Guidelines For Calculating Time Loss
 .. It is preferred to include them as a bulleted or enumerated list.
 .. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
 
-- If the problem can be troubleshooted while taking images on sky, or proceeding with another task, that time won’t count to fault loss.
-- If the problem happens before or after 12 degree twilight, there is no need to account for fault loss.
-    - As soon as science time begins however, the clock starts ticking.
-- If the problem happens during bad weather, or no observing is taking place, there is no need to deduct for time loss.
-- It is better to overestimate than to underestimate. Sky time is very valuable - emphasize the importance to address problems in this way.
+- If the problem can be troubleshooted while taking images on sky, or proceeding with another task, that time will not count towards a fault loss.
+- If a fault occurs while we are closed due to bad weather, or the problem occurs before or after 12 degree twilight, the time lost should be reported as 0.
+  When potential on-sky science time begins, the time loss starts accumulating.
+- In the event the time loss is not well calculated, it is preferred to provide an overestimate rather than to underestimate.
 
 .. _fault-reporting-Filling-Out-Night-Logs:
 
@@ -123,15 +126,16 @@ Filling Out Night Logs
 ^^^^^^^^^^^^^^^^^^^^^^
 
 More details about writing night logs are provided on the :ref:`Daytime-Nighttime-Interactions-nighttime-logging` page. 
-Concerning fault reports filed during the night, it is important that the observer lists all the problems that occurred during the night 
-in the fault report section of the night log. This will provide higher visibility and allow to calculate total time lost to faults at the end of the observing night.
+Concerning fault reports filed during the night, it is important that the observer lists all the problems that occurred during the night in the fault report section of the night log. 
+This will provide higher visibility and allow to calculate total time lost to faults at the end of the observing night.
 
 .. figure:: ./_static/Night_log_fault_reports_list.png
     :name: Night-log-fault-reports-list
 
     List of all the fault reports that happened during the night for the night log. 
 
-.. _fault-reporting-Contact-Personnel:
+
+.. _fault-reporting-Contact_Personnel:
 
 Contact Personnel
 ^^^^^^^^^^^^^^^^^
