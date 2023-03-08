@@ -67,11 +67,11 @@ The former will show the available configuration options (and the default values
 - ``n_discard_bias``: Additional number of bias images to take and discard before starting the sequence.
   Default: ``1``.
 - ``n_dark``: Number of darks to take.
-  Default: ``20``.
+  Default: ``22``.
 - ``n_discard_dark``: Additional number of dark images to take and discard before starting the sequence.
   Default: ``1``.
-- ``exp_times_dark``: The exposure time of each dark image (sec). If a single value, then the same exposure time is used for each exposure.
-  Default: ``5``.
+- ``exp_times_dark``: The exposure time of each dark image (sec). If a single value, then the same exposure time is used for each exposure.  This default set of exposure times allows for one discarded dark plus four darks to use at 5s (to match with the previous defaults), two darks at 15s (to allow the linearity of the dark signal to be monitored), and sixteen darks at 30s (to provide darks that directly match the default observation exposure time).
+  Default: ``[5, 5, 5, 5, 5, 15, 15, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30]``.
 - ``n_flat``:  Number of flats to take.
   Default: ``20``.
 - ``n_discard_flat``: Additional number of flat images to take and discard before starting the sequence.
@@ -141,7 +141,7 @@ Configuration examples
 Daily Default
 ^^^^^^^^^^^^^
 
-**Preferred daily script mode to be run**: if no configuration parameters are passed to LOVE and the default parameters are used, the script will take 21 biases, 21 darks of 5 seconds each one, and 21 flats of 5 seconds each one.
+**Preferred daily script mode to be run**: if no configuration parameters are passed to LOVE and the default parameters are used, the script will take 21 biases, 23 darks at 5 seconds (5 exposures), 15 seconds (2 exposures), and 30 seconds (16 exposures), and finally 21 flats of 5 seconds each one.
 In each case, the first image will be discarded. New combined calibrations will not be generated, and verification of the images taken will be performed using the existing combined calibrations in the ``LATISS/calib`` collection (i.e., the script will do ``external verification``).
 In this case, no defects will be made.
 Following DMTN-222, a gain estimate will be produced from each of the 10 flat pairs taken.
