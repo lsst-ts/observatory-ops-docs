@@ -62,13 +62,13 @@ The full procedures for the different afternoon or recommended daily checkouts a
 
 * AuxTel Daily Checkout
     * `AuxTel Daily Checkout Procedure Notebook <https://github.com/lsst-ts/ts_notebooks/blob/develop/procedures/auxtel/observation_procedures/DayTime-Checkout.ipynb>`__
+    * `AuxTel Daily Checkout SAL scripts <https://obs-ops.lsst.io/Daytime-Operations/Auxiliary-Telescope/AT-Daytime-Checkout/Daytime-Checkout-SAL-Scripts.html>`__
 
 * LATISS Calibrations
-
-    * :ref:`LATISS daily checkout procedure notebook <LATISS-Master-Calibrations-Procedure-LATISS-Master-Calibrations-Generation-Procedure>`.
+    * `LATISS combined calibrations generation procedure <https://obs-ops.lsst.io/Daytime-Operations/Auxiliary-Telescope/AT-Calibrations/LATISS-Combined-Calibrations-Procedure/latiss-combined-calibrations-procedure.html#latiss-combined-calibrations-procedure-latiss-combined-calibrations-generation-procedure>`__.
 
 * Comcam Calibrations
-    * :ref:`Comcam master bias generation procedure <ComCam-Master-Calibrations-Procedure-ComCam-Master-Calibrations-Generation-Procedure>`.
+    * `Comcam combined calibrations generation procedure <https://obs-ops.lsst.io/Daytime-Operations/Main-Telescope/MT-Calibrations/ComCam-Combined-Calibrations-Procedure/comcam-combined-calibrations-procedure.html#comcam-combined-calibrations-procedure-comcam-combined-calibrations-generation-procedure>`__.
 
 .. _daytime-and-nighttime-communication-Reporting-Faults:
 
