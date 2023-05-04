@@ -4,21 +4,22 @@
 
 .. _DIMM-Ops:
 
-######################################
+#####################################
 DIMM Startup, Shutdown and Monitoring
-######################################
+#####################################
 
 The DIMM automatically performs seeing measurements from dusk until dawn. 
 Limited support from the user is expected. 
 
-The vendor provided DIMM software will open the dome at dusk, start the system, slew the telescope, focus and offset the mount when needed, run the measurements, produce seeing values.  
+The vendor provided DIMM software will open the dome at dusk, start the system, slew the telescope, focus and offset the mount when needed, run the measurements, 
+produce seeing values.  
 At dawn, the telescope will park itself, and the dome will close. 
 This cycle repeats the following evening, unless :ref:`manually shutdown <Dimm-Shutdown>`, when the sun sets.
 
-The `ameba` program is continously checking that the environment conditions are stable and clear, based on the data delivered by `tt-meteo`.
-In case of adverse weather, `ameba` will close the dome until conditions clear. 
+The *ameba* program is continously checking that the environment conditions are stable and clear, based on the data delivered by *tt-meteo*.
+In case of adverse weather, *ameba* will close the dome until conditions clear. 
 
-Currently, there is no incoming Cerro Pachón weather information feeding the `tt-meteo` program. 
+Currently, there is no incoming Cerro Pachón weather information feeding the *tt-meteo* program. 
 Thus prior to starting up the DIMM, there are additional steps outlined in the :ref:`prerequisites section <Dimm_StartUp-Prerequisites>`.
 
 .. _Dimm_StartUp-Prerequisites: 
@@ -28,7 +29,7 @@ Prerequisites: Weather Data
 
 Every time the DIMM is restarted, the weather startup values are set so the operations are disabled for safety reasons. 
 
-To allow operations, mock weather data into the `tt-weather` service must be entered in the following manner:
+To allow operations, mock weather data into the *tt-meteo* weather service must be entered in the following manner:
 
 .. important::
     Ensure the weather conditions are stable and safe before attempting the DIMM startup. 
@@ -43,7 +44,7 @@ When connected to the LSST WAP network, open a terminal and connect to the DIMM 
 The password is located on the Operators 1Password Vault.
  
 
-Connect via telnet to the ``tt-meteo``. 
+Connect via telnet to *tt-meteo*. 
 
 .. code-block:: bash
    
@@ -66,12 +67,10 @@ The first command will set the corrected sky temperature; the second will fix th
 
 Quit telnet, pressing simultaneously ``Ctrl + ]``, write ``quit`` and click Enter. 
 
-The image below shows how the interaction with the OpenTPL client looks like and the two commands required to manually configure `tt-meteo`.
-
 .. figure:: ./_static/tt-meteo.png
     :name: tt-meteo prerequisite
 
-    Prerequisite: Weather data
+    *tt-meteo* OpenTPL client with the two commands required to manually configure the service.
 
 Now the DIMM is ready to start operations. 
 
@@ -86,9 +85,9 @@ Make sure you have run the :ref:`prerequisites <Dimm_StartUp-Prerequisites>` reg
 
 The automatic mode can be started from any state as the steps below override the current mode. 
 
-In this mode of operations, the DIMM `ameba` will automatically select the targets from the star catalog. 
+In this mode of operations, the DIMM *ameba* will automatically select the targets from the star catalog. 
 
-To start an automatic DIMM observation, connect to `tt-master` where you will set the variable ``ameba.mode`` to 1:
+To start an automatic DIMM observation, connect to *tt-master* where you will set the variable ``ameba.mode`` to 1:
 
 .. code-block:: bash
    
@@ -122,7 +121,7 @@ The manual mode can be started from any state as the steps below override the cu
 
 In this mode of operations, the user needs to choose the target and run the ``monitor_dimm_2.py`` python script available in the dimm home directory:
 
-.. note:: Keep `mag` and `color` in 0.0. Substitute with your target values the parameters in curly braces {}, that is, `target_name`, `RA`, `DEC` and `spectral_type`. The format for the sptype is the MK system: the letter followed by a numeric digit (e.g. A8, F0, K5) 
+.. note:: Keep ``mag`` and ``color`` in 0.0.  Substitute with your target values the parameters in curly braces {}, that is, ``target_name``, ``RA``, ``DEC`` and ``spectral_type``. The format for the sptype is the MK system: the letter followed by a numeric digit (e.g. A8, F0, K5) 
 
 .. code-block:: bash
 
@@ -152,7 +151,7 @@ There are two ways to monitor the DIMM hardware, program and outputs.
         dimm@dimm:~$  python3 monitor_dimm_2.py monitor
 
 
-2. Each DIMM service publishes a daily log. The two most relevant ones, `ameba` and `dimm_tool`, along with the `preat` seeing results can be found in:
+2. Each DIMM service publishes a daily log. The two most relevant ones, *ameba* and *dimm_tool*, along with the *preat* seeing results can be found in:
 
     - Operational log - ``/mnt/dimm/log/ameba/ameba.log``
 
@@ -165,7 +164,7 @@ There are two ways to monitor the DIMM hardware, program and outputs.
 Shutting down the DIMM 
 =======================
 
-At the end of the night, `ameba` program will wrap up the observation, park the telescope and close the dome. 
+At the end of the night, *ameba* program will wrap up the observation, park the telescope and close the dome. 
 
 But there might two situations in which the DIMM needs to be stopped manually:
 
@@ -173,7 +172,7 @@ But there might two situations in which the DIMM needs to be stopped manually:
 
         - The following night nobody will be monitoring the weather at Cerro Pachon so for safety reasons, the DIMM won't be left operating. 
 
-To gracefully shutdown the DIMM, set ``ameba.mode`` to 0 in the OpenTPL interface of `tt-master`, that is, from the DIMM VM
+To gracefully shutdown the DIMM, set ``ameba.mode`` to 0 in the OpenTPL interface of *tt-master*, that is, from the DIMM VM:
 
 .. code-block:: bash
    
@@ -195,3 +194,4 @@ Contact Personnel
 
 This procedure was last modified on |today|.
 
+This procedure was written by |author|.

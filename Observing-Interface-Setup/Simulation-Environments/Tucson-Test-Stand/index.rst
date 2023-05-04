@@ -21,15 +21,6 @@ Tucson Test Stand (TTS)
 This exists to provide details on various aspects of the TTS.
 It will continue to be expanded as functionality and usage increases. 
 
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-    :glob:
-
-    */index
-
-
 ############################
 Data Repositories and Policy
 ############################
@@ -138,6 +129,6 @@ It also shows how to verify it was ingested properly.
 #. Can query all collections to verify that the LATISS-test-data-tts collection is visible 
 
    .. code-block:: bash
+      
       butler query-collections /repo/LATISS
-.. 
-    
+

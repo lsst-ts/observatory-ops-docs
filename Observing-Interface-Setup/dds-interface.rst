@@ -28,7 +28,7 @@ Checking the status of the Daemon
 In the case that a CSC has trouble starting due to DDS failures.
 Check the status of the ospl daemon using the following procedure.
 
-#. Setup the appropriate environment variables, as is shown in `Setup and Start DDS Daemon`_.
+#. Setup the appropriate :ref:`environment variables <Observing-Interface-Setup-DDS-Daemon-in-Nublado>`.
 
 #. Check that the daemon is running:
    
