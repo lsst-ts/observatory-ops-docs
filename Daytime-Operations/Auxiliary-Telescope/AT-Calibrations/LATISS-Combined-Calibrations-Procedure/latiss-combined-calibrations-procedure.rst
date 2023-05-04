@@ -36,10 +36,10 @@ Procedure Steps
 
 Once you are logged into LOVE, click on the ``ATQueue`` panel, as circled on the left side of the figure below (for reference, ``MTQueue`` to launch ``LSSTComCam`` scripts is circled on the right):
 
-.. figure:: ./_static/love-mtqueue-atqueue-panel.png
+.. figure:: ../../_static/love-mtqueue-atqueue-panel.png
     :name: ATQueue-love
 
-    Screenshot of LOVE interface with the "ATQueue" pannel.
+    Screenshot of LOVE interface with the ``ATQueue`` panel.
 
 
 Load the Script
@@ -47,10 +47,10 @@ Load the Script
 
 After clicking on the ``ATQueue`` panel, search for the script ``maintel/make_latiss_calibrations.py`` under ``AVAILABLE SCRIPTS`` on the left, as shown in the figure below:
 
-.. figure:: ./_static/love-available-scripts.png
-    :name: latiss-available-scripts-love
+.. figure:: ../../_static/love-available-scripts.png
+    :name: available-scripts-love
 
-    Screenshot of LOVE interface with the "AVAILABLE SCRIPTS" list.
+    Screenshot of LOVE interface with the ``AVAILABLE SCRIPTS`` list.
       
 Load the script by clicking on the button in front of the name of the script that has a triangle.
 

@@ -8,7 +8,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *isotuela*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: **
+.. |contributors| replace:: *none*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -83,7 +83,7 @@ Procedure Steps
    In the ``configuring script:vent`` screen that pops up, leave the ``CONFIG`` box empty. 
 
    .. figure:: ./_static/PrepareforVent_AuxTel.png
-     :name: prepareforonsky_AuxTel
+     :name: prepareforonvent_AuxTel
     
      Screenshot of LOVE launching ``auxtel/prepare_for/vent.py`` script. 
 

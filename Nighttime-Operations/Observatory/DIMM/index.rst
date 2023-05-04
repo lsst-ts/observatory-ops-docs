@@ -1,8 +1,12 @@
+.. |author| replace:: *isotuela*
+.. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
+.. |contributors| replace:: *none*
+
 .. _DIMM-DIMM:
 
-###############
+####
 DIMM
-###############
+####
 
 The differential image motion monitor (DIMM) is a standard instrument to measure astronomical "seeing", which is a metric for the amount of atmospheric turbulence affecting image quality. 
 
@@ -23,10 +27,12 @@ One of the apertures holds a wedge prism that results in the displacement of an 
 
     The "twin images" of a star imaged on the DIMM focal plane.
 
-The fluctuations of the angular distance between the two spots is proportional to the atmospheric optical turbulence, that in turn, enables a prediction of the expected FWHM in long exposures.
+The fluctuations of the angular distance between the two spots is proportional to the atmospheric optical turbulence, that in turn, 
+enables a prediction of the expected FWHM in long exposures.
 
 The main control software is divided into several programs. 
-The main services are `ameba` that is in charge of the observation, synchronizing dome, weather service, mount and camera control, and the `preat` program that converts the output of the `dimm_tool` into seeing values.
+The main services are *ameba* that is in charge of the observation, synchronizing dome, weather service, mount and camera control, 
+and the *preat* program that converts the output of the *dimm_tool* into seeing values.
 
 .. figure:: ./_static/program_structure.png
     :name: DIMM program structure
@@ -45,16 +51,23 @@ Below is a list of some useful DIMM manuals:
 .. _DIMM Confluence Page: https://confluence.lsstcorp.org/pages/viewpage.action?spaceKey=LTS&title=DIMM+Tower+and+Equipment+-+Edison
 .. _DIMM Source Code: https://github.com/lsst-ts/ts_dimm_app 
 
-- Overview of the DIMM software: `DIMM General Spec`_
+* Overview of the DIMM software: `DIMM General Spec`_
 
-- Configuration files for the DIMM programs, specially `ameba` and `dimm_tool`: `DIMM Configuration`_
+* Configuration files for the DIMM programs, specially *ameba* and **dimm_tool**: `DIMM Configuration`_
 
-- High-level control of the DIMM software, `tt-master` program description: `tt_master Spec`_
+* High-level control of the DIMM software, *tt-master* program description: `tt_master Spec`_
 
-- A detailed description of the `preat` program and preat output: `Preat Description`_
+* A detailed description of the *preat* program and *preat* output: `Preat Description`_
 
-- Information on the different operating modes that might be useful for maintenance and troubleshooting: `DIMM software description`_
+* Information on the different operating modes that might be useful for maintenance and troubleshooting: `DIMM software description`_
 
-- Rubin's confluence page with information of the individual hardware components, history of Rubin's DIMM, SW installation instructions and other useful links: `DIMM Confluence Page`_
+* Rubin's confluence page with information of the individual hardware components, history of Rubin's DIMM, SW installation instructions and other useful links: `DIMM Confluence Page`_
 
-- DIMM source code: `DIMM Source Code`_
+* DIMM source code: `DIMM Source Code`_
+
+Contact Personnel
+=================
+
+This procedure was last modified on |today|.
+
+This procedure was written by |author|.
