@@ -134,7 +134,7 @@ Systems running here will be directly controlling hardware or communicating with
       These must be planned activities and require an accompanying `summit activity project <https://jira.lsstcorp.org/projects/SUMMIT>`__ Jira ticket organized by appropriate personnel.
 
 - Nublado: https://summit-lsp.lsst.codes/
-- Chronograf: https://chronograf-summit-efd.lsst.codes/
+- Chronograf: https://summit-lsp.lsst.codes/chronograf/
 - LOVE: http://love01.cp.lsst.org/
 - ArgoCD: https://summit-lsp.lsst.codes/argo-cd
 - Rancher: https://rancher.cp.lsst.org/
