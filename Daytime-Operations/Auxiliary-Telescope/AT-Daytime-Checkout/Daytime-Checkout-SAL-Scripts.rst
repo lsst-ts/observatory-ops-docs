@@ -65,9 +65,9 @@ Bring the ATCS into an enabled state to prepare for checkout.
 =====================
 
 This script will first turn on the valves and check that the line pressure is sufficient for operations. 
+Next, The telescope will be slewed to the park position if it is not already there. 
 Then, it will turn on/off the ATAOS corrections before lowering the mirror back down onto its hard points.
 Finally the mirror cover and vents are opened and closed. 
-No telescope movement is performed.
 
 *auxtel/daytime_checkout/telescope_and_dome_checkout.py*
 =============================
