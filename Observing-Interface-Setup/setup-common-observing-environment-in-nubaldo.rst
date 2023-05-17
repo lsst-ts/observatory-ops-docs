@@ -72,7 +72,7 @@ In the terminal, enter the following sequence of commands to clone the package c
 
 .. prompt:: bash
 
-  git https://github.com/lsst-sitcom/auxtel_obsruns_env_setups.git 
+  git clone https://github.com/lsst-sitcom/auxtel_obsruns_env_setups.git 
 
 Enter the following sequence of commands to run the automatic setup script. 
 
