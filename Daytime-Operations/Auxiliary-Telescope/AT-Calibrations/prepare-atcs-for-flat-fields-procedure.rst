@@ -24,16 +24,16 @@ Be sure you have run previously the following procedure in the :ref:`daytime che
 
 
 .. figure:: ../_static/love-mtqueue-atqueue-panel.png
-     :name:  latiss-available-scripts-love
+     :name:  latiss-atqueue
 
-     LOVE interface with the "ATQueue" pannel.
+     LOVE interface with the "ATQueue" panel.
 
 
 
 .. figure:: ../_static/love-available-scripts.png
-     :name:  latiss-available-scripts-love
+     :name:  latiss-available-scripts-atqueue
 
-     LOVE interface with the "AVAILABLE SCRIPTS" list.
+     LOVE interface with the **AVAILABLE SCRIPTS** list.
 
     
 
@@ -46,18 +46,15 @@ NOTE: make sure M3 is pointing to LATISS on nasmyth 2, mirror cover are is opene
 Procedure Steps
 ===============
 
-Using the LOVE AT QUEUE, run the standard script `auxtel/prepare_for/flat.py`
+Using the ``LOVE AT QUEUE``, run the standard script ``auxtel/prepare_for/flat.py``
 
 No configuration is needed.
-
-
-
 
 
 .. figure:: ../_static/love_prepare_for_flat.png
      :name: my-figure
       
-     LOVE interface with the `auxtel/prepare_for/flat.py` script.
+     LOVE interface with the ``auxtel/prepare_for/flat.py`` script.
 
   
 
@@ -74,9 +71,7 @@ This script performs:
 
 Make sure M3 is pointing to LATISS on nasmyth 2, mirror cover are is opened and the telescope is in position, as a final check.
 
-  
-      
-      
+
 * Azimuth flat position = 205.7 deg.
 * Elevation flat position = 39. deg.
 * Dome flat position = 20.0 deg.

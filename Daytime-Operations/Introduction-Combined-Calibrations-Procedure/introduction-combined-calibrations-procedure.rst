@@ -22,7 +22,7 @@ The script will have the option to:
    - darks
    - flats
 - call the corresponding Rubin Science Pipelines calibration generation pipetask to produce combined biases, combined darks, combined flats, defects, and Photon Transfer Curves (PTCs) via the OCS-Controlled Pipeline System (OCPS),
-- verify the images taken using as reference the calibration generated in the previous step via the ``generate_calibrations`` boolean parameter in the configuration file (this mode is referred to as "internal verification"; see the package `cp_verify`_, and the technical notes `DMTN-101`_ and `DMTN-222`_), or using pre-existing calibrations that are usually located in the ``LATISS/calib`` or `LSSTComCam/calib` standard calibration collections (this mode is referred to as "external verification"), and
+- verify the images taken using as reference the calibration generated in the previous step via the ``generate_calibrations`` boolean parameter in the configuration file (this mode is referred to as "internal verification"; see the package `cp_verify`_, and the technical notes `DMTN-101`_ and `DMTN-222`_), or using pre-existing calibrations that are usually located in the ``LATISS/calib`` or ``LSSTComCam/calib`` standard calibration collections (this mode is referred to as "external verification"), and
 - automatically certify the newly-generated combined calibration (if ``generate_calibrations`` is set to ``True``) with a given range of validity dates (usually one day).
 
 The verification step is currently only implemented for biases, darks, and flats.

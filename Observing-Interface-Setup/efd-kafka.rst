@@ -22,7 +22,7 @@ Pre-requisites
 ^^^^^^^^^^^^^^
 * Determine which components are involved in the test
 * Make sure components are **not** running in the production domain.
-* :doc:`Announce your intentions in the appropriate channels </Operational-Procedures-Tutorials/announce-component-usage>`
+* Announce your intentions in the :ref:`appropriate channels <Operational-Tutorials-Annouce-Component-Usage>`.
 * SSH access to azar2.cp.lsst.org node
 * Docker permission in azar2
 

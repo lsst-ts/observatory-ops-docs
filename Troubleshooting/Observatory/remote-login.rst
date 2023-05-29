@@ -55,9 +55,9 @@ Once in :ref:`argo-cd <fig-argo-cd>` you will see a page showing several boxes w
     :name: fig-argo-cd
 
 Use the search bar to find the component you want to know the namespace for.
-The services usually have the same as the component, whith some small variations.
+The services usually have the same as the component, with some small variations.
 Once you find the one you are looking for click on the box to see details about the deployment.
-Then you can click the `APP DETAILS` button to get the details of the application, including the namespace.
+Then you can click the ``APP DETAILS`` button to get the details of the application, including the namespace.
 
 If you do not see the component you are looking for, it might be that it is not deployed in the Kubernetes container.
 Examples of components that are not deployed in argo-cd are:
@@ -76,7 +76,7 @@ The :ref:`detailed page <fig-argo-cd-info>` for this component can be seen below
 .. figure:: ./_static/argo-cd-info.png
     :name: fig-argo-cd-info
 
-The red rectangle highlights the APP DETAILS button.
+The red rectangle highlights the ``APP DETAILS`` button.
 Click that to get the details of the application, including the namespace in which it has been deployed.
 
 .. figure:: ./_static/argo-cd-details.png

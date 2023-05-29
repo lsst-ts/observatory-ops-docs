@@ -6,10 +6,11 @@ Troubleshooting the *Scheduling Algorithm*
 
 This page is dedicated to troubleshooting the Feature Based Scheduler (_`FBS`) algorithm, which is the main *scheduling algorithm* for the Scheduler CSC.
 
-In general, this will be the last line of resource users will have to resort to when debuging issues at night time.
+In general, this will be the last line of resource users will have to resort to when debugging issues at night time.
 Nevertheless, one may be interested in inspecting the state of the `FBS`_ at any time if they are interested in having a better idea of the scheduler operational conditions.
 
-Before proceding make sure you read and understand the :ref:`scheduler-operational-procedures-overview` section, which gives a high level description of the Scheduler CSC architecture, the *scheduling algorithm* and the FBS.
+Before proceeding make sure you read and understand the :ref:`scheduler-operational-procedures-overview` section, 
+which gives a high level description of the Scheduler CSC architecture, the *scheduling algorithm* and the FBS.
 
 .. _troubleshooting-the-scheduling-algorithm-environment-setup:
 
@@ -69,11 +70,11 @@ On the top-right-hand side, click on the environment name, where it is says "LSS
     * - .. figure:: ./_static/new-jupyter-notebook-scheduler-dev-selection.png
     * - .. figure:: ./_static/new-jupyter-notebook-scheduler-dev.png
 
-You are now ready to analyse some Scheduler snapshots.
+You are now ready to analyze some Scheduler snapshots.
 
 .. note::
 
-    The environment we created to analyse the scheduler snapshots does not have the libraries required to access the control system.
+    The environment we created to analyze the scheduler snapshots does not have the libraries required to access the control system.
     Keep that in mind for the following procedures.
 
 .. _troubleshooting-the-scheduling-algorithm-retrieving-snapshots:
@@ -86,7 +87,7 @@ For that, follow the :ref:`advanced-scheduler-operations-find-last-scheduler-sna
 
 Once you have the ``url`` you can retrieve the snapshot directly from a notebook.
 
-We will use this same notebook to analyse the data, so we start by loading all the libraries we will need.
+We will use this same notebook to analyze the data, so we start by loading all the libraries we will need.
 
 .. code-block:: python
 
@@ -101,7 +102,8 @@ We will use this same notebook to analyse the data, so we start by loading all t
     import numpy as np
     import healpy as hp
 
-In the cell below we use the same ``url`` found in :ref:`advanced-scheduler-operations-find-last-scheduler-snapshot`, make sure to update the entire string with the appropriate value.
+In the cell below we use the same ``url`` found in :ref:`advanced-scheduler-operations-find-last-scheduler-snapshot`, 
+make sure to update the entire string with the appropriate value.
 
 .. code-block:: python
 
@@ -156,10 +158,10 @@ We can visualize the slew time healpix map with the following:
 
 .. _troubleshooting-the-scheduling-algorithm-analysing-the-scheduler-snapshot:
 
-Analysing the *scheduler* Snapshot
+Analyzing the *scheduler* Snapshot
 ==================================
 
-The first step in analysing the scheduler snapshot is understanding its structure.
+The first step in analyzing the scheduler snapshot is understanding its structure.
 As mentioned in :ref:`scheduler-operational-procedures-overview` and shown in the :ref:`FBS architecture diagram <fig-fbs-architecture>`, there is an hierarchical tree of ``surveys``, ``basis functions`` and ``features``.
 
 On the ``scheduler`` snapshot that can be seen by the following:
@@ -279,16 +281,16 @@ The ``FieldSurvey``, allows one to specify a field (determined by its RA and Dec
 .. note::
 
     Although the imaging survey on AuxTel is supposed to map a "region" of the sky, it would require an extremely high sky resolution to allow us to define it in terms of a ``Greedy_survey``.
-    Therefore we use ``FieldSurvey`` configured with individial pointings.
+    Therefore we use ``FieldSurvey`` configured with individual pointings.
     This allows us to run the scheduler with a lower resolution and still map the region.
 
 In the example above we already know that the ``LATISS_MD02_*`` fields are still outside the hour angle limit, so they won't be observable.
-Still let us explore some of the basis functions rewards as an exercice.
+Still let us explore some of the basis functions rewards as an exercise.
 
 The first thing to keep in mind is that basis functions reward values can either be single floats, or healpix maps.
-The ones we will be most interested in analysing are healpix maps, probably comparing them with the current position of the telescope and, in the case of ``FieldSurvey``-like surveys, the position of the field.
+The ones we will be most interested in analyzing are healpix maps, probably comparing them with the current position of the telescope and, in the case of ``FieldSurvey``-like surveys, the position of the field.
 
-Let's analyse the basis function of ``FieldSurvey[LATISS_MD02_00000001]``, the first survey on the second list of surveys.
+Let's analyze the basis function of ``FieldSurvey[LATISS_MD02_00000001]``, the first survey on the second list of surveys.
 We start by extracting the survey into a variable:
 
 .. code-block:: python
@@ -320,4 +322,4 @@ In this particular case, the telescope was pointing towards the south celestial 
 
 From the images above one can see why the hour angle limit is yielding the survey unfeasible, as the targets are still below the horizon, as  can be seen on the ``Slewtime_basis_function`` and the ``Zenith_shadow_mask_basis_function``.
 
-This should give you enough information to allow you to throubleshoot most conditions experienced by the scheduler and also to understand what the scheduler is doing at a particular moment in time.
+This should give you enough information to allow you to troubleshoot most conditions experienced by the scheduler and also to understand what the scheduler is doing at a particular moment in time.

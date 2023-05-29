@@ -42,12 +42,12 @@ The order of script execution is nominally:
 * auxtel/prepare_for/flats - Can be substituted for other prepare_for scripts to leave AuxTel in different state
 
 *auxtel/enable_latiss.py*
-===============
+=========================
 
 Bring LATISS to an enabled state to prepare for checkout. 
 
 *auxtel/daytime_checkout/latiss_checkout.py*
-=================
+============================================
 
 This script will take a bias and engineering frame with LATISS and ensure that they are ingested by the OODS.
 
@@ -57,12 +57,12 @@ If it fails, let Patrick or Merlin know.
 You can check that it ingested at USDF with this link: ******* <b>Add when available<b>
 
 *auxtel/enable_atcs.py*
-=============
+=======================
 
 Bring the ATCS into an enabled state to prepare for checkout. 
 
 *auxtel/daytime_checkout/atpneumatics_checkout.py*
-=====================
+==================================================
 
 This script will first turn on the valves and check that the line pressure is sufficient for operations. 
 Next, The telescope will be slewed to the park position if it is not already there. 
@@ -70,7 +70,7 @@ Then, it will turn on/off the ATAOS corrections before lowering the mirror back 
 Finally the mirror cover and vents are opened and closed. 
 
 *auxtel/daytime_checkout/telescope_and_dome_checkout.py*
-=============================
+========================================================
 
 This script starts by performing a slew of the telescope without dome movement. 
 Then sidereal tracking for the telescope is enabled and the system is left to track for a few minutes. 
@@ -78,7 +78,7 @@ Tracking is disabled and then the dome is commanded to move to a new position, w
 Finally, the telescope and dome are returned to a park position and left enabled.
 
 *auxtel/daytime_checkout/slew_and_take_image_checkout.py*
-=============================
+=========================================================
 
 This script will slew the telescope and dome to two different targets, 
 track each target for 3 minutes and take a single verification image. 
@@ -89,7 +89,7 @@ Check that the verification images pop up in the monitor (https://roundtable.lss
 If either fails, let Patrick or Merlin know.
 
 *auxtel/daytime_checkout/prepare_for/flat.py*
-===================
+=============================================
 This is the default end-of-checkout script. 
 It will leave the telescope in position to start taking afternoon calibrations. 
 If you are not sure how you want to leave the telescope,
