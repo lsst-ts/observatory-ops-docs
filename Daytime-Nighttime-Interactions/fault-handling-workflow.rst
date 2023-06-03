@@ -143,16 +143,38 @@ This section describes each of the active states as well as any transition from 
     - *Transition to* ``Done``: If the fix that was deployed is considered successful, upon completion of the work it can be transitioned directly to Done. 
       A short description of the final issue resolution should be included in the comments section of the ticket before transitioning to ``Done``.
 
+Components and Required Fields
+------------------------------
+
 
 
 OBS Ticket Management Process
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The management process for the OBS project is still being developed and enacted, therefore this section will be updated as the process matures.
-Generally, the ticket management strategy is expected to consist of a rotation of Triage Managers, combined with a regularly scheduled meeting of (at least) the Triage Managers and the Observing Specialist Manager, to revisit tickets that are stalled, stale, or are not receiving sufficient attention.
+There are numerous aspects associated with managing the OBS ticket process.
+The processes are still under development but a high-level description is provided here.
+From when an ticket gets filed, it proceeds through a process which includes immediate triage, assignment, and prioritization of tasks, as well as a regular review of outstanding tickets and actions that need to be regularly assessed.
+Because observations will take place seven nights per week, 365 days a year, a team of "Triage Managers" rotates on-and-off shift.
+The rotation cycle is dependent upon the ongoing activities at the observatory.
+During active commissioning periods, the rotation period is expected to be 7 calendar days.
+When the telescope is not on-sky, or the activities are less dynamic, the shifts may be longer.
 
+The Triage Managers meet collectively once a week to review the outstanding tickets.
+The Observing Specialist Manager is also expected to regularly attend; others are invited on an as-needed basis.
+The meeting agenda includes discussion of the highest priority items, and a dive into the other unresolved tickets.
+During this time they evaluate which tickets need re-prioritizing, have been tested and can now be closed, and/or items which should be transferred.
 Although tickets could get stuck in a few areas, it is anticipated that the ``Testing`` and ``Tracking`` states will be most prone to pile-up of tickets that are not getting closed.  
 By continually revisiting the tickets, this should help both maintain a clean Jira project, and ensure the issues being reported are being addressed accordingly.
+The ultimate goal of the meeting is to ensure issues are being addressed and/or delegated and are not left in an unknown and/or unaddressed state.
+
+The responsibility of the on-shift Triage manager is to ensure each ticket receives an appropriate assignee, the assignee is aware of the ticket, and that the person has the bandwidth to address the issue in the required time frame. 
+In the event that the preferred assignee is unavailable, the Triage manager works with the appropriate manager and/or team leads to determine a replacement.
+The Triage Manager also works to complete the required metadata and ensure adequate information has been populated in the ticket, as described in the :ref:`Daytime-Nighttime-Interactions-fault-reporting` page.
+This includes the information regarding the diagnosis and fix, but also that all field have been populated to enable proper time loss accounting and categorization.
+Lastly, the on-shift Triage manager runs the weekly meeting to help ensure that the required knowledge transfer to the next on-shift manager is performed.
+The role of Triage manager is then handed off to the next person on rotation.
+
+
 
 
 Contact Personnel
