@@ -100,12 +100,12 @@ When creating a ticket, make sure to fill in the following fields:
     Continuing fields of an example fault report.
 
 - **Assignee:** The reporter should leave the ticket unassigned.
-  In the case they are certain of who correct person to follow-up on the fault report, they should be added as a watcher and flagged in a comment. 
+  In the case you are certain of who is the correct person to follow-up on the fault report, that person should be added as a watcher on the ticket. 
   A team will review the fault reports after the night is over and determine the best person or group for follow-up.
 
 - **Primary Software Component:** This is not a required field, but may provide more information to the components involved. 
 
-- **Primary Hardware Component:** If you're not sure what hardware was affected or the root cause, use "Other".
+- **Primary Hardware Component:** If you are not sure what hardware was affected or the root cause, use "Other".
 
 - **Attachment:** Upload any screenshots, images, or files to support the facts reported or to help the problem-solving effort. 
 
@@ -121,7 +121,7 @@ Guidelines For Calculating Time Loss
 - If the problem can be troubleshooted while taking images on sky, or proceeding with another engineering task, that time will not count towards a fault loss.
 - If a fault occurs while we are closed due to bad weather, or the problem occurs before or after 12 degree twilight, the time lost should be reported as 0.
   When potential on-sky science time begins, the time loss starts accumulating.
-- In the event the time loss is not well calculated, it is preferred to provide an overestimate rather than to underestimate.
+- In the event the amount of time lost is not well understood, it is better to provide an overestimate than an underestimate.
 
 .. _fault-reporting-Filling-Out-Night-Logs:
 
