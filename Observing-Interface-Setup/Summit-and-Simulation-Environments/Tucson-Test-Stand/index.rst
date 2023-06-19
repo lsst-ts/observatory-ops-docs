@@ -21,15 +21,6 @@ Tucson Test Stand (TTS)
 This exists to provide details on various aspects of the TTS.
 It will continue to be expanded as functionality and usage increases. 
 
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-    :glob:
-
-    */index
-
-
 ############################
 Data Repositories and Policy
 ############################
@@ -41,6 +32,8 @@ Generated frames follow a standard simulation environment data policy where all 
 Also contained in the same repository are special collections of on-sky data that are used for the unit testing of scripts and/or software.
 This data does not follow the 30-day retention policy and remains until it is no longer needed.
 
+.. _Tucson-Test_Stand-New-LATISS-data:
+
 Adding New Data to the LATISS Repositories
 ------------------------------------------
 
@@ -48,7 +41,7 @@ This subsection exists to guide a user to adding LATISS test data to the TTS and
 These datasets are used in integration testing and verification of systems after upgrades and/or before observing.
 Due to space constraints, we try to minimize the amount of data residing on the summit, and therefore two separate collections are kept:
 
-- ``LATISS-test-data-tts``: This contents of this collection resides at the TTS and the USDF, but not at the summit.
+- ``LATISS-test-data-tts``: This contents of this collection reside at the TTS and the USDF, but not at the summit.
 - ``LATISS-test-data``: The contents of this collection reside on the summit, at TTS, and also at USDF.
 
 When wanting to use data in these collections, they must be declared when instantiating the butler
@@ -71,7 +64,7 @@ The following steps describe a highly manual example of how one could perform th
 #. Starting from a terminal, ssh into ``s3dflogin.slac.stanford.edu`` using your SLAC unix credentials.
    Then ssh into ``rubin-devl``
 
-The following steps copy the desired data from ``/sdf/group/rubin/lsstdata/offline/instrument/LATISS/storage/`` to a temporary directory in your home area (e.g. ``~/tmp_data/LATISS-test-data-tts/YYYY-MM-DD``)
+The following steps copy the desired data from ``/sdf/group/rubin/lsstdata/offline/instrument/LATISS/storage/`` to a temporary directory in your home area (e.g. ``~/tmp_data/LATISS-test-data-TTS/YYYY-MM-DD``)
 
 #. In a new terminal session, ssh into ``auxtel-archiver.tu.lsst.org`` for the TTS (``auxtel-archiver.cp.lsst.org`` for the summit) using your Rubin SSO credentials then change directories to where the data will be stored
 
@@ -122,22 +115,22 @@ It also shows how to verify it was ingested properly.
       Ingestion issues can occur, specifically if there were updates to the headers (via the astrometadata translator) done at the USDF.
       At the moment, there is no easy work around, but Patrick can assist.
 
-#. Associate the files to a the ``LATISS-test-data-tts`` collection.
+#. Associate the files to a the ``LATISS-test-data-TTS`` collection.
    For a small number of files this can be done manually very rapidly.
 
    .. code-block:: bash
 
-      butler associate /repo/LATISS LATISS-test-data-tts -d raw --where "exposure.day_obs=20220316 AND instrument='LATISS'"
+      butler associate /repo/LATISS LATISS-test-data-TTS -d raw --where "exposure.day_obs=20220316 AND instrument='LATISS'"
 
 #. Check that the files are now part of the collection.
 
    .. code-block:: bash
 
-      butler query-datasets /repo/LATISS --collections LATISS-test-data-tts
+      butler query-datasets /repo/LATISS --collections LATISS-test-data-TTS
 
-#. Can query all collections to verify that the LATISS-test-data-tts collection is visible 
+#. Can query all collections to verify that the LATISS-test-data-TTS collection is visible 
 
    .. code-block:: bash
+      
       butler query-collections /repo/LATISS
-.. 
-    
+

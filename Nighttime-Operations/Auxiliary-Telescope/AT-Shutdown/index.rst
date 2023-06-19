@@ -7,8 +7,8 @@ AuxTel Shutdown
 This page contains shutdown procedures for the Auxiliary Telescope. 
 
 .. toctree::
-    :maxdepth: 2
-    :titlesonly:
-    :glob:
+   :maxdepth: 2
+   :titlesonly:
+   :glob:
 
-    *
+   *

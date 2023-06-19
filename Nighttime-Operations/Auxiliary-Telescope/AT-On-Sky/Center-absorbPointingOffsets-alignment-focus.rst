@@ -1,6 +1,6 @@
-.. |author| replace:: **
+.. |author| replace:: *isotuela*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: **
+.. |contributors| replace:: *none*
 
 .. _AT-On-sky-WEP:
 

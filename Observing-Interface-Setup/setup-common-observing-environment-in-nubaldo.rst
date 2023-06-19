@@ -109,7 +109,7 @@ Nublado User Setup
 .. note::
     
     This step is intended for advanced users who are comfortable directly modifying their .user_setup script. 
-    If you have already completed the steps in :ref:`<Setup-Common-Observing-Environment-Automatically-Using-Bash-Script>`, it is not necessary.
+    If you have already completed the steps in :ref:`Setup-Common-Observing-Environment-Automatically-Using-Bash-Script`, it is not necessary.
 
 From a terminal, open the user setup file using your preferred text editor.
 Nublado ships with both ``vim`` and ``emacs``, e.g.;

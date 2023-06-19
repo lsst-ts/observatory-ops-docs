@@ -11,7 +11,7 @@ Initial Optical Alignment
 
 When the Scheduler is initialized at the beginning of the night, the first thing it will perform is an optical alignment.
 In the case of the Auxiliary Telescope, this means running the curvature wavefront sensing script.
-This is a special setup done on the *scheduling algorithm* side alonside the survey operation.
+This is a special setup done on the *scheduling algorithm* side alongside the survey operation.
 
 Nevertheless, at the beginning of the night the optics may be far from the optimum position, it is recommended that a initial alignment is done before starting the Scheduler.
 
