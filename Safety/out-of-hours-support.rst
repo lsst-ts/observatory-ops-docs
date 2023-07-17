@@ -20,9 +20,9 @@
 .. _`Emergency Call List`: https://start.1password.com/open/i?a=EJGC5QLBFNAJ3ODCNVC2I3HIPM&v=mqlr5qdkpipoyamzhty5kg365y&i=tu4v5aa4tvhbm4e3rc5siiwada&h=lsstit.1password.com
 .. _`download`: https://1password.com/downloads
 .. _`IT support`: https://jira.lsstcorp.org/projects/IHS/issues/IHS-6753?filter=allopenissues
-.. _`#auxtel-operations`: https://lsstc.slack.com/archives/CLQ63T89L
-.. _`#auxtel-virtual-control-room`: https://lsstc.slack.com/archives/C01K4M6R4AH
-.. _`#rubin-observing`: https://lsstc.slack.com/archives/C04HULH5HHD
+.. _`#summit-auxtel`: https://lsstc.slack.com/archives/C01K4M6R4AH
+.. _`#summit-maintel`: https://lsstc.slack.com/archives/C04HULH5HHD
+.. _`#summit-control-room`: https://lsstc.slack.com/archives/C053L0Q2B9P
 
 ####################
 Out of Hours Support
@@ -39,17 +39,19 @@ Once enrolled, you can `download`_ a desktop application or browser extension to
     Your number will also be accessible to everyone with permissions to the vault.
     If you volunteer, please provide your availability to the best of your knowledge, including holdiays and weekends.
 
-.. _out-of-hours-support-procedure:
+.. _out-of-hours-support-resources-for-help:
 
-Procedure
-^^^^^^^^^
+Resources for help
+^^^^^^^^^^^^^^^^^^
 
 - If a fault happens during the night, or some new behavior appears in the system, observers and summit staff should attempt to troubleshoot to the extent of their knowledge.
 
 - Ask for help on Slack:
-    - `#auxtel-operations`_
-    - `#auxtel-virtual-control-room`_
-    - `#rubin-observing`_
+    - `#summit-auxtel`_
+    - `#summit-maintel`_
+    - `#summit-control-room`_
+
+Find :ref:`more information <Daytime-Nighttime-Slack-Channel-Communication-with-Summit-Personnel>` about Slack communications and the different channels being monitored.
 
 - If no response is received from Slack, and summit staff have run out of ideas or need assistance, consult the Emergency Call List.
 

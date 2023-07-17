@@ -36,21 +36,21 @@ Overview
 
 This is a template for a procedure. It is performed by authorized and trained users.
 
-.. _Title-of-Procedure-Prerequisites:
+.. _Title-of-Procedure-Precondition:
 
-Prerequisites
-^^^^^^^^^^^^^
+Precondition
+^^^^^^^^^^^^
 
 .. This section should provide simple overview of prerequisites before executing the procedure; for example, state of equipment, telescope or seeing conditions or notifications prior to execution.
 .. It is preferred to include them as a bulleted or enumerated list.
 .. Do not include actions in this section. Any action by the user should be included at the beginning of the Procedure section below. For example: Do not include "Notify specified SLACK channel. Confirmation is not required." Instead, include this statement as the first step of the procedure, and include "Notification to specified SLACK channel." in the Prerequisites section.
 .. If there is a different procedure that is critical before execution, carefully consider if it should be linked within this section or as part of the Procedure section below (or both).
 
-- This is an example bullet of a prerequisite (Telescope azimuth must be at 0 degrees.)
+- This is an example bullet of a precondition (Telescope azimuth must be at 0 degrees.)
 
   - This is an example describing an exception (If the dome is closed, telescope elevation position is not important.)
 
-- This is another example bullet of a prerequisite (Notification to specified SLACK channel.)
+- This is another example bullet of a precondition (Notification to specified SLACK channel.)
 - This example refers to a required action at the beginning of the procedure (It is critical the correct status of the equipment. This will be verified during :ref:`a critical step <Title-of-Procedure-Critical-Step-1>` in the procedure.)
 
 .. _Title-of-Procedure-Post-Conditions:
@@ -60,6 +60,7 @@ Post-Condition
 
 .. This section should provide a simple overview of conditions or results after executing the procedure; for example, state of equipment or resulting data products.
 .. It is preferred to include them as a bulleted or enumerated list.
+.. Please provide screenshots of the software status or relevant display windows to confirm.
 .. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
 
 - This is an example bullet of a post-condition (Telescope azimuth is 0 degrees.)
