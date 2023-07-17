@@ -23,6 +23,7 @@
 .. _`#summit-auxtel`: https://lsstc.slack.com/archives/C01K4M6R4AH
 .. _`#summit-maintel`: https://lsstc.slack.com/archives/C04HULH5HHD
 .. _`#summit-control-room`: https://lsstc.slack.com/archives/C053L0Q2B9P
+.. _`Confluence page`: https://confluence.lsstcorp.org/display/LSSTPO/Rubin+Out+of+Hours+Support
 
 ####################
 Out of Hours Support
@@ -30,14 +31,14 @@ Out of Hours Support
 
 The Out of Hours support call list is managed in a 1Password vault named "Emergency Call List".
 You must submit a JIRA ticket to `IT support`_ to be enrolled in the Rubin 1Password system. 
-Request access to the Emergency Call List vault from Patrick Ingraham or Anastasia Alexov.
+Request access to the Emergency Call List vault from Anastasia Alexov.
 Once enrolled, you can `download`_ a desktop application or browser extension to use 1Password and access the information the `Emergency Call List`_ vault. 
 
 
 .. note::
     If you volunteer to be on the Emergency Call List, you will see the phone numbers provided by every other volunteer.
     Your number will also be accessible to everyone with permissions to the vault.
-    If you volunteer, please provide your availability to the best of your knowledge, including holdiays and weekends.
+    If you volunteer, please provide your availability to the best of your knowledge, including holidays and weekends.
 
 .. _out-of-hours-support-resources-for-help:
 
@@ -55,13 +56,13 @@ Find :ref:`more information <Daytime-Nighttime-Slack-Channel-Communication-with-
 
 - If no response is received from Slack, and summit staff have run out of ideas or need assistance, consult the Emergency Call List.
 
-    - The link to the Confluence page that lists volunteers' availability is in the 1Password vault.
+    - The link to the `Confluence page`_ that lists volunteers' availability is in the 1Password vault.
     - Under the comments, or on the Confluence page, the volunteers' areas of expertise are listed. 
     - If the first person doesn't answer, search for the next available person with similar expertise.
     - If no one answers, and the problem cannot be solved or worked-around, close and stow the telescope(s) by 2am, if this is possible. 
 
 .. note::
-    If any equipment is sensed to be in danger, exhuast the call list until you receive an answer, and report the problem. 
+    If any equipment is sensed to be in danger, exhaust the call list until you receive an answer, and report the problem. 
     Leave the equipment in the safest configuration possible, if you have the knowledge to do so. 
 
 .. _out-of-hours-support-calling-instructions:

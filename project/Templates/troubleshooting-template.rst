@@ -32,18 +32,18 @@ Title of Troubleshooting Procedure
 Overview
 ^^^^^^^^
 
-.. In one or two sentances, explain when this troubleshooting procedure needs to be used. Describe the symptoms that the user sees to use this procedure. 
+.. In one or two sentences, explain when this troubleshooting procedure needs to be used. Describe the symptoms that the user sees to use this procedure. 
 
 This is a template for a troubleshooting procedure. It is performed by authorized and trained users.
 
-.. _Title-of-Troubleshooting-Procedure-Known-Causes:
+.. _Title-of-Troubleshooting-Procedure-Error-Diagnosis:
 
-Known causes
-^^^^^^^^^^^^
+Error diagnosis
+^^^^^^^^^^^^^^^
 
 .. This section should provide simple overview of known or suspected causes for the error.
 .. It is preferred to include them as a bulleted or enumerated list.
-.. Post screenshots of the error state or relevant traceback.
+.. Post screenshots of the error state or relevant tracebacks.
 
 - This is an example bullet.
 

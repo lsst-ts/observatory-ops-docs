@@ -41,9 +41,8 @@ This is a template for a procedure. It is performed by authorized and trained us
 Precondition
 ^^^^^^^^^^^^
 
-.. This section should provide simple overview of prerequisites before executing the procedure; for example, state of equipment, telescope or seeing conditions or notifications prior to execution.
+.. This section should provide simple overview of preconditions before executing the procedure; for example, state of equipment, telescope or seeing conditions or notifications prior to execution.
 .. It is preferred to include them as a bulleted or enumerated list.
-.. Do not include actions in this section. Any action by the user should be included at the beginning of the Procedure section below. For example: Do not include "Notify specified SLACK channel. Confirmation is not required." Instead, include this statement as the first step of the procedure, and include "Notification to specified SLACK channel." in the Prerequisites section.
 .. If there is a different procedure that is critical before execution, carefully consider if it should be linked within this section or as part of the Procedure section below (or both).
 
 - This is an example bullet of a precondition (Telescope azimuth must be at 0 degrees.)
