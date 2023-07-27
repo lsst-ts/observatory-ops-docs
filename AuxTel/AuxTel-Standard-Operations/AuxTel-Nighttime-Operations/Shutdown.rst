@@ -33,6 +33,7 @@ If you need to stop the Scheduler manually, you can use the ``auxtel/scheduler/s
 
 See more detailed descriptions on `Scheduler <https://obs-ops.lsst.io/Observatory-Control-System/Scheduler/Scheduler-index.html>`__.
 
+
 .. _Shutdown-the-Telescope-Post-Conditions:
 
 Post-Condition
