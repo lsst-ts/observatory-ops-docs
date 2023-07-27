@@ -1,0 +1,109 @@
+.. This is a template for operational procedures. Each procedure will have its own sub-directory. This comment may be deleted when the template is copied to the destination.
+
+.. Review the README in this procedure's directory on instructions to contribute.
+.. Static objects, such as figures, should be stored in the _static directory. Review the _static/README in this procedure's directory on instructions to contribute.
+.. Do not remove the comments that describe each section. They are included to provide guidance to contributors.
+.. Do not remove other content provided in the templates, such as a section. Instead, comment out the content and include comments to explain the situation. For example:
+	- If a section within the template is not needed, comment out the section title and label reference. Include a comment explaining why this is not required.
+    - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
+
+.. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
+.. |author| replace:: *Name-of-Primary-Author*
+.. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
+.. |contributors| replace:: *List-of-contributors*
+
+.. This is the label that can be used as for cross referencing this procedure.
+.. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
+.. _AT-Calibrations-Power-On-ATCalSys:
+.. Each section should includes a label for cross referencing to a given area.
+.. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
+.. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
+.. An error will alert you of identical labels during the build process.
+
+##################
+Power On ATCalSys
+##################
+
+.. note::
+    This is a procedure template file that is associated with a template directory structure. This note should be deleted when the section is properly populated.
+
+.. _Power-On-ATCalSys-Overview:
+
+Overview
+^^^^^^^^
+
+.. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
+
+This is a template for a procedure. It is performed by authorized and trained users.
+
+.. _Power-On-ATCalSys-Precondition:
+
+Precondition
+^^^^^^^^^^^^
+
+- Notification to #summit-auxtel Slack Channel that 
+- ATCalSys ATWhiteLight and ATMonochromator must be in ENABLED state. (Link to how to enable)
+
+.. _Power-On-ATCalSys-Post-Conditions:
+
+Post-Condition
+^^^^^^^^^^^^^^
+#. 
+
+.. _Power-On-ATCalSys-Procedure-Steps:
+
+Procedure Steps
+^^^^^^^^^^^^^^^
+
+.. todo::
+   Include utilization of admonishments (caution, warning, etc.)
+
+.. This section should include the procedure. There is no strict formatting or structure required for procedures. It is left to the authors to decide which format and structure is most relevant.
+.. In the case of more complicated procedures, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked procedures to be performed in the specified order.
+.. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
+
+This paragraph describes some general guidance for this procedure. This paragraph is optional depending on its usefulness and the complexity of the procedure.
+
+In the case of a very straightforward procedure, a simple numbered list could be used, like as follows:
+
+.. warning::
+    For this example, this step is critical.
+
+.. _Title-of-Procedure-Critical-Step-1:
+
+#. This is Step 1 in a enumerated list. It happens to be very important.
+
+#. This is Step 2.
+
+#. This is step 3.
+
+#. Step 4 has two branches, but Step 5 is independent of Step 4.
+
+   a. If Condition A, do the following action in :ref:`Condition A Instructions <Title-of-Procedure-Condition-A-for-Step-4>`.
+
+   b. If Condition B, do the following action in :ref:`Condition B instructions <Title-of-Procedure-Condition-B-for-Step-4>`.
+
+   .. _Title-of-Procedure-Final-Step:
+
+#. Complete the procedure's final step.
+
+
+.. _Power-On-ATCalSys-Troubleshooting:
+
+Troubleshooting
+^^^^^^^^^^^^^^^
+
+.. If there is no content for this section, remove the indentation on the following line instead of deleting this sub-section.
+
+     No troubleshooting information is applicable to this procedure.
+
+- This is an example bullet (If the following error is given during :ref:`Step 5 <Title-of-Procedure-Final-Step>`, resolve it using a specified action.)
+
+.. _Power-On-ATCalSys-Contact-Personnel:
+
+Contact Personnel
+^^^^^^^^^^^^^^^^^
+
+This procedure was last modified |today|.
+
+This procedure was written by |author|. The following are contributors: |contributors|.
