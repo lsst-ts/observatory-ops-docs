@@ -48,11 +48,15 @@ Include links or further resources for additional follow-up.
 .. warning::
     Keep this in mind when referring to this information. 
 
-.. _Informative-Document-Main-Information-Section-Subsection:
+.. _Informative-Document-Main-Information-Section-Subsection-One:
 
-Subsection
-==========
+Subsection One
+==============
 
+.. _Informative-Document-Main-Information-Section-Subsection-Two:
+
+Subsection Two
+==============
 
 .. _Informative-Document-Contact-Personnel:
 
