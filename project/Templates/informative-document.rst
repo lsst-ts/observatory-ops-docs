@@ -44,7 +44,7 @@ Main Infomation Section
 
 Present the information for this document. 
 Include links or further resources for additional follow-up.  
-Find additional examples of formatting on `this page <https://developer.lsst.io/v/DM-5063/docs/rst_styleguide.html>`__ or on the list of links of the `documentation style guide <file:///Users/alyshashugart/observatory-ops-docs/_build/html/project/contributing.html#contributing-doc-style-guide>`__. 
+Find additional examples of formatting on `this page <https://developer.lsst.io/v/DM-5063/docs/rst_styleguide.html>`__ or on the list of links of the `documentation style guide <https://obs-ops.lsst.io/project/contributing.html#contributing-doc-style-guide>`__. 
 
 .. warning::
     Keep this in mind when referring to this information. 
