@@ -92,7 +92,7 @@ For that, BTS will be used mostly for higher fidelity testing, development and d
 It will also be particularly useful for testing lower-level hardware interfaces.
 
 - Nublado: https://base-lsp.lsst.codes/
-- Chronograf: https://chronograf-base-efd.lsst.codes/
+- Chronograf: https://base-lsp.lsst.codes/chronograf/
 - LOVE: N/A
 - ArgoCD: https://base-lsp.lsst.codes/argo-cd/
 - Rancher: https://rancher.cp.lsst.org/
@@ -110,7 +110,7 @@ Systems that control hardware at the :ref:`Summit <Observing-Interface-Operation
 Once a deployment is tested here, the platform is made available for general users for training, testing and developing of control algorithm and procedures.
 
 - Nublado: https://tucson-teststand.lsst.codes/
-- Chronograf: https://tucson-teststand-efd.lsst.codes/chronograf
+- Chronograf: https://tucson-teststand.lsst.codes/chronograph/
 - LOVE
    - bare metal: http://love1.tu.lsst.org
    - kubernetes: http://love.tu.lsst.org
@@ -134,7 +134,7 @@ Systems running here will be directly controlling hardware or communicating with
       These must be planned activities and require an accompanying `summit activity project <https://jira.lsstcorp.org/projects/SUMMIT>`__ Jira ticket organized by appropriate personnel.
 
 - Nublado: https://summit-lsp.lsst.codes/
-- Chronograf: https://chronograf-summit-efd.lsst.codes/
+- Chronograf: https://summit-lsp.lsst.codes/chronograf/
 - LOVE: http://love01.cp.lsst.org/
 - ArgoCD: https://summit-lsp.lsst.codes/argo-cd
 - Rancher: https://rancher.cp.lsst.org/
