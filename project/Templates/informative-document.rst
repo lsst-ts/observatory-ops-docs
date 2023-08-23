@@ -44,6 +44,7 @@ Main Infomation Section
 
 Present the information for this document. 
 Include links or further resources for additional follow-up.  
+Find additional examples of formatting on `this page <https://developer.lsst.io/v/DM-5063/docs/rst_styleguide.html>`__ or on the list of links of the `documentation style guide <file:///Users/alyshashugart/observatory-ops-docs/_build/html/project/contributing.html#contributing-doc-style-guide>`__. 
 
 .. warning::
     Keep this in mind when referring to this information. 
@@ -53,10 +54,39 @@ Include links or further resources for additional follow-up.
 Subsection One
 ==============
 
+1. numbers
+
+A. upper-case letters
+   and it goes over many lines
+
+   with two paragraphs and all!
+
+a. lower-case letters
+
+   3. with a sub-list starting at a different number
+   4. make sure the numbers are in the correct sequence though!
+
+I. upper-case roman numerals
+
+i. lower-case roman numerals
+
+(1) numbers again
+
+1) and again
+
 .. _Informative-Document-Main-Information-Section-Subsection-Two:
 
 Subsection Two
 ==============
+
+This is an example of a subsection. 
+
+.. _Informative-Document-Main-Information-Section-Subsection-Two-Subsubsection:
+
+Subsubsection
+-------------
+
+This is an example of a sub-subsection. 
 
 .. _Informative-Document-Contact-Personnel:
 
