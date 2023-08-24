@@ -8,35 +8,34 @@
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
 
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
-.. |author| replace:: *Name-of-Primary-Author*
+.. |author| replace:: *Alysha Shugart*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *List-of-contributors*
+.. |contributors| replace:: *Safety Team*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _Templates-Title-of-Procedure:
+.. _Auxiliary-Telescope-AuxTel-LOTO-procedure:
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
-##################
-Title of Procedure
-##################
+#####################
+AuxTel LOTO Procedure
+#####################
 
-.. note::
-    This is a procedure template file that is associated with a template directory structure. This note should be deleted when the section is properly populated.
-
-.. _Title-of-Procedure-Overview:
+.. _AuxTel-LOTO-procedure-Overview:
 
 Overview
 ^^^^^^^^
 
 .. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
 
-This is a template for a procedure. It is performed by authorized and trained users.
+AuxTel must be under LOTO (lock-out tag-out) any time physical work is undertaken on the mount or the dome. 
+When working with environmental sensors, on the truss, mirrors, or anywhere in the dome where unexpected movement could cause a safety hazard, the telescope must be locked out. 
+Trained summit support staff may use this procedure if they meet all of the preconiditon requirements. 
 
-.. _Title-of-Procedure-Precondition:
+.. _AuxTel-LOTO-procedure-Precondition:
 
 Precondition
 ^^^^^^^^^^^^
@@ -45,14 +44,20 @@ Precondition
 .. It is preferred to include them as a bulleted or enumerated list.
 .. If there is a different procedure that is critical before execution, carefully consider if it should be linked within this section or as part of the Procedure section below (or both).
 
-- This is an example bullet of a precondition (Telescope azimuth must be at 0 degrees.)
+Before putting the AuxTel under LOTO, you must have completed the :ref:`LOTO safety training <Daytime-Operations-Safety-Control-Safety-Systems-LOTO>` and familiarized yourself with the Control Safety Systems document on that same page. 
+You should have your own unique lock and key with your information identified, and this work must be coordinated with the day crew. 
 
-  - This is an example describing an exception (If the dome is closed, telescope elevation position is not important.)
+- The telescope must be parked in a safe position, and all CSCs in STANDBY. 
 
-- This is another example bullet of a precondition (Notification to specified SLACK channel.)
-- This example refers to a required action at the beginning of the procedure (It is critical the correct status of the equipment. This will be verified during :ref:`a critical step <Title-of-Procedure-Critical-Step-1>` in the procedure.)
+    - If the ATDome is needed while the AuxTel is under LOTO, this must be verified with the safety team and day crew.
 
-.. _Title-of-Procedure-Post-Condition:
+    .. warning::
+        The ATDome can still be controlled or moved even if this LOTO procedure is complete. 
+        The ATDome needs to be locked out separately if any electronics work will be undertaken or work is done on the dome drive.
+
+- The work should be scheduled in the `SUMMIT JIRA calendar <https://jira.lsstcorp.org/secure/DoItBetterCalendar.jspa>`__ and day crew as well as nighttime support should be aware of the plan. 
+
+.. _AuxTel-LOTO-procedure-Post-Condition:
 
 Post-Condition
 ^^^^^^^^^^^^^^
@@ -62,68 +67,58 @@ Post-Condition
 .. Please provide screenshots of the software status or relevant display windows to confirm.
 .. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
 
-- This is an example bullet of a post-condition (Telescope azimuth is 0 degrees.)
-- This is another example of a post-condition (This procedure leaves the telescope with the E-stop activated.)
+The drives are powered off and the AuxTel Control cabinet is locked from the outside. 
+The AuxTel is under LOTO and is not able to move by any controls.
 
-.. _Title-of-Procedure-Procedure-Steps:
+.. _AuxTel-LOTO-procedure-Procedure-Steps:
 
 Procedure Steps
 ^^^^^^^^^^^^^^^
-
-.. todo::
-   Include utilization of admonishments (caution, warning, etc.)
 
 .. This section should include the procedure. There is no strict formatting or structure required for procedures. It is left to the authors to decide which format and structure is most relevant.
 .. In the case of more complicated procedures, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked procedures to be performed in the specified order.
 .. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
 
-This paragraph describes some general guidance for this procedure. This paragraph is optional depending on its usefulness and the complexity of the procedure.
+To put the AuxTel under LOTO, follow these steps:
 
-In the case of a very straightforward procedure, a simple numbered list could be used, like as follows:
+#. Post in the Slack channels `#summit-announce <https://lsstc.slack.com/archives/C01P41NUR1R>`__ and `#summit-auxtel <https://lsstc.slack.com/archives/C01K4M6R4AH>`__ that you are going to put AuxTel under LOTO. 
 
-.. warning::
-    For this example, this step is critical.
+#. Announce your intentions on the radio (channel 3).
 
-.. _Title-of-Procedure-Critical-Step-1:
+#. Verify that no one is working in the dome, on the ground or second floors. 
 
-#. This is Step 1 in a enumerated list. It happens to be very important.
+#. Identify the AT Control cabinet that you need to lock out, shown in the figure. 
 
-#. This is Step 2.
+.. figure:: ./_static/AT-control-cabinet.png
+    :name: AT-control-cabinet
 
-#. This is step 3.
+    AT Control cabinet, inside, and EATON brakers.
 
-#. Step 4 has two branches, but Step 5 is independent of Step 4.
+#. Inside the AT Control cabinet, identify the three (3) EATON brakers also shown in the figure, tagged from left to right. 
 
-   a. If Condition A, do the following action in :ref:`Condition A Instructions <Title-of-Procedure-Condition-A-for-Step-4>`.
+   a. DRV #1 AZ AZ - The two drives for Azimuth motion.
 
-   b. If Condition B, do the following action in :ref:`Condition B instructions <Title-of-Procedure-Condition-B-for-Step-4>`.
+   b. DRV #2 EL M3 - The drives for elevation and tertiary mirror motion.
 
-   .. _Title-of-Procedure-Final-Step:
+   c. DRV #3 NR1 NR2 - Motors for the nasmyth rotators 1 and 2. 
 
-#. Complete the procedure's final step.
+#. Switch off all three brakers by flipping the switch down. 
+
+#. Close the cabinet, and secure your lock and tag in the loop underneath the cabinet door handle. 
+
+#. Verify that the AuxTel will not move intentionally by sending a command with the Engineering User Interface (EUI) on the machine located on the first floor. 
+
+    Or, simply verify that the EUI screen shows that the telescope E-STOP is engaged as seen in the figure below.
+
+    .. figure:: ./_static/eui-estop-display.png
+        :name: eui-estop-display
+
+        The AuxTel EUI shows that the E-STOP is applied. 
+
+#. AuxTel is under LOTO, and work may begin. 
 
 
-.. _Title-of-Procedure-Condition-A-for-Step-4:
-
-Condition A for Step 4
-----------------------
-
-This is an example of a sub-section, used when Condition A applied. Complete the steps in this section:
-
-#. Step 1 for Condition A.
-#. Return to :ref:`Step 5 <Title-of-Procedure-Final-Step>` in the section above.
-
-.. _Title-of-Procedure-Condition-B-for-Step-4:
-
-Condition B for Step 4
-----------------------
-
-This is an example of a sub-section, used when Condition B applied. Complete the steps in this section:
-
-#. Step 1 for Condition B.
-#. Return to :ref:`Step 5 <Title-of-Procedure-Final-Step>` in the section above.
-
-.. _Title-of-Procedure-Troubleshooting:
+.. _AuxTel-LOTO-procedure-Troubleshooting:
 
 Troubleshooting
 ^^^^^^^^^^^^^^^
@@ -132,11 +127,10 @@ Troubleshooting
 
 .. If there is no content for this section, remove the indentation on the following line instead of deleting this sub-section.
 
-     No troubleshooting information is applicable to this procedure.
+No troubleshooting information is applicable to this procedure.
+In the IMPOSSIBLE event that the telescope moves after turning off all three breakers, stop work immediately and notifty the day crew, including Jacques Sebag, Mario Rivera, and the electronics team. 
 
-- This is an example bullet (If the following error is given during :ref:`Step 5 <Title-of-Procedure-Final-Step>`, resolve it using a specified action.)
-
-.. _Title-of-Procedure-Contact-Personnel:
+.. _AuxTel-LOTO-procedure-Contact-Personnel:
 
 Contact Personnel
 ^^^^^^^^^^^^^^^^^

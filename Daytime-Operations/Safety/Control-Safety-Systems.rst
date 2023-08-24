@@ -27,6 +27,9 @@ Control Safety Systems
 Presented here is an overview of the concepts LOTO (Lockout/Tagout), GIS (Global Interlock System), and E-STOP (Emergency Stop), and when each procedure or system is used. 
 Specific procedures, like how to LOTO the Telescope Mount Assembly (TMA), or how to reset the GIS to resume operations of a specific component, are not described here. 
 The final procedures for LOTO will be documented on the Observatory Operations pages and linked here. 
+
+    - :ref:`<Daytime-Operations-Auxiliary-Telescope-AuxTel-LOTO-procedure.html>`
+
 Final procedures need approval by the Safety Team, or will require hands-on training. 
 
 .. _Daytime-Operations-Safety-Control-Safety-Systems-LOTO:
@@ -45,20 +48,20 @@ Once you apply your lock to a piece of equipment, only you can take it off.
 You are responsible for knowing the procedure to put the equipment in a safe state, remove risks, and perform LOTO. 
 
 **Tagout:** If you place a lock on a piece of equipment, you must also include a tag to indicate that the machine or piece of equipment is not usable and being serviced. 
-These tags are available around the summit, or can be issued to you for you to write your contact information on. 
+These tags are available around the summit, or can be issued directly to you to write your contact information on. 
 
 LOTO needs to occur anytime you put yourself or anyone else near any part of the dangerous zone of a piece of equipment. 
 In the case that multiple people working in a dangerous area at one time, each person should perform LOTO on the equipment.
 Some examples are:
 
-    -	When accessing the observing platform on the TMA, EVEN IF the power supply is off
-    -	Going up to the Main Dome aperture platform to open the shutters
-    -	Doing any physical work on the AuxTel mount, such as adding accelerometers or installing sensors
+    -	When accessing the observing platform on the TMA, EVEN IF the power supply is off.
+    -	Going up to the Main Dome aperture platform to open the shutters.
+    -	Doing any physical work on the AuxTel mount, such as adding accelerometers or installing sensors.
 
 You are required to complete the `LOTO training <https://drive.google.com/file/d/1zKtvqbjtLcOuefIXvZ4KTSdCNThznWs9/view?usp=share_link>`_ before you are issued a lock and tag. 
 This video is a overview of the OSHA guidelines for performing LOTO.
 It does not include specific procedures for performing LOTO on any Rubin Observatory equipment. 
-Once you have reviewed the video and available LOTO procedures, register your compliance with the Safety team and sign the register they maintain on the summit, affirming that you have completed the required training. 
+Once you have reviewed the video and available LOTO procedures, register your compliance with the Safety team and sign the log they maintain on the summit, affirming that you have completed the required training. 
 
 .. _Daytime-Operations-Safety-Control-Safety-Systems-GIS:
 
@@ -99,13 +102,13 @@ Recovering from an E-STOP during telescope motion is a multi-step process, and r
 
 **E-STOPs ARE NOT THE SAME AS LOTO.** 
 Lockout requires that sources of hazardous energy are physically isolated, and the control system safety functions, such as GIS and E-STOPs, only meet part of the requirements, and not all of them. 
-In the case of the AuxTel, a person may be on the second floor working on the mount with an E-STOP pressed. 
+In the case of AuxTel, a person may be on the second floor working on the mount with an E-STOP pressed. 
 Another person can release this E-STOP and recover the mount without the intervention of the person working. 
 Because of this, the AuxTel E-STOP does not fulfill the requirements of the LOTO procedure. 
 
 Read more about `E-STOP implementation <https://machinerysafety101.com/2009/03/06/emergency-stop-whats-so-confusing-about-that/>`_ and `E-STOPs in LOTO <https://machinerysafety101.com/2010/11/29/using-e-stops-in-lockout-procedures/>`_ procedures. 
 
-.. _Daytime-Operations-Safety-Safety-DT#3-Contact-Personnel:
+.. _Daytime-Operations-Safety-Control-Safety-Systems-Contact-Personnel:
 
 Contact Personnel
 ^^^^^^^^^^^^^^^^^

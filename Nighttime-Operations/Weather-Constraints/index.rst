@@ -44,9 +44,10 @@ Deciding to open
 Before opening the dome to take on-sky data or for cooling, observers must take care to inspect the weather conditions.
 Humidity (especially the dew point difference), cloud cover, and wind speed are the three largest determining factors for safety of the telescope and equipment. 
 
-Observers should inspect the forecast for the night, and review the weather trends on the Rubin weather station (currently unavailable) and the `Gemini weather station`_.
-The weather data updates every 2 minutes. 
-The wind speed data reported is the average over the previous 10 minutes. 
+Observers should inspect the forecast for the night, and review the weather trends on the Rubin weather station in LOVE or Chronograph, and the `Gemini weather station`_.
+The Rubin weather data is updated every 0.5 seconds
+The Gemini weather data updates every 30 seconds. 
+The Gemini wind speed data reported is the average over the previous 10 minutes. 
 
 NOIRLab also hosts additional links to Cerro Pachón weather, including `site webcams`_, and the `SOAR weather station`_. 
 
@@ -55,8 +56,8 @@ Be more cautious to open if there will not be someone in the control room to mon
 
 .. warning::
     Vent gates:
-        The vent gates on the first floor of the AuxTel dome are not rated for high winds. 
-        The vent gates MUST be closed if the wind speed (gusts and sustained) is above 8 m/s.
+        The vent gates on the first floor of the AuxTel dome can add turbulence if winds are high. 
+        Consider closing the vent gates if wind speeds are above 15 m/s.
 
 
 
@@ -64,7 +65,7 @@ Be more cautious to open if there will not be someone in the control room to mon
     Extraction fan use:
         The extraction fan on vent gate 3 can operate at 50-100% power for initial cooling. 
         During on-sky operations, the extraction fan must be run at 20-25% power.
-        If winds are over 8 m/s, the extraction fan must be turned off and the vent gate must be closed.
+        If winds are over 10 m/s, the extraction fan should be turned off.
         If humidity is rising quickly, or >= 65%, (to be revised) the extraction fan should be turned off to avoid drawing in more moisture through the dome. 
 
 .. _weather-constraints-wind:
@@ -166,7 +167,7 @@ The biggest threat of cloud cover is lower-atmosphere condensation, or virga, wh
 Virga appears like streaks of rain or whisps on the bottom of different types of cumulus clouds. 
 Winds can bring this moisture into the dome, or it can condense on the dome roof and fall through the slit. 
 
-If clouds are present in the all-sky camera - which is mounted next to AuxTel on Calibartion Hill - be mindful of further cloud accumulation and the direction they are coming from. 
+If clouds are present in the all-sky camera - which is mounted next to Earthcam on Piñon - be mindful of further cloud accumulation and the direction they are coming from. 
 
 The `Gemini cloud cameras`_ are useful to evaluate how low the clouds are. 
 Cloud camera images update every 30 seconds during the night. 

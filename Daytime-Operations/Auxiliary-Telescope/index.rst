@@ -58,6 +58,16 @@ E-Stop Procedure
 
     AuxTel-E-Stop-Procedure/index
 
+.. _Obs-Ops-Daytime-Operations-Auxiliary-Telescope-AuxTel-LOTO-procedure:
+
+LOTO Procedure
+==============
+
+.. toctree::
+    :titlesonly:
+    :glob:
+
+    AuxTel-LOTO-procedure
 
 Venting
 =======
