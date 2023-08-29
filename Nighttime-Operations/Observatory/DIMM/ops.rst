@@ -35,14 +35,19 @@ To allow operations, mock weather data into the *tt-meteo* weather service must 
     Ensure the weather conditions are stable and safe before attempting the DIMM startup. 
 
 
-When connected to the LSST WAP network, open a terminal and connect to the DIMM VM using:
+When connected to the LSST WAP network, open a terminal and connect to the DIMM Server using your IPA credentials:
 
 .. code-block:: bash
 
-        (base) you@Ios ~ % ssh dimm@dimm.cp.lsst.org
+        (base) you@Ios ~ % ssh yourIPAusername@dimm.cp.lsst.org
 
-The password is located on the Operators 1Password Vault.
- 
+
+Switch onto the `dimm` user account:
+
+.. code-block:: bash
+
+        [yourIPAusername@dimm ~]$ sudo -iu dimm
+
 
 Connect via telnet to *tt-meteo*. 
 

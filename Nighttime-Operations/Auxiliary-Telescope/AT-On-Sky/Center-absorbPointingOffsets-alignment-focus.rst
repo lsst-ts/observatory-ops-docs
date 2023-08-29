@@ -54,24 +54,17 @@ Procedure Steps
         - Offset the telescope to place the source at the center of the detector. Take an image to confirm the target has been centered. 
         - The telescope will absorb the measured pointing offsets. 
 
-   Nominally, the pointing offsets and mirror alignment are performed towards the south, ``az`` 180 deg, and at mid-elevations, ``el`` 60 deg. 
+   Nominally, the pointing offsets and mirror alignment are performed towards the east, ``az`` 90 deg, and at mid-elevations, ``el`` 60 deg. 
 
    From the LOVE ``ATQueue`` panel, under ``AVAILABLE SCRIPTS``, add the external script ``auxtel/correct_pointing.py``, by clicking on the blue icon. 
 
-   Under ``CONFIG`` in the ``configuring Script:correct_pointing.py`` window, write the following configuration and click on ``Add``:
-
-   .. code-block:: yaml
-    
-       az: 180
-       el: 60
-       mag_limit: 8.0
+   Under ``CONFIG`` in the ``configuring Script:correct_pointing.py`` window, leave the window empty so the default configuration is loaded and click on ``Add``:
 
    .. figure:: ./_static/CorrectPointing_AuxTel.png
      :name: correctPointing
 
-     LOVE launching the script to correct the pointing using a source near ``az`` 180 deg and ``el`` 60 deg and magnitude limit ``mag_limit`` 8.0.  
-
-   If the configuration cell is left empty, the script will automatically find a target around ``az`` 90 deg and ``el`` 60 deg, with a ``mag_limit`` of 8.0. 
+     LOVE launching the ``correct_pointing`` script with the defaults, to find a target around ``az`` 90 deg and ``el`` 60 deg, 
+     magnitude limit ``mag_limit`` 6.0, magnitude range ``mag_range`` 4.0 and a search radius ``radius`` of 5 deg.  
 
    Visually inspect the recent images in RubinTV to confirm that the right target has been centered. 
    If it did, move to the next step. 
