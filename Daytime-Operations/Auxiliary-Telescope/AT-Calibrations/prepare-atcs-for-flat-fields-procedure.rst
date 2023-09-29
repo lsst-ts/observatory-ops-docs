@@ -72,9 +72,9 @@ This script performs:
 Make sure M3 is pointing to LATISS on nasmyth 2, mirror cover are is opened and the telescope is in position, as a final check.
 
 
-* Azimuth flat position = 205.7 deg.
-* Elevation flat position = 39. deg.
-* Dome flat position = 20.0 deg.
+* Azimuth flat position = 39.0 deg.
+* Elevation flat position = 188.7 deg.
+* Dome flat position = 3.0 deg.
 
 
 
