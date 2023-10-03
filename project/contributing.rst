@@ -128,14 +128,13 @@ Approval Process
 
 #. Request the following to review the PR:
 
-   * Patrick Ingraham
    * Product Owner
 
 #. Respond to the comments received during the review process.
 
 #. After all reviewers approve, the submitter will squash commits and merge to master.
 
-#. Notify Patrick Ingraham the PR was merged.
+#. Notify the PR was merged.
 
 #. Notify the authorized individual to tag the release.
 
@@ -146,8 +145,8 @@ Documentation Style Guide
 
 .. _Contributing-New-to-reST:
 
-New to reStrcturedText and Sphinx
----------------------------------
+New to reStructuredText and Sphinx
+-----------------------------------
 
 Check out these resources and guides. Sources files are available to compare raw reST and HTML outputs.
 

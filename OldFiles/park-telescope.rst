@@ -41,7 +41,8 @@ Parking the telescope can be done by ``auxtel/shutdown.py``. However, if the ``s
 Prerequisites
 =============
 
-Before parking the telescope, any scheduler or script shoud be stopped properly. If the scheduler needs to stop, run ``auxtel/scheduler/stop.py`` on the ScriptQueue.  
+Before parking the telescope, any scheduler or script should be stopped properly. 
+If the scheduler needs to stop, run ``auxtel/scheduler/stop.py`` on the ScriptQueue.  
 
 .. This section should provide simple overview of prerequisites before executing the procedure; for example, state of equipment, telescope or seeing conditions or notifications prior to execution.
 .. It is preferred to include them as a bulleted or enumerated list.
@@ -68,10 +69,10 @@ The parking position for
 .. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
 
 
-.. image:: ./_static/ATDome_park.png
+.. .. image:: ./_static/ATDome_park.png
     :name: Auxiliary Telescope and Dome at the parking position
 
-.. _Park-the-Telescope-Procedure-Steps:
+.. _Park-the-Telescope-Steps:
 
 Procedure Steps
 ===============
@@ -79,8 +80,6 @@ Procedure Steps
 .. This section should include the procedure. There is no strict formatting or structure required for procedures. It is left to the authors to decide which format and structure is most relevant.
 .. In the case of more complicated procedures, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked procedures to be performed in the specified order.
 .. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
-
-This paragraph describes some general guidance for this procedure. This paragraph is optional depending on its usefulness and the complexity of the procedure.
 
 .. _Park-the-Telescope-Troubleshooting:
 
