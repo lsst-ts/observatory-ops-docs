@@ -37,6 +37,9 @@ Be sure you have run previously the following procedure in the :ref:`daytime che
 
     
 
+
+
+
 Post-Condition
 ==============
 Telescope is ready to :ref:`take calibrations <LATISS-Combined-Calibrations-Procedure-LATISS-Combined-Calibrations-Generation-Procedure>`.
@@ -72,9 +75,9 @@ This script performs:
 Make sure M3 is pointing to LATISS on nasmyth 2, mirror cover are is opened and the telescope is in position, as a final check.
 
 
-* Azimuth flat position = 205.7 deg.
-* Elevation flat position = 39. deg.
-* Dome flat position = 20.0 deg.
+* Telescope azimuth flat position = 188.7 deg.
+* Telescope elevation flat position = 39.0 deg.
+* Dome azimuth flat position = 3.0 deg.
 
 
 
