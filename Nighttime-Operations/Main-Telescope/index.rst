@@ -20,8 +20,7 @@ Main Telescope
 .. This section should provide a brief, top-level description of the page.
 
 .. note::
-    This is a template file that is associated with a template directory structure. This note should be deleted when the section is properly populated
-
+    Under construction.
 
 
 .. This section should provide a brief, top-level description of the page.

@@ -19,7 +19,8 @@ Auxiliary Telescope
 
 .. This section should provide a brief, top-level description of the page.
 
-Procedures are divided into evening calibration and daytime checkout:
+Procedures included here are those that might take place before sunset, e.g. 
+evening calibration, daytime checkout, e-stop engage/release and venting.
 
 .. _Obs-Ops-Daytime-Operations-Auxiliary-Telescope-Daytime-Calibrations:
 

@@ -39,7 +39,7 @@ These sections describe afternoon checkout and fault reporting:
   * :ref:`daytime-and-nighttime-communication-Reporting-Faults`
 
 Staff that work on the summit depart for La Serena at 16:30 summit time Monday-Friday. 
-Mario Rivera and Patrick Ingraham currently coordinate much of the work done for AuxTel. 
+Mario Rivera currently coordinates much of the work done for AuxTel. 
 Ian Ordenes or Claudio Araya can also report if daytime work such as mirror cleaning, filter changes, structural work or janitorial work is scheduled in order to confirm telescope motion is safe during the daytime.  
 
 .. _daytime-and-nighttime-communication-Night-Logs:
@@ -47,7 +47,7 @@ Ian Ordenes or Claudio Araya can also report if daytime work such as mirror clea
 Night Logs
 ==========
 
-Details of work done during the day, such as software changes or mechanical work such as filter changes, mirror cleaning, and maintenance are published to the `Night Logs <https://confluence.lsstcorp.org/display/LSSTCOM/Night+Logs>`__ before the start of the night. 
+Details of work done during the day, such as software changes or mechanical work like as filter changes, mirror cleaning, and maintenance are published to the `Night Logs <https://confluence.lsstcorp.org/display/LSSTCOM/Night+Logs>`__ before the start of the night. 
 Daytime staff publish the details before the end of day at the summit - 16:30 summit time.
 
 More information about creating and writing night logs is found on the :ref:`Daytime-Nighttime-Interactions-nighttime-logging` page.

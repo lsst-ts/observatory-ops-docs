@@ -42,7 +42,7 @@ When connected to the LSST WAP network, open a terminal and connect to the DIMM 
         (base) you@Ios ~ % ssh yourIPAusername@dimm.cp.lsst.org
 
 
-Switch onto the `dimm` user account:
+Switch onto the ``dimm`` user account:
 
 .. code-block:: bash
 

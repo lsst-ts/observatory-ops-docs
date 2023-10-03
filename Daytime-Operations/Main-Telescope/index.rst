@@ -19,7 +19,10 @@ Main Telescope
 
 .. This section should provide a brief, top-level description of the page.
 
-Procedures are divided into calibrations and other daytime procedures.
+.. note::
+    Under Construction 
+
+Procedures are divided into daytime calibrations and other daytime procedures.
 
 .. _Obs-Ops-Daytime-Operations-Main-Telescope-Daytime-Calibrations:
 

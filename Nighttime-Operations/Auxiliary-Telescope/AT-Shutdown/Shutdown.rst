@@ -41,7 +41,7 @@ Post-Condition
 
 - **Status of Telescope and Dome** 
 .. image:: ./_static/ATDome_park.png
-    :name: Auxiliary Telescope and Dome at the parking position
+    :name: Auxiliary Telescope and Dome at the shutdown position
 
 - **Status of Mirrors and Mirror Covers**
 .. image:: ./_static/AT_LightPath.png
@@ -60,7 +60,7 @@ Procedure Steps
 Shutdown AuxTel
 ---------------
 
-After stopping scheduler, you can shutdown AuxTel using ``axutel/shutdown.py`` script from ATQueue. 
+After stopping scheduler, you can shutdown AuxTel using ``auxtel/shutdown.py`` script from ATQueue. 
 ``shutdown.py`` script does not need any configurations as below. 
 
 .. image:: ./_static/shutdown_script.png 

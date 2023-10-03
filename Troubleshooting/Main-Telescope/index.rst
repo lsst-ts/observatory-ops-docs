@@ -4,7 +4,9 @@
 Troubleshooting MainTel
 ###########################
 
-This page contains some common troubleshooting procedures for Auxiliary Telescope.
+.. This page contains some common troubleshooting procedures for Auxiliary Telescope. 
+
+Under Construction
 
 .. toctree::
     :maxdepth: 2
