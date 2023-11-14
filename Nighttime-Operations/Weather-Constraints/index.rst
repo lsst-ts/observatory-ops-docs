@@ -44,12 +44,12 @@ Deciding to open
 Before opening the dome to take on-sky data or for cooling, observers must take care to inspect the weather conditions.
 Humidity (especially the dew point difference), cloud cover, and wind speed are the three largest determining factors for safety of the telescope and equipment. 
 
-Observers should inspect the forecast for the night, and review the weather trends on the Rubin weather station in LOVE or Chronograph, and the `Gemini weather station`_.
+Observers should inspect the forecast for the night, and review the weather trends on the Rubin weather station in LOVE or Chronograph, and the `Gemini weather station`_ (currently unavailable due to cyberattack).
 The Rubin weather data is updated every 0.5 seconds
 The Gemini weather data updates every 30 seconds. 
 The Gemini wind speed data reported is the average over the previous 10 minutes. 
 
-NOIRLab also hosts additional links to Cerro Pachón weather, including `site webcams`_, and the `SOAR weather station`_. 
+NOIRLab also hosts additional links to Cerro Pachón weather, including `site webcams`_, and the `SOAR weather station`_ (currently unavailable due to cyberattack). 
 
 Go outside and look for incoming cloud fronts, and inspect the buildings and cars for condensation if humidity is above 70%.
 Be more cautious to open if there will not be someone in the control room to montior changing weather conditions, e.g. opening before going to dinner, or leaving the control room to complete another task.
