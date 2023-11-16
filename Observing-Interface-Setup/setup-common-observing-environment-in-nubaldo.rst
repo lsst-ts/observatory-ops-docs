@@ -120,7 +120,7 @@ Nublado ships with both ``vim`` and ``emacs``, e.g.;
 
 Add the following line at the top of the file::
 
-  source /opt/obs-env/auto_base_packages/auto_env_setup.sh
+  source /net/obs-env/auto_base_packages/auto_env_setup.sh
 
 Ensure that you are not sourcing any other environment setup scripts or setting up any local versions of the packages ``/opt/obs-env/auto_base_packages``.
 
