@@ -19,11 +19,11 @@ Computer Room Shutdown and Recovery
 
 The process of shutting down servers and network devices in the computer room will adhere to the following two scenarios:
 
-* Critical Situation with Extended ETA:
+* **Critical Situation with Extended ETA:**
 
 If the computer room is in a critical state with no immediate solution or an estimated time for resolution that exceeds a reasonable wait time (typically a couple of hours), a decision will be made to power off all servers.
 
-* Critical Situation with Proximate ETA:
+* **Critical Situation with Proximate ETA:**
 
 In instances where the computer room is in a critical state but a solution is imminent, only a select group of servers, identified as "safe to power off," will undergo shutdown procedures. This procedure aims to balance the need for thermal management with the continuity of essential services during server shutdowns. 
 
@@ -38,7 +38,9 @@ The following is the list of safe to power-off servers.
 * IT:
 
 vsphere[2-3].cp.lsst.org - Previous movement of VMs to vsphere01.cp.lsst.org
+
 lukay[1-5].cp.lsst.org
+
 perfsonar01.cp.lsst.org
 
 * Comcam:
@@ -57,7 +59,7 @@ Any lsstcam machines part of diagnostic cluster.
 
 auxtel-dc01.cp.lsst.org - can always be shut down first, it is only used for image visualization
 
-If we are not actively taking data e.g. during the daytime, during the weekend, or during a week when the AuxTel is NOT operating on sky:
+*If we are not actively taking data e.g. during the daytime, during the weekend, or during a week when the AuxTel is NOT operating on sky:*
 
 auxtel-archiver.cp.lsst.org - can always be shut down if we are not taking data, will lose ability to ingest data in Butler if taking data
 
