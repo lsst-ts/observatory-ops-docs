@@ -13,3 +13,4 @@ This page contains some common calibrations procedures.
 
     *
     LATISS-Combined-Calibrations-Procedure/*
+    control-at-calib-illumination-system/*
