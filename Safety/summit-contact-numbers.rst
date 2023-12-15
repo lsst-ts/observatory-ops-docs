@@ -47,6 +47,23 @@ Emergency Numbers
     - "Atento [paramedico/asistante montaña/control puerta] - habla [your name] del Observatorio Rubin" and await a response.
 
 
+.. _summit-contact-numbers-control-room-numbers:
+
+Control Room Numbers
+^^^^^^^^^^^^^^^^^^^^
+
+- Summit control room right side: 844
+
+- Summit control room left side: 843
+
+- La Serena Base control room (phones 1 and 2): 1021, 1022
+
+  To dial into the control rooms from an outside line:
+
+      +56 512205 + extension
+
+      For example, summit control room right side: + 56 512205844
+
 .. _summit-contact-numbers-non-emergency-numbers:
 
 Non-Emergency Numbers
@@ -110,7 +127,7 @@ Using the control room phones
 
 - To dial a cell phone in Chile: 9 9 XXXX XXXX
 
-- To dial the United States: 001 + Area Code + Phone Number
+- To dial the United States: 9 + 001 + Area Code + Phone Number
 
 - To dial another country: 9 + 188 + 0 + Country Code + Area Code + Phone Number
 
