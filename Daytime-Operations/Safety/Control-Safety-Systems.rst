@@ -28,7 +28,7 @@ Presented here is an overview of the concepts LOTO (Lockout/Tagout), GIS (Global
 Specific procedures, like how to LOTO the Telescope Mount Assembly (TMA), or how to reset the GIS to resume operations of a specific component, are not described here. 
 The final procedures for LOTO will be documented on the Observatory Operations pages and linked here. 
 
-    - :ref:`<Daytime-Operations-Auxiliary-Telescope-AuxTel-LOTO-procedure.html>`
+    - :ref:`AuxTel LOTO procedure <Auxiliary-Telescope-AuxTel-LOTO-procedure>`
 
 Final procedures need approval by the Safety Team, or will require hands-on training. 
 
