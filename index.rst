@@ -114,6 +114,20 @@ Special operations or engineering tasks are described in a different section (li
 
 .. _Obs-Ops-Troubleshooting:
 
+Non-Standard Operations
+=======================
+
+This includes any non-standard operations often requiring unique protocols or manual interventions, such as shutdown and recovery of the computer room, response to incidents, etc.
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :titlesonly:
+
+   Non-Standard-Operations/index
+
+.. _Obs-Ops-Non-Standard-Opertaions:
+
 Troubleshooting
 ======================
 
