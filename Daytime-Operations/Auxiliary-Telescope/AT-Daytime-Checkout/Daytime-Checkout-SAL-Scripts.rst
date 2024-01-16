@@ -86,7 +86,7 @@ The mirror covers remain closed during the duration of the script.
 At the end of the script the telescope and dome are parked. 
 
 Check that the verification images pop up in the monitor (https://roundtable.lsst.codes/rubintv/summit/auxtel/monitor_current)
-If either fails, let Patrick or Merlin know.
+If either fails, let Merlin know.
 
 *auxtel/daytime_checkout/prepare_for/flat.py*
 =============================================
