@@ -60,7 +60,7 @@ This includes:
    :titlesonly:
    :maxdepth: 2
    
-   Safety/index
+   Safety <Safety/index>
 
 
 .. _Obs-Ops-Daytime-Operations:
@@ -76,7 +76,7 @@ Any non-standard procedures, such as shutdown recovery and non-standard operatio
     :titlesonly:
     :maxdepth: 4
 
-    Daytime-Operations/index
+    Daytime <Daytime-Operations/index>
 
 
 .. _Obs-Ops-Daytime-Nighttime-Interactions:
@@ -93,7 +93,7 @@ Night events should be well-documented so day time staff can resolve issues as e
    :glob:
    :titlesonly:
 
-   Daytime-Nighttime-Interactions/index
+   Daytime/Nighttime Interactions <Daytime-Nighttime-Interactions/index>
 
 
 .. _Obs-Ops-NightTime-Operations:
@@ -110,7 +110,7 @@ Special operations or engineering tasks are described in a different section (li
     :glob:
     :titlesonly:
 
-    Nighttime-Operations/index
+    Nighttime <Nighttime-Operations/index>
 
 .. _Obs-Ops-Troubleshooting:
 
@@ -141,7 +141,7 @@ If the problem persists after exhausting all documented procedures, ensure safet
     :glob:
     :titlesonly:
     
-    Troubleshooting/index
+    Trobleshooting <Troubleshooting/index>
  
 
 .. _Obs-Ops-Project-Documentation-Information:
@@ -156,7 +156,7 @@ Describes information regarding this documentation tree, including how to contri
     :glob:
     :titlesonly:
 
-    project/index
+    Contribute <project/index>
 
 
 .. _Obs-Ops-Observing-Interface-Setup:
@@ -171,7 +171,7 @@ Contains detailed instructions on how to set the required environment for operat
     :glob:
     :titlesonly:
 
-    Observing-Interface-Setup/index
+    Setup <Observing-Interface-Setup/index>
 
 
 .. _Obs-Ops-Operational-Tutorials:
