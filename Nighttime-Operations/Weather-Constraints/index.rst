@@ -16,6 +16,7 @@
 .. _`Gemini cloud cameras`: https://www.gemini.edu/sciops/telescopes-and-sites/weather/cerro-pachon/cloud-cam/stills.html
 .. _`site webcams`: https://noirlab.edu/science/observing-noirlab/weather-webcams
 .. _`SOAR weather station`: https://noirlab.edu/science/observing-noirlab/weather-webcams/cerro-pachon/environmental-conditions
+.. _`Rubin TV`: https://roundtable.lsst.codes/rubintv/summit/auxtel/ 
 
 
 ###################
@@ -45,27 +46,29 @@ Before opening the dome to take on-sky data or for cooling, observers must take 
 Humidity (especially the dew point difference), cloud cover, and wind speed are the three largest determining factors for safety of the telescope and equipment. 
 
 Observers should inspect the forecast for the night, and review the weather trends on the Rubin weather station in LOVE or Chronograph, and the `Gemini weather station`_ (currently unavailable due to cyberattack).
-The Rubin weather data is updated every 0.5 seconds
+The Rubin weather data is updated every 0.5 seconds. 
+The Rubin weather data is viewed in LOVE, in the "Weather Station Component" view.
+The wind is displayed both as an integer and plotted on a vector graph. 
+
 The Gemini weather data updates every 30 seconds. 
 The Gemini wind speed data reported is the average over the previous 10 minutes. 
 
 NOIRLab also hosts additional links to Cerro Pachón weather, including `site webcams`_, and the `SOAR weather station`_ (currently unavailable due to cyberattack). 
 
-Go outside and look for incoming cloud fronts, and inspect the buildings and cars for condensation if humidity is above 70%.
+If the humidity is above 70%, go outside and look for incoming cloud fronts, and inspect the buildings and cars for condensation.
 Be more cautious to open if there will not be someone in the control room to montior changing weather conditions, e.g. opening before going to dinner, or leaving the control room to complete another task.
 
 .. warning::
     Vent gates:
         The vent gates on the first floor of the AuxTel dome can add turbulence if winds are high. 
-        Consider closing the vent gates if wind speeds are above 15 m/s.
-
+        Close the vent gates if wind speeds are above 8 m/s.
 
 
 .. note::
     Extraction fan use:
         The extraction fan on vent gate 3 can operate at 50-100% power for initial cooling. 
         During on-sky operations, the extraction fan must be run at 20-25% power.
-        If winds are over 10 m/s, the extraction fan should be turned off.
+        If winds are over 8 m/s, the extraction fan should be turned off.
         If humidity is rising quickly, or >= 65%, (to be revised) the extraction fan should be turned off to avoid drawing in more moisture through the dome. 
 
 .. _weather-constraints-wind:
@@ -76,31 +79,47 @@ The predominant wind direction at the summit is from the northwest or ~300 degre
 The majority of the time, the wind comes up from the coast and blows through the Elqui River valley, arriving to the summit. 
 If the direction changes frequently, or has completely changed direction from 300 degrees, use caution as this likely indicates a frontal system and unstable atmospheric conditions.
 
-Wind speeds less than 12 m/s (average):
+Mount jitter becomes much more frequent in cases of gusty wind. 
+High mount error is characterized as error over 0.25, which calculated and displayed in `Rubin TV`_ as "mount motion image degradation".
+The figure below shows an example of the mount moving erratically in wind speeds over 10 m/s.
+
+.. figure:: ./_static/Windy_AuxTel.png
+     :name: Windy_AuxTel
+
+Over the year of 2023, the median wind speed is plotted against the number of mount failures due to wind. 
+When the wind velocity averages higher than 8 m/s, winds begin to noticably impact mount performance and image quality. 
+
+.. figure:: ./_static/Wind_mount_failures.png
+    :name: Wind_mount_failures
+
+
+Using this information, the following guidelines are imposed:
+
+Wind speeds less than 8 m/s (measured over the last 10 data points):
     - This is safe operation range for AuxTel. 
         No restrictions in observing are needed. 
         
-Wind speeds between 12 and 15 m/s (average):
+Wind speeds between 8 and 12 m/s (measured over the last 10 data points):
     - If the observer has control to choose targets, observe out of the wind.
-        Report that the scheduler configuration needs to be changed, or the observing program should be changed. 
-        Avoid targets that are pointing direction into or 180 degree opposite of the dominant direction of the wind.
+        Report that the scheduler configuration needs to be changed, or change the scheduler program you are running.
+        Skip over any observing blocks that point the telescope directly into, or 180 degrees opposite, of the dominant direction of the wind.
 
 .. note::
     90 degree rule:
         Due to the curved dome, pointing at targets 180 degrees offset from the dominant wind direction creates a wind eddy under the lip of the dome, which can create wind shake on the upper truss of AuxTel. 
         To compensate for this, it is recommended to look for targets that have a 90-degree offset from the dominant wind direction. 
 
-Wind speeds greater than 15 m/s (average):
-    - Observers should consider closing once wind gusts (isolated data points) have become greater than 15 m/s. 
-        Sustained winds (gusts averaged over 10 minutes) of more than 15 m/s should initiate telescope closure. 
+Wind speeds greater than 12 m/s (measured over the last 10 data points):
+    - Observers should close once wind gusts have become greater than 12 m/s. 
+        If mount jitter is occurring frequently in all parts of the sky, close the dome. 
         Before deciding to open again, ensure that sustained winds have dropped below the closure limits for more than 15 minutes. 
-        The timer resets every time a wind data point is over 15 m/s.
+        Reset the timer if the wind jumps over 12 m/s again. 
 
 .. warning::
     Dome drop-down shutter:
         The AuxTel dome shutter has a drop-down shutter that opens like a flap, causing it to extend further past the dome structure. 
         It is opened when observing targets below 25-30 degrees elevation. 
-        The drop-down shutter is suceptible to wind gusts, and should be closed if gusts reach over 10 m/s.
+        The drop-down shutter is suceptible to wind gusts, and should be closed if gusts reach over 8 m/s.
 
 .. _weather-constraints-humidity-and-dew-point:
 
