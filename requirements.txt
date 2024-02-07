@@ -1,4 +1,2 @@
-documenteer
-lsst_sphinx_bootstrap_theme
-ltd-conveyor
-sphinx-prompt
+documenteer[guide]
+sphinx-diagrams

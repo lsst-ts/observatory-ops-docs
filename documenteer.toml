@@ -1,0 +1,48 @@
+[project]
+title = "Observatory \n Operations"
+copyright = "2015-2022 Association of Universities for Research in Astronomy, Inc. (AURA)"
+version = "Latest"
+base_url = "https://obs-ops.lsst.io/"
+github_url = "https://github.com/lsst-ts/observatory-ops-docs"
+
+[sphinx.linkcheck]
+ignore = [
+    'http://love01.cp.lsst.org/*',
+    'http://localhost:\d+/*',
+    'https://base-lsp.lsst.codes/*',
+    'https://chronograf-base-efd.lsst.codes/',
+    'https://chronograf-summit-efd.lsst.codes/',
+    'https://tucson-teststand-efd.lsst.codes/chronograf',
+    'https://jira.lsstcorp.org/*',
+    'https://lsst-argocd-nts-efd.ncsa.illinois.edu/',
+    'https://lsst-chronograf-nts-efd.ncsa.illinois.edu/',
+    'https://lsst-nts-k8s.ncsa.illinois.edu/',
+    'https://summit-lsp.lsst.codes/*',
+    'https://tucson-teststand.lsst.codes/*',
+    'https://www.jenkins.io/doc/book/glossary/#controller',
+    'https://www.jenkins.io/doc/book/glossary/#agent',
+    'https://www.jenkins.io/doc/book/glossary/#pipeline',
+    'https://www.jenkins.io/doc/book/glossary/#project',
+    'https://anaconda.org',
+    'https://lsst-argocd-nts-efd.ncsa.illinois.edu/argo-cd',
+    'https://base-lsp.lsst.codes/argo-cd',
+    'https://tucson-teststand.lsst.codes/argo-cd',
+    'https://summit-lsp.lsst.codes/argo-cd',
+    'https://rancher.cp.lsst.org',
+    'https://www.adlinktech.com/en/vortex-opensplice-data-distribution-service',
+    'https://developers.google.com/style',
+    'http://love.tu.lsst.org',
+    'http://love1.tu.lsst.org',
+    'https://rancher.tu.lsst.org',
+    'https://rancher.ls.lsst.org',
+    'https://tssw-ci.lsst.org/',
+    '^https://lsstit.1password.com',
+    'https://github.com/lsst-ts/ts_dimm_app',
+    '^ls.st',
+    'https://start.1password.com/open/i\?a=EJGC5QLBFNAJ3ODCNVC2I3HIPM&v=mqlr5qdkpipoyamzhty5kg365y&i=tu4v5aa4tvhbm4e3rc5siiwada&h=lsstit.1password.com',
+]
+
+[sphinx]
+extensions = [
+  "sphinx_diagrams"
+]
