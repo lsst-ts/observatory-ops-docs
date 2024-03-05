@@ -34,13 +34,14 @@ Observing tasks can be designed to take place during the daytime (e.g. calibrati
 How to submit a new Observing Task Request
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Proposers for new Observing Tasks should start by submitting a SITCOM ticket describing the motivation for the task, its constraints, and specific data required.
+The ticket should be given the label "observing_task" so that it may be reviewed by the Rubin Commissioning Time Allocation Committee. 
 If the task is part of a larger campaign, it is appropriate to provide links to a Confluence page or other external reference describing the motivation. 
 
-Strategic Planning Committee
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The newly proposed task should be brought to the Strategic Planning Committee for consideration. 
-The Strategic Planning Committee is responsible for determining if the task merits execution and what priority it should be assigned for the upcoming observing test cycles. 
-The Strategic Planning Committee is also responsbile for assigning the task to a member of the Science Comissioning team for execution. 
+Rubin Commissioning Time Allocation Committee
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The newly proposed task should be brought to the Rubin Commissioning Time Allocation Committee (RTAC) for consideration. 
+The RTAC is responsible for determining if the task merits execution and what priority it should be assigned for the upcoming observing test cycles. 
+The RTAC is also responsbile for assigning the task to a member of the Science Comissioning team for execution. 
 
 Role of the SITCOM JIRA ticket
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
