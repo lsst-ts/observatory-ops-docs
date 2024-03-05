@@ -148,7 +148,7 @@ An example of troubleshooting belonging to this channel is found in the followin
     An example of the type of troubleshooting conversation that should take place in #summit-control-room.
 
 
-#summit-maintel and #summit-auxtel
+#summit-simonyi and #summit-auxtel
 ----------------------------------
 
 These rooms are for telescope system specific asynchronous conversation with remote support.
@@ -167,7 +167,7 @@ Example content:
 - Announcements regarding future status of the system.
   Such as, “TMA expected to be offline Wednesday night.”
 
-#auxtel-operations and #maintel-operations
+#auxtel-operations and #simonyi-operations
 ------------------------------------------
 
 These channels are also telescope system specific but are dedicated for communication between people providing external support, such as looking at data as it comes in.
