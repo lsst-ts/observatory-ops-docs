@@ -18,7 +18,7 @@ For more details about the CSC, see the `Scheduler CSC documentation`_.
 
 If you are interested in the official scheduling algorithm, that is used to compute the observing queue, see the `Feature Based Scheduler documentation`_.
 
-.. _Feature Based Scheduler documentation: https://rubin-sim.lsst.io
+.. _Feature Based Scheduler documentation: https://rubin-scheduler.lsst.io
 
 .. _scheduler-operational-procedures-procedures:
 
@@ -73,6 +73,7 @@ It is important for users to understand this hierarchical structure for troubles
     :name: fig-fbs-architecture
 
     Feature Based Scheduler architecture diagram.
-    For more information see the `Feature Based Scheduler documentation`_.
+    
 
+For more information on the Feature Based Scheduler internals, see the `FBS architecture documentation <https://rubin-scheduler.lsst.io/fbs.html>`_.
 For the most part, users will be monitoring what is happening at the *observatory interaction* level, occasionally glimpsing at the *scheduling algorithm* level for troubleshooting.
