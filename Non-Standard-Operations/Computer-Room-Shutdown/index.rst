@@ -28,32 +28,39 @@ If the computer room is in a critical state with no immediate solution or an est
 In instances where the computer room is in a critical state but a solution is imminent, only a select group of servers, identified as "safe to power off," will undergo shutdown procedures. This procedure aims to balance the need for thermal management with the continuity of essential services during server shutdowns. 
 
 
-Safe to Power Off Servers
+Computer Shutdown Tiers
 ==========================
 
-The purpose of this list is to identify servers that will be powered off by IT/Devops without the authorization or help from system owners. 
+The following is the list of computers in each tier. 
 
-The following is the list of safe to power-off servers. 
+Tier 1: Computers that can be powered off during an emergency in the computer room by IT/Devops, without the authorization or help from system owners. 
+
+Tier 2: Computer that will be powered off in the computer room by IT/Devops, alerting the system owners but without taking down the control system
+
+Tier 3: Computers that will be powered off in the computer room by IT/Devops, that will take down the control system but not the communications to the summit.
+
+Tier 4: Complete power off of the computer room. 
+
+Tier 1
+^^^^^^
+
+The following is the list of safe to power-off servers. The computers can be powered off without noticing or alerting the system owner.
 
 * IT:
 
 vsphere[2-3].cp.lsst.org - Previous movement of VMs to vsphere01.cp.lsst.org
-
 lukay[1-5].cp.lsst.org
-
 perfsonar01.cp.lsst.org
 
 * Comcam:
 
 comcam-dc01
-
 comcam-daq-mgt
-
 comcam-archiver
 
 * Lsstcam:
 
-Any lsstcam machines part of diagnostic cluster.
+Any lsstcam machines part of diagnostic cluster. 
 
 * Auxtel
 
@@ -64,3 +71,55 @@ auxtel-dc01.cp.lsst.org - can always be shut down first, it is only used for ima
 auxtel-archiver.cp.lsst.org - can always be shut down if we are not taking data, will lose ability to ingest data in Butler if taking data
 
 auxtel-daq-mgt.cp.lsst.org - can always be shut down if we are not taking data, will lose connection/monitoring of the WREB a
+
+
+Tier 2
+^^^^^^
+The following is the list computers will be powered off alerting the system owners, but not taking down the control system
+
+* Control System
+yagan[13-20].cp.lsst.org
+azar[02-03].cp.lsst.org
+love02.cp.lsst.org
+
+Tier 3
+^^^^^^
+The following is the list computers will be powered off alerting the system owner, taking down the control system but not the communications to the summit
+
+* IT
+vsphere1.cp.lsst.org
+core[2 instances].cp.lsst.org (not dns of foreman hypervisor)
+elqui[01-18].cp.lsst.org
+ipsec switches
+leafs of each rack (except A1)
+ipmi of each rack (expect A1)
+all vms except hvac monitoring
+
+* Control System
+yagan[01-12].cp.lsst.org
+azar01.cp.lsst.org
+love01.cp.lsst.org
+chonchon[01-03].cp.lsst.org
+nfs1.cp.lsst.org
+tma-controller01 (open tekniker and phase cabinet doors)
+hexrot-vm01 (shut off topend machines)
+m1m3-dev (already disconnected from hardware)
+comcam-mcm
+comcam-db01
+auxtel-mcm
+auxtel-db01
+fp01 (only if warmup cameras)
+daq mgt (only if warmup cameras)
+daq ATCA crates (only if warmup cameras)
+
+
+Tier 4
+^^^^^^
+The following is the list computers will be powered off that will take down the communications to the summit. 
+
+* IT:
+core[remaining].cp.lsst.org (includes foremand and dns)
+yepun[01-05].cp.lsst.org
+nvr01.cp.lsst.org
+network devices (spines, agg, leafs, wlc, cucm, etc) 
+dwdm 
