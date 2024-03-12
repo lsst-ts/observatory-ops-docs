@@ -46,21 +46,21 @@ Tier 1
 
 The following is the list of safe to power-off servers. The computers can be powered off without noticing or alerting the system owner.
 
-* IT:
+**IT**
 
-vsphere[2-3].cp.lsst.org - Previous movement of VMs to vsphere01.cp.lsst.org
-lukay[1-5].cp.lsst.org
-perfsonar01.cp.lsst.org
+- vsphere[2-3].cp.lsst.org - Previous movement of VMs to vsphere01.cp.lsst.org
+- lukay[1-5].cp.lsst.org
+- perfsonar01.cp.lsst.org
 
-* Comcam:
+**Comcam:**
 
-comcam-dc01
-comcam-daq-mgt
-comcam-archiver
+- comcam-dc01
+- comcam-daq-mgt
+- comcam-archiver
 
-* Lsstcam:
+**Lsstcam:**
 
-Any lsstcam machines part of diagnostic cluster. 
+- Any lsstcam machines part of diagnostic cluster. 
 
 * Auxtel
 
@@ -77,49 +77,53 @@ Tier 2
 ^^^^^^
 The following is the list computers will be powered off alerting the system owners, but not taking down the control system
 
-* Control System
-yagan[13-20].cp.lsst.org
-azar[02-03].cp.lsst.org
-love02.cp.lsst.org
+**Control System**
+
+- yagan[13-20].cp.lsst.org
+- azar[02-03].cp.lsst.org
+- love02.cp.lsst.org
 
 Tier 3
 ^^^^^^
 The following is the list computers will be powered off alerting the system owner, taking down the control system but not the communications to the summit
 
-* IT
-vsphere1.cp.lsst.org
-core[2 instances].cp.lsst.org (not dns of foreman hypervisor)
-elqui[01-18].cp.lsst.org
-ipsec switches
-leafs of each rack (except A1)
-ipmi of each rack (expect A1)
-all vms except hvac monitoring
+**IT**
 
-* Control System
-yagan[01-12].cp.lsst.org
-azar01.cp.lsst.org
-love01.cp.lsst.org
-chonchon[01-03].cp.lsst.org
-nfs1.cp.lsst.org
-tma-controller01 (open tekniker and phase cabinet doors)
-hexrot-vm01 (shut off topend machines)
-m1m3-dev (already disconnected from hardware)
-comcam-mcm
-comcam-db01
-auxtel-mcm
-auxtel-db01
-fp01 (only if warmup cameras)
-daq mgt (only if warmup cameras)
-daq ATCA crates (only if warmup cameras)
+- vsphere1.cp.lsst.org
+- core[2 instances].cp.lsst.org (not dns of foreman hypervisor)
+- elqui[01-18].cp.lsst.org
+- ipsec switches
+- leafs of each rack (except A1)
+- ipmi of each rack (expect A1)
+- all vms except hvac monitoring
+
+**Control System**
+
+- yagan[01-12].cp.lsst.org
+- azar01.cp.lsst.org
+- love01.cp.lsst.org
+- chonchon[01-03].cp.lsst.org
+- nfs1.cp.lsst.org
+- tma-controller01 (open tekniker and phase cabinet doors)
+- hexrot-vm01 (shut off topend machines)
+- m1m3-dev (already disconnected from hardware)
+- comcam-mcm
+- comcam-db01
+- auxtel-mcm
+- auxtel-db01
+- fp01 (only if warmup cameras)
+- daq mgt (only if warmup cameras)
+- daq ATCA crates (only if warmup cameras)
 
 
 Tier 4
 ^^^^^^
 The following is the list computers will be powered off that will take down the communications to the summit. 
 
-* IT:
-core[remaining].cp.lsst.org (includes foremand and dns)
-yepun[01-05].cp.lsst.org
-nvr01.cp.lsst.org
-network devices (spines, agg, leafs, wlc, cucm, etc) 
-dwdm 
+**IT:**
+
+- core[remaining].cp.lsst.org (includes foremand and dns)
+- yepun[01-05].cp.lsst.org
+- nvr01.cp.lsst.org
+- network devices (spines, agg, leafs, wlc, cucm, etc) 
+- dwdm 
