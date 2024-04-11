@@ -61,14 +61,11 @@ Afternoon checkouts are important procedures to ensure that the telescopes and i
 The full procedures for the different afternoon or recommended daily checkouts are described on these pages:
 
 * AuxTel Daily Checkout
-    * `AuxTel Daily Checkout Procedure Notebook <https://github.com/lsst-ts/ts_notebooks/blob/develop/procedures/auxtel/observation_procedures/DayTime-Checkout.ipynb>`__
-    * `AuxTel Daily Checkout SAL scripts <https://obs-ops.lsst.io/Daytime-Operations/Auxiliary-Telescope/AT-Daytime-Checkout/Daytime-Checkout-SAL-Scripts.html>`__
+    
 
 * LATISS Calibrations
-    * `LATISS combined calibrations generation procedure <https://obs-ops.lsst.io/Daytime-Operations/Auxiliary-Telescope/AT-Calibrations/LATISS-Combined-Calibrations-Procedure/latiss-combined-calibrations-procedure.html#latiss-combined-calibrations-procedure-latiss-combined-calibrations-generation-procedure>`__.
 
 * Comcam Calibrations
-    * `Comcam combined calibrations generation procedure <https://obs-ops.lsst.io/Daytime-Operations/Main-Telescope/MT-Calibrations/ComCam-Combined-Calibrations-Procedure/comcam-combined-calibrations-procedure.html#comcam-combined-calibrations-procedure-comcam-combined-calibrations-generation-procedure>`__.
 
 .. _daytime-and-nighttime-communication-Reporting-Faults:
 
@@ -81,11 +78,7 @@ Observers are also encouraged to communicate directly with summit staff or Tucso
 
 More details about filing a fault report can be found :ref:`here <Daytime-Nighttime-Interactions-fault-reporting>`.
 
-.. _daytime-and-nighttime-communication-Contact-Personnel:
-
-Contact Personnel
-^^^^^^^^^^^^^^^^^
 
 This procedure was last modified |today|.
 
-This procedure was written by |author|.
+

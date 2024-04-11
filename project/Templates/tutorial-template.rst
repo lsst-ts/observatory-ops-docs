@@ -21,7 +21,7 @@
 .. An error will alert you of identical labels during the build process.
 
 #################
-Title of Tutorial
+Tutorial Template
 #################
 
 .. note::
@@ -100,12 +100,3 @@ Troubleshooting
 .. If there is no content for this section, remove the indentation on the following line instead of deleting this sub-section.
 
      No troubleshooting information is applicable to this tutorial.
-
-.. _Title-of-Tutorial-Contact-Personnel:
-
-Contact Personnel
-^^^^^^^^^^^^^^^^^
-
-This procedure was last modified |today|.
-
-This procedure was written by |author|. The following are contributors: |contributors|.

@@ -20,9 +20,9 @@
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
-##################################
-Title of Troubleshooting Procedure
-##################################
+#########################
+Troubleshooting Template
+#########################
 
 .. note::
     This is a procedure template file that is associated with a template directory structure. This note should be deleted when the section is properly populated.
@@ -124,12 +124,3 @@ Contingency
 ^^^^^^^^^^^
 
 If the procedure was not successful, report the issue in [relevant Slack channel] and/or activate the :ref:`Out of hours support <Safety-out-of-hours-support>`.
-
-.. _Title-of-Troubleshooting-Procedure-Contact-Personnel:
-
-Contact Personnel
-^^^^^^^^^^^^^^^^^
-
-This procedure was last modified |today|.
-
-This procedure was written by |author|. The following are contributors: |contributors|.

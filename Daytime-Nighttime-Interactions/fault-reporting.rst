@@ -138,11 +138,6 @@ This will provide higher visibility and allow to calculate total time lost to fa
     List of all the fault reports that happened during the night for the night log. 
 
 
-.. _fault-reporting-Contact_Personnel:
-
-Contact Personnel
-^^^^^^^^^^^^^^^^^
 
 This procedure was last modified |today|.
 
-This procedure was written by |author|. The following are contributors: |contributors|.

@@ -44,15 +44,16 @@ Safety: Quick Reference for Nighttime Personnel
 
 .. warning::
     Safety of personnel first and equipment second is the utmost priority of Rubin Observatory. 
-    The safety information here is meant to serve as a quick look for nighttime support staff in case of an emergency on the summit.
+    The safety information here is meant to serve as a quick look for nighttime support staff in 
+    case of an emergency on the summit.
+    It does not replace the required safety training to be on the summit at night. 
 
-It does not replace the required safety training to be on the summit at night. 
-This includes:
+Here is included:
 
 - Procedures on who (and how) to call when there is an issue
 - Location of keys, passwords etc
 - What to do in case of vehicle failure, power-outage, fire etc.
-- Procedures to enter telescope spaces during operations (e.g. AuxTel)
+.. - Procedures to enter telescope spaces during operations (e.g. AuxTel)
 - Emergency meeting locations etc.
 
 .. toctree::
@@ -63,20 +64,71 @@ This includes:
    Safety <Safety/index>
 
 
-.. _Obs-Ops-Daytime-Operations:
-
-Daytime Operations
-======================
-
-This section encapsulates procedures for normal operations, such as calibrations routines and standard telescope checkout. 
-Any non-standard procedures, such as shutdown recovery and non-standard operations are featured in a different section (link TBD).
+Observing Constraints
+=====================
 
 .. toctree::
-    :glob: 
-    :titlesonly:
-    :maxdepth: 4
+   :glob:
+   :titlesonly:
+   :maxdepth: 2
+   
+   Constraints <Observing-Constraints/Observing-Constraints-index>
 
-    Daytime <Daytime-Operations/index>
+.. _Obs-Ops-MainTel-Operations:
+
+Simonyi Telescope Operations
+============================
+
+Herein lies comprehensive information for Simonyi Telescope operations. 
+It covers essential aspects of the standard operations and other non-routine procedures, alongside 
+troubleshooting guidance for common issues encountered during the stages of system integration, testing and commissioning.
+
+.. toctree::
+    :glob:
+    :maxdepth: 2 
+    :titlesonly:
+    
+
+    Simonyi <MainTel/MainTel-index>
+
+.. _Obs-Ops-AuxTel-Operations:
+
+Auxiliary Telescope Operations
+==============================
+
+Under this section is comprised information and procedures pertinent to the operation of the Auxiliary Telescope. 
+It includes the standard operations for an ordinary, scheduler-driven observation night, 
+as well as unique procedures and manual interventions that may be needed under more exceptional circumstances. 
+It also incorporates an exhaustive list of identified problems and their corresponding troubleshooting guidelines 
+to recover functionality of the Auxiliary Telescope and LATISS. 
+
+.. toctree::
+    :glob:
+    :maxdepth: 2 
+    :titlesonly:
+    
+
+    AuxTel <AuxTel/AuxTel-index>
+
+
+
+.. _Obs-Ops-Observatory-Control-System:
+
+Observatory Control System
+==========================
+
+Here is offered an extensive exploration of the observatory's control system. 
+It provides comprehensive information on system components, their operations, configuration, along with troubleshooting support. 
+Additionally, it provides an inventory of valuable observing tools to facilitate data visualization and system monitoring 
+during nighttime operations. 
+
+.. toctree::
+    :glob:
+    :maxdepth: 2 
+    :titlesonly:
+    
+
+    Observatory <Observatory-Control-System/Observatory-Control-System-index>
 
 
 .. _Obs-Ops-Daytime-Nighttime-Interactions:
@@ -93,55 +145,55 @@ Night events should be well-documented so day time staff can resolve issues as e
    :glob:
    :titlesonly:
 
-   Daytime/Nighttime Interactions <Daytime-Nighttime-Interactions/index>
+   Communication <Daytime-Nighttime-Interactions/index>
 
 
-.. _Obs-Ops-NightTime-Operations:
+.. .. _Obs-Ops-NightTime-Operations:
 
-Nighttime Operations
-======================
+.. Nighttime Operations
+.. ======================
 
-Standard nighttime operations are listed in this section. 
-This includes opening the telescopes for data collection and end-of-night procedures. 
-Special operations or engineering tasks are described in a different section (link TBD). 
+.. Standard nighttime operations are listed in this section. 
+.. This includes opening the telescopes for data collection and end-of-night procedures. 
+.. Special operations or engineering tasks are described in a different section (link TBD). 
 
-.. toctree::
-    :maxdepth: 4
-    :glob:
-    :titlesonly:
+.. .. toctree::
+..     :maxdepth: 4
+..     :glob:
+..     :titlesonly:
 
-    Nighttime <Nighttime-Operations/index>
+..     Nighttime <Nighttime-Operations/index>
 
-.. _Obs-Ops-Troubleshooting:
+.. .. _Obs-Ops-Troubleshooting:
 
-Non-Standard Operations
-=======================
+.. Non-Standard Operations
+.. =======================
 
-This includes any non-standard operations often requiring unique protocols or manual interventions, such as shutdown and recovery of the computer room, response to incidents, etc.
+.. This includes any non-standard operations often requiring unique protocols or manual interventions, such as shutdown and recovery of the computer room, response to incidents, etc.
 
-.. toctree::
-   :maxdepth: 2
-   :glob:
-   :titlesonly:
+.. .. toctree::
+..    :maxdepth: 2
+..    :glob:
+..    :titlesonly:
 
-   Non-Standard-Operations/index
+..    Non-Standard-Operations/index
 
-.. _Obs-Ops-Non-Standard-Opertaions:
+.. .. _Obs-Ops-Non-Standard-Opertaions:
 
-Troubleshooting
-======================
+.. Troubleshooting
+.. ======================
 
-This section includes information on current known issues that are not addressed in other areas of the documentation. 
-Content includes temporary issues and potential work-arounds. 
-The section is continually updated as the observatory system evolves and develops. 
-If the problem persists after exhausting all documented procedures, ensure safety of the equipment, stop work, and call for help.
+.. This section includes information on current known issues that are not addressed in other areas of the documentation. 
+.. Content includes temporary issues and potential work-arounds. 
+.. The section is continually updated as the observatory system evolves and develops. 
+.. If the problem persists after exhausting all documented procedures, ensure safety of the equipment, stop work, and call for help.
 
-.. toctree::
-    :maxdepth: 4
-    :glob:
-    :titlesonly:
+.. .. toctree::
+..     :maxdepth: 4
+..     :glob:
+..     :titlesonly:
     
-    Trobleshooting <Troubleshooting/index>
+..     Trobleshooting <Troubleshooting/index>
  
 
 .. _Obs-Ops-Project-Documentation-Information:
@@ -162,7 +214,7 @@ Describes information regarding this documentation tree, including how to contri
 .. _Obs-Ops-Observing-Interface-Setup:
 
 Observing Interface Setup
-==================================
+=========================
 
 Contains detailed instructions on how to set the required environment for operations and/or interaction with the system during testing and commissioning. 
 
@@ -177,6 +229,6 @@ Contains detailed instructions on how to set the required environment for operat
 .. _Obs-Ops-Operational-Tutorials:
 
 System Testing, Deployments, and Upgrades
-==================================================================
+==========================================
 
 Content moved to https://obs-controls.lsst.io/.

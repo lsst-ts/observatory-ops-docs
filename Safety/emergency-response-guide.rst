@@ -173,11 +173,5 @@ Electric shock
 
 - Provide as many details about the emergency as you can, MOST IMPORTANTLY THE LOCATION.
 
-.. _emergency-response-guide-contact-personnel:
-
-Contact Personnel
-^^^^^^^^^^^^^^^^^
 
 This procedure was last modified |today|.
-
-This procedure was written by |author|. The following are contributors: |contributors|.

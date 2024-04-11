@@ -175,11 +175,4 @@ Lastly, the on-shift Triage manager runs the weekly meeting to help ensure that 
 The role of Triage manager is then handed off to the next person on rotation.
 
 
-
-
-Contact Personnel
-^^^^^^^^^^^^^^^^^
-
 This procedure was last modified |today|.
-
-This procedure was written by |author|. The following are contributors: |contributors|.

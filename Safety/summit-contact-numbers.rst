@@ -131,11 +131,5 @@ Using the control room phones
 
 - To dial another country: 9 + 188 + 0 + Country Code + Area Code + Phone Number
 
-.. _Safety-summit-contact-numbers-contact-personnel:
-
-Contact Personnel
-^^^^^^^^^^^^^^^^^
 
 This procedure was last modified |today|.
-
-This procedure was written by |author|. The following are contributors: |contributors|.

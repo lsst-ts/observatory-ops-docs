@@ -16,7 +16,7 @@
 .. An error will alert you of identical labels during the build process.
 
 ##############
-Title of Index
+Index Template
 ##############
 
 .. This section should provide a brief, top-level description of the page.
