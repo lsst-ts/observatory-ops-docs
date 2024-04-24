@@ -20,9 +20,9 @@
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
-##################
-Title of Procedure
-##################
+###################
+Procedure Template
+###################
 
 .. note::
     This is a procedure template file that is associated with a template directory structure. This note should be deleted when the section is properly populated.
@@ -135,12 +135,3 @@ Troubleshooting
      No troubleshooting information is applicable to this procedure.
 
 - This is an example bullet (If the following error is given during :ref:`Step 5 <Title-of-Procedure-Final-Step>`, resolve it using a specified action.)
-
-.. _Title-of-Procedure-Contact-Personnel:
-
-Contact Personnel
-^^^^^^^^^^^^^^^^^
-
-This procedure was last modified |today|.
-
-This procedure was written by |author|. The following are contributors: |contributors|.

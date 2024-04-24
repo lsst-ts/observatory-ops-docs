@@ -85,22 +85,4 @@ Tutorial Steps
         * A 1 or 2 sentence summary of the tests performed is strongly encouraged
 
 
-.. _Announcing-Component-Usage-Troubleshooting:
-
-Troubleshooting
-^^^^^^^^^^^^^^^
-
-.. This section should include troubleshooting information.
-
-.. If there is no content for this section, remove the indentation on the following line instead of deleting this sub-section.
-
-No troubleshooting information is applicable to this tutorial.
-
-.. _Announcing-Component-Usage-Contact-Personnel:
-
-Contact Personnel
-^^^^^^^^^^^^^^^^^
-
 This procedure was last modified |today|.
-
-This procedure was written by |author|. The following are contributors: |contributors|.

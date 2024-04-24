@@ -84,11 +84,5 @@ Calling instructions
 .. note::
     For any emergency on the summit, follow the :ref:`Emergency Response Guide <Safety-emergency-response-guide>` and contact summit personel first. 
 
-.. _out-of-hours-support-contact-personnel:
-
-Contact Personnel
-^^^^^^^^^^^^^^^^^
 
 This procedure was last modified |today|.
-
-This procedure was written by |author|.

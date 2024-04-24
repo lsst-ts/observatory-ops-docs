@@ -25,11 +25,14 @@ Quick Safety Reference for Nighttime Personnel
         This is a template file that is associated with a template directory structure. This note should be deleted when the section is properly populated
 
 This page provides quick-reference procedures for the safety of personnel and equipment. 
+
 This does not replace the required safety orientation for summit personnel.
 
 .. toctree::
-    :maxdepth: 2
-    :titlesonly:
+    :maxdepth: 4
     :glob:
 
-    *
+    emergency-response-guide.rst
+    out-of-hours-support.rst
+    summit-contact-numbers.rst
+
