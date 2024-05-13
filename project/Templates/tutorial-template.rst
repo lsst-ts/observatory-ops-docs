@@ -35,7 +35,7 @@ Tutorial Template
 .. _Title-of-Tutorial-Overview:
 
 Overview
-^^^^^^^^
+========
 
 .. This section should provide a brief, top-level description of the tutorial's purpose and utilization. Consider including the expected user and when the procedure will be performed.
 
@@ -44,7 +44,7 @@ This is a template for a tutorial.
 .. _Title-of-Tutorial-Prerequisites:
 
 Prerequisites
-^^^^^^^^^^^^^
+=============
 
 .. This section should provide simple overview of prerequisites for using the tutorial.
 .. It is preferred to include them as a bulleted or enumerated list.
@@ -59,7 +59,7 @@ This section should list the prerequisites (e.g. required conditions) to perform
 .. _Title-of-Tutorial-Post-Condition:
 
 Post-Condition
-^^^^^^^^^^^^^^
+==============
 
 .. This section should provide a simple overview of conditions or results after using the tutorial.
 
@@ -72,7 +72,7 @@ This section describes the state of the system after performing the tutorial. If
 .. _Title-of-Tutorial-Tutorial-Steps:
 
 Tutorial Steps
-^^^^^^^^^^^^^^^
+==============
 
 .. This section should include the tutorial steps.
 .. In the case of more complicated tutorials, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked tutorials to be performed in the specified order.
@@ -93,7 +93,7 @@ In the case of more complicated tutorials, more sophisticated methodologies may 
 .. _Title-of-Tutorial-Troubleshooting:
 
 Troubleshooting
-^^^^^^^^^^^^^^^
+===============
 
 .. This section should include troubleshooting information.
 
