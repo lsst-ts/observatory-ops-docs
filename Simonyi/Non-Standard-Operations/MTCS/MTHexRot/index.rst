@@ -1,11 +1,11 @@
-.. _Simonyi-Troubleshooting-HexRot:
+.. MTCS-Non-standard-Operations-MTHexRot-Non-Standard-Procedures:
 
-########################################
-MTHexapods and MTRotator 
-########################################
+############################
+MTHexapods and MTRotator
+############################
 
 .. toctree::
-    :maxdepth: 3
+    :maxdepth: 2
     :titlesonly:
     :glob:
 

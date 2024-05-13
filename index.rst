@@ -220,16 +220,14 @@ Getting Started
 .. toctree::
    :glob:
    :titlesonly:
-   :caption: Safety
    :hidden:
    :maxdepth: 2
    
    Safety <Safety/index>
-   Constraints <Observing-Constraints/index>
    Simonyi <Simonyi/index>
    AuxTel <AuxTel/index>
    Observatory <Observatory-Control-System/index>
-   Communication <Daytime-Nighttime-Interactions/index>
+   Communications <Daytime-Nighttime-Interactions/index>
    Contribute <project/index>
    Setup <Observing-Interface-Setup/index>
 
