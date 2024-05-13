@@ -1,6 +1,0 @@
-.. _Simonyi-Components-M1M3:
-
-#####
-M1M3
-#####
-
