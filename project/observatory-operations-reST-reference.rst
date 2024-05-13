@@ -259,6 +259,7 @@ as it creates an intuitive sidebar menu to the left, and inserts in-page navigat
        ../Safety/emergency-response-guide
        ../Safety/out-of-hours-support
        license
+       ../AuxTel/AuxTel-Non-standard-Operations/AuxTel-Non-Standard-Operations-index.rst
 
 
 .. toctree::
@@ -267,6 +268,7 @@ as it creates an intuitive sidebar menu to the left, and inserts in-page navigat
     ../Safety/emergency-response-guide
     ../Safety/out-of-hours-support
     license
+    ../AuxTel/AuxTel-Non-standard-Operations/AuxTel-Non-Standard-Operations-index.rst
 
 
 
@@ -302,9 +304,9 @@ renders as:
 
 .. _Observatory-Operations-reST-Style-Reference-Guide-Text:
 
-SAL scripts Configuration and Traceback - Text
-----------------------------------------------
-This formatting should be used when detailing the configuration required for a SAL script or displaying an error traceback. 
+SAL scripts configuration - Text
+--------------------------------
+This formatting should be used when detailing the configuration required for a SAL script. 
 Use the parameter ``:caption:`` with the name of the SAL script to display it above the block of configuration. 
 
 The ``code-block::text`` *directive* can be used to preserve the formatting and spacing of text.
@@ -336,7 +338,7 @@ renders in HTML as:
 
 .. _Observatory-Operations-reST-Style-Reference-Guide-Code-Blocks:
 
-Code Blocks 
+Code blocks 
 ----------- 
 
 Use the ``code_block:: python`` or ``code_block:: JSON`` *directive* to adequately display python or JSON code, respectively.  
@@ -410,7 +412,7 @@ is displayed in HTML like:
 
 .. _Observatory-Operations-reST-Style-Reference-Guide-Images:
 
-Images and other Media
+Images and other media
 ======================
 
 Images must be stored in the :file:`./_static/` directory within your working directory, in PNG or GIF formats. 
