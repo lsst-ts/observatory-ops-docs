@@ -94,7 +94,7 @@ It is intended for use in an EMERGENCY. It is not a safeguard, but is considered
 
 E-STOPs around the Observatory are big, red buttons that need to be released in a certain way to unlock them. 
 Only after releasing the E-STOP and resetting the electronic logic of the equipment can you continue to use it. 
-For an example of an E-STOP procedure, see `AuxTel E-STOP release <https://obs-ops.lsst.io/AuxTel/AuxTel-Non-standard-Operations/ATCS-Non-standard-Procedures/E-Stop-Procedure.html>`_.
+For an example of an E-STOP procedure, see `AuxTel E-STOP release <https://obs-ops.lsst.io/AuxTel/AuxTel-Non-standard-Operations/ATCS-Non-standard-Procedures/E-Stop-Procedure.html>`_. 
 
 These are meant to use ONLY IF a person or piece of equipment is in immediate danger of being damaged because of the machine’s continued use. 
 It is a hard brake in the case of AuxTel or the TMA, and its use during a slew could exert forces on the drives that cause some damage. 

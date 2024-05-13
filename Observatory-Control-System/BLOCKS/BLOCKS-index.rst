@@ -13,19 +13,23 @@
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
-#################################################
+######
 BLOCKS
-#################################################
+######
 
 .. This section should provide a brief, top-level description of the page.
 
 .. _BLOCKS:
 
-BLOCKS2  
+.. _BLOCK-Jira-project:
+
+BLOCK Jira Project
 ==================
+
+A description of the BLOCK Jira project and associated ticket workflow. 
 
 .. toctree::
    :glob:
    :titlesonly:
 
-   BLOCKS2/BLOCKS2-index.rst
+   block-jira-project-workflow.rst
