@@ -82,16 +82,33 @@ The recovery of the M1 cover control must be done from the *ATMCS EUI*.
 
 #. **Engage E-stop in main AT Control Cabinet and ATDome Main Box** located on the first floor. 
 
-#. **Release E-stop starting with the ATDome Main Box followed by the AT Control Cabinet**. 
+#. **Release E-stop starting with the ATDome Main Box, followed by the AT Control Cabinet**. 
    
    Refer to :ref:`release E-stop procedure <E-Stop-Procedure-How-Engage-Disengage-E-stop-System>` for more details. 
 
-#. **Open LSST Auxiliary Telescope MCS & Pneumatics EUI aka ATMCS** in the web-browser. 
-   
-   Address is *http://139.229.170.47:8000/atmcs.html*
-    
-    .. figure:: /AuxTel/Non-standard-Operations/_static/EUI-ATMCS.png  
-      
-      ATMCS EUI
+#. **Open LSST Auxiliary Telescope MCS & Pneumatics EUI ATMCS** in the web-browser.    
 
+   Address is *http://139.229.170.47:8000/atmcs.html*
+  
+#. Select **Request Control of VI** in the menu that opens with the mouse's right button to gain control of the GUI. 
+
+#. **Change to** *M1 Covers* **tab**.  
+
+    .. figure:: /AuxTel/Troubleshooting/ATCS/_static/ATMCS_M1Covers.png
+      
+      ATMCS EUI *M1 Covers* tab   
+
+#. Under *M1 Covers Commands* click :guilabel:`start` followed by :guilabel:`enable` will give you **control of the M1 Covers** opening and closing mechanism. 
+
+#. Press :guilabel:`open` to confirm **M1 covers are opening correctly**. 
+
+   The LED lights marked *C1OP, C2OP, C3OP, and C4OP* (corresponding to the numbers of the four cover petals) will illuminate as each petal opens.
+   Petal #3 is the final petal to open and close. 
+
+#. To **allow CSC remote control**, close the M1 covers first by clicking :guilabel:`close` button. 
+   Indicators *C1CL* to *C4CL* will now turn on. 
+    
+   Continue with :guilabel:`disable` and :guilabel:`standby` in the *M1 Covers Commands* section. 
+   
+   Finally **Release Control of VI** in the mouse's right-click menu. 
  
