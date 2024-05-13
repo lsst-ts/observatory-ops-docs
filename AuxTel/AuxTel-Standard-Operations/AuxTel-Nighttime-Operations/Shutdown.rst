@@ -31,8 +31,7 @@ The Scheduler automatically adds new targets to the queue until the start of nau
 If there are no targets, the Scheduler will stop adding new ones.
 If you need to stop the Scheduler manually, you can use the ``auxtel/scheduler/stop.py`` script from ScriptQueue without any additional configurations.
 
-See more detailed descriptions on `Scheduler <https://obs-ops.lsst.io/Nighttime-Operations/Scheduler/night-time-operations/index.html>`__.
-
+See more detailed descriptions on `Scheduler <https://obs-ops.lsst.io/Observatory-Control-System/Scheduler/Scheduler-index.html>`__.
 
 .. _Shutdown-the-Telescope-Post-Conditions:
 
