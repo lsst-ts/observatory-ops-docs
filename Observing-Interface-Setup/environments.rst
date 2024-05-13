@@ -41,14 +41,14 @@ It contains basic information (with links and description) on how to connect to 
 .. _nublado: https://nb.lsst.io
 
 
-.. _Observing-Interface-Operational-Environments-Prerequisites:
+.. _Observing-Interface-Operational-Environments-Precondition:
 
-Prerequisites
+Precondition
 =============
 
-.. This section should provide simple overview of prerequisites before executing the procedure; for example, state of equipment, telescope or seeing conditions or notifications prior to execution.
+.. This section should provide simple overview of Precondition before executing the procedure; for example, state of equipment, telescope or seeing conditions or notifications prior to execution.
 .. It is preferred to include them as a bulleted or enumerated list.
-.. Do not include actions in this section. Any action by the user should be included at the beginning of the Procedure section below. For example: Do not include "Notify specified SLACK channel. Confirmation is not required." Instead, include this statement as the first step of the procedure, and include "Notification to specified SLACK channel." in the Prerequisites section.
+.. Do not include actions in this section. Any action by the user should be included at the beginning of the Procedure section below. For example: Do not include "Notify specified SLACK channel. Confirmation is not required." Instead, include this statement as the first step of the procedure, and include "Notification to specified SLACK channel." in the Precondition section.
 .. If there is a different procedure that is critical before execution, carefully consider if it should be linked within this section or as part of the Procedure section below (or both).
 
 
@@ -155,11 +155,5 @@ If you can not open the links to the operational environment you intend to work 
 
 If problems persist, you can ask for help in the designated Slack channels or in the com-square-support channel.
 
-.. _Observing-Interface-Getting-Started-Personnel:
-
-Contact Personnel
-=================
 
 This procedure was last modified |today|.
-
-This procedure was written by |author|. The following are contributors: |contributors|.

@@ -33,20 +33,20 @@ Announcing Component Usage
 .. _Announcing-Component-Usage-Overview:
 
 Overview
-^^^^^^^^
+========
 
 This topic covers how to properly announce the usage of component(s) on the summit.
 
-.. _Announcing-Component-Usage-Prerequisites:
+.. _Announcing-Component-Usage-Precondition:
 
-Prerequisites
-^^^^^^^^^^^^^
+Precondition
+============
 
 
 .. _Announcing-Component-Usage-Post-Condition:
 
 Post-Condition
-^^^^^^^^^^^^^^
+==============
 
 .. This section should provide a simple overview of conditions or results after using the tutorial.
 
@@ -55,7 +55,7 @@ Post-Condition
 .. _Announcing-Component-Usage-Tutorial-Steps:
 
 Tutorial Steps
-^^^^^^^^^^^^^^^
+==============
 
 .. This section should include the tutorial steps.
 .. In the case of more complicated tutorials, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked tutorials to be performed in the specified order.

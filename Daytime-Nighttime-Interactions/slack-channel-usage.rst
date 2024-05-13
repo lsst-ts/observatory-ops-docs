@@ -88,7 +88,7 @@ We use the "summit" prefix for channels that are tightly coupled to summit opera
 
 
 Individual Channel Descriptions and Guidelines
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+==============================================
 
 This section provides additional details regarding the use of each channel.
 Note that all channels require active monitoring by everyone to ensure the conversation stays inline with the channel's expected content.
@@ -197,9 +197,4 @@ Example content:
 
 - New features in system behavior (e.g. mount shake)
 
-Contact Personnel
-^^^^^^^^^^^^^^^^^
-
 This procedure was last modified |today|.
-
-This procedure was written by |author|. The following are contributors: |contributors|.

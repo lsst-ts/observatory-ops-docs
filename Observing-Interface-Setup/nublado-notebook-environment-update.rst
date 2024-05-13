@@ -27,7 +27,7 @@ Update Notebook Environment in Nublado
 .. _Update-Notebook-Environment-in-Nublado-Overview:
 
 Overview
-^^^^^^^^
+========
 
 .. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
 
@@ -50,14 +50,14 @@ By default, the platform provides a set of environments with released software v
 - interfaces (*e.g.*, `xml <https://ts-xml.lsst.io/>`__, `IDL <https://github.com/lsst-ts/ts_idl>`__, `SAL <https://ts-sal.lsst.io/>`__, `Salobj <https://ts-salobj.lsst.io/>`__), and
 - high-level control algorithms (*e.g.*, `ATCS <https://ts-observatory-control.lsst.io/>`__, LATISS, MTCS, ComCam).
 
-.. _Update-Notebook-Environment-in-Nublado-Prerequisites:
+.. _Update-Notebook-Environment-in-Nublado-Precondition:
 
-Prerequisites
-^^^^^^^^^^^^^
+Precondition
+============
 
-.. This section should provide simple overview of prerequisites before executing the procedure; for example, state of equipment, telescope or seeing conditions or notifications prior to execution.
+.. This section should provide simple overview of Precondition before executing the procedure; for example, state of equipment, telescope or seeing conditions or notifications prior to execution.
 .. It is preferred to include them as a bulleted or enumerated list.
-.. Do not include actions in this section. Any action by the user should be included at the beginning of the Procedure section below. For example: Do not include "Notify specified SLACK channel. Confirmation is not required." Instead, include this statement as the first step of the procedure, and include "Notification to specified SLACK channel." in the Prerequisites section.
+.. Do not include actions in this section. Any action by the user should be included at the beginning of the Procedure section below. For example: Do not include "Notify specified SLACK channel. Confirmation is not required." Instead, include this statement as the first step of the procedure, and include "Notification to specified SLACK channel." in the Precondition section.
 .. If there is a different procedure that is critical before execution, carefully consider if it should be linked within this section or as part of the Procedure section below (or both).
 
 - You must be logged into the nublado system.
@@ -70,7 +70,7 @@ Prerequisites
 .. _Update-Notebook-Environment-in-Nublado-Post-Conditions:
 
 Post-Condition
-^^^^^^^^^^^^^^
+==============
 
 .. This section should provide a simple overview of conditions or results after executing the procedure; for example, state of equipment or resulting data products.
 .. It is preferred to include them as a bulleted or enumerated list.
@@ -82,7 +82,7 @@ Post-Condition
 .. _Update-Notebook-Environment-in-Nublado-Procedure-Steps:
 
 Procedure Steps
-^^^^^^^^^^^^^^^
+===============
 
 .. This section should include the procedure. There is no strict formatting or structure required for procedures. It is left to the authors to decide which format and structure is most relevant.
 .. In the case of more complicated procedures, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked procedures to be performed in the specified order.
@@ -250,7 +250,7 @@ Use the following steps to update software versions with ScriptQueue.
 .. _Update-Notebook-Environment-in-Nublado-Troubleshooting:
 
 Troubleshooting
-^^^^^^^^^^^^^^^
+===============
 
 .. This section should include troubleshooting information. Information in this section should be strictly related to this procedure.
 
@@ -258,10 +258,6 @@ Troubleshooting
 
 No troubleshooting information is applicable to this procedure.
 
-.. _Update-Notebook-Environment-in-Nublado-Contact-Personnel:
-
-Contact Personnel
-^^^^^^^^^^^^^^^^^
 
 This procedure was last modified |today|.
 

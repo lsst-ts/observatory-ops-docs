@@ -126,7 +126,7 @@ The message also explains what the Scheduler is going to do now, which consists 
     This operation will continue until the Scheduler is close enough such that it can queue the target in the ScriptQueue.
 
 If for any reason you expect the Scheduler should be able to provide a target and it is not, there might be something wrong with the telemetry stream or the *scheduling algorithm* configuration.
-To throubleshoot these conditions, see :ref:`troubleshooting-the-scheduling-algorithm`.
+To troubleshoot these conditions, see :ref:`troubleshooting-the-scheduling-algorithm`.
 
 .. _scheduler-night-time-operation-troubleshooting-recovering-from-a-script-execution-failure:
 
@@ -161,7 +161,7 @@ In this case, one would send all the CSCs that are in ``FAULT`` to ``ENABLED`` a
 One thing to keep an eye on is when the Scheduler starts to experience a series of Script failures.
 In some occasions it may happen that the parameters specified by the *scheduling algorithm* for the Scripts turn out to be invalid (like rotator out of range).
 This can happen for multiple reasons, the most common being a mis-configuration of the *scheduling algorithm*.
-Debuging and fixing these issues will require :ref:`troubleshooting-the-scheduling-algorithm`.
+Debugging and fixing these issues will require :ref:`troubleshooting-the-scheduling-algorithm`.
 
 .. _scheduler-night-time-operation-troubleshooting-recovering-from-a-scheduler-fault:
 

@@ -20,11 +20,11 @@ The *ameba* program is continously checking that the environment conditions are 
 In case of adverse weather, *ameba* will close the dome until conditions clear. 
 
 Currently, there is no incoming Cerro Pachón weather information feeding the *tt-meteo* program. 
-Thus prior to starting up the DIMM, there are additional steps outlined in the :ref:`prerequisites section <Dimm_StartUp-Prerequisites>`.
+Thus prior to starting up the DIMM, there are additional steps outlined in the :ref:`Precondition section <Dimm_StartUp-Precondition>`.
 
-.. _Dimm_StartUp-Prerequisites: 
+.. _Dimm_StartUp-Precondition: 
 
-Prerequisites: Weather Data
+Precondition: Weather Data
 ===============================
 
 Every time the DIMM is restarted, the weather startup values are set so the operations are disabled for safety reasons. 
@@ -86,7 +86,7 @@ Follow one of the procedures below, to either start the DIMM up in :ref:`automat
 Starting Up the DIMM in Automatic Mode
 ======================================
 
-Make sure you have run the :ref:`prerequisites <Dimm_StartUp-Prerequisites>` regarding the weather data. 
+Make sure you have run the :ref:`Precondition <Dimm_StartUp-Precondition>` regarding the weather data. 
 
 The automatic mode can be started from any state as the steps below override the current mode. 
 
@@ -120,7 +120,7 @@ To monitor the status of the DIMM program, see :ref:`monitor the DIMM <Dimm-Moni
 Starting up the DIMM in Manual Mode
 ====================================
 
-Make sure you have run the :ref:`prerequisites <Dimm_StartUp-Prerequisites>` regarding the weather data. 
+Make sure you have run the :ref:`Precondition <Dimm_StartUp-Precondition>` regarding the weather data. 
 
 The manual mode can be started from any state as the steps below override the current mode. 
 

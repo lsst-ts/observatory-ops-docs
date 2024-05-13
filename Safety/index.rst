@@ -18,21 +18,119 @@
 Quick Safety Reference for Nighttime Personnel
 ##############################################
 
-.. This section should provide a brief, top-level description of the page.
-
-.. 
-    note::
-        This is a template file that is associated with a template directory structure. This note should be deleted when the section is properly populated
 
 This page provides quick-reference procedures for the safety of personnel and equipment. 
 
 This does not replace the required safety orientation for summit personnel.
 
+Emergency Response Guide
+========================
+
+.. grid:: 5     
+
+   .. grid-item-card:: Medical Emergency
+      :link: emergency-response-guide-medical-emergency
+      :link-type: ref
+
+
+   .. grid-item-card:: Fire
+      :link: emergency-response-guide-fire
+      :link-type: ref
+
+   .. grid-item-card:: Earthquake
+      :link: emergency-response-guide-earthquake
+      :link-type: ref
+
+   .. grid-item-card:: Chemical Spill
+      :link: emergency-response-guide-spill
+      :link-type: ref
+
+   .. grid-item-card:: Electric Shock
+      :link: emergency-response-guide-electric-shock
+      :link-type: ref
+
+
+Summit Contact Numbers 
+======================
+
+These extensions can be dialed from any telephone in the Rubin Control room or on the Rubin summit. 
+
+.. grid:: 4    
+
+   .. grid-item-card:: Emergency Numbers
+      :link: summit-contact-numbers-emergency-numbers
+      :link-type: ref
+
+   .. grid-item-card:: Summit Control Room 
+      :link: summit-contact-numbers-control-room-numbers
+      :link-type: ref
+
+   .. grid-item-card:: Rubin Casino, SOAR & Gemini Control Rooms 
+      :link: summit-contact-numbers-non-emergency-numbers
+      :link-type: ref
+
+   .. grid-item-card:: Calling Hotel Pachon
+      :link: summit-contact-numbers-calling-hotel-pachon
+      :link-type: ref
+
+
+Out of Hours Support
+====================
+
+.. grid:: 3   
+
+   .. grid-item-card:: Out of Hours Call List
+      :link: out-of-hours-support
+      :link-type: doc
+      :padding: 4
+
+   .. grid-item-card:: Resources for Help
+      :link: out-of-hours-support-resources-for-help
+      :link-type: ref
+
+   .. grid-item-card:: Calling Instructions
+      :link: out-of-hours-support-calling-instructions
+      :link-type: ref
+
+
+Safety Systems
+=========================
+
+.. grid:: 3
+
+   .. grid-item-card:: Control Safety Systems
+      :link: Safety-Systems/Control-Safety-Systems
+      :link-type: doc
+      :padding: 4
+
+      Description of GIS, LOTO and e-stop safety systems. 
+
+
+   .. grid-item-card:: GIS
+      :link: Safety-Systems/GIS
+      :link-type: doc
+      :padding: 4
+
+      GIS 
+
+   .. grid-item-card:: Enter telescopes Safely
+      :link: Safety-Systems/GIS
+      :link-type: doc
+      :padding: 4
+
+      Procedures to enter telescopes while in operations
+
+.. Here's is the left hand-side navigation. 
 .. toctree::
     :maxdepth: 4
-    :glob:
+    :titlesonly:
+    :hidden:
 
     emergency-response-guide.rst
     out-of-hours-support.rst
     summit-contact-numbers.rst
+    Safety-Systems/index.rst
+
+
+
 

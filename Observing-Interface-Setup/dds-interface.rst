@@ -3,7 +3,7 @@ Debugging DDS
 #############
 
 Overview
-^^^^^^^^
+========
 This topic describes procedures for debugging the status of the `DDS interface <https://ts-sal.lsst.io>`_ that powers the :doc:`CSCs <obs-controls:System-Architecture/CSC-Overview/index>` that run on the summit.
 There are 3 use-cases for DDS Daemons defined by their location and application.
 
@@ -11,17 +11,17 @@ There are 3 use-cases for DDS Daemons defined by their location and application.
 #. Local daemons for local CSCs or services which are mostly used for non-production environments (i.e. development)
 #. Nublado daemons which are mainly used as a way to manually ensure system stability for night time operations.
 
-Prerequisites
-^^^^^^^^^^^^^
+Precondition
+============
 
 * Inside of a node where the DDS Daemon is running
 
 Responsibilities
-^^^^^^^^^^^^^^^^
+================
 Software Engineer
 
 Procedure
-^^^^^^^^^
+=========
 
 Checking the status of the Daemon
 ---------------------------------
@@ -45,11 +45,11 @@ Check the status of the ospl daemon using the following procedure.
 
 
 Verification
-^^^^^^^^^^^^
+============
 * ospl daemon status is nominal when running ``ospl status``
 
 Troubleshooting
-^^^^^^^^^^^^^^^
+===============
 
 In the case of a production node, the tmp directory which houses the daemon files can be wiped out.
 In the case of a non-production node, bad conditions can cause the daemon to crash

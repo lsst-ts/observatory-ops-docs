@@ -39,7 +39,7 @@ A description of the active management process that continually reviews, assigns
 
 
 OBS Jira Project Description
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+============================
 The workflow as executed in Jira passes through several states, beginning with the reported state, where it receives and assignee, through to one of the end (completed) states.
 
 The creation of a ticket can be performed by anyone, but is generally done by whomever is operating the system.
@@ -149,7 +149,7 @@ Components and Required Fields
 
 
 OBS Ticket Management Process
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=============================
 
 There are numerous aspects associated with managing the OBS ticket process.
 The processes are still under development but a high-level description is provided here.

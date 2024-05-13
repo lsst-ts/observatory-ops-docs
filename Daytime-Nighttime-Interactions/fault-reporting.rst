@@ -34,7 +34,7 @@ The process describing the OBS Jira project workflow and process management is d
 .. _fault-reporting-Guidelines-For-Productive-Reporting:
 
 Guidelines For Productive Reporting
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===================================
 
 The most important part of fault-reporting is that the team can understand the problem well. 
 Some guidelines to keep in mind are:
@@ -53,7 +53,7 @@ Some guidelines to keep in mind are:
 .. _fault-reporting-Filing-Fault-Reports:
 
 Filing Fault Reports
-^^^^^^^^^^^^^^^^^^^^
+====================
 
 Fault reports and resolutions utilize the `OBS Jira project <https://jira.lsstcorp.org/projects/OBS>`_.
 In many cases, there is already a Jira ticket associated with a given problem, and the action is primarily to log an instance of re-occurrence. 
@@ -112,7 +112,7 @@ When creating a ticket, make sure to fill in the following fields:
 .. _fault-reporting-Guidelines-For-Calculating-Time-Loss:
 
 Guidelines For Calculating Time Loss
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+====================================
 
 .. This section should provide a simple overview of conditions or results after executing the procedure; for example, state of equipment or resulting data products.
 .. It is preferred to include them as a bulleted or enumerated list.
@@ -126,7 +126,7 @@ Guidelines For Calculating Time Loss
 .. _fault-reporting-Filling-Out-Night-Logs:
 
 Filling Out Night Logs
-^^^^^^^^^^^^^^^^^^^^^^
+======================
 
 More details about writing night logs are provided on the :ref:`Daytime-Nighttime-Interactions-nighttime-logging` page. 
 Concerning fault reports filed during the night, it is important that the observer lists all the problems that occurred during the night in the fault report section of the night log. 

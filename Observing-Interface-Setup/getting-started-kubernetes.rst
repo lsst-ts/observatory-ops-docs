@@ -31,14 +31,14 @@ Kubernetes is the platform used to run many of the control system components and
 
 To get a list of the different environments see :ref:`Observing-Interface-Operational-Environments`
 
-.. _Observing-Interface-Getting-Started-Kubernetes-Prerequisites:
+.. _Observing-Interface-Getting-Started-Kubernetes-Precondition:
 
-Prerequisites
+Precondition
 =============
 
-.. This section should provide simple overview of prerequisites before executing the procedure; for example, state of equipment, telescope or seeing conditions or notifications prior to execution.
+.. This section should provide simple overview of Precondition before executing the procedure; for example, state of equipment, telescope or seeing conditions or notifications prior to execution.
 .. It is preferred to include them as a bulleted or enumerated list.
-.. Do not include actions in this section. Any action by the user should be included at the beginning of the Procedure section below. For example: Do not include "Notify specified SLACK channel. Confirmation is not required." Instead, include this statement as the first step of the procedure, and include "Notification to specified SLACK channel." in the Prerequisites section.
+.. Do not include actions in this section. Any action by the user should be included at the beginning of the Procedure section below. For example: Do not include "Notify specified SLACK channel. Confirmation is not required." Instead, include this statement as the first step of the procedure, and include "Notification to specified SLACK channel." in the Precondition section.
 .. If there is a different procedure that is critical before execution, carefully consider if it should be linked within this section or as part of the Procedure section below (or both).
 
 - Have a FreeIPA account
@@ -100,11 +100,5 @@ Troubleshooting
 
 If you are having trouble accessing the *kubeconfig* file from Rancher or accessing the site specific Kubernetes resources, please file an `IHS JIRA <https://jira.lsstcorp.org/projects/IHS>`_ ticket and assign it to the approriate site.
 
-.. _Observing-Interface-Getting-Started-Kubernetes-Personnel:
-
-Contact Personnel
-=================
 
 This procedure was last modified |today|.
-
-This procedure was written by |author|. The following are contributors: |contributors|.
