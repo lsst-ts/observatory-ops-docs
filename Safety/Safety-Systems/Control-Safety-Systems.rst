@@ -94,7 +94,7 @@ It is intended for use in an EMERGENCY. It is not a safeguard, but is considered
 
 E-STOPs around the Observatory are big, red buttons that need to be released in a certain way to unlock them. 
 Only after releasing the E-STOP and resetting the electronic logic of the equipment can you continue to use it. 
-See :ref:`AuxTel e-stop system <AuxTel-Non-Standard-Procedures-E-Stop-Procedure>`.
+See `AuxTel E-STOP release <E-Stop-Procedure>`. 
 
 These are meant to use ONLY IF a person or piece of equipment is in immediate danger of being damaged because of the machine’s continued use. 
 It is a hard brake in the case of AuxTel or the TMA, and its use during a slew could exert forces on the drives that cause some damage. 
