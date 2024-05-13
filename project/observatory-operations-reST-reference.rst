@@ -326,8 +326,8 @@ renders in HTML as:
 
 .. _Observatory-Operations-reST-Style-Reference-Guide-Code-Blocks:
 
-Code Blocks 
------------ 
+Code blocks 
+===========
 
 Use the ``code_block:: python`` or ``code_block:: JSON`` *directive* to adequately display python or JSON code, respectively.  
 You may also add the parameter ``:caption::`` to this *directive* to include a title above the code. 
@@ -400,7 +400,7 @@ is displayed in HTML like:
 
 .. _Observatory-Operations-reST-Style-Reference-Guide-Images:
 
-Images and other Media
+Images and other media
 ======================
 
 Images must be stored in the :file:`./_static/` directory within your working directory, in PNG or GIF formats. 
