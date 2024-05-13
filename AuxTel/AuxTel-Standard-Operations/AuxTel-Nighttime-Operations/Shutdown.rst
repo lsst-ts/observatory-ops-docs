@@ -13,16 +13,15 @@ Shutdown
 
 Overview
 ========
-At the end of the night, ATTCS and LATISS CSCs should be set to standby. Telescope and dome should be parked. 
-The parking position is for the AuxTel is El = 80 deg, Az = 0.0 deg, rot = 0.0 deg. 
-For the dome, it is at Az = 285.0 deg with closed dome slit shutter.
-All ATTCS and LATISS CSCs for AuxTel should be set to standby.  
+At the end of the night, ATTCS and LATISS CSCs should be set to ``STANDBY``. Telescope and dome should be parked. 
+The parking position for AuxTel is El = 80 deg, Az = 0.0 deg, rot = 0.0 deg. 
+For the dome, the parking position is at Az = 285.0 deg with closed dome slit shutter.
 
 
 .. _Shutdown-the-Telescope-Prerequisites:
 
-Prerequisites
-=============
+Pre-conditions
+==============
 
 Stopping Scheduler
 ------------------
@@ -31,7 +30,7 @@ The Scheduler automatically adds new targets to the queue until the start of nau
 If there are no targets, the Scheduler will stop adding new ones.
 If you need to stop the Scheduler manually, you can use the ``auxtel/scheduler/stop.py`` script from ScriptQueue without any additional configurations.
 
-See more detailed descriptions on `Scheduler <https://obs-ops.lsst.io/Observatory-Control-System/Scheduler/Scheduler-index.html>`__.
+See more detailed descriptions on `stopping the scheduler <scheduler-night-time-operation-troubleshooting-stopping-the-scheduler>`.
 
 
 .. _Shutdown-the-Telescope-Post-Conditions:
@@ -84,13 +83,13 @@ If the dropout door is open, you can close manually via button at the AuxTel or 
 : The parking position is Az = 285.0 deg. Then, the dome following is disabled after parking. 
 
 **4. Parking the Telescope**
-: The parking position is El = 80 deg, Az = 0.0 deg, rot = 0.0 deg for telescope.
+: The parking position is El = 80 deg, Az = 0.0 deg, rot = 0.0 deg for AuxTel telescope.
 Tracking will then be stopped.  
 
 **5. Putting CSCs in Standby**
-: The AT CSC components ``ATMCS``, ``ATAOS``, ``ATPtg``, ``ATDome``, ``ATDomeTrajector``, ``ATOS``, ``ATPneumatics``, ``ATHexapod``  will be changed to Standby. 
+: The AT CSC components ``ATMCS``, ``ATPtg``, ``ATDome``, ``ATDomeTrajectory``, ``ATAOS``, ``ATPneumatics``, ``ATHexapod``  will be changed to ``STANDBY``. 
 
-After parking and shutdown for Auxillary Telescope are completed, you can check the status of Dome and Telescope on LOVE. 
+After parking and shutdown for Auxillary Telescope are completed, you can check the status of dome and telescope on LOVE. 
 
    
 Taking Morning Calibrations
@@ -129,7 +128,7 @@ If it is not working,
 *Standby_latiss*
 ----------------
 
-After parking the AuxTel and taking daytime calibration, the LATISS CSCs are still in ENABLED state.
+After parking the AuxTel and taking daytime calibration, the LATISS CSCs are still in ``ENABLED`` state.
 Run ``auxtel/standby_latss.py`` on ATQueue to set all CSC for LATISS (``ATCamera``, ``ATOODS``, ``ATHeaderService``, ``ATSpectrograph``) 
  
 
@@ -141,12 +140,12 @@ During the shutting down procedures, you can check and complete all logging and 
 
 - Finish filling out the nightlog, including time loss, weather loss, and gathering fault reports for the night.
 - Send the summary and night log link to rubinobs-nightlog mailing list (rubin-night-log [at] lists.lsst.org). 
-- Leave the summary of the night on Slack Channels - #rubin_daytime_tasks and #summit-auxtel 
+- Leave the summary of the night on Channels - #rubin_daytime_tasks and #summit-auxtel 
 
 Closing the Vent Gate
 ---------------------
 
-This step can be proceed any point of this shutdown steps, but it is recommeneded to do it on the way down to the hotel at the end of the night.  
+This step can be proceed any point of this shutdown steps, but it is recommended to do it on the way down to the hotel at the end of the night.  
   
 Go up to the AuxTel and 
 

@@ -7,7 +7,7 @@
     DRAFT
 
     
-.. _E-Stop-Procedure:
+.. _Simonyi-E-Stop-Procedure:
 
 ########################
 Simonyi E-Stop Procedure

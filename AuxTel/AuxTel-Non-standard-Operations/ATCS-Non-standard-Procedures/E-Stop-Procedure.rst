@@ -2,7 +2,7 @@
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
 .. |contributors| replace:: *none*
 
-.. _E-Stop-Procedure:
+.. _AuxTel-Non-Standard-Procedures-E-Stop-Procedure:
 
 ####################
 E-Stop Procedure

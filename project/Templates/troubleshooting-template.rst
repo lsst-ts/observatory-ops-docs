@@ -30,7 +30,7 @@ Troubleshooting Template
 .. _Title-of-Troubleshooting-Procedure-Overview:
 
 Overview
-^^^^^^^^
+========
 
 .. In one or two sentences, explain when this troubleshooting procedure needs to be used. Describe the symptoms that the user sees to use this procedure. 
 
@@ -39,7 +39,7 @@ This is a template for a troubleshooting procedure. It is performed by authorize
 .. _Title-of-Troubleshooting-Procedure-Error-Diagnosis:
 
 Error diagnosis
-^^^^^^^^^^^^^^^
+===============
 
 .. This section should provide simple overview of known or suspected causes for the error.
 .. It is preferred to include them as a bulleted or enumerated list.
@@ -50,7 +50,7 @@ Error diagnosis
 .. _Title-of-Troubleshooting-Procedure-Procedure-Steps:
 
 Procedure Steps
-^^^^^^^^^^^^^^^
+===============
 
 .. todo::
    Make sure everything is in a safe or idle state before troubleshooting. Describe relevant safety steps if necessary.
@@ -108,7 +108,7 @@ This is an example of a sub-section, used when Condition B applied. Complete the
 .. _Title-of-Troubleshooting-Procedure-Post-Condition:
 
 Post-Condition
-^^^^^^^^^^^^^^
+==============
 
 .. This section should provide a simple overview of conditions or results after executing the procedure; for example, state of equipment or resulting data products.
 .. It is preferred to include them as a bulleted or enumerated list.
@@ -121,6 +121,6 @@ Post-Condition
 .. _Title-of-Troubleshooting-Procedure-Contingency:
 
 Contingency
-^^^^^^^^^^^
+===========
 
 If the procedure was not successful, report the issue in [relevant Slack channel] and/or activate the :ref:`Out of hours support <Safety-out-of-hours-support>`.

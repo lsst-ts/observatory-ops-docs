@@ -4,7 +4,7 @@
 .. Do not remove other content provided in the templates, such as a section. Instead, comment out the content and include comments to explain the situation. For example:
 	- If a section within the template is not needed, comment out the section title and label reference. Do not delete the expected section title, reference or related comments provided from the template.
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
-
+.. |author| replace:: *Alysha Shugart*
 .. This is the label that can be used as for cross referencing this file.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
 .. _Observing-Constraints-AuxTel-Weather-Constraints:
@@ -16,8 +16,7 @@
 .. _`Gemini cloud cameras`: https://www.gemini.edu/sciops/telescopes-and-sites/weather/cerro-pachon/cloud-cam/stills.html
 .. _`site webcams`: https://noirlab.edu/science/observing-noirlab/weather-webcams
 .. _`SOAR weather station`: https://noirlab.edu/science/observing-noirlab/weather-webcams/cerro-pachon/environmental-conditions
-.. _`Rubin TV`: https://roundtable.lsst.codes/rubintv/summit/auxtel/ 
-
+.. _`RubinTV`: https://summit-lsp.lsst.codes/rubintv/summit/auxtel 
 
 ##########################
 AuxTel Weather Constraints
@@ -27,9 +26,11 @@ AuxTel Weather Constraints
 
 This page defines the different types of operational constraints due to weather.
 
-Operating conditions used to define the Rubin construction project are found in `LTS-54 <https://ls.st/lts-54>`__. 
+Operating conditions used to define the Rubin construction project are found 
+in `LTS-54 <https://ls.st/lts-54>`__. 
 
-As commissioning gets underway, the operating conditions will be better constrained, and different situations will apply to the Main telescope and Auxiliary Telescope.
+As commissioning gets underway, the operating conditions will be better constrained, 
+and different situations will apply to the Simonyi and Auxiliary telescopes.
 
 .. toctree::
     :maxdepth: 2
@@ -56,7 +57,8 @@ The Gemini wind speed data reported is the average over the previous 10 minutes.
 NOIRLab also hosts additional links to Cerro Pachón weather, including `site webcams`_, and the `SOAR weather station`_ (currently unavailable due to cyberattack). 
 
 If the humidity is above 70%, go outside and look for incoming cloud fronts, and inspect the buildings and cars for condensation.
-Be more cautious to open if there will not be someone in the control room to montior changing weather conditions, e.g. opening before going to dinner, or leaving the control room to complete another task.
+Be more cautious to open if there will not be someone in the control room to monitor changing weather conditions, 
+e.g. opening before going to dinner, or leaving the control room to complete another task.
 
 .. warning::
     Vent gates:
@@ -76,18 +78,22 @@ Be more cautious to open if there will not be someone in the control room to mon
 Wind
 ^^^^
 The predominant wind direction at the summit is from the northwest or ~300 degrees.  
-The majority of the time, the wind comes up from the coast and blows through the Elqui River valley, arriving to the summit. 
-If the direction changes frequently, or has completely changed direction from 300 degrees, use caution as this likely indicates a frontal system and unstable atmospheric conditions.
+The majority of the time, the wind comes up from the coast and blows through the Elqui River valley, 
+arriving to the summit. 
+If the direction changes frequently, or has completely changed direction from 300 degrees, 
+use caution as this likely indicates a frontal system and unstable atmospheric conditions.
 
 Mount jitter becomes much more frequent in cases of gusty wind. 
-High mount error is characterized as error over 0.25, which calculated and displayed in `Rubin TV`_ as "mount motion image degradation".
+High mount error is characterized as error over 0.25, which calculated and displayed in `RubinTV`_ 
+as *mount motion image degradation*.
 The figure below shows an example of the mount moving erratically in wind speeds over 10 m/s.
 
 .. figure:: ./_static/Windy_AuxTel.png
      :name: Windy_AuxTel
 
 Over the year of 2023, the median wind speed is plotted against the number of mount failures due to wind. 
-When the wind velocity averages higher than 8 m/s, winds begin to noticably impact mount performance and image quality. 
+When the wind velocity averages higher than 8 m/s, winds begin to noticeably impact mount performance 
+and image quality. 
 
 .. figure:: ./_static/Wind_mount_failures.png
     :name: Wind_mount_failures
@@ -119,14 +125,15 @@ Wind speeds greater than 12 m/s (measured over the last 10 data points):
     Dome drop-down shutter:
         The AuxTel dome shutter has a drop-down shutter that opens like a flap, causing it to extend further past the dome structure. 
         It is opened when observing targets below 25-30 degrees elevation. 
-        The drop-down shutter is suceptible to wind gusts, and should be closed if gusts reach over 8 m/s.
+        The drop-down shutter is susceptible to wind gusts, and should be closed if gusts reach over 8 m/s.
 
 .. _weather-constraints-humidity-and-dew-point:
 
 Humidity and dew point
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Higher relative humidity is not an absolute determination of closure, but observers must pay close attention when humidity is over 70%, or if it begins to suddenly trend upward.
+Higher relative humidity is not an absolute determination of closure, but observers must pay close attention when humidity is over 70%, 
+or if it begins to suddenly trend upward.
 
 Humidity above 65%:
     - Turn off the extraction fan and close vent gates.
@@ -139,7 +146,8 @@ Humidity above 70%:
         If the ambient temperature is cooler, especially during winter time, the condensation risk on metal surfaces is higher. 
 
 The quantity that is more important than relative humidity is the **dew point temperature** and the **dew point difference**. 
-The dew point temperature is the ambient air temperature at which relative humidity will reach 100% - the air is completely saturated with water vapor.
+The dew point temperature is the ambient air temperature at which relative humidity will reach 100% - 
+the air is completely saturated with water vapor.
 The dew point difference is the difference between the dew point temperature and the coldest structure in the telescope dome. 
 
 Example:
@@ -152,7 +160,7 @@ Example:
     **Dew point difference = 4 degrees C.**
 
 In the example, the dew point difference is 4 degrees C, which is in safe operational range. 
-For any object or strucutre that is above the dew point temperature, there is less condensation risk.
+For any object or structure that is above the dew point temperature, there is less condensation risk.
 Water condenses on the coldest surface. 
 
 Dew point difference is > 2.5 degrees C:
@@ -170,7 +178,7 @@ Observers must wait for the dew point temperature or humidity to recover from th
 
 .. note::
     If humidity has dropped during the night, before opening the dome slit, consider performing a quick dome drain procedure. 
-    Rotate the closed dome several times in both directions, exercisicing large slews. 
+    Rotate the closed dome several times in both directions, exercising large slews. 
     This can remove some of the water droplets that might have accumulated on the metal surface. 
 
 .. _weather-constraints-cloud-cover:
@@ -178,12 +186,13 @@ Observers must wait for the dew point temperature or humidity to recover from th
 Cloud cover
 ^^^^^^^^^^^
 
-Until DIMM flux measurements are imported into Rubin TV or in the EFD, or the wavefront sensors of LSSTCam are available, determining safe or unsafe cloud coverage is a bit of an un-tested process.
+Until DIMM flux measurements are imported into RubinTV or in the EFD, or the wavefront sensors of LSSTCam are available, 
+determining safe or unsafe cloud coverage is a bit of an un-tested process.
 
-AuxTel has continued observing happily in 2.5 magnitudes of extinction, given that most targets are typically <= 8 magnitudes.
+AuxTel has continued observing happily in 2.5 magnitudes of extinction, given that most targets are typically :math:`\leq 8\,mag`.
 
 The biggest threat of cloud cover is lower-atmosphere condensation, or virga, which is rain and moisture that falls from a cloud, but evaporates before it hits ground level.
-Virga appears like streaks of rain or whisps on the bottom of different types of cumulus clouds. 
+Virga appears like streaks of rain or whips on the bottom of different types of cumulus clouds. 
 Winds can bring this moisture into the dome, or it can condense on the dome roof and fall through the slit. 
 
 If clouds are present in the all-sky camera - which is mounted next to Earthcam on Piñon - be mindful of further cloud accumulation and the direction they are coming from. 
