@@ -294,9 +294,9 @@ renders as:
 
 .. _Observatory-Operations-reST-Style-Reference-Guide-Text:
 
-SAL scripts configuration - Text
---------------------------------
-This formatting should be used when detailing the configuration required for a SAL script. 
+SAL scripts Configuration and Traceback - Text
+----------------------------------------------
+This formatting should be used when detailing the configuration required for a SAL script or displaying an error traceback. 
 Use the parameter ``:caption:`` with the name of the SAL script to display it above the block of configuration. 
 
 The ``code-block::text`` *directive* can be used to preserve the formatting and spacing of text.
@@ -328,7 +328,7 @@ renders in HTML as:
 
 .. _Observatory-Operations-reST-Style-Reference-Guide-Code-Blocks:
 
-Code blocks 
+Code Blocks 
 ----------- 
 
 Use the ``code_block:: python`` or ``code_block:: JSON`` *directive* to adequately display python or JSON code, respectively.  
@@ -402,7 +402,7 @@ is displayed in HTML like:
 
 .. _Observatory-Operations-reST-Style-Reference-Guide-Images:
 
-Images and other media
+Images and other Media
 ======================
 
 Images must be stored in the :file:`./_static/` directory within your working directory, in PNG or GIF formats. 
