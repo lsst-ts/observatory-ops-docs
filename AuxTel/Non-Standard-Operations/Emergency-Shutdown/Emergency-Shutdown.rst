@@ -79,15 +79,15 @@ Shutter Closure
 
 2. Go up to the AuxTel dome (second floor).  Locate the control box at the top of the stairs.  The top black button should close the shutter. Note that the safety gate at the bottom of the stairs needs to be closed and locked in order for this button to operate.
 
-.. figure:: /AuxTel/Non-standard-Operations/_static/Box_at_Top_of_Stairs.jpg
+.. figure:: /AuxTel/Non-Standard-Operations/_static/Box_at_Top_of_Stairs.jpg
   :name: AuxTel control box
 
 3. If the above step fails, locate the AuxTel cRIO box. This box rotates with the AuxTel dome. Open it and identify the cRIO switches.
 
-.. figure:: /AuxTel/Non-standard-Operations/_static/cRIO_box.jpg
+.. figure:: /AuxTel/Non-Standard-Operations/_static/cRIO_box.jpg
   :name: AuxTel cRIO
 
-.. figure:: /AuxTel/Non-standard-Operations/_static/Switches_in_cRIO_box.jpg
+.. figure:: /AuxTel/Non-Standard-Operations/_static/Switches_in_cRIO_box.jpg
   :name: Switches inside AuxTel cRIO
 
 With **EXTREME CAUTION** slide the switch labeled "CLOSE" (yellow arrow) progressively to the left. 
@@ -101,11 +101,11 @@ Shutter Closure without Power
 
 1. In the absence of electrical power, the shutter must be closed manually. On AuxTel first floor there is a crank that fits into a ring at the top of the dome. Rotating the ring manually with the crank assistance close the shutter. Note this is a long and physically demanding procedure and the hand crank just does not have enough torque to lift the weight of the shutter if it is all the way open. If you cannot safely insert the crank into the drive motor and operate the crank, then remove the crank and do not proceed.
 
-.. figure:: /AuxTel/Non-standard-Operations/_static/Hand_Crank.jpg
+.. figure:: /AuxTel/Non-Standard-Operations/_static/Hand_Crank.jpg
   :name: AuxTel Hand Crank
 
 
-.. figure:: /AuxTel/Non-standard-Operations/_static/Top_of_Dome.jpg
+.. figure:: /AuxTel/Non-Standard-Operations/_static/Top_of_Dome.jpg
   :name: Top of Dome
 
 .. _AuxTel-Emergency-Shutdown-Contingency:
