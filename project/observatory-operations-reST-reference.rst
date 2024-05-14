@@ -400,7 +400,7 @@ is displayed in HTML like:
 
 .. _Observatory-Operations-reST-Style-Reference-Guide-Images:
 
-Images and other media
+Images and other Media
 ======================
 
 Images must be stored in the :file:`./_static/` directory within your working directory, in PNG or GIF formats. 
