@@ -103,18 +103,4 @@ consider running this script as it will further exercise the system.
 Other options include: :file:`prepare_for/onsky.py`, :file:`prepare_for/vent.py` or :file:`shutdown_all.py`
 
 
-This procedure was last modified on |today|... |author| replace:: *E. Dennihy*
-.. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *none*
-
-.. _AuxTel-DayTime-Operations-Daytime-Checkout:
-
-.. Links 
-
-.. _`summit's RubinTV`: https://summit-lsp.lsst.codes/rubintv/summit/auxtel 
-.. _`USDF RubinTV`: https://usdf-rsp-dev.slac.stanford.edu/rubintv 
-
-Quick Troubleshooting
-=====================
-
 This procedure was last modified on |today|.

@@ -33,6 +33,10 @@ This document outlines the procedure to restart the MTMount Operation Manager (O
 Restarting the OM may be necessary for troubleshooting or maintenance purposes. 
 The OM is responsible for managing various operations related to the telescope mount. 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 893fb94 (Add AuxTel Troubleshooting summary table)
 .. _TMA-Restart-MTMount-Operation-Manager-Steps:
 
 Procedure Steps
@@ -117,7 +121,7 @@ Wait for up to 5 minutes before proceeding to the next step and check that the O
 6. **Open the EUI Application**: Open the EUI application to resume operations. If you don't know how to open it, refer to the "Opening TMA EUI" 
    section in `this document <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/39690581/How+create+a+VNC+connection+to+TMA+EUI>`__.
 
-
+.. _TMA-Restart-MTMount-Operation-Manager-Post-Condition:
 
 Post-Condition
 ==============
