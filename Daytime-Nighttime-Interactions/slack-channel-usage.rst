@@ -42,11 +42,11 @@ However, should people continually violate the rules (and people fail to police 
 
 For ease of presentation, it was decided to classify the stakeholders by the following roles:
 
-- Observers: The primary operators of observatory systems. 
+- Observers: The primary operators of observatory systems.
   These are primarily the Observing Specialists, but includes any person actively operating the telescope(s).
 
 - Shift Managers: Organizer(s) of the current observing run that perform coordination of observations, relay information between the day and night crews (beyond what is to be included in the end-of-day report), and provide support during the night and day. 
-  They also help to address questions, comments, and filter information between the broader community and summit personnel.
+  They also help to address questions, comments, and filter information between the broader community and summit personnel. Currently filled b
 
 - Summit Personnel: These are people that are actively working on the summit. This category includes the Triage Manager (future role), even if they are not physically located on the summit.
 
@@ -71,10 +71,10 @@ We use the "summit" prefix for channels that are tightly coupled to summit opera
   People providing support are encouraged to do so via Zoom; not via Slack.
 
 - **Tier 1:** Used for asynchronous information communication regarding the state of summit systems. 
-  These channels are telescope specific, do not require immediate response, and are passively monitored by on-shift observers. 
+  These channels are telescope or subsystem specific, do not require immediate response, and are passively monitored by on-shift observers. These include subsystem topic "worklog" channels.
   It is primarily used for communication between summit personnel and externally requested support.
 
-- **Tier 2:** General discussion channels whose information and/or contents are not time critical.
+- **Tier 2:** General discussion channels whose information and/or contents are not time critical operation of the observatory at night.
   The shift managers monitor these channels to relay any pertinent information between external support and the summit teams.
 
 - **Tier 3:** Channels not directly associated with current summit activities. 
