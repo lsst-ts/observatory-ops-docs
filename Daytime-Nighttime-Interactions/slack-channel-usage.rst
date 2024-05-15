@@ -28,13 +28,17 @@ The LSSTC Slack space is used by hundreds of people with varying levels of inter
 The goal of this document is to communicate the acceptable usage of the specific set of channels that are focused on day and nighttime summit operations. 
 The document also describes the channels where more informal discussions and contributions from non-summit staff can be communicated to the observing crew(s). 
 
-In operation, all slack channels are expected to be open to everyone on the lsstcorp Slack domain.
+In operations, all slack channels are expected to be open to everyone on the lsstcorp Slack domain.
 However, should people continually violate the rules (and people fail to police them) then we will have to lock the channels. 
 
 .. important::
-   
-   Slack is not meant to be the primary source of information for summit observing support.
-   When remote support personnel are working directly with summit personnel, direct communication is strongly advised (e.g. Zoom).
+   Three ground rules for usage - read this if nothing else:
+
+   1. Personnel not present on the summit are generally discoraged from using tier 0 and 1 channels, though many exceptions to this are detailed in this page. If you do not know if you should use the tier 0 or 1 channel, do not use it.
+
+   2. Work with summit systems should use public channels, not direct messages with with individuals.
+
+   3. Zoom in place of slack is encouraged for extensive, time critical support.
 
 For ease of presentation, it was decided to classify the stakeholders by the following roles:
 
