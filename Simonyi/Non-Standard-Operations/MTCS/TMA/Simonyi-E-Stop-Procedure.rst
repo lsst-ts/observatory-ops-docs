@@ -14,7 +14,7 @@ Simonyi E-Stop Procedure
 ########################
 
 
-.. _E-Stop-Procedure-Overview:
+.. _Simonyi-E-Stop-Procedure-Overview:
 
 Overview
 ========
@@ -36,13 +36,13 @@ Below you will find a brief overview of the emergency stop procedure, covering:
 - :ref:`How to determine its current status <E-Stop-Procedure-Verifying-Status-E-stop-System>`.
   
 
-.. _E-Stop-Procedure-Where-to-Find-E-stop-Switches:
+.. _Simonyi-E-Stop-Procedure-Where-to-Find-E-stop-Switches:
 
 Where to Find the E-stop Switches
 =================================
 
 
-.. _E-Stop-Procedure-How-Engage-Disengage-E-stop-System:
+.. _Simonyi-E-Stop-Procedure-How-Engage-Disengage-E-stop-System:
 
 How to Engage/Disengage the E-stop System
 =========================================
@@ -51,7 +51,7 @@ How to Engage/Disengage the E-stop System
 To trigger it, simply **push the big red button**. 
 This will be enough to stop halt the telescope and avoid it from accidental/unexpected movements.
 
-.. _E-Stop-Procedure-Verifying-Status-E-stop-System:
+.. _Simonyi-E-Stop-Procedure-Verifying-Status-E-stop-System:
 
 Verifying the Status of the E-stop System 
 =========================================
