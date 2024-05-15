@@ -10,7 +10,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Patrick Ingraham*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Patrick Ingraham, Erik Dennihy*
+.. |contributors| replace:: *Patrick Ingraham, Erik Dennihy, Kevin Fanning*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -28,7 +28,7 @@ The LSSTC Slack space is used by hundreds of people with varying levels of inter
 The goal of this document is to communicate the acceptable usage of the specific set of channels that are focused on day and nighttime summit operations. 
 The document also describes the channels where more informal discussions and contributions from non-summit staff can be communicated to the observing crew(s). 
 
-All slack channels are expected to be open to everyone on the lsstcorp Slack domain.
+In operation, all slack channels are expected to be open to everyone on the lsstcorp Slack domain.
 However, should people continually violate the rules (and people fail to police them) then we will have to lock the channels. 
 
 .. important::
