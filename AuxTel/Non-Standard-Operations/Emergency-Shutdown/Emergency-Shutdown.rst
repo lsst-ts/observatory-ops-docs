@@ -108,7 +108,10 @@ Shutter Closure without Power
 .. figure:: /AuxTel/Non-standard-Operations/_static/Top_of_Dome.jpg
   :name: Top of Dome
 
+<<<<<<< HEAD
 .. _AuxTel-Emergency-Shutdown-Contingency:
+=======
+>>>>>>> 4f1460d (PR comments addressed on AuxTel Emergency Shutdown)
 
 Contingency
 ===========
