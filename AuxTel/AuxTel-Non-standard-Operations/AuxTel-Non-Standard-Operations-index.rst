@@ -34,3 +34,10 @@ AuxTel Non-standard Operations
 
     ATCalSys-Non-standard-Procedures/ATCalSys-Non-standard-Procedures-index.rst
 
+
+.. toctree::
+    :maxdepth: 3
+    :titlesonly:
+    :glob:
+
+    AuxTel-Emergency-Shutdown/AuxTel-Emergency-Shutdown.rst
