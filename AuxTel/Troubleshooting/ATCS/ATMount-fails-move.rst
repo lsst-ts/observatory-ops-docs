@@ -1,12 +1,3 @@
-.. This is a template for troubleshooting when some part of the observatory enters an abnormal state. This comment may be deleted when the template is copied to the destination.
-
-.. Review the README in this procedure's directory on instructions to contribute.
-.. Static objects, such as figures, should be stored in the _static directory. Review the _static/README in this procedure's directory on instructions to contribute.
-.. Do not remove the comments that describe each section. They are included to provide guidance to contributors.
-.. Do not remove other content provided in the templates, such as a section. Instead, comment out the content and include comments to explain the situation. For example:
-	- If a section within the template is not needed, comment out the section title and label reference. Include a comment explaining why this is not required.
-    - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
-
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Paulina-Venegas-S.*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
@@ -29,8 +20,6 @@ AuxTel Mount Fails to Move
 Overview
 ========
 
-.. In one or two sentences, explain when this troubleshooting procedure needs to be used. Describe the symptoms that the user sees to use this procedure. 
-
 This troubleshooting procedure is necessary when the AuxTel mount experiences a failure to move, specifically due to the **azimuth max velocity error exceeded**. 
 Users will observe the telescope remaining stuck with ATMCS reporting the fault.
 
@@ -38,10 +27,6 @@ Users will observe the telescope remaining stuck with ATMCS reporting the fault.
 
 Error diagnosis
 ===============
-
-.. This section should provide simple overview of known or suspected causes for the error.
-.. It is preferred to include them as a bulleted or enumerated list.
-.. Post screenshots of the error state or relevant tracebacks.
 
 When attempting to move the telescope via point_azel or Scheduler the faults are the followings:
 - The ATMCS get FAULT state ,  ATMCS provides specific error messages indicating faults in azimuth drives #1 and #2, with both fault bits activated.
@@ -63,10 +48,6 @@ Procedure Steps
 
 .. todo::
    Make sure everything is in a safe or idle state before troubleshooting. 
-
-.. This section should include the procedure. There is no strict formatting or structure required for procedures. It is left to the authors to decide which format and structure is most relevant.
-.. In the case of more complicated procedures, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked procedures to be performed in the specified order.
-.. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
 
 To resume observations, nudge the telescope out of its position by slewing only in altitude to lower elevation. Then, nudge it incrementally in azimuth, starting with 1-2 degree increments to then increasing to 20-degree increments.
 
