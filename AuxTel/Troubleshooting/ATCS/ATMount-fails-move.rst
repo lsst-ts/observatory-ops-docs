@@ -20,18 +20,21 @@
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
-#########################
-Troubleshooting Template
-#########################
+##########################
+AuxTel Mount Fails to Move
+##########################
+
+.. _AuxTel-Mount-Fails-to-Move-Procedure-Overview:
 
 Overview
 ========
 
 .. In one or two sentences, explain when this troubleshooting procedure needs to be used. Describe the symptoms that the user sees to use this procedure. 
 
-This troubleshooting procedure is necessary when the AuxTel mount experiences a failure to move, specifically due to the azimuth max velocity error being exceeded. Users may observe the telescope remaining stuck a with ATMCS reporting faults and indicating inability to track.
+This troubleshooting procedure is necessary when the AuxTel mount experiences a failure to move, specifically due to the **azimuth max velocity error exceeded**. 
+Users will observe the telescope remaining stuck with ATMCS reporting the fault.
 
-.. _Title-of-Troubleshooting-Procedure-Error-Diagnosis:
+.. _AuxTel-Mount-Fails-to-Move-Procedure-Error-Diagnosis:
 
 Error diagnosis
 ===============
@@ -40,95 +43,60 @@ Error diagnosis
 .. It is preferred to include them as a bulleted or enumerated list.
 .. Post screenshots of the error state or relevant tracebacks.
 
-- When attempting to move the telescope, the ATMCS (and ATPtg) get FAULT state due to the azimuth max velocity error being exceeded. ATMCS provides specific error messages indicating faults in azimuth drives #1 and #2, with both fault bits activated.
+When attempting to move the telescope via point_azel or Scheduler the faults are the followings:
+- The ATMCS get FAULT state ,  ATMCS provides specific error messages indicating faults in azimuth drives #1 and #2, with both fault bits activated.
+- The ATPtgg et FAULT state
 
-
-.. _Title-of-Troubleshooting-Procedure-Procedure-Steps:
-
-
-.. note::
-    This is a procedure template file that is associated with a template directory structure. This note should be deleted when the section is properly populated.
-
-.. _Title-of-Troubleshooting-Procedure-Overview:
-
-1. Fault event in ATMCS while in tracking enable state.  Azimuth max velocity error  exceeded.
-/ATMCS Real-Time Application.vi/MOUNTDEV.vi/Generic Device.lvclass:Run.vi:1530004/MOUNTDEV.lvclass:NormalDeviceLogic.vi/MOUNTDEV.lvclass:ProcessDeviceLogicStateTransitions.vi/MntcTrackEnabledState.lvclass:ProcessStateTransition.vi/mount_fault_state_procedure.vi
+.. error::
+    Fault event in ATMCS while in tracking enable state.  Azimuth max velocity error  exceeded.
+    /ATMCS Real-Time Application.vi/MOUNTDEV.vi/Generic Device.lvclass:Run.vi:1530004/MOUNTDEV.lvclass:NormalDeviceLogic.vi/MOUNTDEV.lvclass:ProcessDeviceLogicStateTransitions.vi/MntcTrackEnabledState.lvclass:ProcessStateTransition.vi/mount_fault_state_procedure.vi
  
-2. Fault event in ATMCS while in tracking enable state.  Azimuth drive #2 fault bit is ON.  Azimuth drive #1 fault bit is ON.  Azimuth max velocity error  exceeded.
-/ATMCS Real-Time Application.vi/MOUNTDEV.vi/Generic Device.lvclass:Run.vi:1530004/MOUNTDEV.lvclass:NormalDeviceLogic.vi/MOUNTDEV.lvclass:ProcessDeviceLogicStateTransitions.vi/MntcTrackEnabledState.lvclass:ProcessStateTransition.vi/mount_fault_state_procedure.vi
+    Fault event in ATMCS while in tracking enable state.  Azimuth drive #2 fault bit is ON.  Azimuth drive #1 fault bit is ON.  Azimuth max velocity error  exceeded.
+    /ATMCS Real-Time Application.vi/MOUNTDEV.vi/Generic Device.lvclass:Run.vi:1530004/MOUNTDEV.lvclass:NormalDeviceLogic.vi/MOUNTDEV.lvclass:ProcessDeviceLogicStateTransitions.vi/MntcTrackEnabledState.lvclass:ProcessStateTransition.vi/mount_fault_state_procedure.vi
+
+
+.. _AuxTel-Mount-Fails-to-Move-Procedure-Procedure-Steps:
+
 
 Procedure Steps
 ===============
 
 .. todo::
-   Make sure everything is in a safe or idle state before troubleshooting. Describe relevant safety steps if necessary.
+   Make sure everything is in a safe or idle state before troubleshooting. 
 
 .. This section should include the procedure. There is no strict formatting or structure required for procedures. It is left to the authors to decide which format and structure is most relevant.
 .. In the case of more complicated procedures, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked procedures to be performed in the specified order.
 .. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
 
-This paragraph describes some general guidance for this procedure. This paragraph is optional depending on its usefulness and the complexity of the procedure.
+To resume observations, nudge the telescope out of its position by slewing only in altitude to lower elevation. Then, nudge it incrementally in azimuth, starting with 1-2 degree increments to then increasing to 20-degree increments.
 
-In the case of a very straightforward procedure, a simple numbered list could be used, like as follows:
+.. note::
+    From LOVE.
 
-.. warning::
-    For this example, this step is critical.
+.. _AuxTel-Mount-Fails-to-Move-Procedure-Critical-Step-1:
 
-.. _Title-of-Troubleshooting-Procedure-Critical-Step-1:
+#. Stop the scheduler (if running) and clear any pending scripts from the queue by sending **auxtel/scheduler/stop.py**.
 
-#. This is Step 1 in a enumerated list. It happens to be very important.
+#. Cycle the **ATTCS:ATMCS** and **ATTCS:ATPtg**, if necessary, to CSCs to standby and back to enabled.
 
-#. This is Step 2.
-
-#. This is step 3.
-
-#. Step 4 has two branches, but Step 5 is independent of Step 4.
-
-   a. If Condition A, do the following action in :ref:`Condition A Instructions <Title-of-Troubleshooting-Procedure-Condition-A-for-Step-4>`.
+#. Slew the telescope in small increments using the **auxtel/point_azel.py** script.
+   a. If the telescope is pointing at a higher elevation, move it lower.
+   b. Start with azimuth and elevation coordinates close to the current position, e.g., Az: 57.64 deg move to Az= 58 deg.
+   c. If the initial azimuth-only nudge fails, try nudging in the opposite azimuth direction.
+   d. Gradually increase the amplitude of azimuth slews.
 
    b. If Condition B, do the following action in :ref:`Condition B instructions <Title-of-Troubleshooting-Procedure-Condition-B-for-Step-4>`.
 
    .. _Title-of-Troubleshooting-Procedure-Final-Step:
 
-#. Complete the procedure's final step.
+#. Example sequence of successful slews:
 
++------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+| **Steps**  | 1  | 2  | 3 | 4 | 5  | 6 | 7  | 8 | 9  | 10  | 11  | 12  |
++------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+| **AZ [deg]** | 57.64 | 58 | 60 | 58 | 56 | 54 | 40 | 20 | 1 | 80 | 120 | 150|
++------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+| **EL [deg]** | 45 | 45 |  45 |  45 |  45 |  45 |  45 |  45 |  45 |  45 |  45 |  60 | 
++------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
 
-.. _Title-of-Troubleshooting-Procedure-Condition-A-for-Step-4:
-
-Condition A for Step 4
-----------------------
-
-This is an example of a sub-section, used when Condition A applied. Complete the steps in this section:
-
-#. Step 1 for Condition A.
-#. Return to :ref:`Step 5 <Title-of-Troubleshooting-Procedure-Final-Step>` in the section above.
-
-.. _Title-of-Troubleshooting-Procedure-Condition-B-for-Step-4:
-
-Condition B for Step 4
-----------------------
-
-This is an example of a sub-section, used when Condition B applied. Complete the steps in this section:
-
-#. Step 1 for Condition B.
-#. Return to :ref:`Step 5 <Title-of-Troubleshooting-Procedure-Final-Step>` in the section above.
-
-.. _Title-of-Troubleshooting-Procedure-Post-Condition:
-
-Post-Condition
-==============
-
-.. This section should provide a simple overview of conditions or results after executing the procedure; for example, state of equipment or resulting data products.
-.. It is preferred to include them as a bulleted or enumerated list.
-.. Please provide screenshots of the software status or relevant display windows to confirm.
-.. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
-
-- This is an example bullet of a post-condition (Telescope azimuth is 0 degrees.)
-- This is another example of a post-condition (This procedure leaves the telescope with the E-stop activated.)
-
-.. _Title-of-Troubleshooting-Procedure-Contingency:
-
-Contingency
-===========
-
-If the procedure was not successful, report the issue in [relevant Slack channel] and/or activate the :ref:`Out of hours support <Safety-out-of-hours-support>`.
+#. Resume the Scheduler if desired.
