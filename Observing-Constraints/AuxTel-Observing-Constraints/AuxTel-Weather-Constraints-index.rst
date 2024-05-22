@@ -16,8 +16,7 @@
 .. _`Gemini cloud cameras`: https://www.gemini.edu/sciops/telescopes-and-sites/weather/cerro-pachon/cloud-cam/stills.html
 .. _`site webcams`: https://noirlab.edu/science/observing-noirlab/weather-webcams
 .. _`SOAR weather station`: https://noirlab.edu/science/observing-noirlab/weather-webcams/cerro-pachon/environmental-conditions
-.. _`Rubin TV`: https://roundtable.lsst.codes/rubintv/summit/auxtel/ 
-
+.. _`RubinTV: https://summit-lsp.lsst.codes/rubintv/summit/auxtel 
 
 ##########################
 AuxTel Weather Constraints
