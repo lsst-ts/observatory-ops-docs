@@ -28,7 +28,8 @@ Users will observe the telescope remaining stuck with ATMCS reporting the fault.
 Error diagnosis
 ===============
 
-When attempting to move the telescope via point_azel or Scheduler the faults are the followings:
+When attempting to move the telescope via point_azel or Scheduler, the faults are the followings:
+
 - The ATMCS get FAULT state ,  ATMCS provides specific error messages indicating faults in azimuth drives #1 and #2, with both fault bits activated.
 - The ATPtgg et FAULT state
 
@@ -66,12 +67,7 @@ To resume observations, nudge the telescope out of its position by slewing only 
    c. If the initial azimuth-only nudge fails, try nudging in the opposite azimuth direction.
    d. Gradually increase the amplitude of azimuth slews.
 
-   b. If Condition B, do the following action in :ref:`Condition B instructions <Title-of-Troubleshooting-Procedure-Condition-B-for-Step-4>`.
-
-   .. _Title-of-Troubleshooting-Procedure-Final-Step:
-
 #. Example sequence of successful slews:
-
 +------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
 | **Steps**  | 1  | 2  | 3 | 4 | 5  | 6 | 7  | 8 | 9  | 10  | 11  | 12  |
 +------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
@@ -79,5 +75,7 @@ To resume observations, nudge the telescope out of its position by slewing only 
 +------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
 | **EL [deg]** | 45 | 45 |  45 |  45 |  45 |  45 |  45 |  45 |  45 |  45 |  45 |  60 | 
 +------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
-
 #. Resume the Scheduler if desired.
+
+
+**pending git commit -m "Cleaning script , minor change of organization"
