@@ -73,13 +73,13 @@ To resume observations, nudge the telescope out of its position by slewing only 
 
 #. Example sequence of successful slews:
 
-+------------+------------+-----------+
-| step       | Header 2   | Header 3  |
-+============+------------+-----------+
-| body row 1 | column 2   | column 3  |
-+============+------------+-----------+
-| body row 2 | Cells may span columns.|
-+------------+------------+-----------+
++------------+-----+-----+
+| step       |  1  |  2  |
++============+---------+-----+
+| Azimuth    |  57.64  |  58  |
++============+------------+---+
+| Elevation  |  45     |  45  |
++------------+------------+---+
 
 
 | step | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |
