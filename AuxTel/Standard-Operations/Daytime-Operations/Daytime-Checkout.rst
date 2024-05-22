@@ -1,4 +1,4 @@
-.. |author| replace:: *E. Dennihy*
+g.. |author| replace:: *E. Dennihy*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
 .. |contributors| replace:: *OS team*
 
