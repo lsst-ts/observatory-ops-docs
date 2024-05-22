@@ -57,17 +57,22 @@ To resume observations, nudge the telescope out of its position by slewing only 
 
 .. _AuxTel-Mount-Fails-to-Move-Procedure-Critical-Step-1:
 
-#. Stop the scheduler (if running) and clear any pending scripts from the queue by sending **auxtel/scheduler/stop.py**.
+#. Stop the Scheduler and clear any pending scripts. From the queue by send the **auxtel/scheduler/stop.py** script.
 
 #. Cycle the **ATTCS:ATMCS** and **ATTCS:ATPtg**, if necessary, to CSCs to standby and back to enabled.
 
 #. Slew the telescope in small increments using the **auxtel/point_azel.py** script.
+
    a. If the telescope is pointing at a higher elevation, move it lower.
+
    b. Start with azimuth and elevation coordinates close to the current position, e.g., Az: 57.64 deg move to Az= 58 deg.
+
    c. If the initial azimuth-only nudge fails, try nudging in the opposite azimuth direction.
+
    d. Gradually increase the amplitude of azimuth slews.
 
 #. Example sequence of successful slews:
+
 +------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
 | **Steps**  | 1  | 2  | 3 | 4 | 5  | 6 | 7  | 8 | 9  | 10  | 11  | 12  |
 +------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
