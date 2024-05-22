@@ -60,7 +60,7 @@ and ensure that they are ingested by the *OODS*.
 Verify that the bias appears on the `summit's RubinTV`_. 
 In case the image fails to appear, promptly communicate the issue in the Slack channel *#summit-auxtel*. 
 
-You can also check if it's being ingested at SLAC facility using `USDF RubinTV`_.
+You can also check if images are arriving correctly at Rubin's SLAC facility using `USDF RubinTV`_.
 
 *auxtel/enable_atcs.py*
 =======================
