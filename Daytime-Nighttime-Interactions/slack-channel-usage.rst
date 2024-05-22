@@ -46,13 +46,13 @@ For ease of presentation, it was decided to classify the stakeholders by the fol
   These are primarily the Observing Specialists, but includes any person actively operating the telescope(s).
 
 - Shift Managers: Organizer(s) of the current observing run that perform coordination of observations, relay information between the day and night crews (beyond what is to be included in the end-of-day report), and provide support during the night and day. 
-  They also help to address questions, comments, and filter information between the broader community and summit personnel. Currently filled b
+  They also help to address questions, comments, and filter information between the broader community and summit personnel. Currently filled by the night planner.
 
 - Summit Personnel: These are people that are actively working on the summit. This category includes the Triage Manager (future role), even if they are not physically located on the summit.
 
-- Off-site Summit Support: Personnel that call in to assist or perform summit-based activities but remotely (e.g. from the base or Tucson)
+- Off-site Summit Support: Personnel that call in to assist or perform summit-based activities but remotely (e.g. from the base or Tucson). These are personnel actively on a shift to support or a subsystem owner working with their system.
 
-- Project Personnel: General project members that have slack accounts
+- Project Personnel: General project members that have slack accounts. This is the default category for most project members and individuals generally advance to other categories when actively on shift.
 
 - External Contributors: People that share the same slack user-space but do not participate in summit operations (e.g. DESC).
 
