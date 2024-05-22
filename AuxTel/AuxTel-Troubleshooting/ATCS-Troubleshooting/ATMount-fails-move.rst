@@ -53,9 +53,8 @@ Procedure Steps
 To resume observations, nudge the telescope out of its position by slewing only in altitude to lower elevation. Then, nudge it incrementally in azimuth, starting with 1-2 degree increments to then increasing to 20-degree increments.
 
 .. note::
-    From LOVE.
-
-.. _AuxTel-Mount-Fails-to-Move-Procedure-Critical-Step-1:
+    From LOVE
+..
 
 #. Stop the Scheduler and clear any pending scripts. From the queue by send the **auxtel/scheduler/stop.py** script.
 
