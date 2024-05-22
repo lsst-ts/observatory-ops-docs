@@ -73,9 +73,9 @@ To resume observations, nudge the telescope out of its position by slewing only 
 
 #. Example sequence of successful slews:
 
-| Step | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |
+| step | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| **Az &deg** | 57.64 | 58 | 60 | 58 | 56 | 54 | 40 | 20 | 1 | 80 | 120 | 150 |
-| **El &deg** | 45 | 45 | 45 | 45 | 45 | 45 | 45 | 45 | 45 | 45 | 45 | 60 |
+| **Az** | 57.64 | 58 | 60 | 58 | 56 | 54 | 40 | 20 | 1 | 80 | 120 | 150 |
+| **El** | 45 | 45 | 45 | 45 | 45 | 45 | 45 | 45 | 45 | 45 | 45 | 60 |
 
 5. Resume the Scheduler if desired.
