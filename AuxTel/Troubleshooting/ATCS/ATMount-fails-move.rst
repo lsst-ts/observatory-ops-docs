@@ -83,4 +83,14 @@ To resume observations, nudge the telescope out of its position by slewing only 
 #. Resume the Scheduler if desired.
 
 
-**pending git commit -m "Cleaning script , minor change of organization"
++------------+------------+-----------+
+| Header 1   | Header 2   | Header 3  |
++============+============+===========+
+| body row 1 | column 2   | column 3  |
++------------+------------+-----------+
+| body row 2 | Cells may span columns.|
++------------+------------+-----------+
+| body row 3 | Cells may  | - Cells   |
++------------+ span rows. | - contain |
+| body row 4 |            | - blocks. |
++------------+------------+-----------+
