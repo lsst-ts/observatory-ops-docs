@@ -4,12 +4,15 @@
 
 .. _AuxTel-DayTime-Operations-Daytime-Checkout:
 
+.. Links 
+
+.. _`summit's RubinTV`: https://summit-lsp.lsst.codes/rubintv/summit/auxtel 
+.. _`USDF RubinTV`: https://usdf-rsp-dev.slac.stanford.edu/rubintv 
+
 ##################
 Daytime Checkout 
 ##################
 
-.. _summit's RubinTV: https://summit-lsp.lsst.codes/rubintv/summit/auxtel 
-.. _USDF RubinTV: https://usdf-rsp-dev.slac.stanford.edu/rubintv 
 
 To ensure the Auxiliary Telescope is fully operational and ready for nighttime use, 
 we have created a series of SAL Scripts that successively checkout each of the major components, 
