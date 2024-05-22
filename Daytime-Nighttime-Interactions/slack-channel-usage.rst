@@ -68,11 +68,11 @@ We use the "summit" prefix for channels that are tightly coupled to summit opera
 - **Tier 0:** Real-time information that the applicable roles are always monitoring and are expected to immediately react to (when on shift and interacting with summit systems). 
   Responding to a message may result in a loss of sky time, which is acceptable. 
   Communication in this area meant to be extremely curt. 
-  People providing support are encouraged to do so via Zoom; not via Slack.
+  People providing urgent support are encouraged to do so via Zoom; not via Slack.
 
 - **Tier 1:** Used for asynchronous information communication regarding the state of summit systems. 
   These channels are telescope or subsystem specific, do not require immediate response, and are passively monitored by on-shift observers. These include subsystem topic "worklog" channels.
-  It is primarily used for communication between summit personnel and externally requested support.
+  It is primarily used for communication between summit personnel and externally **requested** support.
 
 - **Tier 2:** General discussion channels whose information and/or contents are not time critical operation of the observatory at night.
   The shift managers monitor these channels to relay any pertinent information between external support and the summit teams.
