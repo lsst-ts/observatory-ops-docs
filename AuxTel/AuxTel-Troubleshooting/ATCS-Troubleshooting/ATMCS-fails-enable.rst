@@ -46,18 +46,18 @@ First step is to check if e-stop is enabled. If it is, release it using the prov
 
 1. The only way to check if the e-stop is engaged is from the ATMCS EUI.  Either in the computer that can be found on top of a table on the dome pier, or via a remote Microsoft Desktop connection with **aux-brick01.cp.lsst.org** (user and password are in the AuxTel 1Password Vault). 
 
-.. image:: ~/observatory-ops-docs/_static/2023-09-14-brick.png
+.. image:: _static/2023-09-14-brick.png
    :alt: ATMCS EUI
-   :width: 300px
-   :height: 200px
+   :width: 400px
+   :height: 540px
 ..
 
 2. Open the LSST Auxiliary Telescope MCS & Pneumatics window and under mount tab, the Emergency Stop indicator will be red and reading e-stop if's engaged.
 
-.. image:: ~/observatory-ops-docs/_static/e-stop-indicator-red.jpeg
+.. image:: _static/e-stop-indicator-red.jpeg
    :alt: Emergency Stop indicator
-   :width: 300px
-   :height: 200px
+   :width: 400px
+   :height: 350px
 ..
 
 3. Proceed to release the e-stop following the instructions in `E-Stop-Procedure`_.
