@@ -28,7 +28,7 @@ AT M1 Cover fails to open
 Overview
 ========
 
-This procedure explains the steps to follow when AuxTel M1 Cover fails to open during Daytime checkout or at start of night. 
+This procedure explains the steps to follow when AuxTel M1 Cover fails to open during Daytime checkout or at the start of night. 
 
 Error Diagnosis
 ===============
@@ -66,15 +66,16 @@ This procedure leaves the telescope with the M1 cover open.
 
 Procedure Steps
 ===============
-.. image:: _static/2023-09-14-brick.png
-.. _XXM1:https://confluence.lsstcorp.org/download/attachments/210241325/M1%20cover%20reset%20using%20EUI.mp4?version=3&modificationDate=1700889964000&api=v2
+
+
+.. _https://confluence.lsstcorp.org/download/attachments/210241325/M1%20cover%20reset%20using%20EUI.mp4?version=3&modificationDate=1700889964000&api=v2
 
 
 
 Recovering the M1 Cover Controller state and clearing the fault must be done from the ATMCS EUI.
 
 #. Step 1.
-_XXM1 
+
 Ensure the ATCS CSCs are all set to STANDBY.
 The easiest way to do this is to run the standby_atcs.py script from the ATQueue.
 Do not proceed to the next step until the CSCs are set to STANDBY, otherwise you will need to reset both the CSC and EUI to regain communication. 
@@ -89,17 +90,13 @@ Detailed instructions on how to install and setup the ATMCS EUI using Microsoft 
 Procedure to reset M1 Cover state using the EUI is shown in video here: 
 
 .. this is a link to a video:
-:ref:`https://confluence.lsstcorp.org/download/attachments/210241325/M1%20cover%20reset%20using%20EUI.mp4?version=3&modificationDate=1700889964000&api=v2`
+
+.. _video-recovery:
+
+.. _https://confluence.lsstcorp.org/download/attachments/210241325/M1%20cover%20reset%20using%20EUI.mp4?version=3&modificationDate=1700889964000&api=v2
+
+
+:ref:`https://confluence.lsstcorp.org/download/attachments/210241325/M1%20cover%20reset%20using%20EUI.mp4?version=3&modificationDate=1700889964000&api=v2 <video-recovery>`
 
  
-Troubleshooting
-===============
-
-.. This section should include troubleshooting information. Information in this section should be strictly related to this procedure.
-
-.. If there is no content for this section, remove the indentation on the following line instead of deleting this sub-section.
-
-     No troubleshooting information is applicable to this procedure.
-
-- This is an example bullet (If the following error is given during :ref:`Step 5 <Title-of-Procedure-Final-Step>`, resolve it using a specified action.)
 
