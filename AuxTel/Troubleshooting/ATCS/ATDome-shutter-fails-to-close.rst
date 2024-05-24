@@ -56,64 +56,49 @@ Procedure Steps
 This paragraph describes some general guidance for this procedure. This paragraph is optional depending on its usefulness and the complexity of the procedure.
 
 In the case of a very straightforward procedure, a simple numbered list could be used, like as follows:
+Step 1.
 
-.. warning::
-    For this example, this step is critical.
-
-.. _Title-of-Troubleshooting-Procedure-Critical-Step-1:
-
-#. Step 1:
 Go up to the AuxTel dome.  Locate the control box at the top of the stairs. The top black button should close the shutter:
+
 
 .. image:: _static/Box_at_Top_of_Stairs.jpeg
 
-#. This is Step 2.
 
-#. This is step 3.
+Step 2.
 
-#. Step 4 has two branches, but Step 5 is independent of Step 4.
+If this fails, locate the cRIO box, which rotates with the AuxTel dome.  It looks like this:
 
-   a. If Condition A, do the following action in :ref:`Condition A Instructions <Title-of-Troubleshooting-Procedure-Condition-A-for-Step-4>`.
-
-   b. If Condition B, do the following action in :ref:`Condition B instructions <Title-of-Troubleshooting-Procedure-Condition-B-for-Step-4>`.
-
-   .. _Title-of-Troubleshooting-Procedure-Final-Step:
-
-#. Complete the procedure's final step.
+ 
+ 
+ .. image:: _static/cRIO_box.jpeg
 
 
-.. _Title-of-Troubleshooting-Procedure-Condition-A-for-Step-4:
+Inside this box is a series of switches:
 
-Condition A for Step 4
-----------------------
+.. image:: _static/Switches_in_cRIO_box.jpeg
 
-This is an example of a sub-section, used when Condition A applied. Complete the steps in this section:
 
-#. Step 1 for Condition A.
-#. Return to :ref:`Step 5 <Title-of-Troubleshooting-Procedure-Final-Step>` in the section above.
 
-.. _Title-of-Troubleshooting-Procedure-Condition-B-for-Step-4:
+Sliding the switch labeled "CLOSE" to the left  (yellow arrow) should close the shutter.  
+This must be done with EXTREME CAUTION.  This is a low-level control switch and there are no limit switches or fail-safes. 
+You can easily over drive the shutter until it bangs into the lower shutter.  You can also damage the drive.  
+If you do this, it is best to stop the shutter 1 cm or so before it is fully closed to prevent this type of damage.
 
-Condition B for Step 4
-----------------------
+Step 3.
 
-This is an example of a sub-section, used when Condition B applied. Complete the steps in this section:
+The steps above should close the shutter if there is power. As a last resort, for example if power has been lost, the shutter can be closed manually. 
+There is a crank on the first floor which fits into a ring at the top of the dome (see pictures below). 
+With these you can close the shutter manually.  Note that this is a tedious procedure that might take hours.
 
-#. Step 1 for Condition B.
-#. Return to :ref:`Step 5 <Title-of-Troubleshooting-Procedure-Final-Step>` in the section above.
-
-.. _Title-of-Troubleshooting-Procedure-Post-Condition:
+.. image:: _static/Top_of_Dome.jpeg  
+  
+    
+.. image:: _static/Hand_Crank.jpeg
 
 Post-Condition
 ==============
 
-.. This section should provide a simple overview of conditions or results after executing the procedure; for example, state of equipment or resulting data products.
-.. It is preferred to include them as a bulleted or enumerated list.
-.. Please provide screenshots of the software status or relevant display windows to confirm.
-.. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
-
-- This is an example bullet of a post-condition (Telescope azimuth is 0 degrees.)
-- This is another example of a post-condition (This procedure leaves the telescope with the E-stop activated.)
+- The Dome Shutter should be closed.
 
 .. _Title-of-Troubleshooting-Procedure-Contingency:
 
