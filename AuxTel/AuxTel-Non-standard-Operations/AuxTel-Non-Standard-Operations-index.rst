@@ -4,6 +4,13 @@
 AuxTel Non-standard Operations
 ##############################
 
+.. toctree::
+    :maxdepth: 3
+    :titlesonly:
+    :glob:
+
+    AuxTel-EUI-Access/AuxTel-EUI-Access.rst
+
 
 .. toctree::
     :maxdepth: 3
