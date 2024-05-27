@@ -36,12 +36,9 @@ A comprehensive list of common faults will be displayed here along their trouble
      - Check the ATMCS EUI for a red Emergency Stop indicator via the dome pier computer or remote connection to aux-brick01.cp.lsst.org. If engaged, release it using the provided procedure, confirm it's released, and re-run auxtel/enable_atcs.py from LOVE.
    * - AT Instrumentation
      - ATCamera Recovering from Fault State
-     - a parameter (temperature, voltage, current, etc.) exceeds its tolerance.
+     - When a parameter (temperature, voltage, current, etc.) exceeds its tolerance.
      - Identify the problematic CCS subsystem, review alerts and logs, and determine if the issue is transitory or requires expert diagnosis. Create an OBS ticket to track the problem. Clear alerts in the CCS subsystem and the Master Control Module (MCM). Clear the fault in the ocs-bridge and switch it to OFFLINE_AVAILABLE mode.
-   * - Row X, column 1
-     - Row X, column 2
-     - Row X, column 3
-     - Row X, column 4
+  
 
 
 Per component
@@ -60,7 +57,7 @@ Per component
     :titlesonly:
     :glob:
 
-    LATISS-Troubleshooting/LATISS-Troubleshooting-index.rst
+    LATISS-Troubleshooting/LATISS-Troubleshooting-index.rst 
 
 
 .. toctree::
