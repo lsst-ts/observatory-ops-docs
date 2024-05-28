@@ -38,6 +38,10 @@ A comprehensive list of common faults will be displayed here along their trouble
      - ATCamera Recovering from Fault State
      - When a parameter (temperature, voltage, current, etc.) exceeds its tolerance.
      - Identify the problematic CCS subsystem, review alerts and logs, and determine if the issue is transitory or requires expert diagnosis. Create an OBS ticket to track the problem. Clear alerts in the CCS subsystem and the Master Control Module (MCM). Clear the fault in the ocs-bridge and switch it to OFFLINE_AVAILABLE mode.
+   * - AT Calibration System
+     - ATWhiteLight has thrown the error below saying the light failed to come on when it was on 
+     - During Calibrations
+     - Try re-adding the calibration block, power_on_atcalsys should register that the white light lamp is on and calibrations can continue successfully.
   
 
 
