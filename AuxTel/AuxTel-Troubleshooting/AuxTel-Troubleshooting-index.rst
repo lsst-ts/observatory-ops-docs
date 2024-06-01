@@ -26,6 +26,10 @@ A comprehensive list of common faults will be displayed here along their trouble
      - AT out of focus after a 'WEP' failure -> Clear ATAOS offsets + 'WEP'
      - Observing at night
      - Pause ATScriptQueue. Clear all ATAOS offsets for the x, y, and z axes. Run the standard scripts "offset_ataos" and "latiss_wep_align" to realign the mirror and focus the system.
+   * - 
+     - AuxTel M1 Cover Fails to Open.
+     - Daytime Checkout - Pneumatics / Calibrations / Prepare for on sky
+     - Set all ATCS CSCs to STANDBY using standby_atcs.py. Then, log in to the ATMCS EUI via Microsoft Remote Desktop or the control computer in the AuxTel dome. Follow the instructions from video: https://confluence.lsstcorp.org/download/attachments/210241325/M1%20cover%20reset%20using%20EUI.mp4?version=3&modificationDate=1700889964000&api=v2
    * - AT Mount
      - ATHexapod fails to enable - No connection to athexapod controller
      - Daytime Checkout -Enabling ATCS
