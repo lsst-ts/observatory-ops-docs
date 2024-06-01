@@ -15,10 +15,6 @@ A comprehensive list of common faults will be displayed here along their trouble
      - Happens mostly when
      - Troubleshooting procedure
    * - ATCS
-     - ATMount fails to move - and Azimuth Max Velocity error exceeded
-     - Observing at night
-     - Stop the scheduler. Cycle ATTCS:ATMCS (and ATTCS:ATPtg if needed) to standby and back to enabled. Use auxtel/point_azel.py to slew the telescope incrementally, adjusting azimuth and elevation as needed, and increase azimuth slews if the mount is stuck..
-   * - 
      - Scripts failed with a "Rejected: Rotator out of range" error and ATPtg might go into FAULT. 
      - Observing at night
      - recover ATPtg and queue top correct_pointing.py
@@ -31,6 +27,14 @@ A comprehensive list of common faults will be displayed here along their trouble
      - Daytime Checkout - Pneumatics / Calibrations / Prepare for on sky
      - Set all ATCS CSCs to STANDBY using standby_atcs.py. Then, log in to the ATMCS EUI via Microsoft Remote Desktop or the control computer in the AuxTel dome. Follow the instructions from video: https://confluence.lsstcorp.org/download/attachments/210241325/M1%20cover%20reset%20using%20EUI.mp4?version=3&modificationDate=1700889964000&api=v2
    * - AT Mount
+     - ATMount fails to move and times out 
+     - Observing at night
+     - Stop the scheduler and clear the queue with auxtel/scheduler/stop.py, cycle ATTCS:ATPtg CSC to standby and enabled, then confirm mount responsiveness by running auxtel/point_azel.py and observing mount motion.
+   * - 
+     - ATMount fails to move - and Azimuth Max Velocity error exceeded
+     - Observing at night
+     - Stop the scheduler with auxtel/scheduler/stop.py, Cycle ATTCS:ATMCS and A(TTCS:ATPtg if needed) CSCs, then use auxtel/point_azel.py to slew the telescope to a lower elevation and adjust azimuth in increasing increments.
+   * - 
      - ATHexapod fails to enable - No connection to athexapod controller
      - Daytime Checkout -Enabling ATCS
      - Turn off the C-887 Hexapod Controller in the Main ATCS cabinet on the first level of the AuxTel dome, wait 3 minutes, then turn it back on. Transition ATHexapod CSC from STANDBY to ENABLE, and fill out the OBS-243 ticket with relevant details about the system state and prior maintenance.
@@ -46,7 +50,11 @@ A comprehensive list of common faults will be displayed here along their trouble
      - ATWhiteLight has thrown the error below saying the light failed to come on when it was on 
      - During Calibrations
      - Try re-adding the calibration block, power_on_atcalsys should register that the white light lamp is on and calibrations can continue successfully.
-  
+   * - AT Dome
+     - ATDome shutter fails to close.
+     - While trying to move the telescope with point_azel.
+     - Try the top black button on the control box at the dome's top, if unsuccessful, then try the "CLOSE" switch on the cRIO box with caution. If all else fails, use the manual crank on the first floor, though it's a slow process.
+   
 
 
 Per component
