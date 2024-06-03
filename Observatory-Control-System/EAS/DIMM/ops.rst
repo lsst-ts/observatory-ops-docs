@@ -1,6 +1,6 @@
 .. |author| replace:: *isotuela*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *none*
+.. |contributors| replace:: *Kevin Fanning*
 
 .. _DIMM-Ops:
 
@@ -16,7 +16,7 @@ produce seeing values.
 At dawn, the telescope will park itself, and the dome will close. 
 This cycle repeats the following evening, unless :ref:`manually shutdown <Dimm-Shutdown>`, when the sun sets.
 
-The *ameba* program is continously checking that the environment conditions are stable and clear, based on the data delivered by *tt-meteo*.
+The *ameba* program is continuously checking that the environment conditions are stable and clear, based on the data delivered by *tt-meteo*.
 In case of adverse weather, *ameba* will close the dome until conditions clear. 
 
 Currently, there is no incoming Cerro Pachón weather information feeding the *tt-meteo* program. 
@@ -106,8 +106,27 @@ and within the OpenTPL:
         AUTH OK 0 0
         1 set ameba.mode=1
         
+It is common to see ``EVENT WARN`` messages regarding the state of ameba. This does not necessarily indicate an issue.
 
-Verify the DIMM CSC is enabled and data is appearing in the EFD.
+.. admonition:: Status of Ameba
+
+        The status of ameba can be checked with with following command to *tt-master*.
+        This can be useful to check if the DIMM will operate tonight, or if there were concerning warning messages when starting ameba.
+
+        .. code-block:: bash
+
+                AUTH OK 00
+                1 get ameba.mode
+
+        Which will reply something like the following with 1 when it is on and 0 when it is off.
+
+        .. code-block:: bash
+
+                1 COMMAND OK
+                1 DATA INLINE AMEBA.MODE=1
+                1 COMMAND COMPLETE
+
+Finish starting the DIMM by verifying the DIMM CSC is enabled and data is appearing in the EFD by using the DIMM dashboard on `Chronograf <https://summit-lsp.lsst.codes/chronograf/sources/1/dashboards/120>`_ (requires summit VPN).
 
 Once this mode is enabled, the DIMM will continue taking data until sunrise, and will run again the following night. 
 
@@ -194,5 +213,29 @@ and within the OpenTPL:
 
 Confirm in the monitors that the DIMM operations have ceased. 
 
+.. admonition:: Closing DIMM Dome Manually
+
+        Sometimes it may be necessary to manually issue commands to the DIMM dome to close. This can be done by issuing commands to *tt-dome*
+
+        .. code-block:: bash
+        
+                dimm@dimm:~$  telnet 127.0.0.1 16302
+
+        .. code-block:: bash
+        
+                AUTH OK 0 0
+                1 run sidea=0.0
+                2 run sideb=0.0
+
+        If there is an issue, it is common to need to reconnect to *tt-dome* through telnet and issue the commands again.
+
+        You can check the dome position with the following commands to *tt-dome*
+
+        .. code-block:: bash
+        
+                AUTH OK 0 0
+                1 get position
+
+        Positions of both sides range from 0.0 (close) to nearly 1 (open).
 
 This procedure was last modified on |today|.
