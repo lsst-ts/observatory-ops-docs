@@ -11,7 +11,6 @@
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
 .. _AuxTel-Non-Standard-Operations-AuxTel-Emergency-Shutdown: 
-
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
@@ -109,10 +108,7 @@ Shutter Closure without Power
 .. figure:: /AuxTel/Non-standard-Operations/_static/Top_of_Dome.jpg
   :name: Top of Dome
 
-<<<<<<< HEAD
 .. _AuxTel-Emergency-Shutdown-Contingency:
-=======
->>>>>>> 4f1460d (PR comments addressed on AuxTel Emergency Shutdown)
 
 Contingency
 ===========
