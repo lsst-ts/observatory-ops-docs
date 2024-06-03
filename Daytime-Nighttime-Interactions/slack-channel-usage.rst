@@ -96,7 +96,7 @@ The shift managers are the primary disciplinarians but observers and others shou
 
 #summit-announce
 ----------------
-This channel is used to announce activities that may impact other summit users.
+This channel is used to announce activities that may impact other summit users, especially in regards to safety.
 Announcements in this (or any other) channel does **NOT** grant permission from personnel on the ground regarding whether or not it is safe to perform the test.
 
 Any summit activities and/or testing, including anything utilizing the network, requires **two** announcements: one when starting, the other when finished, to prevent people from stepping on one another.
@@ -129,18 +129,19 @@ For items having substantial impact, scheduling should first be carried out as p
   Announcements for testing using other test-stands are to be made on test-stand specific channels, following the same rules.
   This includes #rubinobs-tucson-teststand and #rubinobs-base-teststand
 
+- The summit is an active observatory with many teams working on different tasks. Personnel on the summit should never be discourgaged from announcing their work as impacts may be unforseen or unpredictable.
+
 
 #summit-control-room
 --------------------
-This room is actively monitored by observers and shift managers.
+This room is actively monitored by observers and shift managers. This may be used to bring urgent concerns to observers.
 
-Communications in this room should be minimal.
 This is a single channel for both telescopes which is actively monitored by telescope specialists and anyone controlling the system.
-For maximum efficiency, primary communication should be via Zoom and not in the channel.
+As observers are expected to actively monitor and reply to this channel, extended conversations may impact efficient work and discussion via zoom is encouraged.
 Breakout rooms can be used if multiple simultaneous conversations are required.
 
-This channel is meant to be used as the area where the copying/pasting of code snippets happens while supporting via zoom, therefore context will often not be provided.
-Troubleshooting in this area should be either system-wide, or issues which benefit from having multiple people see and understand the diagnosis.
+This channel may be used as the area where the copying/pasting of code snippets happens while supporting via zoom, therefore context will often not be provided.
+Troubleshooting in this area should be either system-wide, or concerning other observatory systems seperate from the telescopes.
 
 An example of troubleshooting belonging to this channel is found in the following figure.
 
@@ -171,6 +172,8 @@ Example content:
 - Announcements regarding future status of the system.
   Such as, “TMA expected to be offline Wednesday night.”
 
+- Not required, but used by some observers to give periodic status updates during the night.
+
 #auxtel-operations and #simonyi-operations
 ------------------------------------------
 
@@ -184,13 +187,15 @@ If required, contact the shift manager and they will take the issue to the real-
 
 Example content:
 
-- The PSF looks fuzzy but it isn't marked bad
+- The PSF looks fuzzy
 
 - Discussions of detector artifacts and their potential effect on observations
 
 - Suggestions for observing improvements 
 
 - Enhancements and/or curious features with RubinTV 
+
+- New features in system behavior (e.g. mount shake)
 
 Contact Personnel
 ^^^^^^^^^^^^^^^^^
