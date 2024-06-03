@@ -75,7 +75,7 @@ We use the "summit" prefix for channels that are tightly coupled to summit opera
   It is primarily used for communication between summit personnel and externally **requested** support.
 
 - **Tier 2:** General discussion channels whose information and/or contents are not time critical operation of the observatory at night.
-  The shift managers monitor these channels to relay any pertinent information between external support and the summit teams.
+  The shift managers monitor these channels to relay any pertinent information between external support and the summit teams. These channels have much fewer restrictions on who can participate, useful for the braoder team to contribute information they think might be important to summit operations, which can then be filtered to the summit crew.
 
 - **Tier 3:** Channels not directly associated with current summit activities. 
   These are channels for collaborative work, which make up the high majority of Slack channels.
