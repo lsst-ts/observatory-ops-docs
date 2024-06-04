@@ -30,7 +30,7 @@ Procedure Template
 .. _Title-of-Procedure-Overview:
 
 Overview
-^^^^^^^^
+========
 
 .. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
 
@@ -39,7 +39,7 @@ This is a template for a procedure. It is performed by authorized and trained us
 .. _Title-of-Procedure-Precondition:
 
 Precondition
-^^^^^^^^^^^^
+============
 
 .. This section should provide simple overview of preconditions before executing the procedure; for example, state of equipment, telescope or seeing conditions or notifications prior to execution.
 .. It is preferred to include them as a bulleted or enumerated list.
@@ -55,7 +55,7 @@ Precondition
 .. _Title-of-Procedure-Post-Condition:
 
 Post-Condition
-^^^^^^^^^^^^^^
+==============
 
 .. This section should provide a simple overview of conditions or results after executing the procedure; for example, state of equipment or resulting data products.
 .. It is preferred to include them as a bulleted or enumerated list.
@@ -68,7 +68,7 @@ Post-Condition
 .. _Title-of-Procedure-Procedure-Steps:
 
 Procedure Steps
-^^^^^^^^^^^^^^^
+===============
 
 .. todo::
    Include utilization of admonishments (caution, warning, etc.)
@@ -126,7 +126,7 @@ This is an example of a sub-section, used when Condition B applied. Complete the
 .. _Title-of-Procedure-Troubleshooting:
 
 Troubleshooting
-^^^^^^^^^^^^^^^
+===============
 
 .. This section should include troubleshooting information. Information in this section should be strictly related to this procedure.
 

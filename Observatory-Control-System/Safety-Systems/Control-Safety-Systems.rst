@@ -26,7 +26,7 @@ Control Safety Systems
 
 Presented here is an overview of the concepts LOTO (Lockout/Tagout), GIS (Global Interlock System), and E-STOP (Emergency Stop), and when each procedure or system is used. 
 Specific procedures, like how to LOTO the Telescope Mount Assembly (TMA), or how to reset the GIS to resume operations of a specific component, are not described here. 
-The final procedures for LOTO will be documented on the Observatory Operations pages and linked here. 
+The final procedures for LOTO will be documented on the Observatory Operations pages and reference below.   
 
     - :ref:`AuxTel LOTO procedure <Auxiliary-Telescope-AuxTel-LOTO-procedure>`
 
@@ -68,8 +68,8 @@ Once you have reviewed the video and available LOTO procedures, register your co
 GIS
 ^^^
 The Global Interlock System (GIS) is a safety system that guarantees the Rubin Observatory's secure operation. 
-GIS interacts with other systems of the Simonyi and Auxiliary Telescopes, such as the Pflow, M1M3, M2 Hexapod, etc. 
-If any of the interlocks are triggered, such as fire detection, seismic activity, or a safety gate is open, such as the safety gate on the 6th floor underneath the TMA azimuth wrap, GIS receives these signals and creates a waterfall effect that blocks off any system coupled to the trigger. 
+GIS interacts with the other systems of the Simonyi and Auxiliary Telescopes, like the Pflow, M1M3, M2 Hexapod, etc.
+If any of the interlocks are triggered, such fire detection, seismic activity, an opened safety gate, GIS receives these signals and creates a waterfall effect that blocks off any system coupled to the trigger. 
 This is an example of the order of operations the GIS manages when an interlock is triggered:
 
 1.	The TMA is rotating in azimuth.
@@ -80,7 +80,7 @@ This is an example of the order of operations the GIS manages when an interlock 
 
 GIS is a reactionary system, and is not fit for LOTO given that it does not completely remove an energy source from a system, it only temporarily blocks the energy source by software stop that has a physical release mechanism.
 The stops are released by clearing the interlock, resetting the GIS control panel touchscreen, or in the case of the safety gate, closing the gate and pressing the GIS release button. 
-The GIS can be reset by anyone by bypassing the interlock or resetting it on the 2nd floor. 
+The GIS can be reset by anyone by bypassing the interlock or resetting it on the AuxTel second floor. 
 
 Specific procedures to reset interlocks, and what systems are affected, will be updated on these pages as they become official procedure. 
 
@@ -94,7 +94,7 @@ It is intended for use in an EMERGENCY. It is not a safeguard, but is considered
 
 E-STOPs around the Observatory are big, red buttons that need to be released in a certain way to unlock them. 
 Only after releasing the E-STOP and resetting the electronic logic of the equipment can you continue to use it. 
-For an example of an E-STOP procedure, see `AuxTel E-STOP release <https://obs-ops.lsst.io/AuxTel/AuxTel-Non-standard-Operations/ATCS-Non-standard-Procedures/E-Stop-Procedure.html>`_. 
+See :ref:`AuxTel e-stop system <AuxTel-Non-Standard-Procedures-E-Stop-Procedure>`.
 
 These are meant to use ONLY IF a person or piece of equipment is in immediate danger of being damaged because of the machine’s continued use. 
 It is a hard brake in the case of AuxTel or the TMA, and its use during a slew could exert forces on the drives that cause some damage. 

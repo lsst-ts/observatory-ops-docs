@@ -65,9 +65,9 @@ Use start case for directory names unless it is appropriate otherwise (such as a
 Templates
 ---------
 
-A template folder is located in the :ref:`project directory <Project-Information>`.
-It contains template pages for the Observatory Operations Documentation area, including a directory index and a procedure template.
-Review the README in the template folder for instructions, then update the contents accordingly.
+A template folder is located in the :ref:`template directory <Templates-Template-Folder-Index>`.
+It contains template pages for the Observatory Operations Documentation area, 
+including procedure, informative and troubleshooting templates.
 
 .. _Observatory-Operations-Style-Guide-Titles-and-Headings:
 
@@ -86,5 +86,5 @@ Also keep in mind DM’s `reStructuredText heading styles <https://developer.lss
 Links
 -----
 
-Never use "here" as link text.
-Instead, make the relevant noun or phrase the link.
+  Never use "here" as link text.
+  Instead, make the relevant noun or phrase the link.
