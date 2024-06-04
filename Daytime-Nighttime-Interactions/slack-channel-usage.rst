@@ -10,7 +10,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Patrick Ingraham*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Patrick Ingraham, Erik Dennihy*
+.. |contributors| replace:: *Patrick Ingraham, Erik Dennihy, Kevin Fanning*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -28,27 +28,31 @@ The LSSTC Slack space is used by hundreds of people with varying levels of inter
 The goal of this document is to communicate the acceptable usage of the specific set of channels that are focused on day and nighttime summit operations. 
 The document also describes the channels where more informal discussions and contributions from non-summit staff can be communicated to the observing crew(s). 
 
-All slack channels are expected to be open to everyone on the lsstcorp Slack domain.
+In operations, all slack channels are expected to be open to everyone on the lsstcorp Slack domain.
 However, should people continually violate the rules (and people fail to police them) then we will have to lock the channels. 
 
 .. important::
-   
-   Slack is not meant to be the primary source of information for summit observing support.
-   When remote support personnel are working directly with summit personnel, direct communication is strongly advised (e.g. Zoom).
+   Three ground rules for usage - read this if nothing else:
+
+   1. Personnel not present on the summit are generally discoraged from using tier 0 and 1 channels, though many exceptions to this are detailed in this page. If you do not know if you should use the tier 0 or 1 channel, do not use it.
+
+   2. Work with summit systems should use public channels, not direct messages with with individuals.
+
+   3. Zoom in place of slack is encouraged for extensive, time critical support.
 
 For ease of presentation, it was decided to classify the stakeholders by the following roles:
 
-- Observers: The primary operators of observatory systems. 
+- Observers: The primary operators of observatory systems.
   These are primarily the Observing Specialists, but includes any person actively operating the telescope(s).
 
 - Shift Managers: Organizer(s) of the current observing run that perform coordination of observations, relay information between the day and night crews (beyond what is to be included in the end-of-day report), and provide support during the night and day. 
-  They also help to address questions, comments, and filter information between the broader community and summit personnel.
+  They also help to address questions, comments, and filter information between the broader community and summit personnel. Currently filled by the night planner.
 
 - Summit Personnel: These are people that are actively working on the summit. This category includes the Triage Manager (future role), even if they are not physically located on the summit.
 
-- Off-site Summit Support: Personnel that call in to assist or perform summit-based activities but remotely (e.g. from the base or Tucson)
+- Off-site Summit Support: Personnel that call in to assist or perform summit-based activities but remotely (e.g. from the base or Tucson). These are personnel actively on a shift to support or a subsystem owner working with their system.
 
-- Project Personnel: General project members that have slack accounts
+- Project Personnel: General project members that have slack accounts. This is the default category for most project members and individuals generally advance to other categories when actively on shift.
 
 - External Contributors: People that share the same slack user-space but do not participate in summit operations (e.g. DESC).
 
@@ -64,14 +68,14 @@ We use the "summit" prefix for channels that are tightly coupled to summit opera
 - **Tier 0:** Real-time information that the applicable roles are always monitoring and are expected to immediately react to (when on shift and interacting with summit systems). 
   Responding to a message may result in a loss of sky time, which is acceptable. 
   Communication in this area meant to be extremely curt. 
-  People providing support are encouraged to do so via Zoom; not via Slack.
+  People providing urgent support are encouraged to do so via Zoom; not via Slack.
 
 - **Tier 1:** Used for asynchronous information communication regarding the state of summit systems. 
-  These channels are telescope specific, do not require immediate response, and are passively monitored by on-shift observers. 
-  It is primarily used for communication between summit personnel and externally requested support.
+  These channels are telescope or subsystem specific, do not require immediate response, and are passively monitored by on-shift observers. These include subsystem topic "worklog" channels.
+  It is primarily used for communication between summit personnel and externally **requested** support.
 
-- **Tier 2:** General discussion channels whose information and/or contents are not time critical.
-  The shift managers monitor these channels to relay any pertinent information between external support and the summit teams.
+- **Tier 2:** General discussion channels whose information and/or contents are not time critical operation of the observatory at night.
+  The shift managers monitor these channels to relay any pertinent information between external support and the summit teams. These channels have much fewer restrictions on who can participate, useful for the braoder team to contribute information they think might be important to summit operations, which can then be filtered to the summit crew.
 
 - **Tier 3:** Channels not directly associated with current summit activities. 
   These are channels for collaborative work, which make up the high majority of Slack channels.
@@ -92,7 +96,7 @@ The shift managers are the primary disciplinarians but observers and others shou
 
 #summit-announce
 ----------------
-This channel is used to announce activities that may impact other summit users.
+This channel is used to announce activities that may impact other summit users, especially in regards to safety.
 Announcements in this (or any other) channel does **NOT** grant permission from personnel on the ground regarding whether or not it is safe to perform the test.
 
 Any summit activities and/or testing, including anything utilizing the network, requires **two** announcements: one when starting, the other when finished, to prevent people from stepping on one another.
@@ -125,18 +129,19 @@ For items having substantial impact, scheduling should first be carried out as p
   Announcements for testing using other test-stands are to be made on test-stand specific channels, following the same rules.
   This includes #rubinobs-tucson-teststand and #rubinobs-base-teststand
 
+- The summit is an active observatory with many teams working on different tasks. Personnel on the summit should never be discourgaged from announcing their work as impacts may be unforseen or unpredictable.
+
 
 #summit-control-room
 --------------------
-This room is actively monitored by observers and shift managers.
+This room is actively monitored by observers and shift managers. This may be used to bring urgent concerns to observers.
 
-Communications in this room should be minimal.
 This is a single channel for both telescopes which is actively monitored by telescope specialists and anyone controlling the system.
-For maximum efficiency, primary communication should be via Zoom and not in the channel.
+As observers are expected to actively monitor and reply to this channel, extended conversations may impact efficient work and discussion via zoom is encouraged.
 Breakout rooms can be used if multiple simultaneous conversations are required.
 
-This channel is meant to be used as the area where the copying/pasting of code snippets happens while supporting via zoom, therefore context will often not be provided.
-Troubleshooting in this area should be either system-wide, or issues which benefit from having multiple people see and understand the diagnosis.
+This channel may be used as the area where the copying/pasting of code snippets happens while supporting via zoom, therefore context will often not be provided.
+Troubleshooting in this area should be either system-wide, or concerning other observatory systems seperate from the telescopes.
 
 An example of troubleshooting belonging to this channel is found in the following figure.
 
@@ -167,6 +172,8 @@ Example content:
 - Announcements regarding future status of the system.
   Such as, “TMA expected to be offline Wednesday night.”
 
+- Not required, but used by some observers to give periodic status updates during the night.
+
 #auxtel-operations and #simonyi-operations
 ------------------------------------------
 
@@ -180,13 +187,15 @@ If required, contact the shift manager and they will take the issue to the real-
 
 Example content:
 
-- The PSF looks fuzzy but it isn't marked bad
+- The PSF looks fuzzy
 
 - Discussions of detector artifacts and their potential effect on observations
 
 - Suggestions for observing improvements 
 
 - Enhancements and/or curious features with RubinTV 
+
+- New features in system behavior (e.g. mount shake)
 
 Contact Personnel
 ^^^^^^^^^^^^^^^^^
