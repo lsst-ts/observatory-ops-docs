@@ -8,9 +8,9 @@
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
 
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
-.. |author| replace:: *Karla Aubel*
+.. |author| replace:: *Craig Lage*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *List-of-contributors*
+.. |contributors| replace:: *Karla Aubel*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -55,7 +55,7 @@ Procedure Steps
 
 This paragraph describes some general guidance for this procedure. This paragraph is optional depending on its usefulness and the complexity of the procedure.
 
-In the case of a very straightforward procedure, a simple numbered list could be used, like as follows:
+In the case of a very straightforward procedure, a simple numbered list could be used, as follows:
 Step 1.
 
 Go up to the AuxTel dome.  Locate the control box at the top of the stairs. The top black button should close the shutter:
@@ -81,7 +81,7 @@ Inside this box is a series of switches:
 
 Sliding the switch labeled "CLOSE" to the left  (yellow arrow) should close the shutter.  
 This must be done with EXTREME CAUTION.  This is a low-level control switch and there are no limit switches or fail-safes. 
-You can easily over drive the shutter until it bangs into the lower shutter.  You can also damage the drive.  
+You can easily overdrive the shutter until it bangs into the lower shutter.  You can also damage the drive.  
 If you do this, it is best to stop the shutter 1 cm or so before it is fully closed to prevent this type of damage.
 
 Step 3.
