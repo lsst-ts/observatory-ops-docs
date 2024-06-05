@@ -8,9 +8,9 @@
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
 
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
-.. |author| replace:: *Karla Aubel*
+.. |author| replace:: *Erik D. Karla Aubel*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *List-of-contributors*
+.. |contributors| replace:: *Karla Aubel*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -33,13 +33,14 @@ This procedure explains the steps to follow when AuxTel M1 Cover fails to open d
 Error Diagnosis
 ===============
 
-This indicates the M1 cover controller is in a bad state. 
 This is possible following any daytime work which involves manually controlling the M1 Covers on AuxTel, such as the weekly C02 mirror cleaning.
 
 atpneumatics_checkout.py fails with: 
 
 Traceback:
 
+..code-block:: text
+:caption: Traceback:
 Error in run
 Traceback (most recent call last):
 File "/opt/lsst/software/stack/conda/envs/lsst-scipipe-7.0.1/lib/python3.11/site-packages/lsst/ts/salobj/base_script.py", line 603, in do_run
@@ -54,7 +55,6 @@ return await cmd_info.next_ackcmd(timeout=timeout)
 File "/opt/lsst/software/stack/conda/envs/lsst-scipipe-7.0.1/lib/python3.11/site-packages/lsst/ts/salobj/topics/remote_command.py", line 191, in next_ackcmd
 raise base.AckError(msg="Command failed", ackcmd=ackcmd)
 lsst.ts.salobj.base.AckError: msg='Command failed', ackcmd=(ackcmd private_seqNum=1568846216, ack=<SalRetCode.CMD_FAILED: -302>, error=0, result='ERROR: Command OPENM1COVER rejected while M1 covers controller in StandbyState state.')
-
 This indicates the M1 cover controller is in a bad state. This is possible following any daytime work which involves manually controlling the M1 Covers on AuxTel, such as the weekly C02 mirror cleaning.
 
 Post-Condition
@@ -76,9 +76,9 @@ Recovering the M1 Cover Controller state and clearing the fault must be done fro
 
 #. Step 1.
 
-Ensure the ATCS CSCs are all set to STANDBY.
+Ensure the ATCS CSCs are all set to ``STANDBY``.
 The easiest way to do this is to run the standby_atcs.py script from the ATQueue.
-Do not proceed to the next step until the CSCs are set to STANDBY, otherwise you will need to reset both the CSC and EUI to regain communication. 
+Do not proceed to the next step until the CSCs are set to ``STANDBY``, otherwise you will need to reset both the CSC and EUI to regain communication. 
 
 #. Step 2.
 
@@ -99,4 +99,4 @@ Procedure to reset M1 Cover state using the EUI is shown in video here:
 :ref:`https://confluence.lsstcorp.org/download/attachments/210241325/M1%20cover%20reset%20using%20EUI.mp4?version=3&modificationDate=1700889964000&api=v2 <video-recovery>`
 
  
-
+ 
