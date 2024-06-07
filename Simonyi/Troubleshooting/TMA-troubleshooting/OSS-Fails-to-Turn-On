@@ -109,8 +109,25 @@ The large grey box on the cabinet's side (purple arrow) shows a blinking red lig
 .. figure:: ./_static/reset_button1.jpeg
     :name: general view
 
-    .. figure:: ./_static/reset_button2.jpeg
+    
+
+#. Step 5. Press the reset button on the large grey box on the side of the cabinet. The red alarm light should stop blinking.
+
+.. figure:: ./_static/reset_button2.jpeg
         :name:
+
+#. Step 6. Acknowledge the alarms by pressing the tick mark on the bottom of the screen. After perhaps a minute or two, the front screen should show **"STATUS:OK"**
+
+.. figure:: ./_static/acknowledge_alarm.jpeg
+    :name:
+
+#. Step 7. Repeat **steps 2-6** with the other chiller, if it shows an alarm.    
+
+#. Step 8. Back to the control room, reset the alarm in the TMA EUI **"Safety System"** screen. Click on the red **"OSS malfunction"** and press **"RESET SELECTED"**. The red colour should dissapear.
+
+.. figure:: ./_static/safety_system.png
+    :name:
+
 
    a. If Condition A, do the following action in :ref:`Condition A Instructions <Title-of-Troubleshooting-Procedure-Condition-A-for-Step-4>`.
 
@@ -120,29 +137,6 @@ The large grey box on the cabinet's side (purple arrow) shows a blinking red lig
 
 #. Complete the procedure's final step.
 
-
-.. _Title-of-Troubleshooting-Procedure-Condition-A-for-Step-4:
-
-Condition A for Step 4
-----------------------
-
-This is an example of a sub-section, used when Condition A applied. Complete the steps in this section:
-
-#. Step 1 for Condition A.
-#. Return to :ref:`Step 5 <Title-of-Troubleshooting-Procedure-Final-Step>` in the section above.
-
-.. _Title-of-Troubleshooting-Procedure-Condition-B-for-Step-4:
-
-Condition B for Step 4
-----------------------
-
-This is an example of a sub-section, used when Condition B applied. Complete the steps in this section:
-
-#. Step 1 for Condition B.
-#. Return to :ref:`Step 5 <Title-of-Troubleshooting-Procedure-Final-Step>` in the section above.
-
-.. _Title-of-Troubleshooting-Procedure-Post-Condition:
-
 Post-Condition
 ==============
 
@@ -151,8 +145,8 @@ Post-Condition
 .. Please provide screenshots of the software status or relevant display windows to confirm.
 .. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
 
-- This is an example bullet of a post-condition (Telescope azimuth is 0 degrees.)
-- This is another example of a post-condition (This procedure leaves the telescope with the E-stop activated.)
+- The system should be now ready to Turn On the OSS again.
+
 
 .. _Title-of-Troubleshooting-Procedure-Contingency:
 
