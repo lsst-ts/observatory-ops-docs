@@ -32,7 +32,7 @@ Error diagnosis
 ATMCS fails to enable with the rest of the ATCS with the SAL script **auxtel/enable_atcs.py**.
 
 
-.. error::
+.. code-block::
 
     Fault event in ATMCS while in enable state (port). Nasmyth 1 drive fault bit is ON
 
