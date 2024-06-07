@@ -1,7 +1,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
-.. |author| replace:: *Paulina-Venegas-S.*
+.. |author| replace:: *I.-Sotuela*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Karla-Aubel*, *Ioana-Soutela*
+.. |contributors| replace:: *P.-Venegas*, *K.-Aubel*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.

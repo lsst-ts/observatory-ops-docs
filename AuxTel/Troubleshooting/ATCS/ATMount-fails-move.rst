@@ -1,7 +1,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
-.. |author| replace:: *Paulina-Venegas-S.*
+.. |author| replace:: *Y.-AlSayyad*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Karla-Aubel*, *Ioana-Soutela*
+.. |contributors| replace:: *P.-Venegas*, *K.-Aubel*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -31,7 +31,7 @@ Error diagnosis
 When attempting to move the telescope via point_azel or Scheduler, the faults are the followings:
 
 - The ATMCS get FAULT state ,  ATMCS provides specific error messages indicating faults in azimuth drives #1 and #2, with both fault bits activated.
-- The ATPtgg et FAULT state
+- The ATPtg get FAULT state
 
 .. error::
     Fault event in ATMCS while in tracking enable state.  Azimuth max velocity error  exceeded.
@@ -52,9 +52,7 @@ Procedure Steps
 
 To resume observations, nudge the telescope out of its position by slewing only in altitude to lower elevation. Then, nudge it incrementally in azimuth, starting with 1-2 degree increments to then increasing to 20-degree increments.
 
-.. note::
-    From LOVE
-..
+**From LOVE**
 
 #. Stop the Scheduler and clear any pending scripts. From the queue by send the **auxtel/scheduler/stop.py** script.
 
