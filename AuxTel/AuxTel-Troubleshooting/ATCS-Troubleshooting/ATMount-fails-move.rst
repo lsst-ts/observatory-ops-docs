@@ -33,7 +33,7 @@ When attempting to move the telescope via point_azel or Scheduler, the faults ar
 - The ATMCS get FAULT state ,  ATMCS provides specific error messages indicating faults in azimuth drives #1 and #2, with both fault bits activated.
 - The ATPtg get FAULT state
 
-.. code-block::
+.. error::
     Fault event in ATMCS while in tracking enable state.  Azimuth max velocity error  exceeded.
     /ATMCS Real-Time Application.vi/MOUNTDEV.vi/Generic Device.lvclass:Run.vi:1530004/MOUNTDEV.lvclass:NormalDeviceLogic.vi/MOUNTDEV.lvclass:ProcessDeviceLogicStateTransitions.vi/MntcTrackEnabledState.lvclass:ProcessStateTransition.vi/mount_fault_state_procedure.vi
  
