@@ -21,10 +21,11 @@ MTDome Recover and clear Faults
 
 Overview
 ========
-If issues arise with moving the MTDome directly or if you observe that the MTDomeTrajectory following mode is enabled but the dome fails to follow the telescope, it is likely that the MTDome is having an internal subsystem fault and requires recovery.
+ If issues arise with moving the MTDome directly or if you observe that the MTDomeTrajectory following mode is enabled but the dome fails to follow the telescope, it is likely that the MTDome is having an internal subsystem fault and requires recovery.
 
-Under specific circumstances, the Dome may ignore move commands, such as when the position is identical to the previous moveAz command and the velocity is 0. [degrees/second]. To confirm this, inspect the MTDome logs in LOVE. The CSC will have received the duplicated move command, and a warning message will be displayed in the logs, indicating that it was ignored.
-In other instances, the dome may reject move commands, such as when there's a subsystem fault.
+Under specific circumstances, the Dome may ignore move commands, such as when the position is identical to the previous moveAz command and the velocity is 0.0 [deg/sec]. To confirm this, inspect the MTDome logs in LOVE. The CSC will have received the duplicated move command, and a warning message will be displayed in the logs, indicating that it was ignored.
+
+In other instances, the dome may reject move commands, when there's a subsystem fault.
 
 
 .. _MTDome-Recover-and-clear-Faults-Error-Diagnosis:
@@ -32,74 +33,81 @@ In other instances, the dome may reject move commands, such as when there's a su
 Error diagnosis
 ===============
 
-- If a fault is indicated in the "Azimuth Control Software Status" (ACS status) window, the Dome has an internal fault condition.
+- If a FAULT is indicated in the "Azimuth Control Software Status" (ACS status) window, the Dome has an internal fault condition.
 - Look at the Chronograf dashboard `MTDome Status`_ to verify the system status.
 
 .. Note::
     
-    It's important to note that since the dome consists of multiple subsystems, the CSC itself won't transition to FAULT unless it's an unrecoverable issue; a subsystem fault is typically recoverable.
+    The Dome has several subsystems that continue to operate when a specific subsystem goes to Fault, 
+    the CSC itself won't go to Fault, unless it is an unrecoverable issue. A subsystem going to Fault is recoverable.
 
-...
-
+..
 
 .. _MTDome-Recover-and-clear-Faults-Procedure-Steps:
 
 Procedure Steps
 ===============
+1. Disable the dome following mode in MTDomeTrajectory. ``run_command.py`` script:
 
-#. Disable the dome following mode in MTDomeTrajectory. ``run_command.py`` script:
+.. code-block:: SAL
 
-.. code-block:: run_command
-component: MTDome
-cmd: exitFault
+    component: MTDomeTrajectory
+    cmd: setFollowingMode
+    parameters:
+        enable: false
 ..
 
-#. To clear the subsystem fault, use the MTDome ``exitFault`` configuration command via the ``run_command.py`` SAL script. 
+2. To clear the subsystem fault, use the MTDome ``exitFault`` configuration command via the ``run_command.py`` SAL script. 
 In most cases, running the command once will clear the fault, but you may need to repeat the process a few times.
 
-.. code-block:: run_command
-component: MTDome
-cmd: stop
-paramaters:
-   engageBrakes: true
+.. code-block:: SAL
+
+    component: MTDome
+    cmd: exitFault
 ..
 
-#. After executing the command, verify its success by checking the ACS status in the `MTDome Status`_ dashboard. 
+3. After executing the command, verify its success by checking the ACS status in the `MTDome Status`_ dashboard. 
 
 .. Note::
-    When the ``exitFault`` command is sent, the CSC executes the ``*resetDrivesAz*`` command before ``exitFault`` command.
-...
+    When the *exitFault* command is sent, the CSC executes the *resetDrivesAz* command before *exitFault*  command.
 
-#. Now, at this point, you can try to move the dome again. 
-/Confirm the dome moves by slewing to a nearby position; in the example below, 45 degrees azimuth. 
-Make sure that the dome moves before enabling the following mode on MTDomeTrajectory
-...
-.. code-block:: run_command
-component: MTDome
-cmd: moveAz
-parameters:
-  position: 45
+    .. code-block:: 
+        component: MTDome
+        cmd: resetDrivesAz
+        paramaters:
+            reset: [1,1,1,1,1]
+    ..
 ..
 
-#. Make sure you check the MTDome logs when trying to move it the first time after recovering it. If you see a warning message that says something like this:
+4. Now, at this point, you can try to move the dome again. 
+
+- Confirm the dome moves by slewing to a nearby position; in the example below, 45 degrees azimuth. 
+- Make sure that the dome moves before enabling the MTDomeTrajectory mode.
+
+.. code-block:: 
+    
+    component: MTDome
+    cmd: moveAz
+    parameters:
+        position: 45
+..
+
+5. Make sure you check the MTDome logs when trying to move it the first time after recovering it. If you see a warning message that says something like this:
 
 ``Ignoring moveAz command for position=300.0 and velocity=0.0 because it is a duplicate command``
 
 It means the CSC is ignoring the move command, regardless of whether the position mentioned in the message is the current position of the dome.
 In this case, try to move the dome to a different position.
 
-
 .. _MTDome-Recover-and-clear-Faults-Post-Condition:
 
 Post-Condition
 ==============
-
-- MTDome faults are clear and operations can continue.
+- MTDome Faults are clear and operations can continue.
 
 .. _MTDome-Recover-and-clear-Faults-Contingency:
 
 Contingency
 ===========
-
-If the above procedure was not successful, report the issue in #summit-simonyi and #rubinobs-mtdome
+- If the above procedure was not successful, report the issue in *#summit-simonyi* and *#rubinobs-mtdome*
 
