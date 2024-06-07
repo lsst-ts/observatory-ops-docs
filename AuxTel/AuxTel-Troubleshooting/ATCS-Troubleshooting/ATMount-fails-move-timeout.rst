@@ -1,7 +1,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
-.. |author| replace:: *Paulina-Venegas-S.*
+.. |author| replace:: *Y.-AlSayyad*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Karla-Aubel*, *Ioana-Soutela*
+.. |contributors| replace:: *P.-Venegas*, *K.-Aubel*, *K.-Pena*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -21,7 +21,7 @@ Overview
 ========
 
 In this troubleshooting guide, we address an issue where the telescope times out while getting into position. 
-All ATCS CSCs indicated no faults. However, the ATMCS EUI showed several low air pressure faults. An air leak was discovered at the telescope base. 
+All ATCS CSCs indicated no faults. However, the ATMCS Engineering User Interface System (EUI) showed several low air pressure faults. An air leak was discovered at the telescope base. 
 
 .. _AuxTel-Mount-Fails-to-Move-and-Times-Out-Procedure-Error-Diagnosis:
 
@@ -37,7 +37,7 @@ The queued **latiss_aquire_and_take_sequence.py** script report the following er
    RuntimeError: Telescope timed out getting in position.
 ..
 
-No ATCS CSCs is in fault, all CSC green, but the ATMCS EUI did indicate several low air pressure faults. An on-site check at the dome found the compressor running at pressure, but there was a noticeable air leak at a fitting at the telescope base.
+No ATCS CSCs is in fault, but the ATMCS EUI did indicate several low air pressure faults. An on-site check at the dome found the compressor running at pressure, but there was a noticeable air leak at a fitting at the telescope base.
 
 However, since no CSCs were actually reporting faults, the leak might not be critical and the proximate cause in this case might actually being a lost DDS message between the ATMCS and ATPTG CSCs.
 
@@ -48,11 +48,9 @@ However, since no CSCs were actually reporting faults, the leak might not be cri
 Procedure Steps
 ===============
 
-.. note::
-    From LOVE
-..
-
 The recovery is detailed below.
+
+**From LOVE**
 
 #. Stop the Scheduler and clear any pending scripts. In the queue send the **auxtel/scheduler/stop.py** script and resume queue.
 
