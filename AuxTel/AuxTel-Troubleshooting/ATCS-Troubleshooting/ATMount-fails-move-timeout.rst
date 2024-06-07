@@ -30,7 +30,7 @@ Error diagnosis
 
 The queued **latiss_aquire_and_take_sequence.py** script report the following error:
 
-.. error::
+.. code-block::
 
    File "/net/obs-env/auto_base_packages/ts_observatory_control/python/lsst/ts/observatory/control/auxtel/atcs.py", line 1658, in wait_for_inposition
     
