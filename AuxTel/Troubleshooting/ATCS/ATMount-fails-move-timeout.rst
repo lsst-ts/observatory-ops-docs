@@ -33,8 +33,8 @@ The queued **latiss_aquire_and_take_sequence.py** script report the following er
 .. error::
 
    File "/net/obs-env/auto_base_packages/ts_observatory_control/python/lsst/ts/observatory/control/auxtel/atcs.py", line 1658, in wait_for_inposition
-       raise RuntimeError(error_message)
-   RuntimeError: Telescope timed out getting in position.
+    
+    raise RuntimeError: Telescope timed out getting in position.
 ..
 
 No ATCS CSCs is in fault, but the ATMCS EUI did indicate several low air pressure faults. An on-site check at the dome found the compressor running at pressure, but there was a noticeable air leak at a fitting at the telescope base.
