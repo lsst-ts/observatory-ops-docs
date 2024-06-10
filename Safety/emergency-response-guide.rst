@@ -40,9 +40,7 @@ This is a basic emergency response guide organized by the type of emergency.
 .. _emergency-response-guide-medical-emergency:
 
 Medical Emergency
-^^^^^^^^^^^^^^^^^
-
-.. Preconditions
+=================
 
 Contact the PolyClinic (the Paramedic on summit) at extension 577
 
@@ -95,7 +93,7 @@ Describe the emergency:
 .. _emergency-response-guide-fire:
 
 Fire
-^^^^
+====
 
 - If you that someone else is in the building, but not currently with you, use a Rubin radio tuned to Channel 3. 
   
@@ -125,7 +123,8 @@ Fire
 
 
 Earthquake
-^^^^^^^^^^^
+==========
+
 If the building begins to shake for more than 1 or 2 seconds, it is a terramoto (earthquake) not a tremblor (tremor). 
 If it is a small earthquake and shaking stops quickly, there is no need to evacuate.
 
@@ -146,7 +145,7 @@ If it is a small earthquake and shaking stops quickly, there is no need to evacu
 .. _emergency-response-guide-spill:
 
 Chemical spill 
-^^^^^^^^^^^^^^^
+==============
 
 - Remove any person from the contaminated area if you can.
 
@@ -161,7 +160,7 @@ Chemical spill
 .. _emergency-response-guide-electric-shock:
 
 Electric shock 
-^^^^^^^^^^^^^^
+==============
 
 - DO NOT TOUCH the person that was shocked. 
 

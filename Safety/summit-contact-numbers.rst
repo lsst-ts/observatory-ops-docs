@@ -30,8 +30,7 @@ They are internal to AURA.
 .. _summit-contact-numbers-emergency-numbers:
 
 Emergency Numbers
-^^^^^^^^^^^^^^^^^
-.. Preconditions
+=================
 
 - Polyclinic Paramedic: 577
 
@@ -50,7 +49,7 @@ Emergency Numbers
 .. _summit-contact-numbers-control-room-numbers:
 
 Control Room Numbers
-^^^^^^^^^^^^^^^^^^^^
+====================
 
 - Summit control room right side: 844
 
@@ -67,7 +66,7 @@ Control Room Numbers
 .. _summit-contact-numbers-non-emergency-numbers:
 
 Non-Emergency Numbers
-^^^^^^^^^^^^^^^^^^^^^
+=====================
 
 - Rubin Casino: 593
 
@@ -85,7 +84,7 @@ Non-Emergency Numbers
 
 
 Calling Hotel Pachon
-^^^^^^^^^^^^^^^^^^^^
+====================
 
 If there is something wrong with the room you have organized to stay in, you may call 440 from the hotel foyer and request help.
 Some examples are if the key is not hanging on the second floor for you, there is no hot water, or the heat is off and you want to request a space heater, etc.
@@ -117,7 +116,7 @@ Staff mostly speak Spanish only.
 .. _summit-contact-numbers-using-the-control-room-phones:
 
 Using the control room phones 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=============================
 
 .. note::
   When dialing a large number, leave the phone in the cradle and dial the number using the keypad. 

@@ -41,16 +41,16 @@ Overview
 
 This is a template for a tutorial.
 
-.. _Title-of-Tutorial-Prerequisites:
+.. _Title-of-Tutorial-Precondition:
 
-Prerequisites
+Precondition
 =============
 
-.. This section should provide simple overview of prerequisites for using the tutorial.
+.. This section should provide simple overview of Precondition for using the tutorial.
 .. It is preferred to include them as a bulleted or enumerated list.
 .. Do not include actions in this section.
 
-This section should list the prerequisites (e.g. required conditions) to perform the tutorial. If multiple sentences/conditions are required this should be presented in bullet form.
+This section should list the Precondition (e.g. required conditions) to perform the tutorial. If multiple sentences/conditions are required this should be presented in bullet form.
 
 - This is an example bullet (e.g. should have accounts on system XYZ)
 

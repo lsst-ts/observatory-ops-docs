@@ -64,9 +64,5 @@ Replace the time (in UTC) and run the following code in your notebook to obtain 
     print(f" The azimuth of the {where_sun} Sun at {time} is {sun_coordinates.altaz.az.value:.2f} deg \n"
           f" The elevation of the Sun at {time} is {sun_coordinates.altaz.alt.value:.2f} deg")
 
-.. _Sky-Almanac-Contact-Personnel:
-
-Contact Personnel
-^^^^^^^^^^^^^^^^^
 
 This procedure was last modified |today|.

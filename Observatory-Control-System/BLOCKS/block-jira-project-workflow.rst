@@ -147,7 +147,7 @@ They must contain the minimum set of instructions needed to carry out the comple
 At a minimum the description section should contain:
 
 * Description, high-level overview of test
-* Pre-conditions/requirements to run test, including system status
+* Preconditions/requirements to run test, including system status
 * Environmental Constraints on test (e.g. observing conditions/time)
 * Test Execution Instructions
 * Brief description of test steps and expectations
@@ -157,7 +157,7 @@ Make use of the formatting options to provide separation between sections and ma
 **Description**
 Include a brief, 1-2 sentence overview of the test here. 
 
-**Pre-conditions**
+**Preconditions**
 These should be provided as a list or short descriptive section. Examples include
 
 * MTRotator in DISABLED state
