@@ -11,4 +11,4 @@ This includes troubleshooting of the CSCs that control the telescope and dome mo
     :titlesonly:
     :glob:
 
-    */*
+    */index
