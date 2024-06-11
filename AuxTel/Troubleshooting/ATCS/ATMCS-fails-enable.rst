@@ -11,8 +11,6 @@
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
-.. _E-Stop-Procedure: https://obs-ops.lsst.io/AuxTel/AuxTel-Non-standard-Operations/ATCS-Non-standard-Procedures/E-Stop-Procedure.html
-
 ###############################################################
 AuxTel Mount Control System Fails to Enable / E-Stop is Engaged
 ###############################################################
@@ -60,6 +58,6 @@ First step is to check if e-stop is enabled. If it is, release it using the prov
    :height: 350px
 ..
 
-3. Proceed to release the e-stop following the instructions in `E-Stop-Procedure`_.
+3. Proceed to release the e-stop following the instructions in :ref:`E-Stop-Procedure <E-Stop-Procedure-Overview>`.
 
 4. Confirm it's released, and re-run **auxtel/enable_atcs.py** from LOVE.
