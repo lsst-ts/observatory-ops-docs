@@ -28,7 +28,7 @@ DIMM
    :glob:
    :titlesonly:
 
-   DIMM/dimm-index.rst
+   DIMM/index.rst
 
 
 .. _EAS-DREAM:
