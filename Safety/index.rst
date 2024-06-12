@@ -114,7 +114,7 @@ Safety Systems
       GIS introduction
 
    .. grid-item-card:: Enter Observatory Spaces Safely
-      :link: Enter-Observatory-Spaces/index.rst
+      :link: Enter-Observatory-Spaces/index
       :link-type: doc
       :padding: 4
 
@@ -131,6 +131,7 @@ Safety Systems
     out-of-hours-support.rst
     summit-contact-numbers.rst
     Safety-Systems/index.rst
+    Enter-Observatory-Spaces/index.rst
 
 
 
