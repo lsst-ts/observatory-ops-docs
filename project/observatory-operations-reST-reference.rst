@@ -260,6 +260,8 @@ as it creates an intuitive sidebar menu to the left, and inserts in-page navigat
        ../Safety/out-of-hours-support
        license
 
+
+
 .. _Observatory-Operations-reST-Style-Reference-Guide-Code:
 
 Code
