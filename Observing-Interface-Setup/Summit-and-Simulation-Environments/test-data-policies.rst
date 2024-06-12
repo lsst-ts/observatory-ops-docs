@@ -23,7 +23,7 @@ Test Data Policies
 ##################
 
 Overview
-^^^^^^^^
+=========
 
 .. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
 
@@ -49,7 +49,7 @@ The TTS and BTS have space limitations, but remain flexible in nature.
 
 
 Test Data for Camera Playlists
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+==============================
 
 The camera playlists utilize raw fits files.
 To date, these have been managed `primarily via confluence pages <https://confluence.lsstcorp.org/display/LSSTCOM/Site+Playlists>`_.
@@ -59,7 +59,7 @@ Note that the new images created from running through the playlist are not prote
 
 
 Test Data Curation in the Butler
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+================================
 
 The process to add permanent test data to each environment is currently manual.
 

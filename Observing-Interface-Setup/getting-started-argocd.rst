@@ -31,14 +31,14 @@ Argo CD is the system used to deploy and maintain the configuration of many cont
 
 To get a list of the different environments see :ref:`Observing-Interface-Operational-Environments`
 
-.. _Observing-Interface-Getting-Started-ArgoCD-Prerequisites:
+.. _Observing-Interface-Getting-Started-ArgoCD-Precondition:
 
-Prerequisites
+Precondition
 =============
 
-.. This section should provide simple overview of prerequisites before executing the procedure; for example, state of equipment, telescope or seeing conditions or notifications prior to execution.
+.. This section should provide simple overview of Precondition before executing the procedure; for example, state of equipment, telescope or seeing conditions or notifications prior to execution.
 .. It is preferred to include them as a bulleted or enumerated list.
-.. Do not include actions in this section. Any action by the user should be included at the beginning of the Procedure section below. For example: Do not include "Notify specified SLACK channel. Confirmation is not required." Instead, include this statement as the first step of the procedure, and include "Notification to specified SLACK channel." in the Prerequisites section.
+.. Do not include actions in this section. Any action by the user should be included at the beginning of the Procedure section below. For example: Do not include "Notify specified SLACK channel. Confirmation is not required." Instead, include this statement as the first step of the procedure, and include "Notification to specified SLACK channel." in the Precondition section.
 .. If there is a different procedure that is critical before execution, carefully consider if it should be linked within this section or as part of the Procedure section below (or both).
 
 - Make sure you read and understand the :ref:`environments procedure <Observing-Interface-Operational-Environments>`.
@@ -80,11 +80,5 @@ Troubleshooting
 
 If you are having trouble accessing an Argo CD site, please use the site specific Slack channel for further assistance.
 
-.. _Observing-Interface-Getting-Started-ArgoCD-Personnel:
-
-Contact Personnel
-=================
 
 This procedure was last modified |today|.
-
-This procedure was written by |author|. The following are contributors: |contributors|.

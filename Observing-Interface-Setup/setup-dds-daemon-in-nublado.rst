@@ -17,9 +17,9 @@ When operating in nublado on one of the :ref:`operational environments <Observin
 The DDS daemon is in charge of handling most of the DDS communication and considerably alleviates the load on users notebooks and processes in general.
 
 
-.. _Setup-DDS-Daemon-in-Nublado-Prerequisites:
+.. _Setup-DDS-Daemon-in-Nublado-Precondition:
 
-Prerequisites
+Precondition
 =============
 
 - You must be logged in to the nublado system in one of the :ref:`operational environments <Observing-Interface-Operational-Environments>`.
@@ -145,12 +145,5 @@ Troubleshooting
 
 No troubleshooting information is currently available.
 
-.. _Setup-DDS-Daemon-in-Nublado-Contact-Personnel:
-
-Contact Personnel
-=================
 
 This procedure was last modified on |today|.
-
-This procedure was written by |author|.
-The following are contributors: |contributors|.

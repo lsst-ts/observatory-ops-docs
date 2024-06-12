@@ -30,14 +30,14 @@ Camera Control System - Introduction to CCS
 .. _Informative-Document-Overview:
 
 Overview
-^^^^^^^^
+========
 
 .. This section should provide a brief, top-level description of the document's purpose and utilization. 
 
 .. _Informative-Document-Main-Information-Section:
 
 Main Information Section
-^^^^^^^^^^^^^^^^^^^^^^^
+========================
 
 .. todo::
    Include utilization of admonishments (caution, warning, etc.)
@@ -52,7 +52,7 @@ Find additional examples of formatting on `this page <https://developer.lsst.io/
 .. _Informative-Document-Main-Information-Section-Subsection-One:
 
 Subsection One
-==============
+--------------
 
 1. numbers
 
@@ -77,14 +77,14 @@ i. lower-case roman numerals
 .. _Informative-Document-Main-Information-Section-Subsection-Two:
 
 Subsection Two
-==============
+--------------
 
 This is an example of a subsection. 
 
 .. _Informative-Document-Main-Information-Section-Subsection-Two-Subsubsection:
 
 Subsubsection
--------------
+^^^^^^^^^^^^^
 
 This is an example of a sub-subsection. 
 

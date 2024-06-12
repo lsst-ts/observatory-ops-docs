@@ -43,7 +43,7 @@ Once enrolled, you can `download`_ a desktop application or browser extension to
 .. _out-of-hours-support-resources-for-help:
 
 Resources for help
-^^^^^^^^^^^^^^^^^^
+==================
 
 - If a fault happens during the night, or some new behavior appears in the system, observers and summit staff should attempt to troubleshoot to the extent of their knowledge.
 
@@ -68,7 +68,7 @@ Find :ref:`more information <Daytime-Nighttime-Slack-Channel-Communication-with-
 .. _out-of-hours-support-calling-instructions:
 
 Calling instructions
-^^^^^^^^^^^^^^^^^^^^
+====================
 
 - Refer to the :ref:`instructions <summit-contact-numbers-using-the-control-room-phones>` on how to use the summit control rooms and dial an outside line. 
 

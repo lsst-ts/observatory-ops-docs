@@ -3,7 +3,7 @@ EFD SAL Kafka
 #############
 
 Overview
-^^^^^^^^
+========
 In some special occasions a component may be present at the summit but still in early stages of integration and verification.
 In these conditions it may happen that the responsible software engineer needs to perform rapid changes to the component interface and/or software that are not compatible with the currently running production environment.
 
@@ -19,7 +19,8 @@ This procedure details how to provision a SAL Kafka producers on non-production 
 
 
 Pre-requisites
-^^^^^^^^^^^^^^
+==============
+
 * Determine which components are involved in the test
 * Make sure components are **not** running in the production domain.
 * Announce your intentions in the :ref:`appropriate channels <Operational-Tutorials-Annouce-Component-Usage>`.
@@ -27,11 +28,11 @@ Pre-requisites
 * Docker permission in azar2
 
 Responsibilities
-^^^^^^^^^^^^^^^^
+================
 * Software Engineer
 
 Procedure
-^^^^^^^^^
+=========
 
 Check that Kafka producers are running
 --------------------------------------
@@ -112,9 +113,9 @@ Add to the list of CSCs for the salkafka producers while container is running
 
 
 Verification
-^^^^^^^^^^^^
+============
 TBD
 
 Troubleshooting
-^^^^^^^^^^^^^^^
+===============
 TBD
