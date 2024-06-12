@@ -1,6 +1,6 @@
-.. _Safety-Systems-Control-Safety-Systems:
+.. _Enter-Observatory-Spaces-Enter-AuxTel-Telescope:
 
 
 ######################
-GIS
+Entering AuxTel
 ######################

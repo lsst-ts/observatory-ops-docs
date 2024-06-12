@@ -1,6 +1,6 @@
-.. _Safety-Systems-Control-Safety-Systems:
+.. _Enter-Observatory-Spaces-Level4-Access:
 
 
-######################
-GIS
-######################
+###########################
+Level 4 Access Restrictions
+###########################
