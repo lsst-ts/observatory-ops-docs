@@ -117,7 +117,7 @@ Safety: Quick Reference for Nighttime Personnel
     .. grid-item::
     
         .. card:: Enter telescope spaces
-            :link: Safety/index
+            :link: Safety/Enter-Observatory-Spaces/index
             :link-type: doc
             :img-bottom: _static/Facilities.png
 
