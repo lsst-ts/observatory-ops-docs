@@ -14,7 +14,7 @@
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _TMA-OSS-Fails-to-Turn-On:
+.. _MTCS-TMA-OSS-Fails-to-Turn-On:
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
@@ -24,8 +24,7 @@
 TMA OSS Fails to Turn On
 ########################
 
-
-.. _Title-of-Troubleshooting-Procedure-Overview:
+.. _TMA-OSS-Fails-to-Turn-On:
 
 Overview
 ========
@@ -33,7 +32,9 @@ Overview
 .. In one or two sentences, explain when this troubleshooting procedure needs to be used. Describe the symptoms that the user sees to use this procedure. 
 
 This procedure describes how to recover the OSS system when it fails to turn ON. 
-.. _Title-of-Troubleshooting-Procedure-Error-Diagnosis:
+
+
+.. _OSS-Fails-to-Turn-On-Error-Diagnosis:
 
 Error diagnosis
 ===============
@@ -42,7 +43,7 @@ Error diagnosis
 .. It is preferred to include them as a bulleted or enumerated list.
 .. Post screenshots of the error state or relevant tracebacks.
 
-- Chiller(s) light in the EUI OSS screen is red. **"OSS"**, **"observation"** and **"cooling"** lights are red too. On the alarm banner on the bottom, you can read **"LOCAL: COOLING SYSTEM"**
+- Chiller(s) light in the EUI OSS screen is red. **OSS**, **observation** and **cooling** lights are red too. On the alarm banner on the bottom, you can read **LOCAL: COOLING SYSTEM**
 
 .. figure:: ./_static/OSS_general_view.png
    :name: OSS general view 
@@ -56,6 +57,20 @@ The **Alarm History** screen shows
 
 .. figure:: ./_static/alarm_history.png
     :name:  Alarm History
+
+
+
+
+
+in more detail, it shows:
+
+.. figure:: ./_static/alarm_his_1.png
+    :name: alarm history a
+
+.. figure:: ./_static/alarm_his_2.png
+    :name: alarm history b    
+
+
 
 .. _Title-of-Troubleshooting-Procedure-Procedure-Steps:
 
@@ -110,7 +125,7 @@ The large grey box on the cabinet's side (purple arrow) shows a blinking red lig
 .. figure:: ./_static/grey_box_cabinets.jpeg
     :name: grey box cabinets
 
-    .. figure:: ./_static/interlock_screens.jpeg
+.. figure:: ./_static/interlock_screens.jpeg
         :name: interlock screens
 
 3. There are two reset buttons inside the chiller cabinet that needs to be pressed. From the side of the cabinet, use the screwdriver to remove two screws that are located on top. This will allow you to remove the cover panel.
@@ -119,7 +134,7 @@ The large grey box on the cabinet's side (purple arrow) shows a blinking red lig
 .. figure:: ./_static/furthermost_panel.jpeg
     :name: remove panel
 
-    .. figure:: ./_static/Hand.jpeg
+.. figure:: ./_static/Hand.jpeg
         :name: 
 
 
@@ -169,7 +184,7 @@ Post-Condition
 .. Please provide screenshots of the software status or relevant display windows to confirm.
 .. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
 
-- The system should be now ready to Turn On the OSS again.
+- The system should be now ready to turn On the OSS again.
 
 
 
@@ -178,4 +193,4 @@ Post-Condition
 Contingency
 ===========
 
-If the procedure was not successful, report the issue in channel **summit-simonyi** and/or activate the :ref:`Out of hours support <Safety-out-of-hours-support>`.
+If the procedure was not successful, report the issue in channel *#summit-simonyi* and/or activate the :ref:`Out of hours support <Safety-out-of-hours-support>`.
