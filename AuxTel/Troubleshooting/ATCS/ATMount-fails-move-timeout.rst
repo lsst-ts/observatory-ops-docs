@@ -30,7 +30,7 @@ An air leak was discovered at the telescope base.
 Error diagnosis
 ===============
 
-The queued :file:`latiss_aquire_and_take_sequence.py` script report the following error:
+The queued :file:`latiss_aquire_and_take_sequence.py` script reports the following error:
 
 .. code-block:: text
   :caption: RuntimeError
