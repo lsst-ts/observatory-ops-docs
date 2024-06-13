@@ -14,34 +14,33 @@
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _Templates-Title-of-Troubleshooting-Procedure:
+.. _AuxTel-ATCS-ATDome-Shutter-Fails-to-Close:
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
 #############################
-ATDome Shutter fails to close
+ATDome Shutter Fails to Close
 #############################
 
-.. note::
-    This is a procedure template file that is associated with a template directory structure. This note should be deleted when the section is properly populated.
 
-.. _ATDome-SHutter-Fails-To-Close: 
+.. _ATDome-Shutter-Fails-To-Close: 
 
 Overview
 ========
 
-This page describes the procedures to follow if the software fails to close the AT dome shutter:
+This page describes the procedures to follow if the software fails to close the AT dome shutter. In the LOVE display can be seen *Dome not in position* in yellow letters:
 
-.. _Title-of-Troubleshooting-Procedure-Error-Diagnosis:
+.. _ATDome-Shutter-Fails-To-Close-The-Dome-shutter-never-reach-the-closed-status:
+
 
 Error diagnosis
 ===============
 
 The Dome shutter never reach the closed status.
 
-.. _Title-of-Troubleshooting-Procedure-Procedure-Steps:
+.. _ATDome-Shutter-Fails-To-Close:
 
 Procedure Steps
 ===============
@@ -53,10 +52,7 @@ Procedure Steps
 .. In the case of more complicated procedures, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked procedures to be performed in the specified order.
 .. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
 
-This paragraph describes some general guidance for this procedure. This paragraph is optional depending on its usefulness and the complexity of the procedure.
-
-In the case of a very straightforward procedure, a simple numbered list could be used, as follows:
-Step 1.
+#. 1  
 
 Go up to the AuxTel dome.  Locate the control box at the top of the stairs. The top black button should close the shutter:
 
@@ -64,7 +60,9 @@ Go up to the AuxTel dome.  Locate the control box at the top of the stairs. The 
 .. image:: _static/Box_at_Top_of_Stairs.jpeg
 
 
-Step 2.
+
+
+#. 2
 
 If this fails, locate the cRIO box, which rotates with the AuxTel dome.  It looks like this:
 
@@ -84,7 +82,7 @@ This must be done with EXTREME CAUTION.  This is a low-level control switch and 
 You can easily overdrive the shutter until it bangs into the lower shutter.  You can also damage the drive.  
 If you do this, it is best to stop the shutter 1 cm or so before it is fully closed to prevent this type of damage.
 
-Step 3.
+#. 3
 
 The steps above should close the shutter if there is power. As a last resort, for example if power has been lost, the shutter can be closed manually. 
 There is a crank on the first floor which fits into a ring at the top of the dome (see pictures below). 
@@ -105,4 +103,4 @@ Post-Condition
 Contingency
 ===========
 
-If the procedure was not successful, report the issue in [relevant Slack channel] and/or activate the :ref:`Out of hours support <Safety-out-of-hours-support>`.
+If the procedure was not successful, report the issue in **#summit-auxtel** channel and/or **#summit-announce** and/or activate the :ref:`Out of hours support <Safety-out-of-hours-support>`.
