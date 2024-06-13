@@ -8,22 +8,23 @@
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
 
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
-.. |author| replace:: *Karla Aubel*
+.. |author| replace:: *Erik Dennihy, Karla Aubel*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *List-of-contributors*
+.. |contributors| replace:: *Karla Aubel*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _Templates-Title-of-Procedure:
+.. _AuxTel-Troubleshooting-ATCS-AT-M1-Cover-Fails-to-Open:
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
 ###########################
-AT M1 Cover fails to open
+AT M1 Cover Fails to Open
 ###########################
 
+.. _AT-M1-Cover-Fails-to-Open:
 
 Overview
 ========
@@ -35,8 +36,8 @@ Error Diagnosis
 
 This indicates the M1 cover controller is in a bad state. 
 This is possible following any daytime work which involves manually controlling the M1 Covers on AuxTel, such as the weekly C02 mirror cleaning.
-
-atpneumatics_checkout.py fails with: 
+ 
+:file:`auxtel/standard_scripts/atpneumatics_checkout.py` fails with:
 
 Traceback:
 
