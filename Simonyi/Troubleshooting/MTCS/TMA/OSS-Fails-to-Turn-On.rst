@@ -59,9 +59,6 @@ The **Alarm History** screen shows
     :name:  Alarm History
 
 
-
-
-
 in more detail, it shows:
 
 .. figure:: ./_static/alarm_his_1.png
@@ -72,7 +69,7 @@ in more detail, it shows:
 
 
 
-.. _Title-of-Troubleshooting-Procedure-Procedure-Steps:
+.. _OSS-Fails-to-Turn-On:
 
 Procedure Steps
 ===============
@@ -87,39 +84,25 @@ Procedure Steps
 
 
 
-.. _Title-of-Troubleshooting-Procedure-Critical-Step-1:
+.. _OSS-Fails-to-Turn-On-Procedure-Steps:
 
- 1. Go to Level 1 Machinery Room and bring a Philips screwdriver with you. The Machinery Room is in the left door in the picture below.
-
-
+ 1. Go to Level 1 Machinery Room and bring a Philips screwdriver located inside the OSS cabinet. The Machinery Room is in the left door in the picture below.
 
 
 .. figure:: ./_static/level-1.png
     :name: level 1
 
 
-
-
-2. The screens in the front panel of one or both of the chiller cabinets would display an alarm. On the top, the red band may say: **“STATUS: NOT ACKNOWLEDGED”** or **“STATUS: ALARM”**
-
-
+2. The screens in the front panel of one or both of the chiller cabinets display an alarm. On the top, the red band says: **“STATUS: NOT ACKNOWLEDGED”** or **“STATUS: ALARM”**
 
 
 .. figure:: ./_static/chiller_2.jpeg
     :name: chiller 2
 
-
-
-
 .. figure:: ./_static/alarm_menu.jpeg  
     :name: alarm menu
 
-
-
-
-
 The large grey box on the cabinet's side (purple arrow) shows a blinking red light and an interlock in the screen.
-
 
 
 .. figure:: ./_static/grey_box_cabinets.jpeg
@@ -128,8 +111,7 @@ The large grey box on the cabinet's side (purple arrow) shows a blinking red lig
 .. figure:: ./_static/interlock_screens.jpeg
         :name: interlock screens
 
-3. There are two reset buttons inside the chiller cabinet that needs to be pressed. From the side of the cabinet, use the screwdriver to remove two screws that are located on top. This will allow you to remove the cover panel.
- Each cabinet has two panels. In chiller #2 the reset buttons are within the furthermost panel (Image below), while in chiller#1 they are found under the panel closer to the front face of the chiller.
+3. There are two reset buttons inside the chiller cabinet that need to be pressed. From the side of the cabinet, use the screwdriver to remove two screws that are located on top. This will allow you to remove the cover panel.Each cabinet has two panels. In chiller #2 the reset buttons are within the furthermost panel (Image below), while in chiller#1 they are found under the panel closer to the front face of the chiller.
 
 .. figure:: ./_static/furthermost_panel.jpeg
     :name: remove panel
@@ -144,18 +126,13 @@ The large grey box on the cabinet's side (purple arrow) shows a blinking red lig
  :name: buttons
 
 
-
-.. figure:: ./_static/reset_button_2.jpeg
- :name: reset
-
-
-
-
    .. _Title-of-Troubleshooting-Procedure-Final-Step:
 
 
-
 5. Press the reset button on the large grey box on the side of the cabinet. The red alarm light should stop blinking.
+
+.. figure:: ./_static/reset_button_2.jpeg
+ :name: reset
 
 6. Acknowledge the alarms by pressing the tick mark on the bottom of the screen. After perhaps a minute or two, the front screen should show **"STATUS:OK"**
 
