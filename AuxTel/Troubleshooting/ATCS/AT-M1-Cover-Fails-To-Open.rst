@@ -41,6 +41,9 @@ This is possible following any daytime work which involves manually controlling 
 
 Traceback:
 
+..code-block::
+caption: Traceback:    
+
 Error in run
 Traceback (most recent call last):
 File "/opt/lsst/software/stack/conda/envs/lsst-scipipe-7.0.1/lib/python3.11/site-packages/lsst/ts/salobj/base_script.py", line 603, in do_run
