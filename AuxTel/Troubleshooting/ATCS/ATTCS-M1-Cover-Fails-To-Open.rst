@@ -14,23 +14,25 @@
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _AuxTel-ATCS-AT-M1-Cover-Fails-To-Open:
+.. _AuxTel-Troubleshooting-AuxTel-M1-Cover-Fails-To-Open:
 
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
-###########################
-AT M1 Cover Fails to Open
-###########################
+#############################
+AuxTel M1 Cover Fails to Open
+#############################
 
-.. _AT-M1-Cover-Fails-To-Open:
+.. _AuxTel-M1-Cover-Fails-To-Open-Overview:
 
 Overview
 ========
 
 This procedure explains the steps to follow when AuxTel M1 Cover fails to open during Daytime checkout or at the start of night. 
+
+.. _AuxTel-M1-Cover-Fails-To-Open-Error-Diagnosis:
 
 Error Diagnosis
 ===============
@@ -38,8 +40,6 @@ Error Diagnosis
 This is possible following any daytime work which involves manually controlling the M1 Covers on AuxTel, such as the weekly C02 mirror cleaning.
 
 :file:`auxtel/standard_scripts/atpneumatics_checkout.py` fails with: 
-
-
 
 .. code-block:: text
   :caption: Traceback error for :file:`atpneumatics_checkout.py`
@@ -53,7 +53,8 @@ This is possible following any daytime work which involves manually controlling 
     return await cmd_info.next_ackcmd(timeout=timeout)
     File "/opt/lsst/software/stack/conda/envs/lsst-scipipe-7.0.1/lib/python3.11/site-packages/lsst/ts/salobj/topics/remote_command.py", line 191, in next_ackcmd
     raise base.AckError(msg="Command failed", ackcmd=ackcmd)
-    lsst.ts.salobj.base.AckError: msg='Command failed', ackcmd=(ackcmd private_seqNum=1568846216, ack=<SalRetCode.CMD_FAILED: -302>, error=0, result='ERROR: Command OPENM1COVER rejected while M1 covers controller in StandbyState state.')
+    lsst.ts.salobj.base.AckError: msg='Command failed', ackcmd=(ackcmd private_seqNum=1568846216, ack=<SalRetCode.CMD_FAILED: -302>, 
+    error=0, result='ERROR: Command OPENM1COVER rejected while M1 covers controller in StandbyState state.')
     
 
 Post-Condition
@@ -61,27 +62,23 @@ Post-Condition
 
 This procedure leaves the telescope with the M1 cover open.
 
-.. _AT-M1-Cover-Fails-To-Open:
-
+.. _AuxTel-M1-Cover-Fails-To-Open-Procedure:
 
 Procedure Steps
 ===============
 
+The recovery of the M1 cover control must be done from the *ATMCS EUI*.
 
-Recovering the M1 Cover Controller state and clearing the fault must be done from the ATMCS EUI.
+#. Ensure the ATCS CSCs are all set to ``STANDBY``.
 
-Step 1.
+   The easiest way to do this is to run the :file:`standby_atcs.py` script from the *ATQueue*.
+   Do not proceed to the next step until the CSCs are set to ``STANDBY``, otherwise you will need to reset both the CSC and EUI to regain communication. 
 
-Ensure the ATCS CSCs are all set to ``STANDBY``.
-The easiest way to do this is to run the :file:`standby_atcs.py` script from the *ATQueue*.
-Do not proceed to the next step until the CSCs are set to ``STANDBY``, otherwise you will need to reset both the CSC and EUI to regain communication. 
+#. Log in to the *ATMCS EUI* either using a remote desktop or from the control computer on the first floor of the AuxTel dome. 
 
-Step 2.
+   More instruction can be found in the :ref:`access ATMCS EUI procedure <AuxTel-Non-Standard-Operations-AuxTel-EUI-Access>`. 
 
-Log in to the ATMCS EUI using either Microsoft Remote Desktop or from the control computer on the first floor in the AuxTel dome.
-Detailed instructions on how to install and setup the ATMCS EUI using Microsoft Remote Desktop can be found in this procedure: 
-
-:ref:`Access ATMCS EUI <AuxTel-Non-Standard-Operations-AuxTel-EUI-Access>``
+#. 
 
 
  
