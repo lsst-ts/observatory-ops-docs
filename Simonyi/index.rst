@@ -54,8 +54,8 @@ Consult the :ref:`weather conditions and constraints <Observing-Constraints-Simo
    :glob:
    :titlesonly:
    :caption: Weather Constraints
-
-    Observing-Constraints/Simonyi/index.rst
+   
+   ../Observing-Constraints/Simonyi/index.rst
 
 
 .. _Simonyi-Telescope-Operations-Standard-Operations:

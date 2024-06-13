@@ -4,7 +4,8 @@ Debugging DDS
 
 Overview
 ========
-This topic describes procedures for debugging the status of the `DDS interface <https://ts-sal.lsst.io>`_ that powers the :doc:`CSCs <obs-controls:System-Architecture/CSC-Overview/index>` that run on the summit.
+This topic describes procedures for debugging the status of the `DDS interface <https://ts-sal.lsst.io>`_ 
+that powers the :doc:`CSCs <obs-controls:System-Architecture/CSC-Overview/index>` that run on the summit.
 There are 3 use-cases for DDS Daemons defined by their location and application.
 
 #. Node specific daemons which are mostly used for production environments

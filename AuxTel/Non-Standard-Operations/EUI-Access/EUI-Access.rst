@@ -52,13 +52,13 @@ Setup to access the AuxTel EUI remote desktop
 
 #. Click the drop-down menu "Gateway" :raw-html:`&rarr;` "Add a Gateway"
 
-.. figure:: /AuxTel/Non-standard-Operations/_static/image-2023-11-8_17-6-47.png
+.. figure:: /AuxTel/Non-Standard-Operations/_static/image-2023-11-8_17-6-47.png
   :name: "Add PC" pop-up window
 
 
 #. Put *aux-brick01.cp.lsst.org* on the "Gateway name" :raw-html:`&rarr;` "Add"
 
-.. figure:: /AuxTel/Non-standard-Operations/_static/image-2023-11-8_17-3-7.png
+.. figure:: /AuxTel/Non-Standard-Operations/_static/image-2023-11-8_17-3-7.png
   :name: "Add a Gateway" pop-up window
 
 
@@ -77,18 +77,18 @@ Connecting to the EUI Remote desktop
 
     * *Main Box Dome Control: http://139.229.170.45:8000/MainBoxControl.html*   
 
-    .. figure:: /AuxTel/Non-standard-Operations/_static/EUI-ATDome.png    
+    .. figure:: /AuxTel/Non-Standard-Operations/_static/EUI-ATDome.png    
     
     * *ACE Spectrograph: http://139.229.170.44:8000/Spectrograph.html*  
 
-    .. figure:: /AuxTel/Non-standard-Operations/_static/EUI-ATSpec.png  
+    .. figure:: /AuxTel/Non-Standard-Operations/_static/EUI-ATSpec.png  
     
     * *LSST Auxiliary Telescope MCS & Pneumatics: http://139.229.170.47:8000/atmcs.html*
     
-    .. figure:: /AuxTel/Non-standard-Operations/_static/EUI-ATMCS.png  
+    .. figure:: /AuxTel/Non-Standard-Operations/_static/EUI-ATMCS.png  
     
     * *Top Box Control: http://139.229.170.46:8000/TopBoxControl.html*
     
-    .. figure:: /AuxTel/Non-standard-Operations/_static/EUI-Top-Control-Box.png
+    .. figure:: /AuxTel/Non-Standard-Operations/_static/EUI-Top-Control-Box.png
 
 This procedure was last modified on |today|.

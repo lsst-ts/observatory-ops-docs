@@ -19,7 +19,7 @@ This procedure prepares the telescope and dome to take flat fields, pointing the
 
 Precondition
 =============
-Be sure you have run previously the following procedure in the :ref:`daytime checkout <AT-Daytime-Checkout-Daytime-Checkout>` in ATQueue-love:
+Be sure you have run previously the following procedure in the :ref:`daytime checkout <AuxTel-DayTime-Operations-Daytime-Checkout>` in ATQueue-love:
 
 
 
@@ -39,7 +39,7 @@ Be sure you have run previously the following procedure in the :ref:`daytime che
 
 Post-Condition
 ==============
-Telescope is ready to :ref:`take calibrations <LATISS-Combined-Calibrations-Procedure-LATISS-Combined-Calibrations-Generation-Procedure>`.
+Telescope is ready to :ref:`take calibrations <AuxTel-Daytime-Operations-LATISS-Combined-Calibrations-Generation-Procedure>`.
 
 NOTE: make sure M3 is pointing to LATISS on nasmyth 2, mirror cover are is opened and the telescope is in position, as a final check.
 
@@ -51,7 +51,7 @@ Using the ``LOVE AT QUEUE``, run the standard script ``auxtel/prepare_for/flat.p
 No configuration is needed.
 
 
-.. figure:: ../_static/love_prepare_for_flat.png
+.. figure:: ./_static/love_prepare_for_flat.png
      :name: my-figure
       
      LOVE interface with the ``auxtel/prepare_for/flat.py`` script.
@@ -78,7 +78,7 @@ Make sure M3 is pointing to LATISS on nasmyth 2, mirror cover are is opened and 
 
 
 
-.. figure:: ../_static/love-dome-mount.png
+.. figure:: ./_static/love-dome-mount.png
      :name: telescope&dome position
 
      LOVE interface showing telescope and dome position for flats.

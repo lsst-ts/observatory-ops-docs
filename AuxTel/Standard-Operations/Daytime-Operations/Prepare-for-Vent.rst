@@ -32,25 +32,25 @@ This procedure gets the AuxTel system ready for venting, positioning the telesco
 Venting accelerates thermal equalization, increasing the amount of free air currents. 
 This way, the local thermal imbalances in the air inside the dome, that could deteriorate image quality, are minimized.  
 
-In a typical observing night, observers must start venting in the afternoon following the execution of :ref:`daytime checkout <AT-Daytime-Checkout-Daytime-Checkout>` and 
-:ref:`calibrations <LATISS-Combined-Calibrations-Procedure-LATISS-Combined-Calibrations-Generation-Procedure>`, when applicable.  
+In a typical observing night, observers must start venting in the afternoon following the execution of :ref:`daytime checkout <AuxTel-DayTime-Operations-Daytime-Checkout>` and 
+:ref:`calibrations <AuxTel-Daytime-Operations-LATISS-Combined-Calibrations-Generation-Procedure>`, when applicable.  
 
-Once the Sun's elevation above horizon is below 25 degrees, please proceed to :ref:`prepare for on-sky operations <AT-Pre-Open-for-On-Sky-Operations>`. 
-The Sun's coordinates at any given time, along with several other useful ephemeris, can be found at the :ref:`sky almanac <Sky-Almanac-Get-Sun-Coordinates>`.
+Once the Sun's elevation above horizon is below 25 degrees, please proceed to :ref:`prepare for on-sky operations <AuxTel-Nighttime-Operations-Open-for-On-Sky-Operations>`. 
+The Sun's coordinates at any given time, along with several other useful ephemeris, can be found at the :ref:`sky almanac <Visualization-and-Monitoring-Tools-Sky-Almanac>`.
 
 .. _Prepare-for-vent-Precondition:
 
 Precondition
 =============
 
-- Before taking the decision to open, review the weather conditions and :ref:`weather constraints <weather-constraints-deciding-to-open>` page.
+- Before taking the decision to open, review the weather conditions and :ref:`weather constraints <Observing-Constraints-AuxTel-Weather-Constraints>` page.
 
 - AuxTel is fully ready to operate and all components are enabled. 
 
-- The :ref:`daytime checkout <AT-Daytime-Checkout-Daytime-Checkout>` has been executed successfully. 
+- The :ref:`daytime checkout <AuxTel-DayTime-Operations-Daytime-Checkout>` has been executed successfully. 
 
-- This procedure will take the system from the end point of the :ref:`daytime checkout <AT-Daytime-Checkout-Daytime-Checkout>`, 
-  :ref:`calibration <LATISS-Combined-Calibrations-Procedure-LATISS-Combined-Calibrations-Generation-Procedure>` 
+- This procedure will take the system from the end point of the :ref:`daytime checkout <AuxTel-DayTime-Operations-Daytime-Checkout>`, 
+  :ref:`calibration <AuxTel-Daytime-Operations-LATISS-Combined-Calibrations-Generation-Procedure>`
   state or any other initial state, to start venting. 
 
 .. _Prepare-for-vent-Post-Condition:
@@ -62,7 +62,7 @@ Post-Condition
 
   The ``auxtel/prepare_for/vent.py`` script will run until the Sun's elevation is 5 degrees above the horizon, if there's no operator interaction prior to that. 
   
-  Once the Sun's elevation is past below 25 degrees above horizon, please :ref:`prepare for on-sky operations <AT-Pre-Open-for-On-Sky-Operations>`. 
+  Once the Sun's elevation is past below 25 degrees above horizon, please :ref:`prepare for on-sky operations <AuxTel-Nighttime-Operations-Open-for-On-Sky-Operations>`. 
 
 .. _Prepare-for-vent-Procedure-Steps:
 

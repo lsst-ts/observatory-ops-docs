@@ -56,7 +56,7 @@ to operate AuxTel.
    :titlesonly:
    :caption: Weather Constraints
 
-    Observing-Constraints/AuxTel/index.rst
+   ../Observing-Constraints/AuxTel/index.rst
 
 
 

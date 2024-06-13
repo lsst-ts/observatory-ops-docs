@@ -30,8 +30,7 @@ The Scheduler automatically adds new targets to the queue until the start of nau
 If there are no targets, the Scheduler will stop adding new ones.
 If you need to stop the Scheduler manually, you can use the ``auxtel/scheduler/stop.py`` script from ScriptQueue without any additional configurations.
 
-See more detailed descriptions on `stopping the scheduler <scheduler-night-time-operation-troubleshooting-stopping-the-scheduler>`.
-
+See more detailed descriptions on :ref:`stopping the scheduler <scheduler-night-time-operation-troubleshooting-stopping-the-scheduler>`.
 
 .. _Shutdown-the-Telescope-Post-Conditions:
 
@@ -39,17 +38,18 @@ Post-Condition
 ==============
 
 - **Status of Telescope and Dome** 
+
 .. image:: ./_static/ATDome_park.png
     :name: Auxiliary Telescope and Dome at the shutdown position
 
 - **Status of Mirrors and Mirror Covers**
+
 .. image:: ./_static/AT_LightPath.png
    :scale: 50 %
 
 - **Status of CSC components of ATTCS and LATISS** 
+
 .. image:: ./_static/CSC.png
-
-
 
 .. _Park-the-Telescope-Procedure-Steps:
 
@@ -97,7 +97,6 @@ Taking Morning Calibrations
 
 After ``shutdown.py`` script is completed, check CSC Summary on LOVE.
 Check the CSCS for LATISS are in enable status, then run ``make_latiss_calibration.py`` with the following configuration.
-See more details on :ref:`LATISS-Combined-Calibrations-Procedure-LATISS-Combined-Calibrations-Generation-Procedure`.
 
 .. code-block:: yaml
 

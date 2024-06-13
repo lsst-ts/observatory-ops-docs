@@ -42,5 +42,4 @@ AuxTel Operational Constraints
     :titlesonly:
     :glob:
 
-
-   AuxTel/index.rst
+    AuxTel/index.rst
