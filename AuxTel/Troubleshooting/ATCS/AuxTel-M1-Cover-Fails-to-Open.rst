@@ -30,7 +30,7 @@ AuxTel M1 Cover Fails to Open
 Overview
 ========
 
-This procedure explains the steps to follow when AuxTel M1 Cover fails to open during Daytime checkout or at the start of night. 
+This procedure explains the steps to follow when AuxTel M1 Cover fails to open during daytime checkout or at the start of night. 
 
 .. _AuxTel-M1-Cover-Fails-To-Open-Error-Diagnosis:
 
@@ -39,10 +39,10 @@ Error Diagnosis
 
 This is possible following any daytime work which involves manually controlling the M1 Covers on AuxTel, such as the weekly C02 mirror cleaning.
 
-:file:`auxtel/standard_scripts/atpneumatics_checkout.py` fails with: 
+:file:`auxtel/daytime_checkout/atpneumatics_checkout.py` fails with: 
 
 .. code-block:: text
-  :caption: Traceback error for :file:`atpneumatics_checkout.py`
+  :caption: Traceback error for SAL script :file:`atpneumatics_checkout.py`
 
     Error in run Traceback (most recent call last):
     File "/opt/lsst/software/stack/conda/envs/lsst-scipipe-7.0.1/lib/python3.11/site-packages/lsst/ts/salobj/base_script.py",
