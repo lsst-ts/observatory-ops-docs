@@ -43,7 +43,6 @@ When attempting to move the telescope via :file:`point_azel` or Scheduler, the f
    lvclass:ProcessDeviceLogicStateTransitions.vi/MntcTrackEnabledState.lvclass:
    ProcessStateTransition.vi/mount_fault_state_procedure.vi
 
-or 
 
 .. code-block:: text
   :caption: Traceback Error

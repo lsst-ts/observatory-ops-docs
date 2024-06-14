@@ -69,12 +69,12 @@ Procedure Steps
 
 The recovery of the M1 cover control must be done from the *ATMCS EUI*.
 
-#. Ensure the ATCS CSCs are all set to ``STANDBY``.
+#. **Ensure the ATCS CSCs are all set to STANDBY**
 
    The easiest way to do this is to run the :file:`standby_atcs.py` script from the *ATQueue*.
    Do not proceed to the next step until the CSCs are set to ``STANDBY``, otherwise you will need to reset both the CSC and EUI to regain communication. 
 
-#. Log in to the *ATMCS EUI* either using a remote desktop or from the control computer on the first floor of the AuxTel dome. 
+#. **Log in to the ATMCS EUI** either using a remote desktop or from the control computer on the first floor of the AuxTel dome. 
 
    More instruction can be found in the :ref:`access ATMCS EUI procedure <AuxTel-Non-Standard-Operations-AuxTel-EUI-Access>`. 
 

@@ -51,7 +51,7 @@ Procedure Steps
 First step is to check if the **E-stop** is engaged. 
 If it is engaged, release it using the procedure linked in step 2 and attempt to enable *ATCS* again.
 
-#. The only way to check if the **E-stop** is engaged is from the *ATMCS EUI*. 
+#. The only way to **check if the E-stop is engaged** is from the *ATMCS EUI*. 
    The *ATMCS EUI* can be opened from a remote desktop connection or from the control computer at the first floor of the AuxTel dome.  
    More detailed instruction in the :ref:`access ATMCS EUI procedure <AuxTel-Non-Standard-Operations-AuxTel-EUI-Access>`.
 
@@ -68,6 +68,6 @@ If it is engaged, release it using the procedure linked in step 2 and attempt to
 
        Emergency Stop indicator
 
-#. Proceed to release the **E-stop** following the instructions in :ref:`E-Stop disengage procedure <AuxTel-Non-Standard-Procedures-E-Stop-Procedure>`.
+#. **Proceed to release the E-stop** following the instructions in :ref:`E-Stop disengage procedure <AuxTel-Non-Standard-Procedures-E-Stop-Procedure>`.
 
-#. Confirm it is released, and re-run SAL script :file:`auxtel/enable_atcs.py` from LOVE.
+#. **Confirm it is released**, and re-run SAL script :file:`auxtel/enable_atcs.py` from LOVE.
