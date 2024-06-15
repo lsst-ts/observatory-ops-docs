@@ -107,7 +107,7 @@ Nublado User Setup
 
 .. warning::
 
-	If the OpenSpliceDDS library is updated you may need to redo this step to update the library locally. If in doubt contact the :ref:`appropriate personnel <Setup-DDS-Daemon-in-Nublado-Contact-Personnel>`.
+	If the OpenSpliceDDS library is updated you may need to redo this step to update the library locally. 
 
 
 On the terminal used in the :ref:`previous step <Setup-DDS-Daemon-in-Nublado-Procedure-Steps-Setup-and-Start-DDS-Daemon>` open the user setup file using your preferred text editor.

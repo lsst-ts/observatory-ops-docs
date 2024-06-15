@@ -44,10 +44,10 @@ How To Search For A Procedure
 
 Design And Reviews
 ==================
-.. figure:: ./_static/pathfinder-design.jpg
+.. figure:: ./_static/pathfinder-design.png
     :name: PathfinderDesign
 
-    Caption: Pathfinder delivered desing by SLAC on 2018.
+    Caption: Pathfinder delivered design by SLAC on 2018.
 
 - `Pathfinder Reviews: <https://confluence.slac.stanford.edu/display/LSSTCAM/Refrigeration+Pathfinder>`__ the preliminary and final design review (PDR) have a good summary of the Pathfinder design plan and project progress prior to the instrument arrival in Chile (2018).
 

@@ -39,7 +39,7 @@ and different situations will apply to the Simonyi and Auxiliary telescopes.
 
 ..    *
 
-.. _weather-constraints-deciding-to-open:
+.. _auxtel-weather-constraints-deciding-to-open:
 
 Deciding to open
 ================
@@ -73,7 +73,7 @@ e.g. opening before going to dinner, or leaving the control room to complete ano
         If winds are over 8 m/s, the extraction fan should be turned off.
         If humidity is rising quickly, or >= 65%, (to be revised) the extraction fan should be turned off to avoid drawing in more moisture through the dome. 
 
-.. _weather-constraints-wind:
+.. _auxtel-weather-constraints-wind:
 
 Wind
 ====
@@ -127,7 +127,7 @@ Wind speeds greater than 12 m/s (measured over the last 10 data points):
         It is opened when observing targets below 25-30 degrees elevation. 
         The drop-down shutter is susceptible to wind gusts, and should be closed if gusts reach over 8 m/s.
 
-.. _weather-constraints-humidity-and-dew-point:
+.. _auxtel-weather-constraints-humidity-and-dew-point:
 
 Humidity and dew point
 ======================
@@ -181,7 +181,7 @@ Observers must wait for the dew point temperature or humidity to recover from th
     Rotate the closed dome several times in both directions, exercising large slews. 
     This can remove some of the water droplets that might have accumulated on the metal surface. 
 
-.. _weather-constraints-cloud-cover:
+.. _auxtel-weather-constraints-cloud-cover:
 
 Cloud cover
 ===========
@@ -208,7 +208,7 @@ If clouds are at this low elevation, and they are also overhead the telescope, t
     Due to the longer exposure times, stars can appear brighter in the images, so extinction is not as bad as it seems.
     If possible, take the opportunity to go outside and compare the cloud cameras to real life. 
 
-.. _weather-constraints-moon-avoidance:
+.. _auxtel-weather-constraints-moon-avoidance:
 
 Moon avoidance
 ==============

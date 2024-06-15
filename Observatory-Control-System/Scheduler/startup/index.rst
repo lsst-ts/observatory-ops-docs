@@ -9,7 +9,7 @@ The system contains a set of :ref:`custom scripts <scheduler-operational-scripts
 In the future it is expected that most of these operations will be done through a custom LOVE interface.
 
 These procedures concentrate on the Auxiliary Telescope Scheduler because at the time of this writing, it is the focus of operations.
-Nevertheless, as pointed out in :ref:`Nighttime-Scheduler-Scheduler-Operational-Procedures`, the processes are similar for both schedulers.
+Nevertheless, as pointed out in :ref:`scheduler nighttime operational procedures <scheduler-night-time-operation>`, the processes are similar for both schedulers.
 
 .. _ATQueue: http://love01.cp.lsst.org/uif/view?id=41
 .. _ASummary State: http://love01.cp.lsst.org/uif/view?id=51
@@ -35,11 +35,11 @@ Determining Configuration
 
 
 For now, it suffices to say that before enabling the CSC, the user must know in advance which configuration should be used for the night.
-During commmissioning it is likely that we will have more than one suitable configurations for every single night, that prioritizes different surveys that can be selected dependending on the conditions.
+During commissioning it is likely that we will have more than one suitable configurations for every single night, that prioritizes different surveys that can be selected depending on the conditions.
 These will generally be in the form of different configuration names.
 
 The available configurations (and associated configuration files) can be found in the Scheduler configuration directory of the `OCS configuration repository`_.
-This information is also published by the CSC in the ``configurationsAvailable`` event, which can be found in LOVE detailed summary state view, inspected via SAL from a notebook in nublado or in the EFD from chronograf.
+This information is also published by the CSC in the ``configurationsAvailable`` event, which can be found in LOVE detailed summary state view, inspected via SAL from a notebook in nublado or in the EFD from Chronograf.
 
 .. _OCS configuration repository: https://github.com/lsst-ts/ts_config_ocs
 

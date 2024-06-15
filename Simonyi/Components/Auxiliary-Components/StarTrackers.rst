@@ -1,4 +1,4 @@
-.. _Simonyi-Components-LaserTracker:
+.. _Simonyi-Components-StarTrackers:
 
 ######################
 StarTrackers

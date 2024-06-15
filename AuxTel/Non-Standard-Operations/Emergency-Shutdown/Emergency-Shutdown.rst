@@ -11,12 +11,10 @@
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
 .. _AuxTel-Non-Standard-Operations-AuxTel-Emergency-Shutdown: 
-
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
-
 
 #########################
 AuxTel Emergency Shutdown
@@ -27,6 +25,7 @@ AuxTel Emergency Shutdown
 Overview
 ========
 .. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
+
 Unfavorable circumstances that indicate the need to close the dome if it is open are:
    - :ref:`Weather constraints <Observing-Constraints-AuxTel-Weather-Constraints>`
    - Sunrise approaching in the next two hours.
@@ -51,7 +50,6 @@ Post-Condition
 .. It is preferred to include them as a bulleted or enumerated list.
 .. Please provide screenshots of the software status or relevant display windows to confirm.
 .. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
-
 - The emergency situation has been clearly notified to the relevant personnel and management.
 - Steps to eliminate or minimize the risk to the instruments and hardware are being implemented.
 - Eventually, the dome shutter is closed and all equipment is safe.
@@ -82,15 +80,15 @@ Shutter Closure
 
 2. Go up to the AuxTel dome (second floor).  Locate the control box at the top of the stairs.  The top black button should close the shutter. Note that the safety gate at the bottom of the stairs needs to be closed and locked in order for this button to operate.
 
-.. figure:: /AuxTel/Non-standard-Operations/_static/Box_at_Top_of_Stairs.jpg
+.. figure:: /AuxTel/Non-Standard-Operations/_static/Box_at_Top_of_Stairs.jpg
   :name: AuxTel control box
 
 3. If the above step fails, locate the AuxTel cRIO box. This box rotates with the AuxTel dome. Open it and identify the cRIO switches.
 
-.. figure:: /AuxTel/Non-standard-Operations/_static/cRIO_box.jpg
+.. figure:: /AuxTel/Non-Standard-Operations/_static/cRIO_box.jpg
   :name: AuxTel cRIO
 
-.. figure:: /AuxTel/Non-standard-Operations/_static/Switches_in_cRIO_box.jpg
+.. figure:: /AuxTel/Non-Standard-Operations/_static/Switches_in_cRIO_box.jpg
   :name: Switches inside AuxTel cRIO
 
 With **EXTREME CAUTION** slide the switch labeled "CLOSE" (yellow arrow) progressively to the left. 
@@ -104,11 +102,11 @@ Shutter Closure without Power
 
 1. In the absence of electrical power, the shutter must be closed manually. On AuxTel first floor there is a crank that fits into a ring at the top of the dome. Rotating the ring manually with the crank assistance close the shutter. Note this is a long and physically demanding procedure and the hand crank just does not have enough torque to lift the weight of the shutter if it is all the way open. If you cannot safely insert the crank into the drive motor and operate the crank, then remove the crank and do not proceed.
 
-.. figure:: /AuxTel/Non-standard-Operations/_static/Hand_Crank.jpg
+.. figure:: /AuxTel/Non-Standard-Operations/_static/Hand_Crank.jpg
   :name: AuxTel Hand Crank
 
 
-.. figure:: /AuxTel/Non-standard-Operations/_static/Top_of_Dome.jpg
+.. figure:: /AuxTel/Non-Standard-Operations/_static/Top_of_Dome.jpg
   :name: Top of Dome
 
 .. _AuxTel-Emergency-Shutdown-Contingency:

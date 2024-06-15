@@ -9,7 +9,7 @@ AuxTel Non-standard Operations
     :titlesonly:
     :glob:
 
-    AuxTel-EUI-Access/AuxTel-EUI-Access.rst
+    EUI-Access/EUI-Access.rst
 
 
 .. toctree::
@@ -40,4 +40,4 @@ AuxTel Non-standard Operations
     :titlesonly:
     :glob:
 
-    AuxTel-Emergency-Shutdown/AuxTel-Emergency-Shutdown.rst
+    Emergency-Shutdown/Emergency-Shutdown.rst
