@@ -27,14 +27,14 @@ Camera Control System - Introduction to CCS
 .. note::
     This is a document template file that is associated with a template directory structure. This note should be deleted when the section is properly populated.
 
-.. _Informative-Document-Overview:
+.. _Introduction-to-CCS-Overview:
 
 Overview
 ========
 
 .. This section should provide a brief, top-level description of the document's purpose and utilization. 
 
-.. _Informative-Document-Main-Information-Section:
+.. _Introduction-to-CCS-Main-Information-Section:
 
 Main Information Section
 ========================
@@ -49,7 +49,7 @@ Find additional examples of formatting on `this page <https://developer.lsst.io/
 .. warning::
     Keep this in mind when referring to this information. 
 
-.. _Informative-Document-Main-Information-Section-Subsection-One:
+.. _Introduction-to-CCS-Main-Information-Section-Subsection-One:
 
 Subsection One
 --------------
@@ -74,14 +74,14 @@ i. lower-case roman numerals
 
 1) and again
 
-.. _Informative-Document-Main-Information-Section-Subsection-Two:
+.. _Introduction-to-CCS-Main-Information-Section-Subsection-Two:
 
 Subsection Two
 --------------
 
 This is an example of a subsection. 
 
-.. _Informative-Document-Main-Information-Section-Subsection-Two-Subsubsection:
+.. _Introduction-to-CCSmake clean-Main-Information-Section-Subsection-Two-Subsubsection:
 
 Subsubsection
 ^^^^^^^^^^^^^

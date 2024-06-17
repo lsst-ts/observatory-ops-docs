@@ -8,9 +8,9 @@
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
 
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
-.. |author| replace:: *Kshitija Kelkar*
+.. |author| replace:: Kshitija Kelkar
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *OS Team*
+.. |contributors| replace:: OS Team
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -52,13 +52,13 @@ Setup to access the AuxTel EUI remote desktop
 
 #. Click the drop-down menu "Gateway" :raw-html:`&rarr;` "Add a Gateway"
 
-.. figure:: /AuxTel/Non-Standard-Operations/_static/image-2023-11-8_17-6-47.png
+.. figure:: /AuxTel/AuxTel-Non-standard-Operations/_static/image-2023-11-8_17-6-47.png
   :name: "Add PC" pop-up window
 
 
 #. Put *aux-brick01.cp.lsst.org* on the "Gateway name" :raw-html:`&rarr;` "Add"
 
-.. figure:: /AuxTel/Non-Standard-Operations/_static/image-2023-11-8_17-3-7.png
+.. figure:: /AuxTel/AuxTel-Non-standard-Operations/_static/image-2023-11-8_17-3-7.png
   :name: "Add a Gateway" pop-up window
 
 
@@ -77,18 +77,18 @@ Connecting to the EUI Remote desktop
 
     * *Main Box Dome Control: http://139.229.170.45:8000/MainBoxControl.html*   
 
-    .. figure:: /AuxTel/Non-Standard-Operations/_static/EUI-ATDome.png    
+    .. figure:: /AuxTel/AuxTel-Non-standard-Operations/_static/EUI-ATDome.png    
     
     * *ACE Spectrograph: http://139.229.170.44:8000/Spectrograph.html*  
 
-    .. figure:: /AuxTel/Non-Standard-Operations/_static/EUI-ATSpec.png  
+    .. figure:: /AuxTel/AuxTel-Non-standard-Operations/_static/EUI-ATSpec.png  
     
     * *LSST Auxiliary Telescope MCS & Pneumatics: http://139.229.170.47:8000/atmcs.html*
     
-    .. figure:: /AuxTel/Non-Standard-Operations/_static/EUI-ATMCS.png  
+    .. figure:: /AuxTel/AuxTel-Non-standard-Operations/_static/EUI-ATMCS.png  
     
     * *Top Box Control: http://139.229.170.46:8000/TopBoxControl.html*
     
-    .. figure:: /AuxTel/Non-Standard-Operations/_static/EUI-Top-Control-Box.png
+    .. figure:: /AuxTel/AuxTel-Non-standard-Operations/_static/EUI-Top-Control-Box.png
 
 This procedure was last modified on |today|.

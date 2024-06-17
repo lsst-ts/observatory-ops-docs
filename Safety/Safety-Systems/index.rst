@@ -19,7 +19,7 @@ Safety Systems
 
 .. This section should provide a brief, top-level description of the page.
 
-.. _Safety-Systems-Control-Safety-Systems:
+.. _Safety-Systems-index-Control-Safety-Systems:
 
 Control Safety Systems  
 ======================
@@ -30,7 +30,7 @@ Control Safety Systems
 
    Control-Safety-Systems.rst
 
-.. _Safety-Systems-GIS:
+.. _Safety-Systems-index-GIS:
 
 GIS 
 ===

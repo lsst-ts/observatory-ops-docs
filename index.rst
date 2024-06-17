@@ -75,8 +75,8 @@ Safety: Quick Reference for Nighttime Personnel
         +++    
         Mountain Assistant Ext. 440
 
-        Polyclinic Ext. 577
-        ::     
+        Polyclinic Ext. 577     
+
 
     .. grid-item-card:: Summit Contact Numbers
         :link: Safety/summit-contact-numbers

@@ -98,7 +98,7 @@ SAL Scripts
    SAL-Scripts/index.rst
 
 
-.. _Observatory-Control-System-SAL-Scripts:
+.. _Observatory-Control-System-BLOCKS:
 
 BLOCKS 
 ===========

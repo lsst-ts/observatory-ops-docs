@@ -29,23 +29,24 @@ Overview
 
 This procedure gets the AuxTel system ready for on-sky operations, preparing the telescope and dome to be fully open. 
 
-In a standard night, it will follow the execution of the :ref:`venting <AT-Pre-Prepare-for-vent>` procedure, but it works from any initial state of the system. 
+In a standard night, it will follow the execution of the :ref:`venting <AuxTel-Daytime-Operations-Prepare-for-vent>` procedure, 
+but it works from any initial state of the system. 
 
 If venting wasn't possible, observers must prepare for on-sky once the Sun is below an elevation of 25 degrees. 
-The Sun's coordinates at any given time, along with several other useful ephemeris, can be found at the :ref:`sky almanac <Sky-Almanac-Get-Sun-Coordinates>`.
+The Sun's coordinates at any given time, along with several other useful ephemeris, can be found at the :ref:`sky almanac <Visualization-and-Monitoring-Tools-Sky-Almanac>`.
 
 .. _Open-for-On-Sky-Operations-Precondition:
 
 Precondition
 =============
 
-* Before making the decision to open, review the weather conditions and :ref:`weather constraints <weather-constraints-deciding-to-open>` page.
+* Before making the decision to open, review the weather conditions and :ref:`weather constraints <auxtel-weather-constraints-deciding-to-open>` page.
 
 * AuxTel is fully ready to operate and all components are enabled. 
 
-* The :ref:`daytime checkout <AT-Daytime-Checkout-Daytime-Checkout>` has been executed successfully. 
+* The :ref:`daytime checkout <AuxTel-DayTime-Operations-Daytime-Checkout>` has been executed successfully. 
 
-* This procedure will take the system from venting, the :ref:`calibration <LATISS-Combined-Calibrations-Procedure-LATISS-Combined-Calibrations-Generation-Procedure>` 
+* This procedure will take the system from venting, the :ref:`calibration <AuxTel-Daytime-Operations-LATISS-Combined-Calibrations-Generation-Procedure>` 
   state or any other initial state to be prepared for on-sky observations. 
 
 .. _Open-for-On-Sky-Operations-Post-Condition:
@@ -55,7 +56,7 @@ Post-Condition
 
 - Telescope is ready for on-sky operations. 
   
-  Around 15 minutes before the end of the evening nautical twilight, proceed with the :ref:`beginning of the night procedure to center, align and focus the telescope. <AT-On-sky-WEP>`
+  Around 15 minutes before the end of the evening nautical twilight, proceed with the :ref:`beginning of the night procedure to center, align and focus the telescope. <AuxTel-Nighttime-Operations-WEP>`
 
 .. _Open-for-On-Sky-Operations-Procedure-Steps:
 

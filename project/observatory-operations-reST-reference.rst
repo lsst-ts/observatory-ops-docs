@@ -259,7 +259,7 @@ as it creates an intuitive sidebar menu to the left, and inserts in-page navigat
        ../Safety/emergency-response-guide
        ../Safety/out-of-hours-support
        license
-       ../AuxTel/AuxTel-Non-standard-Operations/AuxTel-Non-Standard-Operations-index.rst
+
 
 
 .. _Observatory-Operations-reST-Style-Reference-Guide-Code:
