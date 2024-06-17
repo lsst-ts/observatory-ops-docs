@@ -41,3 +41,11 @@ AuxTel Non-standard Operations
     :glob:
 
     Emergency-Shutdown/Emergency-Shutdown.rst
+
+
+.. toctree::
+    :maxdepth: 3
+    :titlesonly:
+    :glob:
+
+    Recovery-after-Shutdown/Recovery-after-Shutdown.rst
