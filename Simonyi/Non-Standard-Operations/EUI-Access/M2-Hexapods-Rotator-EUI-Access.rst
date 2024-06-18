@@ -10,7 +10,7 @@ Accessing M2/Camera Hexapods and Camera Rotator EUIs
 Overview
 ========
 
-This page describes how to access the M2/Camera Hexapods and Camera Rotator EUIs. The procedures are similar for both components as they reside on the same machine. This tutorial is intended for users who need to interact with these components and issue commands via the EUIs.
+This page describes how to access the M2/Camera Hexapods and Camera Rotator EUIs. The procedures are similar for all components as they reside on the same machine. This tutorial is intended for users who need to interact with these components and issue commands via the EUIs.
 
 .. _Accessing-M2-Camera-Hexapods-and-Camera-Rotator-EUIs-Precondition:
 
@@ -19,21 +19,17 @@ Precondition
 
 - Ensure you have an IPA account and credentials.
     - If you do not have access, create an IHS ticket in the JIRA IHS project to request access.
-- Verify the status of the systems by checking the relevant Slack channels:
-    - `#summit-announce`
-    - `#m2-worklog`
-    - `#hexrot-worklog`
-    - `#camhexrot_ccw`
-- Announce your intentions to use the EUIs in the relevant Slack channels.
+        - Select "Service request" under the issue type field.
+        - Select "Account creation" under the component field.
+        - Ask for your IPA credentials to be added to the list of users on the relevant virtual machine (Hexrot, m2, etc.).
 
 .. _Accessing-M2-Camera-Hexapods-and-Camera-Rotator-EUIs-Post-Condition:
 
 Post-Condition
 ==============
 
-- The system will be in the desired state (tracking, idle, etc.) as per the commands issued.
-    - Ensure to return the system to "DDS" mode if it was changed.
-- The EUI session should be properly closed after use.
+- The system will be connected to the EUI.
+   - The EUI session should be properly closed after use.
 
 .. _Accessing-M2-Camera-Hexapods-and-Camera-Rotator-EUIs-Tutorial-Steps:
 
@@ -41,18 +37,22 @@ Tutorial Steps
 ==============
 
 #. Ensure you are safe using the M2/Camera Hexapods or Camera Rotator EUIs:
-    - Review the Slack channels `#summit-announce`, `#m2-worklog`, `#hexrot-worklog`, and `#camhexrot_ccw` to verify if anyone is actively using them.
+
+    - Verify the status of the systems by checking the relevant Slack channels:
+       - ``#summit-announce``
+       - ``#m2-worklog``
+       - ``#hexrot-worklog``
+       - ``#camhexrot_ccw``
+  
+    - Announce your intentions to use the EUIs in the relevant Slack channels.
+
     - Be mindful that another session may be open, and mouse motions or commands will come from another user.
 
-#. Announce your intentions (if you plan to issue commands) in the relevant Slack channels.
+#. Navigate to the virtual machine page: 
+    - Go to ``https://vcenter.cp.lsst.org/`` or ``https://hexrot-vm02.cp.lsst.org``.
 
-#. Navigate to the virtual machine page: `https://vcenter.cp.lsst.org/` or go directly to `hexrot-vm02.cp.lsst.org` for the Camera Rotator EUI.
+#. Enter your IPA login credentials (username without @lsst.org and password).
 
-#. Enter your IPA login credentials (username without `@lsst.org` and password).
-    - If you cannot access it, create an IHS ticket in the JIRA IHS project:
-        - Select "Service request" under the issue type field.
-        - Select "Account creation" under the component field.
-        - Ask for your IPA credentials to be added to the list of users on the relevant virtual machine (Hexrot, m2, etc.).
 
 For M2/Camera Hexapods EUIs:
 ----------------------------
@@ -61,11 +61,20 @@ For M2/Camera Hexapods EUIs:
 #. Choose your account and use your IPA credentials again to enter the Hexrot VM.
 #. Click "Activities" > open a terminal.
 #. For Camera Hexapod:
-    - `cd /rubin/hexapod/build`
-    - `./runCamHexEui`
+
+.. codeblock:: shell
+    .. caption:: Camera Hexapod
+
+    cd /rubin/hexapod/build
+    ./runCamHexEui
+
+
 #. For M2 Hexapod:
-    - `cd /rubin/hexapod/build`
-    - `./runM2HexEui`
+
+.. codeblock:: shell
+    .. caption:: M2 Hexapod
+        cd /rubin/hexapod/build
+        ./runM2HexEui
 
 For Camera Rotator EUI:
 -----------------------
@@ -84,8 +93,10 @@ For MTM2 EUI:
 
 #. Follow steps 1-4 for M2/Camera Hexapods to access Hexrot VM.
 #. Open a terminal:
-    - `cd /rubin/mtm2/python`
-    - `./run_m2gui`
+
+    .. codeblock:: shell
+        cd /rubin/mtm2/python
+        ./run_m2gui
 
 #. To enable or disable systems, follow instructions at:
     - `https://docushare.lsst.org/docushare/dsweb/View/Collection-7954` (Hexapods)
