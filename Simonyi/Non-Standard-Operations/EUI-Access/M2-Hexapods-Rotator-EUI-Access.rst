@@ -49,62 +49,80 @@ Tutorial Steps
     - Be mindful that another session may be open, and mouse motions or commands will come from another user.
 
 #. Navigate to the virtual machine page: 
-    - Go to ``https://vcenter.cp.lsst.org/`` or ``https://hexrot-vm02.cp.lsst.org``.
+    - Go to ``https://vcenter.cp.lsst.org/`` or direct to ``https://hexrot-vm02.cp.lsst.org``.
 
-#. Enter your IPA login credentials (username without @lsst.org and password).
+#. Enter your IPA login credentials (username **without** @lsst.org).
 
-
-For M2/Camera Hexapods EUIs:
-----------------------------
+    .. figure:: _static/vm.png
+      :alt: VM Login
+      :align: center
 
 #. Navigate to Hexrot and click "launch web console".
+
+    .. figure:: _static/vpcenter.png
+      :alt: VM Machine
+      :align: center
+      
+    .. figure:: _static/vpcenterVM.png
+      :alt: VM Machine
+      :align: center
+
+
 #. Choose your account and use your IPA credentials again to enter the Hexrot VM.
-#. Click "Activities" > open a terminal.
-#. For Camera Hexapod:
 
-.. codeblock:: shell
-    .. caption:: Camera Hexapod
+    .. figure:: _static/log.png
+      :alt: VM Login
+      :align: center
 
-    cd /rubin/hexapod/build
-    ./runCamHexEui
+#. Click "Activities" and open a terminal.
 
-
-#. For M2 Hexapod:
-
-.. codeblock:: shell
-    .. caption:: M2 Hexapod
-        cd /rubin/hexapod/build
-        ./runM2HexEui
-
-For Camera Rotator EUI:
------------------------
-
-#. Login to `hexrot-vm02.cp.lsst.org` virtual machine using IPA credentials.
-#. Open a terminal and check if `runRotEui` is running:
-    - `ps -aux | grep runRotEui`
-#. If running, identify the user and ask permission to end it:
-    - `sudo kill -9 {pid}`
-#. Navigate to the directory and run the EUI:
-    - `cd /rubin/rotator/build`
-    - `./runRotEui`
+.. figure:: _static/activities.png
+    :alt: VM Login
+    :align: center
 
 For MTM2 EUI:
 -------------
 
-#. Follow steps 1-4 for M2/Camera Hexapods to access Hexrot VM.
-#. Open a terminal:
+.. prompt:: bash
 
-    .. codeblock:: shell
-        cd /rubin/mtm2/python
-        ./run_m2gui
+ cd /rubin/mtm2/python
+ ./run_m2gui
 
-#. To enable or disable systems, follow instructions at:
-    - `https://docushare.lsst.org/docushare/dsweb/View/Collection-7954` (Hexapods)
-    - `https://ts-m2gui.lsst.io/user-guide/user-guide.html` (MTM2)
+.. figure:: _static/M2EUI.png
+    :alt: VM Login
+    :align: center
+      
+For Camera Hexapods EUI:
+----------------------------
 
-#. Refer to operator's manuals/troubleshooting guides as needed.
+.. prompt:: bash
 
-#. After using EUI, close the window and ensure the session is closed properly. Return modes to "DDS" if changed.
+ cd /rubin/hexapod/build
+ ./runCamHexEui
+
+.. figure:: _static/CamHexEUI.png
+    :alt: VM Login
+    :align: center
+
+For M2 Hexapods EUI:
+----------------------------
+
+.. prompt:: bash
+
+ cd /rubin/hexapod/build
+ ./runM2HexEui
+
+.. figure:: _static/M2HexEUI.png
+    :alt: VM Login
+    :align: center
+
+For Camera Rotator EUI:
+-----------------------
+
+.. prompt:: bash
+
+ cd /rubin/rotator/build
+ ./runRotEui
 
 .. _Accessing-M2-Camera-Hexapods-and-Camera-Rotator-EUIs-Troubleshooting:
 
