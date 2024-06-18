@@ -10,7 +10,7 @@ Accessing M2/Camera Hexapods and Camera Rotator EUIs
 Overview
 ========
 
-This page describes how to access the M2/Camera Hexapods and Camera Rotator EUIs. The procedures are similar for all components as they reside on the same machine. This tutorial is intended for users who need to interact with these components and issue commands via the EUIs.
+This page describes how to access the MTM2, M2 Hexapods, Camera Hexapods and Camera Rotator EUIs. The procedures are similar for all components as they reside on the same machine. This tutorial is intended for users who need to interact with these components and issue commands via the EUIs.
 
 .. _Accessing-M2-Camera-Hexapods-and-Camera-Rotator-EUIs-Precondition:
 
@@ -80,7 +80,7 @@ Tutorial Steps
     :alt: VM Login
     :align: center
 
-For MTM2 EUI:
+MTM2 EUI:
 -------------
 
 .. prompt:: bash
@@ -92,7 +92,7 @@ For MTM2 EUI:
     :alt: VM Login
     :align: center
       
-For Camera Hexapods EUI:
+Camera Hexapods EUI:
 ----------------------------
 
 .. prompt:: bash
@@ -104,7 +104,7 @@ For Camera Hexapods EUI:
     :alt: VM Login
     :align: center
 
-For M2 Hexapods EUI:
+M2 Hexapods EUI:
 ----------------------------
 
 .. prompt:: bash
@@ -116,7 +116,7 @@ For M2 Hexapods EUI:
     :alt: VM Login
     :align: center
 
-For Camera Rotator EUI:
+Camera Rotator EUI:
 -----------------------
 
 .. prompt:: bash
