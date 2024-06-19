@@ -330,7 +330,7 @@ Marking as Ready
 - Mark the BLOCK ticket as "Ready" indicating readiness for execution.
 
 Advocacy and Tracking
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 - Advocate for the task in planning meetings to ensure it is scheduled based on its priority.
 - Track the status of the task and update its priority if necessary.

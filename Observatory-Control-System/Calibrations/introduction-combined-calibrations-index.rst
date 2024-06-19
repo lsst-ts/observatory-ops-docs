@@ -64,7 +64,7 @@ For more information about calibrations production (including verification and c
 
 See also:
 
-- :ref:`LATISS Combined Calibrations Procedure <LATISS-Combined-Calibrations-Procedure-LATISS-Combined-Calibrations-Generation-Procedure>`
+- :ref:`LATISS Combined Calibrations Procedure <AuxTel-Daytime-Operations-LATISS-Combined-Calibrations-Generation-Procedure>`
 - :ref:`ComCam Combined Calibrations Procedure <ComCam-Combined-Calibrations-Procedure-ComCam-Combined-Calibrations-Generation-Procedure>`
 
 Contact Personnel

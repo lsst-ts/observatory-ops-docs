@@ -21,7 +21,7 @@ It will center a target, absorb the zero-point pointing offsets, align mirrors a
 
 Precondition
 =============
-- The telescope is :ref:`open and ready for on-sky operations <AT-Pre-Open-for-On-Sky-Operations>`: 
+- The telescope is :ref:`open and ready for on-sky operations <AuxTel-Nighttime-Operations-Open-for-On-Sky-Operations>`: 
   it has been vented (if applicable), mirror cover and dome shutter are open, AOS corrections are enabled. 
 
 - The sky brightness is low enough that the WEP (wavefront estimate pipeline) can converge successfully. 
@@ -34,7 +34,7 @@ Post-Condition
 
 - Telescope is aligned, focused and pointing offsets have been absorbed. 
   
-  The system is ready to start :ref:`scheduler-driven observations <Nighttime-Scheduler-Scheduler-Operational-Procedures>` or engineering tasks. 
+  The system is ready to start :ref:`scheduler-driven observations <Scheduler-Scheduler-Operational-Procedures>` or engineering tasks. 
 
 .. _Beginning_of_the_night-Procedure-Steps:
 

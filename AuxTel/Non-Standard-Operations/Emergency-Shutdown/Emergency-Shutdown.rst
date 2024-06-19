@@ -25,6 +25,7 @@ AuxTel Emergency Shutdown
 Overview
 ========
 .. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
+
 Unfavorable circumstances that indicate the need to close the dome if it is open are:
    - :ref:`Weather constraints <Observing-Constraints-AuxTel-Weather-Constraints>`
    - Sunrise approaching in the next two hours.

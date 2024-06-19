@@ -40,7 +40,7 @@ RubinTV
    :glob:
    :titlesonly:
 
-  RubinTv/index.rst
+   RubinTv/index.rst
 
 .. _Observing-Tools-Sky-Almanac:
 
@@ -51,4 +51,4 @@ Sky Almanac
    :glob:
    :titlesonly:
 
-  Sky-Almanac-index.rst
+   Sky-Almanac.rst
