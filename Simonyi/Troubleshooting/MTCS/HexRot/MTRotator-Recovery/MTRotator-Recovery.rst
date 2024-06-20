@@ -51,17 +51,18 @@ Error diagnosis
 .. It is preferred to include them as a bulleted or enumerated list.
 .. Post screenshots of the error state or relevant tracebacks.
 
-- The difference between the MTRotator and the Camera Cable Wrap (CCW) is too large. Bulkhead limit 
-switch activated; this is also called :guilabel:`Pull cord +` or :guilabel:`Pull cord -`. 
+* The difference between the MTRotator and the Camera Cable Wrap (CCW) is too large. Bulkhead limit switch activated; this is also called :guilabel:`Pull cord +` or :guilabel:`Pull cord -`. 
 
- .. figure:: /MainTel/MainTel-Troubleshooting/_static/mtrot_recovery_1.png
-  :name: mtrot_recovery_1
+
+
+.. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_1.png
+ :name: mtrot_recovery_1
 
   TMA EUI screenshot indicating the pull cord +/- alert highlighted by the red box
-- :ref:`Safety Interlock <mtrot_recovery_5>` active in the MTRotator GUI 
-- :ref:`Simulink fault <mtrot_recovery_5>` in the MTRotator GUI 
-- CCW Interlock D-8 activated on the GIS (link here to the GIS interlock screenshot)
-- MTRotator CSC goes into ``FAULT``, but can not be recovered/cycled through CSC from LOVE.
+* :ref:`Safety Interlock <mtrot_recovery_5>` active in the MTRotator GUI 
+* :ref:`Simulink fault <mtrot_recovery_5>` in the MTRotator GUI 
+* CCW Interlock D-8 activated on the GIS (link here to the GIS interlock screenshot)
+* MTRotator CSC goes into ``FAULT``, but can not be recovered/cycled through CSC from LOVE.
 
 
 .. _MTRotator-Recovery-Procedure-Steps:
@@ -98,54 +99,53 @@ Procedure Steps
         ./runRotEui
 #.  **Change from DDS Command Source to GUI mode:** 
 
-    .. _step_3:
-
     Click the :guilabel:`Parameters` tab in the MTRotator EUI, select ``GUI`` under 
     :guilabel:`Command Source`, and press :guilabel:`Set Command Source`. In case the 
     GUI control is not possible consult the :ref:`Contingency section <MTRotator-Recovery-Contingency>` below for further guidance. 
 
-    .. figure:: /MainTel/MainTel-Troubleshooting/_static/mtrot_recovery_2.png
+    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_2.png
         :scale: 40%  
         :name: mtrot_recovery_2
     
 
-#.  **Clear Simulink error in MTRotator GUI:** 
+#.  **Clear Simulink error in MTRotator GUI:**
 
-    .. _step_4a:
 
     a.  In the MTRotator EUI Main tab, select ``State Cmd`` under :guilabel:`Commands to Send`. 
-    In :guilabel:`State Triggers`, select ``ClearError`` and click on the :guilabel:`Send Command` 
-    button. The **Simulink Error** light should be cleared now.
+        In :guilabel:`State Triggers`, select ``ClearError`` and click on the :guilabel:`Send Command` 
+        button. The **Simulink Error** light should be cleared now.
 
-    .. figure:: /MainTel/MainTel-Troubleshooting/_static/mtrot_recovery_3.png
-     :name: mtrot_recovery_3
-     :scale: 40%
+    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_3.png
+            :name: mtrot_recovery_3
+            :scale: 40%
 
     b.  When the **Safety Interlock fault** is :red:`activated`
 
-    .. figure:: /MainTel/MainTel-Troubleshooting/_static/mtrot_recovery_4.png
-     :name: mtrot_recovery_4
+    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_4.png
+        :name: mtrot_recovery_4
 
     c.  When the **Safety Interlock fault** is deactivated.
 
-    .. figure:: /MainTel/MainTel-Troubleshooting/_static/mtrot_recovery_5.png
-     :name: mtrot_recovery_5
+    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_5.png
+        :name: mtrot_recovery_5
 
-#.  **Reset MTRotator in GIS GUI at Level 2:** 
-
-    .. _step_5a:
-
-    a.  Press :guilabel:`Bypass` by the D-8 (CCW Safety Device Actuated).
+#.  **Reset MTRotator in GIS GUI at Level 2:**
     
-    .. figure:: /MainTel/MainTel-Troubleshooting/_static/mtrot_recovery_6.png
+    
+
+    a. Press :guilabel:`Bypass` by the D-8 (CCW Safety Device Actuated).  
+    
+        .. _step_5a
+
+    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_6.png
      :name: mtrot_recovery_6  
      :scale: 20%
 
     b.  Click :guilabel:`M2Cam` and then :guilabel:`Overview` (Default). Note that you should 
-    see a :green:`x` mark on the square of :guilabel:`Reset`. If not, click the 
-    :guilabel:`Reset` button again. 
+        see a :green:`x` mark on the square of :guilabel:`Reset`. If not, click the 
+        :guilabel:`Reset` button again. 
 
-    .. figure:: /MainTel/MainTel-Troubleshooting/_static/mtrot_recovery_7.png
+    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_7.png
      :name: mtrot_recovery_7  
      :scale: 20%
 
@@ -154,7 +154,7 @@ Procedure Steps
     Following a similar process to :ref:`Step 4.a <_step_4a>`, the ``ClearError`` command will remove the 
     safety interlock.      
     
-#. **Enable the MTRotator, then move it to zero degrees** 
+#.  **Enable the MTRotator, then move it to zero degrees** 
 
     To enable, ``State Cmd`` 
     is selected, :guilabel:`StateTriggers` menu shows ``Enable`` under and then click 
@@ -167,13 +167,13 @@ Procedure Steps
 #.  **Reset alarms in TMA GUI:**
 
     a.  In the :guilabel:`Safety System` :ref:`menu <mtrot_recovery_1>`, reset the 
-    :guilabel:`Pull Cord +` or :guilabel:`Pull Cord -` alarm.
+        :guilabel:`Pull Cord +` or :guilabel:`Pull Cord -` alarm.
 
     b.  Exit the :guilabel:`Safety System`and enter the :guilabel:`Camera Cable Wrap` tab. 
-    Click on :guilabel:`Reset alarm`.
+        Click on :guilabel:`Reset alarm`.
 
     c.  In the :guilabel:`Camera Cable Wrap` tab, press the :guilabel:`ON` button. 
-    Everything should be shown as green now.
+        Everything should be shown as green now.
 
 #.  **Release the bypass to the CCW in GIS GUI in Level 2** 
     (Refer to :ref:`Step 5.a <step_5a>`)
