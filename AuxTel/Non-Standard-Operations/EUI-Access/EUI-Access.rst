@@ -69,7 +69,7 @@ Connecting to the EUI Remote desktop
 #. Login with Username/PW of **ATMCS/ATSpectrograph/ATDome EUI access** on 1Password **AuxTel** Vault.
 
 
-#. The following tabs can now be accesible from the web-browser that should always be open -
+#. The following tabs can now be accesible from the web-browser that should always be open:
 
     * *Main Box Dome Control: http://139.229.170.45:8000/MainBoxControl.html*   
 
