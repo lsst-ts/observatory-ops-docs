@@ -1,7 +1,7 @@
-.. _Simonyi-Troubleshooting-M2:
+.. _Simonyi-Troubleshooting-MTM2:
 
 #####################################
-M2 
+MTM2 
 #####################################
 
 .. toctree::
