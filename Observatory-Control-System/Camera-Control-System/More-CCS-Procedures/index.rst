@@ -7,7 +7,7 @@
 
 .. This is the label that can be used as for cross referencing this file.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _More-CCS-Procedures-index: 
+.. _More-CCS-Procedures-index:
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
@@ -16,3 +16,13 @@
 ######################
 More CCS Procedures
 ######################
+
+.. _Recovering-from-a-FAULT-Condition:
+
+Recovering from a FAULT Condition
+=================================
+
+General Procedure
+-----------------
+
+.. The content could be copied from confluence
