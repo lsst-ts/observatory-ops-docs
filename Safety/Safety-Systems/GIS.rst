@@ -115,20 +115,19 @@ Some Detections have Actions that only indicate their status, e.g. A fire interl
 .. make the example more clear
 
 .. list-table:: Examples
- :widths: 10 10 30
+ :widths: 20 30
  :header-rows: 1
 
- * - Event
-   - Detection
+ * - Detection
    - Action
- * - M1M3 mirror cell lights on
-   - D-18 in GIS
+ * - M1M3 mirror cell lights on 
+        (D-18 in GIS)
+
    - TMA drives will be **STO (Safety Torque Off)** and engage the brakes.
  * -
    -
-   -
- * - Big earthquake
-   - D-2 in GIS
+ * - Big earthquake 
+        (D-2 in GIS)
    - This will bring down most of the system. 
         Engage TMA brakes, discharge capacitor banks, and STO the following components: TMA drives, Camera Cable Wrap drives, M1M3 actuators, M2 hexapods, M2 actuators, Camera Rotator, Camera Hexapod, etc.
 
@@ -165,8 +164,8 @@ Occasionally, in the event of system errors, interaction with other cabinets, fo
       GIS General Overview
 
 
-The GIS General Overview (home), allows you to see the general status of the safety areas 
-and select one in the navigation bar to the left.
+The GIS General Overview (home), allows you to see the general status of the safety areas, 
+you can select one in the navigation bar to the left.
 
 Some area names are straightforward, while others are:
 
@@ -200,7 +199,7 @@ The status of the system is displayed, the symbols and their representation are:
 
     * **Addition**: Signal **D-20** "M2 mirror in *closed-loop*" as a cause for the action **A-5** "Block TMA motion".
 
-    * **Remove**: Signal **D-2** “Earthquake Alarm” from **A-13** “M2 STO” action signal.
+    * **Removal**: Signal **D-2** “Earthquake Alarm” from **A-13** “M2 STO” action signal.
 
 
 .. _Safety-Systems-GIS-Main-Controller-Interface:
@@ -210,9 +209,11 @@ Bypass and reset actions
 
 * Any user can :guilabel:`RESET` a subsystem.
 
-* **Wired subsystems** are reset in GIS Main Panel. E.g M2 interlock can be reset in GIS.
+* **Wired subsystems** are reset in GIS Main Panel. 
+    E.g M2 interlock can be reset in GIS.
 
-* **Network based systems** reset on their own in GIS main panel after the reset in done in the specific subsytem. E.g. M1M3 interlock should be reset in M1M3 IS and then it will be clear in GIS main panel.
+* **Network based systems** reset on their own in GIS main panel after the reset in done in the specific subsytem.
+     E.g. M1M3 interlock should be reset in M1M3 IS and then it will be clear in GIS main panel.
 
 * Only admin user can bypass a subsystem.
 
@@ -256,7 +257,7 @@ Remember, depending on the :ref:`connection type <Safety-Systems-GIS-connection-
 
 The status listed does NOT indicate the status of each individual element, but rather the **status of the E-Stop circuit** (including reset action) for each element.
 
-After an **STO or power cycle** of the Top End systems, you must :guilabel:`RESET` the GIS E-stop status buttons before enabling the system from the corresponding interface. Even if the lights are green (indicating that the E-stop circuit is okay), the **reset action is still required**.
+After an **STO or power cycle** of the Top End systems, you must :guilabel:`RESET` the GIS E-stop status buttons before enabling the system from the corresponding interface. Even if the lights are green (indicating that the E-stop circuit is okay), the :guilabel:`RESET` **action is still required**.
 
 .. This maybe change to an autoreset action.
 
@@ -295,7 +296,7 @@ If another interlock triggered you need to follow the corresponding procedure to
  * - D19 Man-lift parked
    - *Not currently used (July, 2024)*
  * - D20 M2 mirror in *closed-loop*
-   - *Auto reset when M2 is in *closed-loop* again*
+   - *Auto reset when M2 is in *closed-loop* again
 
 
 .. admonition:: Safety gates operation
