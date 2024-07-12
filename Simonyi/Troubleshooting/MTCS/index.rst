@@ -12,6 +12,7 @@ This includes troubleshooting of the CSCs that control the telescope and dome mo
     :titlesonly:
     :glob:
 
+<<<<<<< HEAD
     MTHexRot/index.rst
 
 .. toctree::
@@ -43,3 +44,6 @@ This includes troubleshooting of the CSCs that control the telescope and dome mo
     :glob:
 
     TMA/index.rst 
+=======
+    HexRot/index.rst
+>>>>>>> 1123dd9 (Content added and is ready for review)
