@@ -1,7 +1,7 @@
 .. _AuxTel-Non-standard-Operations-ATCalSys:
 
 #############################################
-AuxTel Calibration System 
+AT Calibration System 
 #############################################
 
 .. toctree::
