@@ -327,8 +327,8 @@ renders in HTML as:
 
 .. _Observatory-Operations-reST-Style-Reference-Guide-Code-Blocks:
 
-Code Blocks 
------------ 
+Code blocks 
+===========
 
 Use the ``code_block:: python`` or ``code_block:: JSON`` *directive* to adequately display python or JSON code, respectively.  
 You may also add the parameter ``:caption::`` to this *directive* to include a title above the code. 

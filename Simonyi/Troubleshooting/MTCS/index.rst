@@ -36,3 +36,10 @@ This includes troubleshooting of the CSCs that control the telescope and dome mo
     :glob:
 
     MTDome/index.rst
+
+.. toctree::
+    :maxdepth: 3
+    :titlesonly:
+    :glob:
+
+    TMA/index.rst 
