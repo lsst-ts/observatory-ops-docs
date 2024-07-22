@@ -50,17 +50,21 @@ Setup to access the AuxTel EUI remote desktop
 
 #. Select "Gateway" from drop-down menu.
 
-#. Click the drop-down menu "Gateway" :raw-html:`&rarr;` "No gateway"
+#. Click the drop-down menu "Gateway" :raw-html:`&rarr;` "No gateway". 
 
-.. figure:: /AuxTel/Non-Standard-Operations/_static/image-2023-11-8_17-6-47.png
-  :name: "Add a Gateway" pop-up window.
+   .. figure:: /AuxTel/Non-Standard-Operations/_static/image-2023-11-8_17-6-47.png
+    :name: "Add a Gateway" pop-up window.
+    :width: 600
 
+    "Add a Gateway" pop-up window. 
 
-#. Put *aux-brick01.cp.lsst.org* on the "PC name" :raw-html:`&rarr;` "Save"
+#. Put *aux-brick01.cp.lsst.org* on the "PC name" :raw-html:`&rarr;` "Save". 
 
-.. figure:: /AuxTel/Non-Standard-Operations/_static/Adding_AuxTel_EUI.png
-  :name: "PC name" field.
-
+   .. figure:: /AuxTel/Non-Standard-Operations/_static/Adding_AuxTel_EUI.png
+    :name: "PC name" field.
+    :width: 600
+    
+    "PC name" field.
 
 .. note::
     You need to configure this setup only once. 
