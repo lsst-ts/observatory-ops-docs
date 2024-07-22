@@ -8,9 +8,15 @@
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
 
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
+<<<<<<< HEAD
 .. |author| replace:: *Ioana Sotuela, Te-Wei Tsai*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
 .. |contributors| replace:: *Kshitija Kelkar*
+=======
+.. |author| replace:: Iona Sotuela, Carlos Morales
+.. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
+.. |contributors| replace:: Kshitija Kelkar
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -33,7 +39,11 @@ Overview
 .. In one or two sentences, explain when this troubleshooting procedure needs to be used. Describe the symptoms that the user sees to use this procedure. 
 
 This document provides detailed instructions on how to perform a soft reboot, hard reboot, and restart the 
+<<<<<<< HEAD
 control system for the *MTHexapod* PXI controllers at the summit. These procedures are essential for 
+=======
+control system for the MTHexapod PXI controllers at the summit. These procedures are essential for 
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 troubleshooting faults encountered during routine operations but might also be necessary during maintenance 
 and other non-standard observatory operations, such as scheduled power off. 
 
@@ -52,9 +62,15 @@ When troubleshooting the EUI/CSC failed to connect to the control system, follow
 the procedures below to re-establish control. If a procedure proves unsuccessful, proceed to the next 
 one:
 
+<<<<<<< HEAD
 - :ref:`Restart Control system <MTHex-PXI-Controller-Reboot-Restart-Control-System>`
 - :ref:`Soft Reboot <MTHex-PXI-Controller-Reboot-Soft-Reboot>`
 - :ref:`Hard Reboot or Power off <MTHex-PXI-Controller-Reboot-Hard-Reboot>`
+=======
+- :ref:`Restart Control system <MTRot-PXI-Controller-Reboot-Restart-Control-System>`
+- :ref:`Soft Reboot <MTRot-PXI-Controller-Reboot-Soft-Reboot>`
+- :ref:`Hard Reboot or Power off <MTRot-PXI-Controller-Reboot-Hard-Reboot>`
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
 .. _MTHex-PXI-Controller-Reboot-Prerequisites:
 
@@ -86,69 +102,113 @@ Restart Control System
     the CSC/EUI is entirely unresponsive and unable to establish a connection with the control system.
 
     #.  Before proceeding, make sure there are no active interlocks in the EUI and that no other EUI instance 
+<<<<<<< HEAD
         is running. For the MTCamHexapod, check if *runCamHexEui* is running by following commands in the terminal:
+=======
+        is running. For the MTCamHexapod, check if :guilabel:`runCamHexEui` is running by following commands in the terminal -
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
         .. prompt:: 
 
             ps -aux | grep runCamHexEui
 
         If processes are already running, you may need to identify who is running them and ask permission 
+<<<<<<< HEAD
         to end one (or both) so you can run your own EUI session. If another *runCamHexEui* is running
+=======
+        to end one (or both) so you can run your own EUI session. If another :guilabel:`runCamHexEui` is running -
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
         .. prompt:: 
 
             sudo kill -9 {pid}
 
         
+<<<<<<< HEAD
         Replace *runCamHexEui* with *runM2HexEui* for the *MTM2Hexapod*.
     
     
     #.  You can do the following to check the *MTCamHexapod* control system status in the terminal:
+=======
+        Replace :guilabel:`runCamHexEui` with :guilabel:`runM2HexEui` for the MTM2Hexapod
+    
+    
+    #.  You can do the following to check the MTCamHexapod control system status in the terminal- 
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
         .. prompt::
 
             /etc/init.d/cameraHexapod status
         
+<<<<<<< HEAD
         It will tell you whether the control system is running or not. To stop it, do:
+=======
+        It will tell you whether the control system is running or not. To stop it, do -
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
          .. prompt::
 
             /etc/init.d/cameraHexapod stop
 
+<<<<<<< HEAD
         To start it do:
+=======
+        To start it do -
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
          .. prompt::
 
             /etc/init.d/cameraHexapod start
        
+<<<<<<< HEAD
         For *MTM2Hexapod*, replace in the command above *cameraHexapod* 
         with *m2Hexapod*.
+=======
+        For MTM2Hexapod, replace in the command above ``cameraHexapod`` 
+        with ``m2Hexapod``.
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
 
 #.  **Establish an SSH connection to the MTHexapod PXI**: Using the credentials and hostnames found 
     in the *LSST 1Password MainTel Vault* create an ssh tunnel in the terminal. 
     
+<<<<<<< HEAD
     For the *MTCamHexapod*, the command would look like:
+=======
+    For the MTCamHexapod, the command would look like-
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
     .. prompt::
 
         ssh admin@camhex-pxi-controller.cp.lsst.org
 
+<<<<<<< HEAD
     For the *MTM2Hexapod*, the command would look like:
+=======
+    For the MTM2Hexapod, the command would look like-
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
     .. prompt::
 
         ssh pbalucan@m2-hexapod-pxi.cp.lsst.org
 
 
+<<<<<<< HEAD
 #.  To **restart the control system** for the *MTCamHexapod*, run the command in the terminal:
+=======
+#.  To **restart the control system** for the MTCamHexapod, run the command in the terminal- 
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
     .. prompt::
 
         /etc/init.d/cameraHexapod restart
 
     
+<<<<<<< HEAD
 #.  To **restart the control system** for the *MTM2Hexapod*, run the command in the terminal:
+=======
+#.  To **restart the control system** for the MTM2Hexapod, run the command in the terminal- 
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
     .. prompt::
 
@@ -164,18 +224,31 @@ Restart Control System
 
 .. warning::
 
+<<<<<<< HEAD
     Only proceed with :ref:`Soft Reboot <MTHex-PXI-Controller-Reboot-Soft-Reboot>` if EUI/CSC control is not connecting and 
     the :ref:`restart of the control system <MTHex-PXI-Controller-Reboot-Restart-Control-System>` procedure 
     proved unsuccessful to regain control.
+=======
+    Only proceed if EUI/CSC control is not connecting and 
+    the :ref:`restart of the control system <MTRot-PXI-Controller-Reboot-Restart-Control-System>` procedure 
+    proved unsuccesful to regain control.
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
 Soft Reboot
 -----------
 
 
+<<<<<<< HEAD
 #.  **Establish an SSH connection to the MTCamHexapod/MTM2Hexapod PXI** using the credentials and hostnames found in 
     the *LSST 1Password MainTel Vault* (See :ref:`above <MTHex-PXI-Controller-Reboot-Restart-Control-System>`).
 
 #.  **Execute the reboot command**: To initiate a soft reboot of the PXI, type in the terminal:
+=======
+#.  **Establish an SSH connection to the MTRotator PXI** using the credentials and hostnames found in 
+    the *LSST 1Password MainTel Vault* (See :ref:`above <MTRot-PXI-Controller-Reboot-Restart-Control-System>`).
+
+#.  **Execute the reboot command**: To initiate a soft reboot of the PXI, type in the terminal -
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
     .. prompt::
 
@@ -194,8 +267,13 @@ Hard Reboot
 
 .. warning::
 
+<<<<<<< HEAD
     **Only proceed with a hard reboot, if the EUI control connection remains unsuccessful after 
     a** :ref:`soft reboot <MTHex-PXI-Controller-Reboot-Soft-Reboot>`.
+=======
+    **Only proceed with a hard reboot, if the EUI control connection remains unsucessful after 
+    a** :ref:`soft reboot <MTRot-PXI-Controller-Reboot-Soft-Reboot>`.
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
     This method involves cutting power to the PXI and drives and should only be used as a last resort 
     due to the potential risks.
@@ -203,26 +281,46 @@ Hard Reboot
     If a power shutdown is scheduled, you can proceed until step 2 before the power on.
 
 
+<<<<<<< HEAD
 #.  **Login into Utilities cabinet Power Distribution Unit (PDU) or MTM2Hexapod netbooter**:
     Depending on the which subsystem you are rebooting, you need to follow either A or B.
     
     A.  For *MTCamHexapod*, while in the LSST-WAP, 
         connect to *https://tea-pdu01.cp.lsst.org/* using the credentials stored in the *Operators vault* 
+=======
+#.  **Login into Utilities cabinet *Power Distribution Unit* (*PDU*) or MTM2Hexapod *netbooter* **:
+    Depending on the which subsytem you are rebooting, you need to follow either A or B
+    
+    A.  For MTCamHexapod, while in the LSST-WAP or summit VPN, 
+        connect to https://tea-pdu01.cp.lsst.org/ using the credentials stored in the *Operators vault* 
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
         of *LSST 1Password* as *PDU Utilities Cabinet*. Click on :guilabel:`Outlets` on the left hand 
         side menu to open the outlets screen. The description of each outlet can be found here.
 
     .. figure:: /Simonyi/Non-Standard-Operations/_static/mtrot-controller-pxi-reboot-1.jpeg
    
+<<<<<<< HEAD
     B.  For *MTM2Hexapod* the netbooter is required to power cycle the PXI and drives: 
         Connect to the M2 Hex Netbooter *m2-hexapod-netbooter.cp.lsst.org* using the credential stored in the *1Password MainTel 
         Vault* under *M2 Hexapod PXI/Drive NetBooter*.
+=======
+    B.  For MTM2Hexapod the netbooter is required to power cycle the PXI and drives: Connect to the 
+    M2 Hex Netbooter *m2-hexapod-netbooter.cp.lsst.org* using the credential stored in the *1Password MainTel 
+    Vault* under *M2 Hexapod PXI/Drive NetBooter*.
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
 #.  **Power Cycle PXI and drives**: To **power** :guilabel:`Off` the system, first power off the PXI, followed by 
     the drive. 
     
+<<<<<<< HEAD
     A.  For *MTCamHexapod*, PXI is energized through outlet 8, while the drives correspond to outlet 4 in the *PDU*.
 
     B.  For *MTM2Hexapod*, power off PXI first , then the drive from the *M2 Hexapod PXI/Drive NetBooter*.
+=======
+    A.  For MTCamHexapod, PXI is energized through outlet 8, while the drives correspond to outlet 4 in the *PDU*.
+
+    B.  For M2Hexapod, power off PXI first , then the drive from the *M2 Hexapod PXI/Drive NetBooter*.
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
     .. note::
 
@@ -237,8 +335,12 @@ Hard Reboot
     connection with the Copley drive.
 
 
+<<<<<<< HEAD
 #.   **Wait for an additional 5-10 minutes after powering on before using the CSC/EUI**: 
      This allows time for the OS and control system to configure the necessary drives. 
+=======
+#.   **Wait for an additional 5-10 minutes after powering on before using the CSC/EUI**: This allows time for the OS and control system to configure the necessary drives. 
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
 
 #.  **Reset GIS interlocks** that were triggered during the power cycle.
@@ -259,3 +361,12 @@ Post-Condition
 
 -   The EtherCat and Copley drives are properly set up and functional.
 
+<<<<<<< HEAD
+=======
+.. .. _Title-of-Troubleshooting-Procedure-Contingency:
+
+.. Contingency
+.. ===========
+
+.. If the procedure was not successful, report the issue in [relevant Slack channel] and/or activate the :ref:`Out of hours support <Safety-out-of-hours-support>`.
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)

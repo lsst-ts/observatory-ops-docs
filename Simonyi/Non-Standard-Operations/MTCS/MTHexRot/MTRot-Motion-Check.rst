@@ -34,6 +34,9 @@ Overview
 
 This procedure checks the motion of the MTRotator under nominal movements, issued independently 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 from the *LOVE/MTQueue* or the MTRotator EUI. 
 
 .. warning::
@@ -41,6 +44,7 @@ from the *LOVE/MTQueue* or the MTRotator EUI.
     This check cannot be accomplished if MTRotator is in ``FAULT`` on the CSC and/or with interlocks 
     activated on the :guilabel:`GIS` or the MTRotator EUI. Please refer to `MTRotator Recovery 
     Procedure <https://obs-ops.lsst.io/Simonyi/Troubleshooting/MTCS/HexRot/MTRotator-Recovery/MTRotator-Recovery.html>`_
+<<<<<<< HEAD
     to clear these warnings before proceeding.    
 
 
@@ -59,18 +63,22 @@ Use the following configuration to run :file:`maintel/mtrotator/move_rotator.py`
 If this procedure fails, follow the next one using the MTRotator EUI. 
 =======
 from the MTQue or the MTRotator EUI.
+=======
+    to clear these warnings before proceding.    
+
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
 .. _MTRotator-motion-check-script:
 
 Using the `move_rotator` SAL script
 ===================================
 
-Use the following configuration to run :file:`maintel/mtrotator/move_rotator.py` using the follwoing configuration 
+Use the following configuration to run :file:`maintel/mtrotator/move_rotator.py` on the *LOVE/MTQueue* using the follwoing configuration 
 
 .. code-block:: SAL
-    :caption: move_rotator.p
+    :caption: move_rotator.py
 
-    angle = <+ or - angle you want to move in degrees>
+    angle = < +/ - angle you want the MTRotator to move in degrees >
 
 If this procedure fails, follow the next one using the MTRotator EUI 
 >>>>>>> c14d76e (moved the page from Simonyi/Troubleshooting to Simonyi/Non-Standard Operations under the respecting sub-system head)
@@ -83,6 +91,7 @@ Using the MTRotator EUI
 MTRotator EUI Access
 --------------------
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 #.  Enter the virtual machine that controls the rotator *hexrot-vm02.cp.lsst.org* with your IPA account credentials.
     
@@ -115,22 +124,50 @@ MTRotator EUI Access
 
 =======
 #.  Enter *hexrot-vm02.cp.lsst.org* with your IPA account credentials.
+=======
+#.  Enter the virtual machine that controls the rotator *hexrot-vm02.cp.lsst.org* with your IPA account credentials.
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
     
 #.  Once in the virtual machine, choose your user profile and enter your IPA password.
 
-#.  Open a terminal from the 'Activities' tab on top left and go to the following - 
+#.  Open a terminal from the 'Activities' tab on top left - 
 
-    .. prompt:: bash
+    a. First check that there are no processes running on the EUI by typing the following 
 
+        .. prompt:: bash
+
+            ps -aux | grep "runRotEui"
+
+        
+        If processes are already running, you may need to identify who is running them and ask permission 
+        to end one (or both) so you can run your own EUI session. If another :guilabel:`runRotEui` is 
+        running then type the following to kill the existing process -
+
+        .. prompt:: 
+
+            sudo kill -9 {pid}
+
+
+    b.  Enter the :guilabel:`runRotEui` by typing -
+    
+        .. prompt:: bash
+
+            cd /rubin/rotator/build/
+            ./runRotEui
+
+<<<<<<< HEAD
         cd /rubin/
         cd rotator/
         cd build
         ./runRotEui
 >>>>>>> c14d76e (moved the page from Simonyi/Troubleshooting to Simonyi/Non-Standard Operations under the respecting sub-system head)
+=======
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
 Moving the MTRotator point to point (p2p) 
 -----------------------------------------
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 #.  On the MTRotator Client, under the :guilabel:`Main tab`, ``State Cmd`` 
     is selected, :guilabel:`StateTriggers` menu shows ``Enable`` under and then click 
@@ -140,6 +177,11 @@ Moving the MTRotator point to point (p2p)
     is selected, :guilabel:`StateTriggers` menu shows ``Enable`` under and then click 
     :guilabel:`Send Command` button. 
 >>>>>>> c14d76e (moved the page from Simonyi/Troubleshooting to Simonyi/Non-Standard Operations under the respecting sub-system head)
+=======
+#.  On the MTRotator Client, under the :guilabel:`Main tab`, ``State Cmd`` 
+    is selected, :guilabel:`StateTriggers` menu shows ``Enable`` under and then click 
+    :guilabel:`Send Command` button. This enables the MTRotator.
+>>>>>>> 9100efd (Changes according to the PR-115 feedback)
     
 #.  To move the MTRotator, go to the :guilabel:`Commands to Send` 
     section and in :guilabel:`Enabled Substate Triggers`, 
