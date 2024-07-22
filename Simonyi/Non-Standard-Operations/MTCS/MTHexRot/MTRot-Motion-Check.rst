@@ -204,6 +204,9 @@ Moving the MTRotator point to point (p2p)
         MTRotator moves then you could move it back to the origin.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 790508c (Included an extra note about motion after a soak test)
 
 .. note::
     
@@ -223,8 +226,11 @@ Moving the MTRotator point to point (p2p)
             :scale: 50%
 
  
+<<<<<<< HEAD
 =======
 >>>>>>> c14d76e (moved the page from Simonyi/Troubleshooting to Simonyi/Non-Standard Operations under the respecting sub-system head)
+=======
+>>>>>>> 790508c (Included an extra note about motion after a soak test)
 .. warning::
     MTRotator position should always be at 0 degrees in the ``Standby`` state.  
 
