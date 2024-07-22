@@ -33,6 +33,7 @@ Overview
 .. This section should provide a brief, top-level description of the document's purpose and utilization. 
 
 This procedure checks the motion of the MTRotator under nominal movements, issued independently 
+<<<<<<< HEAD
 from the *LOVE/MTQueue* or the MTRotator EUI. 
 
 .. warning::
@@ -56,6 +57,23 @@ Use the following configuration to run :file:`maintel/mtrotator/move_rotator.py`
     angle = < +/ - angle you want the MTRotator to move (in degrees) >
 
 If this procedure fails, follow the next one using the MTRotator EUI. 
+=======
+from the MTQue or the MTRotator EUI.
+
+.. _MTRotator-motion-check-script:
+
+Using the `move_rotator` SAL script
+===================================
+
+Use the following configuration to run :file:`maintel/mtrotator/move_rotator.py` using the follwoing configuration 
+
+.. code-block:: SAL
+    :caption: move_rotator.p
+
+    angle = <+ or - angle you want to move in degrees>
+
+If this procedure fails, follow the next one using the MTRotator EUI 
+>>>>>>> c14d76e (moved the page from Simonyi/Troubleshooting to Simonyi/Non-Standard Operations under the respecting sub-system head)
 
 .. _MTRotator-motion-check-eui:
 
@@ -65,6 +83,7 @@ Using the MTRotator EUI
 MTRotator EUI Access
 --------------------
 
+<<<<<<< HEAD
 #.  Enter the virtual machine that controls the rotator *hexrot-vm02.cp.lsst.org* with your IPA account credentials.
     
 #.  Once in the virtual machine, choose your user profile and enter your IPA password.
@@ -94,28 +113,55 @@ MTRotator EUI Access
             cd /rubin/rotator/build/
             ./runRotEui
 
+=======
+#.  Enter *hexrot-vm02.cp.lsst.org* with your IPA account credentials.
+    
+#.  Once in the virtual machine, choose your user profile and enter your IPA password.
+
+#.  Open a terminal from the 'Activities' tab on top left and go to the following - 
+
+    .. prompt:: bash
+
+        cd /rubin/
+        cd rotator/
+        cd build
+        ./runRotEui
+>>>>>>> c14d76e (moved the page from Simonyi/Troubleshooting to Simonyi/Non-Standard Operations under the respecting sub-system head)
 
 Moving the MTRotator point to point (p2p) 
 -----------------------------------------
 
+<<<<<<< HEAD
 #.  On the MTRotator Client, under the :guilabel:`Main tab`, ``State Cmd`` 
     is selected, :guilabel:`StateTriggers` menu shows ``Enable`` under and then click 
     :guilabel:`Send Command` button. This enables the MTRotator.
+=======
+#.  To enable, ``State Cmd`` 
+    is selected, :guilabel:`StateTriggers` menu shows ``Enable`` under and then click 
+    :guilabel:`Send Command` button. 
+>>>>>>> c14d76e (moved the page from Simonyi/Troubleshooting to Simonyi/Non-Standard Operations under the respecting sub-system head)
     
 #.  To move the MTRotator, go to the :guilabel:`Commands to Send` 
     section and in :guilabel:`Enabled Substate Triggers`, 
     choose ``Move``. Then, input ``0`` degrees in the :guilabel:`Position Cmd` field and 
     execute the movement by clicking on the :guilabel:`Send Command` button.
 
+<<<<<<< HEAD
 #.  If the MTRotator does not follow:
 
     a.  Transition to ``Standby`` state followed by the ``Enabled`` state again to reset the internal 
+=======
+#.  If the MTRotator does not follow this -
+
+    a.  transition to ``Standby`` state followed by the ``Enabled`` state again to reset the internal 
+>>>>>>> c14d76e (moved the page from Simonyi/Troubleshooting to Simonyi/Non-Standard Operations under the respecting sub-system head)
         calculation of Simulink model. Then, do the p2p movement to origin again.
 
     b.  It might also be possible that some internal signals are not triggered in Simulink module. 
         You can try to do the p2p movement to another point such as 1 or 2 degree position first. If the 
         MTRotator moves then you could move it back to the origin.
 
+<<<<<<< HEAD
 
 .. note::
     
@@ -135,6 +181,8 @@ Moving the MTRotator point to point (p2p)
             :scale: 50%
 
  
+=======
+>>>>>>> c14d76e (moved the page from Simonyi/Troubleshooting to Simonyi/Non-Standard Operations under the respecting sub-system head)
 .. warning::
     MTRotator position should always be at 0 degrees in the ``Standby`` state.  
 
