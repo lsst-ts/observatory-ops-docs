@@ -43,7 +43,7 @@ Procedure Steps
 #. Calibrations images should only be taken if the LATISS WREB temperature is under temperature control. Check the LATISS WREB temperatures under the `AuxTel (LATISS) Temperatures and Pressures dashboard`_ in Chronograf. WREB temperatures are visible in the lower middle panel labeled *WREB On Board*. If the *mean_temp2* (top blue line) is between 26-29 degress C, the temperature is suitable for taking calibrations. During the daytime, the fan on the WREB board may not be sufficient to cool the WREB down to these temperatures, so during warmer months you may have to wait until later in the day or early in the morning for it to reach the desired temperature. If the temperature is too high, do not proceed to the next steps.
 #. Enable ATCS and LATISS using the standard scripts :file:`enable_atcs.py` and :file:`enable_latiss.py` with no configuration. 
 #. Enable ``Scheduler:2`` with a valid scheduler configuration. Use the standard script :file:`auxtel/scheduler/enable.py` with the configuration required for the run and available in the corresponding night log. 
-#. Run the script :file:`add_block.py` to the ATQueue  with the following configuration:
+#. **Setup LATISS calibrations** BLOCK will setup ATCS and white light for calibrations. It enables and turns on the ATWhiteLight, enables OCPS:1 and commands AuxTel mount and dome to the FLAT position. Run the script :file:`add_block.py` to the ATQueue  with the following configuration:
 
     .. code-block:: text
       :caption: :file:`add_block.py`
@@ -80,8 +80,9 @@ Procedure Steps
     .. code-block:: text
       :caption: :file:`auxtel/prepare_for/flat.py`
   
+    .. Note: We need to document and link here how to access the aux-cam01/02cameras.
 
-#. Run the script :file:`add_block.py` to the ATQueue  with the following configuration:
+#. The **LATISS daily calibrations** BLOCK will queue the scripts focused on the calibration image adquisition. Run the script :file:`add_block.py` to the ATQueue  with the following configuration:
 
     .. code-block:: text
       :caption: :file:`add_block.py`
@@ -89,7 +90,7 @@ Procedure Steps
       id: latiss_daily_calibrations
 
 
-    The BLOCK with :file:`latiss_daily_calibrations` configuration will queue the scripts focused on the calibration image adquisition. Depending on which filters are currently installed in LATISS, the :file:`auxtel/make_latiss_calibrations.py` script may take different calibration sets. The calibration images displayed in `RubinTV`_ are post-ISR images and should have BIAS and DARK corrections applied. This means that BIAS and DARK images should display with maximum count rates of about 10 ADUs. In the case of FLAT images, counts must be below the :math:`\approx` 30000 ADUs. In the process of building the daily PTC (see below), the FLAT saturation is intended, and achieved at around the 123000 ADUs (with exposure time of about 25 seconds). In case daily FLATS are taken, they reach values of :math:`\approx` 68000 ADUs. If you see large deviations from these values, which can be related with a problem in the instrument signature removal in `RubinTV`_, then RAW count rates are being displayed, please report it. Check the calibration sets and their configurations for each filter installed and the grating.
+    Depending on which filters are currently installed in LATISS, the :file:`auxtel/make_latiss_calibrations.py` script may take different calibration sets. The calibration images displayed in `RubinTV`_ are post-ISR images and should have BIAS and DARK corrections applied. This means that BIAS and DARK images should display with maximum count rates of about 10 ADUs. In the case of FLAT images, counts must be below the :math:`\approx` 30000 ADUs. In the process of building the daily PTC (see below), the FLAT saturation is intended, and achieved at around the 123000 ADUs (with exposure time of about 25 seconds). In case daily FLATS are taken, they reach values of :math:`\approx` 68000 ADUs. If you see large deviations from these values, which can be related with a problem in the instrument signature removal in `RubinTV`_, then RAW count rates are being displayed, please report it. Check the calibration sets and their configurations for each filter installed and the grating.
 
     1. **: Set configuration for SDSSr_65mm.**
 
@@ -254,7 +255,7 @@ Procedure Steps
                         12.8
 
 
-#. Run the script :file:`add_block.py` to the ATQueue  with the following configuration:
+#. The **Shutdown LATISS calibrations** BLOCK will turn off the calibration lamp and leave it on standby state. Run the script :file:`add_block.py` to the ATQueue  with the following configuration:
 
     .. code-block:: text
       :caption: :file:`add_block.py`
