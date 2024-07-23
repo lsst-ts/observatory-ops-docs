@@ -44,7 +44,11 @@ ignore = [
     'https://machinerysafety101.com/2010/11/29/using-e-stops-in-lockout-procedures/',
     'https://rucio.cern.ch/', 
     'https://confluence.slac.stanford.edu/', 
+<<<<<<< HEAD
     'https://tea-pdu01.cp.lsst.org/', 
+=======
+    'https://tea-pdu01.cp.lsst.org/'
+>>>>>>> c5ee841 (Add tea-pdu01 to links to ignore)
 ]
 
 [sphinx] 
