@@ -43,7 +43,8 @@ ignore = [
     'https://machinerysafety101.com/2009/03/06/emergency-stop-whats-so-confusing-about-that/',
     'https://machinerysafety101.com/2010/11/29/using-e-stops-in-lockout-procedures/',
     'https://rucio.cern.ch/', 
-    'https://confluence.slac.stanford.edu/'
+    'https://confluence.slac.stanford.edu/', 
+    'https://tea-pdu01.cp.lsst.org/'
 ]
 
 [sphinx]
