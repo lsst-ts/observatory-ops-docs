@@ -116,6 +116,25 @@ Moving the MTRotator point to point (p2p)
         You can try to do the p2p movement to another point such as 1 or 2 degree position first. If the 
         MTRotator moves then you could move it back to the origin.
 
+
+.. note::
+    
+    If you want to p2p move the rotator after the soak test, consider the following steps:
+
+    a.  Issue a :guilabel:`Stop` command to MTRotator and wait for 5 min. This should make sure the internal queue of *track* commands from the soak test has been processed 
+        by Simulink model totally.
+
+        .. figure:: /Simonyi/Non-Standard-Operations/_static/MTRot-motion-check-1.png
+            :name: MTRot-motion-check-1
+            :scale: 40%
+
+    b.  Check the controller :guilabel:`State` is ``Enabled State`` and the :guilabel:`Actuator Enabled Sub-Sate` is ``Stationary``.
+
+        .. figure:: /Simonyi/Non-Standard-Operations/_static/MTRot-motion-check-2.png
+            :name: MTRot-motion-check-2
+            :scale: 50%
+
+ 
 .. warning::
     MTRotator position should always be at 0 degrees in the ``Standby`` state.  
 
