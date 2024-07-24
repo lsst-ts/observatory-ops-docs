@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="69.040314mm"
+   height="19.193605mm"
+   viewBox="0 0 260.93978 72.542761"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="AuxTel_flow.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   inkscape:export-filename="AuxTel_flow.jpg"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="1.0824912"
+     inkscape:cx="175.05916"
+     inkscape:cy="125.63613"
+     inkscape:window-width="1392"
+     inkscape:window-height="891"
+     inkscape:window-x="1749"
+     inkscape:window-y="68"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer3">
+    <inkscape:grid
+       id="grid1"
+       units="mm"
+       originx="-222.14685"
+       originy="-134.49617"
+       spacingx="3.7795277"
+       spacingy="3.7795276"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <linearGradient
+       id="swatch4"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#01bbbc;stop-opacity:1;"
+         offset="0"
+         id="stop4" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#swatch4"
+       id="linearGradient5"
+       gradientUnits="userSpaceOnUse"
+       x1="169.77525"
+       y1="159.81633"
+       x2="246.45634"
+       y2="159.81633"
+       gradientTransform="matrix(5.2888162,0,0,2.0793531,-746.98641,-123.6)" />
+  </defs>
+  <g
+     inkscape:label="Boxes"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-222.14683,-134.49617)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Text"
+     transform="translate(-222.14683,-134.49617)">
+    <g
+       id="g2"
+       transform="matrix(0.64,0,0,0.64,126.94202,61.476318)">
+      <rect
+         style="fill:#01bbbc;fill-opacity:1;stroke-width:0.157173"
+         id="rect1-0-2-1"
+         width="23.118074"
+         height="19.701286"
+         x="148.75752"
+         y="114.09352"
+         ry="2.3542514" />
+      <rect
+         style="fill:#01bbbc;fill-opacity:1;stroke-width:0.157173"
+         id="rect1-0-2-1-7"
+         width="23.118074"
+         height="19.701286"
+         x="245.21466"
+         y="150.82893"
+         ry="2.3542514" />
+      <rect
+         style="fill:#01bbbc;fill-opacity:1;stroke-width:0.157173"
+         id="rect1-0-2-1-7-7"
+         width="23.118074"
+         height="19.701286"
+         x="268.1423"
+         y="169.1423"
+         ry="2.3542514" />
+      <rect
+         style="fill:#01bbbc;fill-opacity:1;stroke-width:0.157173"
+         id="rect1-0-2-1-7-7-0"
+         width="23.118074"
+         height="19.701286"
+         x="466.10968"
+         y="207.7403"
+         ry="2.3542514" />
+      <rect
+         style="fill:#01bbbc;fill-opacity:1;stroke-width:0.436889"
+         id="rect1-0-2-1-7-7-2"
+         width="178.62358"
+         height="19.701286"
+         x="288.59799"
+         y="188.59799"
+         ry="2.3542514"
+         inkscape:label="rect1-0-2-1-7-7-2" />
+      <rect
+         style="fill:#01bbbc;fill-opacity:1;stroke-width:0.273409"
+         id="rect1-0-2-1-3"
+         width="76.681076"
+         height="17.973448"
+         x="168.95879"
+         y="132.82272"
+         ry="4.2091627"
+         inkscape:label="rect1-0-2-1-3" />
+      <rect
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#01bbbc;stroke-width:1.66728;stroke-dasharray:6.66912, 1.66728;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect1-0-2-1-3-6"
+         width="94.077911"
+         height="17.817823"
+         x="152.3008"
+         y="152.90742"
+         ry="4.1739378" />
+      <rect
+         style="opacity:0.124;fill:url(#linearGradient5);fill-opacity:1;stroke-width:2.15581;stroke-dasharray:none"
+         id="rect1-0-2-1-3-6-1"
+         width="405.55212"
+         height="37.373142"
+         x="150.9238"
+         y="190.028"
+         ry="8.7523355" />
+      <g
+         id="g1">
+        <text
+           xml:space="preserve"
+           style="font-size:10.6667px;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;text-anchor:middle;fill:#ffffff;stroke-width:1.00157;stroke-dashoffset:0.100157"
+           x="220.57162"
+           y="125.26832"
+           id="text1"
+           inkscape:label="Daytime Checkout"><tspan
+             sodipodi:role="line"
+             id="tspan1"
+             x="220.57162"
+             y="125.26832"
+             style="font-size:10.6667px;fill:#000000">Daytime Checkouts</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:10.6667px;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;text-anchor:middle;fill:#ffffff;stroke-width:1.00157;stroke-dashoffset:0.100157"
+           x="298.25198"
+           y="144.90796"
+           id="text1-2"
+           inkscape:label="Daytime Calibrations"><tspan
+             sodipodi:role="line"
+             id="tspan1-8"
+             x="298.25198"
+             y="144.90796"
+             style="font-size:10.6667px;fill:#000000">Daytime Calibrations</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:10.6667px;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;text-anchor:middle;fill:#ffffff;stroke-width:1.00157;stroke-dashoffset:0.100157"
+           x="220.4861"
+           y="211.97409"
+           id="text1-2-8"
+           inkscape:label="Daytime Calibrations"><tspan
+             sodipodi:role="line"
+             x="220.4861"
+             y="211.97409"
+             style="font-size:10.6667px;fill:#000000"
+             id="tspan4">Sun altitude  &lt; 15 deg</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:10.6667px;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;text-anchor:middle;fill:#ffffff;stroke-width:1.00157;stroke-dashoffset:0.100157"
+           x="311.19687"
+           y="161.90796"
+           id="text1-2-9"
+           inkscape:label="Daytime Venting"><tspan
+             sodipodi:role="line"
+             id="tspan1-8-1"
+             x="311.19687"
+             y="161.90796"
+             style="font-size:10.6667px;fill:#000000">Daytime Venting</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:10.6667px;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;text-anchor:middle;fill:#000000;stroke-width:1.00157;stroke-dashoffset:0.100157"
+           x="342.38425"
+           y="182.287"
+           id="text2"
+           inkscape:label="Preparing for on-sky"><tspan
+             sodipodi:role="line"
+             id="tspan2"
+             x="342.38425"
+             y="182.287">Preparing for on-sky</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:10.6667px;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;text-anchor:middle;fill:#000000;stroke-width:1.00157;stroke-dashoffset:0.100157"
+           x="515.89331"
+           y="220.77811"
+           id="text2-4"
+           inkscape:label="Shutdown"><tspan
+             sodipodi:role="line"
+             id="tspan2-7"
+             x="515.89331"
+             y="220.77811">Shutdown</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:10.6667px;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;text-anchor:middle;fill:#000000;stroke-width:1.00157;stroke-dashoffset:0.100157"
+           x="378.39673"
+           y="201.29323"
+           id="text3"
+           inkscape:label="Scheduler"><tspan
+             sodipodi:role="line"
+             id="tspan3"
+             x="378.39673"
+             y="201.29323"
+             style="fill:#ffffff">Scheduler driven observations</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>
