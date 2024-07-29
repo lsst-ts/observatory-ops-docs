@@ -58,7 +58,7 @@ Before deciding to open consult the :ref:`weather conditions and constraints <Ob
 
 Operations
 ===========
-AuxTel requires daytime and nighttime operations. Daytime operations focus on performance checks of the telescope mount, dome, mirror, mirror covers, and vents. AuxTel CSC, AuxTel instrument (LATISS) and, data ingestion are also inspected. Daily calibration images are recollected. By default, nighttime operations are scheduler-driven.
+AuxTel requires daytime and nighttime operations. Daytime operations focus on performance checks of the telescope mount, dome, mirror, mirror covers, and vents. AuxTel CSC, AuxTel instrument (LATISS) and, data ingestion are also inspected. Daily calibration images are collected. By default, nighttime operations are scheduler-driven.
 
 .. toctree::
    :glob:
@@ -75,12 +75,15 @@ AuxTel requires daytime and nighttime operations. Daytime operations focus on pe
    +--------------------------+-------+-------------------+--------------------------+
    |  Task                    | BLOCK | Data Verification |  Communications          |
    +==========================+=======+===================+==========================+
-   | Daytime Checkout         | T17   | RubinTV           | #summit_announce         |
+   | Daytime Checkout         | T17   | | RubinTV         | | #summit_announce       |
+   |                          |       | | On-site         | | #summit__daytime_task  |
+   |                          |       |                   | | Dome movement          |
+   |                          |       |                   | | AuxTel movement        |
    +--------------------------+-------+-------------------+--------------------------+
    | Daytime Calibrations     | T18   | RubinTV           | | #summit_auxtel         |
    |                          |       |                   | | #summit_announce       |
-   |                          |       |                   | | No dome movement       |
-   |                          |       |                   | | No AuxTel movement     |
+   |                          |       |                   | | Dome movement          |
+   |                          |       |                   | | AuxTel movement        |
    +--------------------------+-------+-------------------+--------------------------+
    | Daytime Venting          | T20   | | Chronograf      | | #summit_auxtel         |
    |                          |       | | On-site         | | #summit_announce       |
@@ -98,7 +101,7 @@ AuxTel requires daytime and nighttime operations. Daytime operations focus on pe
    |                          |       | | On-site         | | #summit__daytime_task  |
    +--------------------------+-------+-------------------+--------------------------+
 
-AuxTel operations can also be constrained by Sun altitude and time. Below an schematic view of the current default AuxTel observations workflow. 
+Below an schematic view of the current default AuxTel observations workflow. 
 
 .. image:: _static/AuxTel_observation_workflow.png
    :alt: Current AuxTel observation workflow.
@@ -108,7 +111,7 @@ AuxTel operations can also be constrained by Sun altitude and time. Below an sch
 
 .. _Auxiliary-Telescope-Operations-Non-standard-Operations:
 
-An observing run with AuxTel can also include a series of non-standard operations:
+In some occasions, AuxTel observations could require a series of engineering non-standard operations and the execution of troubleshooting procedures with associated faults:
 
 
 .. Non-standard Operations
@@ -122,12 +125,11 @@ An observing run with AuxTel can also include a series of non-standard operation
 
     Non-Standard-Operations/index.rst
 
-.. _Auxiliary-Telescope-Operations-Troubleshooting:
 
+.. _Auxiliary-Telescope-Operations-Troubleshooting:
 .. Troubleshooting
 .. ===============
 
-Most common AuxTel troubleshooting procedures with associated faults are accesible here:
 
 .. toctree::
     :glob:
