@@ -30,7 +30,7 @@ Operating conditions used to define the Rubin construction project are found
 in `LTS-54 <https://ls.st/lts-54>`__. 
 
 As commissioning gets underway, the operating conditions will be better constrained, 
-and different situations will apply to the Simonyi and Auxiliary telescopes.
+and different situations will apply to the Main telescope and Auxiliary Telescope.
 
 .. toctree::
     :maxdepth: 2
@@ -186,7 +186,7 @@ Observers must wait for the dew point temperature or humidity to recover from th
 Cloud cover
 ===========
 
-Until DIMM flux measurements are imported into RubinTV or in the EFD, or the wavefront sensors of LSSTCam are available, 
+Until DIMM flux measurements are imported into Rubin TV or in the EFD, or the wavefront sensors of LSSTCam are available, 
 determining safe or unsafe cloud coverage is a bit of an un-tested process.
 
 AuxTel has continued observing happily in 2.5 magnitudes of extinction, given that most targets are typically :math:`\leq 8\,mag`.

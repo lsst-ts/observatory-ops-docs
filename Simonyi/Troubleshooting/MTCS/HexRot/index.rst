@@ -8,5 +8,12 @@ MTHexapods and MTRotator
     :maxdepth: 3
     :titlesonly:
     :glob:
+    
+    MTRotator-Recovery/MTRotator-Recovery.rst
 
-    *
+.. toctree::
+    :maxdepth: 3
+    :titlesonly:
+    :glob:
+    
+    MTRotator-MTHexapods-PXI-Reboot/MTRotator-MTHexapods-PXI-Reboot.rst
