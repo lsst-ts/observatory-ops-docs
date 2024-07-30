@@ -8,9 +8,9 @@
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
 
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
-.. |author| replace:: *replace*
+.. |author| replace:: Karla Aubel
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Safety Team*
+.. |contributors| replace:: Kshitija Kelkar, *safety team*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -34,9 +34,12 @@ Overview
 
 .. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
 
-AuxTel must be under LOTO (lock-out tag-out) any time physical work is undertaken on the mount or the dome. 
-When working with environmental sensors, on the truss, mirrors, or anywhere in the dome where unexpected movement could cause a safety hazard, the telescope must be locked out. 
-Trained summit support staff may use this procedure if they meet all of the preconiditon requirements. 
+This document describes how to prevent any telescope movement as a safety measure through **Lock-Out-Tag-Out** (**LOTO**) 
+procedure. To perform this procedure, LOTO training must have been received. Observers during operations may be 
+expected to LOTO the **Telescope Main Assembly** (**TMA**) due to unforeseen work done at night. The TMA LOTO is done directly 
+in the **Oil Supply System** (**OSS**).
+
+
 
 .. _Simonyi-LOTO-procedure-Precondition:
 
@@ -47,19 +50,9 @@ Precondition
 .. It is preferred to include them as a bulleted or enumerated list.
 .. If there is a different procedure that is critical before execution, carefully consider if it should be linked within this section or as part of the Procedure section below (or both).
 
+.. warning::
 
-.. _Simonyi-LOTO-procedure-Post-Condition:
-
-Post-Condition
-==============
-
-.. This section should provide a simple overview of conditions or results after executing the procedure; for example, state of equipment or resulting data products.
-.. It is preferred to include them as a bulleted or enumerated list.
-.. Please provide screenshots of the software status or relevant display windows to confirm.
-.. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
-
-The drives are powered off and the AuxTel Control cabinet is locked from the outside. 
-The Simonyi Telescope is under LOTO and is not able to move by any controls.
+    To perform this procedure formal LOTO training must have been received; refer to the TMA LOTO Procedure video
 
 .. _Simonyi-LOTO-procedure-Procedure-Steps:
 
@@ -85,5 +78,25 @@ No troubleshooting information is applicable to this procedure.
 In the IMPOSSIBLE event that the telescope moves after turning off all three breakers, stop work immediately and notify the day crew, including Jacques Sebag, Mario Rivera, and the electronics team. 
 
 
+.. _Simonyi-LOTO-procedure-Post-Condition:
+
+Post-Condition
+==============
+
+.. This section should provide a simple overview of conditions or results after executing the procedure; for example, state of equipment or resulting data products.
+.. It is preferred to include them as a bulleted or enumerated list.
+.. Please provide screenshots of the software status or relevant display windows to confirm.
+.. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
+
+
+
+
+.. _Simonyi-LOTO-procedure-Contingency:
+
+Contingency
+===========
+
+If the procedure was not successful, report the issue in *#summit-simonyi* and/or *#summit-announce* and/or activate 
+the `Out of hours support <https://obs-ops.lsst.io/Safety/out-of-hours-support.html#safety-out-of-hours-support>`_.
 
 This procedure was last modified |today|.
