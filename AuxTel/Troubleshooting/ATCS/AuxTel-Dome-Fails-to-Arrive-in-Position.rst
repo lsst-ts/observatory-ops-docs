@@ -8,24 +8,24 @@
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
 
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
-.. |author| replace:: *Name-of-Primary-Author*
+.. |author| replace:: *Erik Dennihy*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *List-of-contributors*
+.. |contributors| replace:: *Ioana Sotuela, Gonzalo Aravenas*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _AuxTel-ATDome-fails-to-arrive-in-position:
+.. _AuxTel-Dome-Fails-to-Arrive-in-Position:
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
 #########################
-AuxTel ATDome fails to arrive in position
+AuxTel Dome Fails to Arrive in Position
 #########################
 
 
-.. _AuxTel-ATDome-fails-to-arrive-in-position-Overview:
+.. _AuxTel-Dome-Fails-to-Arrive-in-Position-Overview:
 
 Overview
 ========
@@ -35,9 +35,9 @@ Overview
 When slewing to a new target the Dome stops tracking and fails to arrive in its final position, resulting in script failure (if the slew was triggered from a script) and the ATPtg CSC going into ``FAULT``. 
 The ATPtg can be recovered by performing a state cycle on LOVE, but the dome following must also be cycled independently to recover dome tracking. 
 
-.. _AuxTel-ATDome-fails-to-arrive-in-position-Error-Diagnosis:
+.. _AuxTel-Dome-Fails-to-Arrive-in-Position-Error-Diagnosis:
 
-Error diagnosis
+Error Diagnosis
 ===============
 
 If the slew was initiated from a script, you may see an error traceback similar to the one below. This is triggered by the timeout that is excepted when the atdome never arrives to its final position.
@@ -119,7 +119,7 @@ or
 
 
 
-.. _AuxTel-ATDome-fails-to-arrive-in-position-Procedure-Steps:
+.. _AuxTel-Dome-Fails-to-Arrive-in-Position-Solution:
 
 Solution
 =========
@@ -131,20 +131,30 @@ All of the commands you will need can be found in the daytime_checkout notebook.
 
 A. **Procedure - Recovery from LOVE.**
 
-   1. State cycle ATDome through ``STANDBY`` and back to ``ENABLE`` from the ASummaryState. The transition must be quick enough so the dome shutter does not start closing and the recovery is faster; if it does close, the next step should deal with the shutter opening again.  ``FAULT`` → ``STANDBY`` → ``START`` → ``DISABLED`` → ``ENABLED``.
+   1. State cycle ATDome through ``STANDBY`` and back to ``ENABLE`` from the ASummaryState. 
+      The transition must be quick enough so the dome shutter does not start closing and the recovery is faster; 
+      if it does close, the next step should deal with the shutter opening again.  
+      ``FAULT`` → ``STANDBY`` → ``START`` → ``DISABLED`` → ``ENABLED``.
    
       a. If ATPtg faulted, transition it back to enabled from ASummaryState. 
 
-   2. Run `auxtel/prepare_for/onsky` and move it to the beginning of the ATQueue. Run this script This will make sure the system is back and ready for observations, with the mirror cover and dome shutter opened,  and the dome following enabled.
-   
-   3. Keep ATQueue running to the next target. Confirmin LOVE that  the dome is moving and following the mount.
+   2. Select `auxtel/prepare_for/onsky` and move it to the beginning of the ATQueue. 
+      Execute this script to ensure the system is back and ready for observations, with the mirror cover and dome shutter opened, and the dome tracking enabled.
+
+
+   3. Keep ATQueue running to the next target. 
+      Confirmin LOVE that the dome is moving and following the mount.
 
 
 B. **Alternative procedure in case A. fails - Recovery using LOVE and a notebook.**
 
    1. From the ASummaryState view on LOVE, transition the ATPtg back to enabled following the usual path: ``FAULT`` → ``STANDBY`` → ``START`` → ``DISABLED`` → ``ENABLED``
    
-   2. Using an instantiated atcs class from a notebook (e.g. the daytime_checkout notebook), ensure that dome following is disabled and perform a dome slew (using a value for az that is at least 15 degrees away from where you are currently pointing) before reactivating `dome_following`` by running the following commands:
+   2. Using an instantiated atcs class from a notebook (e.g. the daytime_checkout notebook), ensure that dome following is disabled and perform a dome slew (using a value for az that is at least 15 degrees away from where you are currently pointing) before reactivating `dome_following` by running the following commands:
+
+.. Using an instantiated ATCS class from a notebook (e.g., the daytime_checkout notebook), ensure that dome following is disabled. 
+.. Perform a dome slew using a value for *az* that is at least 15 degrees away from where you are currently pointing. 
+.. Reactivate dome_following by running the following commands:
 
       .. prompt:: bash
 
@@ -156,7 +166,8 @@ B. **Alternative procedure in case A. fails - Recovery using LOVE and a notebook
 
 
 
-   3. The dome following and positioning should now be recovered. From the same notebook, perform a test slew choosing *az*, *el*, and *rot* values that are near your current position to ensure the dome tracks and arrives in the desired position.
+   3. The dome following and positioning should now be recovered. 
+      From the same notebook, perform a test slew choosing *az*, *el*, and *rot* values that are near your current position to ensure the dome tracks and arrives in the desired position.
 
 
       .. prompt:: bash
@@ -167,6 +178,7 @@ B. **Alternative procedure in case A. fails - Recovery using LOVE and a notebook
         coord=atcs.radec_from_azel(az=start_az+10, el=start_el-10)
         await atcs.slew_icrs(coord.ra, coord.dec, rot=start_rot, stop_before_slew=False, rot_type=RotType.PhysicalSky)
 
+.. _AuxTel-Dome-Fails-to-Arrive-in-Position-Additional-Information:
 
 Additional Information/Details
 ==============================
