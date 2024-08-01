@@ -41,10 +41,15 @@ ignore = [
     '^ls.st',
     'https://start.1password.com/open/i\?a=EJGC5QLBFNAJ3ODCNVC2I3HIPM&v=mqlr5qdkpipoyamzhty5kg365y&i=tu4v5aa4tvhbm4e3rc5siiwada&h=lsstit.1password.com',
     'https://machinerysafety101.com/2009/03/06/emergency-stop-whats-so-confusing-about-that/',
-    'https://machinerysafety101.com/2010/11/29/using-e-stops-in-lockout-procedures/'
+    'https://machinerysafety101.com/2010/11/29/using-e-stops-in-lockout-procedures/',
+    'https://rucio.cern.ch/', 
+    'https://confluence.slac.stanford.edu/',
+    'http://aux-pdu-spectrograph.cp.lsst.org', 
+    'https://noirlab.edu', 
+    'https://gemini.edu'
 ]
 
-[sphinx]
+[sphinx] 
 extensions = [
   "sphinx_diagrams"
 ]

@@ -261,6 +261,7 @@ as it creates an intuitive sidebar menu to the left, and inserts in-page navigat
        license
 
 
+
 .. _Observatory-Operations-reST-Style-Reference-Guide-Code:
 
 Code
@@ -293,9 +294,9 @@ renders as:
 
 .. _Observatory-Operations-reST-Style-Reference-Guide-Text:
 
-SAL scripts Configuration and Traceback - Text
-----------------------------------------------
-This formatting should be used when detailing the configuration required for a SAL script or displaying an error traceback. 
+SAL scripts configuration - Text
+--------------------------------
+This formatting should be used when detailing the configuration required for a SAL script. 
 Use the parameter ``:caption:`` with the name of the SAL script to display it above the block of configuration. 
 
 The ``code-block::text`` *directive* can be used to preserve the formatting and spacing of text.
@@ -401,7 +402,7 @@ is displayed in HTML like:
 
 .. _Observatory-Operations-reST-Style-Reference-Guide-Images:
 
-Images and other Media
+Images and other media
 ======================
 
 Images must be stored in the :file:`./_static/` directory within your working directory, in PNG or GIF formats. 
