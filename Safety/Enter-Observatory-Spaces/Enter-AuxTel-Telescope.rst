@@ -34,9 +34,8 @@ It covers aspects related to access during nighttime operations, ventilation, ca
 Ensure you follow these instructions to guarantee your safety and the safety of the equipment.
 
 
-
-
-**Safety equipment for all entries**
+Safety equipment for all entries
+================================
 
 Each entry to the telescope, regardless of the reason, must mandatorily use the following safety equipment:
 
@@ -167,7 +166,7 @@ Below are the guidelines for entering the AuxTel telescope during nighttime oper
 
    .. tip:: 
 
-    Red flashlights are a good choice and they interfeer much less than regular white light.
+    Red light flashlights can be a good choice and they interfeer much less than regular white light.
 
 
 .. _Safe-entry-to-AuxTel-behaviour-standards:
