@@ -30,7 +30,7 @@ ATHexapod fails to enable with the rest of ATCS
 Overview
 ========
 
-When attempting to enable ATCS from the ATScriptQueue with the script auxtel/enable_atcs.py, ATHexapod fails to transition to enable.
+When attempting to enable ATCS from the ATScriptQueue with the script `auxtel/enable_atcs.py`, ATHexapod fails to transition to enable.
 
 .. _ATHexapod-fails-to-enable-with-the-rest-of-ATCS-Diagnosis:
 
@@ -60,7 +60,7 @@ ATHexapod fails to enable with the rest of the ATCS with the SAL script `auxtel/
   line 541, in _sock_connect_cb    raise OSError(err, f'Connect call failed {address}')OSError: [Errno 113] Connect call failed ('139.229.170.48', 50000)
 
 
-Also, trying to ping the controller at athexapod.cp.lsst.org results in no response.
+Also, trying to ping the controller at `athexapod.cp.lsst.org <athexapod.cp.lsst.org>`__ results in no response.
 
 
 
@@ -86,8 +86,8 @@ The connection to the ATHexapod can be recovered by manually rebooting the ATHex
 
 3. Wait 3 minutes.
 4. Turn the controller on again.
-5. The ATHexapod CSC should be now in ``STANDBY``. Transition the ATHexapod from the ASummaryState View ``STANDBY`` → ``START`` → ``ENABLE``, or alternative , you could run the `auxtel/enable_atcs.py` again ATCS should be ready now to begin operations.
-6. Fill the ticket `OBS-243 - ATHexapod not enabling with the rest of ATCS <https://jira.lsstcorp.org/browse/OBS-243>`__ with as much information you have regarding the state of the system, such as procedures or maintenance done prior to this failure (e-stop, mirror CO2 cleaning, power outage, LOTO, etc)
+5. The ATHexapod CSC should be now in ``STANDBY``. Transition the ATHexapod from the ASummaryState View ``STANDBY`` → ``START`` → ``ENABLE``, or alternative, you could run the `auxtel/enable_atcs.py` again. ATCS should be ready now to begin operations.
+6. Fill the ticket `OBS-243 - ATHexapod not enabling with the rest of ATCS <https://rubinobs.atlassian.net/browse/OBS-243>`__ with as much information you have regarding the state of the system, such as procedures or maintenance done prior to this failure (e-stop, mirror CO2 cleaning, power outage, LOTO, etc)
 
 
 
