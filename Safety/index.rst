@@ -120,6 +120,20 @@ Safety Systems
 
       Procedures to enter telescopes while in operations
 
+Enter Observatory Spaces
+=========================
+
+.. grid:: 1
+
+   .. grid-item-card:: Safe entry to AuxTel
+      :link: Enter-Observatory-Spaces/Enter-AuxTel-Telescope
+      :link-type: doc
+      :padding: 4
+
+      Procedures to enter telescopes while in operations
+
+
+
 .. Here's is the left hand-side navigation. 
 .. toctree::
     :maxdepth: 4
@@ -130,6 +144,7 @@ Safety Systems
     out-of-hours-support.rst
     summit-contact-numbers.rst
     Safety-Systems/index.rst
+    Enter-Observatory-Spaces/index.rst
 
 
 
