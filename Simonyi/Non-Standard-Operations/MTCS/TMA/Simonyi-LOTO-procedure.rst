@@ -7,6 +7,13 @@
 	- If a section within the template is not needed, comment out the section title and label reference. Include a comment explaining why this is not required.
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
 
+
+.. raw:: html
+
+    <style> .red {color:red} </style>
+.. role:: red
+
+
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: Karla Aubel
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
@@ -52,7 +59,8 @@ Precondition
 
 .. warning::
 
-    To perform this procedure formal LOTO training must have been received; refer to the TMA LOTO Procedure video
+    To perform this procedure formal LOTO training must have been received; refer also to 
+    the `TMA LOTO Procedure video <https://drive.google.com/file/d/1rOvu1ITDCm0HNepfvoBWMzhGZkMPkKnH/view>`_
 
 .. _Simonyi-LOTO-procedure-Procedure-Steps:
 
@@ -63,7 +71,15 @@ Procedure Steps
 .. In the case of more complicated procedures, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked procedures to be performed in the specified order.
 .. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
 
+.. note::
 
+    Before/right after applying LOTO on OSS, announce "LOTO on OSS" on  *#summit-announce* and/or *#summit-simonyi*
+
+
+Applying LOTO on OSS
+--------------------
+
+#.  Turn :guilabel:`OFF` the OSS in the EUI panel (indicated by the yellow circle in the following Figure)
 
 .. _Simonyi-LOTO-procedure-Troubleshooting:
 
@@ -88,8 +104,18 @@ Post-Condition
 .. Please provide screenshots of the software status or relevant display windows to confirm.
 .. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
 
+#.  **After applying LOTO on OSS** 
+    Telescope is unable to move. OSS is under LOTO shows :guilabel:`status` as `Idle` (in the 
+    :guilabel:`Operations Manager` section on the top) and the three pumps in :red:`red`, down to the left in the image.
 
+    .. figure:: /Simonyi/Non-Standard-Operations/MTCS/TMA/_static/tma_loto_10.png
+     :name: tma_loto_10  
 
+#.  **After unlocking LOTO on OSS** 
+
+    -   OSS idle but not turned on (:red:`Need Figure`)
+
+    -   OSS turned on after removing LOTO  (:red:`Need Figure`)
 
 .. _Simonyi-LOTO-procedure-Contingency:
 
