@@ -14,6 +14,11 @@
 .. role:: red
 
 
+.. raw:: html
+
+    <style> .gold {color:gold} </style>
+.. role:: gold
+
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: Karla Aubel
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
@@ -27,8 +32,7 @@
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
-.. warning::
-    DRAFT
+
 
 ######################
 Simonyi LOTO Procedure
@@ -73,25 +77,66 @@ Procedure Steps
 
 .. note::
 
-    Before/right after applying LOTO on OSS, announce "LOTO on OSS" on  *#summit-announce* and/or *#summit-simonyi*
+    Before/right after applying LOTO on the OSS, announce "LOTO on the OSS" on  *#summit-announce* and/or *#summit-simonyi*
 
 
 Applying LOTO on OSS
 --------------------
 
-#.  Turn :guilabel:`OFF` the OSS in the EUI panel (indicated by the yellow circle in the following Figure)
+#.  Turn :guilabel:`OFF` the OSS in the EUI panel (indicated by the :gold:`circle` in the following Figure)
 
-.. _Simonyi-LOTO-procedure-Troubleshooting:
+    .. figure:: /Simonyi/Non-Standard-Operations/MTCS/TMA/_static/tma-loto-1.png
+     :name: tma-loto-1
 
-Troubleshooting
-===============
+#.  **Wait until the OSS is off**:  the :guilabel:`status` turns `IDLE` and :guilabel:`OSS` flag goes from green to gray. 
+    It takes around 5-10 minutes to complete turning off the OSS. 
 
-.. This section should include troubleshooting information. Information in this section should be strictly related to this procedure.
+    .. figure:: /Simonyi/Non-Standard-Operations/MTCS/TMA/_static/tma-loto-2.png
+     :name: tma-loto-2
 
-.. If there is no content for this section, remove the indentation on the following line instead of deleting this sub-section.
+#.  Go to the OSS room from level 1 (first floor). Apply LOTOs on the OSS pump switches (highlighted by the :red:`box` in
+    the following Figure). Close valves (Position "—-") and put locks on the holes to apply three LOTOs on the safety 
+    switches of the OSS pumps.
 
-No troubleshooting information is applicable to this procedure.
-In the IMPOSSIBLE event that the telescope moves after turning off all three breakers, stop work immediately and notify the day crew, including Jacques Sebag, Mario Rivera, and the electronics team. 
+    .. figure:: /Simonyi/Non-Standard-Operations/MTCS/TMA/_static/tma-loto-3.png
+     :name: tma-loto-3
+
+    .. image:: /Simonyi/Non-Standard-Operations/MTCS/TMA/_static/tma-loto-4.png
+     :width: 30%
+    .. image:: /Simonyi/Non-Standard-Operations/MTCS/TMA/_static/tma-loto-5.png
+     :width: 30%
+    .. image:: /Simonyi/Non-Standard-Operations/MTCS/TMA/_static/tma-loto-6.png
+     :width: 30%
+
+.. note::
+
+    **LOTO box**
+    
+    Keys and locks are inside the LOTO Box. You can find LOTO box (with a tag "Electronic team" on the box) on 
+    Level 1 in the OSS room. If you cannot find or open that LOTO box, you can take a LOTO box in the meeting room 
+    on Level 2.
+
+    .. image:: /Simonyi/Non-Standard-Operations/MTCS/TMA/_static/tma-loto-7.png
+     :width: 30%
+    .. image:: /Simonyi/Non-Standard-Operations/MTCS/TMA/_static/tma-loto-8.jpeg
+     :width: 30%
+
+Unlocking LOTO on OSS
+---------------------
+
+#.  Go to the the OSS room and remove the locks from the pump switches. Find the key for each lock from the LOTO box 
+    and match the number on the key and the lock. 
+
+#.  Put the LOTO locks with the keys back into the LOTO box.
+
+#.  Open the switches (Position "|") on the pump (See the Figure below).
+
+    .. figure:: /Simonyi/Non-Standard-Operations/MTCS/TMA/_static/tma-loto-9.png
+     :name: tma-loto-9
+
+#.  Turn on the OSS from TMA EUI (**Optional**). 
+
+#.  Announce the status of the OSS on  *#summit-announce* and/or *#summit-simonyi*.
 
 
 .. _Simonyi-LOTO-procedure-Post-Condition:
@@ -105,11 +150,10 @@ Post-Condition
 .. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
 
 #.  **After applying LOTO on OSS** 
-    Telescope is unable to move. OSS is under LOTO shows :guilabel:`status` as `Idle` (in the 
-    :guilabel:`Operations Manager` section on the top) and the three pumps in :red:`red`, down to the left in the image.
+    Telescope is unable to move. OSS is under LOTO shows :guilabel:`status` as `Idle` and the three pumps in :red:`red`, down to the left in the image.
 
-    .. figure:: /Simonyi/Non-Standard-Operations/MTCS/TMA/_static/tma_loto_10.png
-     :name: tma_loto_10  
+    .. figure:: /Simonyi/Non-Standard-Operations/MTCS/TMA/_static/tma-loto-10.png
+     :name: tma-loto-10  
 
 #.  **After unlocking LOTO on OSS** 
 
