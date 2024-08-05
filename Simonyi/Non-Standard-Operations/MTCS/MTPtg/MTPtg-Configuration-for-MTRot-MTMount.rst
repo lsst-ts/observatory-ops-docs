@@ -6,64 +6,62 @@
 .. _Out of Hours Support: https://obs-ops.lsst.io/Safety/out-of-hours-support.html#safety-out-of-hours-support
 .. _for AuxTel as well: https://obs-ops.lsst.io/AuxTel/Non-Standard-Operations/index.html
 
-.. warning::
-    DRAFT
 
-    
-.. _MTRotator-or-MTMount-Configuration:
+.. _MTMTPtg-Configuration-for-MTRotator-and-MTMount:
 
 ##############################################################
-MTRotator or MTMount Configuration Change (Ignore or Include) 
-MTPtg Configuration of MTRotator and MTMount
+MTPtg Configuration for MTRotator and MTMount
 ##############################################################
 
-.. warning:: Important Information
+.. note:: Important Information before start.
 
-- Only proceed if you are authorized to change the configuration of the pointing component ``MTPtg`` of the Simonyi Telescope.
+#. Only proceed if you are authorized to change the configuration of the CSC pointing component ``MTPtg`` of the Simonyi Telescope.
    
-- Additionally to this procedure, a change of MTMount CSC version needs to be done in ArgoCD by a commissioning scientist for 
-the configuration change to be completely operational. *(See Warning in the procedure steps)*
+#. A change of the MTMount CSC version needs to be done in ArgoCD by a commissioning scientist.
 
 ..
 
-.. note:: Kubernetes authorization
-
-    To execute this procedure you must have installed in your computer the credentials to access the Kubernetes cluster. 
-
-    Move to a more detailed instructions once written.
+.. note:: Important Information before start.
     
-    Open a ticket directed to summit IT to access the Kubernetes cluster at the summit, named yagan, through the rancher at the Summit.
-    https://rancher.cp.lsst.org/
+    Kubernetes authorization
+
+    #. To execute this procedure you must have installed in your computer the credentials to access the Kubernetes cluster. 
     
-    Once it is done, you can download your unique credentials and place the yagan.yaml file inside the ~/.kube directory in your local machine.
+    # Credentials: Open a ticket directed to summit IT to access the Kubernetes cluster at the summit, named yagan, through the rancher at the Summit.
+   xxxx https://rancher.cp.lsst.org/  xxxx
+    
+    #. Once it is done, you can download your unique credentials and place the *yagan.yaml* file inside the :file:`~/.kube` directory in your local machine.
 
 ..
 
-.. _MTRotator-or-MTMount-Configuration-Procedure-Overview:
+.. _MTMTPtg-Configuration-for-MTRotator-and-MTMount-Procedure-Overview:
 
 
 Overview
 ========
 
-When either MTRotator or MTMount components become unavailable for any reason and you still want to continue with testing and tracking, 
-it's necessary to change the configuration of the MTPtg CSC to avoid comanding these non-available components and go into fault mode.
+When either *MTRotator* or *MTMount* components with Simonyi operations become unavailable for any reason and you still want to continue with testing and tracking, 
+it's necessary to change the configuration of the *MTPtg* CSC to avoid commanding these non-available components and going into ``FAULT`` mode.
 
 
-.. _MTRotator-or-MTMount-Configuration-Procedure-Error-Diagnosis:
+.. _MTMTPtg-Configuration-for-MTRotator-and-MTMount-Procedure-Error-Diagnosis:
 
 
 Error Diagnosis
 ===============
- *a.*  MTRotator is not available but you want to still track without rotator, using the rest of the components; or you want to include 
-MTRotator in the tracking again.
 
-   or
+*a.* *MTRotator* is not available, but you still want to track *without* the rotator, using the rest of the components; or you want to *include* 
+rotator in the tracking again.
 
- *b.*  MTMount/TMA is not available (not starting up for example), but you want to still track without moving or commanding the mount, 
-only using CCW + rotator; or you want to revert the change and include MTMount again.
+or 
 
 
-.. _MTRotator-or-MTMount-Configuration-Procedure-Procedure-Steps:
+*b.* *MTMount* is not available (not starting up, for example), but you still want to track *without* moving or commanding the mount, 
+only using *CCW* + *rotator*; or you want to revert the change and *include* the mount again.
+
+
+
+.. _MTMTPtg-Configuration-for-MTRotator-and-MTMount-Procedure-Procedure-Steps:
 
 
 Procedure Steps
