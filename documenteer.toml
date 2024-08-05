@@ -46,7 +46,8 @@ ignore = [
     'https://confluence.slac.stanford.edu/',
     'http://aux-pdu-spectrograph.cp.lsst.org', 
     'https://noirlab.edu', 
-    'https://gemini.edu'
+    'https://gemini.edu',
+    'athexapod.cp.lsst.org'
 ]
 
 [sphinx] 
