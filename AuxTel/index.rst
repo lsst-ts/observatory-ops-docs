@@ -33,13 +33,12 @@ Auxiliary Telescope Operations
 
 Introduction to the Auxiliary Telescope
 =======================================
-In-depth information on every component of the Auxiliary telescope can be found here
+In-depth information on every component of the Auxiliary telescope can be found here:
 
 .. toctree::
    :glob:
    :titlesonly:
-   :caption: Components
-
+  
    Components/*
 
 
@@ -48,22 +47,18 @@ In-depth information on every component of the Auxiliary telescope can be found 
 Weather Constraints
 ===================
 
-Before deciding to open consult the :ref:`weather conditions and constraints <Observing-Constraints-AuxTel-Weather-Constraints>` 
-to operate AuxTel. 
-
-.. toctree::
-   :glob:
-   :titlesonly:
-   :caption: Weather Constraints
-
-   ../Observing-Constraints/AuxTel/index.rst
+Before deciding to open consult the :ref:`weather conditions and constraints <Observing-Constraints-AuxTel-Weather-Constraints>` to observe with AuxTel. For quick reference, below the current AuxTel weather constraints overview (cloud coverage not included).
 
 
+.. figure:: _static/AuxTel_weather_constraints.png
+   :align: center
+   :alt: AuxTel weather constraints overview
 
 .. _Auxiliary-Telescope-Operations-Standard-Operations:
 
 Operations
 ===========
+AuxTel requires daytime and nighttime operations. Daytime operations focus on performance checks of the telescope mount, dome, mirror, mirror covers, and vents. AuxTel CSC, AuxTel instrument (LATISS) and, data ingestion are also inspected. Daily calibration images are collected. By default, nighttime operations are scheduler-driven.
 
 .. toctree::
    :glob:
@@ -73,7 +68,50 @@ Operations
 
    Standard-Operations/index.rst
 
+.. _table-label:
+
+.. table:: Informative AuxTel Telescope Standard Operations
+
+   +--------------------------+-------+-------------------+--------------------------+
+   |  Task                    | BLOCK | Data Verification |  Communications          |
+   +==========================+=======+===================+==========================+
+   | Daytime Checkout         | T17   | | RubinTV         | | #summit_announce       |
+   |                          |       | | On-site         | | #summit__daytime_task  |
+   |                          |       |                   | | Dome movement          |
+   |                          |       |                   | | AuxTel movement        |
+   +--------------------------+-------+-------------------+--------------------------+
+   | Daytime Calibrations     | T18   | RubinTV           | | #summit_auxtel         |
+   |                          |       |                   | | #summit_announce       |
+   |                          |       |                   | | Dome movement          |
+   |                          |       |                   | | AuxTel movement        |
+   +--------------------------+-------+-------------------+--------------------------+
+   | Daytime Venting          | T20   | | Chronograf      | | #summit_auxtel         |
+   |                          |       | | On-site         | | #summit_announce       |
+   |                          |       |                   | | Dome movement          |
+   |                          |       |                   | | AuxTel movement        |
+   +--------------------------+-------+-------------------+--------------------------+
+   | Preparing for on-sky     | T19   | LOVE              | | #summit_auxtel         |
+   |                          |       |                   | | #summit_announce       |
+   +--------------------------+-------+-------------------+--------------------------+
+   | Scheduler                | T19   | | RubinTV         |                          |
+   |                          |       | | LOVE            |                          |
+   |                          |       | | Cronograf       |                          |
+   +--------------------------+-------+-------------------+--------------------------+
+   | Shutdown                 |  ---  | | LOVE            | | #summit_auxtel         |
+   |                          |       | | On-site         | | #summit__daytime_task  |
+   +--------------------------+-------+-------------------+--------------------------+
+
+Below an schematic view of the current default AuxTel observations workflow. 
+
+.. image:: _static/AuxTel_observation_workflow.png
+   :alt: Current AuxTel observation workflow.
+   :scale: 70
+   :align: center
+|
+
 .. _Auxiliary-Telescope-Operations-Non-standard-Operations:
+
+In some occasions, AuxTel observations could require a series of engineering non-standard operations and the execution of troubleshooting procedures with associated faults:
 
 
 .. Non-standard Operations
@@ -87,12 +125,11 @@ Operations
 
     Non-Standard-Operations/index.rst
 
-.. _Auxiliary-Telescope-Operations-Troubleshooting:
 
+.. _Auxiliary-Telescope-Operations-Troubleshooting:
 .. Troubleshooting
 .. ===============
 
-Most common troubleshooting procedures with associated faults. 
 
 .. toctree::
     :glob:
