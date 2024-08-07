@@ -31,4 +31,10 @@ Simonyi Non-standard Operations
     :glob:
 
     Auxiliary-Components/index.rst
-    
+
+.. toctree::
+    :maxdepth: 3
+    :titlesonly:
+    :glob:
+
+    EUI-Access/index.rst
