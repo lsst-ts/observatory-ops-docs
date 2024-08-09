@@ -12,7 +12,7 @@ This includes troubleshooting of the CSCs that control the telescope and dome mo
     :titlesonly:
     :glob:
 
-    HexRot/index.rst
+    MTHexRot/index.rst
 
 .. toctree::
     :maxdepth: 3

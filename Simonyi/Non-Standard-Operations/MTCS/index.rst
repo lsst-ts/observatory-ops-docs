@@ -20,10 +20,17 @@ MTCS
 
     MTM1M3/index.rst
 
-
 .. toctree::
     :maxdepth: 2
     :titlesonly:
     :glob:
 
     MTM2/index.rst
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+    :glob:
+
+    MTHexRot/index.rst
+
