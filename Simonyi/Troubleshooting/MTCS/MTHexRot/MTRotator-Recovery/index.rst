@@ -27,6 +27,7 @@
 
     <style> .green {color:green} </style>
 .. role:: green
+
 #########################
 MTRotator Recovery
 #########################
@@ -53,12 +54,11 @@ Error diagnosis
 
 * The difference between the MTRotator and the Camera Cable Wrap (CCW) is too large. Bulkhead limit switch activated; this is also called :guilabel:`Pull cord +` or :guilabel:`Pull cord -`. 
 
+    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_1.png
+         :name: mtrot_recovery_1
+   
+         TMA EUI screenshot indicating the pull cord +/- alert highlighted by the red box
 
-
-.. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_1.png
- :name: mtrot_recovery_1
-
-  TMA EUI screenshot indicating the pull cord +/- alert highlighted by the red box
 * :ref:`Safety Interlock <mtrot_recovery_5>` active in the MTRotator GUI 
 * :ref:`Simulink fault <mtrot_recovery_5>` in the MTRotator GUI 
 * CCW Interlock D-8 activated on the GIS (link here to the GIS interlock screenshot)
@@ -77,84 +77,92 @@ Procedure Steps
 .. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
 
 
-
-
-#.  **Transition MTRotator CSC to** ``STANDBY`` **status**
+#.  **Transition MTRotator CSC to** ``STANDBY`` **status**.
 
 
 #.  **Access the MTRotator EUI/GUI:**
-
 
     a.  Enter *hexrot-vm02.cp.lsst.org* with your IPA account credentials.
     
     b.  Once in the virtual machine, choose your user profile and enter your IPA password.
 
-    c.  open a terminal from the 'Activities' tab on top left and go to the following - 
+    c.  open a terminal from the 'Activities' tab on top left and go to the following: 
 
-    .. prompt:: bash
+        .. prompt:: bash
 
-        cd /rubin/
-        cd rotator/
-        cd build
-        ./runRotEui
+             cd /rubin/
+             cd rotator/
+             cd build
+             ./runRotEui
+
+
+
 #.  **Change from DDS Command Source to GUI mode:** 
+
+    .. _MTRotator-Recovery-Procedure-Step3:
 
     Click the :guilabel:`Parameters` tab in the MTRotator EUI, select ``GUI`` under 
     :guilabel:`Command Source`, and press :guilabel:`Set Command Source`. In case the 
-    GUI control is not possible consult the :ref:`Contingency section <MTRotator-Recovery-Contingency>` below for further guidance. 
+    GUI control is not possible consult the :ref:`Contingency section <MTRotator-Recovery-Contingency>` 
+    below for further guidance. 
 
     .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_2.png
-        :scale: 40%  
+        :width: 300  
         :name: mtrot_recovery_2
     
 
 #.  **Clear Simulink error in MTRotator GUI:**
 
+    .. _MTRotator-Recovery-Procedure-Step4A:
 
     a.  In the MTRotator EUI Main tab, select ``State Cmd`` under :guilabel:`Commands to Send`. 
         In :guilabel:`State Triggers`, select ``ClearError`` and click on the :guilabel:`Send Command` 
-        button. The **Simulink Error** light should be cleared now.
+        button. 
+        The **Simulink Error** light should be cleared now.
 
     .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_3.png
             :name: mtrot_recovery_3
-            :scale: 40%
+            :width: 300  
 
-    b.  When the **Safety Interlock fault** is :red:`activated`
+    b.  When the **Safety Interlock fault** is :red:`activated`.
 
     .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_4.png
         :name: mtrot_recovery_4
+        :width: 300  
+
 
     c.  When the **Safety Interlock fault** is deactivated.
 
     .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_5.png
         :name: mtrot_recovery_5
+        :width: 300  
+
 
 #.  **Reset MTRotator in GIS GUI at Level 2:**
-    
-    
 
-    a. Press :guilabel:`Bypass` by the D-8 (CCW Safety Device Actuated).  
+    .. _MTRotator-Recovery-Procedure-Step5A:
     
-        .. _step_5a
+    a. Press :guilabel:`Bypass` by the D-8 (CCW Safety Device Actuated).    
 
     .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_6.png
-     :name: mtrot_recovery_6  
-     :scale: 20%
+         :name: mtrot_recovery_6  
+         :width: 300  
 
     b.  Click :guilabel:`M2Cam` and then :guilabel:`Overview` (Default). Note that you should 
         see a :green:`x` mark on the square of :guilabel:`Reset`. If not, click the 
         :guilabel:`Reset` button again. 
 
     .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_7.png
-     :name: mtrot_recovery_7  
-     :scale: 20%
+         :name: mtrot_recovery_7  
+         :width: 300  
+
 
 #.  **Back to MTRotator GUI, clearError command to reset Safety Interlock:**
 
-    Following a similar process to :ref:`Step 4.a <_step_4a>`, the ``ClearError`` command will remove the 
+    Following a similar process to :ref:`Step 4.a <MTRotator-Recovery-Procedure-Step4A>`, the ``ClearError`` command will remove the 
     safety interlock.      
     
-#.  **Enable the MTRotator, then move it to zero degrees** 
+#.  **Enable the MTRotator, then move it to zero degrees**:
 
     To enable, ``State Cmd`` 
     is selected, :guilabel:`StateTriggers` menu shows ``Enable`` under and then click 
@@ -176,9 +184,9 @@ Procedure Steps
         Everything should be shown as green now.
 
 #.  **Release the bypass to the CCW in GIS GUI in Level 2** 
-    (Refer to :ref:`Step 5.a <step_5a>`)
+    (Refer to :ref:`Step 5.a <MTRotator-Recovery-Procedure-Step5A>`)
 
-#.  **Revert Command Source from EUI to DDS** (opposite to the :ref:`Step 3 <step_3>`) 
+#.  **Revert Command Source from EUI to DDS** (opposite to the :ref:`Step 3 <MTRotator-Recovery-Procedure-Step3>`) 
 
 
 Post-Condition
@@ -201,4 +209,4 @@ If the above procedure was not successful, inform in the #summit-simonyi channel
 
 In case EUI/CSC control is not connecting, you could proceed with the control system 
 restart procedure of the :ref:`MTRotator and MTHexapods PXI controller Reboot 
-(Soft, Hard and Control System Restart) <MTRotator and MTHexapods PXI controller Reboot (Soft, Hard and Control System Restart)>`
+(Soft, Hard and Control System Restart) <MTRot-PXI-Controller-Reboot>`.
