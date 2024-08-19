@@ -36,21 +36,6 @@ Overview
 
 This is a template for a procedure. It is performed by authorized and trained users.
 
-.. _Title-of-Procedure-Precondition:
-
-Precondition
-============
-
-.. This section should provide simple overview of preconditions before executing the procedure; for example, state of equipment, telescope or seeing conditions or notifications prior to execution.
-.. It is preferred to include them as a bulleted or enumerated list.
-.. If there is a different procedure that is critical before execution, carefully consider if it should be linked within this section or as part of the Procedure section below (or both).
-
-- This is an example bullet of a precondition (Telescope azimuth must be at 0 degrees.)
-
-  - This is an example describing an exception (If the dome is closed, telescope elevation position is not important.)
-
-- This is another example bullet of a precondition (Notification to specified SLACK channel.)
-- This example refers to a required action at the beginning of the procedure (It is critical the correct status of the equipment. This will be verified during :ref:`a critical step <Title-of-Procedure-Critical-Step-1>` in the procedure.)
 
 .. _Title-of-Procedure-Post-Condition:
 
