@@ -42,6 +42,7 @@ from the *LOVE/MTQueue* or the MTRotator EUI.
 .. warning::
 
     This check cannot be accomplished if MTRotator is in ``FAULT`` on the CSC and/or with interlocks 
+<<<<<<< HEAD
     activated on the :guilabel:`GIS` or the MTRotator EUI. Please refer to `MTRotator Recovery 
     Procedure <https://obs-ops.lsst.io/Simonyi/Troubleshooting/MTCS/HexRot/MTRotator-Recovery/MTRotator-Recovery.html>`_
 <<<<<<< HEAD
@@ -65,23 +66,32 @@ If this procedure fails, follow the next one using the MTRotator EUI.
 from the MTQue or the MTRotator EUI.
 =======
     to clear these warnings before proceding.    
+=======
+    activated on the :guilabel:`GIS` or the MTRotator EUI. Please refer to :ref:`MTRotator Recovery 
+    Procedure <MTRotator-Recovery>`
+    to clear these warnings before proceeding.    
+>>>>>>> cd30c67 (Fix broken links)
 
 >>>>>>> 9100efd (Changes according to the PR-115 feedback)
 
 .. _MTRotator-motion-check-script:
 
-Using the `move_rotator` SAL script
-===================================
+Using the :file:`maintel/mtrotator/move_rotator.py` SAL script
+==============================================================
 
-Use the following configuration to run :file:`maintel/mtrotator/move_rotator.py` on the *LOVE/MTQueue* using the follwoing configuration 
+Use the following configuration to run :file:`maintel/mtrotator/move_rotator.py` on the *LOVE/MTQueue* using the following configuration 
 
-.. code-block:: SAL
-    :caption: move_rotator.py
+.. code-block:: text
+    :caption: :file:`maintel/mtrotator/move_rotator.py`
 
-    angle = < +/ - angle you want the MTRotator to move in degrees >
+    angle = < +/ - angle you want the MTRotator to move (in degrees) >
 
+<<<<<<< HEAD
 If this procedure fails, follow the next one using the MTRotator EUI 
 >>>>>>> c14d76e (moved the page from Simonyi/Troubleshooting to Simonyi/Non-Standard Operations under the respecting sub-system head)
+=======
+If this procedure fails, follow the next one using the MTRotator EUI. 
+>>>>>>> cd30c67 (Fix broken links)
 
 .. _MTRotator-motion-check-eui:
 
@@ -100,6 +110,7 @@ MTRotator EUI Access
 #.  Open a terminal from the 'Activities' tab on top left - 
 
     a. First check that there are no processes running on the EUI by typing
+<<<<<<< HEAD
 
         .. prompt:: bash
 
@@ -133,6 +144,8 @@ MTRotator EUI Access
 #.  Open a terminal from the 'Activities' tab on top left - 
 
     a. First check that there are no processes running on the EUI by typing the following 
+=======
+>>>>>>> cd30c67 (Fix broken links)
 
         .. prompt:: bash
 
@@ -141,14 +154,14 @@ MTRotator EUI Access
         
         If processes are already running, you may need to identify who is running them and ask permission 
         to end one (or both) so you can run your own EUI session. If another :guilabel:`runRotEui` is 
-        running then type the following to kill the existing process -
+        running then type the following to kill the existing process
 
         .. prompt:: 
 
             sudo kill -9 {pid}
 
 
-    b.  Enter the :guilabel:`runRotEui` by typing -
+    b.  Enter the :guilabel:`runRotEui` by typing 
     
         .. prompt:: bash
 
@@ -189,6 +202,7 @@ Moving the MTRotator point to point (p2p)
     execute the movement by clicking on the :guilabel:`Send Command` button.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #.  If the MTRotator does not follow:
 
     a.  Transition to ``Standby`` state followed by the ``Enabled`` state again to reset the internal 
@@ -197,6 +211,11 @@ Moving the MTRotator point to point (p2p)
 
     a.  transition to ``Standby`` state followed by the ``Enabled`` state again to reset the internal 
 >>>>>>> c14d76e (moved the page from Simonyi/Troubleshooting to Simonyi/Non-Standard Operations under the respecting sub-system head)
+=======
+#.  If the MTRotator does not follow:
+
+    a.  Transition to ``Standby`` state followed by the ``Enabled`` state again to reset the internal 
+>>>>>>> cd30c67 (Fix broken links)
         calculation of Simulink model. Then, do the p2p movement to origin again.
 
     b.  It might also be possible that some internal signals are not triggered in Simulink module. 

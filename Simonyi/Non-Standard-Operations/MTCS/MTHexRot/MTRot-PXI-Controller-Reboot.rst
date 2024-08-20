@@ -217,8 +217,13 @@ Hard Reboot
 
     When the MTRotator is in the ``OFFLINE Publish only`` state in the :guilabel:`runRotEui` you need to go to the 
     :guilabel:`Offline Substate Commands` and then send the :guilabel:`System Ready` command. The 
+<<<<<<< HEAD
     DDS can then be enabled from ``OFFLINE`` state. Refer to `MTRotator Recovery 
     procedure <https://obs-ops.lsst.io/Simonyi/Troubleshooting/MTCS/HexRot/MTRotator-Recovery/MTRotator-Recovery.html>`_ for more detials.
+=======
+    DDS can then be enabled from ``OFFLINE`` state. Refer to :ref:`MTRotator Recovery 
+    procedure <MTRotator-Recovery>` for more details.
+>>>>>>> cd30c67 (Fix broken links)
 
 
 
