@@ -33,18 +33,6 @@ Overview
 When slewing to a new target the Dome stops tracking and fails to arrive its final position, resulting in script failure (if the slew was triggered from a script) and the ATPtg CSC going into ``FAULT``. 
 The ATPtg can be recovered by performing a state cycle on LOVE, but the Dome following must also be cycled independently to recover dome tracking. 
 
-.. _AuxTel-Dome-Fails-to-Arrive-in-Position-Error-Post-Condition:
-
-
-Post-Condition
-==============
-
-- This is an example bullet of a post-condition (Telescope azimuth is 0 degrees.)
-  
-- This is another example of a post-condition (This procedure leaves the telescope with the E-stop activated.)
-
-
-
 
 .. _AuxTel-Dome-Fails-to-Arrive-in-Position-Error-Diagnosis:
 
@@ -191,4 +179,26 @@ B. **Alternative procedure. Recovery from a notebook.**
    **Additional Information/Details.**
 
    The default timeout value for a slew triggered from a notebook is very long, so it may not be feasible to wait for it to timeout and you should instead interrupt the execution of the cell using the stop. 
+
+
+
+.. _AuxTel-Dome-Fails-to-Arrive-in-Position-Error-Post-Condition:
+
+Post-Condition
+==============
+
+- The ATDome is correctly tracking and positioned, following the telescope mount as expected.
+  
+- The ATPtg CSC is in the ENABLE state.
+  
+- The mirror cover and dome shutter are open, and dome tracking is enabled.
+
+.. _AuxTel-Dome-Fails-to-Arrive-in-Position-Error-Contingency:
+
+
+
+Contingency
+===========
+
+If the procedure was not successful, report the issue in `#summit-auxtel <https://lsstc.slack.com/archives/C01K4M6R4AH>`_ and/or check the :ref:`Out of hours support <Safety-out-of-hours-support>`.
 
