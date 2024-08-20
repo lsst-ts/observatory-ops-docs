@@ -25,7 +25,6 @@ MTCS
     :titlesonly:
     :glob:
 
-<<<<<<< HEAD
     MTM2/index.rst
 
 .. toctree::
@@ -35,6 +34,3 @@ MTCS
 
     MTHexRot/index.rst
 
-=======
-    MTHexRot/index.rst
->>>>>>> 9100efd (Changes according to the PR-115 feedback)
