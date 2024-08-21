@@ -59,7 +59,7 @@ Description of the Outlets
 
 #.  **M2 Hexapod cabinet**- This outlet energizes the full MTM2Hexapod cabinet and should be always on. 
     To cycle the power of the MTM2Hexapod drives or PXI we need to use the MTM2Hexapod Netbooter 
-    :ref:`m2-hexapod-netbooter.cp.lsst.org <m2-hexapod-netbooter.cp.lsst.org>`_. Once the repackaging is done on 
+    (`m2-hexapod-netbooter.cp.lsst.org <m2-hexapod-netbooter.cp.lsst.org>`_) . Once the repackaging is done on 
     MTM2Hexapod, this Netbooter will be removed as well.    
 
 #.  **Camera Hex Cabinet**- This outlet energizes the MTCamHexapod drives.
