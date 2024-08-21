@@ -8,9 +8,9 @@
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
 
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
-.. |author| replace:: Kshitija Kelkar
+.. |author| replace:: Ioana Sotuela, Te-Wei Tsai Kshitija Kelkar
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: 
+.. |contributors| replace:: Kshitija Kelkar
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -28,10 +28,10 @@ Power Distribution Unit (PDU) Outlet Mapping for MTCS components
 .. _PDU-Outlet-Mapping-Access:
 
 Accessing the PDU 
-=============
+=================
 
 #.  While in the LSST-WAP or summit VPN, connect to `https://tea-pdu01.cp.lsst.org/ <https://tea-pdu01.cp.lsst.org>`_ 
-    using the credentials stored in the Operators vault of 1Password as **PDU Utilities Cabinet**. 
+    using the credentials stored in the *Operators vault* of *LSST 1Password* as *PDU Utilities Cabinet*. 
     
 
 #.  On the PDU page, click on :guilabel:`Outlets` on the left-hand side menu to open the outlets' screen.
@@ -47,17 +47,20 @@ Accessing the PDU
 Description of the Outlets
 ==========================
 
-To power cycle or turn any of them :guilabel:`On` or :guilabel:`Off`, use the top right buttons shown inside a 
-red square in Figure 1
+.. note::
+    To power cycle or turn any of the following outlets :guilabel:`On` or :guilabel:`Off`, use the top right buttons shown inside a 
+    red square in Figure 1.
+
+
 
 #.  **DIMM (Temp)**- This energizes the star tracker mounted on the top-end ring.
 
 #.  **M2 Cell cabinet**- This outlet energizes the full MTM2 cabinet, including the controller and VMS
 
-#.  **M2 Hexapod cabinet**- This outlet energizes the full MTM2 Hexapod cabinet and should be always on. 
-    To cycle the power of the MTM2 Hexapod drives or PXI we need to use the MTM2 Hexapod Netbooter 
-    *m2-hexapod-netbooter.cp.lsst.org*. Once the repackaging is done on MTM2 Hexapod, this Netbooter will be 
-    removed as well.    
+#.  **M2 Hexapod cabinet**- This outlet energizes the full MTM2Hexapod cabinet and should be always on. 
+    To cycle the power of the MTM2Hexapod drives or PXI we need to use the MTM2Hexapod Netbooter 
+    :ref:`m2-hexapod-netbooter.cp.lsst.org <m2-hexapod-netbooter.cp.lsst.org>`_. Once the repackaging is done on 
+    MTM2Hexapod, this Netbooter will be removed as well.    
 
 #.  **Camera Hex Cabinet**- This outlet energizes the MTCamHexapod drives.
 
@@ -65,14 +68,14 @@ red square in Figure 1
 
 #.  **PXI Camera Rotator**- This outlet only energizes the MTRotator PXI.
 
-#.  **Free**- This will be used by the MTM2 Hexapod PXI in the future.
+#.  **Free**- This will be used by the MTM2Hexapod PXI in the future.
 
-#.  **PXI Camera Hexapod**- This outlet only energizes the MTCamHexapod PXI
+#.  **PXI Camera Hexapod**- This outlet only energizes the MTCamHexapod PXI.
 
 #.  **PS Labjack**- This energizes the Labjack that reads the accelerometers.
 
 #.  **PS Temperature Scanners (3)**- This outlet energizes 3 temperature scanners located in the TEA. One for the 
-    MTCameHexapod actuators and MTRotator motors temperature, one for the MTM2 Hexapod actuators temperature, and one 
+    MTCamHexapod actuators and MTRotator motors temperature, one for the MTM2Hexapod actuators temperature, and one 
     for the MTM2 Tangent Links temperatures.
 
 #.  **PS Eth Switch1**- This is for the network switch and **should be always on**.
@@ -82,7 +85,7 @@ red square in Figure 1
 
 .. warning::
 
-    Never turn off outlets 11 and 12. These are only used by IT.
+    Never turn off outlets 11 and 12. These are used **only** by the IT Team.
 
 
 This procedure was last modified on |today|.
