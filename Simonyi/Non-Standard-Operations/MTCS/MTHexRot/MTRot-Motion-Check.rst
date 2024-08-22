@@ -38,8 +38,8 @@ from the *LOVE/MTQueue* or the MTRotator EUI.
 .. warning::
 
     This check cannot be accomplished if MTRotator is in ``FAULT`` on the CSC and/or with interlocks 
-    activated on the :guilabel:`GIS` or the MTRotator EUI. Please refer to `MTRotator Recovery 
-    Procedure <https://obs-ops.lsst.io/Simonyi/Troubleshooting/MTCS/HexRot/MTRotator-Recovery/MTRotator-Recovery.html>`_
+    activated on the :guilabel:`GIS` or the MTRotator EUI. Please refer to :ref:`MTRotator Recovery 
+    Procedure <MTRotator-Recovery>`
     to clear these warnings before proceeding.    
 
 
