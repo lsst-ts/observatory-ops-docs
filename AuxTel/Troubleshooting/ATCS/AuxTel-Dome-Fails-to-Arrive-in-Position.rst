@@ -146,39 +146,44 @@ A. **Procedure - Recovery from LOVE.**
       Confirm from LOVE that the dome is moving and following the mount.
 
 
+
 B. **Alternative procedure. Recovery from a notebook.**
 
-   1. If the LOVE recovery fails (Procedure A), from the ASummaryState, transition the ATPtg back to ``ENABLE`` state following the usual path: ``FAULT`` → ``STANDBY`` → ``START`` → ``DISABLED`` → ``ENABLED``
-   
-   2. Using an instantiated atcs class from a notebook (e.g. the daytime_checkout notebook), ensure that dome following is disabled and perform a dome slew (using a value for az that is at least 15 degrees away from where you are currently pointing) before reactivating `dome_following` by running the following commands:
+.. note:: 
+  This procedure may be deprecated due to changes in the operating system, as notebooks are no longer used to command the telescope.
 
 
-      .. prompt:: bash
+1. If the LOVE recovery fails (Procedure A), from the ASummaryState, transition the ATPtg back to ``ENABLE`` state following the usual path: ``FAULT`` → ``STANDBY`` → ``START`` → ``DISABLED`` → ``ENABLED``
 
-        await atcs.disable_dome_following()
-        dome_az = await atcs.rem.atdome.tel_position.next(flush=True,timeout=10)
-        await atcs.slew_dome_to(az=dome_az.azimuthPosition+15)
-        await atcs.slew_dome_to(az=dome_az.azimuthPosition-15)
-        await atcs.enable_dome_following()
+2. Using an instantiated atcs class from a notebook (e.g. the daytime_checkout notebook), ensure that dome following is disabled and perform a dome slew (using a value for az that is at least 15 degrees away from where you are currently pointing) before reactivating `dome_following` by running the following commands:
 
 
+   .. prompt:: bash
 
-   3. The dome following and positioning should now be recovered. 
-      From the same notebook, perform a test slew choosing *az*, *el*, and *rot* values that are near your current position to ensure the dome tracks and arrives in the desired position.
-
-
-      .. prompt:: bash
-
-        current_position = atcs.rem.atptg.tel_mountPositions.get()
-        start_az = current_position.azimuthCalculatedAngle[0]
-        start_el = current_position.elevationCalculatedAngle[0]
-        coord=atcs.radec_from_azel(az=start_az+10, el=start_el-10)
-        await atcs.slew_icrs(coord.ra, coord.dec, rot=start_rot, stop_before_slew=False, rot_type=RotType.PhysicalSky)
+     await atcs.disable_dome_following()
+     dome_az = await atcs.rem.atdome.tel_position.next(flush=True,timeout=10)
+     await atcs.slew_dome_to(az=dome_az.azimuthPosition+15)
+     await atcs.slew_dome_to(az=dome_az.azimuthPosition-15)
+     await atcs.enable_dome_following()
 
 
-   **Additional Information/Details.**
 
-   The default timeout value for a slew triggered from a notebook is very long, so it may not be feasible to wait for it to timeout and you should instead interrupt the execution of the cell using the stop. 
+3. The dome following and positioning should now be recovered. 
+   From the same notebook, perform a test slew choosing *az*, *el*, and *rot* values that are near your current position to ensure the dome tracks and arrives in the desired position.
+
+
+   .. prompt:: bash
+
+     current_position = atcs.rem.atptg.tel_mountPositions.get()
+     start_az = current_position.azimuthCalculatedAngle[0]
+     start_el = current_position.elevationCalculatedAngle[0]
+     coord=atcs.radec_from_azel(az=start_az+10, el=start_el-10)
+     await atcs.slew_icrs(coord.ra, coord.dec, rot=start_rot, stop_before_slew=False, rot_type=RotType.PhysicalSky)
+
+
+**Additional Information/Details.**
+
+The default timeout value for a slew triggered from a notebook is very long, so it may not be feasible to wait for it to timeout and you should instead interrupt the execution of the cell using the stop. 
 
 
 
@@ -193,12 +198,12 @@ Post-Condition
   
 - The mirror cover and dome shutter are open, and dome tracking is enabled.
 
+
+
 .. _AuxTel-Dome-Fails-to-Arrive-in-Position-Error-Contingency:
-
-
 
 Contingency
 ===========
 
-If the procedure was not successful, report the issue in `#summit-auxtel <https://lsstc.slack.com/archives/C01K4M6R4AH>`_ and/or check the :ref:`Out of hours support <Safety-out-of-hours-support>`.
+If these procedures wwere not successful, report the issue in `#summit-auxtel <https://lsstc.slack.com/archives/C01K4M6R4AH>`_ and/or check the :ref:`Out of hours support <Safety-out-of-hours-support>`.
 
