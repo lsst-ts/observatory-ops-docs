@@ -1,23 +1,28 @@
-.. |author| replace:: *D. Sanmartim*
+.. |author| replace:: *David Sanmartim*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *P. Venegas*
+.. |contributors| replace:: *Paulina Venegas*
 
 
 .. _Out of Hours Support: https://obs-ops.lsst.io/Safety/out-of-hours-support.html#safety-out-of-hours-support
 .. _for AuxTel as well: https://obs-ops.lsst.io/AuxTel/Non-Standard-Operations/index.html
 
 
+.. _rancher: https://rancher.cp.lsst.org/
+
 .. _MTMTPtg-Configuration-for-MTRotator-and-MTMount:
 
-##############################################################
+#############################################
 MTPtg Configuration for MTRotator and MTMount
-##############################################################
+#############################################
+
 
 .. note:: Important Information before start.
 
-#. Only proceed if you are authorized to change the configuration of the CSC pointing component ``MTPtg`` of the Simonyi Telescope.
+    #. Only proceed if you are authorized to change the configuration of the CSC pointing component ``MTPtg`` of the Simonyi Telescope.
    
-#. A change of the MTMount CSC version needs to be done in ArgoCD by a commissioning scientist.
+    #. A change of the ``MTMount`` CSC version needs to be done in *ArgoCD by a commissioning scientist*.
+
+    #. Remember use VPN.
 
 ..
 
@@ -25,107 +30,117 @@ MTPtg Configuration for MTRotator and MTMount
     
     Kubernetes authorization
 
-    #. To execute this procedure you must have installed in your computer the credentials to access the Kubernetes cluster. 
-    
-    # Credentials: Open a ticket directed to summit IT to access the Kubernetes cluster at the summit, named yagan, through the rancher at the Summit.
-   xxxx https://rancher.cp.lsst.org/  xxxx
-    
-    #. Once it is done, you can download your unique credentials and place the *yagan.yaml* file inside the :file:`~/.kube` directory in your local machine.
+    1. To access the Kubernetes Cluster, you must have the necessary credentials installed on your computer.
+  
+            *Credentials*: Open a ticket directed to summit IT to access the Kubernetes Cluster, named **yagan**, through the rancher_. 
+
+    2. Once it is done, you can download your unique credential and place the *yagan.yaml* file inside the :file:`~/.kube` directory in your local machine.
 
 ..
 
 .. _MTMTPtg-Configuration-for-MTRotator-and-MTMount-Procedure-Overview:
-
-
 Overview
 ========
 
-When either *MTRotator* or *MTMount* components with Simonyi operations become unavailable for any reason and you still want to continue with testing and tracking, 
-it's necessary to change the configuration of the *MTPtg* CSC to avoid commanding these non-available components and going into ``FAULT`` mode.
+When either the ``MTRotator`` or ``MTMount`` components become unavailable during Simonyi operations, and you still want to continue testing and tracking,
+it's necessary to change the configuration of the ``MTPtg`` CSC to avoid entering into ``FAULT`` mode commanding these unavailable components.
 
 
 .. _MTMTPtg-Configuration-for-MTRotator-and-MTMount-Procedure-Error-Diagnosis:
-
-
 Error Diagnosis
 ===============
 
-*a.* *MTRotator* is not available, but you still want to track *without* the rotator, using the rest of the components; or you want to *include* 
-rotator in the tracking again.
+Cases
+-----
 
-or 
+1. ``MTRotator`` is not available, but you still want to track **without** the Rotator using the rest of the components; or you want to **include** 
+the Rotator in the tracking again.
 
-
-*b.* *MTMount* is not available (not starting up, for example), but you still want to track *without* moving or commanding the mount, 
-only using *CCW* + *rotator*; or you want to revert the change and *include* the mount again.
-
+2. ``MTMount`` is not available (not starting up, for example), but you still want to use *CCW* + *Rotator*  **without** moving or commanding the mount, 
+or you want to revert the change and **include** the mount.
 
 
 .. _MTMTPtg-Configuration-for-MTRotator-and-MTMount-Procedure-Procedure-Steps:
-
-
 Procedure Steps
 ===============
 
-.. warning::  Warning
-    Announce through the usual Slack channel *#summit-simonyi* that the component is not available, and you are about to change the configuration.
+.. warning:: 
     
-    One of the commissioning scientists will be changing the version of MTMount CSC in ArgoCD that can deal with tracking without said component: 
-    For that, they will/may request to send the MTMount to ``OFFLINE`` status and will change the ``MTMount`` CSC version to **mtmount-ccw-only**. 
-    Follow their instructions.
+    Announce through the Slack channel *#summit-simonyi* that the component is not available, and you are about to change the configuration.
+    
+    The Commissioning Scientists on shift will change the version of ``MTMount`` CSC in *ArgoCD*; this can deal with tracking without said component.
 
+        For that, they may request to send the ``MTMount`` to **OFFLINE**. this will change the ``MTMount`` CSC version to **mtmount-ccw-only**. 
 ..
+
+
 
 Steps
 -----
 
-1. Issue the *set_summary_state.py* script in LOVE to send the ``MTPtg`` to ``STANDBY`` with the following configuration
+1. Issue the **set_summary_state.py** script in LOVE to change the status of ``MTPtg`` to ``STANDBY`` with the following configuration
 
-.. code-block:: *set_summary_state.py*
-    data:
-        -
-        - MTPtg 
-        - STANDBY
+    .. code-block::
+        :caption: set_summary_state.py
+
+             data:
+                 -
+                 - MTPtg 
+                 - STANDBY
 ..
 
-2. **Find the name** of the pod where the ``MTPtg`` is running. 
 
-    The following command will list all the pods related to the <namespace> maintel. 
+2. Find the name of the **pod** where the ``MTPtg`` is running. 
+   
+    From your terminal, run the following command which list all the pods related to the *<namespace>* maintel  :
+
+    .. prompt:: bash
+
+     kubectl --kubeconfig=${HOME}/.kube/yagan.yaml get pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:.spec.nodeName -n maintel
+
+    ..
+
+    .. figure:: ./_static/1.png
+      :width: 900px
+      :height: 300px
+      :name: Your figure
+
+      In this particular case the name of the ``MTPtg`` *pod* is **mtptg-djhpv**.
+    ..  
+
+3. Connect to the ``MTPtg`` *pod* **mtptg-djhjv** within the *<namespace>* maintel. 
+
+    The command will open a terminal within the pod.
+
+    .. prompt:: bash
+
+     kubectl --kubeconfig=${HOME}/.kube/yagan.yaml exec --stdin --tty mtptg-djhpv -n maintel -- /bin/bash
+
+    ..
+   
+    .. figure:: ./_static/2.png
+        :width: 900px
+        :height: 70px
+
+    ..
+
+4. **Move to configuration directory,** the configuration files are one level up. This directory contains the configuration files **MTPtg.info** (and **ATPtg.info** `for AuxTel as well`_) and the 
+        pointing models **mt*.mod files** (**at*.mod** for AuxTel).
+
+    .. prompt:: bash
+
+     [saluser@podname] cd /home/saluser/repos/ts_pointing_common/install/data
+
+    ..
     
-    From your terminal, run:
-
-    .. figure:: /_static/1.jpg
-        :alt: Run *kubectl configuration*. In this particular case, the name of the **MTPtg** pod is **mtptg-djhpv**.
-
-..
-
-3. **Connect** to the ``MTPtg`` pod (**mtptg-djhjv** in this case) that is within the <namespace> maintel. 
-This command will open a terminal within the pod.
-
-.. code-block:: bash
-    $ kubectl --kubeconfig=${HOME}/.kube/yagan.yaml exec --stdin --tty mtptg-djhpv -n maintel -- /bin/bash
-..
-    
-
-.. figure:: /_static/2.jpg
-    :alt: Run *kubectl configuration*. In this particular case, the name of the **MTPtg** pod is **mtptg-djhpv**.
-
-..
-
-4. The configuration files are one level up. **Move** to configuration directory */home/saluser/repos/ts_pointing_common/install/data*
-
-.. code-block:: bash
-    [saluser@podname] cd /home/saluser/repos/ts_pointing_common/install/data
-..
-
-.. figure:: /_static/3.jpg
-    :alt: This directory contains the configuration files **MTPtg.info** (and **ATPtg.info** `for AuxTel as well`_) and the 
-    pointing models **mt*.mod files** (**at*.mod** for AuxTel).
+    .. figure:: ./_static/3.png
+       :width: 900px
+       :height: 600px
         
-    At startup, the pointing component loads by default the pointing model that's on the **mt.mod** file and the **MTPtg.info** 
-    (and equivalent to AuxTel)
+        At startup, the pointing component loads by default the pointing model that's on the **mt.mod** file and the **MTPtg.info** 
+         (and equivalent to AuxTel)
 
-..
+    ..
 
 5. **Edit** the **MTPtg.info** file with a text editor such as vi. 
 
