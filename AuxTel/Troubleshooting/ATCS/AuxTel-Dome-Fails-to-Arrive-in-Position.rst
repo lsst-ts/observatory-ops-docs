@@ -199,7 +199,6 @@ Post-Condition
 - The mirror cover and dome shutter are open, and dome tracking is enabled.
 
 
-
 .. _AuxTel-Dome-Fails-to-Arrive-in-Position-Error-Contingency:
 
 Contingency
