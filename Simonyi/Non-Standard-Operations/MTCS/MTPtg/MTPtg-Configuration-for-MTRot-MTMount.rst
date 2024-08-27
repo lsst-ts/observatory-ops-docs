@@ -3,11 +3,10 @@
 .. |contributors| replace:: *Paulina Venegas*
 
 
+.. _rancher: https://rancher.cp.lsst.org/
 .. _Out of Hours Support: https://obs-ops.lsst.io/Safety/out-of-hours-support.html#safety-out-of-hours-support
 .. _for AuxTel as well: https://obs-ops.lsst.io/AuxTel/Non-Standard-Operations/index.html
 
-
-.. _rancher: https://rancher.cp.lsst.org/
 
 .. _MTMTPtg-Configuration-for-MTRotator-and-MTMount:
 
@@ -34,7 +33,7 @@ MTPtg Configuration for MTRotator and MTMount
   
             *Credentials*: Open a ticket directed to summit IT to access the Kubernetes Cluster, named **yagan**, through the rancher_. 
 
-    2. Once it is done, you can download your unique credential and place the *yagan.yaml* file inside the :file:`~/.kube` directory in your local machine.
+    2. Once it is done, you can download your unique credential and place the :file:`yagan.yaml` file inside the :file:`~/.kube` directory in your local machine.
 
 ..
 
@@ -70,7 +69,7 @@ Procedure Steps
     
     The Commissioning Scientists on shift will change the version of ``MTMount`` CSC in *ArgoCD*; this can deal with tracking without said component.
 
-        For that, they may request to send the ``MTMount`` to **OFFLINE**. this will change the ``MTMount`` CSC version to **mtmount-ccw-only**. 
+        The Commissioning Scientists  may request to send the ``MTMount`` to **OFFLINE**. this will change the ``MTMount`` CSC version to **mtmount-ccw-only**. 
 ..
 
 
@@ -78,21 +77,21 @@ Procedure Steps
 Steps
 -----
 
-1. Issue the **set_summary_state.py** script in LOVE to change the status of ``MTPtg`` to ``STANDBY`` with the following configuration
+1. Issue the :file:`set_summary_state.py` script in LOVE to change the status of ``MTPtg`` to ``STANDBY`` with the following configuration
 
     .. code-block::
         :caption: set_summary_state.py
 
              data:
                  -
-                 - MTPtg 
-                 - STANDBY
+                   - MTPtg 
+                   - STANDBY
 ..
 
 
 2. Find the name of the **pod** where the ``MTPtg`` is running. 
    
-    From your terminal, run the following command which list all the pods related to the *<namespace>* maintel  :
+    From your terminal, run the following command which list all the **pods** related to the *<namespace>* maintel:
 
     .. prompt:: bash
 
@@ -101,14 +100,14 @@ Steps
     ..
 
     .. figure:: ./_static/1.png
-      :width: 900px
-      :height: 300px
+      :width: 950px
+      :height: 165px
       :name: Your figure
 
-      In this particular case the name of the ``MTPtg`` *pod* is **mtptg-djhpv**.
+      In this particular case the name of the ``MTPtg`` **pod** is **mtptg-djhpv**.
     ..  
 
-3. Connect to the ``MTPtg`` *pod* **mtptg-djhjv** within the *<namespace>* maintel. 
+3. Connect to the ``MTPtg`` **pod mtptg-djhjv** within the *<namespace>* maintel. 
 
     The command will open a terminal within the pod.
 
@@ -120,12 +119,13 @@ Steps
    
     .. figure:: ./_static/2.png
         :width: 900px
-        :height: 70px
+        :height: 65px
 
     ..
 
-4. **Move to configuration directory,** the configuration files are one level up. This directory contains the configuration files **MTPtg.info** (and **ATPtg.info** `for AuxTel as well`_) and the 
-        pointing models **mt*.mod files** (**at*.mod** for AuxTel).
+4. **Move to configuration directory,** the configuration files are one level up. The directory contains the configuration files :file:`MTPtg.info` (:file:`ATPtg.info` for AuxTel) and the pointing models :file:`mt.mod` files (:file:`at.mod` for AuxTel). 
+
+    At startup, the pointing component loads by default the pointing model :file:`mt.mod` file and the :file:`MTPtg.info` (equivalent for AuxTel).
 
     .. prompt:: bash
 
@@ -135,65 +135,61 @@ Steps
     
     .. figure:: ./_static/3.png
        :width: 900px
-       :height: 600px
+       :height: 420px
         
-        At startup, the pointing component loads by default the pointing model that's on the **mt.mod** file and the **MTPtg.info** 
-         (and equivalent to AuxTel)
-
     ..
 
-5. **Edit** the **MTPtg.info** file with a text editor such as vi. 
+5. To edit the :file:`MTPtg.info` file use a text editor such as *vi*. 
 
-5.1. ``MTRotator``: The disable_rotator line of the **MTPtg.info** file contains the parameter you need to change. 
-It reflects whether the ``MTRotator`` is monitored in the tracking. 
+    5.1. ``MTRotator``: The **disable_rotator** line of the :file:`MTPtg.info` file contains the parameter you need to change. It reflects whether the ``MTRotator`` is monitored in the tracking.
+    
+    * The parameter *set* is **1**, means that it's being ignored and will not be commanded by the ``MTPtg`` component.
 
-The parameter set to 1, means that it's being ignored and will not be commanded by the ``MTPtg`` component. 
-Edit with VI the **MTPtg.info** file, change this line to 0 or 1 depending on the ``MTRotator`` status.
+    .. code-block::
+        :caption: MTPtg.info: disable_rotator: 1
 
-            **disable_rotator: 1**  
-
-    - **Set 0 → enabled** 
-    - **Set 1 → disabled**
-.. 
-
-
-5.2. ``MTMount``: The line containing the disable_mount parameter in the **MTPtg.info** file is the one to edit. It shows whether the ``MTMount`` 
-is monitored in the tracking.
-
-            **disable_mount: 0**
-
-    - **Set 0 → enabled** 
-    - **Set 1 → disabled**
+            - Set 0 → enabled
+            - Set 1 → disabled
+    ..
 
 
-Above it's set to 0, which means that it's being included and commanded by the ``MTPtg`` component. 
-Edit with VI the **MTPtg.info** file, change this line to 0 or 1 depending on the ``MTMount`` status.
+    5.2. ``MTMount``: The line containing the **disable_mount** parameter in the :file:`MTPtg.info` file is the one to edit. It shows whether the ``MTMount`` is monitored in the tracking.
+   
+    * The parameter *set* is *0*, which means that it's being included and commanded by the ``MTPtg`` component.
+   
+    .. code-block::
+        :caption: MTPtg.info: disable_mount: 0
 
-6. **Exit** the pod by typing **exit**.
+            - Set 0 → enabled
+            - Set 1 → disabled
+..
 
-7. From LOVE, **send** the ``MTPtg`` back to ``ENABLED`` using the script *set_summary_state.py* and configuration below. ``MTMount`` 
-must be **enabled**, even if not tracking, so ``CCW`` can be still monitored.
 
-.. code-block:: *set_summary_state.py*
-    data:
-        - 
-        - MTPtg
-        - ENABLED
+6. **Exit** the **pod** by typing :command:`exit`.
+
+7. From LOVE, **send** the ``MTPtg`` back to ``ENABLED`` using the script :file:`set_summary_state.py` and configuration below. ``MTMount`` must be ``ENABLED``, even if not tracking, so ``CCW`` can be still monitored.
+
+    .. code-block:: 
+        :caption: set_summary_state.py
+        
+            data:
+                - 
+                  - MTPtg
+                  - ENABLED
 ..
 
 .. _MTRotator-or-MTMount-Configuration-Procedure-Post-Condition:
 
 Post-Condition
 ==============
-- The tracking tests are able to run with a missing component, either MTMount or MTRotator, if the respective parameter was set to 1.
 
-or
+1. The tracking tests are able to run with a missing component, either ``MTMount`` or ``MTRotator``, if the respective parameter was set to **1**.
 
-- The tracking tests include the MTMount or MTRotator back if the parameter was set to 0.
+2. The tracking tests include the ``MTMount`` or ``MTRotator`` back if the parameter was set to **0**.
 
 
 .. _MTRotator-or-MTMount-Configuration-Procedure-Contingency:
 
 Contingency
 ===========
-If the procedure is not successful, report the issue in #summit-simonyi, inform the commissioning scientist on duty, and/or activate the 'Out of Hours Support'_.
+* If the procedure is not successful, report the issue in *#summit-simonyi*, inform the commissioning scientist on duty, and/or activate the xxxxxxOut of Hours Support_.
