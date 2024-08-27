@@ -45,6 +45,7 @@ ignore = [
     'https://rucio.cern.ch/', 
     'https://confluence.slac.stanford.edu/', 
     'https://tea-pdu01.cp.lsst.org/', 
+    'https://m2-hexapod-netbooter.cp.lsst.org/'
 ]
 
 [sphinx] 
