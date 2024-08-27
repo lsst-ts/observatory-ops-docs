@@ -4,8 +4,7 @@
 
 
 .. _rancher: https://rancher.cp.lsst.org/
-.. _Out of Hours Support: https://obs-ops.lsst.io/Safety/out-of-hours-support.html#safety-out-of-hours-support
-.. _for AuxTel as well: https://obs-ops.lsst.io/AuxTel/Non-Standard-Operations/index.html
+
 
 
 .. _MTMTPtg-Configuration-for-MTRotator-and-MTMount:
