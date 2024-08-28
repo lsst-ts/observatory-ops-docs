@@ -21,7 +21,7 @@ As a result of its wide field of view the LSST telescope is very susceptible to 
 MTDome Main Mechanical Components
 =================================
 
-* *Azimuth Drive and Bearing "Bogie" System (ADBS)*: This is the MTDome rotation mechanism. It has five motors spread evenly along the sides of the dome, the motors imprints velocity, acceleration, jerk values to the MTDome and have power off software limits. The encoder system allows the determination of absolute position and is able to determine position through the entire range of motion. It has a locking pin system for mechanical interruption of movement.
+* *Azimuth Drive and Bearing "Bogie" System (ADBS)*: This is the MTDome rotation mechanism. It has five motors spread evenly along the sides of the dome, the motors imprints velocity, acceleration, and jerk values to the MTDome and have power off software limits. The encoder system allows the determination of absolute position and it is able to determine position through the entire range of motion. It has a locking pin system for mechanical interruption of movement.
 * *Aperture shutter*: When fully open, the aperture shutter shall produce an 11.0 (+/-0.05) meter wide clear aperture continuous over the operational elevation range. The shutters have motorized locking mechanisms to restrain them in both the fully open and fully closed positions. The Aperture Shutter also has a locking pin system for mechanical interruption of movement.
 * *Light/Wind screen*: This component provides a rectangular clear aperture of at least 11.0 meters in the horizontal direction and at least 10.0 meters in the elevation direction. Its drive motors utilize motorized braking when decelerating under normal operations.
 * *Rear Access Doors*: These doors shall provide a clear dome access through a doorway which is capable of fully opening or fully closing in less than 90 seconds.
@@ -39,7 +39,7 @@ The Dome Control System (DCS) enable wireless communications. It is the interfac
 MTDome CSCs
 ===========
 
-The MTDome has a dedicated Commandable SAL Component (CSC). The telemetry from the installed capacitor banks is collected via the MTDome CSC. MTDomeTrajectory is the CSC in charge of enabling the MTDome following.
+The MTDome has a dedicated Commandable SAL Component (CSC). The capacitor banks telemetry is collected via MTDome CSC. MTDomeTrajectory is the CSC in charge of enabling the MTDome following.
 
 MTDome EUI
 ==========
