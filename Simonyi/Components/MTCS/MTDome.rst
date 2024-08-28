@@ -44,7 +44,7 @@ The MTDome has a dedicated Commandable SAL Component (CSC). The capacitor banks 
 MTDome EUI
 ==========
 
-MTDome EUI is not available yet and it is currently under development by the dome vendor (EIE).
+The MTDome EUI is not available yet and it is currently under development by the dome vendor (EIE).
 
 
 Procedures
