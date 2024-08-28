@@ -54,13 +54,6 @@ Procedures
 .. Standard Operations
 .. ===================
 
-.. toctree::
-    :glob:
-    :maxdepth: 5 
-    :titlesonly:
-    :caption: Standard Operations
-
-    ../../Standard-Operations/index.rst
 
 .. Standard Procedures:list to check if all documents are included
 .. Start up:  BLOCK-244 Ready
@@ -80,13 +73,7 @@ Procedures
 .. Non-standard Operations
 .. =======================
 
-.. toctree::
-    :glob:
-    :maxdepth: 5 
-    :titlesonly:
-    :caption: Non-Standard Operations
 
-    ../../Non-Standard-Operations/MTCS/MTDome/index.rst
 
 .. Non-standard procedures:list to check if all documents are included
 .. Power-up MTDome 
@@ -99,13 +86,7 @@ Procedures
 .. Troubleshooting
 .. ===============
 
-.. toctree::
-    :glob:
-    :maxdepth: 5
-    :titlesonly:
-    :caption: Troubleshooting
 
-    ../../Troubleshooting/MTCS/MTDome/index.rst
 
 .. Troubleshooting: list to check if all documents are included
 .. MTDome Common Faults on Simonyi Common Faults
