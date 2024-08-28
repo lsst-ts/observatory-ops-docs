@@ -9,4 +9,4 @@ MTPtg
     :titlesonly:
     :glob:
 
-    *
+    MTPtg/MTPtg-Configuration-for-MTRot-MTMount.rst
