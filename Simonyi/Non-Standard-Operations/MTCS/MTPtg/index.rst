@@ -8,5 +8,3 @@ MTPtg
     :maxdepth: 2
     :titlesonly:
     :glob:
-
-    MTPtg/MTPtg-Configuration-for-MTRot-MTMount.rst
