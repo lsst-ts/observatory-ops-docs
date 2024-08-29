@@ -48,7 +48,8 @@ ignore = [
     'https://noirlab.edu', 
     'https://gemini.edu',
     'https://1password.com/downloads',
-    'athexapod.cp.lsst.org'
+    'athexapod.cp.lsst.org',
+    'https://www.accuweather.com/en/cl/seron/57851/satellite/57851'
 ]
 
 [sphinx] 
