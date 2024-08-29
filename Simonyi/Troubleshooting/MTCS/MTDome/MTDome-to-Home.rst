@@ -2,8 +2,8 @@
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
 .. |contributors| replace:: *Paulina Venegas*
 
-.. 
-.. _MTDome-MTDome-re-Home:
+
+.. _Troubleshooting-MTCS-MTDome-MTDome-re-Home:
 
 ##############
 MTDome re-Home
@@ -18,8 +18,10 @@ The dome needs re-homing if the reference azimuth position is lost, and the enco
 .. note::
   This is a temporary situation which will be resolved once EIE updates the azimuth rotation control software. A bar code will be installed by EIE which will provide absolute positioning for the ``MTDome``.
 
-  This process already has started but will take a few more months. Once completed this procedure can be deprecated.
-...
+  This process already has started but will take a few more months. 
+  
+  Once the upgrade is completed, this procedure can be deprecated.
+..
 
 
 .. _MTDome-MTDome-re-Home-Procedure-Error-Diagnosis:
@@ -36,9 +38,9 @@ Error Diagnosis
 Procedure Steps
 ===============
 
-1. Move the dome so the position 328 deg AZ shows up in the camera. This is the *zero position*
- or park position for the MTDome.
-   * Note that the readings reported by the dome in LOVE or Chronograf will be showing a different number, so you need to calculate the value the unaligned encoders would read at the park position of 328 deg and send the dome to that angle.
+1. Move the dome to the position 328 deg azimuth, it will shows up in the camera. This is the *zero position* or park position for the MTDome.
+   
+   * Note that the readings reported by the dome in LOVE or Chronograf will be showing a different number, so you need to calculate the value of the unaligned encoders would read at the park position of 328 deg and send the dome to that angle.
 
 
 * For instance, you notice the dome is reporting 10 deg AZ, but the camera marks 25.2 deg (the encoder 15.2 deg behind). To send the dome to home 328 degrees, you need to command the dome to move to (328 - 15.2) = 312.8 degrees.
@@ -53,19 +55,19 @@ Procedure Steps
 2. Once the dome is in the *zero position*, you need to stop the dome and engage the breaks.
 
     .. code-block:: run_command.py
-     component: MTDome
-     cmd: stop
-     parameters:
-        engageBrakes: true
-        subSystemIds: 1
+      component: MTDome
+      cmd: stop
+      parameters:
+         engageBrakes: true
+         subSystemIds: 1
 ..
 
 
 3. Set the dome *zero azimuth* position by running :file:`run_command.py` script with the following configuration:
 
     .. code-block:: run_command.py
-     component: MTDome
-     cmd: setZeroAz
+      component: MTDome
+      cmd: setZeroAz
 ..
 
 
