@@ -73,7 +73,7 @@ Procedures
 .. ===================
 
 
-.. Standard Procedures:list to check if all documents are included
+.. Standard Procedures. Check that the following documents are included:
 .. Start up:  BLOCK-244 Ready
 .. Ending down: BLOCK-245 - MTDome Shutdown Ready
 .. Dome handoff: Checkout and handoff MTDome
@@ -93,7 +93,7 @@ Procedures
 
 
 
-.. Non-standard procedures:list to check if all documents are included
+.. Non-standard procedures. Check that the following documents are included:
 .. Power-up MTDome 
 .. Power-down MTDome
 .. MTDome Shutter Emergency Shutdown
@@ -106,7 +106,7 @@ Procedures
 
 
 
-.. Troubleshooting: list to check if all documents are included
+.. Troubleshooting. Check that the following documents are included:
 .. MTDome Common Faults on Simonyi Common Faults
 .. Problem with the Ethercat connection: MTDome cRIO restart
 .. MTDome not aligned with TMA: MTDome re-home
