@@ -2,6 +2,7 @@
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
 .. |contributors| replace:: *Paulina Venegas*
 
+.. _Cam-04: https://unifi.ui.com/consoles/D021F9521E8800000000063CF3E6000000000686EFB60000000061C81AC6:201406364/protect/dashboard/all
 
 .. _Troubleshooting-MTCS-MTDome-MTDome-re-Home:
 
@@ -29,7 +30,7 @@ The dome needs re-homing if the reference azimuth position is lost, and the enco
 Error Diagnosis
 ===============
 
-* While the dome is not pointing where it should, the images might be vignetted by the dome. In more extreme cases, no images show at all, if the cameras are covered completely by the dome. 
+* While the dome is not positioned where it should be, the images might be vignetted by the dome. In more extreme cases, no images show at all if the cameras are completely covered by the dome.
 * The azimuth position reported by the dome is not the same as the one seen in the camera.
 
 
@@ -38,36 +39,43 @@ Error Diagnosis
 Procedure Steps
 ===============
 
-1. Move the dome to the position 328 deg azimuth, it will shows up in the camera. This is the *zero position* or park position for the MTDome.
+1. Move the dome to the azimuth of 328 deg, the position can be verified through the camera systems UniFi at `Cam-04`_ (via VPN). This is the *zero position* **or** *park* position for the dome.
    
-   * Note that the readings reported by the dome in LOVE or Chronograf will be showing a different number, so you need to calculate the value of the unaligned encoders would read at the park position of 328 deg and send the dome to that angle.
+2. Note that the readings reported by the dome in LOVE or Chronograf will show different numbers, so you need to calculate the value that the unaligned encoders would read at the park position of 328 degrees and send the dome to that angle.
 
+* For example, you notice the dome is reporting 10 degree in azimuth, but the camera marks 25.2 degrees (the encoder is 15.2 degrees behind).
 
-* For instance, you notice the dome is reporting 10 deg AZ, but the camera marks 25.2 deg (the encoder 15.2 deg behind). To send the dome to home 328 degrees, you need to command the dome to move to (328 - 15.2) = 312.8 degrees.
+To send the dome to home at 328 degrees, you need to command the dome to move to *(328 - 15.2) = 312.8* degrees.
+  
+  .. code-block:: 
+    :caption: run_command.py
 
-    .. code-block:: run_command.py
      component: MTDome
      cmd: moveAz
      parameters:
         position: 312.8
 ..
 
-2. Once the dome is in the *zero position*, you need to stop the dome and engage the breaks.
+3. Once the dome is in the *zero position*, you need to stop the dome and engage the breaks.
 
-    .. code-block:: run_command.py
-      component: MTDome
-      cmd: stop
-      parameters:
-         engageBrakes: true
-         subSystemIds: 1
+  .. code-block::
+    :caption: run_command.py
+
+    component: MTDome
+    cmd: stop
+    parameters:
+        engageBrakes: true
+        subSystemIds: 1
 ..
 
 
-3. Set the dome *zero azimuth* position by running :file:`run_command.py` script with the following configuration:
+4. Set the dome *zero azimuth* position by running :file:`run_command.py` script with the following configuration:
 
-    .. code-block:: run_command.py
-      component: MTDome
-      cmd: setZeroAz
+  .. code-block::
+    :caption: run_command.py
+
+    component: MTDome
+    cmd: setZeroAz
 ..
 
 
@@ -81,5 +89,5 @@ Post-Condition
 
 Contingency
 ===========
-* If the above procedure was not successful, report the issue in *#summit-simonyi* and *#rubinobs-mtdome channels*.
+* If the above procedure was not successful, report the issue in *#summit-simonyi*, *#simonyi-operations* and *#rubinobs-mtdome* channels.
 
