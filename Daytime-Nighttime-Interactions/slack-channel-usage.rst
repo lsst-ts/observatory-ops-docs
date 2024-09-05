@@ -24,17 +24,17 @@
 Slack Channel Communication with Summit Personnel
 #################################################
 
-The LSSTC Slack space is used by hundreds of people with varying levels of interest in summit operations. 
+The Rubin Obs Slack space is used by hundreds of people with varying levels of interest in summit operations. 
 The goal of this document is to communicate the acceptable usage of the specific set of channels that are focused on day and nighttime summit operations. 
 The document also describes the channels where more informal discussions and contributions from non-summit staff can be communicated to the observing crew(s). 
 
-In operations, all slack channels are expected to be open to everyone on the lsstcorp Slack domain.
-However, should people continually violate the rules (and people fail to police them) then we will have to lock the channels. 
+This document and the use-cases described are summit-specific and they do not cover general slack culture and usage. 
+For more information on channel naming, slack culture, and general usage guidelines please see the `DM Developer's Guide <https://developer.lsst.io/communications/slack-culture.html>`_. 
 
 .. important::
    Three ground rules for usage - read this if nothing else:
 
-   1. Personnel not present on the summit are generally discoraged from using tier 0 and 1 channels, though many exceptions to this are detailed in this page. If you do not know if you should use the tier 0 or 1 channel, do not use it.
+   1. Personnel not present on the summit are generally discouraged from using tier 0 and 1 channels, though many exceptions to this are detailed in this page. If you do not know if you should use the tier 0 or 1 channel, do not use it.
 
    2. Work with summit systems should use public channels, not direct messages with with individuals.
 
@@ -54,8 +54,6 @@ For ease of presentation, it was decided to classify the stakeholders by the fol
 
 - Project Personnel: General project members that have slack accounts. This is the default category for most project members and individuals generally advance to other categories when actively on shift.
 
-- External Contributors: People that share the same slack user-space but do not participate in summit operations (e.g. DESC).
-
 While on-shift, the people in each of these roles will have varying responsibilities regarding which information they need to be paying attention to and/or responding to.
 The ultimate goal is to facilitate effective communications to summit personnel by concentrating information into specific places and minimizing distractions.
 It is recognized that all project personnel are capable of contributing useful input, however, unless the people are very close to the on-going tasks there exists a significant awareness gap.
@@ -63,19 +61,20 @@ Therefore, a flow via which anyone on the project can participate has been devel
 Additionally, this limits the number of simultaneous lines of communication that summit personnel are expected to monitor during their shifts.
 
 To better communicate the expectations for each of the roles, and demonstrating the information flow, the list of required Slack channels have been categorized into Tiers. 
-We use the "summit" prefix for channels that are tightly coupled to summit operations.
 
 - **Tier 0:** Real-time information that the applicable roles are always monitoring and are expected to immediately react to (when on shift and interacting with summit systems). 
   Responding to a message may result in a loss of sky time, which is acceptable. 
   Communication in this area meant to be extremely curt. 
   People providing urgent support are encouraged to do so via Zoom; not via Slack.
+  These channels are distinguished by their **#summit-** prefix. 
 
 - **Tier 1:** Used for asynchronous information communication regarding the state of summit systems. 
   These channels are telescope or subsystem specific, do not require immediate response, and are passively monitored by on-shift observers. These include subsystem topic "worklog" channels.
   It is primarily used for communication between summit personnel and externally **requested** support.
+  These channels are often distinguished by their **#-worklog** or **#-support** suffix.
 
 - **Tier 2:** General discussion channels whose information and/or contents are not time critical operation of the observatory at night.
-  The shift managers monitor these channels to relay any pertinent information between external support and the summit teams. These channels have much fewer restrictions on who can participate, useful for the braoder team to contribute information they think might be important to summit operations, which can then be filtered to the summit crew.
+  The shift managers monitor these channels to relay any pertinent information between external support and the summit teams. These channels have much fewer restrictions on who can participate, useful for the broader team to contribute information they think might be important to summit operations, which can then be filtered to the summit crew.
 
 - **Tier 3:** Channels not directly associated with current summit activities. 
   These are channels for collaborative work, which make up the high majority of Slack channels.
@@ -85,6 +84,28 @@ We use the "summit" prefix for channels that are tightly coupled to summit opera
     :name: Slack-channel-diagram
 
     The expected level of participation by summit personnel to observation-related slack channels.
+
+In order to help keep communication protocols clear, it is recommended to use the :guilabel:`Create Section` feature in Slack to organize the channel display by Tier. 
+The following are the recommended channels that one should include in each Section:
+
+Tier 0
+------
+- #summit-announce
+- #summit-simonyi
+- #summit-auxtel
+
+Tier 1
+------
+- #xxx-worklog
+- #xxx-support
+
+Tier 2
+------
+- User Preference
+
+Tier 3
+------
+- All other channels
 
 
 Individual Channel Descriptions and Guidelines
@@ -104,7 +125,7 @@ People who participate in testing or infrastructure support/development are expe
 
 Because work is being coordinated across multiple channels,this channel aims to restrict the need to make announcements multiple places and avoid the scenario of accidentally not informing all impacted parties.
 
-For items having substantial impact, scheduling should first be carried out as part of the `SUMMIT Jira calendar <https://jira.lsstcorp.org/secure/DoItBetterCalendar.jspa>`_ process.
+For items having substantial impact, scheduling should first be carried out as part of the `SUMMIT Jira calendar <https://rubinobs.atlassian.net/plugins/servlet/ac/doitbetter.calendar/calendar-page>`_ process.
 
 **Announcement Protocol:**
 
@@ -127,40 +148,16 @@ For items having substantial impact, scheduling should first be carried out as p
   
 - This channel is specific to summit related activities.
   Announcements for testing using other test-stands are to be made on test-stand specific channels, following the same rules.
-  This includes #rubinobs-tucson-teststand and #rubinobs-base-teststand
+  This includes #tucson-teststand and #base-teststand.
 
-- The summit is an active observatory with many teams working on different tasks. Personnel on the summit should never be discourgaged from announcing their work as impacts may be unforseen or unpredictable.
-
-
-#summit-control-room
---------------------
-This room is actively monitored by observers and shift managers. This may be used to bring urgent concerns to observers.
-
-This is a single channel for both telescopes which is actively monitored by telescope specialists and anyone controlling the system.
-As observers are expected to actively monitor and reply to this channel, extended conversations may impact efficient work and discussion via zoom is encouraged.
-Breakout rooms can be used if multiple simultaneous conversations are required.
-
-This channel may be used as the area where the copying/pasting of code snippets happens while supporting via zoom, therefore context will often not be provided.
-Troubleshooting in this area should be either system-wide, or concerning other observatory systems seperate from the telescopes.
-
-An example of troubleshooting belonging to this channel is found in the following figure.
-
-.. figure:: ./_static/dialog_example.png
-    :name: #summit-control-room example
-    :width: 560
-    :height: 399
-
-    An example of the type of troubleshooting conversation that should take place in #summit-control-room.
-
+- The summit is an active observatory with many teams working on different tasks. 
+  Personnel on the summit should never be discouraged from announcing their work as impacts may be unforeseen or unpredictable.
 
 #summit-simonyi and #summit-auxtel
 ----------------------------------
 
 These rooms are for telescope system specific asynchronous conversation with remote support.
-They are passively monitored by on-shift observers with no expectation of an immediate response.
-Generally, the content will be read at the start and end of a shift, or during quiet periods.
-
-These channels are actively monitored by shift manager(s), who will directly contact observers if/when required.
+They are actively monitored by on-shift observers and shift manager(s).
 
 Example content:
 
@@ -174,7 +171,7 @@ Example content:
 
 - Not required, but used by some observers to give periodic status updates during the night.
 
-#auxtel-operations and #simonyi-operations
+#auxtel-discussion and #simonyi-discussion
 ------------------------------------------
 
 These channels are also telescope system specific but are dedicated for communication between people providing external support, such as looking at data as it comes in.
@@ -196,5 +193,19 @@ Example content:
 - Enhancements and/or curious features with RubinTV 
 
 - New features in system behavior (e.g. mount shake)
+
+Channel Creation and Naming Guidelines for Summit Channels
+==========================================================
+
+The Tiered system reserves certain prefixes to help classify summit communication channels by their expected usage. 
+Therefore, the following are reserved for each Tier, and when creating a new Slack channel for summit use one should not use them unless you are certain the new channel will belong to the given Tier:
+
+- Tier 0: #summit-
+- Tier 1: #-worklog and #-support
+
+The naming guidelines for Tier 2 and Tier 3 channels are less restrictive, 
+but a few conventions should be followed:
+
+- Tier 2 channels benefit from having either a subsystem names (e.g. #simonyi-, #comcam-) or team names (#dm-, #sitcom-, #ts-) as a prefix. This is not strictly enforced.  
 
 This procedure was last modified |today|.
