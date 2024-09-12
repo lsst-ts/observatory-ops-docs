@@ -111,14 +111,15 @@ Safety Systems
       :link-type: doc
       :padding: 4
 
-      GIS 
+      GIS introduction
 
-   .. grid-item-card:: Enter telescopes Safely
-      :link: Safety-Systems/GIS
+   .. grid-item-card:: Enter Observatory Spaces Safely
+      :link: Enter-Observatory-Spaces/index
       :link-type: doc
       :padding: 4
 
-      Procedures to enter telescopes while in operations
+      Procedures to enter telescopes while in operations, 
+      and other parts of the observatory building. 
 
 Enter Observatory Spaces
 =========================
