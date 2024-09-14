@@ -40,15 +40,14 @@ Post-Condition
 Procedure Steps
 ===============
 
-#. Calibrations images should only be taken if the LATISS WREB temperature is under temperature control. Check the LATISS WREB temperatures under the `AuxTel (LATISS) Temperatures and Pressures dashboard`_ in Chronograf. WREB temperatures are visible in the lower middle panel labeled *WREB On Board*. If the *mean_temp2* (top blue line) is between 26-29 degress C, the temperature is suitable for taking calibrations. During the daytime, the fan on the WREB board may not be sufficient to cool the WREB down to these temperatures, so during warmer months you may have to wait until later in the day or early in the morning for it to reach the desired temperature. If the temperature is too high, do not proceed to the next steps.
 #. Enable ATCS and LATISS using the standard scripts :file:`enable_atcs.py` and :file:`enable_latiss.py` with no configuration. 
-#. Enable ``Scheduler:2`` with a valid scheduler configuration. Use the standard script :file:`auxtel/scheduler/enable.py` with the configuration required for the run and available in the corresponding night log. 
+#. Enable ``Scheduler:2`` with a valid scheduler configuration. Use the standard script :file:`auxtel/scheduler/enable.py` with the configuration specified in the AuxTel Scheduler-Driven Survey Test Case (BLOCK-T19). 
 #. **Setup LATISS calibrations** BLOCK will setup ATCS and white light for calibrations. It enables and turns on the ATWhiteLight, enables OCPS:1 and commands AuxTel mount and dome to the FLAT position. Run the script :file:`add_block.py` to the ATQueue  with the following configuration:
 
     .. code-block:: text
       :caption: :file:`add_block.py`
 
-      id: setup_latiss_calibrations
+      id: BLOCK-309
 
     The BLOCK with :file:`setup_latiss_calibrations` configuration will queue the scripts aimed to setup the system. It will start with the :file:`set_summary_state.py` script to enable ATWhiteLight CSC with the following configuration:
 
@@ -75,19 +74,19 @@ Procedure Steps
     .. code-block:: text
       :caption: :file:`auxtel/calibrations/power_on_atcalsys.py`
 
-    The :file:`auxtel/prepare_for/flat.py` script (empty configuration) will position the telescope and dome in FLAT position. The telescope will point towards the dome flat screen (mount Az = 188.7 deg, mount El = 39.0 deg, dome Az= 2.59 deg). Confirm in the cameras aux-cam01 or aux-cam02 that the white light is on, and telescope is pointing to the dome flat screen.
+    The :file:`auxtel/prepare_for/flat.py` script (empty configuration) will position the telescope and dome in FLAT position. The telescope will point towards the dome flat screen (mount Az = 188.7 deg, mount El = 39.0 deg, dome Az= 2.59 deg). Confirm in the cameras "aux-cam01" or "aux-cam02" that the white light is on, and telescope is pointing to the dome flat screen.
 
     .. code-block:: text
       :caption: :file:`auxtel/prepare_for/flat.py`
   
     .. Note: We need to document and link here how to access the aux-cam01/02cameras.
 
-#. The **LATISS daily calibrations** BLOCK will queue the scripts focused on the calibration image adquisition. Run the script :file:`add_block.py` to the ATQueue  with the following configuration:
+#. The **LATISS daily calibrations** BLOCK will queue the scripts focused on the calibration image acquisition. Run the script :file:`add_block.py` to the ATQueue  with the following configuration:
 
     .. code-block:: text
       :caption: :file:`add_block.py`
 
-      id: latiss_daily_calibrations
+      id: BLOCK-295
 
 
     Depending on which filters are currently installed in LATISS, the :file:`auxtel/make_latiss_calibrations.py` script may take different calibration sets. The calibration images displayed in `RubinTV`_ are post-ISR images and should have BIAS and DARK corrections applied. This means that BIAS and DARK images should display with maximum count rates of about 10 ADUs. In the case of FLAT images, counts must be below the :math:`\approx` 30000 ADUs. In the process of building the daily PTC (see below), the FLAT saturation is intended, and achieved at around the 123000 ADUs (with exposure time of about 25 seconds). In case daily FLATS are taken, they reach values of :math:`\approx` 68000 ADUs. If you see large deviations from these values, which can be related with a problem in the instrument signature removal in `RubinTV`_, then RAW count rates are being displayed, please report it. Check the calibration sets and their configurations for each filter installed and the grating.
@@ -260,7 +259,7 @@ Procedure Steps
     .. code-block:: text
       :caption: :file:`add_block.py`
 
-      id: shutdown_latiss_calibrations
+      id: BLOCK-310
 
 
     The BLOCK with :file:`shutdown_latiss_calibrations` configuration finishes with the :file:`auxtel/calibrations/power_off_atcalsys.py` SAL script with no configuration. It will turn off the lamp, close the shutter and shutdown the chiller. At this stage, the script completion time is 15 minutes.
