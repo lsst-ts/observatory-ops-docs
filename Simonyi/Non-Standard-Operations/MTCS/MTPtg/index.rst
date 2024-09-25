@@ -8,3 +8,5 @@ MTPtg
     :maxdepth: 2
     :titlesonly:
     :glob:
+
+    *
