@@ -124,7 +124,7 @@ Restart Control System
 
     .. prompt::
 
-        ssh http://rot-pxi-controller.cp.lsst.org/
+        ssh admin@rot-pxi-controller.cp.lsst.org
 
 #.  To **restart the control system** for the MTRotator, run the command in the terminal:
 

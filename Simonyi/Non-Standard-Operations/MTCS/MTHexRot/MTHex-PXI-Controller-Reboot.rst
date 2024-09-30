@@ -63,7 +63,7 @@ Prerequisites
 
 - Ensure you have access to LSST-WAP network.
 - Obtain the necessary IP, account user, and password information from the *LSST 1Password MainTel Vault*.
-- Familiarity with Linux commands and the use of general *Power Distribution Unit (PDU)* or *netbooter* for power cycling.
+- Familiarity with Linux commands and the use of general *Power Distribution Unit (PDU)* for power cycling.
 
 
 .. _MTHex-PXI-Controller-Reboot-Procedure:
@@ -85,48 +85,27 @@ Restart Control System
     As the primary troubleshooting step to regain control, perform the restart of the control system if 
     the CSC/EUI is entirely unresponsive and unable to establish a connection with the control system.
 
-    #.  Before proceeding, make sure there are no active interlocks in the EUI and that no other EUI instance 
-        is running. For the MTCamHexapod, check if *runCamHexEui* is running by following commands in the terminal:
+    Before proceeding, make sure there are no active interlocks in the EUI and that no other EUI instance 
+    is running. For the MTCamHexapod, check if *runCamHexEui* is running by following commands in the terminal:
 
-        .. prompt:: 
+    .. prompt:: 
+        
+        ps -aux | grep runCamHexEui
 
-            ps -aux | grep runCamHexEui
+    If processes are already running, you may need to identify who is running them and ask permission 
+    to end one (or both) so you can run your own EUI session. If another *runCamHexEui* is running
 
-        If processes are already running, you may need to identify who is running them and ask permission 
-        to end one (or both) so you can run your own EUI session. If another *runCamHexEui* is running
+    .. prompt:: 
 
-        .. prompt:: 
-
-            sudo kill -9 {pid}
+        sudo kill -9 {pid}
 
         
-        Replace *runCamHexEui* with *runM2HexEui* for the *MTM2Hexapod*.
-    
-    
-    #.  You can do the following to check the *MTCamHexapod* control system status in the terminal:
-
-        .. prompt::
-
-            /etc/init.d/cameraHexapod status
-        
-        It will tell you whether the control system is running or not. To stop it, do:
-
-         .. prompt::
-
-            /etc/init.d/cameraHexapod stop
-
-        To start it do:
-
-         .. prompt::
-
-            /etc/init.d/cameraHexapod start
-       
-        For *MTM2Hexapod*, replace in the command above *cameraHexapod* 
-        with *m2Hexapod*.
+    Replace *runCamHexEui* with *runM2HexEui* for the *MTM2Hexapod*.
 
 
+.. _MTHex-PXI-Controller-ssh-connection:
 #.  **Establish an SSH connection to the MTHexapod PXI**: Using the credentials and hostnames found 
-    in the *LSST 1Password MainTel Vault* create an ssh tunnel in the terminal. 
+    in the *LSST 1Password MainTel Vault* create an ssh tunnel from the terminal in the LSST-WAP network. 
     
     For the *MTCamHexapod*, the command would look like:
 
@@ -138,21 +117,42 @@ Restart Control System
 
     .. prompt::
 
-        ssh pbalucan@m2-hexapod-pxi.cp.lsst.org
+        ssh admin@m2-hexapod-pxi.cp.lsst.org
 
 
 #.  To **restart the control system** for the *MTCamHexapod*, run the command in the terminal:
 
     .. prompt::
 
-        /etc/init.d/cameraHexapod restart
+        /etc/init.d/hexapod restart
 
     
-#.  To **restart the control system** for the *MTM2Hexapod*, run the command in the terminal:
+    To **restart the control system** for the *MTM2Hexapod*, run the command in the terminal:
 
     .. prompt::
 
-        /etc/init.d/m2Hexapod restart
+        /etc/init.d/hexapod restart
+
+    .. admonition:: Information
+        
+        To check the *MTCamHexapod* control system status in the terminal:
+
+        .. prompt::
+
+            /etc/init.d/hexapod status
+        
+        It will tell you whether the control system is running or not. To stop it, do:
+
+         .. prompt::
+
+            /etc/init.d/hexapod stop
+
+        To start it do:
+
+         .. prompt::
+
+            /etc/init.d/hexapod start
+       
 
 #.  **Allow 5-10 minutes for the system to initialize**: This period is necessary for the OS and control system 
     to set up the EtherCat and Copley drives before making a connection through the CSC/EUI.
@@ -172,14 +172,15 @@ Soft Reboot
 -----------
 
 
-#.  **Establish an SSH connection to the MTCamHexapod/MTM2Hexapod PXI** using the credentials and hostnames found in 
-    the *LSST 1Password MainTel Vault* (See :ref:`above <MTHex-PXI-Controller-Reboot-Restart-Control-System>`).
+#.  **Establish an SSH connection to the MTCamHexapod/MTM2Hexapod PXI**: Using the credentials and hostnames found in 
+    the *LSST 1Password MainTel Vault* create an ssh tunnel from your terminal in the LSST-WAP network. 
+    (See command explicitly described in :ref:`above <MTHex-PXI-Controller-ssh-connection>`).
 
 #.  **Execute the reboot command**: To initiate a soft reboot of the PXI, type in the terminal:
 
     .. prompt::
 
-        sudo reboot now
+        sudo reboot
 
 #.  **Allow 5-10 minutes for the system to reboot**: This time is necessary for the OS and control system 
     to configure the EtherCat and Copley drives before attempting a connection through the CSC/EUI. 
@@ -203,8 +204,8 @@ Hard Reboot
     If a power shutdown is scheduled, you can proceed until step 2 before the power on.
 
 
-#.  **Login into Utilities cabinet Power Distribution Unit (PDU) or MTM2Hexapod netbooter**:
-    Depending on the which subsystem you are rebooting, you need to follow either A or B.
+#.  **Login into Utilities cabinet Power Distribution Unit (PDU) or MTM2Hexapod PDU**:
+    Depending on which hexapod you are rebooting, you need to follow either A or B.
     
     A.  For *MTCamHexapod*, while in the LSST-WAP, 
         connect to *https://tea-pdu01.cp.lsst.org/* using the credentials stored in the *Operators vault* 
@@ -212,17 +213,26 @@ Hard Reboot
         side menu to open the outlets screen. The description of each outlet can be found here.
 
     .. figure:: /Simonyi/Non-Standard-Operations/_static/mtrot-controller-pxi-reboot-1.jpeg
-   
-    B.  For *MTM2Hexapod* the netbooter is required to power cycle the PXI and drives: 
-        Connect to the M2 Hex Netbooter *m2-hexapod-netbooter.cp.lsst.org* using the credential stored in the *1Password MainTel 
-        Vault* under *M2 Hexapod PXI/Drive NetBooter*.
+        :width: 700px
 
+        *MTCamHexapod* *https://tea-pdu01.cp.lsst.org* PDU outlets.
+   
+    B.  For *MTM2Hexapod* while in the LSST-WAP, 
+        connect to *https://pdu1-tea-as02.cp.lsst.org* using the credentials stored in the *MainTel vault* 
+        of *LSST 1Password* as *pdu1-tea-as02.cp.lsst.org*. Click on :guilabel:`Outlets` on the left hand 
+        side menu to open the outlets screen. 
+
+    .. figure:: /Simonyi/Non-Standard-Operations/_static/MTM2Hex-PDU.png
+        :width: 700px
+
+        *MTM2Hexapod* *https://pdu1-tea-as02.cp.lsst.org* PDU outlets. 
+   
 #.  **Power Cycle PXI and drives**: To **power** :guilabel:`Off` the system, first power off the PXI, followed by 
     the drive. 
     
-    A.  For *MTCamHexapod*, PXI is energized through outlet 8, while the drives correspond to outlet 4 in the *PDU*.
+    A.  For *MTCamHexapod*, PXI is energized through :guilabel:`Outlet 8`, while the drives correspond to :guilabel:`Outlet 4` in the *https://tea-pdu01.cp.lsst.org PDU*.
 
-    B.  For *MTM2Hexapod*, power off PXI first , then the drive from the *M2 Hexapod PXI/Drive NetBooter*.
+    B.  For *MTM2Hexapod*, power off the PXI which is :guilabel:`Outlet 2`, then turn off the drives in :guilabel:`Outlet 1`` in the *https://pdu1-tea-as02.cp.lsst.org PDU*.
 
     .. note::
 
@@ -232,9 +242,9 @@ Hard Reboot
         procedure here.
 
 
-    When **powering** :guilabel:`On`, activate the drives first, and wait for at least 3 minutes before powering 
-    on the PXI. This delay is **crucial** for the Ethercat application within the PXI to establish a 
-    connection with the Copley drive.
+    When **powering** :guilabel:`On`, power on the cabinet first and wait for 1-3 min to let the EtherCAT slaves 
+    finish the setup on the drives. Power on the PXI controller and wait for 5 min to let the EtherCAT master finish the setup.
+    This delay is crucial for the Ethercat application within the PXI to establish a connection with the Copley drive.
 
 
 #.   **Wait for an additional 5-10 minutes after powering on before using the CSC/EUI**: 
