@@ -7,19 +7,62 @@
 
 .. This is the label that can be used as for cross referencing this file.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _Observing-Tools-index:
+.. _Control-and-Monitoring-index:
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
-#############################################################
-Observing Tools 
-#############################################################
+#################################
+Control and Monitoring Software 
+#################################
 
-.. This section should provide a brief, top-level description of the page.
+.. _Control-and-Monitoring-LOVE:
 
-.. _Observing-Tools-Chronograf:
+LOVE
+==========
+
+.. toctree::
+   :glob:
+   :titlesonly:
+
+   LOVE/index.rst
+
+
+.. _Control-and-Monitoring-Scheduler:
+
+Scheduler
+=========
+
+.. toctree::
+   :glob:
+   :titlesonly:
+
+   Scheduler/index.rst
+
+.. _Control-and-Monitoring-SAL-Scripts:
+
+SAL Scripts
+===========
+
+.. toctree::
+   :glob:
+   :titlesonly:
+
+   SAL-Scripts/index.rst
+
+.. _Control-and-Monitoring-BLOCKS:
+
+BLOCKS
+=======
+
+.. toctree::
+   :glob:
+   :titlesonly:
+
+   BLOCKS/index.rst
+
+.. _Control-and-Monitoring-Chronograf:
 
 Chronograf
 ==========
@@ -31,7 +74,19 @@ Chronograf
    Chronograf/index.rst
 
 
-.. _Observing-Tools-RubinTV:
+.. _Control-and-Monitoring-Camera-Control-System:
+
+CCS Tools
+=========
+
+.. toctree::
+   :glob:
+   :titlesonly:
+
+   Camera-Control-System/index.rst
+
+
+.. _Control-and-Monitoring-RubinTV:
 
 RubinTV
 =======
@@ -41,14 +96,3 @@ RubinTV
    :titlesonly:
 
    RubinTv/index.rst
-
-.. _Observing-Tools-Sky-Almanac:
-
-Sky Almanac
-===========
-
-.. toctree::
-   :glob:
-   :titlesonly:
-
-   Sky-Almanac.rst

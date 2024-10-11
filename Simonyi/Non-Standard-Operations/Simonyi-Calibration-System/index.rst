@@ -1,13 +1,12 @@
-.. _Simonyi-Non-standard-Operations-Auxiliary-Components:
+.. _Simonyi-Non-standard-Operations-SimonyiCalSys:
 
 ###############################
-Auxiliary Components
+Simonyi Calibration System 
 ###############################
-
 
 .. toctree::
     :maxdepth: 3
     :titlesonly:
     :glob:
 
-    */*
+    *
