@@ -51,6 +51,6 @@ By Component
     :maxdepth: 3
     :titlesonly:
     :glob:
-  
-    Auxiliary-Components/index.rst
+
+    Simonyi-Calibration-System/index.rst
 

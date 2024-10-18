@@ -41,8 +41,7 @@ Introduction to the Simonyi Telescope
 
    Components/MTCS/index.rst
    Components/*
-   Components/Auxiliary-Components/index.rst
-
+   
 .. _Simonyi-Telescope-Weather-Constraints:
 
 Weather Constraints

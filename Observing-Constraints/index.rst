@@ -29,7 +29,7 @@ Simonyi Operational Constraints
    :titlesonly:
    :glob:
     
-   Simonyi/index.rst
+   .. Simonyi/index.rst
 
 
 .. _Observing-Constraints-AuxTel:
