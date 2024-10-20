@@ -7,53 +7,86 @@ AuxTel Known Faults
 A comprehensive list of common faults will be displayed here along their troubleshooting procedures. 
 
 .. list-table:: Known Faults
-   :widths: 10 50 20 40 
+   :widths: 05 40 35 20 
    :header-rows: 1 
 
    * - CSC
-     - Issue/Diagnosis
-     - Happens mostly when
+     - Issue
+     - Common in / Error traceback
      - Troubleshooting procedure
    * - ATCS
-     - Scripts failed with a "Rejected: Rotator out of range" error and ATPtg might go into ``FAULT``. 
-     - Observing at night
-     - Cycle ATPtg and queue top :file:`correct_pointing.py`. See details in ...TBC.
-   * - 
-     - AT out of focus after a 'WEP' failure -> Clear ATAOS offsets + 'WEP'
-     - Observing at night
-     - Pause ATScriptQueue. Clear all ATAOS offsets for the x, y, and z axes. Run the standard scripts "offset_ataos" and "latiss_wep_align" to realign the mirror and focus the system. See details in...TBC
-   * - 
+     - ATHexapod fails to enable - No connection to athexapod controller
+     - `Daytime checkout`
+  
+       raise OSError(err, f'Connect call failed {address}')OSError: [Errno 113] Connect call failed ('139.229.170.48', 50000)
+     - :ref:`ATHexapod fails to enable with the rest of ATCS <ATHexapod-fails-to-enable-with-the-rest-of-ATCS>`
+   * - -
+     - ATMCS fails to enable - e-stop is engaged
+     - `Daytime checkout`
+
+       Fault event in ATMCS while in enable state (port=. Nasmyth 1 drive fault bit is ON)
+     - :ref:`AuxTel Mount Control System Fails to Enable / E-Stop is Engaged <ATCS-Troubleshooting-AuxTel-Mount-Control-System-Fails-to-Enable>`
+   * - ATSpectrograph
+     - ATSpectrograph failed after power down
+     - `Daytime checkout`
+     
+       raise base.AckTimeoutError( lsst.ts.salobj.base.AckTimeoutError: msg='Timed out waiting for command acknowledgement',
+       ackcmd=(ackcmd private_seqNum=1137560160, ack=<SalRetCode.CMD_NOACK: -301>, error=0, result='No command acknowledgement seen')
+     - :ref:`ATSpectrograph failed - grating stage position and timed out <LATISS-Troubleshooting-ATspectrograph-failed>`
+   * - ATWhiteLight
+     - ATWhiteLight failed to turn on
+     - `Calibrations`
+     - TO DO
+   * - ATCS - M1 Cover
      - AuxTel M1 Cover Fails to Open.
-     - Daytime Checkout - Pneumatics / Calibrations / Prepare for on sky
-     - Set all ATCS CSCs to STANDBY using :file:`standby_atcs.py`. Then, log in to the ATMCS EUI via Microsoft Remote Desktop or the control computer in the AuxTel dome. See details in :ref:`AuxTel M1 Cover Fails to Open <AuxTel-Troubleshooting-AuxTel-M1-Cover-Fails-To-Open>`. See also the explanation `video <https://confluence.lsstcorp.org/download/attachments/210241325/M1%20cover%20reset%20using%20EUI.mp4?version=3&modificationDate=1700889964000&api=v2>`__.
+     - `Daytime checkout` `cCalibrations` `Prepare for on-sky`
+  
+       result='ERROR: Command OPENM1COVER rejected while M1 covers controller in StandbyState state.'
+     - :ref:`AuxTel M1 Cover Fails to Open <AuxTel-Troubleshooting-AuxTel-M1-Cover-Fails-To-Open>`. Explanation `video <https://confluence.lsstcorp.org/download/attachments/210241325/M1%20cover%20reset%20using%20EUI.mp4?version=3&modificationDate=1700889964000&api=v2>`__
+   * - Scheduler Driven Observations
+     - Rotator out of range error and ATPtg might go into `FAULT` state. 
+     - `on-sky`
+  
+       error=6611,  result='Rejected : Rotator out of range. Target in rotator limit (-170 to 170 degrees) but out of slew limit margin (1 degs)')
+     - In review
+   * - 
+     - Lost pointing: Targets do not appear centered in the detector in the first acquisition
+     - `on-sky`
+  
+       RuntimeError("Centroid finding algorithm was unsuccessful.")
+     - :ref:`AuxTel Lost Pointing Accuracy <AuxTel-AuxTel-Troubleshooting-General-Troubleshooting-AuxTel-Lost-Pointing-Accuracy-Procedure>`
+   * - 
+     - AT out of focus after a 'WEP' failure
+     - `on-sky`
+  
+     - :ref:`AuxTel Image out of focus <AuxTel-AuxTel-Troubleshooting-General-Troubleshooting-AuxTel-Image-out-of-focus-Procedure>`
+   * - 
+     - Correct Pointing fails
+     - `on-sky`
+
+       Rejected: elevation out-of-range.
+     - :ref:`AuxTel Elevation Out of range <AuxTel-AuxTel-Troubleshooting-General-Troubleshooting-AuxTel-AuxTel-Elevation-out-of-range>`
    * - AT Mount
      - ATMount fails to move and times out
-     - Observing at night
-     - Stop the scheduler and clear the queue with :file:`auxtel/scheduler/stop.py`, cycle ATTCS:ATPtg CSC to standby and enabled, then confirm mount responsiveness by running :file:`auxtel/point_azel.py` and observing mount motion. See details in :ref:`AuxTel Mount Fails to Move and Times Out <ATCS-Troubleshooting-AuxTel-Mount-Fails-to-Move-and-Times-Out>`. 
-   * -      
+     - `on-sky`
+  
+       RuntimeError: Telescope timed out getting in position.
+     - :ref:`AuxTel Mount Fails to Move and Times Out <ATCS-Troubleshooting-AuxTel-Mount-Fails-to-Move-and-Times-Out>`
+   * - -
      - ATMount fails to move and Azimuth Max Velocity error exceeded
-     - Observing at night
-     - Stop the scheduler with :file:`auxtel/scheduler/stop.py`, Cycle ATTCS:ATMCS and ATPtg (if needed) CSCs, then use :file:`auxtel/point_azel.py` to slew the telescope to a lower elevation and adjust azimuth in increasing increments. See details in :ref:`AuxTel Mount Fails to Move <ATCS-Troubleshooting-AuxTel-Mount-Fails-to-Move>`.
-   * -      
-     - ATHexapod fails to enable - No connection to athexapod controller
-     - Daytime Checkout -Enabling ATCS
-     - Turn off the C-887 Hexapod Controller in the Main ATCS cabinet on the first level of the AuxTel dome, wait 3 minutes, then turn it back on. Transition ATHexapod CSC from ``STANDBY`` to ``ENABLE``. See details in :ref:`ATHexapod fails to enable with the rest of ATCS <ATHexapod-fails-to-enable-with-the-rest-of-ATCS>`.
-   * - 
-     - ATMCS fails to enable - e-stop is engaged
-     - Daytime Checkout -Enabling ATCS
-     - Check the ATMCS EUI for a red Emergency Stop indicator via the dome pier computer or remote connection to aux-brick01.cp.lsst.org. If engaged, release it using the provided procedure, confirm it’s released, and re-run :file:`auxtel/enable_atcs.py` from LOVE. See details in :ref:`AuxTel Mount Control System Fails to Enable / E-Stop is Engaged <ATCS-Troubleshooting-AuxTel-Mount-Control-System-Fails-to-Enable>`.
+     - `on-sky`
+  
+       Fault event in ATMCS while in tracking enable state.  Azimuth drive #2 fault bit is ON.  Azimuth drive #1 fault bit is ON.  Azimuth max velocity error  exceeded.
+     - :ref:`AuxTel Mount Fails to Move <ATCS-Troubleshooting-AuxTel-Mount-Fails-to-Move>`
+   * - AT Dome
+     - ATDome shutter fails to close
+     - `Shutdown`
+     - :ref:`AuxTel Emergency Shutdown <AuxTel-Non-Standard-Operations-AuxTel-Emergency-Shutdown>`
    * - AT Instrumentation
      - ATCamera Recovering from Fault State
-     - When a parameter (temperature, voltage, current, etc.) exceeds its tolerance.
-     - Identify the problematic CCS subsystem, review alerts and logs, and determine if the issue is transitory or requires expert diagnosis. Create an OBS ticket to track the problem. Clear alerts in the CCS subsystem and the Master Control Module (MCM). Clear the fault in the ocs-bridge and switch it to OFFLINE_AVAILABLE mode. See details in :ref:`AT camera recovery <LATISS-Troubleshooting-ATcamera-recovery>`.
-   * - AT Calibration System
-     - ATWhiteLight has thrown the error below saying the light failed to come on when it was on
-     - During Calibrations
-     - Try re-adding the calibration block, power_on_atcalsys should register that the white light lamp is on and calibrations can continue successfully. See details in ...TBC
-   * - AT Dome
-     - ATDome shutter fails to close.
-     - While trying to move the telescope with point_azel.
-     - Try the top black button on the control box at the dome’s top, if unsuccessful, then try the “CLOSE” switch on the cRIO box with caution. If all else fails, use the manual crank on the first floor, though it’s a slow process. See details in...TBC
+     - `Daytime checkout` `Calibrations` `on-sky` 
+     - :ref:`AT camera recovery <LATISS-Troubleshooting-ATcamera-recovery>`
+
 
 
 Per component
@@ -66,7 +99,6 @@ Per component
 
     ATCS/index.rst
 
-
 .. toctree::
     :maxdepth: 3
     :titlesonly:
@@ -74,14 +106,12 @@ Per component
 
     LATISS/index.rst
 
-
 .. toctree::
     :maxdepth: 3
     :titlesonly:
     :glob:
 
     ATCalSys/index.rst
-
 
 .. toctree::
     :maxdepth: 3
