@@ -8,9 +8,9 @@
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
 
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
-.. |author| replace:: *Ioana Sotuela*
+.. |author| replace:: *Manuel Gomez*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Manuel Gomez*, *Gonzalo Aravena*
+.. |contributors| replace:: *Ioana Sotuela*, *Gonzalo Aravena*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -42,16 +42,17 @@ AT Main Control Cabinet
 -------------------
 
 .. figure:: ./_static/main_cabinet.jpeg
-    :name: main_cabinet
+    :name: ATmain_cabinet
     :scale: 15 %
-
-
+    
+    AT Main Control Cabinet
+ 
 
 .. figure:: ./_static/IMG_4238.JPG
-    :name: main_cabinetIN
+    :name: ATmain_cabinetIN
     :scale: 20 %
-
-    internal components.
+    
+    Inner AT Main Control Cabinet
 
 .. _Cabinet-Content-Diagrams-AT-Camera-Electronics-and-Sensor-Readout-Cabinet:
 
@@ -59,16 +60,16 @@ AT Camera Electronics and Sensor Readout Cabinet
 -------------------------------------------------
 
 .. figure:: ./_static/IMG_4274.JPG
-    :name: Electronics
+    :name: ATElectronics
     :scale: 15 %
 
-
+    AT Camera Electronics and Sensor Readout Cabinet
 
 .. figure:: ./_static/IMG_4239.JPG
-    :name: ElectronicsIN
+    :name: ATElectronicsIN
     :scale: 20 %
 
-    internal components.
+    Inner AT Camera Electronics and Sensor Readout Cabinet
 
 .. _Cabinet-Content-Diagrams-Spectrograph-Power-Switch:
 
@@ -76,16 +77,16 @@ Spectrograph Power Switch
 -------------------------
 
 .. figure:: ./_static/PowerSwitch.png
-    :name: Spectrograph
+    :name: ATSpectrograph
     :scale: 20 %
 
-
+    Spectrograph Power Switch Cabinet
 
 .. figure:: ./_static/IMG_4241-2.JPG
-    :name: SpectrographIN
+    :name: ATSpectrographIN
     :scale: 20 %
 
-    internal components.
+    Inner Spectrograph Power Switch Cabinet
 
 .. _Cabinet-Content-Diagrams-Dome-Main-Control-Box:
 
@@ -93,16 +94,16 @@ Dome Main Control Box
 ---------------------
 
 .. figure:: ./_static/DomeCB.png
-    :name: DomeCB
+    :name: ATDomeCB
     :scale: 20 %
 
-
+    Dome Main Control Box
 
 .. figure:: ./_static/IMG_4243.JPG
-    :name: DomeCBIN
+    :name: ATDomeCBIN
     :scale: 20 %
 
-    internal components.
+    Inner Dome Main Control Box
 
 
 .. _Cabinet-Content-Diagrams-Dome-VFD:
@@ -111,16 +112,16 @@ Dome VFD
 --------
 
 .. figure:: ./_static/DomeVFD.png
-    :name: VFD
+    :name: ATVFD
     :scale: 25 %
 
-
+    Dome VFD Cabinet
 
 .. figure:: ./_static/IMG_4244.jpg
-    :name: VFDIN
+    :name: ATVFDIN
     :scale: 20 %
 
-    internal components.
+    Inner Dome VFD Cabinet
 
 
 
@@ -137,13 +138,13 @@ Dome Shutter Control Box
     :name: Shutter
     :scale: 25 %
 
-
+    Dome Shutter Control Box
 
 .. figure:: ./_static/IMG_4234.JPG
     :name: ShutterIN
     :scale: 20 %
 
-    internal components.
+    Inner Dome Shutter Control Box
 
 
 .. _Cabinet-Content-Diagrams-Illumination-System:
@@ -155,14 +156,13 @@ Illumination System
     :name: Illumination
     :scale: 25 %
 
-
+    Illumination System Cabinet
 
 .. figure:: ./_static/IMG_4236.JPG
     :name: IlluminationIN
     :scale: 20 %
 
-    internal components.
-
+    Inner Illumination System Cabinet
 
 
 
