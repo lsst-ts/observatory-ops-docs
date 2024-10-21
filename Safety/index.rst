@@ -12,6 +12,8 @@
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
+.. _`English`: https://docs.google.com/presentation/d/1KMbyblTWzQjOn5Wm8BY_Ip62QuFoldGg/edit#slide=id.g1f3b6461347_1_1346
+.. _`Spanish`: https://docs.google.com/presentation/d/14Q2C2-avt_DoPdipJ3c9qV4TFEoNjiaN/edit#slide=id.p104
 
 
 ##############################################
@@ -22,6 +24,8 @@ Quick Safety Reference for Nighttime Personnel
 This page provides quick-reference procedures for the safety of personnel and equipment. 
 
 This does not replace the required safety orientation for summit personnel.
+
+For a full overview of emergency procedures, review the presentation in `English`_ (starting on slide 19) or in `Spanish`_, (starting on slide 19).
 
 Emergency Response Guide
 ========================

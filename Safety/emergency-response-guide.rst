@@ -19,6 +19,10 @@
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
+.. _`English`: https://docs.google.com/presentation/d/1KMbyblTWzQjOn5Wm8BY_Ip62QuFoldGg/edit#slide=id.g1f3b6461347_1_1346
+.. _`Spanish`: https://docs.google.com/presentation/d/14Q2C2-avt_DoPdipJ3c9qV4TFEoNjiaN/edit#slide=id.p104
+.. _`#summit-anounce`: https://rubin-obs.slack.com/archives/C07QCJ7F962
+
 
 ########################
 Emergency Response Guide
@@ -29,6 +33,8 @@ This is a basic emergency response guide organized by the type of emergency.
 - This is not a comprehensive first responder training guide.
 
 - This does not replace safety training required to be on the summit.
+
+- A full copy of the emergency procedures and evaucations routes are found here in `English`_ (starting on slide 19) and here in `Spanish`_` (starting on slide 19.)
 
 - It is recommended to contact the safety team to complete summit driver's training in addition to the required summit training. 
 
@@ -95,7 +101,11 @@ Describe the emergency:
 Fire
 ====
 
-- If you that someone else is in the building, but not currently with you, use a Rubin radio tuned to Channel 3. 
+If you detect smoke or fire:
+
+- Use a fire extinguisher if you are trained to do so.
+
+- Take a Rubin radio. Announce on Channel 3. 
   
   Attention Rubin Personnel, FIRE!
   Evacuate the building!
@@ -103,21 +113,20 @@ Fire
   "Atento a todo personal, HAY INCENDIO!
   Salgan del edificio!"
 
-- Give everyone you encounter directions to meet at the emergency assembly point in the first level parking lot.
-
-- Pull a fire alarm if possible.
-
-- Call the Mountain Assistant at extension 440:
-    - If they do not answer, call Control Puerta at extension 434.
-    - Put out a call for help on any Rubin radio tuned to Channel 1. 
-
-- Use a fire extinguisher if you are trained to do so.
+- If an emergency leader is identified, follow their instructions to evacuate. 
+Give everyone you encounter directions to meet at the emergency assembly point in the first level parking lot.
 
 - Remain low to the ground if you encounter smoke.
 
 - Leave all belongings behind.
 
 - Take the stairs, not the elevators.
+
+- Pull a fire alarm if possible.
+
+- Once outside, alert the Mountain Assistant at extension 440:
+    - If they do not answer, call Control Puerta at extension 434.
+    - Put out a call for help on any Rubin radio tuned to Channel 1. 
 
 .. _emergency-response-guide-earthquake:
 
@@ -136,9 +145,8 @@ If it is a small earthquake and shaking stops quickly, there is no need to evacu
 
 - Use the Rubin radio on channel 3 to alert other personnel in the building to meet at the safety point. 
 
-- Call the Mountain Assistant at extension 440.
+- If the earthquake is severe and someone is injured, call the Mountain Assistant on radio channel 1.
     - If they don't respond, call Control Puerta at 434.
-    - If no one answers the phone, use any Rubin radio tuned to Channel 1 to put out the call.
 
 - Wait for instructions in the emergency assembly point. 
 
@@ -171,6 +179,19 @@ Electric shock
 - Call the emergency contact numbers and request emergency and medical responders.
 
 - Provide as many details about the emergency as you can, MOST IMPORTANTLY THE LOCATION.
+
+Inclement weather
+=================
+
+- In the event of preipitation (rain or snowfall), close both domes (if open) and prepare to evacuate the summit.
+
+    - If Summit or NOIRLab Operations have ordered a summit evacuation, prepare to go down on the provided transportation or join a group evacuating in a summit vehicle. 
+
+- If precipitation arrives after hours, shut down operations quickly.
+
+    - Put an announcement on `#summit-anounce`_ and call on radio channel 3 and 5 to annoucne to any on site personnel that the summit is being evacuated. 
+
+    - Gather everyone in the shared vehicles and drive slowly down to Hotel Pachón. 
 
 
 This procedure was last modified |today|.
