@@ -39,7 +39,7 @@ A comprehensive list of common faults will be displayed here along their trouble
      - TO DO
    * - ATCS - M1 Cover
      - AuxTel M1 Cover Fails to Open.
-     - `Daytime checkout` `cCalibrations` `Prepare for on-sky`
+     - `Daytime checkout` `Calibrations` `Prepare for on-sky`
   
        result='ERROR: Command OPENM1COVER rejected while M1 covers controller in StandbyState state.'
      - :ref:`AuxTel M1 Cover Fails to Open <AuxTel-Troubleshooting-AuxTel-M1-Cover-Fails-To-Open>`. Explanation `video <https://confluence.lsstcorp.org/download/attachments/210241325/M1%20cover%20reset%20using%20EUI.mp4?version=3&modificationDate=1700889964000&api=v2>`__
