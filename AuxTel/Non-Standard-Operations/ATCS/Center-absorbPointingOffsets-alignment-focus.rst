@@ -2,22 +2,22 @@
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
 .. |contributors| replace:: *none*
 
-.. _AuxTel-Nighttime-Operations-WEP:
+.. _AuxTel-Non-Standard-Operations-Center-Focus:
 
 ####################################################################################
-Beginning of the night: Center, absorb pointing offsets, mirror alignment and focus
+Center, absorb pointing offsets, mirror alignment and focus
 ####################################################################################
 
-.. _Beginning_of_the_night-the-Telescope-Overview:
+.. _Center-Focus-Overview:
 
 Overview
 ========
 
-This procedure must be followed by the observers before the beginning of dark time, prior to starting science or engineering activities.
+This procedure must be followed if the pointing or focus is lost for whatever reason. 
 
 It will center a target, absorb the zero-point pointing offsets, align mirrors and focus the telescope. 
 
-.. _Beginning_of_the_night-Precondition:
+.. _Center-Focus-Precondition:
 
 Precondition
 =============
@@ -27,23 +27,25 @@ Precondition
 - The sky brightness is low enough that the WEP (wavefront estimate pipeline) can converge successfully. 
   This condition is normally achieved around 10-15 minutes before the end of nautical twilight or dark time. 
 
-.. _Beginning_of_the_night-Post-Conditions:
+.. _Center-Focus-Post-Conditions:
 
 Post-Condition
 ===============
 
 - Telescope is aligned, focused and pointing offsets have been absorbed. 
   
-  The system is ready to start :ref:`scheduler-driven observations <Scheduler-Scheduler-Operational-Procedures>` or engineering tasks. 
+  The system is ready to continue :ref:`scheduler-driven observations <Scheduler-Scheduler-Operational-Procedures>` or engineering tasks. 
 
-.. _Beginning_of_the_night-Procedure-Steps:
+.. _Center-Focus-Procedure-Steps:
 
 Procedure Steps
 ===============
 
 #. Confirm sky background is dark enough. 
 
-   As a general rule, a good time to start executing the following SAL scripts is 10-15 minutes before the end of nautical twilight. 
+   Generally, the sky becomes dark enough for Wavefront-Estimation Error script (WEP) to converge approximately 10 minutes before the end of nautical twilight.
+
+#. Pause the ATQueue and place at the top of the queue the scripts detailed in steps 3. and 4.  
 
 #. Command the telescope to measure and correct for any nightly pointing zero-point offsets using the SAL script ``auxtel/correct_pointing.py``.
 
@@ -56,28 +58,28 @@ Procedure Steps
 
    Nominally, the pointing offsets and mirror alignment are performed towards the east, ``az`` 90 deg, and at mid-elevations, ``el`` 60 deg. 
 
-   From the LOVE ``ATQueue`` panel, under ``AVAILABLE SCRIPTS``, add the external script ``auxtel/correct_pointing.py``, by clicking on the blue icon. 
+   From the LOVE ``ATQueue`` panel, under AVAILABLE SCRIPTS, add the external script :file:`auxtel/correct_pointing.py`, by clicking on the blue icon. 
 
-   Under ``CONFIG`` in the ``configuring Script:correct_pointing.py`` window, leave the window empty so the default configuration is loaded and click on ``Add``:
+   Under ``CONFIG`` in the ``configuring Script:correct_pointing.py`` window, leave the window empty so the default configuration is loaded and click on :guilabel:`Add`:
 
    .. figure:: ./_static/CorrectPointing_AuxTel.png
      :name: correctPointing
 
-     LOVE launching the ``correct_pointing`` script with the defaults, to find a target around ``az`` 90 deg and ``el`` 60 deg, 
+     LOVE launching the :file:`auxtel/correct_pointing.py` script with the defaults, to find a target around ``az`` 90 deg and ``el`` 60 deg, 
      magnitude limit ``mag_limit`` 6.0, magnitude range ``mag_range`` 4.0 and a search radius ``radius`` of 5 deg.  
 
    Visually inspect the recent images in RubinTV to confirm that the right target has been centered. 
    If it did, move to the next step. 
-   If it didn't, repeat step #2. 
+   If it didn't, repeat step #3. 
 
 #. Launch a WEP sequence on the same target to use the wavefront estimation pipeline to measure wavefront error and perform mirror alignment and focus. 
 
-   Load the script ``auxtel/latiss_wep_align.py``, available under ``External scripts`` in the ``ATQueue``. 
+   Load the script :file:`auxtel/latiss_wep_align.py`, available under ``External scripts`` in the ``ATQueue``. 
  
    In the ``Configuring Script: latiss_wep_align`` window, leave the ``CONFIG`` cell empty to perform the WEP over the same target the centering step was done and 
    which the telescope is still tracking.
 
-   Click on ``Add`` and the script will be added to the end of the script queue.
+   Click on :guilabel:`Add` and the script will be added to the end of the script queue.
 
    .. figure:: ./_static/WEP_AuxTel.png
        :name: latiss-wep
@@ -85,7 +87,7 @@ Procedure Steps
        Screenshot of LOVE launching the WEP. 
 
 
-If these three steps were successful, the telescope is now centered, aligned and focus. 
+If these steps were successful, the telescope is now centered, aligned and focus. 
 
 
 This procedure was last modified on |today|.
