@@ -29,14 +29,20 @@ AuxTel Rotator Out Of Range
 Overview
 ========
 
-When observing during the night, latiss_acquire (Spectroscopic survey) or `track_target_and_take_image` (Imaging survey) scripts failed with a "Rejected: Rotator out of range" error and ATPtg goes into ``FAULT``.
+When observing during the night, `latiss_acquire` (Spectroscopic survey) or `track_target_and_take_image` (Imaging survey) scripts failed with the error message:
+
+.. code-block:: text
+
+    Rejected: Rotator out of range 
+
+and ATPtg might goes into ``FAULT``.
 
 .. _AuxTel-Rotator-Out-Of-Range-Error-Diagnosis:
 
 Error diagnosis
 ===============
 
-During the imaging or spectroscopic surveys, the scripts latiss_acquire (Spectroscopic survey) or `track_target_and_take_image` (Imaging survey) fail with the following error:
+During the imaging or spectroscopic surveys, the scripts `latiss_acquire` (Spectroscopic survey) or `track_target_and_take_image` (Imaging survey) fail with the following error:
 
 .. code-block:: text
 
@@ -61,41 +67,53 @@ During the imaging or spectroscopic surveys, the scripts latiss_acquire (Spectro
 Procedure Steps
 ===============
 
-The interim solution requires recovering the ATPtg back to ``ENABLE`` in the case it went to ``FAULT``, and skiping to the next target in the ATQueue by pressing the :guilabel:`PLAY` buttom. 
-If this script also fails with the same error, wait three mintues and try again.
+The interim solution requires recovering the *ATPtg* back to ``ENABLED`` in the case it went to ``FAULT``, and skiping to the next target in the ATQueue by pressing the :guilabel:`PLAY` buttom. 
+If this script also fails with the same error, wait three minutes and try again.
 
 
-1. Recover ATPtg from ``FAULT`` state: Transition the ATPtg CSC from LOVE ASummaryState through the states, ``FAULT`` → ``STANDBY`` → ``START`` → ``ENABLE``
-2. Add a `correct_pointing.py` script to the queue to recover the pointing offsets from the beginning of the night. No configuration is needed, you can use the default configuration.  
-3. Press :guilabel:`PLAY` button in the ATQueue: This will skip to the next target waiting in the queue.
-4. If this "new" script fails as well, wait three minutes and repeat 1-2 again.
-5. Log in relevant information about this failure in the ticket `OBS-52 <https://rubinobs.atlassian.net/browse/OBS-52>`__ - Unable to retrieve issue.
+#. Recover *ATPtg* from ``FAULT`` state: Transition the *ATPtg* *CSC* from LOVE ASummaryState through the states, ``FAULT`` → ``STANDBY`` → ``START`` → ``ENABLED``
+#. Add a `correct_pointing.py` script to the queue to recover the pointing offsets from the beginning of the night. No configuration is needed, you can use the default configuration.  
+#. Press :guilabel:`PLAY` button in the ATQueue: This will skip to the next target waiting in the queue.
+#. If this "new" script fails as well, wait three minutes and repeat 1-2 again.
+#. Log in relevant information about this failure in the ticket `OBS-52 <https://rubinobs.atlassian.net/browse/OBS-52>`__.
 
 
 Alternative Procedure
 =====================
 
-In case previous steps did not work, rotator continues failing and ATPtg never went to ``FAULT`` state, there is an alternative solution as follows:
+In case previous steps did not work, rotator continues failing and *ATPtg* never went to ``FAULT`` state, there is an alternative solution as follows:
 
-1. Find a target with the standard script `auxtel/track_target.py` and the following configuration:
+1. Find a target with the standard script `auxtel/track_target.py` and use the following configuration:
 
-- az: 90.0
-- el: 60.0
-- mag_limit: 8.0
+.. code-block:: text
+    :caption: track_target.py
 
-1. Then run the external `auxtel/correct_pointing.py` on the same area of the sky using the configuration. Modify *az* and *el* accordingly:
+    az: 90.0
+    el: 60.0
+    mag_limit: 8.0
 
-- az: 90.0
-- el: 60.0
+2. Then run the external `auxtel/correct_pointing.py` on the same area of the sky.
+
+.. code-block:: text
+    :caption: correct_pointing.py
+
+    az: 90.0
+    el: 60.0
+
+3. Press :guilabel:`PLAY` button in the ATQueue.
+
+4. Log in relevant information about this failure in the ticket `OBS-52 <https://rubinobs.atlassian.net/browse/OBS-52>`__.
+
 
 .. _AuxTel-Rotator-Out-Of-Range-Post-Condition:
 
 Post-Condition
 ==============
 
-- ATPtg is back to the ``ENABLE`` state.
+- *ATPtg* is back to the ``ENABLED`` state.
 - The rotator is within the acceptable range for operations.
 - No further "Rotator out of range" errors occur after executing the procedure.
+
 
 .. _AuxTel-Rotator-Out-Of-Range-Contingency:
 
