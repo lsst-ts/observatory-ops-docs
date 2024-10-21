@@ -12,6 +12,8 @@
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
+.. _`English`: https://docs.google.com/presentation/d/1KMbyblTWzQjOn5Wm8BY_Ip62QuFoldGg/edit?usp=sharing&ouid=116721464699564151672&rtpof=true&sd=true
+.. _`Spanish`: https://docs.google.com/presentation/d/14Q2C2-avt_DoPdipJ3c9qV4TFEoNjiaN/edit?usp=sharing&ouid=116721464699564151672&rtpof=true&sd=true
 
 
 ##############################################
@@ -23,23 +25,31 @@ This page provides quick-reference procedures for the safety of personnel and eq
 
 This does not replace the required safety orientation for summit personnel.
 
+For a full overview of emergency procedures, review the presentation in `English`_ (starting on slide 19) or in `Spanish`_, (starting on slide 19).
+
 Emergency Response Guide
 ========================
 
-.. grid:: 5     
+.. grid:: 3     
 
    .. grid-item-card:: Medical Emergency
       :link: emergency-response-guide-medical-emergency
       :link-type: ref
 
-
-   .. grid-item-card:: Fire
-      :link: emergency-response-guide-fire
+   .. grid-item-card::  Inclement Weather
+      :link: emergency-response-guide-inclement-weather
       :link-type: ref
 
    .. grid-item-card:: Earthquake
       :link: emergency-response-guide-earthquake
       :link-type: ref
+
+.. grid:: 3
+
+   .. grid-item-card:: Fire
+      :link: emergency-response-guide-fire
+      :link-type: ref
+
 
    .. grid-item-card:: Chemical Spill
       :link: emergency-response-guide-spill
@@ -93,17 +103,17 @@ Out of Hours Support
       :link-type: ref
 
 
-Safety Systems
-=========================
+Safety Systems (GIS, LOTO, E-stop)
+==================================
 
-.. grid:: 3
+.. grid:: 2
 
    .. grid-item-card:: Control Safety Systems
       :link: Safety-Systems/Control-Safety-Systems
       :link-type: doc
       :padding: 4
 
-      Description of GIS, LOTO and e-stop safety systems. 
+      Description of GIS, LOTO and E-stop safety systems. 
 
 
    .. grid-item-card:: GIS
@@ -113,13 +123,61 @@ Safety Systems
 
       GIS introduction
 
-   .. grid-item-card:: Enter Observatory Spaces Safely
-      :link: Enter-Observatory-Spaces/index
+
+
+Safety Gates
+------------
+.. grid:: 2
+
+   .. grid-item-card:: Safety Gates
+      :link: /Safety/Safety-Systems/Safety-Gate-Introduction
       :link-type: doc
       :padding: 4
 
-      Procedures to enter telescopes while in operations, 
-      and other parts of the observatory building. 
+      Safety Gates introduction
+
+   .. grid-item-card:: Safety Gates Operations
+      :link: /Safety/Safety-Systems/Safety-Gate-Procedures
+      :link-type: doc
+      :padding: 4
+
+      How to open/close and activate/deactivate safety bypass. 
+
+AuxTel
+------
+.. grid:: 2
+
+   .. grid-item-card:: AuxTel LOTO
+      :link: /AuxTel/Non-Standard-Operations/ATCS/AuxTel-LOTO-procedure
+      :link-type: doc
+      :padding: 4
+
+      How to put AuxTel under LOTO. 
+
+   .. grid-item-card:: AuxTel E-stop
+      :link: /AuxTel/Non-Standard-Operations/ATCS/E-Stop-Procedure
+      :link-type: doc
+      :padding: 4
+
+      Where to find E-stop switches and how to engage/disengage the E-stop system. 
+
+Simonyi
+-------
+.. grid:: 2
+
+   .. grid-item-card:: Simonyi OSS LOTO
+      :link: /Simonyi/Non-Standard-Operations/MTCS/TMA/Simonyi-LOTO-procedure
+      :link-type: doc
+      :padding: 4
+
+      How to put Simonyi under OSS LOTO. 
+
+   .. grid-item-card:: Simonyi E-stop
+      :link: Simonyi-E-Stop-Procedure
+      :link-type: doc
+      :padding: 4
+
+      Under construction 
 
 Enter Observatory Spaces
 =========================
@@ -131,19 +189,20 @@ Enter Observatory Spaces
       :link-type: doc
       :padding: 4
 
-      Procedures to enter telescopes while in operations
+      Procedures to enter AuxTel during daytime, ventilation, calibration and night time operations. 
 
 
 
 .. Here's is the left hand-side navigation. 
+
 .. toctree::
     :maxdepth: 4
     :titlesonly:
     :hidden:
 
     emergency-response-guide.rst
-    out-of-hours-support.rst
     summit-contact-numbers.rst
+    out-of-hours-support.rst
     Safety-Systems/index.rst
     Enter-Observatory-Spaces/index.rst
 
