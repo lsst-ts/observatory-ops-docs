@@ -86,9 +86,14 @@ Non-Emergency Numbers
 Calling Hotel Pachon
 ====================
 
-If there is something wrong with the room you have organized to stay in, you may call 440 from the hotel foyer and request help.
+If there is something wrong with the room you have organized to stay in, you may call 440 from the hotel foyer or the summit control room and request help.
+During working hours, (Monday - Friday 8:30 - 16:15) this extension will connect to the Cerro Pachón mountain assistant.
+After hours, this extension is forwarded to the mountain assistant on Cerro Tololo. 
+They will call directly to staff on Cerro Pachón to attend to after-hours hotel issues.  
 Some examples are if the key is not hanging on the second floor for you, there is no hot water, or the heat is off and you want to request a space heater, etc.
 Staff mostly speak Spanish only.
+
+To call one of the hotel rooms or 20 units, dial this number 9 2 512205 + extension. 
 
 - 20-Units main telephone: 599
 
@@ -126,7 +131,7 @@ Using the control room phones
 
 - To dial a cell phone in Chile: 9 9 XXXX XXXX
 
-- To dial the United States: 9 + 001 + Area Code + Phone Number
+- To dial the United States: 001 + Area Code + Phone Number
 
 - To dial another country: 9 + 188 + 0 + Country Code + Area Code + Phone Number
 
