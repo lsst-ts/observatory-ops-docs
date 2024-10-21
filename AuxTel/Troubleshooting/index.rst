@@ -16,11 +16,11 @@ A comprehensive list of common faults will be displayed here along their trouble
      - Troubleshooting procedure
    * - ATCS
      - ATHexapod fails to enable - No connection to athexapod controller
-     - `Daytime checkout`
+     - :ref:`Daytime checkout <AuxTel-DayTime-Operations-Daytime-Checkout>`
   
-       raise OSError(err, f'Connect call failed {address}')OSError: [Errno 113] Connect call failed ('139.229.170.48', 50000)
+        raise OSError(err, f'Connect call failed {address}')OSError: [Errno 113] Connect call failed ('139.229.170.48', 50000)
      - :ref:`ATHexapod fails to enable with the rest of ATCS <ATHexapod-fails-to-enable-with-the-rest-of-ATCS>`
-   * - -
+   * - 
      - ATMCS fails to enable - e-stop is engaged
      - `Daytime checkout`
 
@@ -72,7 +72,7 @@ A comprehensive list of common faults will be displayed here along their trouble
   
        RuntimeError: Telescope timed out getting in position.
      - :ref:`AuxTel Mount Fails to Move and Times Out <ATCS-Troubleshooting-AuxTel-Mount-Fails-to-Move-and-Times-Out>`
-   * - -
+   * - 
      - ATMount fails to move and Azimuth Max Velocity error exceeded
      - `on-sky`
   
