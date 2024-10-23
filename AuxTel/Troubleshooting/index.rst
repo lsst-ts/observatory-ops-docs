@@ -84,7 +84,7 @@ A comprehensive list of common faults will be displayed here along their trouble
      - ATDome shutter fails to close
      - :ref:`Shutdown <AuxTel-Nighttime-Operations-Shutdown>`
      - :ref:`AuxTel Emergency Shutdown <AuxTel-Non-Standard-Operations-AuxTel-Emergency-Shutdown>`
-   * - AT Instrumentation
+   * - LATISS
      - ATCamera Recovering from Fault State
      - :ref:`Daytime checkout <AuxTel-DayTime-Operations-Daytime-Checkout>`, :ref:`Calibrations <Daytime-Operations-LATISS-Daily-Calibrations-BIAS-DARK-FLAT-all-filters-empty-Procedure>` , :ref:`Nightime Operations <AuxTel-Nighttime-Operations-index>` 
      - :ref:`AT camera recovery <LATISS-Troubleshooting-ATcamera-recovery>`
