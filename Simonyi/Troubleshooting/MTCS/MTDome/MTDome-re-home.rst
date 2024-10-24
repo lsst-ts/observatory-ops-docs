@@ -25,9 +25,7 @@ The MTDome needs re-homing if the reference azimuth position is lost, and the en
   This is a temporary situation which will be resolved once EIE updates the *azimuth rotation control software*. The absolute encoders will only be installed by EIE when the dome is finished.
 
   This process already has started but will take a few more months. Once completed this procedure can be deprecated.
-...
-
-
+..
 
 .. _MTDome-MTDome-re-Home-Procedure-Error-Diagnosis:
 
@@ -37,27 +35,23 @@ Error Diagnosis
 * If the MTDome is not positioned where it should be, the images from the lightpath LSSTCam/ComCam/Startracker may get vignetted by the MTDome. In extreme case, the images will show nothing if the camera's lightpath is covered by the MTDome. 
 * The MTDome azimuth position reported is not the same as the one seen in the divice *UniFi at Cam-04* (use VPN to get into `Unifi Dashboard`_).
 
-.. table::
-   :widths: 50 50
 
-   ========  ==================
-   Fig. 1     Fig.2
-   ---------  ------------------
-   .. figure:: /_static/mtdome_rehome_1.png
-      :target: ../_static/mtdome_rehome_1.png
-      :alt: 
-
-      LSST.
-
-   .. figure:: /_static/mtdome_rehome_2.png
-      :target: ../_static/mtdome_rehome_2.png
-      :alt: 
-
-      LSST.
-   ========  ==================
+   .. image:: _static/mtdome_rehome_1.png
+      :target: _static/mtdome_rehome_1.png
+      :height: 270px 
+      :width: 410px 
 
 
-...
+   .. image:: _static/mtdome_rehome_2.png
+      :target: _static/mtdome_rehome_2.png
+      :height: 350px 
+      :width: 210px 
+
+
+  - *Left image UniFi at Cam-04 and right image LOVE/MTDome summary dashboard*
+
+
+ 
 
 .. _MTDome-MTDome-re-Home-Procedure-Procedure-Steps:
 
