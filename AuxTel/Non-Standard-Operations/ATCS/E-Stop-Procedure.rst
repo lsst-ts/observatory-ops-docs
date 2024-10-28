@@ -4,9 +4,9 @@
 
 .. _AuxTel-Non-Standard-Procedures-E-Stop-Procedure:
 
-####################
-E-Stop Procedure
-####################
+#######################
+AuxTel E-Stop Procedure
+#######################
 
 
 .. _E-Stop-Procedure-Overview:
