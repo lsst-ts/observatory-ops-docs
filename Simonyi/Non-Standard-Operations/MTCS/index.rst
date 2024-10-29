@@ -12,6 +12,13 @@ MTCS
     TMA/index.rst
     
     
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+    :glob:
+
+    MTPtg/index.rst
+
 
 .. toctree::
     :maxdepth: 2

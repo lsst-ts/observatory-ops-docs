@@ -1,7 +1,7 @@
 .. MTCS-Non-standard-Operations-TMA-Non-Standard-Procedures:
 
 ############################
-TMA
+MTPtg
 ############################
 
 .. toctree::
