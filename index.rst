@@ -180,10 +180,10 @@ Observing
         that monitor, control and visualizes
         the observatory operations as a whole. 
 
-    .. grid-item-card:: Daytime-Nighttime Interactions
+    .. grid-item-card:: Communications
         :img-bottom: _static/Daytime-Nighttime.png
         :img-alt: Interactions between day and night crews
-        :link: Daytime-Nighttime-Interactions/index
+        :link: Communications/index
         :link-type: doc
 
         Documenting events and work 
@@ -227,7 +227,7 @@ Getting Started
    Simonyi <Simonyi/index>
    AuxTel <AuxTel/index>
    Observatory <Observatory-Control-System/index>
-   Communications <Daytime-Nighttime-Interactions/index>
+   Communications <Communications/index>
    Contribute <project/index>
    Setup <Observing-Interface-Setup/index>
 

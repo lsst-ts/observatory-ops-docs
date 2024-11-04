@@ -171,7 +171,7 @@ Example content:
 
 - Not required, but used by some observers to give periodic status updates during the night.
 
-#auxtel-discussion and #simonyi-discussion
+#simonyi-discussion and #auxtel-discussion
 ------------------------------------------
 
 These channels are also telescope system specific but are dedicated for communication between people providing external support, such as looking at data as it comes in.
