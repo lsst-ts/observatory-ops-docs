@@ -81,7 +81,7 @@ For instance, if a TMA interlock is triggered, you will see it in the GIS Main c
 
 .. This diagram was copied and updated based on Guido Maulen `Diseno GIS's page`_ and additions from Franco Colleoni.
 
-.. _`Diseno GIS's page`: https://confluence.lsstcorp.org/display/IT/Diseno+GIS
+.. _`Diseno GIS's page`: https://rubinobs.atlassian.net/wiki/spaces/IT/pages/46409478/Diseno+GIS
 
 .. figure:: ./_static/GIS-design.png
       :width: 500px
@@ -379,7 +379,7 @@ This is shown in the table below.
     
     See more in `M1M3 Interlock System`_ page.
 
-.. _`M1M3 Interlock System`: https://confluence.lsstcorp.org/display/LTS/M1M3+Interlock+System
+.. _`M1M3 Interlock System`: https://rubinobs.atlassian.net/wiki/spaces/OOD/embed/223772841?atl_f=PAGETREE
 
 .. When available add a link to the page for M1M3 IS  
 

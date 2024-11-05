@@ -52,7 +52,7 @@ Test Data for Camera Playlists
 ==============================
 
 The camera playlists utilize raw fits files.
-To date, these have been managed `primarily via confluence pages <https://confluence.lsstcorp.org/display/LSSTCOM/Site+Playlists>`_.
+To date, these have been managed `primarily via confluence pages <hhttps://rubinobs.atlassian.net/wiki/spaces/LSSTCOM/pages/53757853/Site+Playlists>`_.
 To date, only Michael Reuter has been the primary curator of these datasets.
 
 Note that the new images created from running through the playlist are not protected and are subject to deletion when required (generally 30 days).
@@ -70,4 +70,4 @@ Current Collections
 -------------------
 
 The list of collections are to be hosted external to this documentation and will evolve with time.
-Until that list (and mechanism) can be linked from here, a list of the current collections and datasets are on a `dedicated confluence page <https://confluence.lsstcorp.org/display/LSSTCOM/Site+Specific+Test+Data+Collections>`_. 
+Until that list (and mechanism) can be linked from here, a list of the current collections and datasets are on a `dedicated confluence page <https://rubinobs.atlassian.net/wiki/spaces/LSSTCOM/pages/53770280/Site+Specific+Test+Data+Collections>`_. 

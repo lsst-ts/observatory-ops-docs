@@ -8,7 +8,7 @@
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
 
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
-.. |author| replace:: *Ioana Sotuela*
+.. |author| replace:: *David Sanmartim*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
 .. |contributors| replace:: *Gonzalo Aravena*, *Paulina Venegas*
 
@@ -32,22 +32,6 @@ Overview
 This document outlines the procedure to restart the MTMount Operation Manager (OM). 
 Restarting the OM may be necessary for troubleshooting or maintenance purposes. 
 The OM is responsible for managing various operations related to the telescope mount. 
-
-.. _TMA-Restart-MTMount-Operation-Manager-Diagnosis:
-
-Error diagnosis
-===============
-
-When trying to change the MTMount CSC from ``STANDBY`` to ``DISABLED`` state:
-
-- MTMount goes to ``FAULT``.
-- It could not retrieve telemetry from the CCW.
-- Raises the following error message: 
-
-.. code-block:: text
-  :caption: MTMount Error Message when transitioning from ``STANDBY`` to ``DISABLED``
-
-  RuntimeError: Telemetry client timed out waiting for telemetry; giving up.
 
 .. _TMA-Restart-MTMount-Operation-Manager-Steps:
 
@@ -81,7 +65,7 @@ To do this, follow these steps in the TMA computer's terminal:
  kill #PID
 
 
-1. **ssh to TMA Server**: Connect to the TMA server computer using SSH. Retrieve the credentials from the MainTel 1Password *TMA Server* vault.
+2. **ssh to TMA Server**: Connect to the TMA server computer using SSH. Retrieve the credentials from the MainTel 1Password *TMA Server* vault.
 
 .. prompt:: python
 
@@ -130,7 +114,8 @@ Wait for up to 5 minutes before proceeding to the next step and check that the O
 
     Active: active (running) since ...
 
-6. **Open the EUI Application**: Open the EUI application to resume operations. If you don't know how to open it, refer to the "Opening TMA EUI" section in `this document <https://confluence.lsstcorp.org/display/OOD/How+create+a+VNC+connection+to+TMA+EUI>`__.
+6. **Open the EUI Application**: Open the EUI application to resume operations. If you don't know how to open it, refer to the "Opening TMA EUI" 
+   section in `this document <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/39690581/How+create+a+VNC+connection+to+TMA+EUI>`__.
 
 
 

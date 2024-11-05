@@ -23,7 +23,7 @@
 .. _`#summit-auxtel`: https://lsstc.slack.com/archives/C01K4M6R4AH
 .. _`#summit-maintel`: https://lsstc.slack.com/archives/C04HULH5HHD
 .. _`#summit-control-room`: https://lsstc.slack.com/archives/C053L0Q2B9P
-.. _`Confluence page`: https://confluence.lsstcorp.org/display/LSSTPO/Rubin+Out+of+Hours+Support
+.. _`Confluence page`: https://rubinobs.atlassian.net/wiki/spaces/LSSTPO/pages/43242474/Voluntary+Out-of-Hours+Support+Call+List
 
 ####################
 Out of Hours Support

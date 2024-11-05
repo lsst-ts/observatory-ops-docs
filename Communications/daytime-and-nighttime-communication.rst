@@ -47,7 +47,7 @@ Ian Ordenes or Claudio Araya can also report if daytime work such as mirror clea
 Night Logs
 ==========
 
-Details of work done during the day, such as software changes or mechanical work like as filter changes, mirror cleaning, and maintenance are published to the `Night Logs <https://confluence.lsstcorp.org/display/LSSTCOM/Night+Logs>`__ before the start of the night. 
+Details of work done during the day, such as software changes or mechanical work like as filter changes, mirror cleaning, and maintenance are published to the night logs before the start of the night. 
 Daytime staff publish the details before the end of day at the summit - 16:30 summit time.
 
 More information about creating and writing night logs is found on the :ref:`Daytime-Nighttime-Interactions-nighttime-logging` page.
