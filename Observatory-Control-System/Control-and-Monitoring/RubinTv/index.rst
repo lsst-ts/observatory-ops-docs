@@ -7,44 +7,13 @@
 
 .. This is the label that can be used as for cross referencing this file.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _Observatory-Non-Standard-Operations-index:
+.. _RubinTV-index: 
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
-##################################################
-Observatory Control System Non-Standard Operations
-##################################################
+###################
+RubinTV
+###################
 
-.. This section should provide a brief, top-level description of the page.
-
-.. _Computer-Room-Shutdown-Recovery:
-
-Shutdown and Recovery sequence of servers in the computer room.
-
-.. toctree::
-   :glob:
-   :titlesonly:    
-   :maxdepth: 3
-
-   Computer-Room-Shutdown/index.rst
-
-
-.. _Summit-Devices-Shutdown-Recovery:
-
-Shutdown and Recovery sequence of servers and network devices not in the computer room.
-
-.. toctree::
-   :glob:
-   :titlesonly:
-
-   Summit-Devices-Shutdown/index.rst
-
-
-
-.. toctree::
-   :glob:
-   :titlesonly:
-
-   *

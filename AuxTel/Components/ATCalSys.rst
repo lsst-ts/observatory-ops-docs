@@ -1,7 +1,7 @@
 .. _AuxTel-Components-ATCalSys:
 
 ######################
-AT Calibrations System
+AT Calibration System 
 ######################
 
 `AuxTel Illumination System Handbook`_
