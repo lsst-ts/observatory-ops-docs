@@ -60,7 +60,7 @@ Procedure Steps
 
 1. Move the MTDome to the azimuth of 328 deg, the position can be verified through the camera systems `UniFi at Cam-04`_ (via VPN). This is the **zero position or park position** for the MTDome.
 
-2. Note that the readings reported by the MTDome in `LOVE dashboard`_ or `Chronograf`_  will show different numbers, so you need to calculate the value that the unaligned encoders would read at the park position of 328 degrees and send the MTDome to that angle.
+2. Note that the readings reported by the MTDome in `LOVE dashboard`_ or *Chronograf*  will show different numbers, so you need to calculate the value that the unaligned encoders would read at the park position of 328 degrees and send the MTDome to that angle.
 
     * For example: you notice the MTDome dashboard is reporting 10 degree in azimuth, but the camera marks 25.2 degrees.
     * Due to the encoder is 15.2 degrees behind, to send the MTDome to home at 328 degrees, you need to command the dome to move to **(328 - 15.2) = 312.8 degrees**
@@ -98,6 +98,11 @@ Procedure Steps
 ..
 
 
+* This *setZeroAz* command reset the *actualPosition* of the azimuth telemetry to 328º.
+  * Only if that doesn't work, try a reboot of the cRIO. This will reset the zero position in the cRIO, so after a reboot no *setZeroAz command* is necessary.
+  * After a reboot, always send an *exitFault* command (cmd: exitFault). If the azimuth control software is not in fault, the command will still be accepted.
+
+
 .. _MTDome-MTDome-re-Home-Post-Condition:
 
 
@@ -109,5 +114,4 @@ Post-Condition
 
 Contingency
 ===========
-* If the above procedure was not successful, report the issue in *#summit-simonyi, #simonyi-operations* and *#rubinobs-mtdome* channels.
-
+* If the above procedure was not successful, report the issue in *#summit-simonyi, #simonyi-operations* and *#rubinobs-mtdome* channels and please open an OBS Jira ticket if neccesary.
