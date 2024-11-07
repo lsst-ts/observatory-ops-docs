@@ -115,4 +115,4 @@ Post-Condition
 
 Contingency
 ===========
-* If the above procedure was not successful, report the issue in **#summit-simonyi, #simonyi-discussion* and #mtdome-worklog** channels and please open an OBS Jira ticket if neccesary.
+* If the above procedure was not successful, report the issue in **#summit-simonyi, #simonyi-discussion** and **#mtdome-worklog** channels and please open an OBS Jira ticket if neccesary.
