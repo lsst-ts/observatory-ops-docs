@@ -98,9 +98,10 @@ Procedure Steps
 ..
 
 
-* This *setZeroAz* command reset the *actualPosition* of the azimuth telemetry to 328º.
-  * Only if that doesn't work, try a reboot of the cRIO. This will reset the zero position in the cRIO, so after a reboot no *setZeroAz command* is necessary.
-  * After a reboot, always send an *exitFault* command (cmd: exitFault). If the azimuth control software is not in fault, the command will still be accepted.
+* This :command:`setZeroAz`` command reset the actual position of the azimuth telemetry to 328 deg.
+
+  * Only if that doesn't work, try a reboot of the cRIO. This will reset the zero position in the cRIO, so after a reboot no :command:`setZeroAz command`` is necessary.
+  * After a reboot, always send an :command:`exitFault`` command (i.e :command:`cmd: exitFault`). If the azimuth control software is not in fault, the command will still be accepted.
 
 
 .. _MTDome-MTDome-re-Home-Post-Condition:
