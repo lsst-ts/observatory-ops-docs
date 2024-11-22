@@ -66,6 +66,44 @@ Prerequisites
 - Familiarity with Linux commands and the use of general *Power Distribution Unit (PDU)* or *netbooter* for power cycling.
 
 
+.. _MTRot-PXI-Controller-Reboot-Log-Collection:
+
+Log Collection
+--------------
+
+Before starting the reboot procedure, collect the log files for debugging purposes:
+
+1. Write down the exact timestamps of the error.
+
+2. To copy log messages from PXI to your local machine:
+
+   a. Access 1Password vault for credentials
+   b. SSH into rot-pxi:
+
+   .. prompt:: bash
+
+      ssh admin@rot-pxi-controller.cp.lsst.org
+
+   c. Create a log file with current date:
+
+   .. prompt:: bash
+
+      cat /var/log/messages > log_message_YYMMDD
+
+   d. Exit SSH:
+
+   .. prompt:: bash
+
+      exit
+
+   e. Copy the log file to your local machine:
+
+   .. prompt:: bash
+
+      scp admin@rot-pxi-controller.cp.lsst.org:~/log_message_YYMMDD ./
+
+3. Attach all relevant log files and timestamps to `OBS-664 <https://rubinobs.atlassian.net/browse/OBS-664>`__.
+
 .. _MTRot-PXI-Controller-Reboot-Procedure:
 
 Procedure Steps
