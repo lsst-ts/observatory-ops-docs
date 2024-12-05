@@ -103,8 +103,6 @@ Procedure Steps
              cd build
              ./runRotEui
 
-
-
 #.  **Change from DDS Command Source to GUI mode:** 
 
     .. _MTRotator-Recovery-Procedure-Step3:
