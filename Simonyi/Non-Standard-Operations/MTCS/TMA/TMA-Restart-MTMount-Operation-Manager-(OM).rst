@@ -33,10 +33,6 @@ This document outlines the procedure to restart the MTMount Operation Manager (O
 Restarting the OM may be necessary for troubleshooting or maintenance purposes. 
 The OM is responsible for managing various operations related to the telescope mount. 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 893fb94 (Add AuxTel Troubleshooting summary table)
 .. _TMA-Restart-MTMount-Operation-Manager-Steps:
 
 Procedure Steps
