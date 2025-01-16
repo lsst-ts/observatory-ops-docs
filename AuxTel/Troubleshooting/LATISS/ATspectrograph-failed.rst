@@ -38,7 +38,7 @@ Overview
 
 This procedure outlines the steps to recover the AT Spectrograph 
 when it fails during script execution 
-due to the **loss of grating stage position after a reset**. 
+due to the **a grating wheel, filter wheel and grating stage timeout or other errors**. 
 This issue typically arises following a reset, caused by UPS failure due to power outage or a hard reset.
 
 
