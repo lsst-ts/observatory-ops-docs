@@ -17,11 +17,12 @@ LATISS Daily Calibrations BIAS and DARK only
 .. _Daytime-Operations-LATISS-Daily-Calibrations-BIAS-DARK-only-Overview:
 Overview
 ========
-This procedure will acquire BIAS and DARK calibration images. 
+This procedure will acquire BIAS and DARK calibration images only. 
 This page assumes the reader is familiar with the content explained in the Observatory section: :ref:`Introduction to the combined calibrations generation procedure.<Introduction-Combined-Calibrations-Generation-index>` 
 
 .. warning::
   This procedure does not involves telescope motion with AuxTel. Announce that you are about to run the calibrations without telescope or dome movement on the *#summit-announce* and *#summit-auxtel* channels before you run the following steps.
+  The Daytime calibrations can be taken at any time or under any conditions when convenient and they do not include the use of the Electrometer, Monochromator, or FiberSpectrograph CSCs, these can remain in ``STANDBY`` while running.  
 
 .. _Daytime-Operations-LATISS-Daily-Calibrations-BIAS-DARK-only-Post-Conditions:
 Post-Condition
@@ -32,16 +33,6 @@ Post-Condition
 .. _Daytime-Operations-LATISS-Daily-Calibrations-BIAS-DARK-only-Procedure-Steps:
 Procedure Steps
 ===============
-
-#. Calibration images should only be taken if the LATISS WREB temperature is under temperature control.
-    
-    Check the LATISS WREB temperatures under the `AuxTel (LATISS) Temperatures and Pressures dashboard`_ in Chronograf. WREB temperatures are visible in the lower middle panel labeled *WREB On Board*. 
-        
-    If the *mean_temp2* (top blue line) is between 26-29 degress C, the temperature is suitable for taking calibrations. 
-        
-    During the daytime, the fan on the WREB board may not be sufficient to cool the WREB down to these temperatures, so during warmer months you may have to wait until later in the day or early in the morning for it to reach the desired temperature. 
-        
-    If the temperature is too high, do not proceed to the next steps. 
 
 #. Enable ATCS and LATISS using the standard scripts :file:`enable_atcs.py` and :file:`enable_latiss.py` with no configuration. 
 #. Enable the OCPS:1 CSC which is used to run automatic verification pipelines on the data. The :file:`set_summary_state.py` script will enable the ``OCPS:1`` CSC.
