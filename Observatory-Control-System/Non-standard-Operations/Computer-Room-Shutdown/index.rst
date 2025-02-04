@@ -49,7 +49,7 @@ The following is the list of safe to power-off servers. The computers can be pow
 **IT**
 
 *snapshot and shutdown VMs first*
-- vsphere[2-3].cp.lsst.org - *hvaccp* and *dccp1* VMs migrate to vsphere01.cp.lsst.org  . Maintenance mode first then shut down from https://vcenter.cp.lsst.org/ui
+- vsphere[2-3].cp.lsst.org - *hvaccp* and *dccp1* VMs migrate to vsphere01.cp.lsst.org  . Maintenance mode first then shut down from  vcenter.cp.lsst.org/ui
 - lukay[1-5].cp.lsst.org
 - perfsonar01.cp.lsst.org
 
