@@ -96,9 +96,9 @@ The following is the list computers will be powered off alerting the system owne
 
 - core[2 instances].cp.lsst.org (not dns of foreman hypervisor)
 - elqui[01-18].cp.lsst.org
-- ipsec switches
-- leafs of each rack (except A1)
-- ipmi of each rack (expect A1)
+- ipsec switches   (can be done in tier 4)
+- leafs of each rack (except A1)  (can be done in tier 4)
+- ipmi of each rack (expect A1)  (can be done in tier 4)
 - all vms except hvac monitoring (hvaccp) and domain controller (dccp) 
 
 **Control System**
