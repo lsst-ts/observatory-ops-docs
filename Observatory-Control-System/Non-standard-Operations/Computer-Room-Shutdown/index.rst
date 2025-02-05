@@ -49,7 +49,7 @@ The following is the list of safe to power-off servers. The computers can be pow
 **IT**
 
 *snapshot and shutdown VMs first*
-- vsphere[2-3].cp.lsst.org - *hvaccp* and *dccp1* VMs migrate to vsphere01.cp.lsst.org  . Maintenance mode first then shut down from  vcenter.cp.lsst.org/ui
+- vsphere[2-3].cp.lsst.org - *hvaccp* and *dccp1* VMs migrate to vsphere01.cp.lsst.org . First shut down the VMS on vsphere2 then put vsphere2 in maintenance mode first then shut down from  vcenter.cp.lsst.org/ui. Then repeat for vsphere03
 - lukay[1-5].cp.lsst.org
 - perfsonar01.cp.lsst.org
 
@@ -94,7 +94,7 @@ The following is the list computers will be powered off alerting the system owne
 **IT**
 
 
-- core[2 instances].cp.lsst.org (not dns of foreman hypervisor)
+- core[02,03].cp.lsst.org (not dns or foreman hypervisor).  Log in to core03 first and shutdown the libvirt vms that are running on the node. This can be done using the virsh shutdown <name> command. To list the vms on the node we use virsh list --all. Once this is complete the node can be safely powered off and we can move on to core02 repeating the procedure
 - elqui[01-18].cp.lsst.org
 - ipsec switches   (can be done in tier 4)
 - leafs of each rack (except A1) an not spine switches in A5 and A6  (can be done in tier 4)
@@ -103,7 +103,7 @@ The following is the list computers will be powered off alerting the system owne
 
 **Control System**
 
-- yagan[01-20].cp.lsst.org
+- First bring down the control system - then bring down yagan[01-20].cp.lsst.org using foreman -> remote job on machines 'ipmitool chassis power off' 
 - azar01.cp.lsst.org
 - chonchon[01-03].cp.lsst.org
 - nfs1.cp.lsst.org
