@@ -36,7 +36,9 @@ Overview
 .. why it happens
 .. when it happens
 
-This procedure outlines the steps to recover the ATSpectrograph when it fails during script execution. These issues typically arise after a reset in the ATSpectrograph cRIO, or while enabling the ATSpectrograph CSC. Potential root causes of the failure might include mechanism timeouts, miscommunication, and a range of other contributing factors
+This procedure outlines the steps to recover the ATSpectrograph when it fails during script execution. 
+These issues typically arise after a reset in the ATSpectrograph cRIO, or while enabling the ATSpectrograph CSC. 
+Potential root causes of the failure might include mechanism timeouts, miscommunication, and a range of other contributing factors. 
 
 .. python/lsst/ts/standardscripts/data/scripts/auxtel/daytime_checkout/latiss_checkout.py
 
@@ -50,7 +52,9 @@ This procedure outlines the steps to recover the ATSpectrograph when it fails du
 
     * The grating stage position ranges between 67 mm and 140 mm from the rotator flange. The hard limit is 65 mm.
 
-    * The most frequent position during operations is close to 67 mm. This position is set every time the script :file:`auxtel/standard_scripts/daytime_checkout/latiss_checkout.py` is run. **If by any reason the grating stage is moved to a different position during daytime, please do not forget to run the script afterwards**.
+    * The most frequent position during operations is close to 67 mm. 
+      This position is set every time the script :file:`auxtel/standard_scripts/daytime_checkout/latiss_checkout.py` is run. 
+      **If by any reason the grating stage is moved to a different position during daytime, please do not forget to run the script afterwards**.
 
      You can find more information on the ATSpectrograph in the `LSST Auxiliary Telescope Spectrograph AS_BUILT`_ document.
 
@@ -65,9 +69,13 @@ Error diagnosis
 .. It is preferred to include them as a bulleted or enumerated list.
 .. Post screenshots of the error state or relevant tracebacks.
 
-* You get a timeout error after running a script like :file:`auxtel/standard_scripts/daytime_checkout/latiss_checkout.py` or another. Check the error message (similar to the :ref:`error message <error-message-latiss-checkout>` shown below). 
+There are a few different common error modes which can result in an ATSpectrograph Failure. 
+If the ATSpectrograph goes in Fault State and cannot be re-enabled, it is likely that you will need to follow this procedure to recover. 
 
-* There is an error with the linear stage while enabling the ATSpectrograph CSC, such as the :ref:`error message <error-message-stage-enabling>` shown below.
+Some examples include:
+* You get a timeout error related to the self.latiss.setup_instrument method when running a script like :file:`auxtel/standard_scripts/daytime_checkout/latiss_checkout.py` or another. Check the error message (similar to the :ref:`error message <error-message-latiss-checkout>` shown below). 
+
+* There is an error with the linear stage position while enabling the ATSpectrograph CSC, such as the :ref:`error message <error-message-stage-enabling>` shown below.
 
 * There is a difference between the **grating stage position** shown in the EUI and the nominal position (approximately 67 mm). You can find the ``Grating Stage position (mm)`` field in the ACE spectrograph tab, shown in the :ref:`step 2.5 <SpectrographEUI>` image. This means the **grating stage encoder was not correctly initialized**, so the read encoder position is not the real physical value, causing the next move command to fail. This issue first occurred on February 23, 2023. The stage position read 324 mm after a reset, and afterwards a move command to +67 mm failed with a timeout (`OBS-272`_).
 
@@ -134,7 +142,7 @@ Error diagnosis
 Procedure Steps
 ===============
 
-**The procedure will require to open the AuxTel EUI, to use telnet commands and to use the script queue.**
+**The procedure will require the user to open the AuxTel EUI, to use telnet commands to directly command the ATSpectrograph cRIO, and to use the script queue.**
 
 A healthy status in ATSpectrograph will look as the following screenshot, in which the linear stage, grating and filter wheels are homed/initialized, and the linear stage position is 67mm.
 
@@ -144,13 +152,39 @@ A healthy status in ATSpectrograph will look as the following screenshot, in whi
 
     ATSpectrograph EUI healthy status.
 
-To recover the ATSpectrograph:
+After a fault in the ATspectrograh, you may see that one of the status lights on the left-hand side of the EUI is red, such as the FWTimeOutErr light indicating that the filter wheel did not reach it's commanded position.
+
+To recover the ATSpectrograph we need to clear these faults and ensure the stages are in their correct state and position as shown in the screenshot above:
 
 #. Open the ATSpectrograph EUI, :ref:`connecting to AuxTel EUI desktop computer <AuxTel-Non-Standard-Operations-AuxTel-EUI-Access>` ACE spectrograph (*139.229.170.44:8000/Spectrograph.html*).
 
-#. First thing to try is to click the :guilabel:`Re-init Axes` button on the EUI. If the fault is cleared, the axes are homed/initialized, and the linear stage position is 67mm, keep on observing and proceed with the daytime checkouts.
+#. The first thing to try if the fault is due to a timeout error or one of the status lights on the left-hand side of the EUI is illuminated, is to click the :guilabel:`Re-init Axes` button on the EUI. 
+   If the fault is cleared and the status lights are returned to normal, the axes are homed/initialized, and the linear stage position is 67mm, you can re-enable the ATSpectrograph CSC and continue observing, skipping the rest of the procedure.
 
-#. If the fault doesn't clear, power cycle the ATSpectrograph cRIO:
+#. If you were unable to clear the fault with the Re-init axes button, a restart of the cRIO will be required. 
+   Before restarting, check the grating stage position in the EUI. 
+   To ensure it initialized properly after the reboot, we will need to move the linear stage to its home position before rebooting the cRIO using telnet commands. 
+   If the cRIO is rebooted without first homing the stage, it can lose its position and show an incorrect position, often -324mm which is well beyond its operational range.  
+
+   .. figure:: ./_static/EUI-1reboot.png
+      :width: 500px
+           
+      ATSpectrograph EUI with bad linear stage position.
+
+#. Use telnet commands to move the linear stage to its negative limit:
+    a. Check ATSpectrograph CSC is in ``STANDBY`` Status.
+    #. Open a terminal on your local machine. If the cRIO was recently rebooted, make sure that at least 60 seconds have passed since the cRIO EUI is accesible to give the application time to complete its setup.
+    #. Execute the command :file:`telnet auxtel-latiss-crio.cp.lsst.org 9999` to connect directly to the cRIO. 
+    #. Note that the port you are using needs to remain clear in order for the cRIO to connect to the CSC, so the EUI is setup to boot users from this port after 5 seconds if no commands are sent.
+       You may need to reconnect via telnet several times during this process if you get booted. 
+    #. Execute :file:`!LSI`. This command will move the linear stage to its negative limit.
+    #. Execute :file:`!LSL`. This command will display the status of the limit switches of the linear stage. 
+       It should return a :guilabel:`-` sign, indicating that the linear stage reached the negative limit and the switch is pressed.
+    #. In the :ref:`EUI <SpectrographEUI>`, the green indicator for the grating stage negative limit should have been activated.
+    #. The position of the linear stage may still read -324mm after this move has been commanded, and that is okay. 
+       To recover the position of the linear stage, we now need to reboot the cRIO. 
+
+#. With the linear stage in its negative limit position, power cycle the ATSpectrograph cRIO:
     a. Check ATSpectrograph CSC is in ``STANDBY`` Status.
     #. Connect to *http://aux-pdu-spectrograph.cp.lsst.org/* (only accessible from the summit).
     #. Log in with the username and password available in the AuxTel 1Password AuxTel vault.
@@ -161,31 +195,20 @@ To recover the ATSpectrograph:
       
       PDU webpage to power On/Off ATSpectrograph.
 
-#. When the cRIO is rebooted, it might take up to a minute to see the EUI again. A few times the EUI wasn't accesible at all, and a second cRIO reboot was necessary.
-    
-#. Check the grating stage position in the EUI. Even though it did not move during the cRIO reboot, it should be close to -324mm.
-   
-   .. figure:: ./_static/EUI-1reboot.png
-      :width: 500px
-           
-      ATSpectrograph EUI after the first reboot.
-
-#. Use telnet commands to move the linear stage to its negative limit:
-    a. Open a new console. Make sure that at least 60 seconds have passed since the EUI is accesible, to give the application time to complete its setup.
-    #. Execute :file:`telnet auxtel-latiss-crio.cp.lsst.org 9999`
-    #. Note that the port will boot after 5 seconds if no commands are sent.
-    #. Execute :file:`!LSI`. This command will move the stage to its negative limit.
-    #. Execute :file:`!LSL`. This command will display the status of the limit switches of the linear stage. It should return a :guilabel:`-` sign, indicating that the stage reached the negative limit and the switch is pressed.
-    #. In the :ref:`EUI <SpectrographEUI>`, the green indicator for the grating stage negative limit should have been activated.
-    
-#. Do a second reboot of the cRIO. Once the EUI is accessible, the mechanisms should be homed/initialized, the negative limit green indicator should be active for the three mechanisms, and the linear stage position should close to 0mm.
+#. When the cRIO is rebooted, it might take a few minutes to see the EUI again in the webpage. 
+   If the EUI does not come up on its own after 10 minutes, and a second cRIO reboot is necessary.
+        
+#. Once the EUI is accessible, the mechanisms should be homed/initialized, the negative limit green indicator should be active for the three mechanisms, and the linear stage position should close to 0mm.
    
    .. figure:: ./_static/EUI-2reboot.png
       :width: 500px
            
-      ATSpectrograph EUI after the second reboot.
+      ATSpectrograph EUI after successful reboot.
 
-#. At this point, execute the :file:`auxtel/standard_scripts/daytime_checkout/latiss_checkout.py` script. If it finishes without error, check that the linear stage position is 67mm. 
+#. At this point, you can re-enable the ATSpectrograph CSC. 
+
+#. Finally, in order ensure everything is working and the linear stage is in the correct position, execute the :file:`auxtel/standard_scripts/daytime_checkout/latiss_checkout.py` script. 
+   If it finishes without error, check again on the EUI that the linear stage position is 67mm. 
 
 .. _ATspectrograph-Recovery-Post-Condition:
 
@@ -197,7 +220,8 @@ Post-Condition
 .. Please provide screenshots of the software status or relevant display windows to confirm.
 .. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
 
-Errors should have been cleared from the EUI, and the grating linear stage should have been set to 67mm. All mechanisms are homed, and LATISS is ready for operations.
+Errors should have been cleared from the EUI, and the grating linear stage should have been set to 67mm. 
+All mechanisms are homed, and LATISS is ready for operations.
 
 .. _ATspectrograph-failed-Contingency:
 
