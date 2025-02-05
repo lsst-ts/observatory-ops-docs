@@ -48,9 +48,13 @@ The following is the list of safe to power-off servers. The computers can be pow
 
 **IT**
 
-- vsphere[2-3].cp.lsst.org - Previous movement of VMs to vsphere01.cp.lsst.org
+*snapshot and shutdown VMs first*
+- vsphere[2-3].cp.lsst.org - *hvaccp* and *dccp1* VMs migrate to vsphere01.cp.lsst.org . First shut down the VMS on vsphere2 then put vsphere2 in maintenance mode first then shut down from  vcenter.cp.lsst.org/ui. Then repeat for vsphere03
 - lukay[1-5].cp.lsst.org
 - perfsonar01.cp.lsst.org
+
+**Control**
+- love01.cp.lsst.org -- development machine
 
 **Comcam:**
 
@@ -60,7 +64,7 @@ The following is the list of safe to power-off servers. The computers can be pow
 
 **Lsstcam:**
 
-- Any lsstcam machines part of diagnostic cluster. 
+- Any lsstcam machines part of diagnostic cluster.   lsstcam-dc01.cp.lsst.org  - 10
 
 * Auxtel
 
@@ -79,9 +83,9 @@ The following is the list computers will be powered off alerting the system owne
 
 **Control System**
 
-- yagan[13-20].cp.lsst.org
 - azar[02-03].cp.lsst.org
-- love02.cp.lsst.org
+
+Use foreman - remote job on machines(s)  with ipmtool chassis power off || shutdown -h now 
 
 Tier 3
 ------
@@ -89,19 +93,18 @@ The following is the list computers will be powered off alerting the system owne
 
 **IT**
 
-- vsphere1.cp.lsst.org
-- core[2 instances].cp.lsst.org (not dns of foreman hypervisor)
+
+- core[02,03].cp.lsst.org (not dns or foreman hypervisor).  Log in to core03 first and shutdown the libvirt vms that are running on the node. This can be done using the virsh shutdown <name> command. To list the vms on the node we use virsh list --all. Once this is complete the node can be safely powered off and we can move on to core02 repeating the procedure
 - elqui[01-18].cp.lsst.org
-- ipsec switches
-- leafs of each rack (except A1)
-- ipmi of each rack (expect A1)
-- all vms except hvac monitoring
+- ipsec switches   (can be done in tier 4)
+- leafs of each rack (except A1) an not spine switches in A5 and A6  (can be done in tier 4)
+- ipmi of each rack (expect A1)  (can be done in tier 4)
+- all vms except hvac monitoring (hvaccp) and domain controller (dccp) 
 
 **Control System**
 
-- yagan[01-12].cp.lsst.org
+- First bring down the control system - then bring down yagan[01-20].cp.lsst.org using foreman -> remote job on machines 'ipmitool chassis power off' 
 - azar01.cp.lsst.org
-- love01.cp.lsst.org
 - chonchon[01-03].cp.lsst.org
 - nfs1.cp.lsst.org
 - tma-controller01 (open tekniker and phase cabinet doors)
@@ -122,6 +125,7 @@ The following is the list computers will be powered off that will take down the 
 
 **IT:**
 
+- vsphere1.cp.lsst.org
 - core[remaining].cp.lsst.org (includes foremand and dns)
 - yepun[01-05].cp.lsst.org
 - nvr01.cp.lsst.org
