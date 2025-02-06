@@ -93,14 +93,5 @@ At the end of the script, the telescope and dome are parked.
 
 Check that the verification image pop up in the monitor at `summit's RubinTV`_.
 
-*auxtel/daytime_checkout/prepare_for/flat.py*
-=============================================
-This is the default end-of-checkout script. 
-It will leave the telescope in position to start taking afternoon calibrations. 
-If you are not sure how you want to leave the telescope,
-consider running this script as it will further exercise the system. 
-
-Other options include: :file:`prepare_for/onsky.py`, :file:`prepare_for/vent.py` or :file:`shutdown_all.py`
-
 
 This procedure was last modified on |today|.
