@@ -8,9 +8,9 @@
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
 
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
-.. |author| replace:: *Name-of-Primary-Author*
+.. |author| replace:: *Kris Mortensen*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *List-of-contributors*
+.. |contributors| replace:: *Erik Dennihy*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -139,6 +139,6 @@ Troubleshooting
 
      No troubleshooting information is applicable to this procedure.
 
-- If the distance is smaller than expected (:ref:`Fig 2 <figure-Linear-Stage-Positions>`), follow instructions on :ref:`ATSpectrograph Recovery <LATISS-Troubleshooting-ATspectrograph-failed>`.
+- If the distance is smaller than expected (:ref:`Fig 2 <figure-Linear-Stage-Positions>`), follow instructions on :ref:`ATSpectrograph Recovery <LATISS-Troubleshooting-ATspectrograph-Recovery>`.
    
 - Once ATSpectrograph has been recovered, verify again that the spectrograph is properly positioned.
