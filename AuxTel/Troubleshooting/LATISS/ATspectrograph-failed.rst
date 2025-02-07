@@ -10,21 +10,21 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Yijung Kang*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Erik Dennihy, Jacqueline Seron*
+.. |contributors| replace:: *Erik Dennihy, Jacqueline Seron, Manuel Gomez*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _LATISS-Troubleshooting-ATspectrograph-failed:
+.. _LATISS-Troubleshooting-ATspectrograph-Recovery:
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
 ####################################################################################################
-ATSpectrograph failed - grating stage position and timed out
+ATSpectrograph Recovery
 ####################################################################################################
 
-.. _ATspectrograph-failed-Overview:
+.. _ATspectrograph-Recovery-Overview:
 
 Overview
 ========
@@ -36,12 +36,9 @@ Overview
 .. why it happens
 .. when it happens
 
-This procedure outlines the steps to recover the AT Spectrograph 
-when it fails during script execution 
-due to the **loss of grating stage position after a reset**. 
-This issue typically arises following a reset, caused by UPS failure due to power outage or a hard reset.
-
-
+This procedure outlines the steps to recover the ATSpectrograph when it fails during script execution. 
+These issues typically arise after a reset in the ATSpectrograph cRIO, or while enabling the ATSpectrograph CSC. 
+Potential root causes of the failure might include mechanism timeouts, miscommunication, and a range of other contributing factors. 
 
 .. python/lsst/ts/standardscripts/data/scripts/auxtel/daytime_checkout/latiss_checkout.py
 
@@ -49,16 +46,19 @@ This issue typically arises following a reset, caused by UPS failure due to powe
 
 .. admonition:: Some relevant notes:
 
-    * The grating stage is also known as linear stage.
-    * The most frequent grating stage position is close to 67 mm during operations.
-    * The grating position ranges between 67 mm and 140 mm from the rotator flange. The hard limit is 65 mm.
+    * LATISS has three moving mechanisms, apart from the Bonn shutter: filter wheel, grating wheel and grating linear stage.
 
-     You can find more info on the ATSpectrograph in the `LSST Auxiliary Telescope Spectrograph AS_BUILT`_ document.
+    * In this document the grating linear stage will be also named as linear stage or grating stage.
+
+    * The most frequent position during operations is close to 67 mm. 
+      This position is set every time the script :file:`auxtel/standard_scripts/daytime_checkout/latiss_checkout.py` is run. 
+      **If by any reason the grating stage is moved to a different position during daytime, please do not forget to run the script afterwards**.
+
+     You can find more information on the ATSpectrograph in the `LSST Auxiliary Telescope Spectrograph AS_BUILT`_ document.
 
 .. _`LSST Auxiliary Telescope Spectrograph AS_BUILT`: https://docushare.lsstcorp.org/docushare/dsweb/Get/Document-30997/LSST%20AT%20Spectrograph%20AS_BUILT%20Documentation%20(1).docx 
 
-
-.. _ATspectrograph-failed-Error-Diagnosis:
+.. _ATspectrograph-Recovery-Error-Diagnosis:
 
 Error diagnosis
 ===============
@@ -67,23 +67,20 @@ Error diagnosis
 .. It is preferred to include them as a bulleted or enumerated list.
 .. Post screenshots of the error state or relevant tracebacks.
 
-#. You get a timeout after running a script like :file:`auxtel/standard_scripts/daytime_checkout/latiss_checkout.py` or another. Check the error message (similar to the :ref:`error message <error-message>` shown below). 
+There are a few different common error modes which can result in an ATSpectrograph failure. 
+If the ATSpectrograph goes in fault state and cannot be re-enabled, it is likely that you will need to follow this procedure to recover. 
 
-#. There is a difference between the **grating stage position** shown in the EUI and the previous position (approximately 67 mm). You can find the ``Grating Stage position (mm)`` field in the ACE spectrograph tab, shown in the :ref:`step 2.5 <SpectrographEUI>` image.
+Some examples include:
 
-This means the **grating stage encoder was not correctly initialized**, so the read encoder position is not the actual value, causing the next move command to fail.
+* You get a timeout error related to the self.latiss.setup_instrument method when running a script like :file:`auxtel/standard_scripts/daytime_checkout/latiss_checkout.py` or another. Check the error message (similar to the :ref:`error message <error-message-latiss-checkout>` shown below). 
 
-This issue first occurred on February 23, 2023. The stage position read 324 mm after a reset, and afterwards a move command to +67 mm failed with a timeout (`OBS-272`_).
+* There is an error with the linear stage position while enabling the ATSpectrograph CSC, such as the :ref:`error message <error-message-stage-enabling>` shown below.
 
 .. _`OBS-272`: https://rubinobs.atlassian.net/browse/OBS-272
 
-
-
-
-.. _error-message:
-
+.. _error-message-latiss-checkout:
 .. code-block:: text
-    :caption: Error message
+    :caption: Error message after timeout
 
     2023/11/03 17:17:52 TAIError in runTraceback (most recent call last):
     
@@ -112,37 +109,105 @@ This issue first occurred on February 23, 2023. The stage position read 324 mm a
     in next_ackcmd raise base.AckTimeoutError( lsst.ts.salobj.base.AckTimeoutError: msg='Timed out waiting for command acknowledgement',
     ackcmd=(ackcmd private_seqNum=1137560160, ack=<SalRetCode.CMD_NOACK: -301>, error=0, result='No command acknowledgement seen')
 
-.. _ATspectrograph-failed-Procedure-Steps:
+.. _error-message-stage-enabling:
+.. code-block:: text
+    :caption: Error message while enabling ATSpectrograph CSC
+
+    2025/01/28 17:40:46 TAI
+    Cannot get information from model for linear stage.
+    Traceback (most recent call last):
+    File "/opt/lsst/software/stack/miniconda/lib/python3.11/site-packages/lsst/ts/atspectrograph/atspec_csc.py", line 234, in end_enable
+    state = await self.model.query_gs_status(self.want_connection)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/opt/lsst/software/stack/miniconda/lib/python3.11/site-packages/lsst/ts/atspectrograph/model.py", line 306, in query_gs_status
+    ret_val = await self.run_command("?LSS\r\n", want_connection=want_connection)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/opt/lsst/software/stack/miniconda/lib/python3.11/site-packages/lsst/ts/atspectrograph/model.py", line 577, in run_command
+    raise e
+    File "/opt/lsst/software/stack/miniconda/lib/python3.11/site-packages/lsst/ts/atspectrograph/model.py", line 571, in run_command
+    read_bytes = await asyncio.wait_for(
+    ^^^^^^^^^^^^^^^^^^^^^^^
+    File "/opt/lsst/software/stack/miniconda/lib/python3.11/asyncio/tasks.py", line 489, in wait_for
+    return fut.result()
+    ^^^^^^^^^^^^
+    File "/opt/lsst/software/stack/miniconda/lib/python3.11/asyncio/streams.py", line 655, in readuntil
+    raise exceptions.IncompleteReadError(chunk, None)
+    asyncio.exceptions.IncompleteReadError: 1 bytes read on a total of undefined expected bytes
+
+.. _ATspectrograph-Recovery-Procedure-Steps:
 
 Procedure Steps
 ===============
 
-You should follow these steps to recover the ATSpectrograph:
+**The procedure will require the user to open the AuxTel EUI, to use telnet commands to directly command the ATSpectrograph cRIO, and to use the script queue.**
 
-#. Power cycle the ATSpectrograph.
-    #. Check ATSpectrograph CSC is in ``STANDBY`` Status.
+A healthy status in ATSpectrograph will look as the following screenshot, in which the linear stage, grating and filter wheels are homed/initialized, and the linear stage position is 67mm.
+
+.. _SpectrographEUI:
+.. figure:: ./_static/ATSpectrograph-ok.png
+    :width: 800px
+
+    ATSpectrograph EUI healthy status.
+
+After a fault in the ATSpectrograh, you may see that one of the status lights on the left-hand side of the EUI is red, such as the FWTimeOutErr light indicating that the filter wheel did not reach it's commanded position.
+
+To recover the ATSpectrograph we need to clear these faults and ensure the stages are in their correct state and position as shown in the screenshot above:
+
+#. Open the ATSpectrograph EUI, :ref:`connecting to AuxTel EUI desktop computer <AuxTel-Non-Standard-Operations-AuxTel-EUI-Access>` ACE spectrograph (*139.229.170.44:8000/Spectrograph.html*).
+
+#. The first thing to try, if the fault is due to a timeout error or one of the status lights on the left-hand side of the EUI is illuminated red, is to click the :guilabel:`Re-init Axes` button on the EUI. 
+   If the fault is cleared and the status lights are returned to normal, the axes are homed/initialized, and the linear stage position is 67mm, you can re-enable the ATSpectrograph CSC and continue observing, skipping the rest of the procedure.
+
+#. If you were unable to clear the fault with the Re-init axes button, a restart of the cRIO will be required. 
+   Before restarting, check the grating stage position in the EUI. 
+   To ensure it initializes properly after the reboot, we will need to move the linear stage to its home position before rebooting the cRIO using telnet commands. 
+   If the cRIO is rebooted without first homing the stage, it can lose its position and show an incorrect position, often -324mm which is well beyond its operational range.  
+
+   .. figure:: ./_static/EUI-1reboot.png
+      :width: 500px
+           
+      ATSpectrograph EUI with bad linear stage position.
+
+#. Use telnet commands to move the linear stage to its negative limit:
+    a. Check ATSpectrograph CSC is in ``STANDBY`` Status.
+    #. Open a terminal on your local machine. If the cRIO was recently rebooted, make sure that at least 60 seconds have passed since the cRIO EUI is accesible to give the application time to complete its setup.
+    #. Execute the command :file:`telnet auxtel-latiss-crio.cp.lsst.org 9999` to connect directly to the cRIO. 
+    #. Note that the port you are using needs to remain clear in order for the cRIO to connect to the CSC, so the EUI is setup to boot users from this port after 5 seconds if no commands are sent.
+       **You may need to reconnect via telnet several times during this process if you get booted**. 
+    #. Execute :file:`!LSI`. This command will move the linear stage to its negative limit.
+    #. Execute :file:`!LSL`. This command will display the status of the limit switches of the linear stage. 
+       It should return a :guilabel:`-` sign, indicating that the linear stage reached the negative limit and the switch is pressed.
+    #. In the :ref:`EUI <SpectrographEUI>`, the green indicator for the grating stage negative limit should have been activated.
+    #. The position of the linear stage may still read -324mm after this move has been commanded, and that is okay. 
+       To recover the position of the linear stage, we now need to reboot the cRIO. 
+
+#. With the linear stage in its negative limit position, power cycle the ATSpectrograph cRIO:
+    a. Check ATSpectrograph CSC is in ``STANDBY`` Status.
     #. Connect to *http://aux-pdu-spectrograph.cp.lsst.org/* (only accessible from the summit).
-    #. Log in with the username and password available in the AuxTel 1Password vault.
-    #. Click  :guilabel:`On/Off` button for **Outlet 2** only. 
+    #. Log in with the username and password available in the AuxTel 1Password AuxTel vault.
+    #. For **outlet 2** (power and cRIO) click :guilabel:`Off`, wait 10 seconds, and then click :guilabel:`On`. 
 
    .. figure:: ./_static/power-cycle-ATSpec.png
-      :width: 700px
+      :width: 500px
       
-      Netbooter to power On/Off AuxTel spectrograph.
+      PDU webpage to power On/Off ATSpectrograph.
 
-#. :ref:`Connect to AuxTel EUI desktop <AuxTel-Non-Standard-Operations-AuxTel-EUI-Access>` ACE spectrograph (*139.229.170.44:8000/Spectrograph.html*).
-
-    .. _SpectrographEUI:
-
-    .. figure:: ./_static/ACE-spec-EUI-Labview.png
-       :width: 700px
+#. When the cRIO is rebooted, it might take a few minutes to see the EUI again in the webpage. 
+   If the EUI does not come up on its own after 10 minutes, then a second cRIO reboot is necessary.
+        
+#. Once the EUI is accessible, the mechanisms should be homed/initialized, the negative limit green indicator should be active for the three mechanisms, and the linear stage position should be close to 0mm.
+   
+   .. figure:: ./_static/EUI-2reboot.png
+      :width: 500px
            
-       AuxTel Spectrograph EUI
+      ATSpectrograph EUI after successful reboot.
 
-#. Click :guilabel:`Re-init Axes` button on the EUI.
+#. At this point, you can re-enable the ATSpectrograph CSC. 
 
+#. Finally, in order ensure everything is working and the linear stage is in the correct position, execute the :file:`auxtel/standard_scripts/daytime_checkout/latiss_checkout.py` script. 
+   If it finishes without error, check again on the EUI that the linear stage position is 67mm. 
 
-.. _ATspectrograph-failed-Post-Condition:
+.. _ATspectrograph-Recovery-Post-Condition:
 
 Post-Condition
 ==============
@@ -152,7 +217,8 @@ Post-Condition
 .. Please provide screenshots of the software status or relevant display windows to confirm.
 .. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
 
-- The AT Spectrograph's encoder has been cleared and is now in the home position, near 0 mm.
+Errors should have been cleared from the EUI, and the grating linear stage should have been set to 67mm. 
+All mechanisms are homed, and LATISS is ready for operations.
 
 .. _ATspectrograph-failed-Contingency:
 
