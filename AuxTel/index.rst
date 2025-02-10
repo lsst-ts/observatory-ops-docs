@@ -154,3 +154,14 @@ In some occasions, AuxTel observations could require a series of engineering non
     Troubleshooting/index.rst
 
 
+.. _Auxiliary-Telescope-Operations-SAL-Scripts:
+.. SAL Scripts
+.. ===========
+
+.. toctree::
+   :glob:
+   :maxdepth: 3
+   :titlesonly:
+   :caption: SAL Scripts
+
+   SAL-Scripts/ATCommonSALScripts.rst
