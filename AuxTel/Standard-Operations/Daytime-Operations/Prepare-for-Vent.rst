@@ -99,6 +99,7 @@ Procedure Steps
        * Point telescope horizontally; az = 180, el = 30, rot = 0 deg. 
        * Disable AOS open loop corrections. 
        * Slew dome to face opposite the Sun; az = Sun's azimuth - 180 deg.
+       * Partially opens the dome.
 
    .. note::
      The ``auxtel/prepare_for/vent.py`` script will keep running until the Sun's elevation is 5 degrees above the horizon, 
@@ -108,10 +109,6 @@ Procedure Steps
      :name: script prepareforonsky_AuxTel running
 
      ``auxtel/prepare_for/vent.py`` script running until observer manually stops it or the Sun reaches 5 deg above horizon. 
-
-#. Proceed to the AuxTel dome, and open the dome shutter manually two thirds of the way using the buttons at the top of the stairs. 
-   The main shutter must not be opened too far such that direct sunlight contacts the telescope or any hardware on concrete inside the dome.     
-   It is ok if small amounts of sunlight impacts the internal skin of the dome though. 
 
 #. If the wind speed is below 15 m/s, manually open vent gate #3 using the switch and turn on the extraction fan to **20-25Hz**.  
    If wind speed is above or close to 15 m/s, keep vent gates closed and extraction fan off. 
