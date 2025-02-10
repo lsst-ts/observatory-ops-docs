@@ -35,8 +35,8 @@ When night observing with AuxTel, it is important to check that the grating line
 to allow proper dispersion of the diffraction orders across the CCD. This check is especially critical if the 
 ATSpectrograph cRIO has been reset recently as the reset may result in mechanism timeouts or miscommunication. 
 During normal operations, the position of the disperser wheel can be monitored with telemetry from Chronograph or LOVE. 
-However, when the cRIO is reset and the linear stage is in the forward position, the reported position is no longer reliable. 
-Therefore, it is important to validate the position of the linear grating stage independently from the telemetry.
+However, when the cRIO is reset and the linear stage is in the forward position, it is possible that the reported position 
+may not be reliable. Therefore, it is important to validate the position of the linear grating stage independently from the telemetry.
 
 .. _Monitoring-LATISS-Disperser-Wheel-Position-Precondition:
 
@@ -50,10 +50,9 @@ Precondition
 - The telescope is currently on-sky and running the scheduler.
 
 - The linear stage position telemetry displayed abnormal values some time within the past 24 hours.
+  For example, a reported position of -324mm may occur when there is a reset (see :ref:`Fig 1 <figure-cRIO-Reset>`).
 
-  - The typical allowed range of positions for the disperser wheel position is 67-140mm (hard limit at 65mm).
-
-  - Telemetry may report non-physical values. For example, a reported position of -324mm occurs when there is a reset (see :ref:`Fig 1 <figure-cRIO-Reset>`).
+  - The allowed range of measured positions of the disperser wheel is 0-67mm (software limit set at 67.5mm).
 
 .. _figure-cRIO-Reset:
 
@@ -106,7 +105,7 @@ Procedure Steps
 .. note::
     The oxygen absorption line is always visible, but may be difficult to locate for certain spectra. 
     Make sure to verify the absorption profile is present in both the 1D and 2D spectra. 
-    If it seems too difficult to identify in the spectra then try another sequence.
+    If it is too difficult to identify the line in both spectra then try another sequence.
 
 4. Estimate the distance in pixels from the beginning of the spectrum to the peak of the absorption line. 
    Label this value :math:`D(O_2)`.
@@ -139,6 +138,10 @@ Troubleshooting
 
      No troubleshooting information is applicable to this procedure.
 
-- If the distance is smaller than expected (:ref:`Fig 2 <figure-Linear-Stage-Positions>`), follow instructions on :ref:`ATSpectrograph Recovery <LATISS-Troubleshooting-ATspectrograph-Recovery>`.
+- If the distance is smaller than expected (:ref:`Fig 2 <figure-Linear-Stage-Positions>`), rerun ``latiss_checkout.py`` in the ScriptQueue. 
+  This script will automatically attempt to reposition the grating stage.
    
-- Once ATSpectrograph has been recovered, verify again that the spectrograph is properly positioned.
+- Once the script has finished running, verify again that the spectrograph is properly positioned.
+
+  - | If the issue has not been resolved, proceed to the instructions on 
+    | :ref:`ATSpectrograph Recovery <LATISS-Troubleshooting-ATspectrograph-Recovery>`. 
