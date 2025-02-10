@@ -93,14 +93,17 @@ At the end of the script, the telescope and dome are parked.
 
 Check that the verification image pop up in the monitor at `summit's RubinTV`_.
 
-*auxtel/daytime_checkout/prepare_for/flat.py*
-=============================================
-This is the default end-of-checkout script. 
-It will leave the telescope in position to start taking afternoon calibrations. 
-If you are not sure how you want to leave the telescope,
-consider running this script as it will further exercise the system. 
 
-Other options include: :file:`prepare_for/onsky.py`, :file:`prepare_for/vent.py` or :file:`shutdown_all.py`
+
+.. note::  
+   Here you reach the end of Daytime checkouts. Next step depends on the available time before venting. Daily Calibrations, including FLATS,
+   take a little over an hour to complete, and venting can only begin once the Sun’s elevation above the horizon is below **55 degrees**.  
+
+   - **If daytime checkouts were completed early**, there is enough time to proceed with :ref:`LATISS Daily Calibrations <Daytime-Operations-LATISS-Daily-Calibrations-BIAS-DARK-FLAT-all-filters-empty-Procedure>` 
+     before venting. 
+   - **If daytime checkouts were completed late in the afternoon**, you can skip calibrations and continue with :ref:`Prepare for vent <AuxTel-Daytime-Operations-Prepare-for-vent>`.
+
+   This ensures the telescope is properly prepared for Nighttime Operations.  
 
 
 This procedure was last modified on |today|.
