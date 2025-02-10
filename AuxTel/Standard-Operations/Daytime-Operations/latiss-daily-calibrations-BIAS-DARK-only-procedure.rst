@@ -7,7 +7,7 @@
 
 .. |author| replace:: *Karla Peña Ramírez*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Erik Dennihy, OS team*
+.. |contributors| replace:: *Erik Dennihy, Paulo Lago, OS team*
 
 .. _Daytime-Operations-LATISS-Daily-Calibrations-BIAS-DARK-only-Procedure:
 ############################################
@@ -22,7 +22,7 @@ This page assumes the reader is familiar with the content explained in the Obser
 
 .. warning::
   This procedure does not involves telescope motion with AuxTel. Announce that you are about to run the calibrations without telescope or dome movement on the *#summit-announce* and *#summit-auxtel* channels before you run the following steps.
-  The Daytime calibrations can be taken at any time or under any conditions when convenient and they do not include the use of the Electrometer, Monochromator, or FiberSpectrograph CSCs, these can remain in ``STANDBY`` while running.  
+  The Daytime calibrations can be taken at any time or under any conditions when convenient and they by default do not include the use of the Electrometer, Monochromator, or FiberSpectrograph CSCs, these can remain in ``STANDBY`` while running.  
 
 .. _Daytime-Operations-LATISS-Daily-Calibrations-BIAS-DARK-only-Post-Conditions:
 Post-Condition
