@@ -113,11 +113,13 @@ Procedure Steps
    The main shutter must not be opened too far such that direct sunlight contacts the telescope or any hardware on concrete inside the dome.     
    It is ok if small amounts of sunlight impacts the internal skin of the dome though. 
 
-#. If the wind speed is below 15 m/s, manually open vent gate #3 using the switch and turn on the extraction fan power to max.  
+#. If the wind speed is below 15 m/s, manually open vent gate #3 using the switch and turn on the extraction fan to **20-25Hz**.  
    If wind speed is above or close to 15 m/s, keep vent gates closed and extraction fan off. 
 
+..
    .. note::
     Remember to lower the power of the extraction fan to 25% before beginning observations. 
+..
 
    .. figure:: ./_static/PrepareforVent_AuxTel_VentGate3andFan.png
       :name: Dome Vent Gate 3 and Extraction Fan 
