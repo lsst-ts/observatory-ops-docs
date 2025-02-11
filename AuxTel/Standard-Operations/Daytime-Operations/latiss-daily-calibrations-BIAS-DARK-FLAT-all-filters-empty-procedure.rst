@@ -8,7 +8,7 @@
 
 .. |author| replace:: *Karla Peña Ramírez*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Erik Dennihy, OS team*
+.. |contributors| replace:: *Erik Dennihy, Paulo Lago, OS team*
 
 
 .. _Daytime-Operations-LATISS-Daily-Calibrations-BIAS-DARK-FLAT-all-filters-empty-Procedure:
