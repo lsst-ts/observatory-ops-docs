@@ -47,7 +47,6 @@ Next, find the argo-cd application link for the environment you are working on.
 For that see :ref:`Observing-Interface-Operational-Environments` again.
 
 The credentials are in the 1Password ArgoCD Admin vault.
-If you do not have access to the vault and feel like you should, contact |author| or |contributors|.
 
 Once in :ref:`argo-cd <fig-argo-cd>` you will see a page showing several boxes with a component name on top and some service information at the bottom.
 
@@ -60,11 +59,11 @@ Once you find the one you are looking for click on the box to see details about 
 Then you can click the ``APP DETAILS`` button to get the details of the application, including the namespace.
 
 If you do not see the component you are looking for, it might be that it is not deployed in the Kubernetes container.
-Examples of components that are not deployed in argo-cd are:
+Examples of components that are **not** deployed in argo-cd are:
 
-* Camera systems; ATCamera, CCCamera, LSSTCamera.
+* Camera systems; ATCamera, CCCamera, LSSTCamera
 * OODS.
-* M1M3 hardware mode.
+* M1M3 hardware mode
 * ATMCS
 * ATPneumatics
 
