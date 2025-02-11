@@ -49,7 +49,7 @@ ignore = [
     'https://gemini.edu',
     'https://1password.com/downloads',
     'athexapod.cp.lsst.org',
-    'https://curl.sai.msu.ru' 
+    'https://curl.sai.msu.ru'
 ]
 
 [sphinx] 
