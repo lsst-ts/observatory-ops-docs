@@ -8,7 +8,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *isotuela*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *none*
+.. |contributors| replace:: *Kristopher Mortensen, Kate Napier, Alysha Shugart*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -99,6 +99,7 @@ Procedure Steps
        * Point telescope horizontally; az = 180, el = 30, rot = 0 deg. 
        * Disable AOS open loop corrections. 
        * Slew dome to face opposite the Sun; az = Sun's azimuth - 180 deg.
+       * Partially opens the dome to allow consistent air flow.
 
    .. note::
      The ``auxtel/prepare_for/vent.py`` script will keep running until the Sun's elevation is 5 degrees above the horizon, 
@@ -109,15 +110,8 @@ Procedure Steps
 
      ``auxtel/prepare_for/vent.py`` script running until observer manually stops it or the Sun reaches 5 deg above horizon. 
 
-#. Proceed to the AuxTel dome, and open the dome shutter manually two thirds of the way using the buttons at the top of the stairs. 
-   The main shutter must not be opened too far such that direct sunlight contacts the telescope or any hardware on concrete inside the dome.     
-   It is ok if small amounts of sunlight impacts the internal skin of the dome though. 
-
-#. If the wind speed is below 15 m/s, manually open vent gate #3 using the switch and turn on the extraction fan power to max.  
-   If wind speed is above or close to 15 m/s, keep vent gates closed and extraction fan off. 
-
-   .. note::
-    Remember to lower the power of the extraction fan to 25% before beginning observations. 
+#. If the wind speed is below 10 m/s, manually open **only** vent gate #3 using the switch and turn on the extraction fan to **20-25Hz**. 
+   If wind speed is above or close to 10 m/s, keep vent gates closed and extraction fan off. 
 
    .. figure:: ./_static/PrepareforVent_AuxTel_VentGate3andFan.png
       :name: Dome Vent Gate 3 and Extraction Fan 
