@@ -80,17 +80,21 @@ Procedure Steps
 As soon as you see this decreasing in temperatures, it is crucial to go to the AuxTel telescope and reset the `Cryocon 24C <https://tstn-006.lsst.io/#cryogenic-control>`__ device by following the next steps:
 
 #. Go to AuxTel telescope, always following the :ref:`Safe entry to AuxTel <Safe-entry-to-AuxTel-Overview>` guide.
+
 #. Open the :ref:`AT Camera Electronics and Sensor Readout Cabinet  <Cabinet-Content-Diagrams-AT-Camera-Electronics-and-Sensor-Readout-Cabinet>`.
+
 #. Look for the UNIT 2 (Cryocon 24C). The blue control light must be turned off, and an "Overtemp" error may appear under the temperature readings.
 
-    .. figure:: ./_static/Cryocon24C.png
-        :name: cryocon
-        :scale: 15 %
-
-        Cryocon 24C
-
 #. Press the :guilabel:`Control` button, this will clear the error and restore control mode.
+
+   .. figure:: ./_static/Cryocon24C.png
+       :name: cryocon24
+       :scale: 50 %
+
+       Cryocon 24C
+
 #. Wait until the blue light turns on.
+
 #. Check if temperatures start to increase again, if not, press the :guilabel:`Control` button once again.
 
    .. note:: 
@@ -98,8 +102,6 @@ As soon as you see this decreasing in temperatures, it is crucial to go to the A
 
 
 #. Confirm that the CRYO system stabilized at the desired temperature (-104°C). You may need to wait 30 to 45 minutes to ensure the system is stabilized.
-
-
 
 .. _ATDewar-Overcooling-Post-Condition:
 
