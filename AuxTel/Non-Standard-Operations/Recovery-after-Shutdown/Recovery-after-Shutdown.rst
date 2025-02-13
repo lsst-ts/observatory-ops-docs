@@ -103,12 +103,12 @@ Press the reset button briefly (less than 1 second).
 The yellow light on the cRIO should come on.  
 When the yellow light goes out, the reboot is completed.  The CSCs should then be recovered.  
 
-It is also possible to reboot this cRIO remotely by :command:`ssh` into *atmcs-crio.cp.lsst.org*
-using the credentials in the 1Password vault and sending the :command:`restart` command.
+It is also possible to reboot this cRIO remotely by :command:`ssh user@atmcs-crio.cp.lsst.org`
+using the credentials in the 1Password vault (user and password), and sending the :command:`reboot` or :command:`sudo reboot` command.
 
 .. figure:: /AuxTel/Non-Standard-Operations/_static/Main_cabinet.jpg
    :width: 300
-
+   
    Figure 3: *AT Control cabinet*.
 
 .. figure:: /AuxTel/Non-Standard-Operations/_static/Main_cabinet_inside.jpg
