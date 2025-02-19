@@ -32,7 +32,7 @@ Overview
 .. In one or two sentences, explain when this troubleshooting procedure needs to be used. Describe the symptoms that the user sees to use this procedure. 
 
 There is an existing document about this procedure but it is not yet available to OS team, in the meantime this document outlines 
-roughly the procedure to recover the ATMonochromator from a FAULT state. Sometimes the CSC will show ATMonochromator is Enabled, but 
+roughly the procedure to recover the ATMonochromator from a ``FAULT`` state. Sometimes the CSC will show ATMonochromator is ``ENABLED``, but 
 if the log says it is not connected then the following steps should be followed to recover communication.
 
 
@@ -49,12 +49,12 @@ Error Diagnosis
 
 .. _AuxTel EUI access: https://obs-ops.lsst.io/AuxTel/Non-Standard-Operations/EUI-Access/EUI-Access.html
 
-#. You’ll notice that the ATMonochromator CSC status as in the ``FAULT`` state.
+1. You’ll notice that the ATMonochromator CSC status is in the ``FAULT`` state.
 
 .. figure:: ./_static/AuxTel-CSC-status-monochromator-fault.png
     :name: ATMonochromator-fault-state
 
-#. Using Microsoft Remote Desktop access the PC *auxtel-monochromator01.cp.lsst.org*, using the `1Password`_ credentials.
+2. Using Microsoft Remote Desktop, access the PC *auxtel-monochromator01.cp.lsst.org* with the `1Password`_ credentials.
 
    a. To add it you can follow instructions from `AuxTel EUI access`_ replacing the PC name.
 
@@ -63,7 +63,7 @@ Error Diagnosis
 .. figure:: ./_static/1password-AT-monochromator.png
     :name: 1password-AT-monochromator
 
-#. Check the Monochromator Labview application. Even if you see all LEDs green there may still be a problem.
+3. Check the Monochromator Labview application. Even if you see all LEDs green there may still be a problem.
 
    a. If :guilabel:`TCP Connected` shows an error you will need assistance (See :ref:`ATMonochromator-Fault-Contingency`).
 
@@ -82,12 +82,12 @@ Procedure Steps
 
 In case the problem is directly due to the controller itself, you will need to re-start the Labview application.
 
-#. Exit the application by clicking :guilabel:`File` :math:`\Rightarrow` :guilabel:`Exit` (or press :kbd:`Ctrl+Q`).
+1. Exit the application by clicking :guilabel:`File` :math:`\Rightarrow` :guilabel:`Exit` (or press :kbd:`Ctrl+Q`).
 
 .. figure:: ./_static/monochromator-exit.png
     :name: monochromator-exit
 
-#. Reopen the application.
+2. Reopen the application.
 
    a. Select the folder :guilabel:`Build`.
 
@@ -96,12 +96,12 @@ In case the problem is directly due to the controller itself, you will need to r
 .. figure:: ./_static/monochromator-path.png
     :name: monochromator-path
 
-#. Verify the status of the controller (:guilabel:`IsBusy` light is turned off).
+3. Verify the status of the controller (:guilabel:`IsBusy` light is turned off).
 
 .. figure:: ./_static/monochromator-app-ok.png
     :name: monochromator-app-ok
 
-#. Enable ATMonochromator via the CSC.
+4. Enable ATMonochromator via the CSC.
 
    a. | If the system in ``OFFLINE``, and you cannot transition to ``ENABLE``, ask for assistance on 
       | `#summit-auxtel`_.
