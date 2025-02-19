@@ -45,8 +45,6 @@ Error Diagnosis
 .. It is preferred to include them as a bulleted or enumerated list.
 .. Post screenshots of the error state or relevant tracebacks.
 
-.. _auxtel-monochromator01.cp.lsst.org: http://auxtel-monochromator01.cp.lsst.org/
-
 .. _1Password: https://lsstit.1password.com/signin
 
 .. _AuxTel EUI access: https://obs-ops.lsst.io/AuxTel/Non-Standard-Operations/EUI-Access/EUI-Access.html
@@ -56,7 +54,7 @@ Error Diagnosis
 .. figure:: ./_static/AuxTel-CSC-status-monochromator-fault.png
     :name: ATMonochromator-fault-state
 
-#. Using Microsoft Remote Desktop access the PC `auxtel-monochromator01.cp.lsst.org`_, using the `1Password`_ credentials.
+#. Using Microsoft Remote Desktop access the PC *auxtel-monochromator01.cp.lsst.org*, using the `1Password`_ credentials.
 
    a. To add it you can follow instructions from `AuxTel EUI access`_ replacing the PC name.
 
