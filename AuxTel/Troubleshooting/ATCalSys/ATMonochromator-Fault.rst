@@ -8,9 +8,9 @@
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
 
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
-.. |author| replace:: *Kris Mortensen*
+.. |author| replace:: *Jacqueline Seron*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Jacqueline Seron*
+.. |contributors| replace:: *Kris Mortensen, Parker Fagrelius*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -31,9 +31,9 @@ Overview
 
 .. In one or two sentences, explain when this troubleshooting procedure needs to be used. Describe the symptoms that the user sees to use this procedure. 
 
-There is an existing document about this procedure but it is not yet available to OS team, in the meantime this document outlines 
-roughly the procedure to recover the ATMonochromator from a ``FAULT`` state. Sometimes the CSC will show ATMonochromator is ``ENABLED``, but 
-if the log says it is not connected then the following steps should be followed to recover communication.
+This document outlines roughly the procedure to recover the ATMonochromator from a ``FAULT`` state. 
+Sometimes the CSC will show ATMonochromator is ``ENABLED``, but if the log says it is not connected then 
+the following steps should be followed to recover communication.
 
 
 .. _ATMonochromator-Fault-Error-Diagnosis:
@@ -65,7 +65,7 @@ Error Diagnosis
 
 3. Check the Monochromator Labview application. Even if you see all LEDs green there may still be a problem.
 
-   a. If :guilabel:`TCP Connected` shows an error you will need assistance (See :ref:`ATMonochromator-Fault-Contingency`).
+   a. If :guilabel:`TCP Connected` shows an error you will need assistance (see :ref:`ATMonochromator-Fault-Contingency`).
 
    b. If there is a problem with the **controller**, like the system is indicating that it's busy, that means it's stuck 
       (:guilabel:`IsBusy` light will be on).
@@ -103,8 +103,7 @@ In case the problem is directly due to the controller itself, you will need to r
 
 4. Enable ATMonochromator via the CSC.
 
-   a. | If the system in ``OFFLINE``, and you cannot transition to ``ENABLE``, ask for assistance on 
-      | `#summit-auxtel`_.
+   a. If the system is ``OFFLINE``, and you cannot transition to ``ENABLE``, ask for assistance on `#summit-auxtel`_.
 
 .. figure:: ./_static/AuxTel-CSC-status-all-ok.png
     :name: AuxTel-CSC-status-all-ok.png
