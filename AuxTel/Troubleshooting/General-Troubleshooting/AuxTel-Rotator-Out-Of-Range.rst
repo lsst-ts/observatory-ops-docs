@@ -95,7 +95,6 @@ In case the previous steps did not work, rotator continues failing and *ATPtg* n
 
     az: 90.0
     el: 60.0
-    mag_limit: 8.0
 
 #. Continue adding :file:`auxtel/correct_pointing.py` as in step 2 of previous procedure with the following configuration:
 
@@ -104,6 +103,7 @@ In case the previous steps did not work, rotator continues failing and *ATPtg* n
 
     az: 90.0
     el: 60.0
+    mag_limit: 8.0
 
 #. Press :guilabel:`PLAY` button in the ATQueue.
 
