@@ -22,7 +22,7 @@ Project Documentation Information
 This section contains files related to the setup of this documentation tree, including how to contribute.
 
 .. toctree::
-    :maxdepth: 2 
+    :maxdepth: 2
     :titlesonly:
     :glob:
 
