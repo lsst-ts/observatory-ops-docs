@@ -50,6 +50,8 @@ ignore = [
     'https://1password.com/downloads',
     'athexapod.cp.lsst.org',
     'https://curl.sai.msu.ru',
+    'https://github.com',
+    'https://curl.sai.msu.ru',
     'http://aux-pdu-tcs.cp.lsst.org',
     'http://pdu1-aux.cp.lsst.org',
     'http://pdu2-aux.cp.lsst.org',
