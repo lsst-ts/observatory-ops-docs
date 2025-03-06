@@ -29,16 +29,16 @@ AuxTel Recovery after Shutdown
 Overview
 ========
 
-This document describes to procedures necessary to recover the AuxTel systems from a major event.  
-This might include a power shutdown, a major software upgrade, or a loss of network connectivity.  
+This document describes the procedures necessary to recover the AuxTel systems from a major event.
+This may include a power shutdown, a major software upgrade, or a loss of network connectivity.
 
 .. _AuxTel-Recovery-after-Shutdown-Precondition:
 
 Precondition
 =============
 
-These procedures should be applied any time the AuxTel systems are not operating normally.
-Not all procedures will need to be followed in every case, and the user should use judgement and only apply the recovery procedures to the systems that are not operating normally.
+These procedures should be applied whenever the AuxTel systems are not operating normally.
+Not all procedures will need to be followed in every case, and the user should use judgment and only apply the recovery procedures to the systems that are not operating normally.
 
 .. note:: 
 
@@ -53,7 +53,7 @@ Not all procedures will need to be followed in every case, and the user should u
 .. admonition:: Important
    
    - Every time you go to AuxTel building do not forget to follow the :ref:`Safety Entry to AuxTel <Safe-entry-to-AuxTel-Overview>` guidelines.
-   - You need to use a pointed obtect to press the reset button and reset the cRIOs.
+   - You need to use a pointed object to press the reset button and reset the cRIOs.
    - If you need to restart multiple systems that require activating the safety gate bypass, activate it at the beginning and deactivate it once the recovery process for all required systems is complete.
 
 .. _AuxTel-Recovery-after-Shutdown-Post-Condition:
@@ -137,7 +137,7 @@ Firstly, it is preferred to reboot this cRIO remotely by :command:`ssh` into *at
 
 #. After a minute it should be back.
 
-If remote reboot is not possible, then you must mannually reset the cRIO:
+If remote reboot is not possible, then you must manually reset the cRIO:
 
 #. Locate the **ATMCS/ATPneumatics cRIO** and press the reset button briefly (**less than 1 second**).    
 
@@ -188,7 +188,7 @@ ATCalSys recovery
 
 The *ATCalSys* generates white and monochromatic light for illuminating the dome screen for calibrations.  
 The system is shown in Figure 6. 
-There are some steps that need to be done after a loss of power to recover it.
+There are some steps that must be followed after a power loss to recover it.
 
 #. Ensure that the :ref:`Safety Gate Bypass <Safety-Gate-Procedures-Activate-Deactivate-bypass>` is **activated**. Then, :ref:`open the safety gate <Safety-Gate-Procedures-Gate-operation-Opening-the-gate>`.
 
