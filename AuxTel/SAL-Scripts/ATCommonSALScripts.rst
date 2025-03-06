@@ -101,40 +101,40 @@ General Procedures
    * - AT daytime checkouts
      - | **LATISS:**
        | ``auxtel/daytime_checkout/latiss_checkout.py``
-       | `ts_standardscripts/daytime_checkout/latiss_checkout.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/daytime_checkout/latiss_checkout.py>`_ 
+       | `ts_standardscripts/daytime_checkout/latiss_checkout.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/daytime_checkout/latiss_checkout.py>`_ 
        |
        | **ATPneumatics:**
        | ``auxtel/daytime_checkout/atpneumatics_checkout.py``
-       | `ts_standardscripts/daytime_checkout/atpneumatics_checkout.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/daytime_checkout/atpneumatics_checkout.py>`_ 
+       | `ts_standardscripts/daytime_checkout/atpneumatics_checkout.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/daytime_checkout/atpneumatics_checkout.py>`_ 
        |
        | **Telescope and Dome:**
        | ``auxtel/daytime_checkout/telescope_and_dome_checkout.py``
-       | `ts_standardscripts/daytime_checkout/telescope_and_dome_checkout.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/daytime_checkout/telescope_and_dome_checkout.py>`_ 
+       | `ts_standardscripts/daytime_checkout/telescope_and_dome_checkout.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/daytime_checkout/telescope_and_dome_checkout.py>`_ 
        |
        | **Slew and Take Image:**
        | ``auxtel/daytime_checkout/slew_and_take_image_checkout.py``
-       | `ts_standardscripts/daytime_checkout/slew_and_take_image_checkout.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/daytime_checkout/slew_and_take_image_checkout.py>`_ 
+       | `ts_standardscripts/daytime_checkout/slew_and_take_image_checkout.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/daytime_checkout/slew_and_take_image_checkout.py>`_ 
      - No configurations
    * - AT ``prepare_for`` sequences
      - | **Venting:**
        | ``auxtel/prepare_for/vent.py``
-       | `ts_standardscripts/prepare_for/vent.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/prepare_for/vent.py>`_ 
+       | `ts_standardscripts/prepare_for/vent.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/prepare_for/vent.py>`_ 
        |
        | **Flats:**
        | ``auxtel/prepare_for/flat.py``
-       | `ts_standardscripts/prepare_for/flat.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/prepare_for/flats.py>`_ 
+       | `ts_standardscripts/prepare_for/flat.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/prepare_for/flat.py>`_ 
        |
        | **On Sky:**
        | ``auxtel/prepare_for/onsky.py``
-       | `ts_standardscripts/prepare_for/onsky.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/prepare_for/co2_cleanup.py>`_ 
+       | `ts_standardscripts/prepare_for/onsky.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/prepare_for/onsky.py>`_ 
        |
        | **CO2 Clean-Up:**
        | ``auxtel/prepare_for/co2_cleanup.py``
-       | `ts_standardscripts/prepare_for/co2_cleanup.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/prepare_for/co2_cleanup.py>`_ 
+       | `ts_standardscripts/prepare_for/co2_cleanup.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/prepare_for/co2_cleanup.py>`_ 
      - No configurations  
    * - AT shutdown sequence
      - | ``auxtel/shutdown.py``
-       | `ts_standardscripts/auxtel/shutdown.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/shutdown.py>`_
+       | `ts_standardscripts/data/scripts/auxtel/shutdown.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/shutdown.py>`_
      - No configurations
 
 .. _auxtel-scheduler:
@@ -171,15 +171,15 @@ AuxTel Scheduler
 
          Daytime Calibrations (consistent):
 
-           .. code-block:: text
+         .. code-block:: text
 
-               config: auxtel_fbs_image_photocal.yaml
+           config: auxtel_fbs_image_photocal.yaml
                     
          Nightime Operations (varies):
              
-           .. code-block:: text
- 
-               config: example_auxtel_survey.yaml
+         .. code-block:: text
+
+           config: example_auxtel_survey.yaml
 
        .. dropdown:: run_command.py
 
@@ -236,11 +236,11 @@ ATCS
      - Enable/Standby all ATCS CSCs
      - | **Enable:** 
        | ``auxtel/enable_atcs.py``
-       | `ts_standardscripts/auxtel/enable_atcs.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/enable_atcs.py>`_
+       | `ts_standardscripts/data/scripts/auxtel/enable_atcs.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/enable_atcs.py>`_
        |
        | **Standby:** 
        | ``auxtel/standby_atcs.py``
-       | `ts_standardscripts/auxtel/standby_atcs.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/standby_atcs.py>`_
+       | `ts_standardscripts/data/scripts/auxtel/standby_atcs.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/standby_atcs.py>`_
      - No configurations
    * - **ATMCS**
      - AT change Nasmyth to port 1
@@ -261,7 +261,7 @@ ATCS
    * - **ATPtg**
      - AT move mount to new azimuth or elevation
      - | ``auxtel/point_azel.py``
-       | `ts_standardscripts/auxtel/point_azel.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/point_azel.py>`_
+       | `ts_standardscripts/data/scripts/auxtel/point_azel.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/point_azel.py>`_
      -      
        .. dropdown:: SAL Script
 
@@ -297,11 +297,11 @@ ATCS
      - AT enable/disable tracking
      - | **Enable:**
        | ``auxtel/track_target.py``
-       | `ts_standardscripts/atdome/track_target.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/track_target.py>`_
+       | `ts_standardscripts/atdome/track_target.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/track_target.py>`_
        |
        | **Disable:**
        | ``auxtel/stop_tracking.py``
-       | `ts_standardscripts/atdome/stop_tracking.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/stop_tracking.py>`_
+       | `ts_standardscripts/atdome/stop_tracking.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/stop_tracking.py>`_
      -
        .. dropdown:: SAL Script
 
@@ -363,11 +363,11 @@ ATCS
      - AT open/close main dome shutter door
      - | **Open:**
        | ``auxtel/atdome/open_dome.py``
-       | `ts_standardscripts/atdome/open_dome.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/atdome/open_dome.py>`_
+       | `ts_standardscripts/atdome/open_dome.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/atdome/open_dome.py>`_
        |
        | **Close:**
        | ``auxtel/atdome/close_dome.py``
-       | `ts_standardscripts/atdome/close_dome.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/atdome/close_dome.py>`_
+       | `ts_standardscripts/atdome/close_dome.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/atdome/close_dome.py>`_
      -  
        .. dropdown:: SAL Script
 
@@ -390,11 +390,11 @@ ATCS
      - AT open/close dome dropout shutter
      - | **Open:**
        | ``auxtel/atdome/open_dropout_door.py``
-       | `ts_standardscripts/atdome/open_dropout_door.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/atdome/open_dropout_door.py>`_
+       | `ts_standardscripts/atdome/open_dropout_door.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/atdome/open_dropout_door.py>`_
        |
        | **Close:**
        | ``auxtel/atdome/close_dropout_door.py``
-       | `ts_standardscripts/atdome/close_dropout_door.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/atdome/close_dropout_door.py>`_
+       | `ts_standardscripts/atdome/close_dropout_door.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/atdome/close_dropout_door.py>`_
      -  
        .. dropdown:: SAL Script
 
@@ -416,7 +416,7 @@ ATCS
    * - 
      - Home dome
      - | ``auxtel/atdome/home_dome.py``
-       | `ts_standardscripts/atdome/home_dome.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/atdome/home_dome.py>`_
+       | `ts_standardscripts/atdome/home_dome.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/atdome/home_dome.py>`_
      -  
        .. dropdown:: SAL Script
 
@@ -434,7 +434,7 @@ ATCS
    * - 
      - Slew dome
      - | ``auxtel/atdome/slew_dome.py``
-       | `ts_standardscripts/atdome/slew_dome.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/atdome/slew_dome.py>`_
+       | `ts_standardscripts/atdome/slew_dome.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/atdome/slew_dome.py>`_
      -  
        .. dropdown:: SAL Script
 
@@ -459,10 +459,10 @@ ATCS
      - AT enable/disable dome following
      - | **Enable:**
        | ``auxtel/atdome/enable_dome_following.py``
-       | `ts_standardscripts/atdome/enable_dome_following.py  <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/atdome/enable_dome_following.py>`_
+       | `ts_standardscripts/atdome/enable_dome_following.py  <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/atdome/enable_dome_following.py>`_
        | **Disable:**
        | ``auxtel/atdome/disable_dome_following.py``
-       | `ts_standardscripts/atdome/disable_dome_following.py  <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/atdome/disable_dome_following.py>`_
+       | `ts_standardscripts/atdome/disable_dome_following.py  <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/atdome/disable_dome_following.py>`_
      -        
        .. dropdown:: SAL Script
 
@@ -485,11 +485,11 @@ ATCS
      - Enable/Disable ATAOS corrections
      - | **Enable:**
        | ``auxtel/enable_ataos_corrections.py``
-       | `ts_standardscripts/auxtel/enable_ataos_corrections.py  <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/enable_ataos_corrections.py>`_
+       | `ts_standardscripts/data/scripts/auxtel/enable_ataos_corrections.py  <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/enable_ataos_corrections.py>`_
        |
        | **Disable:**
        | ``auxtel/disable_ataos_corrections.py``
-       | `ts_standardscripts/auxtel/disable_ataos_corrections.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/disable_ataos_corrections.py>`_
+       | `ts_standardscripts/data/scripts/auxtel/disable_ataos_corrections.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/disable_ataos_corrections.py>`_
        
        .. warning::
          Only run these scripts when the telescope is at high elevation :math:`(\geq 70^{\circ})`.
@@ -516,7 +516,7 @@ ATCS
    * - 
      - AT clear ATAOS offsets (x, y, z or all)
      - | ``auxtel/offset_ataos.py``
-       | `ts_standardscripts/auxtel/offset_ataos.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/offset_ataos.py>`_
+       | `ts_standardscripts/data/scripts/auxtel/offset_ataos.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/offset_ataos.py>`_
      -  
        .. dropdown:: SAL Script
 
@@ -585,16 +585,16 @@ LATISS
      - Enable/Standby all LATISS CSCs
      - | **Enable:** 
        | ``auxtel/enable_latiss.py``
-       | `ts_standardscripts/auxtel/enable_latiss.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/enable_latiss.py>`_
+       | `ts_standardscripts/data/scripts/auxtel/enable_latiss.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/enable_latiss.py>`_
        |
        | **Standby:** 
        | ``auxtel/standby_latiss.py``
-       | `ts_standardscripts/auxtel/standby_latiss.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/standby_latiss.py>`_
+       | `ts_standardscripts/data/scripts/auxtel/standby_latiss.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/standby_latiss.py>`_
      - No configurations
    * - **ATCamera**
      - Take image with camera
      - | ``auxtel/take_image_latiss.py``
-       | `ts_standardscripts/auxtel/take_image_latiss.py  <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/take_image_latiss.py>`_
+       | `ts_standardscripts/data/scripts/auxtel/take_image_latiss.py  <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/take_image_latiss.py>`_
      -  
        .. dropdown:: SAL Script
 
@@ -695,11 +695,11 @@ Calibration Systems
      - Power on/off calibration lamp
      - | **Turn On:**
        | ``auxtel/calibrations/power_on_atcalsys.py``
-       | `ts_standardscripts/calibrations/power_on_atcalsys.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/calibrations/power_on_atcalsys.py>`_
+       | `ts_standardscripts/calibrations/power_on_atcalsys.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/calibrations/power_on_atcalsys.py>`_
        |
        | **Turn Off:**
        | ``auxtel/calibration/power_off_atcalsys.py``
-       | `ts_standardscripts/calibrations/power_off_atcalsys.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/auxtel/calibrations/power_off_atcalsys.py>`_
+       | `ts_standardscripts/calibrations/power_off_atcalsys.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/calibrations/power_off_atcalsys.py>`_
      - 
        .. dropdown:: SAL Script
 
