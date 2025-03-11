@@ -79,7 +79,7 @@ Procedure Steps
 
 This is a hardware issue related to a loss in communication between the two cRIOs that are used to control the dome:
 the *Top Box cRIO*, which sits on the rotating part of the dome on the second floor, and the *Main Control Box*, which is on the first floor near the ventilation fan.
-This issue can can occur after a dome cabinets reboot, a power-off-on sequence or a power outage.
+This issue can can occur after an incorrect power sequence or a network communication loss.
 
 To manually reset the dome cRIOs:
 
