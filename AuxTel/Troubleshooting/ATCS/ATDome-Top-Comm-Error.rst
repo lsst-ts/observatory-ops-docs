@@ -1,5 +1,3 @@
-.. This is a template for troubleshooting when some part of the observatory enters an abnormal state. This comment may be deleted when the template is copied to the destination.
-
 .. Review the README in this procedure's directory on instructions to contribute.
 .. Static objects, such as figures, should be stored in the _static directory. Review the _static/README in this procedure's directory on instructions to contribute.
 .. Do not remove the comments that describe each section. They are included to provide guidance to contributors.
@@ -29,8 +27,6 @@ ATDome Lost Communication with the Top-End
 Overview
 ========
 
-.. In one or two sentences, explain when this troubleshooting procedure needs to be used. Describe the symptoms that the user sees to use this procedure. 
-
 When running a script that commands the dome shutter (e.g. ``prepare_for/vent`` , ``prepare_for/onsky``  or ``auxtel/shutdown``), 
 the script fails showing a failure to communicate with the dome top-end where the shutter control resides. 
 
@@ -38,10 +34,6 @@ the script fails showing a failure to communicate with the dome top-end where th
 
 Error diagnosis
 ===============
-
-.. This section should provide simple overview of known or suspected causes for the error.
-.. It is preferred to include them as a bulleted or enumerated list.
-.. Post screenshots of the error state or relevant tracebacks.
 
 When the command to the shutter is run within the script, an error is received in LOVE showing a communication error:
 
@@ -84,20 +76,23 @@ Or the full traceback may be displayed as follows:
 Procedure Steps
 ===============
 
-This is a hardware issue related to a lost communication with the top-end or rotating part of the dome. 
-This can happen after a dome cabinets reboot, a power-off-on sequence or a power outage, that, not done 
-in the proper order, can cause communication failures. Contact Mario Rivera or someone at the summit, to 
-follow the dome cabinet power on procedure in the right order. If no one is available, you can attempt the 
-procedure described in **Section 7.6** of the `Advanced Operations Procedures <https://tstn-004.lsst.io/#at-dome-communication-loss>`_ 
-page.
+
+This is a hardware issue related to a loss in communication between the two cRIOs that are used to control the dome:
+the *Top Box cRIO*, which sits on the rotating part of the dome on the second floor, and the *Main Control Box*, which is on the first floor near the ventilation fan.
+This issue can can occur after a dome cabinets reboot, a power-off-on sequence or a power outage.
+
+To manually reset the dome cRIOs:
+
+1. Check that the ATDome CSC is in the ``STANDBY`` state.
+2. Open the ATMCS EUI, :ref:`connecting to AuxTel EUI desktop computer <AuxTel-Non-Standard-Operations-AuxTel-EUI-Access>` Auxiliary Telescope MCS & Pneumatics (*139.229.170.47:8000/atmcs.html*).
+3. Head to AuxTel and reset the cRIOs manually using the **ATDome Recovery** procedures on the 
+   :ref:`AuxTel Recovery after Shutdown <AuxTel-Non-Standard-Operations-AuxTel-Recovery-after-Shutdown>` page.
+4. When the cRIO is rebooted, it might take a few minutes to see the EUI again in the webpage. 
+   If the EUI does not come up on its own after 10 minutes, then a second cRIO reboot is necessary
+5. Once the EUI comes back online, place the ATDome CSC back into the ``ENABLED`` state.
 
 Post-Condition
 ==============
-
-.. This section should provide a simple overview of conditions or results after executing the procedure; for example, state of equipment or resulting data products.
-.. It is preferred to include them as a bulleted or enumerated list.
-.. Please provide screenshots of the software status or relevant display windows to confirm.
-.. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
 
 - Communication is back online and scripts that command the dome shutter will work without issue.
 
