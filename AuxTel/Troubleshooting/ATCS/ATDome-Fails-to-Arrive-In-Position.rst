@@ -20,16 +20,16 @@
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
-#########################################################
-ATDome Fails to Arrive in Position (ATPtg in FAULT State)
-#########################################################
+##################################
+ATDome Fails to Arrive in Position
+##################################
 
 .. _ATDome-Position-Failure-Overview:
 
 Overview
 ========
 
-When slewing to a new target the Dome stops tracking and fails to arrive in it's final position, 
+When slewing to a new target the Dome stops tracking and fails to arrive to its final position, 
 resulting in script failure (if the slew was triggered from a script) and the ATPtg CSC going into 
 fault. The ATPtg can be recovered by performing a state cycle on LOVE, but the dome following must 
 also be cycled independently to recover dome tracking. 
@@ -78,7 +78,7 @@ This is triggered by the timeout that is excepted when the ATDome never arrives 
             raise RuntimeError(error_message)
         RuntimeError: Dome timed out getting in position.    
 
-If the slew was initiated from a script, you may instead see that the ATDome is not moving while 
+Another possible error is that you see ATDome is not moving while 
 the other components have already arrived in position.
 
 .. dropdown:: ATDome Traceback: TimeOutError
@@ -127,14 +127,16 @@ All of the commands you will need can be found in the ``daytime_checkout`` noteb
 
 .. _ATDome-Position-Failure-Procedure-LOVE:
 
-Procedure A: Recovery from LOVE
--------------------------------
+Procedure A: Recovery Using LOVE
+--------------------------------
 
 1. State cycle ATDome through ``STANDBY`` and back to ``ENABLE`` from the ASummaryState. 
    The transition must be quick enough so the dome shutter doesn´t start closing and the recovery 
    is faster; if it does close, the next step should deal with the shutter opening again.
 
    * If ATPtg faulted, transition it back to enabled from ASummaryState.
+
+.. _ATDome-Position-LOVE-State-Cycle: 
 
 .. mermaid::
 
@@ -154,12 +156,58 @@ Procedure A: Recovery from LOVE
 
 3. Keep ATQueue running to the next target. Confirm in LOVE that the dome is moving and following the mount.
        
-   
+.. _ATDome-Position-Failure-Procedure-Jupyter:
 
+Procedure B: Recovery Using Jupyter Notebook
+--------------------------------------------
+
+1. From the ASummaryState view on LOVE, transition the ATPtg back to enabled following the usual path
+   in LOVE (see :ref:`State Cycle Steps <ATDome-Position-LOVE-State-Cycle>`).
+2. Using an instantiated atcs class from a Jupyter Notebook (e.g. the ``daytime_checkout`` notebook), 
+   issue the following commands:
+
+   a. Disable dome following. 
+   b. Perform a dome slew.
+   c. Re-enable dome following.
+
+   Make sure to select an ``az`` value that is **at least 15 degrees** away from its current position. All of these commands can be executed using the following code:
+
+.. code-block:: python
+
+    await atcs.disable_dome_following()
+    dome_az = await atcs.rem.atdome.tel_position.next(flush=True,timeout=10)
+    await atcs.slew_dome_to(az=dome_az.azimuthPosition+15)
+    await atcs.slew_dome_to(az=dome_az.azimuthPosition-15)
+    await atcs.enable_dome_following()
+
+3. The dome following and positioning should now be recovered. From the same notebook, 
+   perform a test slew choosing ``az``, ``el``, and ``rot`` values that are **near your current position** 
+   to ensure the dome tracks and arrives at the desired position:
+
+.. code-block:: python
+
+    current_position = atcs.rem.atptg.tel_mountPositions.get()
+    start_az = current_position.azimuthCalculatedAngle[0]
+    start_el = current_position.elevationCalculatedAngle[0]
+    coord=atcs.radec_from_azel(az=start_az+10, el=start_el-10)
+    await atcs.slew_icrs(coord.ra, coord.dec, rot=start_rot, stop_before_slew=False, rot_type=RotType.PhysicalSky)
+
+.. note::
+
+    The default timeout value for a slew triggered from a notebook is very long, 
+    so it may not be feasible to wait for it to time out. Instead, you should interrupt 
+    the execution of the cell by pressing the :guilabel:`stop` button.
+
+    .. image:: _static/ATDome-jupyter-notebook-stop.png
+        :width: 75%
+        :align: center
 
 Post-Condition
 ==============
 
+- ATPtg is re-enabled.
+- ATDome is tracking properly and arrives at its intended positions.
+- AuxTel resumed running the night-time scheduler.
 
 .. _ATDome-Position-Failure-Contingency:
 
