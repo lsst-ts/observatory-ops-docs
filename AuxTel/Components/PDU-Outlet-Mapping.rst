@@ -157,11 +157,11 @@ Illumination System
    * - Outlet
      - Device
    * - 1
-     - Monochromator 24V Power Supply
+     - 24V Power Supply (which feeds the Illumination System Computer and Temperature Controller)
    * - 2
      - Fan
    * - 3
-     - 12V Power Supply
+     - 12V Power Supply + Monochromator Windows Computer
    * - 4
      - 5V Power Supply
    * - 5
