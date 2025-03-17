@@ -6,13 +6,13 @@
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
 
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
-.. |author| replace:: *Ioana Sotuela*
+.. |author| replace:: *Ioana Sotuela, Kris Mortensen*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Jacqueline Seron, Erik Dennihy, Kris Mortensen*
+.. |contributors| replace:: *Jacqueline Seron, Erik Dennihy*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _Templates-Title-of-Troubleshooting-Procedure:
+.. _Top-Comm-Error-Procedure:
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
@@ -27,15 +27,15 @@ ATDome Lost Communication with the Top-End
 Overview
 ========
 
-When running a script that commands the dome shutter (e.g. ``prepare_for/vent`` , ``prepare_for/onsky``  or ``auxtel/shutdown``), 
-the script fails showing a failure to communicate with the dome top-end where the shutter control resides. 
+When running a script that commands the dome shutter (e.g., ``prepare_for/vent`` , ``prepare_for/onsky``  or ``auxtel/shutdown``), 
+the script fails, showing a failure to communicate with the dome top-end where the shutter control resides. 
 
 .. _Top-Comm-Error-Error-Diagnosis:
 
 Error diagnosis
 ===============
 
-When the command to the shutter is run within the script, an error is received in LOVE showing a communication error:
+When the command to the shutter is run within the script, an error is received in LOVE, showing a communication error:
 
 .. code-block:: bash
 
@@ -78,17 +78,26 @@ Procedure Steps
 
 
 This is a hardware issue related to a loss in communication between the two cRIOs that are used to control the dome:
-the *Top Box cRIO*, which sits on the rotating part of the dome on the second floor, and the *Main Control Box*, which is on the first floor near the ventilation fan.
-This issue can can occur after an incorrect power sequence or a network communication loss.
+
+* The *Top Box cRIO*, which sits on the rotating part of the dome on the second floor. 
+* The *Main Control Box*, which is on the first floor near the ventilation fan.
+
+This issue can occur after an incorrect power sequence or a network communication loss.
 
 To manually reset the dome cRIOs:
 
 1. Check that the ATDome CSC is in the ``STANDBY`` state.
 2. Open the ATMCS EUI, :ref:`connecting to AuxTel EUI desktop computer <AuxTel-Non-Standard-Operations-AuxTel-EUI-Access>` Auxiliary Telescope MCS & Pneumatics (*139.229.170.47:8000/atmcs.html*).
-3. Head to AuxTel and reset the cRIOs manually using the **ATDome Recovery** procedures on the 
-   :ref:`AuxTel Recovery after Shutdown <AuxTel-Non-Standard-Operations-AuxTel-Recovery-after-Shutdown>` page.
-4. When the cRIO is rebooted, it might take a few minutes to see the EUI again in the webpage. 
-   If the EUI does not come up on its own after 10 minutes, then a second cRIO reboot is necessary
+3. Head to AuxTel and reset the cRIOs manually using the `ATDome Recovery <https://obs-ops.lsst.io/AuxTel/Non-Standard-Operations/Recovery-after-Shutdown/Recovery-after-Shutdown.html#atdome-recovery>`_ 
+   procedures on the :ref:`AuxTel Recovery after Shutdown <AuxTel-Non-Standard-Operations-AuxTel-Recovery-after-Shutdown>` page.
+
+.. note::
+
+    Make sure you have a small, pointed object (e.g., a paper clip or pen cap) to press the reset button on the cRIOs.
+
+
+4. When the cRIOs are rebooted, it might take a few minutes to see the EUI again in the webpage. 
+   If the EUI does not come up on its own after 10 minutes, then a second reboot of the cRIOs is necessary.
 5. Once the EUI comes back online, place the ATDome CSC back into the ``ENABLED`` state.
 
 Post-Condition
