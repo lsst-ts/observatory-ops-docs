@@ -8,6 +8,8 @@
 
 .. _`summit's RubinTV`: https://summit-lsp.lsst.codes/rubintv/summit/auxtel 
 .. _`USDF RubinTV`: https://usdf-rsp-dev.slac.stanford.edu/rubintv/summit-usdf/auxtel 
+.. _`CCS`: http://ccs.lsst.org/RecentImages/auxtel.html
+.. _`LATISS OODS Ingest Status`: https://summit-lsp.lsst.codes/chronograf/sources/1/dashboards/27
 
 ##################
 Daytime Checkout 
@@ -60,10 +62,11 @@ Bring the *ATCS* into an enabled state to prepare for checkout.
 ============================================
 
 This script will take a bias and an engineering frame with *LATISS* 
-and ensure that they are ingested by the *OODS*.
+and ensure that they are ingested by the *Observatory Operations Data Service (OODS)*.
 
 Verify that the bias appears on the `summit's RubinTV`_. 
-In case the image fails to appear, promptly communicate the issue in the channel *#summit-auxtel*. 
+In case the image fails to appear, verify whether they have been ingested on *Chronograph* (`LATISS OODS Ingest Status`_) and/or `CCS`_,
+and promptly communicate the issue in the channel *#summit-auxtel*. 
 
 You can also check if images are arriving correctly at Rubin's SLAC facility using `USDF RubinTV`_.
 
