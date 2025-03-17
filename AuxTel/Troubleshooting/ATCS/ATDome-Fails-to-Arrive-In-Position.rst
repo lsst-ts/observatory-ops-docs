@@ -40,7 +40,7 @@ Error diagnosis
 ===============
 
 If the slew was initiated from a script, you may see an error traceback similar to the one below. 
-This is triggered by the timeout that is excepted when the ATDome never arrives to its final position.
+This is triggered by the timeout that is expected when the ATDome never arrives to its final position.
 
 .. dropdown:: ATDome Traceback: RuntimeError
 
@@ -131,7 +131,7 @@ Procedure A: Recovery Using LOVE
 --------------------------------
 
 1. State cycle ATDome through ``STANDBY`` and back to ``ENABLE`` from the ASummaryState. 
-   The transition must be quick enough so the dome shutter doesn´t start closing and the recovery 
+   The transition must **be quick enough** so the dome shutter doesn´t start closing and the recovery 
    is faster; if it does close, the next step should deal with the shutter opening again.
 
    * If ATPtg faulted, transition it back to enabled from ASummaryState.
@@ -150,6 +150,11 @@ Procedure A: Recovery Using LOVE
             style DI fill:#758C98,stroke-width:4px,stroke:#404141
             style EN fill:#33A370,stroke-width:4px,stroke:#404141
 
+.. note::
+
+    One can alternatively state cycle ATDome using either the ``open_dome.py`` or ``set_summary_state.py``
+    scripts found in the :ref:`Common AuxTel Scripts <Common-LOVE-SAL-Scripts-and-Configurations>` page.
+
 2. Run ``auxtel/prepare_for/onsky.py`` and move it to the beginning of the ATQueue. 
    This script will make sure the system is back and ready for observations, 
    with the mirror cover and dome shutter opened as well as the dome following enabled.
@@ -158,13 +163,16 @@ Procedure A: Recovery Using LOVE
        
 .. _ATDome-Position-Failure-Procedure-Jupyter:
 
-Procedure B: Recovery Using Jupyter Notebook
+Procedure B: Recovery Using Jupyter Notebook 
 --------------------------------------------
 
 1. From the ASummaryState view on LOVE, transition the ATPtg back to enabled following the usual path
    in LOVE (see :ref:`State Cycle Steps <ATDome-Position-LOVE-State-Cycle>`).
-2. Using an instantiated atcs class from a Jupyter Notebook (e.g. the ``daytime_checkout`` notebook), 
-   issue the following commands:
+2. Create a `Summit Nublado <https://summit-lsp.lsst.codes/>`_ instance on your computer by following the
+   :ref:`Getting Started With Nublado <Observing-Interface-Getting-Started-Nublado>` procedure (make sure to clone the  
+   `ts_notebooks <https://github.com/lsst-ts/ts_notebooks>`_ repository).
+3. Using an instantiated atcs class from a Jupyter Notebook (e.g. the `DayTime-Checkout <https://github.com/lsst-ts/ts_notebooks/blob/develop/procedures/auxtel/observation_procedures/DayTime-Checkout.ipynb>`_ 
+   notebook), issue the following commands:
 
    a. Disable dome following. 
    b. Perform a dome slew.
@@ -180,7 +188,7 @@ Procedure B: Recovery Using Jupyter Notebook
     await atcs.slew_dome_to(az=dome_az.azimuthPosition-15)
     await atcs.enable_dome_following()
 
-3. The dome following and positioning should now be recovered. From the same notebook, 
+4. The dome following and positioning should now be recovered. From the same notebook, 
    perform a test slew choosing ``az``, ``el``, and ``rot`` values that are **near your current position** 
    to ensure the dome tracks and arrives at the desired position:
 
