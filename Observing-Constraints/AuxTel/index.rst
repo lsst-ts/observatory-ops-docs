@@ -131,7 +131,7 @@ Wind speeds greater than 15 m/s (measured over the last 10 data points):
 .. warning::
     Dome drop-down shutter:
         The AuxTel dome shutter has a drop-down shutter that opens like a flap, causing it to extend further past the dome structure. 
-        It is opened when observing targets below 25 degrees elevation. 
+        It is opened when observing targets below 28 degrees elevation. 
         The drop-down shutter is susceptible to wind gusts, and should be closed if gusts reach over 8 m/s.
 
 .. _auxtel-weather-constraints-humidity-and-dew-point:
