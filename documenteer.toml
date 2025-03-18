@@ -58,6 +58,7 @@ ignore = [
     'http://auxtel-illpdu.cp.lsst.org/.*',
     'http://aux-pdu-latiss.cp.lsst.org/.*',
     'athexapod.cp.lsst.org',
+    'http://ccs.lsst.org/RecentImages/auxtel.html',
 ]
 
 [sphinx] 
