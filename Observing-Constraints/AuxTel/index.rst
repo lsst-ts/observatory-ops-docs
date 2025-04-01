@@ -229,4 +229,13 @@ If engineering tasks are being run that are not measuring sky brightness, choose
 Be mindful of scattered moonlight during heavy cloud cover. 
 Data may be degraded. 
 
+
+Shutdown And Resume
+===============================
+When the weather conditions approach the constraints during observation, consider shutdown Auxtel and the dome. 
+See :ref:`Auxtel Shutdown <AuxTel-Nighttime-Operations-Shutdown:>` for the shutdow procedure.
+If the weather turns good later and the resumption of observation is decided, 
+follow :ref:`Resume from a Shutdown <Resume-from-Temporary-Shutdown:>` for extra pointing and focus correction. 
+
+
 This procedure was last modified |today|.
