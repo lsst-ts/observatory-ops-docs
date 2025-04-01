@@ -45,7 +45,7 @@ Once you are logged into LOVE, click on the ``ATQueue`` panel, as circled on the
 Load the Script
 ---------------
 
-After clicking on the ``ATQueue`` panel, search for the script ``maintel/make_latiss_calibrations.py`` under ``AVAILABLE SCRIPTS`` on the left, as shown in the figure below:
+After clicking on the ``ATQueue`` panel, search for the script ``auxtel/make_latiss_calibrations.py`` under ``AVAILABLE SCRIPTS`` on the left, as shown in the figure below:
 
 .. figure:: ./_static/love-available-scripts.png
     :name: available-scripts-love
