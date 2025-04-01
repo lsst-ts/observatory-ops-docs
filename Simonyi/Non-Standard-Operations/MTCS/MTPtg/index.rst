@@ -8,5 +8,8 @@ MTPtg
     :maxdepth: 2
     :titlesonly:
     :glob:
+<<<<<<< HEAD
 
     *
+=======
+>>>>>>> b726c6d (update index - troubleshooting)
