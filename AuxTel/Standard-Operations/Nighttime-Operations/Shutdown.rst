@@ -153,3 +153,13 @@ In the event that this standard dome and telescope closure procedure fails,
 and an emergency shutdown is required, refer to the :ref:`emergency dome closure instructions <AuxTel-Non-Standard-Operations-AuxTel-Emergency-Shutdown>`.
 
 This procedure was last modified on |today|.
+
+
+.. _Resume-from-Temporary-Shutdown:
+
+Resume from a Shutdown
+===========
+Auxtel loses pointing correction and focus information after a standard shutdown. 
+In the case when observation is to be resumed after a shutdown, the two steps are needed before resuming the scheduler. 
+See :ref:`AuxTel Lost Pointing Accuracy <AuxTel-Lost-Pointing-Accuracy-Procedure-Overview>` and ref:`AuxTel Image out of focus <Image-out-of-focus-Procedure-Overview>` for more details,
+or :ref:`Center, absorb pointing offsets, mirror alignment and focus <AuxTel-Non-Standard-Operations-Center-Focus>`.
