@@ -41,8 +41,7 @@ Introduction to the Simonyi Telescope
 
    Components/MTCS/index.rst
    Components/*
-   Components/Auxiliary-Components/index.rst
-
+   
 .. _Simonyi-Telescope-Weather-Constraints:
 
 Weather Constraints
@@ -50,8 +49,9 @@ Weather Constraints
 
 Consult the :ref:`weather conditions and constraints <Observing-Constraints-Simonyi-Weather-Constraints>` to operate Simonyi before deciding to open. 
 
-.. toctree::
+.. toctree:: 
    :glob:
+   :hidden:
    :titlesonly:
    :caption: Weather Constraints
    

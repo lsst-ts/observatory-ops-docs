@@ -16,46 +16,28 @@
 ##############################
 Observatory Control System
 ##############################
-
-.. admonition:: Observatory-Wide Important Announcements
-
-    Place here all important observatory news and announcements. 
+.. Place below all important observatory news and announcements. 
     If note text runs over a line, make sure the lines wrap and are indented to
     the same level as the note tag. If formatting is incorrect, part of the note
     might not render.
     
     Notes can have more than one paragraph. Successive paragraphs must
     indent to the same level as the rest of the note.
-.. This section should provide a brief, top-level description of the page.
 
+.. admonition:: Observatory-Wide Important Announcements
+   
+   This page is under construction. 
 
-.. _Observatory-Control-System-Scheduler:
+.. _Observatory-Control-System-Control-and-Monitoring: 
 
-Scheduler
-=========
-
+Control and Monitoring Software
+===============================
 .. toctree::
    :glob:
    :titlesonly:
-   :caption: Scheduler
+   :caption: Control and Monitoring Software
 
-
-   Scheduler/index.rst
-
-
-.. _Observatory-Control-System-Camera-Control-System:
-
-Camera Control System CCS
-=========================
-
-.. toctree::
-   :glob:
-   :maxdepth: 2
-   :titlesonly:
-   :caption: Camera Control System - CCS
-
-   Camera-Control-System/index.rst
-
+   Control-and-Monitoring/index.rst
 
 .. _Observatory-Control-System-EAS:
 
@@ -70,62 +52,11 @@ Environmental Awareness System - EAS
 
    EAS/index.rst
 
-
-.. _Observatory-Control-System-LOVE:
-
-LOVE - LSST's Observers Visualization Environment
-=================================================
-
-.. toctree::
-   :glob:
-   :titlesonly:
-   :caption: LOVE
+.. _Observatory-Control-System-Combined-Calibrations-Procedures:
 
 
-   LOVE/index.rst
-
-.. _Observatory-Control-System-SAL-Scripts:
-
-SAL Scripts
-===========
-
-.. toctree::
-   :glob:
-   :titlesonly:
-   :caption: SAL Scripts
-
-
-   SAL-Scripts/index.rst
-
-
-.. _Observatory-Control-System-BLOCKS:
-
-BLOCKS 
-===========
-
-.. toctree::
-   :glob:
-   :titlesonly:
-   :caption: BLOCKS
-
-
-   BLOCKS/index.rst
-
-.. _Observatory-Control-System-Visualization-and-Monitoring-Tools:
-
-Observing Tools
-================
-
-.. toctree::
-   :glob:
-   :titlesonly:
-   :caption: Visualization and Monitoring Tools
-
-
-   Observing-Tools/index.rst
-
-Combined calibrations procedure
-===============================
+Combined calibrations Procedures
+================================
 
 .. toctree::
    :glob:

@@ -11,4 +11,7 @@ Standard operations during a scheduler-driven observation night.
     :titlesonly:
     :glob:
 
-    *
+    Prepare-for-On-Sky-Operations.rst
+    Monitoring-LATISS-Disperser-Wheel-Position.rst
+    /Observatory-Control-System/Control-and-Monitoring/Scheduler/night-time-operations/index.rst    
+    Shutdown.rst

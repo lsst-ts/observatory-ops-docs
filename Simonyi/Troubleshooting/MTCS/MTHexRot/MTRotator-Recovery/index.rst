@@ -63,7 +63,14 @@ Error diagnosis
 * :ref:`Simulink fault <mtrot_recovery_5>` in the MTRotator GUI 
 * CCW Interlock D-8 activated on the GIS (link here to the GIS interlock screenshot)
 * MTRotator CSC goes into ``FAULT``, but can not be recovered/cycled through CSC from LOVE.
+* WD (watchdog) box in safety system of TMA EUI is red and GIS TMA IS is triggered. 
 
+    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_8.png
+	:width: 300  
+        :name: watchdog
+
+    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_9.png
+        :name: TMA IS
 
 .. _MTRotator-Recovery-Procedure-Steps:
 
@@ -79,6 +86,7 @@ Procedure Steps
 
 #.  **Transition MTRotator CSC to** ``STANDBY`` **status**.
 
+#.  **Clear the error from TMA EUI first.**
 
 #.  **Access the MTRotator EUI/GUI:**
 
@@ -94,8 +102,6 @@ Procedure Steps
              cd rotator/
              cd build
              ./runRotEui
-
-
 
 #.  **Change from DDS Command Source to GUI mode:** 
 

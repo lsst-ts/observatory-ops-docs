@@ -11,14 +11,6 @@ MTCS
 
     TMA/index.rst
     
-    
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-    :glob:
-
-    MTPtg/index.rst
-
 
 .. toctree::
     :maxdepth: 2
@@ -40,4 +32,20 @@ MTCS
     :glob:
 
     MTHexRot/index.rst
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+    :glob:
+
+    LaserTracker/index.rst
+    
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+    :glob:
+
+    StarTrackers/index.rst
+
+
 

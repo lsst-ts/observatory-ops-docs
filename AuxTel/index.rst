@@ -17,15 +17,17 @@
 Auxiliary Telescope Operations
 ##############################
 
-.. admonition:: Auxiliary Telescope Important Announcements
-
-    Place here all important AuxTel news and announcements. 
+.. Place in the admonition below all important AuxTel news and announcements. 
     If note text runs over a line, make sure the lines wrap and are indented to
     the same level as the note tag. If formatting is incorrect, part of the note
     might not render.
     
     Notes can have more than one paragraph. Successive paragraphs must
     indent to the same level as the rest of the note.
+
+.. admonition:: Auxiliary Telescope Important Announcements
+
+   October 2024
 
 .. This section should provide a brief, top-level description of the page.
 
@@ -40,6 +42,7 @@ In-depth information on every component of the Auxiliary telescope can be found 
    :titlesonly:
   
    Components/*
+   Components/*/*
 
 
 .. _Auxiliary-Telescope-Weather-Constraints:
@@ -53,6 +56,17 @@ Before deciding to open consult the :ref:`weather conditions and constraints <Ob
 .. figure:: _static/AuxTel_weather_constraints.png
    :align: center
    :alt: AuxTel weather constraints overview
+
+.. For the left-hand side navigation menu 
+
+.. toctree:: 
+   :glob:
+   :hidden:
+   :titlesonly:
+   :caption: Weather Constraints
+   
+   ../Observing-Constraints/AuxTel/index.rst
+
 
 .. _Auxiliary-Telescope-Operations-Standard-Operations:
 
@@ -76,7 +90,7 @@ AuxTel requires daytime and nighttime operations. Daytime operations focus on pe
    |  Task                    | BLOCK | Data Verification |  Communications          |
    +==========================+=======+===================+==========================+
    | Daytime Checkout         | T17   | | RubinTV         | | #summit_announce       |
-   |                          |       | | On-site         | | #summit__daytime_task  |
+   |                          |       | | On-site         | |                        |
    |                          |       |                   | | Dome movement          |
    |                          |       |                   | | AuxTel movement        |
    +--------------------------+-------+-------------------+--------------------------+
@@ -140,3 +154,14 @@ In some occasions, AuxTel observations could require a series of engineering non
     Troubleshooting/index.rst
 
 
+.. _Auxiliary-Telescope-Operations-SAL-Scripts:
+.. SAL Scripts
+.. ===========
+
+.. toctree::
+   :glob:
+   :maxdepth: 3
+   :titlesonly:
+   :caption: SAL Scripts
+
+   SAL-Scripts/ATCommonSALScripts.rst

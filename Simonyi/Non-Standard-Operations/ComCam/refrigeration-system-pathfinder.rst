@@ -63,8 +63,9 @@ Design And Reviews
 Arrival On The Summit
 =====================
 
-The log of pathfinder installation and first tests up to the end of 2020 can be found on the conluence page `https://confluence.lsstcorp.org/display/LSSTCOM/Pathfinder+Refrigeration+Activities+in+Chile <https://confluence.lsstcorp.org/display/LSSTCOM/Pathfinder+Refrigeration+Activities+in+Chile>`__. 
-After 2021 the activites on pathfinder were logged on Jira. 
+The log of pathfinder installation and first tests up to the end of 2020 can be found on the  
+`confluence page <https://rubinobs.atlassian.net/wiki/spaces/LSSTCOM/pages/53739927/Pathfinder+Refrigeration+Activities+in+Chile>`__. 
+After 2021 the activities on pathfinder were logged on Jira. 
 
 
 Contact Personnel

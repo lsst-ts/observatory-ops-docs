@@ -30,5 +30,5 @@ Simonyi Non-standard Operations
     :titlesonly:
     :glob:
 
-    Auxiliary-Components/index.rst
+    Simonyi-Calibration-System/index.rst
     

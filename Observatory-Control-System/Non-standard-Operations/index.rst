@@ -13,30 +13,25 @@
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
-.. ##################################################
-.. Observatory Control System Non-Standard Operations
-.. ##################################################
+##################################################
+Observatory Control System Non-Standard Operations
+##################################################
 
 .. This section should provide a brief, top-level description of the page.
 
 .. _Computer-Room-Shutdown-Recovery:
 
-Computer Room Shutdown and Recovery
-===================================
-
 Shutdown and Recovery sequence of servers in the computer room.
 
 .. toctree::
    :glob:
-   :titlesonly:
+   :titlesonly:    
+   :maxdepth: 3
 
    Computer-Room-Shutdown/index.rst
 
 
 .. _Summit-Devices-Shutdown-Recovery:
-
-Summit Devices Shutdown and Recovery
-====================================
 
 Shutdown and Recovery sequence of servers and network devices not in the computer room.
 
@@ -46,8 +41,7 @@ Shutdown and Recovery sequence of servers and network devices not in the compute
 
    Summit-Devices-Shutdown/index.rst
 
-Others 
-======
+
 
 .. toctree::
    :glob:

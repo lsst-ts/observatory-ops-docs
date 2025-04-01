@@ -40,3 +40,21 @@ GIS
    :titlesonly:
 
    GIS.rst
+
+Safety Gate Introduction
+================================
+
+.. toctree::
+   :glob:
+   :titlesonly:
+
+   Safety-Gate-Introduction.rst
+
+Safety Gate Procedures
+================================
+
+.. toctree::
+   :glob:
+   :titlesonly:
+
+   Safety-Gate-Procedures.rst

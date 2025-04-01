@@ -9,19 +9,10 @@ AuxTel Non-standard Operations
     :titlesonly:
     :glob:
 
-    EUI-Access/EUI-Access.rst
-
-
-.. toctree::
-    :maxdepth: 3
-    :titlesonly:
-    :glob:
-
     ATCS/index.rst
 
 .. toctree::
     :maxdepth: 3
-    :titlesonly:
     :glob:
 
     LATISS/index.rst

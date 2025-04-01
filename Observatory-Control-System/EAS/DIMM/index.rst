@@ -48,7 +48,7 @@ Below is a list of some useful DIMM manuals:
 .. _Preat Description: https://curl.sai.msu.ru/mass/download/doc/preat_desc2e.pdf 
 .. _DIMM Optical and mechanical design: https://curl.sai.msu.ru/mass/download/doc/description.pdf 
 .. _DIMM software description: https://curl.sai.msu.ru/mass/download/doc/dimm_soft_description.pdf
-.. _DIMM Confluence Page: https://confluence.lsstcorp.org/pages/viewpage.action?spaceKey=LTS&title=DIMM+Tower+and+Equipment+-+Edison
+.. _DIMM Confluence Page: https://rubinobs.atlassian.net/wiki/spaces/LTS/pages/50073588/DIMM+Tower+and+Equipment+-+Edison
 .. _DIMM Source Code: https://github.com/lsst-ts/ts_dimm_app 
 
 * Overview of the DIMM software: `DIMM General Spec`_

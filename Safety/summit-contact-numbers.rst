@@ -43,7 +43,7 @@ Emergency Numbers
     If no one answers the telephone at any of the extensions above, use any Rubin radio tuned to Channel 1. 
     Put out this call: 
     
-    - "Atento [paramedico/asistante montaña/control puerta] - habla [your name] del Observatorio Rubin" and await a response.
+    - *"Atento [paramedico/asistante montaña/control puerta] - habla [your name] del Observatorio Rubin" and await a response.*
 
 
 .. _summit-contact-numbers-control-room-numbers:
@@ -56,12 +56,11 @@ Control Room Numbers
 - Summit control room left side: 843
 
 - La Serena Base control room (phones 1 and 2): 1021, 1022
+  
 
-  To dial into the control rooms from an outside line:
+To dial into the control rooms from an outside line:  *+56 512205 + extension*. 
 
-      +56 512205 + extension
-
-      For example, summit control room right side: + 56 512205844
+For example, summit control room right side: + 56 512205844
 
 .. _summit-contact-numbers-non-emergency-numbers:
 
@@ -86,9 +85,14 @@ Non-Emergency Numbers
 Calling Hotel Pachon
 ====================
 
-If there is something wrong with the room you have organized to stay in, you may call 440 from the hotel foyer and request help.
+If there is something wrong with the room you have organized to stay in, you may call 440 from the hotel foyer or the summit control room and request help.
+During working hours, (Monday - Friday 8:30 - 16:15) this extension will connect to the Cerro Pachón mountain assistant.
+After hours, this extension is forwarded to the mountain assistant on Cerro Tololo. 
+They will call directly to staff on Cerro Pachón to attend to after-hours hotel issues.  
 Some examples are if the key is not hanging on the second floor for you, there is no hot water, or the heat is off and you want to request a space heater, etc.
 Staff mostly speak Spanish only.
+
+To call one of the hotel rooms or 20 units, dial this number 9 512205 + extension. 
 
 - 20-Units main telephone: 599
 
@@ -122,11 +126,13 @@ Using the control room phones
   When dialing a large number, leave the phone in the cradle and dial the number using the keypad. 
   Then pick up the phone after you have entered the full number.
 
-- To dial a landline in Chile: 9 2 XXXX XXXX
+- To dial a landline in La Serena: 9 512 XXX XXX
+
+- To dial a landline in other parts of Chile: 9 2 XXXX XXXX
 
 - To dial a cell phone in Chile: 9 9 XXXX XXXX
 
-- To dial the United States: 9 + 001 + Area Code + Phone Number
+- To dial the United States: 001 + Area Code + Phone Number
 
 - To dial another country: 9 + 188 + 0 + Country Code + Area Code + Phone Number
 

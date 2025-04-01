@@ -17,6 +17,8 @@
 .. _`site webcams`: https://noirlab.edu/science/observing-noirlab/weather-webcams
 .. _`SOAR weather station`: https://noirlab.edu/science/observing-noirlab/weather-webcams/cerro-pachon/environmental-conditions
 .. _`RubinTV`: https://summit-lsp.lsst.codes/rubintv/summit/auxtel 
+.. _`TN-126`: https://sitcomtn-126.lsst.io/#auxtel-image-quality-wind-study
+.. _`online tool`: https://www.calculator.net/dew-point-calculator.html 
 
 ##########################
 AuxTel Weather Constraints
@@ -25,6 +27,8 @@ AuxTel Weather Constraints
 .. This section should provide a brief, top-level description of the page.
 
 This page defines the different types of operational constraints due to weather.
+
+For a full study of wind on image quality, refer to SIT-Com `TN-126`_.
 
 Operating conditions used to define the Rubin construction project are found 
 in `LTS-54 <https://ls.st/lts-54>`__. 
@@ -63,7 +67,8 @@ e.g. opening before going to dinner, or leaving the control room to complete ano
 .. warning::
     Vent gates:
         The vent gates on the first floor of the AuxTel dome can add turbulence if winds are high. 
-        Close the vent gates if wind speeds are above 8 m/s.
+        Close the vent gates if wind speeds are above 10 m/s.
+        This value is less than they can physically stand, but this avoids cross talk in the dome. 
 
 
 .. note::
@@ -105,26 +110,28 @@ Wind speeds less than 8 m/s (measured over the last 10 data points):
     - This is safe operation range for AuxTel. 
         No restrictions in observing are needed. 
         
-Wind speeds between 8 and 12 m/s (measured over the last 10 data points):
+Wind speeds between 8 and 15 m/s (measured over the last 10 data points):
     - If the observer has control to choose targets, observe out of the wind.
         Report that the scheduler configuration needs to be changed, or change the scheduler program you are running.
-        Skip over any observing blocks that point the telescope directly into, or 180 degrees opposite, of the dominant direction of the wind.
+        Skip over any observing blocks that point the telescope directly into, or 90 degrees offset from, the dominant direction of the wind.
+    - Close the vent gate(s) at winds over 12 m/s.
+
 
 .. note::
-    90 degree rule:
-        Due to the curved dome, pointing at targets 180 degrees offset from the dominant wind direction creates a wind eddy under the lip of the dome, which can create wind shake on the upper truss of AuxTel. 
-        To compensate for this, it is recommended to look for targets that have a 90-degree offset from the dominant wind direction. 
+    Opposite rule:
+        The optimum place to point when there are winds over 8 m/s is 180 degrees offset from the dominant wind direction. 
 
-Wind speeds greater than 12 m/s (measured over the last 10 data points):
-    - Observers should close once wind gusts have become greater than 12 m/s. 
+
+Wind speeds greater than 15 m/s (measured over the last 10 data points):
+    - Observers should close once wind gusts have become greater than 15 m/s. 
         If mount jitter is occurring frequently in all parts of the sky, close the dome. 
         Before deciding to open again, ensure that sustained winds have dropped below the closure limits for more than 15 minutes. 
-        Reset the timer if the wind jumps over 12 m/s again. 
+        Reset the timer if the wind jumps over 15 m/s again. 
 
 .. warning::
     Dome drop-down shutter:
         The AuxTel dome shutter has a drop-down shutter that opens like a flap, causing it to extend further past the dome structure. 
-        It is opened when observing targets below 25-30 degrees elevation. 
+        It is opened when observing targets below 28 degrees elevation. 
         The drop-down shutter is susceptible to wind gusts, and should be closed if gusts reach over 8 m/s.
 
 .. _auxtel-weather-constraints-humidity-and-dew-point:
@@ -148,6 +155,7 @@ Humidity above 70%:
 The quantity that is more important than relative humidity is the **dew point temperature** and the **dew point difference**. 
 The dew point temperature is the ambient air temperature at which relative humidity will reach 100% - 
 the air is completely saturated with water vapor.
+You can calculate the **dew point temperature** using this `online tool`_.
 The dew point difference is the difference between the dew point temperature and the coldest structure in the telescope dome. 
 
 Example:
@@ -155,7 +163,7 @@ Example:
 
     AuxTel M1 temperature = 11 degrees C.
     
-    Glycol lines = 4 degrees C.
+    Truss temperature = 4 degrees C.
     
     **Dew point difference = 4 degrees C.**
 
@@ -196,6 +204,9 @@ Virga appears like streaks of rain or whips on the bottom of different types of 
 Winds can bring this moisture into the dome, or it can condense on the dome roof and fall through the slit. 
 
 If clouds are present in the all-sky camera - which is mounted next to Earthcam on Piñon - be mindful of further cloud accumulation and the direction they are coming from. 
+
+Aggregate data by going outside and looking around the sky. 
+During bright time, look along the glowing cloud edges for wisps. 
 
 The `Gemini cloud cameras`_ are useful to evaluate how low the clouds are. 
 Cloud camera images update every 30 seconds during the night. 

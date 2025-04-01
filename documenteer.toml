@@ -48,7 +48,19 @@ ignore = [
     'https://noirlab.edu',
     'https://gemini.edu',
     'https://1password.com/downloads',
-    'athexapod.cp.lsst.org'
+    'athexapod.cp.lsst.org',
+    'https://curl.sai.msu.ru',
+    'http://aux-pdu-tcs.cp.lsst.org',
+    'http://pdu1-aux.cp.lsst.org',
+    'http://pdu2-aux.cp.lsst.org',
+    'http://aux-pdu-spectrograph.cp.lsst.org',
+    'http://aux-pdu-dome.cp.lsst.org',
+    'http://auxtel-illpdu.cp.lsst.org/.*',
+    'http://aux-pdu-latiss.cp.lsst.org/.*',
+    'athexapod.cp.lsst.org',
+    'http://ccs.lsst.org/RecentImages/auxtel.html',
+    'https://github.com',
+    'https://curl.sai.msu.ru'
 ]
 
 [sphinx] 
