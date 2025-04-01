@@ -233,9 +233,9 @@ Data may be degraded.
 Shutdown And Resume
 ===============================
 When the weather conditions approach the constraints during observation, consider shutdown Auxtel and the dome. 
-See :ref:`Auxtel Shutdown <AuxTel-Nighttime-Operations-Shutdown:>` for the shutdow procedure.
+See :ref:`Auxtel Shutdown <AuxTel-Nighttime-Operations-Shutdown>` for the shutdow procedure.
 If the weather turns good later and the resumption of observation is decided, 
-follow :ref:`Resume from a Shutdown <Resume-from-Temporary-Shutdown:>` for extra pointing and focus correction. 
+follow :ref:`Resume from a Shutdown <Resume-from-Temporary-Shutdown>` for extra pointing and focus correction. 
 
 
 This procedure was last modified |today|.
