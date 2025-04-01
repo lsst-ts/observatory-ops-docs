@@ -238,4 +238,5 @@ If the weather turns good later and the resumption of observation is decided,
 follow :ref:`Resume from a Shutdown <Resume-from-Temporary-Shutdown>` for extra pointing and focus correction. 
 
 
+
 This procedure was last modified |today|.
