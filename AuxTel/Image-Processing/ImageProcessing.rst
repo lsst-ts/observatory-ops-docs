@@ -52,7 +52,8 @@ location at USDF (the US Data Facility, in California).  At both locations, thes
 are read into a piece of code called the Butler, which makes it possible to quickly access the data you want from the huge amount 
 of data that will eventually be stored.
 
-For quick feedback to the summit, a set of Rapid Analysis code performs operations on the images before displaying them in RubinTV.  The most important operation is ISR (Instrument Signature Removal).  This removes deficiencies in the raw image and generates an image that more accurately reflects the sky.  The Monitor image in RubinTV has been thru ISR.  The ISR process is quite complex, and more detail of the ISR is available in this pdf file :download:`pdf  <doc/ISR_Explanation_Eli_July_2024.pdf>`  The Rapid Analysis also performs some quick, very basic analysis of the spectrum which is displayed in RubinTV.  RubinTV also displays mount errors that occur and in the tables it displays the "Mount motion image degradation" in arcseconds.
+For quick feedback to the summit, a set of Rapid Analysis code performs operations on the images before displaying them in RubinTV.  The most important operation is ISR (Instrument Signature Removal).  This removes deficiencies in the raw image and generates an image that more accurately reflects the sky.  The Monitor image in RubinTV has been thru ISR.  The ISR process is quite complex, and more detail of the ISR is available in this pdf file :download:`pdf  <doc/ISR_Explanation_Eli_July_2024.pdf>`  The Rapid Analysis also performs some quick, very basic analysis of the spectrum which is displayed in RubinTV.  RubinTV also displays mount errors that occur and in the tables it displays the "Mount motion image degradation" in arcseconds.  More detail of the different types of mount errors is available at:
+https://sitcomtn-125.lsst.io/
 
 The team analyzing the AuxTel spectra is in France.  They perform offline analysis of the images.  An example of their analysis is shown in this pdf file :download:`pdf  <doc/2025_02_AuxTel_hologram_analysis.pdf>`
 
@@ -101,3 +102,5 @@ To use the summit RSP, do the following:
      for [id,record] in exposureList:
          print(f"{record.id}\t{record.observation_type}\t{record.exposure_time}\t{record.physical_filter}")
 
+
+Another way to check on the status of the ingestion is to go to the "LATISS OODS Ingest Status" Chronograf dashboard.
