@@ -31,7 +31,6 @@ See the following :ref:`procedures steps <Park-the-Telescope-Procedure-Steps>` f
 If the shutdown is only temporary, and operation is to be resumed, follow the :ref:`Resume From Temporary Shutdown <Resume-from-Temporary-Shutdown>` block for extra procedures.
 
 
-
 .. _Shutdown-the-Telescope-Precondition:
 
 Precondition
@@ -152,16 +151,16 @@ Follow the steps at the end of night:
 
 .. _Resume-from-Temporary-Shutdown:
 
-.. admonition:: Important!
+.. admonition:: Resume From Temporary Shutdown
   :class: attention
 
-   Auxtel loses pointing correction and focus information after a standard shutdown. 
-   In the case when observation is to be resumed after a shutdown, the following two steps need to be executed in order:
+  Auxtel loses pointing correction and focus information after a standard shutdown. 
+  In the case when observation is to be resumed after a shutdown, the following two steps need to be executed in order:
 
-   #. :ref:`Reset pointing accuracy of AuxTel <AuxTel-Lost-Pointing-Accuracy-Procedure-Overview>`
-   #. :ref:`Run the wavefront estimation (WEP) script for re-focusing <Image-out-of-focus-Procedure-Overview>`
+  #. :ref:`Reset pointing accuracy of AuxTel <AuxTel-Lost-Pointing-Accuracy-Procedure-Overview>`
+  #. :ref:`Run the wavefront estimation (WEP) script for re-focusing <Image-out-of-focus-Procedure-Overview>`
 
-   See also :ref:`Center, absorb pointing offsets, mirror alignment and focus <AuxTel-Non-Standard-Operations-Center-Focus>`.
+  See also :ref:`Center, absorb pointing offsets, mirror alignment and focus <AuxTel-Non-Standard-Operations-Center-Focus>` for more details.
 
 Contingency
 ===========
