@@ -13,19 +13,21 @@ Shutdown
 
 Overview
 ========
+
 Auxtel might need to be shutdown for a few reasons:
+
 * End of night
-* bad weather (see :ref:`AuxTel Weather Constraints <Observing-Constraints-AuxTel-Weather-Constraints>`)
-* restart of cRIOs (see e.g. :ref:`ATDome Lost Communication with the Top-End <Top-Comm-Error-Procedure>`)
-* unresponsive axes
-* other reasons
+* Bad weather (see :ref:`AuxTel Weather Constraints <Observing-Constraints-AuxTel-Weather-Constraints>`)
+* Restart of cRIOs (see e.g. :ref:`ATDome Lost Communication with the Top-End <Top-Comm-Error-Procedure>`)
+* Unresponsive axes
+* Other reasons
 
 For the end-of-night shutdown, ATTCS and LATISS CSCs should be set to ``STANDBY``. Telescope and dome should be parked. 
 The parking position for AuxTel is El = 80 deg, Az = 0.0 deg, rot = 0.0 deg. 
 For the dome, the parking position is at Az = 285.0 deg with closed dome slit shutter. 
-See the following :ref:`procedures steps <Park-the-Telescope-Procedure-Steps>` for the shutdown procuder.
+See the following :ref:`procedures steps <Park-the-Telescope-Procedure-Steps>` for the shutdown process.
 
-If the shutdown is temporary during the night, and observation is to be resumed, follow the :ref:`resume from temporary shutdown <Resume-from-Temporary-Shutdown>` section.
+If the shutdown is only temporary, and operation is to be resumed, follow the :ref:`resume from temporary shutdown <Resume-from-Temporary-Shutdown>` section.
 
 
 .. _Shutdown-the-Telescope-Precondition:
@@ -128,14 +130,17 @@ Go up to the AuxTel and
 
 
 .. _Resume-from-Temporary-Shutdown:
+
 .. admonition:: Important!
   :class: attention
-Auxtel loses pointing correction and focus information after a standard shutdown. 
-In the case when observation is to be resumed after a shutdown, the following two steps need to be executed in order:
-# :ref:`Reset pointing accuracy of AuxTel <AuxTel-Lost-Pointing-Accuracy-Procedure-Overview>`
-# :ref:`Run the wavefront estimation (WEP) script for re-focusing <Image-out-of-focus-Procedure-Overview>`
 
-See also :ref:`Center, absorb pointing offsets, mirror alignment and focus <AuxTel-Non-Standard-Operations-Center-Focus>`.
+   Auxtel loses pointing correction and focus information after a standard shutdown. 
+   In the case when observation is to be resumed after a shutdown, the following two steps need to be executed in order:
+
+   #. :ref:`Reset pointing accuracy of AuxTel <AuxTel-Lost-Pointing-Accuracy-Procedure-Overview>`
+   #. :ref:`Run the wavefront estimation (WEP) script for re-focusing <Image-out-of-focus-Procedure-Overview>`
+
+   See also :ref:`Center, absorb pointing offsets, mirror alignment and focus <AuxTel-Non-Standard-Operations-Center-Focus>`.
 
 Contingency
 ===========
