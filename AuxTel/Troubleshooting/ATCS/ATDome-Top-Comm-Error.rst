@@ -96,9 +96,30 @@ To manually reset the dome cRIOs:
     Make sure you have a small, pointed object (e.g., a paper clip or pen cap) to press the reset button on the cRIOs.
 
 
-4. After the cRIOs are rebooted, confirm there is connectivity with the shutter and dome by verifying that the GUIs are operational. 
+4. After the cRIOs are rebooted, confirm there is connectivity with the shutter and dome by verifying that the GUIs are operational (see :ref:`Fig 1 <figure-Reset-GUIs>`). 
    If the GUIs do not come up on their own after 10 minutes, then a second reboot of the cRIOs is necessary.
+
+
 5. Once the GUIs come back online, place the ATDome CSC back into the ``ENABLED`` state.
+
+.. _figure-Reset-GUIs:
+
+.. list-table:: Fig 1: Reset Auxtel Dome and Shutter GUIs
+   :width: 100%
+   :class: borderless
+
+   * - 
+      .. figure:: _static/ATDome_gui.png
+        :width: 100%
+
+        AuxTel Dome GUI
+         
+     - 
+      .. figure:: _static/ATDomeShutter_gui.png
+        :width: 100%
+
+        AuxTel Shutter GUI
+
 
 Post-Condition
 ==============
