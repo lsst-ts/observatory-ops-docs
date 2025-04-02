@@ -62,14 +62,31 @@ Troubleshooting image analysis problems.
 
 There are two ways to check the image processing when problems occur.  At point A in the block diagram, the images
 are stored at ``auxtel-fp01.cp.lsst.org:/data/ats/ccs-ipa``.  It is possible to log into auxtel-fp01 and verify that the files are being
-written there.  If they are not, that indicates a problem with ATCamera or with CCS.  This is not usually a problem.
+written there, as below.  You should see a directory for the current day (like the below 20250401).  In that directory, there should be a directory for each exposure.  If they are not there, that indicates a problem with ATCamera or with CCS.  This is not usually a problem, but if you find the images are not there, contact a camera expert like Tony Johnson or put a note in #auxtel-computing.
+
+::
+
+     ssh <your login>@auxtel-fp01.cp.lsst.org
+     cd /data/ats/ccs-ipa
+     ls
+     cd <20250401>
+     ls
+
 
 A more common problem is that images are failing to ingest.  This can happen for a number of reasons,
 like a problem with ATOODS or ATHeaderService, or the ingest code is failing.
 RubinTV uses the ingested data, so if the images fail to
 ingest at the summit, they will not display in RubinTV.  At point B in the block diagram, we can check whether
 the images have been ingested. Below is a code snippet to run on the summit-rsp.
-The output will only display ingested images.
+The output will only display ingested images.  If the images have not ingested, contact an expert like Michael Reuter.
+
+To use the summit RSP, do the following:
+
+::
+
+   (1) Access the summit-rsp with Nublado
+       (see https://obs-ops.lsst.io/Observing-Interface-Setup/getting-started-nublado.html)
+   (2) Create a new jupyter notebook, paste in the snippet below and run it.
 
 
 ::
