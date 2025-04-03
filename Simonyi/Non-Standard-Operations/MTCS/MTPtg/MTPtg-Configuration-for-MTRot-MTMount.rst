@@ -6,7 +6,7 @@
 .. _rancher: https://rancher.cp.lsst.org/
 .. _Out of Hours Support: https://obs-ops.lsst.io/Safety/out-of-hours-support.html#safety-out-of-hours-support
 .. _for AuxTel as well: https://obs-ops.lsst.io/AuxTel/Non-Standard-Operations/index.html
-.. _Detailed instructions for Kubernetes: https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/122454286/Access+to+the+Kubernetes+Cluster
+.. _Instructions for Kubernetes: https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/122454286/Access+to+the+Kubernetes+Cluster
 .. _Instructions for ArgoCD : https://obs-ops.lsst.io/Observatory-Control-System/Troubleshooting/CSCs-Troubleshooting/component-offline.html
 
 .. _MTMTPtg-Configuration-for-MTRotator-and-MTMount:
@@ -18,46 +18,68 @@ MTPtg Configuration for MTRotator and MTMount
 
 .. note:: Important Information before start.
 
-    #. Only proceed if you are authorized to change the configuration of the CSC pointing component ``MTPtg`` of the Simonyi Telescope.
-   
-    #. A change of the ``MTMount`` CSC version needs to be done in *ArgoCD by a commissioning scientist*.
-
-    #. Remember use VPN.
+    Only proceed if you are authorized to change the configuration of the pointing component MTPtg of the Simonyi Telescope.
 
 ..
 
 .. note:: Important Information before start.
+
+    A precondition to this procedure, is that the **MTMount CSC** should be configured in the proper *CSC version* to be operational (only with the CCW component). 
+    This is done by the Commissioning Scientist in ArgoCD (`Instruction for ArgoCD`_). 
+    They may/will request to send the MTMount to OFFLINE status before changing the MTMount CSC version to *mtmount-ccw-only*. 
+    Follow their instructions. 
+    To check the *CSC version* in use, you can open ArgoCD (credentials in 1Password) and search for *mtmount*, you will see 3 *CSC versions* for MTMount: `mtmount`, `mtmount-ccw-only`, and `mtmount-sim`. 
+    The figure shows this page, highlighting the **Synced** status indicating is in this state, is in `mtmount-ccw-only` *CSC version*.
+..
     
-    Kubernetes authorization
+    .. figure:: ./_static/inArgoCD.png
+      :width: 950px
+      :height: 165px
+      :name: ArgoCD
 
-    1. To access the Kubernetes Cluster, you must have the necessary credentials installed on your computer.
-  
-            *Credentials*: Open a ticket directed to summit IT to access the Kubernetes Cluster, named **yagan**, through the rancher_. 
+      Fig1. MTMount *CSC versions* in ArgoCD.
+    ..  
 
-    2. Once it is done, you can download your unique credential and place the :file:`yagan.yaml` file inside the :file:`~/.kube` directory in your local machine.
+    .. figure:: ./_static/insimonyitel.png
+      :width: 950px
+      :height: 165px
+      :name: simonyitel
 
+      Fig2. You search “simonyitel” and then click it.
+    ..  
+
+    .. figure:: ./_static/mtmount-ccw-only.png
+      :width: 950px
+      :height: 165px
+      :name: mtmount-ccw-only
+
+      Fig3. You can find “mtmount-ccw-only” job when you scroll down.
+    ..  
+
+
+.. note:: Kubernetes authorization
+    
+    To execute this procedure you must have installed in your computer the credentials to access the Kubernetes cluster. 
+    Detailed `Instructions for Kubernetes`_.
+    
 ..
 
 .. _MTMTPtg-Configuration-for-MTRotator-and-MTMount-Procedure-Overview:
 Overview
 ========
 
-When either the ``MTRotator`` or ``MTMount`` components become unavailable during Simonyi operations, and you still want to continue testing and tracking,
-it's necessary to change the configuration of the ``MTPtg`` CSC to avoid entering into ``FAULT`` mode commanding these unavailable components.
+When either the **MTRotator** or **MTMount** components become unavailable during Simonyi operations, and you still want to continue testing and tracking, it's necessary to change the configuration of the **MTPtg** CSC to avoid entering into ``FAULT`` mode .
 
 
-.. _MTMTPtg-Configuration-for-MTRotator-and-MTMount-Procedure-Error-Diagnosis:
-Error Diagnosis
+.. _MTMTPtg-Configuration-for-MTRotator-and-MTMount-Procedure-Error-Precondition:
+Precondition
 ===============
 
 Cases
 -----
 
-1. ``MTRotator`` is not available, but you still want to track **without** the Rotator using the rest of the components; or you want to **include** 
-the Rotator in the tracking again.
-
-2. ``MTMount`` is not available (not starting up, for example), but you still want to use *CCW* + *Rotator*  **without** moving or commanding the mount, 
-or you want to revert the change and **include** the mount.
+1. **MTRotator** is not available, but you still want to track **without** the Rotator, using the rest of the components; or you want to **include** the Rotator in the tracking again. 
+2. **MTMount** is not available (not starting up, for example), but you still want to use *CCW+Rotator* **without** moving or commanding the mount, or you want to revert the change and **include** the mount.
 
 
 .. _MTMTPtg-Configuration-for-MTRotator-and-MTMount-Procedure-Procedure-Steps:
