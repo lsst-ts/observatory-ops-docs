@@ -15,49 +15,61 @@
 MTPtg Configuration for MTRotator and MTMount
 #############################################
 
+**Important Information before start.**
 
-.. note:: Important Information before start.
+.. warning:: 
 
-    Only proceed if you are authorized to change the configuration of the pointing component MTPtg of the Simonyi Telescope.
+    Only proceed if you are authorized to change the configuration of the pointing component *MTPtg* of the Simonyi Telescope.
 
 ..
 
-.. note:: Important Information before start.
+.. warning:: 
 
-    A precondition to this procedure, is that the **MTMount CSC** should be configured in the proper *CSC version* to be operational (only with the CCW component). 
-    This is done by the Commissioning Scientist in ArgoCD (`Instruction for ArgoCD`_). 
-    They may/will request to send the MTMount to OFFLINE status before changing the MTMount CSC version to *mtmount-ccw-only*. 
+    Commissioning Scientists (ComSci) or Observing Specialist (OS) with the ArgoCD training on shift can change the version of *MTMount CSC* in *ArgoCD* to **mtmount-ccw-only**. 
+    This configurations can deal with tracking without said component.
+..
+
+.. note:: 
+    
+    A precondition to this procedure, is the *MTMount CSC* should be configured in the proper *CSC version* to be operational (only with the *CCW* component). 
+    This is done by the ComSci or the OS in ArgoCD (`Instructions for ArgoCD`_). 
+
+    They may/will request to send the *MTMount* to ``OFFLINE`` status before changing the *MTMount CSC version* to **mtmount-ccw-only**. 
     Follow their instructions. 
-    To check the *CSC version* in use, you can open ArgoCD (credentials in 1Password) and search for *mtmount*, you will see 3 *CSC versions* for MTMount: `mtmount`, `mtmount-ccw-only`, and `mtmount-sim`. 
-    The figure shows this page, highlighting the **Synced** status indicating is in this state, is in `mtmount-ccw-only` *CSC version*.
+
+    To check the *CSC version* in use, you can open ArgoCD (credentials in 1Password) and search for *mtmount*, you will see 3 *CSC versions* for *MTMount*: **mtmount**, **mtmount-ccw-only**, and **mtmount-sim**. 
+    The figure shows this page, highlighting the **Synced** status indicating is in this state, is in **mtmount-ccw-only** *CSC version*.
 ..
+
     
     .. figure:: ./_static/inArgoCD.png
-      :width: 950px
-      :height: 165px
+      :width: 2500px
+      :height: 200px
       :name: ArgoCD
 
       Fig1. MTMount *CSC versions* in ArgoCD.
     ..  
 
     .. figure:: ./_static/insimonyitel.png
-      :width: 950px
-      :height: 165px
+      :width: 2500px
+      :height: 200px
       :name: simonyitel
 
       Fig2. You search “simonyitel” and then click it.
     ..  
 
     .. figure:: ./_static/mtmount-ccw-only.png
-      :width: 950px
-      :height: 165px
+      :width: 2500px
+      :height: 200px
       :name: mtmount-ccw-only
 
       Fig3. You can find “mtmount-ccw-only” job when you scroll down.
     ..  
 
 
-.. note:: Kubernetes authorization
+.. note:: 
+    
+    **Kubernetes authorization**
     
     To execute this procedure you must have installed in your computer the credentials to access the Kubernetes cluster. 
     Detailed `Instructions for Kubernetes`_.
@@ -82,12 +94,6 @@ Precondition
 .. _MTMTPtg-Configuration-for-MTRotator-and-MTMount-Procedure-Procedure-Steps:
 Procedure Steps
 ===============
-
-.. warning:: 
-    
-    The Commissioning Scientists (ComSci) or Observing Specialist (OS) with the ArgoCD training on shift will change the version of *MTMount CSC* in *ArgoCD* to **mtmount-ccw-only**. 
-    This configurations can deal with tracking without said component.
-
 
 Steps
 -----
@@ -115,28 +121,29 @@ Steps
 
     ..
 
-If you get a :kbd:`command not found`, you first need to set up docker. Follow the `Instructions for Kubernetes`_ in step #4.
+    If you get a :kbd:`command_not_found`, you first need to set up docker. Follow the `Instructions for Kubernetes`_ in step #4.
 
     .. figure:: ./_static/1.png
       :width: 950px
       :height: 165px
       :name: Your figure
 
-      In this particular case the name of the *MTPtg* **pod** is **mtptg-djhpv**, name that changed constantly *(mtptg-xxxxx)*.
+      Fig4. In this particular case the name of the *MTPtg* **pod** is **mtptg-djhpv**, the name changed constantly *(mtptg-xxxxx)*.
     ..  
 
 4. Connect to the *MTPtg* **pod mtptg-hnmlh** within the simonyitel. The command bellow will open a terminal within the pod.
 
- .. prompt:: bash
+    .. prompt:: bash
     
     kubectl --kubeconfig=${HOME}/.kube/yagan.yaml exec --stdin --tty mtptg-hnmlh -n simonyitel -- /bin/bash
 
     ..
    
     .. figure:: ./_static/2.png
-        :width: 900px
-        :height: 65px
+      :width: 900px
+      :height: 65px
 
+      Fig5. 
     ..
 
 5. Configuration directory: the configuration files are one level up.  
@@ -150,39 +157,42 @@ If you get a :kbd:`command not found`, you first need to set up docker. Follow t
     .. figure:: ./_static/3.png
        :width: 900px
        :height: 420px
-        
+
+       Fig6. The directory contains the configuration files :file:`MTPtg.info` and the pointing models :file:`mt.mod` files. 
+   
     ..
 
-    The directory contains the configuration files :file:`MTPtg.info` and the pointing models :file:`mt.mod` files. 
-
-    **At startup, the pointing component loads by default the pointing model that's on the :file:`mt.mod` file and the :file:`MTPtg.info`**.
-
+    .. note:: 
+    
+        At startup, the pointing component loads by default the pointing model that's on the :file:`mt.mod` file and the :file:`MTPtg.info`.
+    ..
 
 
 6. Edit the :file:`MTPtg.info` file, use a text editor such as *vi*. 
 
-    6.1. Edit the **disable_rotator** paramenter in the :file:`MTPtg.info`file.
+    6.1. Edit the **disable_rotator** paramenter in the :file:`MTPtg.info` file.
 
     - set 1 : rotator will be **ignored** and will not be commanded by the *MTPtg* component (disabled). 
     - set 0 : rotator will be **included** (enabled)
 
 
-    .. code-block:: disable_rotator  - Disabled example
-     :caption: MTPtg.info
+    .. code-block:: 
+        :caption: MTPtg.info / disable_rotator  - Disabled example
 
-        disable_rotator: 1
+            disable_rotator: 1
+    ..
 
-        
-    6.2. Edit he **disable_mount** parameter in the :file:`MTPtg.info` file. 
-    
+
+    6.2. Edit The **disable_mount** parameter in the :file:`MTPtg.info` file. 
+
     - set 1 : mount will be **ignored** and will not be commanded by the *MTPtg* component (disabled). 
     - set 0 : mount will be **included** (enabled).
 
+    .. code-block:: 
+        :caption: MTPtg.info / disable_mount - Enabled example
 
-    .. code-block:: disable_mount - Enabled example
-     :caption: MTPtg.info
-
-        disable_mount: 0
+            disable_mount: 0
+    ..
 
 
 7. **Exit** the **pod** by typing :command:`exit`.
@@ -191,13 +201,15 @@ If you get a :kbd:`command not found`, you first need to set up docker. Follow t
 
     Note: *MTMount* must be ``ENABLED``, even if not tracking, so *CCW* can be still monitored.
 
-    .. code-block:: set_summary_state.py
-        data:
-            -
-                - MTPtg 
-                - ENABLED
+    .. code-block::
+        :caption: set_summary_state.py
 
+             data:
+                 -
+                   - MTPtg 
+                   - ENABLED
 ..
+
 
 .. _MTRotator-or-MTMount-Configuration-Procedure-Post-Condition:
 
