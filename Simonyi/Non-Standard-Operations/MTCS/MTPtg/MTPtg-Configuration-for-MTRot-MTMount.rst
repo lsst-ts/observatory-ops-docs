@@ -44,7 +44,7 @@ MTPtg Configuration for MTRotator and MTMount
     
     .. figure:: ./_static/inArgoCD.png
       :width: 2500px
-      :height: 200px
+      :height: 250px
       :name: ArgoCD
 
       Fig1. MTMount *CSC versions* in ArgoCD.
@@ -52,7 +52,7 @@ MTPtg Configuration for MTRotator and MTMount
 
     .. figure:: ./_static/insimonyitel.png
       :width: 2500px
-      :height: 200px
+      :height: 250px
       :name: simonyitel
 
       Fig2. You search “simonyitel” and then click it.
@@ -60,7 +60,7 @@ MTPtg Configuration for MTRotator and MTMount
 
     .. figure:: ./_static/mtmount-ccw-only.png
       :width: 2500px
-      :height: 200px
+      :height: 250px
       :name: mtmount-ccw-only
 
       Fig3. You can find “mtmount-ccw-only” job when you scroll down.
@@ -124,41 +124,35 @@ Steps
     If you get a :kbd:`command_not_found`, you first need to set up docker. Follow the `Instructions for Kubernetes`_ in step #4.
 
     .. figure:: ./_static/1.png
-      :width: 950px
-      :height: 165px
+      :width: 480px
+      :height: 300px
       :name: Your figure
 
-      Fig4. In this particular case the name of the *MTPtg* **pod** is **mtptg-djhpv**, the name changed constantly *(mtptg-xxxxx)*.
+      Fig4. In this particular case the name of the *MTPtg* **pod** is **mtptg-nss2j**, the name changed constantly *(mtptg-xxxxx)*.
     ..  
 
-4. Connect to the *MTPtg* **pod mtptg-hnmlh** within the simonyitel. The command bellow will open a terminal within the pod.
+4. Connect to the *MTPtg* **pod mtptg-nss2j** within the **simonyitel**. The command bellow will open a terminal within the pod as **saluser**.
 
     .. prompt:: bash
     
-    kubectl --kubeconfig=${HOME}/.kube/yagan.yaml exec --stdin --tty mtptg-hnmlh -n simonyitel -- /bin/bash
-
+      kubectl --kubeconfig=${HOME}/.kube/yagan.yaml exec --stdin --tty mtptg-nss2j -n simonyitel -- /bin/bash
+    
     ..
    
-    .. figure:: ./_static/2.png
-      :width: 900px
-      :height: 65px
-
-      Fig5. 
-    ..
 
 5. Configuration directory: the configuration files are one level up.  
 
     .. prompt:: bash
 
-     cd /home/saluser/repos/ts_pointing_common/install/data
+      cd /home/saluser/repos/ts_pointing_common/install/data
 
     ..
     
     .. figure:: ./_static/3.png
-       :width: 900px
-       :height: 420px
+       :width: 850px
+       :height: 360px
 
-       Fig6. The directory contains the configuration files :file:`MTPtg.info` and the pointing models :file:`mt.mod` files. 
+       Fig5. The directory contains the configuration files :file:`MTPtg.info` and the pointing models :file:`mt.mod` files. 
    
     ..
 
