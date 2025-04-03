@@ -6,9 +6,8 @@
 .. _rancher: https://rancher.cp.lsst.org/
 .. _Out of Hours Support: https://obs-ops.lsst.io/Safety/out-of-hours-support.html#safety-out-of-hours-support
 .. _for AuxTel as well: https://obs-ops.lsst.io/AuxTel/Non-Standard-Operations/index.html
-.. _Detailed instructions for Kubernetes: https://rubinobs.atlassian.net/wiki/spaces/~pvenegas/pages/122454286/Access+to+the+Kubernetes+Cluster
-.. _Detailed instructions for Kubernetes in step #4: https://rubinobs.atlassian.net/wiki/spaces/~pvenegas/pages/122454286/Access+to+the+Kubernetes+Cluster
-.. _ Instructions for ArgoCD : https://obs-ops.lsst.io/Observatory-Control-System/Troubleshooting/CSCs-Troubleshooting/component-offline.html
+.. _Detailed instructions for Kubernetes: https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/122454286/Access+to+the+Kubernetes+Cluster
+.. _Instructions for ArgoCD : https://obs-ops.lsst.io/Observatory-Control-System/Troubleshooting/CSCs-Troubleshooting/component-offline.html
 
 .. _MTMTPtg-Configuration-for-MTRotator-and-MTMount:
 
