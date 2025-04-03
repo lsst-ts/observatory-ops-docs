@@ -165,3 +165,15 @@ In some occasions, AuxTel observations could require a series of engineering non
    :caption: SAL Scripts
 
    SAL-Scripts/ATCommonSALScripts.rst
+
+   .. _Auxiliary-Telescope-Image-Processing:
+.. Image Processing
+.. ===========
+
+.. toctree::
+   :glob:
+   :maxdepth: 5
+   :titlesonly:
+   :caption: Image Processing
+
+   Image-Processing/ImageProcessing.rst
