@@ -85,15 +85,15 @@ Procedure Steps
 
 .. warning:: 
     
-    Announce through the Slack channel *#summit-simonyi* that the component is not available, and you are about to change the configuration.
-    
-    The Commissioning Scientists (ComSci) or Observing Specialist (OS) with the ArgoCD training on shift will change the version of *MTMount CSC* in *ArgoCD* to **mtmount-ccw-only**. This configurations can deal with tracking without said component.
+    The Commissioning Scientists (ComSci) or Observing Specialist (OS) with the ArgoCD training on shift will change the version of *MTMount CSC* in *ArgoCD* to **mtmount-ccw-only**. 
+    This configurations can deal with tracking without said component.
 
 
 Steps
 -----
+1. Announce through the Slack channel *#summit-simonyi* that the component is not available, and you are about to change the configuration.
 
-1. Issue the :file:`set_summary_state.py` script in LOVE to change the status of *MTPtg* to ``STANDBY`` with the following configuration
+2. Issue the :file:`set_summary_state.py` script in LOVE to change the status of *MTPtg* to ``STANDBY`` with the following configuration
 
     .. code-block::
         :caption: set_summary_state.py
@@ -105,7 +105,7 @@ Steps
 ..
 
 
-2. Find the name of the **pod** where the *MTPtg* is running. 
+3. Find the name of the **pod** where the *MTPtg* is running. 
    
     From your terminal, run the following command which list all the pods related to the simonyitel  :
 
@@ -125,7 +125,7 @@ If you get a :kbd:`command not found`, you first need to set up docker. Follow t
       In this particular case the name of the *MTPtg* **pod** is **mtptg-djhpv**, name that changed constantly *(mtptg-xxxxx)*.
     ..  
 
-3. Connect to the *MTPtg* **pod mtptg-djhjv** within the simonyitel. The command will open a terminal within the pod.
+4. Connect to the *MTPtg* **pod mtptg-hnmlh** within the simonyitel. The command bellow will open a terminal within the pod.
 
  .. prompt:: bash
     
@@ -139,7 +139,7 @@ If you get a :kbd:`command not found`, you first need to set up docker. Follow t
 
     ..
 
-4. Configuration directory: the configuration files are one level up.  
+5. Configuration directory: the configuration files are one level up.  
 
     .. prompt:: bash
 
@@ -153,45 +153,43 @@ If you get a :kbd:`command not found`, you first need to set up docker. Follow t
         
     ..
 
-    The directory contains the configuration files :file:`MTPtg.info` (:file:`ATPtg.info` for AuxTel) and the pointing models :file:`mt.mod` files (:file:`at.mod` for AuxTel). 
+    The directory contains the configuration files :file:`MTPtg.info` and the pointing models :file:`mt.mod` files. 
 
-    **At startup, the pointing component loads by default the pointing model that's on the :file:`mt.mod` file and the :file:`MTPtg.info`** (equivalent to AuxTel).
-
-
-
-5. To edit the :file:`MTPtg.info` file, use a text editor such as *vi*. 
-
-    The parameter set to **1**, means that it's being **ignored** and will not be commanded by the *MTPtg* component. 
+    **At startup, the pointing component loads by default the pointing model that's on the :file:`mt.mod` file and the :file:`MTPtg.info`**.
 
 
-    5.1. *MTRotator*: The **disable_rotator line** in the :file:`MTPtg.info` file contains the parameter you need to change. It reflects whether the *MTRotator* is monitored in the tracking.
 
-    .. code-block:: disable_rotator line - Disable example
+6. Edit the :file:`MTPtg.info` file, use a text editor such as *vi*. 
+
+    6.1. Edit the **disable_rotator** paramenter in the :file:`MTPtg.info`file.
+
+    - set 1 : rotator will be **ignored** and will not be commanded by the *MTPtg* component (disabled). 
+    - set 0 : rotator will be **included** (enabled)
+
+
+    .. code-block:: disable_rotator  - Disabled example
      :caption: MTPtg.info
 
         disable_rotator: 1
 
-        - Set 0 → enabled
-        - Set 1 → disabled
         
-    5.2. *MTMount*: The **disable_mount line** in the :file:`MTPtg.info` file is the one to edit. It shows whether the *MTMount* is monitored in the tracking.
+    6.2. Edit he **disable_mount** parameter in the :file:`MTPtg.info` file. 
+    
+    - set 1 : mount will be **ignored** and will not be commanded by the *MTPtg* component (disabled). 
+    - set 0 : mount will be **included** (enabled).
 
-    .. code-block:: disable_mount line - Enable example
+
+    .. code-block:: disable_mount - Enabled example
      :caption: MTPtg.info
 
         disable_mount: 0
 
-        - Set 0 → enabled
-        - Set 1 → disabled
 
-    Above it's set to *0*, which means that it's being **included** and commanded by the *MTPtg* component. 
+7. **Exit** the **pod** by typing :command:`exit`.
 
+8. Send the *MTPtg* to ``ENABLED`` using the script :file:`set_summary_state.py` and configuration below in the MTQueue.
 
-6. **Exit** the **pod** by typing :command:`exit`.
-
-7. From LOVE, **send** the *MTPtg* back to ``ENABLED`` using the script :file:`set_summary_state.py` using the configuration below. 
-
-    **MTMount must be in ``ENABLED`` status, even if not tracking, so The CCW can be still monitored**
+    Note: *MTMount* must be ``ENABLED``, even if not tracking, so *CCW* can be still monitored.
 
     .. code-block:: set_summary_state.py
         data:
