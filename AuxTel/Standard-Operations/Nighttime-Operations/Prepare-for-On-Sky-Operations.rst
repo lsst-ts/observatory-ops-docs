@@ -8,7 +8,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *isotuela*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *None*
+.. |contributors| replace:: *Gonzalo Aravena*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -27,12 +27,12 @@ Prepare for On-Sky Operations
 Overview
 ========
 
-This procedure gets the AuxTel system ready for on-sky operations, preparing the telescope and dome to be fully open. 
+This procedure prepares the AuxTel system for on-sky operations, by ensuring both the telescope and the dome are fully open. 
 
-In a standard night, it will follow the execution of the :ref:`venting <AuxTel-Daytime-Operations-Prepare-for-vent>` procedure, 
-but it works from any initial state of the system. 
+On a standard night, it will follow the execution of the :ref:`venting <AuxTel-Daytime-Operations-Prepare-for-vent>` procedure, 
+but it can be executed from any initial state of the system. 
 
-If venting wasn't possible, observers must prepare for on-sky once the Sun is below an elevation of 25 degrees. 
+If venting was not possible, observers must prepare for on-sky once the Sun is below an elevation of 25 degrees. 
 The Sun's coordinates at any given time, along with several other useful ephemeris, can be found at the :ref:`sky almanac <Visualization-and-Monitoring-Tools-Sky-Almanac>`.
 
 .. _Open-for-On-Sky-Operations-Precondition:
@@ -40,7 +40,7 @@ The Sun's coordinates at any given time, along with several other useful ephemer
 Precondition
 =============
 
-* Before making the decision to open, review the weather conditions and :ref:`weather constraints <auxtel-weather-constraints-deciding-to-open>` page.
+* Before deciding to open, review the weather conditions and :ref:`weather constraints <auxtel-weather-constraints-deciding-to-open>` page.
 
 * AuxTel is fully ready to operate and all components are enabled. 
 
@@ -54,9 +54,11 @@ Precondition
 Post-Condition
 ==============
 
-- Telescope is ready for on-sky operations. 
+- The telescope is ready for on-sky operations. 
   
-  Around 15 minutes before the end of the evening nautical twilight, proceed with the :ref:`beginning of the night procedure to center, align and focus the telescope. <AuxTel-Nighttime-Operations-WEP>`
+- Approximately 15 minutes before the end of the evening nautical twilight, proceed with the telescope pointing and optical alignment.
+  This process is included in the initial scripts within the scheduler or can be performed manually by executing :ref:`Center, absorbing pointing offsets, aligning the mirror, and adjusting focus <AuxTel-Non-Standard-Operations-Center-Focus>`.
+
 
 .. _Open-for-On-Sky-Operations-Procedure-Steps:
 
@@ -68,14 +70,14 @@ Procedure Steps
 
 #. Command the telescope and dome to prepare for on-sky observations. 
 
-   Load the ``auxtel/prepare_for/onsky.py`` script from the LOVE ``ATQueue`` panel, under ``AVAILABLE SCRIPTS`` by clicking on the blue icon. 
-   The script will be added to the script queue. 
+   Load the ``auxtel/prepare_for/onsky.py`` script from the LOVE ``ATQueue`` panel under ``AVAILABLE SCRIPTS`` by clicking on the blue icon. 
+   The script will then be added to the script queue. 
    
    .. note::
      If the ``auxtel/prepare_for/vent.py`` script is still running, the queue will run ``auxtel/prepare_for/onsky.py`` once venting is done, around 20 minutes before sunset.  
 
    In the ``Configuring script:onsky`` screen that pops up, leave the ``CONFIG`` box empty. 
-   Make sure there are no spaces in the ``CONFIG`` box, as it may prevent the proper configuration and loading of the script. 
+   Make sure there are no spaces in the ``CONFIG`` box, as this may prevent the script from configuring and loading correctly.
 
    .. figure:: ./_static/PrepareforOnSky_AuxTel.png
      :name: prepareforonsky_AuxTel
@@ -87,14 +89,13 @@ Procedure Steps
        * Slew telescope to az = 90 and el = 80, where it is least likely to be hit by the Sun. 
        * If primary mirror cover is open, the script will now close it. 
          This will protect the mirror and avoid particles and dust falling on it when the dome shutter opens.
-       * Move dome to oppose setting Sun to avoid direct sunlight inside the dome that might create thermal issues. 
+       * Move the dome opposite to the setting Sun to prevent direct sunlight from entering and causing thermal issues.
        * Open dome main shutter.
-       * Open primary mirror cover and vents. 
+       * Open primary mirror cover and mirror vents. 
        * Activate AOS open loop corrections.
        * Enable dome following. 
 
-#. If the wind speed is below 8 m/s, manually open vent gate #3 using the remote controller and turn on the extraction fan power to 20 % from the dome pier.  
-   If wind speed is above or close to 8 m/s, keep vent gates closed and extraction fan off. 
+#. If the wind speed is below 8 m/s, open vent gate #3 and set the extractor fan to 20 Hz via :ref:`ATBuilding CSC <support-and-monitoring>`. If the wind speed is at or above 8 m/s, keep the vent gate closed and the extractor fan off.
 
 #. Visually confirm in `LOVE displays <http://love01.cp.lsst.org/uif/view?id=68>`__:
 
@@ -108,6 +109,5 @@ Procedure Steps
      :name: Confirmation of execution of ``auxtel/prepare_for/onsky.py`` script LOVE 
      
      LOVE displaying AuxTel telescope and dome prepared for on-sky observations. 
-
 
 This procedure was last modified |today|.
