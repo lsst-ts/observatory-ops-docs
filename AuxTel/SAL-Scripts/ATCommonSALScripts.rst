@@ -722,5 +722,95 @@ Calibration Systems
             cmd: turnLampOff
 
 
+.. _support-and-monitoring:
+
+Support & Monitoring
+====================
+
+.. list-table::
+   :width: 100
+   :widths: auto
+   :header-rows: 1
+
+   * - CSC
+     - Command
+     - SAL Script
+     - Script Configuration
+   * - **ATBuilding** 
+     - Change extraction fan control to CSC or Manual mode
+     - | ``run_command.py``
+       | `ts-xml.lsst.io/ATBuilding_setFanMode  <https://ts-xml.lsst.io/sal_interfaces/ATBuilding.html#setextractionfanmanualcontrolmode>`_
+     - 
+       .. dropdown:: run_command.py
+
+          * To change extraction fan to **CSC control**:
+
+          .. code-block:: text
+                
+            component: ATBuilding
+            cmd: setExtractionFanManualControlMode
+            parameters:
+              enableManualControlMode: False
+
+          * To change extraction fan to **Manual control**:
+
+          .. code-block:: text
+                
+            component: ATBuilding
+            cmd: setExtractionFanManualControlMode
+            parameters:
+              enableManualControlMode: True
+   * - 
+     - Open/Close Vent Gate #3
+     - | ``run_command.py``
+       | `ts-xml.lsst.io/ATBuilding_setVentGate  <https://ts-xml.lsst.io/sal_interfaces/ATBuilding.html#closeventgate>`_
+     - 
+       .. dropdown:: run_command.py
+
+          * To **Open** vent gate #3:
+
+          .. code-block:: text
+                
+            component: ATBuilding
+            cmd: openVentGate
+            parameters:
+              gate: [2, -1, -1, -1]
+
+          * To **Close** vent gate #3:
+
+          .. code-block:: text
+                
+            component: ATBuilding
+            cmd: closeVentGate
+            parameters:
+              gate: [2, -1, -1, -1]
+   * - 
+     - Turn On/Off the extraction fan
+     - | ``run_command.py``
+       | `ts-xml.lsst.io/ATBuilding_setvFanDriveFreq  <https://ts-xml.lsst.io/sal_interfaces/ATBuilding.html#setextractionfandrivefreq>`_
+     - 
+       .. dropdown:: run_command.py
+
+          * To **Turn On** extraction fan at **20Hz**:
+
+          .. code-block:: text
+                
+            component: ATBuilding
+            cmd: setExtractionFanDriveFreq
+            parameters:
+              targetFrequency: 20
+
+          * To **Turn Off** extraction fan at **0Hz**:
+
+          .. code-block:: text
+                
+            component: ATBuilding
+            cmd: setExtractionFanDriveFreq
+            parameters:
+              targetFrequency: 0
+
+
+
+
 This procedure was last modified on |today|.
 
