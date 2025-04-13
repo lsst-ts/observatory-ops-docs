@@ -124,7 +124,8 @@ Closing the Vent Gate
 ---------------------
 
 Link to Remote Control of Vent Gate and Extractor Fan:
-https://obs-ops.lsst.io/AuxTel/Standard-Operations/Nighttime-Operations/Shutdown.html
+
+https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/559349883/Remote+Control+of+Vent+Gate+and+Extractor+Fan
 
 Follow the steps at the end of night:
 
