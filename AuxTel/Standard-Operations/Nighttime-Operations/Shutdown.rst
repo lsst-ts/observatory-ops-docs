@@ -20,7 +20,6 @@ Auxtel might need to be shutdown for a few reasons:
 * Bad weather (see :ref:`AuxTel Weather Constraints <Observing-Constraints-AuxTel-Weather-Constraints>`)
 * Restart of cRIOs (see e.g. :ref:`ATDome Lost Communication with the Top-End <Top-Comm-Error-Procedure>`)
 * Unresponsive axes
-* Other reasons
 
 For the end-of-night shutdown, ATTCS and LATISS CSCs should be set to ``STANDBY``. Telescope and dome should be parked. 
 The parking position for AuxTel is El = 80 deg, Az = 0.0 deg, rot = 0.0 deg. 
@@ -34,6 +33,8 @@ If the shutdown is only temporary, and operation is to be resumed, follow the :r
 
 Precondition
 ==============
+
+.. _Stopping-the-Scheduler:
 
 Stopping Scheduler
 ------------------
@@ -52,6 +53,7 @@ Post-Condition
 * Status of Telescope and Dome 
   
    .. image:: ./_static/ATDome_park.png
+
       :name: Auxiliary Telescope and Dome at the shutdown position
 
       Auxiliary Telescope and Dome at the shutdown position
@@ -59,6 +61,7 @@ Post-Condition
 * Status of Mirrors and Mirror Covers
 
    .. image:: ./_static/AT_LightPath.png
+
     :scale: 50 %
 
     Auxiliary Mirror Covers at the shutdown position
@@ -75,7 +78,7 @@ Procedure Steps
 Shutdown AuxTel
 ---------------
 
-After stopping scheduler, you can shutdown AuxTel using :file:`auxtel/shutdown.py` script from ATQueue. 
+After :ref:`stopping the scheduler <Stopping-the-Scheduler>`, you can shutdown AuxTel using :file:`auxtel/shutdown.py` script from ATQueue. 
 without any configurations as below. 
 
 .. image:: ./_static/shutdown_script.png 
@@ -120,13 +123,13 @@ During the shutting down procedures, you can check and complete all logging and 
 Closing the Vent Gate
 ---------------------
 
-This step can be proceed any point of the previous shutdown steps, but it is recommended to do it on the way down to the hotel at the end of the night.  
-  
-Go up to the AuxTel and 
+Link to Remote Control of Vent Gate and Extractor Fan:
+https://obs-ops.lsst.io/AuxTel/Standard-Operations/Nighttime-Operations/Shutdown.html
 
-* Turn off extraction fan. 
-* Close all vent gates using the remote controller.
-* Make sure the dome shutter is closed, and the AuxTel and dome are on the parking position. Building should be sealed. 
+Follow the steps at the end of night:
+
+#. Remotely close the extractor fans and vent gates
+#. On the way to the hotel, go to Auxtel for a visual check of the above, and make sure the dome shutters are closed.
 
 
 .. _Resume-from-Temporary-Shutdown:
