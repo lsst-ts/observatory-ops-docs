@@ -21,7 +21,6 @@ Auxtel might need to be shutdown for a few reasons:
 * Restart of cRIOs (see e.g. :ref:`ATDome Lost Communication with the Top-End <Top-Comm-Error-Procedure>`)
 * Unresponsive axes
 
-
 For the end-of-night shutdown, ATTCS and LATISS CSCs should be set to ``STANDBY``. Telescope and dome should be parked. 
 The parking position for AuxTel is El = 80 deg, Az = 0.0 deg, rot = 0.0 deg. 
 For the dome, the parking position is at Az = 285.0 deg with closed dome slit shutter. 
@@ -134,7 +133,6 @@ Follow the steps at the end of night:
 #. Remotely close the extractor fans and vent gates
 #. On the way to the hotel, go to Auxtel for a visual check of the above, and make sure the dome shutters are closed.
 
-
 .. _Resume-from-Temporary-Shutdown:
 
 .. admonition:: Resume From Temporary Shutdown
@@ -148,19 +146,6 @@ Follow the steps at the end of night:
 
   See also :ref:`Center, absorb pointing offsets, mirror alignment and focus <AuxTel-Non-Standard-Operations-Center-Focus>` for more details.
 
-
-.. _Resume-from-Temporary-Shutdown:
-
-.. admonition:: Resume From Temporary Shutdown
-  :class: attention
-
-  Auxtel loses pointing correction and focus information after a standard shutdown. 
-  In the case when observation is to be resumed after a shutdown, the following two steps need to be executed in order:
-
-  #. :ref:`Reset pointing accuracy of AuxTel <AuxTel-Lost-Pointing-Accuracy-Procedure-Overview>`
-  #. :ref:`Run the wavefront estimation (WEP) script for re-focusing <Image-out-of-focus-Procedure-Overview>`
-
-  See also :ref:`Center, absorb pointing offsets, mirror alignment and focus <AuxTel-Non-Standard-Operations-Center-Focus>` for more details.
 
 Contingency
 ===========
