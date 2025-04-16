@@ -25,7 +25,7 @@ MTPtg Configuration for MTRotator and MTMount
 
 .. warning:: 
 
-    Commissioning Scientists (ComSci) or Observing Specialist (OS) with the ArgoCD training on shift can change the version of *MTMount CSC* in *ArgoCD* to **mtmount-ccw-only**. 
+    Commissioning Scientists (ComSci) or Observing Specialist (OS) with the ArgoCD training and authorized on shift can change the version of *MTMount CSC* in *ArgoCD* to **mtmount-ccw-only**. 
     This configurations can deal with tracking without said component.
 ..
 
@@ -37,25 +37,16 @@ MTPtg Configuration for MTRotator and MTMount
     They may/will request to send the *MTMount* to ``OFFLINE`` status before changing the *MTMount CSC version* to **mtmount-ccw-only**. 
     Follow their instructions. 
 
-    To check the *CSC version* in use, you can open ArgoCD (credentials in 1Password) and search for *mtmount*, you will see 3 *CSC versions* for *MTMount*: **mtmount**, **mtmount-ccw-only**, and **mtmount-sim**. 
-    The figure shows this page, highlighting the **Synced** status indicating is in this state, is in **mtmount-ccw-only** *CSC version*.
+    To check the *CSC version* in use, you can open ArgoCD (credentials in 1Password) and search for *simoniyitel*. 
+    The figure shows this page, highlighting the **Synced** status indicating is in this state.
 ..
-
-    
-    .. figure:: ./_static/inArgoCD.png
-      :width: 2500px
-      :height: 250px
-      :name: ArgoCD
-
-      Fig1. MTMount *CSC versions* in ArgoCD.
-    ..  
 
     .. figure:: ./_static/insimonyitel.png
       :width: 2500px
       :height: 250px
       :name: simonyitel
 
-      Fig2. You search “simonyitel” and then click it.
+      Fig1. You search “simonyitel” and then click it.
     ..  
 
     .. figure:: ./_static/mtmount-ccw-only.png
@@ -63,7 +54,7 @@ MTPtg Configuration for MTRotator and MTMount
       :height: 250px
       :name: mtmount-ccw-only
 
-      Fig3. You can find “mtmount-ccw-only” job when you scroll down.
+      Fig2. You can find “mtmount-ccw-only” job when you scroll down.
     ..  
 
 
@@ -71,7 +62,7 @@ MTPtg Configuration for MTRotator and MTMount
     
     **Kubernetes authorization**
     
-    To execute this procedure you must have installed in your computer the credentials to access the Kubernetes cluster. 
+    To execute the following procedure you must have installed in your computer the credentials to access the Kubernetes cluster. 
     Detailed `Instructions for Kubernetes`_.
     
 ..
@@ -128,7 +119,7 @@ Steps
       :height: 300px
       :name: Your figure
 
-      Fig4. In this particular case the name of the *MTPtg* **pod** is **mtptg-nss2j**, the name changed constantly *(mtptg-xxxxx)*.
+      Fig3. In this particular case the name of the *MTPtg* **pod** is **mtptg-nss2j**, the name changed constantly *(mtptg-xxxxx)*.
     ..  
 
 4. Connect to the *MTPtg* **pod mtptg-nss2j** within the **simonyitel**. The command bellow will open a terminal within the pod as **saluser**.
@@ -152,7 +143,7 @@ Steps
        :width: 850px
        :height: 360px
 
-       Fig5. The directory contains the configuration files :file:`MTPtg.info` and the pointing models :file:`mt.mod` files. 
+       Fig4. The directory contains the configuration files :file:`MTPtg.info` and the pointing models :file:`mt.mod` files. 
    
     ..
 
