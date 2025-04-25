@@ -1,7 +1,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *I. Sotuela*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *K. Peña, P. Venegas*
+.. |contributors| replace:: *K. Peña, P. Venegas, Kris Mortensen*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -23,9 +23,9 @@ MTDome Recover and clear Faults
 Overview
 ========
  
-If issues arise with moving the MTDome directly, or if you observe that the *MTDomeTrajectory* following mode is ``ENABLED``, but the dome fails to follow the telescope, it is likely that the MTDome is having an internal subsystem fault and requires recovery.
+If issues arise with moving the MTDome directly, or if you observe that the ``MTDomeTrajectory`` following mode is ``ENABLED``, but the dome fails to follow the telescope, it is likely that the MTDome is having an internal subsystem fault and requires recovery.
 
-Under specific circumstances, the dome may ignore move commands, such as when its position is identical to the previous *moveAz* command and the *velocity is 0.0 [deg/sec]*. 
+Under specific circumstances, the dome may ignore move commands, such as when its position is identical to the previous ``moveAz`` command and the *velocity is 0.0 [deg/sec]*. 
 To confirm this, inspect the MTDome logs in LOVE. 
 The CSC would have received the duplicated move command, and a warning message will be displayed in the logs, indicating that it was ignored.
 
@@ -36,7 +36,7 @@ In other instances, the dome may reject move commands, when there is a subsystem
 Error diagnosis
 ===============
 
-- If a ``FAULT`` is indicated in the *Azimuth Control Software Status* (ACS status) window, the dome has an internal fault condition.
+- If a ``FAULT`` is indicated in the **Azimuth Control Software Status (ACS status)** window, the dome has an internal fault condition.
 - Look at the Chronograf dashboard `MTDome Status`_ to verify the system status.
 
 .. Note::
@@ -49,62 +49,167 @@ Error diagnosis
 
 Procedure Steps
 ===============
-1. Disable the dome following mode in *MTDomeTrajectory*.
 
-.. code-block:: text
-  :caption: :file:`run_command.py`
+1. Disable the ``MTDomeTrajectory`` following mode using the provided 
+SAL Script or via a run command.
 
-    component: MTDomeTrajectory
-    cmd: setFollowingMode
-    parameters:
-        enable: false
-..
+.. tab-set:: 
 
-2. To clear the subsystem ``FAULT``, use the MTDome **exitFault** configuration command via the :file:`run_command.py` SAL script. 
-In most cases, running the command once will clear the fault, but you may need to repeat the process a few times.
+   .. tab-item:: SAL Script
 
-.. code-block:: text
-  :caption: :file:`run_command.py`
+      .. code-block:: python
 
-    component: MTDome
-    cmd: exitFault
-..
+         # Script Name:
+         maintel/mtdome/disable_dome_following.py
 
-3. After executing the command, verify its success by checking the ACS status in the `MTDome Status`_ dashboard. 
+         # No Configurations
 
-.. Note::  When the *exitFault* command is sent, the CSC executes the *resetDrivesAz* command before *exitFault* command.
+   .. tab-item:: Run Command
 
-  Command sent by **exitFault:**
-    Configuration for *resetDrivesAz*
- 
-  .. code-block:: text  
-    :caption: :file:`run_command.py`
+      .. code-block:: python
 
-      component: MTDome
-      cmd: resetDrivesAz
-      paramaters:
-       reset: [1,1,1,1,1]
+         # Script Name:
+         run_command.py
+
+         # Configuration:
+         component: MTDomeTrajectory
+         cmd: setFollowingMode
+         parameters:
+           enable: false
+           
+2. If there is a ``FAULT`` reported in the `MTDome Status`_ dashboard execute the :file:`run_command.py` script using 
+the ``exitFault`` configuration. In most cases, running the command once will clear the fault, but you may need to repeat 
+the process a few times.
+
+.. tab-set:: 
+
+   .. tab-item:: Run Command
+
+      .. code-block:: python
+
+         # Script Name:
+         run_command.py
+
+         # Configuration:
+         component: MTDome
+         cmd: exitFault
+         parameters:
+           subSystemIds: 0x1
+
+.. note:: 
+
+  The ``exitFault`` command will **fail**, reporting it was sent to an incorrect state, if the 
+  Azimuth brakes are **not engaged**. In this case, first issue a stop command to engage the brakes:
+
+
+  .. tab-set:: 
+
+   .. tab-item:: Run Command
+
+      .. code-block:: python
+
+        # Script Name:
+         run_command.py
+
+         # Configuration:
+         component: MTDome
+         cmd: stop
+         parameters:
+           engageBrakes: true
+           subSystemIds: 0x1
+
   
+  If the Az control system (on the cRIO) goes to ``FAULT``, then the brakes will automatically be engaged. 
+  The ``exitFault`` should be accepted in this state.
 
-4. Now, at this point, you can try to move the dome again. 
 
-- Confirm the dome moves by slewing to a nearby position; in the example below, 45 degrees azimuth. 
-- Make sure that the dome moves before enabling the *MTDomeTrajectory* mode.
+3. After executing the command, verify its success by checking the ACS status in the 
+`MTDome Status`_ dashboard. 
 
-.. code-block:: text
-  :caption: :file:`run_command.py`
-    
-    component: MTDome
-    cmd: moveAz
-    parameters:
-        position: 45
-..
+.. note::  
+  
+  The ``exitFault`` command will internally send a ``resetDrivesAz`` command and this **should** get 
+  the cRIO and other dome parts into an operational mode. 
+
+  Command sent by ``exitFault``:
+  
+  .. tab-set:: 
+
+   .. tab-item:: Run Command
+
+      .. code-block:: python
+
+        # Script Name:
+         run_command.py
+
+         # Configuration:
+         component: MTDome
+         cmd: resetDrivesAz
+         paramaters:
+           reset: [1,1,1,1,1]    
+
+4. Now, at this point, you can try to 
+move the dome again. 
+
+a. Confirm the dome moves by slewing to a nearby position; in the example below, 45 degrees azimuth. 
+
+.. tab-set:: 
+
+   .. tab-item:: SAL Script
+
+      .. code-block:: python
+
+         # Script Name:
+         maintel/mtdome/slew_dome.py
+
+         # Configuration:
+         az: 45
+
+   .. tab-item:: Run Command
+
+      .. code-block:: python
+
+         # Script Name:
+         run_command.py
+
+         # Configuration:
+         component: MTDome
+         cmd: moveAz
+         parameters:
+           position: 45
+
+
+b. Make sure that the dome moves before enabling the ``MTDomeTrajectory`` following mode.
+
+.. tab-set:: 
+
+   .. tab-item:: SAL Script
+
+      .. code-block:: python
+
+         # Script Name:
+         maintel/mtdome/enable_dome_following.py
+
+         # No Configurations
+
+   .. tab-item:: Run Command
+
+      .. code-block:: python
+
+         # Script Name:
+         run_command.py
+
+         # Configuration:
+         component: MTDomeTrajectory
+         cmd: setFollowingMode
+         parameters:
+           enable: true
 
 5. Check the MTDome logs when trying to move it the first time after recovering it. 
-If you see a warning message:
+If you see the following warning message:
 
 .. warning::
-    Ignoring *moveAz* command for position=300.0 and velocity=0.0 because it is a duplicate command
+    Ignore the ``moveAz`` command for *position = 300.0* and *velocity = 0.0* because it is a duplicate command.
 ..
 
 The error means the CSC is ignoring the move command, regardless of whether the position mentioned in the message is the current position of the Dome.
@@ -115,7 +220,7 @@ In this case, try to move the dome to a different position.
 Post-Condition
 ==============
 
-MTDome faults are clear and operations can continue.
+``MTDome`` CSC will be ``ENABLED``, and no fault is reported in the `MTDome Status`_ dashboard.
 
 .. _MTDome-Troubleshooting-MTDome-Recover-and-clear-Faults-Contingency:
 
