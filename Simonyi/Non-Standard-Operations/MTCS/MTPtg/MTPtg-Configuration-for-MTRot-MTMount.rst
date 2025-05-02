@@ -15,6 +15,13 @@
 MTPtg Configuration for MTRotator and MTMount
 #############################################
 
+.. _MTMTPtg-Configuration-for-MTRotator-and-MTMount-Procedure-Overview:
+Overview
+========
+
+When either the **MTRotator** or **MTMount** components become unavailable during Simonyi operations, and you still want to continue testing and tracking, it's necessary to change the configuration of the **MTPtg** CSC to avoid entering into ``FAULT`` mode .
+
+
 **Important Information before start.**
 
 .. warning:: 
@@ -29,17 +36,32 @@ MTPtg Configuration for MTRotator and MTMount
     This configurations can deal with tracking without said component.
 ..
 
+
 .. note:: 
     
-    A precondition to this procedure, is the *MTMount CSC* should be configured in the proper *CSC version* to be operational (only with the *CCW* component). 
-    This is done by the ComSci or the OS in ArgoCD (`Instructions for ArgoCD`_). 
-
-    They may/will request to send the *MTMount* to ``OFFLINE`` status before changing the *MTMount CSC version* to **mtmount-ccw-only**. 
-    Follow their instructions. 
-
-    To check the *CSC version* in use, you can open ArgoCD (credentials in 1Password) and search for *simoniyitel*. 
-    The figure shows this page, highlighting the **Synced** status indicating is in this state.
+    **Kubernetes authorization**
+    
+    To execute the following procedure you must have installed in your computer the credentials to access the Kubernetes cluster. 
+    Detailed `Instructions for Kubernetes`_.
+    
 ..
+
+
+.. _MTMTPtg-Configuration-for-MTRotator-and-MTMount-Procedure-Error-Precondition:
+Precondition
+===============
+
+1. **MTRotator** is not available, but you still want to track **without** the Rotator, using the rest of the components; or you want to **include** the Rotator in the tracking again. 
+2. **MTMount** is not available (not starting up, for example), but you still want to use *CCW+Rotator* **without** moving or commanding the mount, or you want to revert the change and **include** the mount.
+
+3. The **MTMount CSC** should be configured in the proper *CSC version* to be operational (only with the CCW component).
+
+
+    * This is done by the ComSci or the OS in ArgoCD (`Instructions for ArgoCD`_). 
+    * They may/will request to send the *MTMount* to ``OFFLINE`` status before changing the *MTMount CSC version* to **mtmount-ccw-only**, follow their instructions. 
+    * To check the *CSC version* in use, you can open ArgoCD (credentials in 1Password) and search for *simoniyitel*. 
+    * The figure shows this page, highlighting the **Synced** status indicating is in this state.
+
 
     .. figure:: ./_static/insimonyitel.png
       :width: 2500px
@@ -58,34 +80,9 @@ MTPtg Configuration for MTRotator and MTMount
     ..  
 
 
-.. note:: 
-    
-    **Kubernetes authorization**
-    
-    To execute the following procedure you must have installed in your computer the credentials to access the Kubernetes cluster. 
-    Detailed `Instructions for Kubernetes`_.
-    
-..
-
-.. _MTMTPtg-Configuration-for-MTRotator-and-MTMount-Procedure-Overview:
-Overview
-========
-
-When either the **MTRotator** or **MTMount** components become unavailable during Simonyi operations, and you still want to continue testing and tracking, it's necessary to change the configuration of the **MTPtg** CSC to avoid entering into ``FAULT`` mode .
-
-
-.. _MTMTPtg-Configuration-for-MTRotator-and-MTMount-Procedure-Error-Precondition:
-Precondition
-===============
-
-1. **MTRotator** is not available, but you still want to track **without** the Rotator, using the rest of the components; or you want to **include** the Rotator in the tracking again. 
-2. **MTMount** is not available (not starting up, for example), but you still want to use *CCW+Rotator* **without** moving or commanding the mount, or you want to revert the change and **include** the mount.
-
-
 .. _MTMTPtg-Configuration-for-MTRotator-and-MTMount-Procedure-Procedure-Steps:
 Procedure Steps
 ===============
-
 Steps
 -----
 1. Announce through the Slack channel *#summit-simonyi* that the component is not available, and you are about to change the configuration.
