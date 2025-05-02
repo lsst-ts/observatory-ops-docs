@@ -10,13 +10,6 @@ MTCS
     :glob:
 
     TMA/index.rst
-    
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-    :glob:
-
-    MTDome/index.rst
 
 .. toctree::
     :maxdepth: 2
@@ -39,6 +32,20 @@ MTCS
 
     MTHexRot/index.rst
 
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+    :glob:
+
+    MTPtg/index.rst
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+    :glob:
+
+    MTDome/index.rst
+    
 .. toctree::
     :maxdepth: 2
     :titlesonly:
