@@ -155,7 +155,27 @@ Procedure Steps
       This script will make sure the system is back and ready for observations, 
       with the mirror cover and dome shutter opened as well as the dome following enabled.
 
-3. Keep ATQueue running to the next target. Confirm in LOVE that the dome is moving and following the mount.
+.. note::
+
+    There are times where a pointing problem may occur because while AuxTel attempts to center on a star,
+    it may, instead, **center on a defect.** This problem happens more likely when one needs to apply an offset
+    using the ``offset_atcs.py`` script. Should this occur, the steps to recover are as follows:
+
+    1. Rerun ``offset_atcs.py`` in the ScriptQueue with the following configuration:
+      
+    .. code-block:: text
+    
+        reset_offsets:
+            reset_absorbed: true
+            reset_non_absorbed: true
+
+    2. Run ``correct_pointing.py`` script again with a new azimuth and elevation.
+
+    Additional configuration parameters for ``offset_atcs.py`` can be found on the
+    `Common AuxTel Scripts & Configurations <https://obs-ops.lsst.io/AuxTel/SAL-Scripts/ATCommonSALScripts.html>`_
+    page.
+
+1. Keep ATQueue running to the next target. Confirm in LOVE that the dome is moving and following the mount.
 
 Post-Condition
 ==============
