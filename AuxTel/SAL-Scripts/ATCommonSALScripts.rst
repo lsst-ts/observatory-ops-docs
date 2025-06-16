@@ -242,6 +242,19 @@ ATCS
        | ``auxtel/standby_atcs.py``
        | `ts_standardscripts/data/scripts/auxtel/standby_atcs.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/standby_atcs.py>`_
      - No configurations
+   * - 
+     - Apply offsets to the ATCS
+     - | ``auxtel/offset_atcs.py``
+       | `ts_standardscripts/data/scripts/auxtel/offset_atcs.py <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/data/scripts/auxtel/offset_atcs.py>`_
+     - 
+       .. dropdown:: SAL Script
+
+         To fully clear offsets affected by a pointing error:
+
+         .. code-block:: text
+
+           reset_offsets: true
+
    * - **ATMCS**
      - AT change Nasmyth to port 1
      - | ``run_command.py``
