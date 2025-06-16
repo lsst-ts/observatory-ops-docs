@@ -253,7 +253,11 @@ ATCS
 
          .. code-block:: text
 
-           reset_offsets: true
+           reset_offsets:
+             reset_absorbed: true
+             reset_non_absorbed: true
+           
+         **NOTE:** This will reset all of the offsets, including those added by the ``correct_pointing.py`` script.
 
    * - **ATMCS**
      - AT change Nasmyth to port 1
