@@ -152,7 +152,7 @@ the process a few times.
          # Configuration:
          component: MTDome
          cmd: resetDrivesAz
-         paramaters:
+         parameters:
            reset: [true, true, true, true, true]    
 
 4. Now, at this point, you can try to 
