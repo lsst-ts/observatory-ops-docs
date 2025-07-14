@@ -8,3 +8,5 @@ TMA
     :maxdepth: 2
     :titlesonly:
     :glob:
+
+    *
