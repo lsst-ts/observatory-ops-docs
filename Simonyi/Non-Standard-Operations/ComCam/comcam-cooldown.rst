@@ -22,6 +22,9 @@
 ComCam Cooldown (CCS-specific)
 ##############################
 
+.. warning::
+    ComCam-only procedure - Deprecated
+
 .. note::
     This is a procedure document that is in a state of continuing development while ComCam is being integrated with the other observatory subsystems and not expected to be needed once in steady-state observations. It is expected that these procedures will only be needed as reference by expert engineers and scientists.
 
