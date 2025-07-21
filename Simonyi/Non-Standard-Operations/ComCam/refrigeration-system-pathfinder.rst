@@ -5,8 +5,7 @@
 .. _Refigeration-System-Pathfinder:
 
 .. warning::
-    DRAFT To be updated soon
-
+    Draft - To be updated
 
 ###############################################
 Refrigeration System - Pathfinder

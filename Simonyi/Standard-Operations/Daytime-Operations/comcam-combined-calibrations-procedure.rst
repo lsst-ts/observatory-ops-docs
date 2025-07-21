@@ -8,6 +8,9 @@
 ComCam Combined Calibrations Generation Procedure
 #################################################
 
+.. warning::
+    ComCam-only procedure - Deprecated
+
 .. _ComCam-Combined-Calibrations-Procedure-Overview:
 
 Overview
