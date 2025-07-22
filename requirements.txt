@@ -1,2 +1,2 @@
-documenteer[guide]
+documenteer[guide]>=1,<2
 sphinx-diagrams
