@@ -1,2 +1,2 @@
-documenteer[guide]>=2.0.0,<3
+documenteer[guide]>=1,<2
 sphinx-diagrams
