@@ -112,7 +112,7 @@ Procedure Steps
     :class: note
 
     **Remote Access:**
-    The `How to Access MT M2/Rotator/Hexapods/Dome EUI <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/39685455/How+to+Access+MT+M2+Rotator+Hexapods+Dome+EUI>`_ 
+    The :ref:`How to Access MT M2/Rotator/Hexapods/Dome EUI <Simonyi-Components-Simonyi-EUI-Access>` 
     has a detailed procedure for accessing all the GUIs in the virtual machine.
 
     **Summit Access:**
