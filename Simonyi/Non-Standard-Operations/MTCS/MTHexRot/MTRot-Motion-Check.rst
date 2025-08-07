@@ -10,7 +10,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: Yijung Kang
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: Kshitija Kelkar
+.. |contributors| replace:: Kshitija Kelkar, Kris Mortensen
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -39,75 +39,71 @@ from the *LOVE/MTQueue* or the MTRotator EUI.
 
     This check cannot be accomplished if MTRotator is in ``FAULT`` on the CSC and/or with interlocks 
     activated on the :guilabel:`GIS` or the MTRotator EUI. Please refer to :ref:`MTRotator Recovery 
-    Procedure <MTRotator-Recovery>`
-    to clear these warnings before proceeding.    
+    Procedure <MTRotator-Recovery>` to clear these warnings before proceeding.    
 
 
 .. _MTRotator-motion-check-script:
 
-Using the :file:`maintel/mtrotator/move_rotator.py` SAL script
-==============================================================
+Using MTQueue & SAL Scripts
+===========================
 
-Use the following configuration to run :file:`maintel/mtrotator/move_rotator.py` on the *LOVE/MTQueue* using the following configuration 
+Run the :file:`maintel/mtrotator/move_rotator.py` SAL script on *LOVE/MTQueue* using the following configuration:
 
-.. code-block:: text
+.. code-block:: python
     :caption: :file:`maintel/mtrotator/move_rotator.py`
 
-    angle = < +/ - angle you want the MTRotator to move (in degrees) >
+    angle: <final_angle_in_degrees>
+    # Final rotator angle in degrees.
+    # Allowed range: [-90°, +90°].
 
-If this procedure fails, follow the next one using the MTRotator EUI. 
+If this procedure fails, proceed to **using the MTRotator EUI**. 
 
 .. _MTRotator-motion-check-eui:
 
 Using the MTRotator EUI
 =======================
 
-MTRotator EUI Access
---------------------
-
-#.  Enter the virtual machine that controls the rotator *hexrot-vm02.cp.lsst.org* with your IPA account credentials.
+1.  Enter the virtual machine that controls the rotator (*hexrot-vm01.cp.lsst.org*) with your IPA account credentials, and access the MTRotator GUI.
     
-#.  Once in the virtual machine, choose your user profile and enter your IPA password.
+    a. The `How to Access MT M2/Rotator/Hexapods/Dome EUI <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/39685455/How+to+Access+MT+M2+Rotator+Hexapods+Dome+EUI>`_ 
+    has a detailed procedure for accessing all the GUIs in the virtual machine.
 
-#.  Open a terminal from the 'Activities' tab on top left - 
+.. note::
 
-    a. First check that there are no processes running on the EUI by typing
+    If you are logged into a linux machine at the summit, you can enter the virtual machine using an SSH command.
 
-        .. prompt:: bash
+    * Open a terminal from the 'Activities' tab on top left, and type the following command:
 
-            ps -aux | grep "runRotEui"
+    .. code-block:: bash
 
-        
-        If processes are already running, you may need to identify who is running them and ask permission 
-        to end one (or both) so you can run your own EUI session. If another :guilabel:`runRotEui` is 
-        running then type the following to kill the existing process
-
-        .. prompt:: 
-
-            sudo kill -9 {pid}
-
-
-    b.  Enter the :guilabel:`runRotEui` by typing 
+        ssh -Y hexrot-vm01.cp.lsst.org
     
-        .. prompt:: bash
 
-            cd /rubin/rotator/build/
-            ./runRotEui
+.. figure:: ../_static/Rotator_PythonGUI.png
 
+    MTRotator Python GUI (Controller Connected)
 
-Moving the MTRotator point to point (p2p) 
------------------------------------------
+1.  Once in the *Rotator Control GUI*, :guilabel:`Connect` to the low-level controller (top-left), 
+and change the ``Command Source`` to ``GUI``.
 
-#.  On the MTRotator Client, under the :guilabel:`Main tab`, ``State Cmd`` 
-    is selected, :guilabel:`StateTriggers` menu shows ``Enable`` under and then click 
-    :guilabel:`Send Command` button. This enables the MTRotator.
+   a. In the ``Command`` section of the GUI, select :guilabel:`Switch command source`.
+
+   b. Under the ``Command Parameters`` go to ``Command Source`` and select :guilabel:`GUI`.
+
+1.  In the ``Summary`` section of the GUI, verify the following conditions for the rotator are met:
+
+.. code-block:: text
+
+    State: ENABLED
+    Enabled Sub-State: STATIONARY
+    Fault Sub-State: NO_ERROR
     
-#.  To move the MTRotator, go to the :guilabel:`Commands to Send` 
+1.  To move the MTRotator, go to the :guilabel:`Commands to Send` 
     section and in :guilabel:`Enabled Substate Triggers`, 
     choose ``Move``. Then, input ``0`` degrees in the :guilabel:`Position Cmd` field and 
     execute the movement by clicking on the :guilabel:`Send Command` button.
 
-#.  If the MTRotator does not follow:
+2.  If the MTRotator does not follow:
 
     a.  Transition to ``Standby`` state followed by the ``Enabled`` state again to reset the internal 
         calculation of Simulink model. Then, do the p2p movement to origin again.
