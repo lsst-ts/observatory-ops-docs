@@ -83,7 +83,7 @@ Using the MTRotator EUI
 
     MTRotator Python GUI (Controller Connected)
 
-1.  Once in the *Rotator Control GUI*, :guilabel:`Connect` to the low-level controller (top-left), and change the ``Command Source`` to ``GUI``.
+2.  Once in the *Rotator Control GUI*, :guilabel:`Connect` to the low-level controller (top-left), and change the ``Command Source`` to ``GUI``.
 
     a. In the ``Command`` section of the GUI, select :guilabel:`Switch command source`.
     
@@ -113,11 +113,11 @@ Using the MTRotator EUI
        and select :guilabel:`Move`. 
     b. Execute the trigger by clicking the :guilabel:`Send Command` button.
     
-    c. Then, input ``0`` degrees in the :guilabel:`Position Cmd` field.
+    c. Then, input a value between +/- 90 degrees in the :guilabel:`Position Cmd` field.
     
     d. Execute the movement by clicking the :guilabel:`Send Command` button.
 
-    e. Verify that it is at 0° by checking the ``Position`` under ``Summary``.
+    e. Verify that it is at chosen value by checking the ``Position`` under ``Summary``.
 
 5.  If the MTRotator does not follow:
 
