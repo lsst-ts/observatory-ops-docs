@@ -10,7 +10,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Kevin Fanning*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Yiyung Kang, Jacqueline Seron*
+.. |contributors| replace:: *Yiyung Kang, Jacqueline Seron, Karla Peña*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -50,7 +50,7 @@ This step-by-step guide is the integration of the `Recovery system at night`_ an
 
     .. _M2-recovery-check-M2-state:
 
-    You can check the MTM2 state in Chronograf dashboards `M2 state`_, `MTM2 dashboard`_ or  `LOVE view`_, once you are signed in.
+    You can check the MTM2 state in Chronograf dashboards `MTM2 dashboard`_ or  `LOVE view`_, once you are signed in.
 
     A GIS interlock prevents TMA movement if MTM2 is not in the *closed-loop* state. 
     
@@ -137,7 +137,7 @@ Check the following items:
 
 .. note::
 
-    Log your observations on the cause and add comments to a Jira ticket (either existing or one you create). Include any unique activities occurring when the fault happened, (c.f. `OBS-416`_) as MTM2 is not expected to fault.
+    Log your observations on the cause and add comments to a Jira ticket (either existing or one you create). Include any unique activities occurring when the fault happened as MTM2 is not expected to fault.
  
 .. _`OBS-416` : https://rubinobs.atlassian.net/browse/OBS-416
 
@@ -160,13 +160,7 @@ Procedure Steps
     #. **Connect** to the admin user on M2 cRIO controller via ssh using the username and password found in `1password`_ MainTel vault.
          .. note::
 
-             There are 2 cRIO controllers in the summit: 
-
-             * *m2-crio-controller01.cp.lsst.org* 
-            
-             * *m2-crio-controller02.cp.lsst.org*
-
-         Depending on the location of M2, run the command:
+         There are 2 cRIO controllers in the summit. Depending on the location of M2, run the command:
 
          .. admonition:: If M2 is at the TMA:
 
@@ -191,7 +185,7 @@ Procedure Steps
             
             /etc/init.d/nilvrt start
         
-         You may press enter to regain your shell prompt when you see the following "Welcome to LabVIEW Real-Time 18.0".
+         You may press enter to regain your shell prompt when you see the following "Welcome to LabVIEW Real-Time 18.0". It may take several minutes.
 
          .. figure:: _static/MTM2-recovery-restart-control-system.png
             :width: 600
@@ -270,7 +264,7 @@ Procedure Steps
      If the attempt fails, try again, but first set it to ``STANDBY``. Each transition is expected to take approximately 2 minutes. 
     
 
-#. Check that M2 in under *closed-loop* control **4** in Chronograf `M2 state`_.
+#. Check that M2 in under *closed-loop* control **4** in Chronograf M2 dashboard.
      If needed, set *closed-loop* control by running the script :file:`standardscripts/maintel/m2/enable_closed_loop.py`, without configuration. This can be done even if you are already under *closed-loop* control.
 
 
