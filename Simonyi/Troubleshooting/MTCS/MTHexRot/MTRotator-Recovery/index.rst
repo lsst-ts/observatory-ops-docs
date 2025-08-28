@@ -10,7 +10,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Yijung Kang*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Ioana Sotuela, Holger Drass, Kshitija Kelkar*
+.. |contributors| replace:: *Ioana Sotuela, Holger Drass, Kshitija Kelkar, Kristopher Mortensen, Jacqueline Seron, Te-Wei Tsai*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -54,23 +54,34 @@ Error diagnosis
 
 * The difference between the MTRotator and the Camera Cable Wrap (CCW) is too large. Bulkhead limit switch activated; this is also called :guilabel:`Pull cord +` or :guilabel:`Pull cord -`. 
 
-    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_1.png
-         :name: mtrot_recovery_1
-   
-         TMA EUI screenshot indicating the pull cord +/- alert highlighted by the red box
+.. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_1.png
+        :name: mtrot_recovery_1
 
-* :ref:`Safety Interlock <mtrot_recovery_5>` active in the MTRotator GUI 
-* :ref:`Simulink fault <mtrot_recovery_5>` in the MTRotator GUI 
+        TMA EUI screenshot indicating the pull cord +/- alert highlighted by the red box
+
+* :ref:`Safety Interlock <mtrot_recovery_6>` active in the MTRotator GUI 
+* :ref:`Simulink fault <mtrot_recovery_6>` in the MTRotator GUI 
 * CCW Interlock D-8 activated on the GIS (link here to the GIS interlock screenshot)
-* MTRotator CSC goes into ``FAULT``, but can not be recovered/cycled through CSC from LOVE.
-* WD (watchdog) box in safety system of TMA EUI is red and GIS TMA IS is triggered. 
+* MTRotator CSC goes into ``FAULT`` state, but it cannot recover or cycle through CSC states from LOVE.
+* :ref:`Watchdog <mtrot_recovery_4>` (WD) box in safety system of TMA EUI is red and GIS :ref:`TMA IS <mtrot_recovery_5>` is triggered. 
 
-    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_8.png
-	:width: 300  
-        :name: watchdog
+.. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_4.png
+    :width: 300  
+    :name: mtrot_recovery_4
 
-    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_9.png
-        :name: TMA IS
+.. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_5.png
+    :name: mtrot_recovery_5
+
+
+.. note::
+
+    There are two ways to recover this fault:
+
+    1. **Moving the CCW to the Camera Rotator**.
+
+       * Instructions can be found on the `CCW Recovery Confluence Page <https://rubinobs.atlassian.net/wiki/x/xqZdAg>`_.
+
+    2. **Moving the Camera Rotator to the CCW** (see the :ref:`Procedure Steps <MTRotator-Recovery-Procedure-Steps>` below).
 
 .. _MTRotator-Recovery-Procedure-Steps:
 
@@ -84,115 +95,135 @@ Procedure Steps
 .. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
 
 
-#.  **Transition MTRotator CSC to** ``STANDBY`` **status**.
+1.  **Transition MTRotator CSC to** ``STANDBY`` **status**.
 
-#.  **Clear the error from TMA EUI first.**
+2.  **Clear the error from TMA EUI first.**
 
-#.  **Access the MTRotator EUI/GUI:**
+3.  **Access the MTRotator EUI/GUI:**
 
-    a.  Enter *hexrot-vm02.cp.lsst.org* with your IPA account credentials.
+    a.  Enter the virtual machine that controls the rotator (*hexrot-vm01.cp.lsst.org*) with your IPA account credentials.
+
+.. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_8.png
+    :name: mtrot_recovery_8
+
+    MTRotator Python GUI
+
+.. admonition:: Accessing the Rotator GUI
+    :class: note
+
+    **Remote Access:**
+    The `How to Access MT M2/Rotator/Hexapods/Dome EUI <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/39685455/How+to+Access+MT+M2+Rotator+Hexapods+Dome+EUI>`_ 
+    has a detailed procedure for accessing all the GUIs in the virtual machine.
+
+    **Summit Access:**
+    If you are logged into a linux machine at the summit, you can enter the virtual machine using an SSH command.
+
+    * Open a terminal from the 'Activities' tab on top left, and type the following command::
+
+        ssh -Y hexrot-vm01.cp.lsst.org
     
-    b.  Once in the virtual machine, choose your user profile and enter your IPA password.
+    
+    c.  Once in the virtual machine, access the rotator using the :command:`run_rotgui` command:: 
 
-    c.  open a terminal from the 'Activities' tab on top left and go to the following: 
+        [(username)@hexrot-vm01 ~]$ run_rotgui
 
-        .. prompt:: bash
+.. _MTRotator-Recovery-Procedure-Step4:
 
-             cd /rubin/
-             cd rotator/
-             cd build
-             ./runRotEui
+4.  **Change the Command Source from CSC to GUI mode:** 
 
-#.  **Change from DDS Command Source to GUI mode:** 
+    a. Once in the *Rotator Control GUI*, :guilabel:`Connect` to the low-level controller (top-left).
 
-    .. _MTRotator-Recovery-Procedure-Step3:
-
-    Click the :guilabel:`Parameters` tab in the MTRotator EUI, select ``GUI`` under 
-    :guilabel:`Command Source`, and press :guilabel:`Set Command Source`. In case the 
-    GUI control is not possible consult the :ref:`Contingency section <MTRotator-Recovery-Contingency>` 
-    below for further guidance. 
-
-    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_2.png
-        :width: 300  
-        :name: mtrot_recovery_2
+    b. In the ``Command`` section of the GUI, select :guilabel:`Switch command source`.
+    
+    c. Under the ``Command Parameters`` go to ``Command Source`` and select :guilabel:`GUI`.
+    
+    d. Execute the command by clicking :guilabel:`Send Command` at the bottom of the GUI.
+      
     
 
-#.  **Clear Simulink error in MTRotator GUI:**
+5.  **Clear Simulink error in MTRotator GUI:**
 
-    .. _MTRotator-Recovery-Procedure-Step4A:
+    a. In the ``Main`` tab, go to the ``Commands`` tab.
 
-    a.  In the MTRotator EUI Main tab, select ``State Cmd`` under :guilabel:`Commands to Send`. 
-        In :guilabel:`State Triggers`, select ``ClearError`` and click on the :guilabel:`Send Command` 
-        button. 
-        The **Simulink Error** light should be cleared now.
+    b. Under ``Command``, select :guilabel:`State command`.
 
-    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_3.png
-            :name: mtrot_recovery_3
-            :width: 300  
+    c. Under ``Command Parameters``, go to ``State Trigger`` and select :guilabel:`ClearError`.
 
-    b.  When the **Safety Interlock fault** is :red:`activated`.
-
-    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_4.png
-        :name: mtrot_recovery_4
-        :width: 300  
-
-
-    c.  When the **Safety Interlock fault** is deactivated.
-
-    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_5.png
-        :name: mtrot_recovery_5
-        :width: 300  
-
-
-#.  **Reset MTRotator in GIS GUI at Level 2:**
-
-    .. _MTRotator-Recovery-Procedure-Step5A:
-    
-    a. Press :guilabel:`Bypass` by the D-8 (CCW Safety Device Actuated).    
-
-    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_6.png
-         :name: mtrot_recovery_6  
-         :width: 300  
-
-    b.  Click :guilabel:`M2Cam` and then :guilabel:`Overview` (Default). Note that you should 
-        see a :green:`x` mark on the square of :guilabel:`Reset`. If not, click the 
-        :guilabel:`Reset` button again. 
+    d. Send the command by clicking on the :guilabel:`Send Command` button.
 
     .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_7.png
-         :name: mtrot_recovery_7  
-         :width: 300  
 
-
-#.  **Back to MTRotator GUI, clearError command to reset Safety Interlock:**
-
-    Following a similar process to :ref:`Step 4.a <MTRotator-Recovery-Procedure-Step4A>`, the ``ClearError`` command will remove the 
-    safety interlock.      
+        Sending ClearError Command
+            
+.. admonition:: Telemetry Verification
+    :class: hint
     
-#.  **Enable the MTRotator, then move it to zero degrees**:
+    Double-click the :guilabel:`Telemetry` tab at the bottom of the GUI (see image above). 
 
-    To enable, ``State Cmd`` 
-    is selected, :guilabel:`StateTriggers` menu shows ``Enable`` under and then click 
-    :guilabel:`Send Command` button. To move the MTRotator, go to the :guilabel:`Commands to Send` 
-    section and in :guilabel:`Enabled Substate Triggers`, 
-    choose ``Move``. Then, input ``0`` degrees in the :guilabel:`Position Cmd` field and 
-    execute the movement by clicking on the :guilabel:`Send Command` button.
+    * | If the Safety Interlock is activated, you can find a red light next to the 
+      | :guilabel:`Safety Interlock fault` with the ``Application Status`` tab.
+    * In case of a Simulink Error, there will be red light next to the :guilabel:`Simulink fault` on the same page.
+
+    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_6.png
+        :name: mtrot_recovery_6
+
+        Rotator Telemetry with Faults (GUI Command Source)
+
+    * When both errors are cleared, the telemetry no longer have red fault lights:
+
+    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_9.png
+        :name: mtrot_recovery_9
+
+        Rotator Telemetry without Faults (CSC Command Source)
+
+.. _MTRotator-Recovery-Procedure-Step6:
+
+6.  **Reset MTRotator in GIS GUI on Level 2:**
+
+    a. Select the :guilabel:`Det-Act` tab (bottom left of the screen), and press :guilabel:`Bypass` by the D-8 (CCW Safety Device Actuated). 
+
+    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_2.png
+         :name: mtrot_recovery_2  
+
+    b.  | Select the :guilabel:`M2Cam` tab and then click :guilabel:`Overview` (default). Below the 
+        | ``CAM. ROTATOR`` section, press and hold the :guilabel:`Reset` button. A **green "X"** mark 
+        | should appear next the the ``Reset`` label. If it does not show, press and hold the 
+        | :guilabel:`Reset` button, again.
+
+    .. figure:: /Simonyi/Troubleshooting/_static/mtrot_recovery_3.png
+         :name: mtrot_recovery_3  
+  
+    
+
+7.  **Enable MTRotator in GUI and Move to CCW:**
+
+    a. | Instructions for enabling and moving the rotator are found in **steps 3-5**
+       | of the :ref:`MTRotator Motion Check <MTRot-Motion-Check>` procedure.
+    b. When selecting an ending position for the rotator, make sure that the rotation distance between
+       the rotator and the CCW are **within the software limits**: 
+       
+    .. math::
+        
+        \boxed{\left|\theta_{CCW} - \theta_{Rot}\right|  < 2.5^{\circ}}
 
 
-#.  **Reset alarms in TMA GUI:**
+
+8.  **Reset Alarms in TMA GUI:**
 
     a.  In the :guilabel:`Safety System` :ref:`menu <mtrot_recovery_1>`, reset the 
         :guilabel:`Pull Cord +` or :guilabel:`Pull Cord -` alarm.
 
-    b.  Exit the :guilabel:`Safety System`and enter the :guilabel:`Camera Cable Wrap` tab. 
-        Click on :guilabel:`Reset alarm`.
+    b.  Navigate to the :guilabel:`Camera Cable Wrap` tab, and select :guilabel:`Reset alarm`.
 
-    c.  In the :guilabel:`Camera Cable Wrap` tab, press the :guilabel:`ON` button. 
-        Everything should be shown as green now.
+9.  **Release the Bypass to the CCW in GIS GUI on Level 2** 
+    (Refer to :ref:`Step 6a <MTRotator-Recovery-Procedure-Step6>`).
 
-#.  **Release the bypass to the CCW in GIS GUI in Level 2** 
-    (Refer to :ref:`Step 5.a <MTRotator-Recovery-Procedure-Step5A>`)
+10. **Change the Command Source from GUI to CSC mode** (reverse procedure of :ref:`Step 4 <MTRotator-Recovery-Procedure-Step4>`).
 
-#.  **Revert Command Source from EUI to DDS** (opposite to the :ref:`Step 3 <MTRotator-Recovery-Procedure-Step3>`) 
+    * Remember to :guilabel:`Disconnect` the low-level controller before closing the GUI.
+
+11.  **Transition MTMount and MTRotator Back to** ``ENABLED``.
+
 
 
 Post-Condition
