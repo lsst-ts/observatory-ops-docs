@@ -40,6 +40,7 @@ Introduction to the Simonyi Telescope
    :caption: Components
 
    Components/MTCS/index.rst
+   Components/EUI-Access/index.rst
    Components/*
    
 .. _Simonyi-Telescope-Weather-Constraints:
