@@ -10,7 +10,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Ioana Sotuela*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Karla Aubel*
+.. |contributors| replace:: *Karla Aubel, Karla Pena*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -191,5 +191,57 @@ Post-Condition
 
 Contingency
 ===========
+
+Especially after a power glitch or a power cut, there can be additional steps required:
+
+OSS temperature sensor
+----------------------
+
+While turning on the OSS through the TMA EUI, there may be rare occurrences where the process prolongs endlessly and never completes. This may be due to a faulty OSS pressure sensor on the TMA, and requires personal intervention for troubleshooting.
+
+Go to level 8 and to the right of the main TMA cabinets you will find a temperature sensor attached to the TMA structure:
+
+     .. figure:: ./_static/location_sensor_OSS.png
+      :name: Location OSS temperature sensor
+      :width: 600
+
+      OSS temperature sensor location.
+
+     .. figure:: ./_static/OSS_temperature_sensor.png
+      :name: OSS temperature sensor
+      :width: 600
+
+      OSS temperature sensor.
+
+You will need to touch with your bare fingers the sensor to warm it up. This is especially needed on cold winter nights.
+
+
+Control cabinet OSS alarms
+--------------------------
+
+Some alarms on the OSS cannot be reset through the EUI (e.g., observation and cooling alarms in the OSS General View). Instead, they must be cleared through the control cabinet on the OSS, itself.
+
+Go to level 1 and locate the Control Cabinet OSS (TMA-FA-OS-CBT-5002). You will require to locate its screen and acnowledge alarms. The process should be followed together with some member of the Electronics team.
+
+
+     .. figure:: ./_static/Control_Cabinet_OSS.png
+      :name: Control Cabinet OSS
+      :width: 600
+
+      Control_Cabinet_OSS.
+
+
+     .. figure:: ./_static/Control_Cabinet_OSS_main_menu.png
+      :name: Control Cabinet OSS main menu
+      :width: 600
+
+      Control Cabinet OSS main menu.
+
+
+     .. figure:: ./_static/Control_Cabinet_OSS_alarm_acknowlegment.png
+      :name: Control Cabinet OSS alarmacknowlegment
+      :width: 600
+
+      Control Cabinet OSS alarm acknowlegment (no active alarms in the picture).
 
 If the procedure was not successful, report the issue in channel *#summit-simonyi* and/or activate the :ref:`Out of hours support <Safety-out-of-hours-support>`.
