@@ -8,7 +8,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Michael Reuter*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Tiago Ribeiro, Patrick Ingraham*
+.. |contributors| replace:: *Tiago Ribeiro, Patrick Ingraham, Karla Peña*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -41,10 +41,12 @@ Precondition
 .. Do not include actions in this section. Any action by the user should be included at the beginning of the Procedure section below. For example: Do not include "Notify specified SLACK channel. Confirmation is not required." Instead, include this statement as the first step of the procedure, and include "Notification to specified SLACK channel." in the Precondition section.
 .. If there is a different procedure that is critical before execution, carefully consider if it should be linked within this section or as part of the Procedure section below (or both).
 
-- Have a FreeIPA account
+- Have a FreeIPA account and verify if you have access to the `Kubernetes cluster <https://rancher.cp.lsst.org/>`_, named *yagan*. Your IPA account will work if you are in the *k8s-yagan-admins* group. If you do not have access file an `IHS JIRA <https://jira.lsstcorp.org/projects/IHS>`_ ticket to request access to the site specific Rancher: *yagan*.
+
+    - Set the *Component/s* to *AAA* and set the *Responsible Organization* to the appropriate site.
+
 - Make sure you read and understand the :ref:`environments procedure <Observing-Interface-Operational-Environments>`.
 
-  - Once you have identified which environment you want to interact with, you must be able to load the link to the Rancher instance to that environment.
 
 .. _Observing-Interface-Getting-Started-Kubernetes-Post-Conditions:
 
@@ -66,28 +68,37 @@ Procedure Steps
 .. In the case of more complicated procedures, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked procedures to be performed in the specified order.
 .. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
 
-- File an `IHS JIRA <https://jira.lsstcorp.org/projects/IHS>`_ ticket to request access to the site specific Rancher.
-    - Set the *Component/s* to *AAA* and set the *Responsible Organization* to the appropriate site.
-- Log into the site specific Rancher instance using your FreeIPA account.
-- Once logged in, select the site specific Kubernetes cluster.
 
-.. figure:: ./_static/rancher-cluster-selection.png
-    :name: Observing-Interface-Getting-Started-Rancher-Cluster-Selection
+#. Log into the site specific Rancher instance using your FreeIPA account.
+#. Once logged in, select the site specific Kubernetes cluster.
 
-    Screenshot of selecting a Kubernetes cluster.
+    .. figure:: ./_static/rancher-cluster-selection.png
+        :name: Observing-Interface-Getting-Started-Rancher-Cluster-Selection
 
-- With the cluster selected, click the ``Download KubeConfig`` button to get a *kubeconfig* file.
+        Screenshot of selecting a Kubernetes cluster, in this case: *yagan*.
 
-.. figure:: ./_static/rancher-download-kubeconfig.png
-    :name: Observing-Interface-Getting-Started-Rancher-Download-Kubeconfig
 
-    Screenshot of hovering over the Download KubeConfig button.
+#. Once the cluster is selected, you will get into the Cluster Dashboard. Click the ``Download KubeConfig`` button to get a *kubeconfig* file. In this example, it will be a *yagan.yaml* configuration file.
 
-- Using the *kubeconfig* file requires the *kubectl* executable.
-    - See the `kubectl installation <https://kubernetes.io/docs/tasks/tools/>`_ instructions for OS specific details.
-    - The `LENS <https://k8slens.dev/>`_ platform can be used in conjunction with a *kubectl* installation to access Kubernetes resources
-- The *kubeconfig* file should be copied to your home directory's *.kube* directory once *kubectl* is installed.
-- How to use the *kubectl* command accessing and manipulating Kubernetes resources is out of scope for this section.
+    .. figure:: ./_static/rancher-download-kubeconfig.png
+        :name: Observing-Interface-Getting-Started-Rancher-Download-Kubeconfig
+
+        Screenshot of hovering over the Download KubeConfig button.
+
+#. Using the *kubeconfig* file requires the *kubectl* executable.
+
+    - See the `kubectl installation <https://kubernetes.io/docs/tasks/tools/>`_ . Go to your machine and create the .kube folder in your home directory and move the *yagan.yaml* file into this new folder:
+
+    .. prompt:: bash
+
+                mkdir .kube
+                ls -la
+                cd .kube
+                mv ~path/yagan.yaml ./
+
+#. Install *kubectl* `command-line tool <https://kubernetes.io/docs/tasks/tools/>`_ to allows the interaction with your operating system through text commands. Complementary, the `LENS <https://k8slens.dev/>`_ platform can be used in conjunction with a *kubectl* installation to access Kubernetes resources.
+
+How to use the *kubectl* command accessing and manipulating Kubernetes resources is out of scope for this document.
 
 .. _Observing-Interface-Getting-Started-Kubernetes-Troubleshooting:
 
