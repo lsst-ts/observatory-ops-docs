@@ -10,7 +10,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Kevin Fanning*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Yiyung Kang, Jacqueline Seron*
+.. |contributors| replace:: *Yiyung Kang, Jacqueline Seron, Karla Peña*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -50,7 +50,7 @@ This step-by-step guide is the integration of the `Recovery system at night`_ an
 
     .. _M2-recovery-check-M2-state:
 
-    You can check the MTM2 state in Chronograf dashboards `M2 state`_, `MTM2 dashboard`_ or  `LOVE view`_, once you are signed in.
+    You can check the MTM2 state in Chronograf dashboards `MTM2 dashboard`_ or  `LOVE view`_, once you are signed in.
 
     A GIS interlock prevents TMA movement if MTM2 is not in the *closed-loop* state. 
     
@@ -137,7 +137,7 @@ Check the following items:
 
 .. note::
 
-    Log your observations on the cause and add comments to a Jira ticket (either existing or one you create). Include any unique activities occurring when the fault happened, (c.f. `OBS-416`_) as MTM2 is not expected to fault.
+    Log your observations on the cause and add comments to a Jira ticket (either existing or one you create). Include any unique activities occurring when the fault happened as MTM2 is not expected to fault.
  
 .. _`OBS-416` : https://rubinobs.atlassian.net/browse/OBS-416
 
@@ -160,13 +160,7 @@ Procedure Steps
     #. **Connect** to the admin user on M2 cRIO controller via ssh using the username and password found in `1password`_ MainTel vault.
          .. note::
 
-             There are 2 cRIO controllers in the summit: 
-
-             * *m2-crio-controller01.cp.lsst.org* 
-            
-             * *m2-crio-controller02.cp.lsst.org*
-
-         Depending on the location of M2, run the command:
+         There are 2 cRIO controllers in the summit. Depending on the location of M2, run the command:
 
          .. admonition:: If M2 is at the TMA:
 
@@ -191,7 +185,7 @@ Procedure Steps
             
             /etc/init.d/nilvrt start
         
-         You may press enter to regain your shell prompt when you see the following "Welcome to LabVIEW Real-Time 18.0".
+         You may press enter to regain your shell prompt when you see the following "Welcome to LabVIEW Real-Time 18.0". It may take several minutes.
 
          .. figure:: _static/MTM2-recovery-restart-control-system.png
             :width: 600
@@ -205,8 +199,8 @@ Procedure Steps
 
         Note that all status boxes for the M2 actuator will appear green. This indicates the status of the relay that enables power to the systems, not the status of M2 itself. Therefore, **after an interlock or power cycling**, it is necessary to press the :guilabel:`RESET` button.
 
-#. Use python EUI/GUI to change MTM2 to *closed-loop* state:
-     #. Open the **MTM2 EUI**. Follow instructions :ref:`to access the MTM2 EUI <EUI-Access-Accessing-M2-Camera-Hexapods-and-Camera-Rotator-EUIs>`.
+#. Use python EUI to change MTM2 to *closed-loop* state:
+     #. Open the **MTM2 EUI**. Follow instructions :ref:`to access the MTM2 EUI <Simonyi-Components-Simonyi-EUI-Access>`.
 
      #. Establish **local control** by pressing :guilabel:`connect`, then :guilabel:`local`. 
          Note that :guilabel:`local` may be greyed out after connecting, this is normal.
@@ -224,7 +218,7 @@ Procedure Steps
 
             MTM2 GUI Overview
 
-         #. Check the **Enabled Faults Mask**. 
+         a. Check the **Enabled Faults Mask**. 
              It should **not be 0**. If it is, repeat `Reset the M2 interlock signal`_.
              
              .. note::
@@ -233,7 +227,7 @@ Procedure Steps
 
                 .. the original said isInterlockEnabled
 
-         #. Look at **Alarms/Warnings** widget to see active alarms (red) or warnings (yellow). 
+         b. Look at **Alarms/Warnings** widget to see active alarms (red) or warnings (yellow). 
              If active, reset them with :guilabel:`Reset All Items`. 
         
              *Make sure you have removed the fault condition*.
@@ -254,23 +248,23 @@ Procedure Steps
      #. :guilabel:`Enter closed-loop control`.
 
 #. Return to **Standby mode** in the EUI to close the GUI by **pressing the following buttons**:
-     #. :guilabel:`Enter open-loop control`.
+     a. :guilabel:`Enter open-loop control`.
 
-     #. :guilabel:`Diagnostic` mode, this usually takes ~30s.
+     b. :guilabel:`Diagnostic` mode, this usually takes ~30s.
 
-     #. :guilabel:`Standby` mode, this usually takes ~30s.
+     c. :guilabel:`Standby` mode, this usually takes ~30s.
 
-     #. :guilabel:`Remote` mode, to allow CSC control of M2.
+     d. :guilabel:`Remote` mode, to allow CSC control of M2.
      
-     #. :guilabel:`Disconnect` EUI on the top tool bar, this usually takes ~30s.
+     e. :guilabel:`Disconnect` EUI on the top tool bar, this usually takes ~30s.
     
-     #. :guilabel:`Exit` on the top tool bar.
+     f. :guilabel:`Exit` on the top tool bar.
 
 #. Change the status of MTM2 CSC from ``DISABLED`` to ``ENABLED``. 
      If the attempt fails, try again, but first set it to ``STANDBY``. Each transition is expected to take approximately 2 minutes. 
     
 
-#. Check that M2 in under *closed-loop* control **4** in Chronograf `M2 state`_.
+#. Check that M2 in under *closed-loop* control **4** in Chronograf M2 dashboard.
      If needed, set *closed-loop* control by running the script :file:`standardscripts/maintel/m2/enable_closed_loop.py`, without configuration. This can be done even if you are already under *closed-loop* control.
 
 
