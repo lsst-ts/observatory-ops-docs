@@ -10,7 +10,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Tony Johnson*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace::     *Erik Dennihy, Jacqueline Seron*
+.. |contributors| replace::     *Erik Dennihy, Jacqueline Seron, Karla Pena*
   
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -90,6 +90,13 @@ Error diagnosis
 .. the note above was added to be able to copy the commands without ccs. BUT UNCERTAIN WHETHER IF IT'S CORRECT OR NEEDED.
 
 **Track down a CCS problem** using the **ccs-shell** command line tool. Note that you can also use the *ccs-console* graphical interface.
+
+#. Access to the LATISS CSC:
+
+   .. prompt:: bash
+
+      ssh auxtel-mcm.cp.lsst.org
+      ccs-shell
 
 #. Identify which **CCS subsystem triggered** the problem. 
 
