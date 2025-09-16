@@ -25,11 +25,10 @@ Overview
 
 .. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
 
-This procedure is intended for users of the Rubin Observatory that are interested in interacting with the Observatory Control System using Kubernetes.
-It contains basic procedures on how to get started with the Kubernetes.
-Kubernetes is the platform used to run many of the control system components and summit services.
+Kubernetes serves as the primary platform for deploying, and managing many of the Rubin Observatory Control System (OCS) components as well as several summit services.
+This procedure provides the initial steps for accessing the observatory’s Kubernetes clusters, obtaining the required configuration files, and preparing your environment to begin interacting with these resources.
 
-To get a list of the different environments see :ref:`Observing-Interface-Operational-Environments`
+To get a list of the different environments see :ref:`Observing-Interface-Operational-Environments`.
 
 .. _Observing-Interface-Getting-Started-Kubernetes-Precondition:
 

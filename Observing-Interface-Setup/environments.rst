@@ -135,7 +135,7 @@ Systems running here will be directly controlling hardware or communicating with
 
 - Nublado: https://summit-lsp.lsst.codes/
 - Chronograf: https://summit-lsp.lsst.codes/chronograf/
-- LOVE: http://love01.cp.lsst.org/
+- LOVE: https://summit-lsp.lsst.codes/love
 - ArgoCD: https://summit-lsp.lsst.codes/argo-cd
 - Rancher: https://rancher.cp.lsst.org/
 - Kubernetes Cluster: yagan
