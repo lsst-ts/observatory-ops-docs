@@ -25,9 +25,32 @@ Overview
 
 .. This section should provide a brief, top-level description of the procedure's purpose and utilization. Consider including the expected user and when the procedure will be performed.
 
-This procedure is intended for users of the Rubin Observatory that are interested in interacting with the Observatory Control System using Argo CD.
-It contains basic procedures on how to get started with Argo CD.
-Argo CD is the system used to deploy and maintain the configuration of many control system components and summit services.
+Argo CD is used to manage deployment configurations on Kubernetes (k8s) clusters. 
+The majority of our components (e.g., most of CSCs, LOVE, Nublado, etc.) are deployed on Kubernetes, making ArgoCD a key tool for controlling and updating these systems.
+This procedure is intended for users of the Rubin Observatory to get started with Argo CD.
+
+.. figure:: ./_static/argocd_kubernetes.png
+    :name: Observing-Interface-ArgoCD-k8s
+    :scale: 50%
+
+    Argo CD and k8s cluster.
+
+Resources are organized into **Apps** which represent a set of Kubernetes resources to manage. 
+Apps, such as *simonyitel* or *auxtel*, include **Jobs** for each CSC for the Simonyi Telescope, or AuxTel respectively.
+Argo CD ensures that these resources exist and remain up-to-date, so the cluster always matches the configuration in Git without requiring manual intervention.
+
+With Argo CD, users can monitor if a CSC has crashed, restart it if necessary, or deploy new CSC versions quickly and reliably.
+
+.. figure:: ./_static/auxtel-app-in-argocd.png
+    :name: AuxTel app in Argo CD showing some of the jobs/CSCs. 
+
+    AuxTel app in Argo CD showing some of the jobs/CSCs.
+
+.. Need a list of what components are available in each namespace. 
+
+.. note::
+  
+  M1M3, ATCamera and LSSTCam CSCs are not in Argo CD. 
 
 To get a list of the different environments see :ref:`Observing-Interface-Operational-Environments`
 
@@ -66,7 +89,7 @@ Procedure Steps
 .. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
 
 - Request access to the `IT 1Password <https://lsstit.1password.com/home>`_ system.
-- Request access to the *ArgoCD Admin* vault.
+- Request access to the *Argo CD Admin* vault.
 - Log into the site specific Argo CD instance using the credentials found in the vault.
 
 .. _Observing-Interface-Getting-Started-ArgoCD-Troubleshooting:

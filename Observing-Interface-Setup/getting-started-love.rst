@@ -64,15 +64,8 @@ Procedure Steps
 .. In the case of more complicated procedures, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked procedures to be performed in the specified order.
 .. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
 
-- Request access to the `IT 1Password <https://lsstit.1password.com/home>`_ system.
-- Request access to the site specific vault:
-    - *Summit*
-    - *Tucson Teststand (TTS)*
-- Log into the site specific LOVE instance.
+- Log into the site specific LOVE instance using your IPA. 
 
-.. note::
-
-  Since LOVE uses a shared login, it may not be necessary to log in when contacting the site specific URL. The credentials are necessary if the shared account is logged out.
 
 .. _Observing-Interface-Getting-Started-LOVE-Troubleshooting:
 
@@ -83,6 +76,5 @@ Troubleshooting
 
 .. If there is no content for this section, remove the indentation on the following line instead of deleting this sub-section.
 
-TBD
 
 This procedure was last modified |today|.
