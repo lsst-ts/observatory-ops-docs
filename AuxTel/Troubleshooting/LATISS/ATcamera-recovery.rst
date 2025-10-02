@@ -123,9 +123,9 @@ Procedure Steps
 
    .. code-block:: bash
 
-      ats-fp clearAllAlerts
+      ats-fp clearAllAlerts -w
       ats-fp getRaisedAlertSummary
-      ats-mcm clearAllAlerts
+      ats-mcm clearAllAlerts -w
       ats-mcm getRaisedAlertSummary
 
 
@@ -145,7 +145,7 @@ Procedure Steps
 
    .. code-block:: bash
 
-      enterControl
+      ats-ocs-bridge enterControl
 
         
 #. Change the camera state to ``ENABLED``.   
@@ -159,6 +159,27 @@ Procedure Steps
 
 
 .. _`Camera Operations Manual`: https://docushare.lsstcorp.org/docushare/dsweb/Get/LCA-282/LCA-282-B-DRAFT7-(CameraOperationsManual).pdf
+
+
+
+.. _ATcamera-recovery-Additional-Procedures:
+
+Additional Procedures
+================
+
+In a few cases, additional procedures are needed to unstuck the LATISS. For example, 
+
+- If the ATCamera CSC reported the following error
+
+   .. code-block:: bash
+
+      MCM has entered fault state. Cause: Controlled subsystem ats-fp has gone into FAULT. Cause: Execution of command "endIntegration" failed unexpectedly due to: Triggering image AT_O_20250224_000001 in folder raw failed (rc=2 Status is 2: Request posted to sequencer timed out (service running?))
+
+  run the following code in ccs-shell
+
+   .. code-block:: bash
+
+      ats-fp endIntegrating -w
 
 
 .. _ATcamera-recovery-Post-Condition:
@@ -177,9 +198,6 @@ Post-Condition
    :width: 700px
    
    LATISS state view, ATCamera in ``ENABLED`` state
-
-
-
 
 
 
