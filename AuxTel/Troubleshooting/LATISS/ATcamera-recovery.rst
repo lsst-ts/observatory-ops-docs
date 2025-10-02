@@ -173,19 +173,19 @@ In a few cases, additional procedures are needed to unstuck the LATISS. For exam
 
 - If the ATCamera CSC reported the following error
 
-   .. code-block:: bash
+  .. code-block:: bash
 
-      MCM has entered fault state. 
-      Cause: Controlled subsystem ats-fp has gone into FAULT. 
-      Cause: Execution of command "endIntegration" failed unexpectedly due to: 
-      Triggering image AT_O_20250224_000001 in folder raw failed
-      (rc=2 Status is 2: Request posted to sequencer timed out (service running?))
+     MCM has entered fault state. 
+     Cause: Controlled subsystem ats-fp has gone into FAULT. 
+     Cause: Execution of command "endIntegration" failed unexpectedly due to: 
+     Triggering image AT_O_20250224_000001 in folder raw failed
+     (rc=2 Status is 2: Request posted to sequencer timed out (service running?))
 
   run the following code in ccs-shell
 
-   .. prompt:: bash
+  .. prompt:: bash
 
-      ats-fp endIntegrating -w
+     ats-fp endIntegrating -w
 
 .. _ATcamera-recovery-Post-Condition:
 
