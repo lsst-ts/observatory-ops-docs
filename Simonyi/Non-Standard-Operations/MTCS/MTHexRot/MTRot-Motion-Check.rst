@@ -48,6 +48,18 @@ The most common occurrences that will require moving MTRotator directly are:
     Procedure <MTRotator-Recovery>` to clear these warnings before proceeding.    
 
 
+.. _MTRotator-motion-check-Prerequisites:
+
+Prerequisites
+=============
+
+- The CCW must be following the rotator before attempting to move it. 
+  Otherwise, a fault can be triggered if the position difference limit between the CCW 
+  and rotator is exceeded.
+
+- Rotator locking pins are disengaged.
+
+
 .. _MTRotator-motion-check-script:
 
 Using MTQueue & SAL Scripts
