@@ -8,7 +8,7 @@
 
 .. |author| replace:: *Karla Peña Ramírez*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Erik Dennihy, Paulo Lago, OS team*
+.. |contributors| replace:: *Erik Dennihy, Paulo Lago, Kristopher Mortensen*
 
 
 .. _Daytime-Operations-LATISS-Daily-Calibrations-BIAS-DARK-FLAT-all-filters-empty-Procedure:
@@ -231,29 +231,6 @@ Procedure Steps
                 5.25,
                 46.44,
                 46.44
-
-
-    7. **: Set sequence for daily_flats.**
-
-    .. code-block:: text
-      :caption: :file:`auxtel/take_image_latiss.py`
-
-        image_type: FLAT
-        filter: SDSSr_65mm
-        grating: empty_1
-        reason: daily_sflat,
-        exp_times:
-                        0.5,
-                        0.5,
-                        0.5,
-                        0.5,
-                        0.5,
-                        12.8,
-                        12.8,
-                        12.8,
-                        12.8,
-                        12.8
-
 
 #. The **Shutdown LATISS calibrations** BLOCK will turn off the calibration lamp and leave it on standby state. Run the script :file:`add_block.py` to the ATQueue  with the following configuration:
 

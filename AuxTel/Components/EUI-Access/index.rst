@@ -10,7 +10,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Kshitija Kelkar*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *OS Team*
+.. |contributors| replace:: *Kristopher Mortensen*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -79,19 +79,19 @@ Connecting to the EUI Remote desktop
 
 #. The following tabs can now be accessible from the web-browser:
 
-    * *Main Box Dome Control: http://139.229.170.45:8000/MainBoxControl.html*   
+    * *LSST Auxiliary Telescope MCS & Pneumatics: http://139.229.170.47:8000/atmcs.html*
+    
+    .. figure:: /AuxTel/Components/_static/EUI-ATMCS.png
+
+    * *ACE Spectrograph: http://139.229.170.44:8000/Spectrograph.html*  
+
+    .. figure:: /AuxTel/Components/_static/EUI-ATSpec.png    
+
+    * *Main Box Dome Control: http://139.229.170.190:8001/*   
 
     .. figure:: /AuxTel/Components/_static/EUI-ATDome.png    
     
-    * *ACE Spectrograph: http://139.229.170.44:8000/Spectrograph.html*  
-
-    .. figure:: /AuxTel/Components/_static/EUI-ATSpec.png  
-    
-    * *LSST Auxiliary Telescope MCS & Pneumatics: http://139.229.170.47:8000/atmcs.html*
-    
-    .. figure:: /AuxTel/Components/_static/EUI-ATMCS.png  
-    
-    * *Top Box Control: http://139.229.170.46:8000/TopBoxControl.html*
+    * *Top Box Dome Control: http://139.229.170.190:8000/*
     
     .. figure:: /AuxTel/Components/_static/EUI-Top-Control-Box.png
 
