@@ -69,8 +69,9 @@ Additional Prerequisites for Engineering Tasks:
   - `Change the MTMount CSC Version <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/161284238/Change+the+MTMount+CSC+version>`_
   - `MTPtg Configuration for MTRotator and MTMount <https://obs-ops.lsst.io/Simonyi/Non-Standard-Operations/MTCS/MTPtg/MTPtg-Configuration-for-MTRot-MTMount.html>`_
 
-- Ask the Camera team member if LSSTCam is ready for MTRotator motion. 
-  - For safety, one person would better monitor the camera, connecting hoses, and cables very near the camera. 
+- Ask the Camera team member if LSSTCam is ready for MTRotator motion.
+
+  - For safety, one person should monitor the camera, connecting hoses, and cables very near the camera. 
 
 .. _MTRotator-Manual-Rotation-Procedure-script:
 
