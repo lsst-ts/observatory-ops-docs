@@ -32,7 +32,7 @@ A comprehensive list of common faults will be displayed here along their trouble
      
         raise base.AckTimeoutError( lsst.ts.salobj.base.AckTimeoutError: msg='Timed out waiting for command acknowledgement',
         ackcmd=(ackcmd private_seqNum=1137560160, ack=<SalRetCode.CMD_NOACK: -301>, error=0, result='No command acknowledgement seen')
-     - :ref:`ATSpectrograph failed - grating stage position and timed out <LATISS-Troubleshooting-ATspectrograph-failed>`
+     - :ref:`ATSpectrograph Recovery <LATISS-Troubleshooting-ATspectrograph-Recovery>`
    * - LATISS/ATCamera
      - ATCamera Recovering from Fault State
      - :ref:`Daytime checkout <AuxTel-DayTime-Operations-Daytime-Checkout>`, :ref:`Calibrations <Daytime-Operations-LATISS-Daily-Calibrations-BIAS-DARK-FLAT-all-filters-empty-Procedure>` , :ref:`Nightime Operations <AuxTel-Nighttime-Operations-index>` 
