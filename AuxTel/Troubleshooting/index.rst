@@ -21,6 +21,16 @@ A comprehensive list of common faults will be displayed here along their trouble
         raise OSError(err, f'Connect call failed {address}')OSError: [Errno 113] Connect call failed ('139.229.170.48', 50000)
      - :ref:`ATHexapod fails to enable with the rest of ATCS <ATHexapod-fails-to-enable-with-the-rest-of-ATCS>`
    * - 
+     - ATHexapod cannot issue AOS corrections - position out of limits
+     - :ref:`Daytime checkout <AuxTel-DayTime-Operations-Daytime-Checkout>`, :ref:`Nightime Operations <AuxTel-Nighttime-Operations-index>`
+
+        raise
+        base.AckError(msg="Command failed", ackcmd=ackcmd) lsst.ts.salobj.base.AckError: msg='Command
+        failed', ackcmd=(ackcmd private_seqNum=493863606, ack=<SalRetCode.CMD_FAILED: -302>, error=1,
+        result="Failed: disableCorrection not allowed in Fault state: errorCode=8103,
+        errorReport='Correction loop died.'")
+     - :ref:`ATHexapod Position Out of Limits <ATHexapod-Fails-Out-of-Limits>`
+   * - 
      - ATMCS fails to enable - e-stop is engaged
      - :ref:`Daytime checkout <AuxTel-DayTime-Operations-Daytime-Checkout>`
 
