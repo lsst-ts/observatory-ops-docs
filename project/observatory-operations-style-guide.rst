@@ -110,9 +110,9 @@ Links
   
    .. admonition:: Links
     
-    *Not* recommended: See `here <URL>`__
+    *Not* recommended: See `here <www.obs-ops.lsst.io>`__
     
-    Recommended: See more in the `Auxiliary Telescope LOTO procedure <URL>`__.
+    Recommended: See more in the `Auxiliary Telescope LOTO procedure <www.obs-ops.lsst.io>`__.
 
 .. _Observatory-Operations-Style-Guide-Templates:
 
