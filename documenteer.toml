@@ -64,7 +64,7 @@ ignore = [
     'https://github.com',
     'https://curl.sai.msu.ru',
     'https://rubinobs.atlassian.net/',
-    'https://rubin-obs.slack.com',
+    'https://rubin-obs.slack.com'
 ]
 
 [sphinx] 
