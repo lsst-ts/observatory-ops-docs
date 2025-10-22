@@ -520,10 +520,3 @@ Check out these resources and guides. Sources files are available to compare raw
   * `reStructuredText Primer from Sphinx <https://www.sphinx-doc.org/en/1.8/usage/restructuredtext/basics.html>`_
 
   * `reStructuredText Style Guide for Rubin Observatory Data Management Developers <https://developer.lsst.io/restructuredtext/style.html>`__
-
-.. _Contributing-Style-Guide:
-
-Observatory Operations Style Guide
-----------------------------------
-
-.. include:: observatory-operations-style-guide.inc

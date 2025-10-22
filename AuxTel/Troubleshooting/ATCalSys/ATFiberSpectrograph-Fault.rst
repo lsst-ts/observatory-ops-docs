@@ -21,7 +21,7 @@
 .. An error will alert you of identical labels during the build process.
 
 #########################
-Troubleshooting Template
+ATFiberSpectrograph Fault
 #########################
 
 .. note::

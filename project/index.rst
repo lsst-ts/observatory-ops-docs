@@ -33,7 +33,7 @@ This section contains files related to the setup of this documentation tree, inc
 Template Folder
 ===============
 
-This section is provided so the template folder files are available.
+Available templates are listed below
 
 .. toctree::
     :maxdepth: 2

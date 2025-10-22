@@ -8,7 +8,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Tiago Ribeiro*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Michael Reuter, Patrick Ingraham*
+.. |contributors| replace:: *Michael Reuter, Patrick Ingraham, I. Sotuela*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -88,10 +88,9 @@ Procedure Steps
 .. In the case of more complicated procedures, more sophisticated methodologies may be appropriate, such as multiple section headings or a list of linked procedures to be performed in the specified order.
 .. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
 
-- Request access to the `IT 1Password <https://lsstit.1password.com/home>`_ system.
-- Request access to the *Argo CD Admin* vault.
-- Log into the site specific Argo CD instance using the credentials found in the vault.
-
+- Verify that your **Keycloak** account is active and you can authenticate successfully.
+- Access the Argo CD instance, and log in using your Keycloak credentials.
+  
 .. _Observing-Interface-Getting-Started-ArgoCD-Troubleshooting:
 
 Troubleshooting
