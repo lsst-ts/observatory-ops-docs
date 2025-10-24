@@ -43,7 +43,7 @@ The most common occurrences that will require moving MTRotator directly are:
 
 .. warning::
 
-    This check cannot be accomplished if MTRotator is in ``FAULT`` on the CSC and/or with interlocks 
+    This check cannot be accomplished if the MTRotator CSC is in ``FAULT`` and/or with interlocks 
     activated on the :guilabel:`GIS` or the MTRotator EUI. Please refer to :ref:`MTRotator Recovery 
     Procedure <MTRotator-Recovery>` to clear these warnings before proceeding.    
 
@@ -93,7 +93,7 @@ Using the MTRotator EUI
     has a detailed procedure for accessing all the GUIs in the virtual machine.
 
     **Summit Access:**
-    If you are logged into a linux machine at the summit, you can enter the virtual machine using an SSH command.
+    If you are logged into a Linux machine at the summit, you can enter the virtual machine using an SSH command.
 
     * Open a terminal from the 'Activities' tab on top left, and type the following command::
 
