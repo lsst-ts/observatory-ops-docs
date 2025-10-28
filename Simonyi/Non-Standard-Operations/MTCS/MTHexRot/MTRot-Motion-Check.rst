@@ -14,18 +14,18 @@
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
-.. _MTRot-Motion-Check:
+.. _MTRotator-Manual-Rotation-Procedure:
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
 
-######################
-MTRotator Motion Check
-######################
+###########################################
+MTRotator CSC/EUI Manual Rotation Procedure
+###########################################
 
 
-.. _MTRot-Motion-Check-Overview:
+.. _MTRotator-Manual-Rotation-Procedure-Overview:
 
 Overview
 ========
@@ -43,12 +43,37 @@ The most common occurrences that will require moving MTRotator directly are:
 
 .. warning::
 
-    This check cannot be accomplished if MTRotator is in ``FAULT`` on the CSC and/or with interlocks 
+    This check cannot be accomplished if the MTRotator CSC is in ``FAULT`` and/or with interlocks 
     activated on the :guilabel:`GIS` or the MTRotator EUI. Please refer to :ref:`MTRotator Recovery 
     Procedure <MTRotator-Recovery>` to clear these warnings before proceeding.    
 
 
-.. _MTRotator-motion-check-script:
+.. _MTRotator-Manual-Rotation-Procedure-Prerequisites:
+
+Prerequisites
+=============
+
+- The CCW must be following the rotator before attempting to move it. 
+  Otherwise, a fault can be triggered if the position difference limit between the CCW 
+  and rotator is exceeded.
+
+- Rotator locking pins are disengaged. If they are engaged, contact a Camera team member to remove the pins.
+
+- If using the CSC to command the rotator MTMount, MTRotator and MTPtg should be ``ENABLED``.
+
+Additional Prerequisites for Engineering Tasks:
+-----------------------------------------------
+
+- When the TMA cannot be moved during engineering tasks before moving the rotator, it’s required to set MTMount CSC version to **mtmount-ccw-only** and change MTPtg configuration to **ignore the mount**.
+
+  - `Change the MTMount CSC Version <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/161284238/Change+the+MTMount+CSC+version>`_
+  - `MTPtg Configuration for MTRotator and MTMount <https://obs-ops.lsst.io/Simonyi/Non-Standard-Operations/MTCS/MTPtg/MTPtg-Configuration-for-MTRot-MTMount.html>`_
+
+- Ask the Camera team member if LSSTCam is ready for MTRotator motion.
+
+  - For safety, one person should monitor the camera, connecting hoses, and cables very near the camera. 
+
+.. _MTRotator-Manual-Rotation-Procedure-script:
 
 Using MTQueue & SAL Scripts
 ===========================
@@ -79,7 +104,7 @@ Run the :file:`maintel/mtrotator/move_rotator.py` SAL script on *LOVE/MTQueue* u
 
 If this procedure fails, proceed to **using the MTRotator EUI**. 
 
-.. _MTRotator-motion-check-eui:
+.. _MTRotator-Manual-Rotation-Procedure-eui:
 
 Using the MTRotator EUI
 =======================
@@ -93,7 +118,7 @@ Using the MTRotator EUI
     has a detailed procedure for accessing all the GUIs in the virtual machine.
 
     **Summit Access:**
-    If you are logged into a linux machine at the summit, you can enter the virtual machine using an SSH command.
+    If you are logged into a Linux machine at the summit, you can enter the virtual machine using an SSH command.
 
     * Open a terminal from the 'Activities' tab on top left, and type the following command::
 
