@@ -123,7 +123,7 @@ Using the control room phones
 =============================
 
 .. note::
-  When dialing a large number, leave the phone in the cradle and dial the number using the keypad. 
+  When dialing a large number (eg. US), *leave the phone in the cradle* and dial the number using the keypad. 
   Then pick up the phone after you have entered the full number.
 
 - To dial a landline in La Serena: 9 512 XXX XXX
