@@ -10,7 +10,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Yijung Kang*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Erik Dennihy, Jacqueline Seron, Manuel Gomez*
+.. |contributors| replace:: *Erik Dennihy, Jacqueline Seron, Manuel Gomez, Kristopher Mortensen*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -29,20 +29,9 @@ ATSpectrograph Recovery
 Overview
 ========
 
-.. In one or two sentences, explain when this troubleshooting procedure needs to be used. Describe the symptoms that the user sees to use this procedure. 
-
-.. what the doc covers
-.. what happens, symptom
-.. why it happens
-.. when it happens
-
 This procedure outlines the steps to recover the ATSpectrograph when it fails during script execution. 
 These issues typically arise after a reset in the ATSpectrograph cRIO, or while enabling the ATSpectrograph CSC. 
 Potential root causes of the failure might include mechanism timeouts, miscommunication, and a range of other contributing factors. 
-
-.. python/lsst/ts/standardscripts/data/scripts/auxtel/daytime_checkout/latiss_checkout.py
-
-.. Some needed context
 
 .. admonition:: Some relevant notes:
 
@@ -58,14 +47,17 @@ Potential root causes of the failure might include mechanism timeouts, miscommun
 
 .. _`LSST Auxiliary Telescope Spectrograph AS_BUILT`: https://docushare.lsstcorp.org/docushare/dsweb/Get/Document-30997/LSST%20AT%20Spectrograph%20AS_BUILT%20Documentation%20(1).docx 
 
-.. _ATspectrograph-Recovery-Error-Diagnosis:
 
-Error diagnosis
-===============
+.. _ATspectrograph-Recovery-LinearStage:
 
-.. This section should provide simple overview of known or suspected causes for the error.
-.. It is preferred to include them as a bulleted or enumerated list.
-.. Post screenshots of the error state or relevant tracebacks.
+Part A: Linear Stage Recovery
+=============================
+
+.. _ATspectrograph-Recovery-LinearStage-Error:
+
+Error Diagnosis
+---------------
+
 
 There are a few different common error modes which can result in an ATSpectrograph failure. 
 If the ATSpectrograph goes in fault state and cannot be re-enabled, it is likely that you will need to follow this procedure to recover. 
@@ -134,12 +126,15 @@ Some examples include:
     raise exceptions.IncompleteReadError(chunk, None)
     asyncio.exceptions.IncompleteReadError: 1 bytes read on a total of undefined expected bytes
 
-.. _ATspectrograph-Recovery-Procedure-Steps:
+.. _ATspectrograph-Recovery-LinearStage-Procedure:
 
 Procedure Steps
-===============
+---------------
 
-**The procedure will require the user to open the AuxTel EUI, to use telnet commands to directly command the ATSpectrograph cRIO, and to use the script queue.**
+.. warning::
+   
+   The procedure will require the user to open the AuxTel EUI, to use telnet commands to directly command the ATSpectrograph cRIO, and to use the script queue.
+   Exercise these steps with **extreme caution**.
 
 A healthy status in ATSpectrograph will look as the following screenshot, in which the linear stage, grating and filter wheels are homed/initialized, and the linear stage position is 67mm.
 
@@ -147,7 +142,7 @@ A healthy status in ATSpectrograph will look as the following screenshot, in whi
 .. figure:: ./_static/ATSpectrograph-ok.png
     :width: 800px
 
-    ATSpectrograph EUI healthy status.
+    ATSpectrograph EUI healthy status
 
 After a fault in the ATSpectrograh, you may see that one of the status lights on the left-hand side of the EUI is red, such as the FWTimeOutErr light indicating that the filter wheel did not reach it's commanded position.
 
@@ -207,6 +202,37 @@ To recover the ATSpectrograph we need to clear these faults and ensure the stage
 #. Finally, in order ensure everything is working and the linear stage is in the correct position, execute the :file:`auxtel/standard_scripts/daytime_checkout/latiss_checkout.py` script. 
    If it finishes without error, check again on the EUI that the linear stage position is 67mm. 
 
+.. _ATspectrograph-Recovery-FilterGratingWheels:
+
+Part B: Re-Initialize Filter and Grating Wheels
+===============================================
+
+.. _ATspectrograph-Recovery-FilterGratingWheels-Error:
+
+Error Diagnosis
+---------------
+
+Re-initializing the filter and grating wheels is a less common procedure when recovering 
+ATSpectrograph, but it is important especially after a mechanical failure (e.g., a loose bolt).
+It is the responsibility of the day crew to fix mechanical issues on the wheels. However, it is important to diagnose
+if a re-initialization is needed afterwards.
+
+If an initialization is required, the ATSpectrograph will **not display** ``FilterHome`` and/or ``GratingHome`` as enabled
+(as seen in the :ref:`ATSpectrograph EUI <SpectrographEUI>` above).
+
+
+.. _ATspectrograph-Recovery-FilterGratingWheels-Procedure:
+
+Procedure Steps
+---------------
+
+#.  Open the ATSpectrograph EUI, :ref:`connecting to AuxTel EUI desktop computer <AuxTel-Non-Standard-Operations-AuxTel-EUI-Access>` ACE spectrograph (*139.229.170.44:8000/Spectrograph.html*).
+
+#.  The first thing to try, if the fault is due to a timeout error or one of the status lights on the left-hand side of the EUI is illuminated red, is to click the :guilabel:`Re-init Axes` button on the EUI. 
+    If the fault is cleared and the status lights are returned to normal, the axes are homed/initialized, and the linear stage position is 67mm, you can re-enable the ATSpectrograph CSC and continue observing, skipping the rest of the procedure.
+      #.  If the :guilabel:`Re-init Axes`
+
+
 .. _ATspectrograph-Recovery-Post-Condition:
 
 Post-Condition
@@ -217,8 +243,10 @@ Post-Condition
 .. Please provide screenshots of the software status or relevant display windows to confirm.
 .. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
 
-Errors should have been cleared from the EUI, and the grating linear stage should have been set to 67mm. 
-All mechanisms are homed, and LATISS is ready for operations.
+- Errors should have been cleared from the EUI.
+- The grating linear stage should have been set to 67mm.
+- Both the filter and grating wheels are initialized.
+- All mechanisms are homed, and LATISS is ready for operations.
 
 .. _ATspectrograph-failed-Contingency:
 
