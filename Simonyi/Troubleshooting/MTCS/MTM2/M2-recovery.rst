@@ -10,7 +10,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Kevin Fanning*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Yiyung Kang, Jacqueline Seron, Karla Peña*
+.. |contributors| replace:: *Yiyung Kang, Jacqueline Seron, Karla Peña, Kris Mortensen*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -152,6 +152,8 @@ Procedure Steps
 
 
 
+#. **Send MTM2 CSC to** ``DISABLED`` **.**
+
 #. Restart control system.
     .. warning::
         This step must not be skipped. 
@@ -205,6 +207,8 @@ Procedure Steps
      #. Establish **local control** by pressing :guilabel:`connect`, then :guilabel:`local`. 
          Note that :guilabel:`local` may be greyed out after connecting, this is normal.
 
+         .. _M2-GUI-open-connect:
+
          .. figure:: _static/MTM2-recovery-GUI-open-connect.png
             :width: 600
             :align: center
@@ -246,6 +250,17 @@ Procedure Steps
      #. Switch to  :guilabel:`Enabled` mode. This may take up to 2 minutes. If this step fails, you may have to repeat `Reset the M2 interlock signal`_ instructions.
 
      #. :guilabel:`Enter closed-loop control`.
+
+     #. Verify that the closed-loop control is active by double clicking on the :guilabel:`Diagnostics` widget, under :guilabel:`Overview` in the :ref:`M2 GUI <M2-GUI-open-connect>`.
+
+        - The ``(D5) Closed-Loop Control`` indicators should be blinking at a rate of 10Hz.
+
+        .. figure:: _static/MTM2-ClosedLoop-EUI.gif
+         :alt: Blinking D5 Closed-Loop Control Indicators
+         :width: 550px
+         :align: center
+
+         Blinking Closed-Loop Control Indicators
 
 #. Return to **Standby mode** in the EUI to close the GUI by **pressing the following buttons**:
      a. :guilabel:`Enter open-loop control`.
