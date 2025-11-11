@@ -116,7 +116,7 @@ Procedure Steps
    .. figure:: ./_static/PrepareforVent_AuxTel_VentGate3andFan.png
       :name: Dome Vent Gate 3 and Extraction Fan 
 
-      AuxTel dome vent gate #3 and extraction fan with its controller located at the dome pier. 
+      AuxTel dome vent gate #3 and extraction fan with its controller located at the dome wall. 
 
 #. Visually confirm in `LOVE displays <http://love01.cp.lsst.org/uif/view?id=68>`__ that the system is venting. 
         
