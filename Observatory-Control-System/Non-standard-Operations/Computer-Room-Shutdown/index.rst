@@ -64,7 +64,9 @@ The following is the list of safe to power-off servers. The computers can be pow
 
 **Lsstcam:**
 
-- Any lsstcam machines part of diagnostic cluster.   lsstcam-dc01.cp.lsst.org  - 10
+- Any of the "new" servers. lsstcam-dc1-dc9, lsstcam-dc101, lsstcam-mcm1, lsstcam-db02, lsstcam-vs1
+- Any lsstcam machines part of diagnostic cluster (except lsstcam-d01).   lsstcam-dc02.cp.lsst.org  - 10
+- lsstcam-vs01 (image visualization server)
 
 * Auxtel
 
@@ -114,7 +116,10 @@ The following is the list computers will be powered off alerting the system owne
 - comcam-db01
 - auxtel-mcm
 - auxtel-db01
-- fp01 (only if warmup cameras)
+- auxtel-fp01 (only if warmup auxtel camera)
+- lsstcam-dc01 (only if warmup lsstcam)
+- lsstcam-mcm
+- lsstcam-db01 
 - daq mgt (only if warmup cameras)
 - daq ATCA crates (only if warmup cameras)
 
