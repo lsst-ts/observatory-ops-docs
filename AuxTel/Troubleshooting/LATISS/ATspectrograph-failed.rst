@@ -163,7 +163,8 @@ To recover the ATSpectrograph we need to clear these faults and ensure the stage
            
       ATSpectrograph EUI with bad linear stage position.
 
-#. Use telnet commands to move the linear stage to its negative limit:
+4.  Use telnet commands to move the linear stage to its negative limit:
+
     a. Check ATSpectrograph CSC is in ``STANDBY`` Status.
     #. Open a terminal on your local machine. If the cRIO was recently rebooted, make sure that at least 60 seconds have passed since the cRIO EUI is accesible to give the application time to complete its setup.
     #. Execute the command :file:`telnet auxtel-latiss-crio.cp.lsst.org 9999` to connect directly to the cRIO. 
@@ -176,30 +177,31 @@ To recover the ATSpectrograph we need to clear these faults and ensure the stage
     #. The position of the linear stage may still read -324mm after this move has been commanded, and that is okay. 
        To recover the position of the linear stage, we now need to reboot the cRIO. 
 
-#. With the linear stage in its negative limit position, power cycle the ATSpectrograph cRIO:
+5.  With the linear stage in its negative limit position, power cycle the ATSpectrograph cRIO:
+
     a. Check ATSpectrograph CSC is in ``STANDBY`` Status.
     #. Connect to *http://aux-pdu-spectrograph.cp.lsst.org/* (only accessible from the summit).
     #. Log in with the username and password available in the AuxTel 1Password AuxTel vault.
     #. For **outlet 2** (power and cRIO) click :guilabel:`Off`, wait 10 seconds, and then click :guilabel:`On`. 
 
-   .. figure:: ./_static/power-cycle-ATSpec.png
-      :width: 500px
+    .. figure:: ./_static/power-cycle-ATSpec.png
+       :width: 500px
       
-      PDU webpage to power On/Off ATSpectrograph.
+       PDU webpage to power On/Off ATSpectrograph.
 
-#. When the cRIO is rebooted, it might take a few minutes to see the EUI again in the webpage. 
+6. When the cRIO is rebooted, it might take a few minutes to see the EUI again in the webpage. 
    If the EUI does not come up on its own after 10 minutes, then a second cRIO reboot is necessary.
         
-#. Once the EUI is accessible, the mechanisms should be homed/initialized, the negative limit green indicator should be active for the three mechanisms, and the linear stage position should be close to 0mm.
+7. Once the EUI is accessible, the mechanisms should be homed/initialized, the negative limit green indicator should be active for the three mechanisms, and the linear stage position should be close to 0mm.
    
    .. figure:: ./_static/EUI-2reboot.png
       :width: 500px
            
       ATSpectrograph EUI after successful reboot.
 
-#. At this point, you can re-enable the ATSpectrograph CSC. 
+8. At this point, you can re-enable the ATSpectrograph CSC. 
 
-#. Finally, in order ensure everything is working and the linear stage is in the correct position, execute the :file:`auxtel/standard_scripts/daytime_checkout/latiss_checkout.py` script. 
+9. Finally, in order ensure everything is working and the linear stage is in the correct position, execute the :file:`auxtel/daytime_checkout/latiss_checkout.py` script. 
    If it finishes without error, check again on the EUI that the linear stage position is 67mm. 
 
 .. _ATspectrograph-Recovery-FilterGratingWheels:
@@ -217,8 +219,8 @@ ATSpectrograph, but it is important especially after a mechanical failure (e.g.,
 It is the responsibility of the day crew to fix mechanical issues on the wheels. However, it is important to diagnose
 if a re-initialization is needed afterwards.
 
-If an initialization is required, the ATSpectrograph will **not display** ``FilterHome`` and/or ``GratingHome`` as enabled
-(as seen in the :ref:`ATSpectrograph EUI <SpectrographEUI>` above).
+If an initialization is required, the ATSpectrograph will **not display** ``FilterHome`` and/or ``GratingHome`` as enabled (green), and instead 
+will produce a red ``FWNotInitErr`` and/or ``GRNotInitErr`` (as seen in the :ref:`ATSpectrograph EUI <SpectrographEUI>` above).
 
 
 .. _ATspectrograph-Recovery-FilterGratingWheels-Procedure:
@@ -226,12 +228,56 @@ If an initialization is required, the ATSpectrograph will **not display** ``Filt
 Procedure Steps
 ---------------
 
-#.  Open the ATSpectrograph EUI, :ref:`connecting to AuxTel EUI desktop computer <AuxTel-Non-Standard-Operations-AuxTel-EUI-Access>` ACE spectrograph (*139.229.170.44:8000/Spectrograph.html*).
+.. warning::
+   
+   The procedure will require the user to open the AuxTel EUI, to use telnet commands to directly command the ATSpectrograph cRIO, and to use the script queue.
+   Exercise these steps with **extreme caution**.
 
-#.  The first thing to try, if the fault is due to a timeout error or one of the status lights on the left-hand side of the EUI is illuminated red, is to click the :guilabel:`Re-init Axes` button on the EUI. 
+1.  Open the ATSpectrograph EUI, :ref:`connecting to AuxTel EUI desktop computer <AuxTel-Non-Standard-Operations-AuxTel-EUI-Access>` ACE spectrograph (*139.229.170.44:8000/Spectrograph.html*).
+
+2.  The first thing to try, if the fault is due to a timeout error or one of the status lights on the left-hand side of the EUI is illuminated red, is to click the :guilabel:`Re-init Axes` button on the EUI. 
     If the fault is cleared and the status lights are returned to normal, the axes are homed/initialized, and the linear stage position is 67mm, you can re-enable the ATSpectrograph CSC and continue observing, skipping the rest of the procedure.
-      #.  If the :guilabel:`Re-init Axes`
+      
+    .. note:: 
+      
+      If the :guilabel:`Re-init Axes` is **not working**, continue with the rest of this procedure.
 
+3.  Use telnet commands to move the linear stage to its negative limit:
+
+    a. Check ATSpectrograph CSC is in ``STANDBY`` Status.
+    #. Open a terminal on your local machine. If the cRIO was recently rebooted, make sure that at least 60 seconds have passed since the cRIO EUI is accesible to give the application time to complete its setup.
+    #. Execute the command :file:`telnet auxtel-latiss-crio.cp.lsst.org 9999` to connect directly to the cRIO. 
+    #. Note that the port you are using needs to remain clear in order for the cRIO to connect to the CSC, so the EUI is setup to boot users from this port after 5 seconds if no commands are sent.
+       **You may need to reconnect via telnet several times during this process if you get booted**. 
+    #. Execute the commands :file:`?FWS` and :file:`?GRS`. These commands will display the current filter wheel and grating wheel statuses, respectively.
+       
+       - Each command will return an array of three characters: ``X # Y``:
+
+       +---------------------------------+----------------------------+--------------------------+
+       | ``X``: Current State            | ``#``: Current Position    | ``Y``: Error Code        |
+       +=================================+============================+==========================+
+       || ``I`` - Initializing/Homing    || 0                         || ``N`` - None            |
+       || ``M`` - Moving                 || 1                         || ``B`` - Busy            |
+       || ``S`` - Stationary/Not Moving  || 2                         || ``I`` - Not Initialized |
+       || ``X`` - Not at Filter Position || 3                         || ``T`` - Move Timed Out  |
+       +---------------------------------+----------------------------+--------------------------+
+
+    #. If either of the error codes report  **Not Initialized**, then the filter and/or grating wheel needs to be initialized:
+       
+       - Initialize Filter Wheel :math:`\rightarrow` ``!FWS``
+       - Initialize Grating Wheel :math:`\rightarrow` ``!GRS``
+
+    #. Check the statuses again to verify that the filter and gratings wheels are initialized.
+
+       .. figure:: ./_static/ATSpectrograph_FilterGratingStatus.png
+         :width: 500px
+         
+         Filter and Grating Status - Initialized
+  
+4. At this point, you can re-enable the ATSpectrograph CSC. 
+
+5. Finally, in order ensure everything is working and the linear stage is in the correct position, execute the :file:`auxtel/daytime_checkout/latiss_checkout.py` script. 
+   If it finishes without error, check again on the EUI that the Filter and Grating Wheels are homed and there are no errors. 
 
 .. _ATspectrograph-Recovery-Post-Condition:
 
