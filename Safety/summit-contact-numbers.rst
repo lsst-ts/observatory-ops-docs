@@ -24,13 +24,16 @@
 Summit Contact Numbers
 ######################
 
-These extensions can be dialed from any telephone in the Rubin Control room or on the Rubin summit. 
-They are internal to AURA.
+.. warning::
+  When dialing a phone number longer than 3 digits, leave the phone in the cradle and dial the number using the keypad. 
+  Then pick up the phone after you have entered the full number.
 
 .. _summit-contact-numbers-emergency-numbers:
 
 Emergency Numbers
 =================
+
+To reach one of these numbers from the control room phone, dial: 9 512 205 XXX
 
 - Polyclinic Paramedic: 577
 
@@ -51,21 +54,20 @@ Emergency Numbers
 Control Room Numbers
 ====================
 
-- Summit control room right side: 844
-
-- Summit control room left side: 843
+- Summit control room: 843
 
 - La Serena Base control room (phones 1 and 2): 1021, 1022
-  
 
 To dial into the control rooms from an outside line:  *+56 512205 + extension*. 
 
-For example, summit control room right side: + 56 512205844
+For example, summit control room: +56 512205843
 
 .. _summit-contact-numbers-non-emergency-numbers:
 
 Non-Emergency Numbers
 =====================
+
+Using the control room telephone, dial: 9 512 205 XXX
 
 - Rubin Casino: 593
 
@@ -86,13 +88,13 @@ Calling Hotel Pachon
 ====================
 
 If there is something wrong with the room you have organized to stay in, you may call 440 from the hotel foyer or the summit control room and request help.
-During working hours, (Monday - Friday 8:30 - 16:15) this extension will connect to the Cerro Pachón mountain assistant.
-After hours, this extension is forwarded to the mountain assistant on Cerro Tololo. 
+During working hours, (Monday - Friday) this extension will connect to the Cerro Pachón mountain assistant.
+During weekends, this extension is forwarded to the mountain assistant on Cerro Tololo. 
 They will call directly to staff on Cerro Pachón to attend to after-hours hotel issues.  
 Some examples are if the key is not hanging on the second floor for you, there is no hot water, or the heat is off and you want to request a space heater, etc.
 Staff mostly speak Spanish only.
 
-To call one of the hotel rooms or 20 units, dial this number 9 512205 + extension. 
+To call one of the hotel rooms or 20 units, dial this number 9 512 205 + extension. 
 
 - 20-Units main telephone: 599
 
@@ -122,9 +124,10 @@ To call one of the hotel rooms or 20 units, dial this number 9 512205 + extensio
 Using the control room phones 
 =============================
 
-.. note::
-  When dialing a large number, leave the phone in the cradle and dial the number using the keypad. 
-  Then pick up the phone after you have entered the full number.
+.. warning::
+    The phone in the control room can only dial the United States and Chile. 
+    Other countries cannot be reached.
+    If you need to reach a person in another country, use WhatsApp, Slack, or the Satellite phone in the control room. 
 
 - To dial a landline in La Serena: 9 512 XXX XXX
 
@@ -133,8 +136,6 @@ Using the control room phones
 - To dial a cell phone in Chile: 9 9 XXXX XXXX
 
 - To dial the United States: 001 + Area Code + Phone Number
-
-- To dial another country: 9 + 188 + 0 + Country Code + Area Code + Phone Number
 
 
 This procedure was last modified |today|.

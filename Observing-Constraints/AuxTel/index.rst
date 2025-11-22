@@ -12,13 +12,13 @@
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
 .. An error will alert you of identical labels during the build process.
-.. _`Gemini weather station`: https://gemini.edu/sciops/telescopes-and-sites/weather/cerro-pachon/envmon/
-.. _`Gemini cloud cameras`: https://www.gemini.edu/sciops/telescopes-and-sites/weather/cerro-pachon/cloud-cam/stills.html
 .. _`site webcams`: https://noirlab.edu/science/observing-noirlab/weather-webcams
 .. _`SOAR weather station`: https://noirlab.edu/science/observing-noirlab/weather-webcams/cerro-pachon/environmental-conditions
 .. _`RubinTV`: https://summit-lsp.lsst.codes/rubintv/summit/auxtel 
+.. _`RubinTV All Sky`: https://summit-lsp.lsst.codes/rubintv/summit/allsky 
 .. _`TN-126`: https://sitcomtn-126.lsst.io/#auxtel-image-quality-wind-study
 .. _`online tool`: https://www.calculator.net/dew-point-calculator.html 
+.. _`Gemini South`: https://www.gemini.edu/observing/telescopes-and-sites/sites/cloud-cameras/gemini-south-all-sky-camera 
 
 ##########################
 AuxTel Weather Constraints
@@ -50,15 +50,12 @@ Deciding to open
 Before opening the dome to take on-sky data or for cooling, observers must take care to inspect the weather conditions.
 Humidity (especially the dew point difference), cloud cover, and wind speed are the three largest determining factors for safety of the telescope and equipment. 
 
-Observers should inspect the forecast for the night, and review the weather trends on the Rubin weather station in LOVE or Chronograph, and the `Gemini weather station`_ (currently unavailable due to cyberattack).
+Observers should inspect the forecast for the night, and review the weather trends on the Rubin weather station and weather forecast CSC in LOVE or Chronograph.
 The Rubin weather data is updated every 0.5 seconds. 
 The Rubin weather data is viewed in LOVE, in the "Weather Station Component" view.
 The wind is displayed both as an integer and plotted on a vector graph. 
 
-The Gemini weather data updates every 30 seconds. 
-The Gemini wind speed data reported is the average over the previous 10 minutes. 
-
-NOIRLab also hosts additional links to Cerro Pachón weather, including `site webcams`_, and the `SOAR weather station`_ (currently unavailable due to cyberattack). 
+NOIRLab also hosts additional links to Cerro Pachón weather, including `site webcams`_, and the `SOAR weather station`_. 
 
 If the humidity is above 70%, go outside and look for incoming cloud fronts, and inspect the buildings and cars for condensation.
 Be more cautious to open if there will not be someone in the control room to monitor changing weather conditions, 
@@ -73,9 +70,9 @@ e.g. opening before going to dinner, or leaving the control room to complete ano
 
 .. note::
     Extraction fan use:
-        The extraction fan on vent gate 3 can operate at 50-100% power for initial cooling. 
-        During on-sky operations, the extraction fan must be run at 20-25% power.
-        If winds are over 8 m/s, the extraction fan should be turned off.
+        The extraction fan on vent gate 3 can operate at 50-100% power for initial cooling, while running the vent.py script. 
+        During on-sky operations, the extraction fan must be run at 20% power.
+        If winds are over 10 m/s, the extraction fan should be turned off.
         If humidity is rising quickly, or >= 65%, (to be revised) the extraction fan should be turned off to avoid drawing in more moisture through the dome. 
 
 .. _auxtel-weather-constraints-wind:
@@ -89,7 +86,7 @@ If the direction changes frequently, or has completely changed direction from 30
 use caution as this likely indicates a frontal system and unstable atmospheric conditions.
 
 Mount jitter becomes much more frequent in cases of gusty wind. 
-High mount error is characterized as error over 0.25, which calculated and displayed in `RubinTV`_ 
+High mount error is characterized as error over 0.25, which calculated and displayed in `RubinTV`_.
 as *mount motion image degradation*.
 The figure below shows an example of the mount moving erratically in wind speeds over 10 m/s.
 
@@ -114,7 +111,7 @@ Wind speeds between 8 and 15 m/s (measured over the last 10 data points):
     - If the observer has control to choose targets, observe out of the wind.
         Report that the scheduler configuration needs to be changed, or change the scheduler program you are running.
         Skip over any observing blocks that point the telescope directly into, or 90 degrees offset from, the dominant direction of the wind.
-    - Close the vent gate(s) at winds over 12 m/s.
+    - Close the vent gate(s) at winds over 10 m/s.
 
 
 .. note::
@@ -131,7 +128,7 @@ Wind speeds greater than 15 m/s (measured over the last 10 data points):
 .. warning::
     Dome drop-down shutter:
         The AuxTel dome shutter has a drop-down shutter that opens like a flap, causing it to extend further past the dome structure. 
-        It is opened when observing targets below 28 degrees elevation. 
+        It is opened when observing targets below 30 degrees elevation. 
         The drop-down shutter is susceptible to wind gusts, and should be closed if gusts reach over 8 m/s.
 
 .. _auxtel-weather-constraints-humidity-and-dew-point:
@@ -152,20 +149,21 @@ Humidity above 70%:
         Because AuxTel is more exposed, there is more air mixing which creates a small buffer against condensation compared to the Rubin building.
         If the ambient temperature is cooler, especially during winter time, the condensation risk on metal surfaces is higher. 
 
-The quantity that is more important than relative humidity is the **dew point temperature** and the **dew point difference**. 
-The dew point temperature is the ambient air temperature at which relative humidity will reach 100% - 
-the air is completely saturated with water vapor.
+The quantity that is MORE IMPORTANT than relative humidity is the **dew point temperature** and the **dew point difference**. 
+The dew point temperature is the ambient air temperature at which relative humidity will reach 100% - the air is completely saturated with water vapor.
 You can calculate the **dew point temperature** using this `online tool`_.
-The dew point difference is the difference between the dew point temperature and the coldest structure in the telescope dome. 
+The **dew point difference** is the difference between the dew point temperature and the coldest structure in the telescope dome. 
 
 Example:
-    Dew point temperature = 8 degrees C.
+    Dew point temperature = 4 degrees C.
 
     AuxTel M1 temperature = 11 degrees C.
     
-    Truss temperature = 4 degrees C.
+    Truss temperature = 8 degrees C.
+
+    AuxTel In-Dome temperature = 10 degrees C.
     
-    **Dew point difference = 4 degrees C.**
+    **Dew point difference = +4 degrees C.**
 
 In the example, the dew point difference is 4 degrees C, which is in safe operational range. 
 For any object or structure that is above the dew point temperature, there is less condensation risk.
@@ -182,7 +180,7 @@ Dew point difference is between 2 degrees and 2.5 degrees C:
 Dew point difference is 2 degrees C or less:
     - Close immediately. 
 
-Observers must wait for the dew point temperature or humidity to recover from the closure limits for at least 15 minutes before opening again. 
+Observers must wait for the dew point temperature or humidity to recover from the closure limits for at least 30 minutes before opening again. 
 
 .. note::
     If humidity has dropped during the night, before opening the dome slit, consider performing a quick dome drain procedure. 
@@ -194,30 +192,27 @@ Observers must wait for the dew point temperature or humidity to recover from th
 Cloud cover
 ===========
 
-Until DIMM flux measurements are imported into Rubin TV or in the EFD, or the wavefront sensors of LSSTCam are available, 
-determining safe or unsafe cloud coverage is a bit of an un-tested process.
-
 AuxTel has continued observing happily in 2.5 magnitudes of extinction, given that most targets are typically :math:`\leq 8\,mag`.
 
 The biggest threat of cloud cover is lower-atmosphere condensation, or virga, which is rain and moisture that falls from a cloud, but evaporates before it hits ground level.
 Virga appears like streaks of rain or whips on the bottom of different types of cumulus clouds. 
 Winds can bring this moisture into the dome, or it can condense on the dome roof and fall through the slit. 
 
-If clouds are present in the all-sky camera - which is mounted next to Earthcam on Piñon - be mindful of further cloud accumulation and the direction they are coming from. 
+If clouds are present in the all-sky camera displayed on `RubinTV All Sky`_ - which is mounted next to Earthcam on Piñon - be mindful of further cloud accumulation and the direction they are coming from. 
 
 Aggregate data by going outside and looking around the sky. 
-During bright time, look along the glowing cloud edges for wisps. 
-
-The `Gemini cloud cameras`_ are useful to evaluate how low the clouds are. 
-Cloud camera images update every 30 seconds during the night. 
-The Gemini cloud cameras begin exposing when the sun is ~6 degrees below horizon.
-In the North East camera, verify that the clouds are not below the mountain peaks. 
-If clouds are at this low elevation, and they are also overhead the telescope, these is a moisture risk.
+During bright time, look along the glowing cloud edges for wisps or "cloud tails".
+This is virga. 
 
 .. note::
-    The Gemini cloud cameras and the all-sky cameras do not always represent reality. 
-    Due to the longer exposure times, stars can appear brighter in the images, so extinction is not as bad as it seems.
-    If possible, take the opportunity to go outside and compare the cloud cameras to real life. 
+    Take the opportunity to go outside and compare the all sky cameras to real life. 
+    Look east and verify that the clouds are not covering the mountain peaks. 
+    If clouds are at this low elevation, these is a moisture risk.
+    Take caution before opening the telescope, or consider closing the dome.
+
+`Gemini South`_ also has an all-sky camera. 
+Use it to further verify cloud coverage over the mountains to the east. 
+This camera only exposes at night - each exposure is 30 seconds.
 
 .. _auxtel-weather-constraints-moon-avoidance:
 
@@ -232,7 +227,7 @@ Data may be degraded.
 
 Shutdown And Resume
 ===============================
-When the weather conditions approach the constraints during observation, consider shutdown Auxtel and the dome. 
+When the weather conditions approach the constraints during observation, shut down observations and close the dome. 
 See :ref:`Auxtel Shutdown <AuxTel-Nighttime-Operations-Shutdown>` for the shutdow procedure.
 If the weather turns good later and the resumption of observation is decided, 
 follow :ref:`Resume from a Shutdown <Resume-from-Temporary-Shutdown>` for extra pointing and focus correction. 

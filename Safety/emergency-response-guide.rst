@@ -47,7 +47,7 @@ This is a basic emergency response guide organized by the type of emergency.
 Medical Emergency
 =================
 
-Contact the **PolyClinic** (the Paramedic on summit) at **extension 577**. 
+Contact the **PolyClinic** (the Paramedic on summit) at **9 512 205 577**. 
 
  .. important::
     If no one answers the telephone, use any Rubin radio tuned to Channel 1. 
