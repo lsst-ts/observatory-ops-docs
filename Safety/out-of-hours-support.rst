@@ -75,9 +75,8 @@ Calling instructions
 - The Rubin Control room number appears on a US phone's caller ID as +1 520-318-8800.
     It appears on a phone in Chile as (51) 220 5843.
 
-- These are the full numbers for the control room phones:
+- These are the full numbers for the control room phone:
     - +56 (51) 220 5843
-    - +56 (51) 220 5844
     
 - If calling into the control room from the US, dial 011 56 (51) 220 5843, or 011 56 (51) 220 5844.
 

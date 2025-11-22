@@ -41,7 +41,8 @@ Some guidelines to keep in mind are:
 
 - Facts first. 
   The author of the fault report should provide as many details as possible, including screenshots, telescope telemetry, and timestamps for future investigation.
-- Leave the ticket unassigned, it will be triaged by the traige team, whos membership includes T&S and SIT-Com members. 
+  The SAL index and timestamp of script failures or CSCs faults are critical diagnostic information. 
+- Leave the ticket unassigned, it will be triaged by the triage team.
   If observers think people need to be aware of the ticket (e.g. prospective assignees), they should be @'d in a comment.
 - Ideas are welcome, but let the facts speak first.
 - Report a problem, but do not assign blame. 
@@ -58,6 +59,10 @@ Filing Fault Reports
 Fault reports and resolutions utilize the `OBS Jira project <https://jira.lsstcorp.org/projects/OBS>`_.
 In many cases, there is already a Jira ticket associated with a given problem, and the action is primarily to log an instance of re-occurrence. 
 This should be done by adding a comment to the ticket and not by editing the ticket description.
+
+.. note::
+  If you are unsure if a ticket already exists explaining the problem, write a new one. 
+  The OBS triage manager on shift will review all new tickets filed and identify duplicates accordingly.
 
 
 When creating a ticket, make sure to fill in the following fields:
@@ -91,8 +96,8 @@ When creating a ticket, make sure to fill in the following fields:
 
 - **Description:** Provide details and a timeline as accurately as possible to help people more efficiently search telemetry logs for diagnosis. 
   Include a timestamp of the occurrence as well as the salIndex of the script (if applicable). 
-  The traceback should be added as well (if applicable).
-  Tracebacks are best copy/pasted into the ticket rather than using a screenshot so the error is searchable.
+  More important than tracebacks, which are logged automatically, is to document the behavior of the system when the fault occurred. 
+  Take notes in OLE of what process you used to recover the system.
 
 .. figure:: ./_static/Fault_report_example_page_2.png
     :name: Fault-report-example-page-2
@@ -101,7 +106,7 @@ When creating a ticket, make sure to fill in the following fields:
 
 - **Assignee:** The reporter should leave the ticket unassigned.
   In the case you are certain of who is the correct person to follow-up on the fault report, that person should be added as a watcher on the ticket. 
-  A team will review the fault reports after the night is over and determine the best person or group for follow-up.
+  The triage manager will review the fault reports after the night is over and determine the best person or group for follow-up.
 
 - **Primary Software Component:** This is not a required field, but may provide more information to the components involved. 
 
@@ -118,9 +123,10 @@ Guidelines For Calculating Time Loss
 .. It is preferred to include them as a bulleted or enumerated list.
 .. Do not include actions in this section. Any action by the user should be included in the end of the Procedure section below. For example: Do not include "Verify the telescope azimuth is 0 degrees with the appropriate command." Instead, include this statement as the final step of the procedure, and include "Telescope is at 0 degrees." in the Post-condition section.
 
+- If other tasks were delayed, or photons were not being taken due to a fault, document time loss from the start of the first errors' timestamp until the problem was solved.
+  - Return to onsky and taking photons is the end of fault loss.
+  - Continuing on with routine tasks is the end of fault loss. 
 - If the problem can be troubleshooted while taking images on sky, or proceeding with another engineering task, that time will not count towards a fault loss.
-- If a fault occurs while we are closed due to bad weather, or the problem occurs before or after 12 degree twilight, the time lost should be reported as 0.
-  When potential on-sky science time begins, the time loss starts accumulating.
 - In the event the amount of time lost is not well understood, it is better to provide an overestimate than an underestimate.
 
 .. _fault-reporting-Filling-Out-Night-Logs:

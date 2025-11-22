@@ -23,15 +23,16 @@ Daytime and Nighttime Communication
 
 .. This section should provide a brief, top-level description of the page.
 
-Daytime staff and observers scheduled for a night shift need to ensure that the telescope, instrument(s), and observatory tools are functioning as expected before the beginning of any night to minimize time loss due to unexpected faults. 
+Daytime staff and daytime OSs need to ensure that the telescope, instrument(s), and observatory tools are functioning as expected before the beginning of any night to minimize time loss due to unexpected faults. 
 
 .. _daytime-and-nighttime-communication-Observers-Arrival:
 
 Observers Arrival
 =================
 
-Observers scheduled for the night must arrange to arrive to the telescope control room before the daytime crew depart the summit for La Serena. 
-It is recommended to arrive and begin the afternoon checkout at 16:00 summit time so issues can be reported before the beginning of the night. 
+Daytime OSs are charged with all telescope preparations and checkouts during the day. 
+The daytime OS (day shift) schedule runs from 9 am - 9 pm summit time.
+The nighttime OS (late shift) schedule runs from 8 pm - 8 am the following morning, or wheneven observations are finished.
 
 These sections describe afternoon checkout and fault reporting:
 
@@ -39,15 +40,13 @@ These sections describe afternoon checkout and fault reporting:
   * :ref:`daytime-and-nighttime-communication-Reporting-Faults`
 
 Staff that work on the summit depart for La Serena at 16:30 summit time Monday-Friday. 
-Mario Rivera currently coordinates much of the work done for AuxTel. 
-Ian Ordenes or Claudio Araya can also report if daytime work such as mirror cleaning, filter changes, structural work or janitorial work is scheduled in order to confirm telescope motion is safe during the daytime.  
 
 .. _daytime-and-nighttime-communication-Night-Logs:
 
 Night Logs
 ==========
 
-Details of work done during the day, such as software changes or mechanical work like as filter changes, mirror cleaning, and maintenance are published to the night logs before the start of the night. 
+Details of work done during the day, such as software changes or mechanical work like as filter changes, mirror cleaning, and maintenance are published to OLE before the start of the night. 
 Daytime staff publish the details before the end of day at the summit - 16:30 summit time.
 
 More information about creating and writing night logs is found on the :ref:`Daytime-Nighttime-Interactions-nighttime-logging` page.
@@ -60,8 +59,7 @@ Afternoon Checkout
 Afternoon checkouts are important procedures to ensure that the telescopes and instruments are functional before the beginning of the night. 
 The full procedures for the different afternoon or recommended daily checkouts are described on these pages:
 
-* AuxTel Daily Checkout
-    
+* AuxTel Daily Checkout 
 
 * LATISS Calibrations
 
