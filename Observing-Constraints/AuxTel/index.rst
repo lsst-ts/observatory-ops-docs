@@ -6,6 +6,7 @@
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
 .. |author| replace:: *Alysha Shugart*
 .. This is the label that can be used as for cross referencing this file.
+.. |contributors| replace:: *Kris Mortensen*
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
 .. _Observing-Constraints-AuxTel-Weather-Constraints:
 .. Each section should includes a label for cross referencing to a given area.
@@ -108,15 +109,15 @@ Wind speeds less than 8 m/s (measured over the last 10 data points):
         No restrictions in observing are needed. 
         
 Wind speeds between 8 and 15 m/s (measured over the last 10 data points):
-    - If the observer has control to choose targets, observe out of the wind.
-        Report that the scheduler configuration needs to be changed, or change the scheduler program you are running.
-        Skip over any observing blocks that point the telescope directly into, or 90 degrees offset from, the dominant direction of the wind.
-    - Close the vent gate(s) at winds over 10 m/s.
+    - Closely monitor the system for ATMCS failing to arrive in position due to excessive wind shake.
+        The Scheduler configuration will sometimes choose to observe targets directly pointed into the wind; this is known and often times intentional.
+        However, if ATMCS goes to fault and the wind speed is below 15m/s, **be ready to close AuxTel**.
+    - **Close the vent gate(s) at winds over 10 m/s.**
 
 
 .. note::
     Opposite rule:
-        The optimum place to point when there are winds over 8 m/s is 180 degrees offset from the dominant wind direction. 
+        The optimum place for the Scheduler to point AuxTel when there are winds over 8 m/s is 180 degrees offset from the dominant wind direction. 
 
 
 Wind speeds greater than 15 m/s (measured over the last 10 data points):
@@ -125,11 +126,12 @@ Wind speeds greater than 15 m/s (measured over the last 10 data points):
         Before deciding to open again, ensure that sustained winds have dropped below the closure limits for more than 15 minutes. 
         Reset the timer if the wind jumps over 15 m/s again. 
 
-.. warning::
-    Dome drop-down shutter:
-        The AuxTel dome shutter has a drop-down shutter that opens like a flap, causing it to extend further past the dome structure. 
-        It is opened when observing targets below 30 degrees elevation. 
-        The drop-down shutter is susceptible to wind gusts, and should be closed if gusts reach over 8 m/s.
+.. warning:: 
+    Dome Drop-Down Shutter:
+        The drop down shutter begins to vignette incoming light from targets at 27 degrees elevation, so it does not open automatically 
+        and remains closed during normal operations. Additionally, because of its design, the drop-down shutter is more susceptible to 
+        wind gusts and has a lower operational limit than the rest of the facility. The drop-down shutter must should be closed if gusts 
+        reach over 8 m/s.
 
 .. _auxtel-weather-constraints-humidity-and-dew-point:
 
