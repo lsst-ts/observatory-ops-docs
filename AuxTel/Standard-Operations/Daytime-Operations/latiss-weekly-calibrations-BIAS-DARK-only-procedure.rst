@@ -7,14 +7,14 @@
 
 .. |author| replace:: *Karla Peña Ramírez*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Erik Dennihy, Paulo Lago, OS team*
+.. |contributors| replace:: *Erik Dennihy, Paulo Lago, Kris Mortensen*
 
-.. _Daytime-Operations-LATISS-Daily-Calibrations-BIAS-DARK-only-Procedure:
-############################################
-LATISS Daily Calibrations BIAS and DARK only
-############################################
+.. _Daytime-Operations-LATISS-Weekly-Calibrations-BIAS-DARK-only-Procedure:
+##############################################
+LATISS Weekly Calibrations: BIAS and DARK Only
+##############################################
 
-.. _Daytime-Operations-LATISS-Daily-Calibrations-BIAS-DARK-only-Overview:
+.. _Daytime-Operations-LATISS-Weekly-Calibrations-BIAS-DARK-only-Overview:
 Overview
 ========
 This procedure will acquire BIAS and DARK calibration images only. 
@@ -24,13 +24,21 @@ This page assumes the reader is familiar with the content explained in the Obser
   This procedure does not involves telescope motion with AuxTel. Announce that you are about to run the calibrations without telescope or dome movement on the *#summit-announce* and *#summit-auxtel* channels before you run the following steps.
   The Daytime calibrations can be taken at any time or under any conditions when convenient and they by default do not include the use of the Electrometer, Monochromator, or FiberSpectrograph CSCs, these can remain in ``STANDBY`` while running.  
 
-.. _Daytime-Operations-LATISS-Daily-Calibrations-BIAS-DARK-only-Post-Conditions:
+.. _Daytime-Operations-LATISS-Weekly-Calibrations-BIAS-DARK-only-Pre-Conditions:
+Pre-Condition
+=============
+- AuxTel is fully ready to operate and all ATCS and LATISS components are enabled.
+- The :ref:`daytime checkout <AuxTel-DayTime-Operations-Daytime-Checkout>` has been executed successfully. 
+- Check if the vent fan is turned off and the vent gate is closed if it is opened due to the :ref:`venting procedure <AuxTel-Daytime-Operations-Prepare-for-vent>`. 
+- Scheduler.2 CSC is ENABLED.
+
+.. _Daytime-Operations-LATISS-Weekly-Calibrations-BIAS-DARK-only-Post-Conditions:
 Post-Condition
 ==============
 - Individual BIAS and DARK calibration images will be taken and verified using the `cp_verify`_ framework.
-- If ``generate_calibrations`` is ``True``, a (daily) combined calibration image per detector will be certified in a `butler`_ ``CALIBRATION`` `collection`_.
+- If ``generate_calibrations`` is ``True``, a (weekly) combined calibration image per detector will be certified in a `butler`_ ``CALIBRATION`` `collection`_.
 
-.. _Daytime-Operations-LATISS-Daily-Calibrations-BIAS-DARK-only-Procedure-Steps:
+.. _Daytime-Operations-LATISS-Weekly-Calibrations-BIAS-DARK-only-Procedure-Steps:
 Procedure Steps
 ===============
 
@@ -54,7 +62,7 @@ Procedure Steps
 
 Once the script finishes, announce that the calibrations are complete on *#summit-announce* and *#summit-auxtel* channels. Use the :file:`standby_latiss.py` standard script to leave LATISS in ``STANDBY`` state.
 
-.. _Daytime-Operations-LATISS-Daily-Calibrations-BIAS-DARK-only-Contingency:
+.. _Daytime-Operations-LATISS-Weekly-Calibrations-BIAS-DARK-only-Contingency:
 Contingency
 ===========
 In cases with not enough time available for calibrations, skip this procedure.

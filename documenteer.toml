@@ -65,7 +65,10 @@ ignore = [
     'https://curl.sai.msu.ru',
     'https://rubinobs.atlassian.net/',
     'https://rubin-obs.slack.com',
-    'https://docushare.lsstcorp.org/'
+    'https://docushare.lsstcorp.org/',
+    'https://www.gemini.edu/observing/telescopes-and-sites/sites/cloud-cameras/gemini-south-all-sky-camera',
+    'https://docutils.sourceforge.io/'
+
 ]
 
 [sphinx] 
