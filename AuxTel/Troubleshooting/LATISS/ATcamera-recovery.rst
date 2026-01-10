@@ -10,7 +10,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Tony Johnson*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace::     *Erik Dennihy, Jacqueline Seron, Karla Pena*
+.. |contributors| replace::     *Erik Dennihy, Jacqueline Seron, Karla Pena, Kris Mortensen*
   
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -135,19 +135,19 @@ Procedure Steps
 
    .. prompt:: bash
 
-      ats-ocs-bridge clearFault
+      ats-ocs-bridge clearFault -w
 
 #. Switch it back to the ``OFFLINE_AVAILABLE`` mode.
 
    .. prompt:: bash
 
-      ats-ocs-bridge setAvailable
+      ats-ocs-bridge setAvailable -w
 
 #. Transition the **camera to full-integrated functionality** to the OCS.
 
    .. prompt:: bash
 
-      ats-ocs-bridge enterControl
+      ats-ocs-bridge enterControl -w
 
         
 #. Change the camera state to ``ENABLED``.   
