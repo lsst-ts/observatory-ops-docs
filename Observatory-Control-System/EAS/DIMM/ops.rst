@@ -1,6 +1,6 @@
 .. |author| replace:: *isotuela*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Kevin Fanning*
+.. |contributors| replace:: *Kevin Fanning, Kris Mortensen*
 
 .. _DIMM-Ops:
 
@@ -22,37 +22,53 @@ In case of adverse weather, *ameba* will close the dome until conditions clear.
 Currently, there is no incoming Cerro Pachón weather information feeding the *tt-meteo* program. 
 Thus prior to starting up the DIMM, there are additional steps outlined in the :ref:`Precondition section <Dimm_StartUp-Precondition>`.
 
+.. note::
+
+        This document divides the DIMM start up, shutdown, and monitoring sections into two different types procedures:
+
+        1. **Standard DIMM Procedures**: use well-known *Observatory Control System (OCS)* tools (LOVE, Chronograf, etc.).
+        2. **Non-standard DIMM Procedures**: use the *tt-master/tt-meteo* interfaces to issue commands directly to DIMM.
+
 .. _Dimm_StartUp-Precondition: 
 
 Precondition: Weather Data
-===============================
+===========================
 
 Every time the DIMM is restarted, the weather startup values are set so the operations are disabled for safety reasons. 
+Under OCS control of the DIMM CSCs, this operation is done automatically, ensuring a start up can happen. However, it is important to ensure that the weather 
+conditions are stable and safe before attempting the DIMM startup:
 
-To allow operations, mock weather data into the *tt-meteo* weather service must be entered in the following manner:
+*  Relative humidity is :math:`<80\%`.
+*  Outside air temperature must be **greater** than the dewpoint temperature.
+*  Wind speeds are :math:`<20\,\text{m/s}`.
+*  The weather outside is not completely cloudy.
 
-.. important::
-    Ensure the weather conditions are stable and safe before attempting the DIMM startup. 
 
+.. _Dimm_StartUp-Precondition-Nonstandard:
 
-When connected to the LSST WAP network, open a terminal and connect to the DIMM Server using your IPA credentials:
+Non-standard Procedure (tt-metteo)
+----------------------------------
 
-.. code-block:: bash
+To allow for operations, mock weather data into the *tt-meteo* weather service must be entered in the following manner:
 
+1.  When connected to the Rubin network (on summit or VPN access), open a terminal and connect to the DIMM Server using your IPA credentials:
+
+    .. code-block:: bash
+        
         (base) you@Ios ~ % ssh yourIPAusername@dimm.cp.lsst.org
 
 
-Switch onto the ``dimm`` user account:
+2.  Switch onto the ``dimm`` user account:
 
-.. code-block:: bash
-
+    .. code-block:: bash
+        
         [yourIPAusername@dimm ~]$ sudo -iu dimm
 
 
-Connect via telnet to *tt-meteo*. 
+3.  Connect via telnet to *tt-meteo*. 
 
-.. code-block:: bash
-   
+    .. code-block:: bash
+        
         dimm@dimm:~$  telnet 127.0.0.1 16301
 
 
@@ -86,11 +102,27 @@ Follow one of the procedures below, to either start the DIMM up in :ref:`automat
 Starting Up the DIMM in Automatic Mode
 ======================================
 
-Make sure you have run the :ref:`Precondition <Dimm_StartUp-Precondition>` regarding the weather data. 
+Make sure you have run the :ref:`Precondition <Dimm_StartUp-Precondition>` regarding the weather data. The automatic 
+mode can be started from any state as the steps below override the current mode. In this mode of operations, the DIMM *ameba* 
+will automatically select the targets from the star catalog.
 
-The automatic mode can be started from any state as the steps below override the current mode. 
+.. _Dimm_StartUp-Automatic-Standard:
 
-In this mode of operations, the DIMM *ameba* will automatically select the targets from the star catalog. 
+Standard Procedure (OCS)
+------------------------
+
+1.  Start up both the tower DIMM and the portable DIMM by setting their respective CSCs (``DIMM.1`` and ``DIMM.2``) to ``ENABLED`` in `LOVE ASummary State View <https://summit-lsp.lsst.codes/love/uif/view?id=51>`_.
+
+    *  **NOTE:** If their CSCs are already enabled, send to ``DISABLED`` and back to ``ENABLED``.
+
+2.  Verify that both DIMMs are properly enabled by check their `DIMM/Pachon Seeing Dashboard <https://summit-lsp.lsst.codes/chronograf/sources/1/dashboards/120?refresh=Paused&tempVars%5BSalIndex%5D=DIMM%201&lower=now%28%29%20-%2015m>`_.
+
+    *  In the *DIMM Ameba Status* table, you should see **Mode = 1**.
+
+.. _Dimm_StartUp-Automatic-Nonstandard:
+
+Non-standard Procedure (tt-master)
+----------------------------------
 
 To start an automatic DIMM observation, connect to *tt-master* where you will set the variable ``ameba.mode`` to 1:
 
