@@ -26,8 +26,8 @@ Thus prior to starting up the DIMM, there are additional steps outlined in the :
 
         This document divides the DIMM start up, shutdown, and monitoring sections into two different types procedures:
 
-        1. **Standard DIMM Procedures**: use well-known *Observatory Control System (OCS)* tools (LOVE, Chronograf, etc.).
-        2. **Non-standard DIMM Procedures**: use the *tt-master/tt-meteo* interfaces to issue commands directly to DIMM.
+        1. **Standard Procedures**: use well-known *Observatory Control System (OCS)* tools (LOVE, Chronograf, etc.).
+        2. **Non-standard Procedures**: use the *tt-master* interface to issue commands directly to DIMM.
 
 .. _Dimm_StartUp-Precondition: 
 
@@ -46,8 +46,8 @@ conditions are stable and safe before attempting the DIMM startup:
 
 .. _Dimm_StartUp-Precondition-Nonstandard:
 
-Non-standard Procedure (tt-metteo)
-----------------------------------
+Non-standard Procedure
+----------------------
 
 To allow for operations, mock weather data into the *tt-meteo* weather service must be entered in the following manner:
 
@@ -108,8 +108,8 @@ will automatically select the targets from the star catalog.
 
 .. _Dimm_StartUp-Automatic-Standard:
 
-Standard Procedure (OCS)
-------------------------
+Standard Procedure
+------------------
 
 1.  Start up both the tower DIMM and the portable DIMM by setting their respective CSCs (``DIMM.1`` and ``DIMM.2``) to ``ENABLED`` in `LOVE ASummary State View <https://summit-lsp.lsst.codes/love/uif/view?id=51>`_.
 
@@ -121,8 +121,8 @@ Standard Procedure (OCS)
 
 .. _Dimm_StartUp-Automatic-Nonstandard:
 
-Non-standard Procedure (tt-master)
-----------------------------------
+Non-standard Procedure
+----------------------
 
 To start an automatic DIMM observation, connect to *tt-master* where you will set the variable ``ameba.mode`` to 1:
 
@@ -173,7 +173,12 @@ Starting up the DIMM in Manual Mode
 
 Make sure you have run the :ref:`Precondition <Dimm_StartUp-Precondition>` regarding the weather data. 
 
-The manual mode can be started from any state as the steps below override the current mode. 
+The manual mode can be started from any state as the steps below override the current mode.
+
+.. _Dimm_StartUp-Manual-Nonstandard:
+
+Non-standard Procedure
+----------------------
 
 In this mode of operations, the user needs to choose the target and run the ``monitor_dimm_2.py`` python script available in the dimm home directory:
 
@@ -197,6 +202,16 @@ To monitor the status of the DIMM program, see :ref:`monitor the DIMM <Dimm-Moni
 
 Monitoring the DIMM program
 ============================
+
+Standard Procedure
+------------------
+Monitoring the status and telemetry of both DIMMs can be done through the 
+`DIMM/Pachon Seeing Dashboard <https://summit-lsp.lsst.codes/chronograf/sources/1/dashboards/120?refresh=Paused&tempVars%5BSalIndex%5D=DIMM%201&lower=now%28%29%20-%2015m>`_
+
+
+
+Non-standard Procedure
+----------------------
 
 There are two ways to monitor the DIMM hardware, program and outputs. 
 
