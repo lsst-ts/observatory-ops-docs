@@ -119,6 +119,18 @@ Standard Procedure
 
     *  In the *DIMM Ameba Status* table, you should see **Mode = 1**.
 
+
+.. admonition:: Portable DIMM Covers
+        :class: warning
+
+        If the portable DIMM (DIMM 2) will operate during the night, it is important to **remove the mirror covers**.
+        
+        This should be done in the early evening (after 6pm CLT), and requires going to calibration hill and remove the covers *manually*.
+        
+        .. figure:: ./_static/DIMM2_covers.jpg
+                :height: 300px
+
+
 .. _Dimm_StartUp-Automatic-Nonstandard:
 
 Non-standard Procedure
@@ -206,7 +218,13 @@ Monitoring the DIMM program
 Standard Procedure
 ------------------
 Monitoring the status and telemetry of both DIMMs can be done through the 
-`DIMM/Pachon Seeing Dashboard <https://summit-lsp.lsst.codes/chronograf/sources/1/dashboards/120?refresh=Paused&tempVars%5BSalIndex%5D=DIMM%201&lower=now%28%29%20-%2015m>`_
+`DIMM/Pachon Seeing Dashboard <https://summit-lsp.lsst.codes/chronograf/sources/1/dashboards/120?refresh=Paused&tempVars%5BSalIndex%5D=DIMM%201&lower=now%28%29%20-%2015m>`_.
+The dashboard can swap between the DIMMs by selecting :guilabel:`Variables` and under ``SalIndex`` select :guilabel:`DIMM 1` or :guilabel:`DIMM 2`.
+The important telemetry on the dashboard for observing are:
+
+*  Seeing - ``DIMM FWHM``
+*  Ameba Status - ``DIMM Ameba Status``
+*  Operational Log - ``Log Messages``
 
 
 
@@ -215,14 +233,14 @@ Non-standard Procedure
 
 There are two ways to monitor the DIMM hardware, program and outputs. 
 
-1. Run the ``monitor_dimm_2.py`` script in the dimm VM home directory that displays the most relevant information. 
+1.  Run the ``monitor_dimm_2.py`` script in the dimm VM home directory that displays the most relevant information. 
 
 .. code-block:: bash
    
         dimm@dimm:~$  python3 monitor_dimm_2.py monitor
 
 
-2. Each DIMM service publishes a daily log. The two most relevant ones, *ameba* and *dimm_tool*, along with the *preat* seeing results can be found in:
+2.  Each DIMM service publishes a daily log. The two most relevant ones, *ameba* and *dimm_tool*, along with the *preat* seeing results can be found in:
 
     - Operational log - ``/mnt/dimm/log/ameba/ameba.log``
 
