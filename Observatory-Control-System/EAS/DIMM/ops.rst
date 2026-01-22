@@ -130,6 +130,25 @@ Standard Procedure
         .. figure:: ./_static/DIMM2_covers.jpg
                 :height: 300px
 
+        .. list-table::
+                :widths: 50 50
+                :header-rows: 0
+                :class: borderless
+
+        * - 
+            .. figure:: ./_static/DIMM2_covers.jpg
+                :height: 300px
+                :align: center
+                
+                A *standard white light flat* will have :math:`>10,000` counts.
+
+        - 
+             .. figure:: ./_static/DIMM2_covers_location1.jpg
+                :height: 300px
+                :align: center
+                
+                A *misaligned white light flat* will have :math:`<10,000` counts.
+
 
 .. _Dimm_StartUp-Automatic-Nonstandard:
 
