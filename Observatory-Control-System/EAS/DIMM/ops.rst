@@ -126,9 +126,6 @@ Standard Procedure
         If the portable DIMM (DIMM 2) will operate during the night, it is important to **remove the mirror covers**.
         
         This should be done in the early evening (after 6pm CLT), and requires going to calibration hill and remove the covers *manually*.
-        
-        .. figure:: ./_static/DIMM2_covers.jpg
-                :height: 300px
 
         .. list-table::
                 :widths: 50 50
