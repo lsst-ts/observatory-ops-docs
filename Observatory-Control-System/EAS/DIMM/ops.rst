@@ -120,6 +120,8 @@ Standard Procedure
     *  In the *DIMM Ameba Status* table, you should see **Mode = 1**.
 
 
+.. _Dimm-Portable-Covers:
+
 .. admonition:: Portable DIMM Covers
         :class: warning
 
@@ -128,24 +130,29 @@ Standard Procedure
         This should be done in the early evening (after 6pm CLT), and requires going to calibration hill and remove the covers *manually*.
 
         .. list-table::
-                :widths: 50 50
-                :header-rows: 0
-                :class: borderless
+          :widths: 33 33 33
+          :header-rows: 0
+          :class: borderless
 
-        * - 
-            .. figure:: ./_static/DIMM2_covers.jpg
+          * - 
+              .. figure:: ./_static/DIMM2_covers.jpg
                 :height: 300px
                 :align: center
-                
-                A *standard white light flat* will have :math:`>10,000` counts.
 
-        - 
-             .. figure:: ./_static/DIMM2_covers_location1.jpg
+                Portable DIMM covers
+            - 
+              .. figure:: ./_static/DIMM2_covers_location1.jpg
                 :height: 300px
                 :align: center
-                
-                A *misaligned white light flat* will have :math:`<10,000` counts.
 
+                Cover location 1
+            - 
+              .. figure:: ./_static/DIMM2_covers_location2.jpg
+                :height: 300px
+                :align: center
+
+                Cover location 2
+                
 
 .. _Dimm_StartUp-Automatic-Nonstandard:
 
@@ -231,6 +238,8 @@ To monitor the status of the DIMM program, see :ref:`monitor the DIMM <Dimm-Moni
 Monitoring the DIMM program
 ============================
 
+.. _Dimm-Monitor-Standard: 
+
 Standard Procedure
 ------------------
 Monitoring the status and telemetry of both DIMMs can be done through the 
@@ -243,6 +252,7 @@ The important telemetry on the dashboard for observing are:
 *  Operational Log - ``Log Messages``
 
 
+.. _Dimm-Monitor-Nonstandard:
 
 Non-standard Procedure
 ----------------------
@@ -264,7 +274,7 @@ There are two ways to monitor the DIMM hardware, program and outputs.
 
     - Seeing and other metrics - ``/mnt/dimm/image/dimm_tool/out/preat.log``
 
-.. _Dimm-Shutdown: 
+.. _Dimm-Shutdown-Nonstandard: 
 
 Shutting down the DIMM 
 =======================
@@ -276,6 +286,24 @@ But there might two situations in which the DIMM needs to be stopped manually:
         - Unsuitable weather conditions 
 
         - The following night nobody will be monitoring the weather at Cerro Pachon so for safety reasons, the DIMM won't be left operating. 
+
+.. _Dimm-Shutdown-Standard: 
+
+Standard Procedure
+------------------
+
+The standard procedure to shutting down boths DIMMs is fairly straightforward:
+
+1.  To shutdown boths DIMMs via OCS control, set DIMM.1 to ``DISABLED`` and DIMM.2 to ``STANDBY`` using `LOVE ASummary State View <https://summit-lsp.lsst.codes/love/uif/view?id=51>`_.
+
+    *  **NOTE:** DIMM.2 must be in ``STANDBY`` otherwise it will fault around noon the following day.
+  
+2.  Go back to calibration hill and cover the portable DIMM before leaving the observatory (images found in :ref:`Portable DIMM Covers <Dimm-Portable-Covers>`).
+
+.. _Dimm-Shutdown-Nonstandard: 
+
+Non-standard Procedure
+------------------
 
 To gracefully shutdown the DIMM, set ``ameba.mode`` to 0 in the OpenTPL interface of *tt-master*, that is, from the DIMM VM:
 
