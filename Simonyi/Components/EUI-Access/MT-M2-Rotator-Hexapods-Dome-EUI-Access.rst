@@ -102,7 +102,7 @@ Linux Workstation Access (on Summit)
 Virtual Machine Access
 ~~~~~~~~~~~~~~~~~~~~~~
 
-#. **Log in to the virtual machine** (`<http://ls.st/hexrot-vm01>`_) using your IPA credentials.
+#. **Log in** to the virtual machine (**http://ls.st/hexrot-vm01**) using your IPA credentials.
 
     * If you can see a password input window for another person, click the button on the bottom-right.
 
