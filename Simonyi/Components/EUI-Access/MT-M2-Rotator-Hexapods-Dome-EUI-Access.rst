@@ -12,7 +12,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *OS Team*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-
+.. |contributors| replace:: *Kris Mortensen*
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
 .. _Simonyi-Components-Simonyi-EUI-Access:
@@ -67,8 +67,42 @@ Setup to access the MT-M2/Rotator/Hexapods/Dome EUI
 Connecting to the MT-M2/Rotator/Hexapods/Dome-EUI
 -------------------------------------------------
 
+There are two different methods to access the EUIs for the M2, Camera Rotator, Camera/M2 Hexapods, or Dome EUIs:
 
-#. **Log in to the virtual machine**
+1.  If you are on a Linux workstation at the summit, you can directly access the EUIs with :command:`ssh` commands.
+2.  If you are using a non-Linux workstation (e.g., a personal laptop or the LSBF workstation), you will need to 
+    access the EUIs using the virtual machine.
+
+.. admonition:: Summit Access is Required!
+   :class: important
+
+   To access the EUIs you will need to be connected to the summit WiFi directly or using VPN access.
+
+.. _MT-M2/Rotator/Hexapods/Dome-EUI-Access-Connection-ssh:
+
+Linux Workstation Access (on Summit)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#.  Open a terminal on the Linux Workstation and log into ``hexrot‑vm01.cp.lsst.org`` using your IPA credentials.
+
+    .. code:: shell
+
+      ssh [IPAUsername]@hexrot-vm01.cp.lsst.org
+
+      ### Follow instructions and enter your password. ###
+   
+#.  You will have successfully logged in once you see the command line display something similar to the following:
+    ``(py313) -bash-5.1$``.
+
+#.  Once logged in, proceed to **Step (2)** of the :ref:`MT-M2/Rotator/Hexapods/Dome-EUI-Access-Launch` procedure.
+
+
+.. _MT-M2/Rotator/Hexapods/Dome-EUI-Access-Connection-VM:
+
+Virtual Machine Access
+~~~~~~~~~~~~~~~~~~~~~~
+
+#. **Log in to the virtual machine** (`<http://ls.st/hexrot-vm01>`_) using your IPA credentials.
 
     * If you can see a password input window for another person, click the button on the bottom-right.
 
@@ -87,6 +121,8 @@ Connecting to the MT-M2/Rotator/Hexapods/Dome-EUI
     
     .. figure:: _static/login_MT_M2_Rotator_Hexapods_Dome_EUI_terminal.png
 
+
+.. _MT-M2/Rotator/Hexapods/Dome-EUI-Access-Launch:
 
 Launching the EUI
 -----------------
