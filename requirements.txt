@@ -1,2 +1,3 @@
 documenteer[guide]>=1,<2
 sphinx-diagrams
+setuptools==80.10.2
