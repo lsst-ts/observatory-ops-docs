@@ -2,7 +2,7 @@
 .. _cp_verify: https://github.com/lsst/cp_verify
 .. _butler: https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/index.html
 .. _collection: https://pipelines.lsst.io/v/daily/modules/lsst.daf.butler/organizing.html
-.. _BLOCK source code: https://github.com/lsst-ts/ts_config_ocs/blob/develop/Scheduler/observing_blocks_auxtel/block-295-latiss_daily_calibrations.json
+.. _BLOCK source code: https://github.com/lsst-ts/ts_config_scheduler/blob/c3a0e5683e0cc276f4fbc42d112f3a289a074374/Scheduler/observing_blocks_auxtel/block-295-latiss_daily_calibrations.json#L4
 .. _AuxTel (LATISS) Temperatures and Pressures dashboard: https://summit-lsp.lsst.codes/chronograf/sources/1/dashboards/14
 
 
@@ -85,14 +85,27 @@ Procedure Steps
     will position the telescope and dome in FLAT position.
     The telescope will point toward the dome flat screen
     (mount Az = 188.7 deg, mount El = 39.0 deg, dome Az = 3.0 deg).
-    Confirm in the cameras "aux-cam01" or "aux-cam02"
-    that the white light is on and the telescope
-    is pointing to the dome flat screen.
 
     .. code-block:: text
       :caption: :file:`auxtel/prepare_for/flat.py`
   
     .. Note: We need to document and link here how to access the aux-cam01/02cameras.
+
+   .. note::
+     Confirm in the cameras "aux-cam01" or "aux-cam02" in the 
+     `UniFi Camera Dashboard <https://unifi.ui.com/consoles/D021F9521E8800000000063CF3E6000000000686EFB60000000061C81AC6:201406364/protect/dashboard/66e1a366033b1503e402483f>`_ 
+     that the white light is on and the telescope is pointing to the dome flat screen.
+
+     If they do not appear to be properly aligned, follow the
+     :ref:`Daytime-Operations-LATISS-Weekly-Calibrations-BIAS-DARK-FLAT-all-filters-empty-Contingency-misalignment-troubleshooting` 
+     section to re-align the dome with the whitelight.
+
+     .. figure:: ./_static/auxtel-cameras-alignedDome.png
+      :width: 100%
+      :align: center
+
+      ATDome and ATWhiteLight: Proper Alignment (Unified Cameras)
+
 
 #. The **LATISS weekly calibrations** BLOCK
    will queue the scripts focused on
@@ -274,9 +287,6 @@ Procedure Steps
                 46.44,
                 46.44
 
-   .. note::
-     Verify that the dome and white light are properly aligned by following the :ref:`Daytime-Operations-LATISS-Weekly-Calibrations-BIAS-DARK-FLAT-all-filters-empty-Contingency-misalignment-troubleshooting` section below.
-
 #. The **Shutdown LATISS calibrations** BLOCK will turn off the calibration lamp and leave it on standby state. Run the script :file:`add_block.py` to the ATQueue  with the following configuration:
 
     .. code-block:: text
@@ -320,6 +330,13 @@ When running weekly calibrations, there are instances where constant use in the 
 This, in turn, causes a misalignment between the positions of the dome and the white light when running :file:`auxtel/prepare_for/flat.py`.
 
 .. _Daytime-Operations-LATISS-Weekly-Calibrations-BIAS-DARK-FLAT-all-filters-empty-Contingency-misalignment-troubleshooting-images:
+
+.. figure:: ./_static/auxtel-cameras-misalignedDome.png
+      :width: 100%
+      :align: center
+
+      ATDome and ATWhiteLight: Improper Alignment (Unified Cameras)
+
 .. list-table::
    :widths: 50 50
    :header-rows: 0
@@ -345,10 +362,10 @@ If ATDome and ATWhiteLight are misaligned, issue the following steps:
 
 1.  **Report the incident to the AuxTel team.**
     
-    a.  | Access the Dome GUI in any browser using this link: **http://139.229.170.190/**. 
+    a.  | Access the Dome GUI in any browser by copying and pasting this link: **http://139.229.170.190/**. 
         | You must be within Rubin facilities (or have VPN access) to connect to the GUIs.
         
-        *  Select :guilabel:`Dome GUI`, and click on the :guilabel:`Controller` screen.
+        *  Select :guilabel:`Dome GUI`, and click on the :guilabel:`Controller` tab in the Dome Telemetry page.
   
     b.  | Take a screenshot of the page, and share it with the AuxTel team on the 
         | `#summit-auxtel <https://rubin-obs.slack.com/archives/C07Q45NUK4P>`_ Slack channel.
