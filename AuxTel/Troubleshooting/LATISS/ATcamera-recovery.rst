@@ -185,7 +185,7 @@ In a few cases, additional procedures are needed to unstuck the LATISS. For exam
 
   .. prompt:: bash
 
-     ats-fp endIntegrating -w
+     ats-fp endIntegration -w
 
 .. _ATcamera-recovery-Post-Condition:
 
