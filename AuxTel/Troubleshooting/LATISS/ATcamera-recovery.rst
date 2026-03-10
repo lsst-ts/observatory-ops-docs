@@ -98,6 +98,18 @@ Error diagnosis
       ssh auxtel-mcm.cp.lsst.org
       ccs-shell
 
+#. Identify locked subsystems and their owners. 
+
+   .. prompt:: bash
+
+      showAllLocks
+
+   If at-mcm has locks on any system, place it into standby:
+
+   .. prompt:: bash
+
+      ats-mcm standby -w
+
 #. Identify which **CCS subsystem triggered** the problem. 
 
    .. prompt:: bash
@@ -122,13 +134,13 @@ Procedure Steps
 #. **Clear the raised alerts** in both the CCS subsystem which triggered the problem, and the Master Control Module (MCM) which tracks the overall camera state.
 
    .. prompt:: bash
-
+      
       ats-fp clearAllAlerts -w
       ats-fp getRaisedAlertSummary
-      ats-mcm clearAllAlerts -w
-      ats-mcm getRaisedAlertSummary
       bonn-shutter clearAllAlerts -w
       bonn-shutter getRaisedAlertSummary
+      ats-mcm clearAllAlerts -w
+      ats-mcm getRaisedAlertSummary
 
 
 #. **Clear the fault** in the ocs-bridge, 
