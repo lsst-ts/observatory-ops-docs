@@ -25,21 +25,21 @@ If the computer room is in a critical state with no immediate solution or an est
 
 * **Critical Situation with Proximate ETA:**
 
-In instances where the computer room is in a critical state but a solution is imminent, only a select group of servers, identified as "safe to power off," will undergo shutdown procedures. This procedure aims to balance the need for thermal management with the continuity of essential services during server shutdowns. 
+In instances where the computer room is in a critical state but a solution is imminent, only a select group of servers, identified as "safe to power off," will undergo shutdown procedures. This procedure aims to balance the need for thermal management with the continuity of essential services during server shutdowns.
 
 
 Computer Shutdown Tiers
 ==========================
 
-The following is the list of computers in each tier. 
+The following is the list of computers in each tier.
 
-Tier 1: Computers that can be powered off during an emergency in the computer room by IT/Devops, without the authorization or help from system owners. 
+Tier 1: Computers that can be powered off during an emergency in the computer room by IT/Devops, without the authorization or help from system owners.
 
 Tier 2: Computer that will be powered off in the computer room by IT/Devops, alerting the system owners but without taking down the control system
 
 Tier 3: Computers that will be powered off in the computer room by IT/Devops, that will take down the control system but not the communications to the summit.
 
-Tier 4: Complete power off of the computer room. 
+Tier 4: Complete power off of the computer room.
 
 Tier 1
 ------
@@ -64,20 +64,17 @@ The following is the list of safe to power-off servers. The computers can be pow
 
 **Lsstcam:**
 
-- Any of the "new" servers. lsstcam-dc1-dc9, lsstcam-dc101, lsstcam-mcm1, lsstcam-db02, lsstcam-vs1
-- Any lsstcam machines part of diagnostic cluster (except lsstcam-d01).   lsstcam-dc02.cp.lsst.org  - 10
-- lsstcam-vs01 (image visualization server)
+- Any of the "legacy" servers can be shutdown. lsstcam-dc01-dc10, lsstcam-mcm, lsstcam-db01, lsstcam-vs01
+- Any lsstcam machines part of diagnostic cluster (except lsstcam-dc1).   lsstcam-dc2.cp.lsst.org  - lsstcam-dc9, lsstcam-dc100,
+- lsstcam-vs1 (image visualization server)
 
-* Auxtel
+**Auxtel:**
 
 auxtel-dc01.cp.lsst.org - can always be shut down first, it is only used for image visualization
 
 *If we are not actively taking data e.g. during the daytime, during the weekend, or during a week when the AuxTel is NOT operating on sky:*
 
 auxtel-archiver.cp.lsst.org - can always be shut down if we are not taking data, will lose ability to ingest data in Butler if taking data
-
-auxtel-daq-mgt.cp.lsst.org - can always be shut down if we are not taking data, will lose connection/monitoring of the WREB a
-
 
 Tier 2
 ------
@@ -87,7 +84,7 @@ The following is the list computers will be powered off alerting the system owne
 
 - azar[02-03].cp.lsst.org
 
-Use foreman - remote job on machines(s)  with ipmtool chassis power off || shutdown -h now 
+Use foreman - remote job on machines(s)  with ipmtool chassis power off || shutdown -h now
 
 Tier 3
 ------
@@ -101,11 +98,11 @@ The following is the list computers will be powered off alerting the system owne
 - ipsec switches   (can be done in tier 4)
 - leafs of each rack (except A1) an not spine switches in A5 and A6  (can be done in tier 4)
 - ipmi of each rack (expect A1)  (can be done in tier 4)
-- all vms except hvac monitoring (hvaccp) and domain controller (dccp) 
+- all vms except hvac monitoring (hvaccp) and domain controller (dccp)
 
 **Control System**
 
-- First bring down the control system - then bring down yagan[01-20].cp.lsst.org using foreman -> remote job on machines 'ipmitool chassis power off' 
+- First bring down the control system - then bring down yagan[01-20].cp.lsst.org using foreman -> remote job on machines 'ipmitool chassis power off'
 - azar01.cp.lsst.org
 - chonchon[01-03].cp.lsst.org
 - nfs1.cp.lsst.org
@@ -115,18 +112,18 @@ The following is the list computers will be powered off alerting the system owne
 - comcam-mcm
 - comcam-db01
 - auxtel-mcm
-- auxtel-db01
 - auxtel-fp01 (only if warmup auxtel camera)
-- lsstcam-dc01 (only if warmup lsstcam)
-- lsstcam-mcm
-- lsstcam-db01 
-- daq mgt (only if warmup cameras)
+- auxtel-daq-mgt (only if warmup auxtel camera)
+- lsstcam-dc1 (only if warmup lsstcam)
+- lsstcam-mcm1
+- lsstcam-db02
+- lsstcam-daq (only if warmup lsstcam)
 - daq ATCA crates (only if warmup cameras)
 
 
 Tier 4
 ------
-The following is the list computers will be powered off that will take down the communications to the summit. 
+The following is the list computers will be powered off that will take down the communications to the summit.
 
 **IT:**
 
@@ -134,5 +131,5 @@ The following is the list computers will be powered off that will take down the 
 - core[remaining].cp.lsst.org (includes foremand and dns)
 - yepun[01-05].cp.lsst.org
 - nvr01.cp.lsst.org
-- network devices (spines, agg, leafs, wlc, cucm, etc) 
-- dwdm 
+- network devices (spines, agg, leafs, wlc, cucm, etc)
+- dwdm
