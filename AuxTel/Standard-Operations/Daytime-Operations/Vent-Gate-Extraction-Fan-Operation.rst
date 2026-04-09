@@ -199,6 +199,63 @@ Set Manual Control
 Troubleshooting
 ===============
 
-     No troubleshooting information is applicable to this procedure.
+.. _Vent-Gate-Extraction-Fan-Operation-Troubleshooting-Raspberry-Pi:
 
-- This is an example bullet (If the following error is given during :ref:`Step 5 <Title-of-Procedure-Final-Step>`, resolve it using a specified action.)
+Raspberry Pi Rebooting
+----------------------
+
+If any of the following issues occur:
+
+-  Inability to transition ATBuilding CSC to enable
+-  Commands are not producing the expected results
+-  Interruption in ATBuilding telemetry
+-  ATBuilding CSC enters FAULT mode
+
+Then the solution will be to restart the Raspberry Pi software on the AuxTel vent gate.
+
+1.  Using a command line, open a secure shell to the host :command:`auxtel-vent-gates01.cp.lsst.org` and
+    :command:`reboot` the Raspberry Pi.
+
+    .. code-block:: bash
+        
+        >> ssh auxtel-vent-gates01.cp.lsst.org
+        >> reboot
+
+2.  If the :command:`reboot` command does not work, restart the :command:`vent_controller` container.
+
+    .. code-block:: bash
+
+        >> ssh auxtel-vent-gates01.cp.lsst.org
+        >> docker run -d --restart unless-stopped --name vent_controller --device /dev/i2c-1 \
+              -p 0.0.0.0:17311:23 --user root \
+              lsstts/vents-controller-aarch64:k0003.001 --modbus-host auxtel-vent-fan01.cp.lsst.org
+
+3. If neither of the previous steps were successful, contact support on `#summit-auxtel <https://rubin-obs.slack.com/archives/C07Q45NUK4P>`_
+   for help on manually power cycling the Raspberry Pi.
+
+
+
+.. _Vent-Gate-Extraction-Fan-Operation-Troubleshooting-Manual-Operation:
+
+Vent Gate Manual Operation
+--------------------------
+
+In the case of an emergency, when remote connection of the vent gate is not possible, 
+observers may have to manually operate the vent gate and extraction fan to allow venting procedures to continue.
+
+1.  Verify and the vent gate controls are set to *Manual*. If not, follow instructions in the 
+    :ref:`Vent-Gate-Extraction-Fan-Operation-Manual-Control` section of this procedure.
+2.  Head to calibration hill, and locate vent gate #3 inside of the AuxTel dome. 
+    The vent gate is opposite of the main entrance on level 1.
+3.  Locate the vent gate control switch to the left of the vent gate (on the wall)
+    and the extraction fan controller to the right of the vent gate (see image below).
+
+    a.  If starting venting procedures, set the vent gate switch to ``OPEN``, and 
+        rotate the extraction dial clockwise until is reads **20Hz**.
+    b.  If stopping venting procedures, rotate the extraction dial counter-clockwise 
+        until is reads **0Hz**, and set the vent gate switch to ``CLOSED``.
+
+.. figure:: ./_static/PrepareforVent_AuxTel_VentGate3andFan.png
+      :name: Dome Vent Gate 3 and Extraction Fan 
+
+      AuxTel Dome Vent Gate #3 and Extraction Fan with Controller.
