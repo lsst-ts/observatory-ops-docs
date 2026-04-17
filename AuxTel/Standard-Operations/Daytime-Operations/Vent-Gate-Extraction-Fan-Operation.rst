@@ -73,6 +73,14 @@ Procedure Steps
     Monitor each step in the procedure using the 
     `ATBuilding Chronograf Dashboard <https://summit-lsp.lsst.codes/chronograf/sources/1/dashboards/462?refresh=Paused&lower=now%28%29%20-%2015m>`_.
 
+.. _Vent-Gate-Extraction-Fan-Operation-Activate:
+
+Activate Vent Gate and Extraction Fan
+*************************************
+
+This section outlines the steps required to open AuxTel's vent gate and power on the extraction fan.
+This procedure is for when AuxTel has begun its :ref:`venting procedures <AuxTel-Daytime-Operations-Prepare-for-vent>`.
+
 .. _Vent-Gate-Extraction-Fan-Operation-CSC-Control:
 
 Set CSC Control
@@ -135,6 +143,14 @@ Prepare for Venting
         parameters:
            targetFrequency: 20
 
+
+.. _Vent-Gate-Extraction-Fan-Operation-Deactivate:
+
+Deactivate Vent Gate and Extraction Fan
+***************************************
+
+This section outlines the steps required to close AuxTel's vent gate and power off the extraction fan.
+This procedure is for when AuxTel has begun its :ref:`on-sky procedures <AuxTel-Nighttime-Operations-Open-for-On-Sky-Operations>`.
 
 .. _Vent-Gate-Extraction-Fan-Operation-Stop-Venting:
 
