@@ -7,7 +7,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Karla Peña Ramírez*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Craig Lage, Eric Christensen, OS team*
+.. |contributors| replace:: *Craig Lage, Eric Christensen, Kris Mortensen, OS team*
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
 .. _AuxTel-Non-Standard-Operations-AuxTel-Emergency-Shutdown: 
@@ -64,56 +64,141 @@ Procedure Steps
 .. For highly complicated procedures, consider breaking them into separate procedure. Some options are a high-level procedure with links, separating into smaller procedures or utilizing the reST ``include`` directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#include>.
 
 In the event of an emergency dome closure, the dome shutter won't be able to be operated from the standard CSC controls. 
-The AuxTel dome would need to be closed manually. 
+The AuxTel dome would need to be closed either through local override switches or---as a last resort---manually. 
 In case of sudden inclement weather, be very cautious and start closing early.
 
 .. warning::
     If you are dealing with a dome shutter emergency shutdown. 
     Proceed calmly to keep the equipment safe. 
-    Please use the standard safety measures when visiting the dome enclosure. **Safety of personnel always goes first.**
+    Please use the standard safety measures when visiting the dome enclosure. **Safety of personnel always comes first.**
 
 .. _AuxTel-Emergency-Shutdown-Shutter-Closure:
 
 Shutter Closure
 ---------------
-1. Communicate on the *#summit-announce* channel that the observing crew is going to attempt to close the AuxTel dome via the emergency procedure.
+1. Before attempting to close the dome shutter, slew the dome so that it faces west using the 
+   :file:`auxtel/atdome/slew_dome.py` script with the following configuration.
 
-2. Go up to the AuxTel dome (second floor).  Locate the control box at the top of the stairs.  The top black button should close the shutter. Note that the safety gate at the bottom of the stairs needs to be closed and locked in order for this button to operate.
+   .. code-block:: python
+      :caption: :file:`auxtel/atdome/slew_dome.py`
 
-.. figure:: /AuxTel/Non-Standard-Operations/_static/Box_at_Top_of_Stairs.jpg
-  :name: AuxTel control box
+      az: 270
 
-3. If the above step fails, locate the AuxTel cRIO box. This box rotates with the AuxTel dome. Open it and identify the cRIO switches.
+   .. note:: 
+      
+      If the dome cannot slew remotely, continue with the rest of the procedure. 
+      Local control of the dome azimuth drives will be located in :ref:`Step 4 <AuxTel-Emergency-Shutdown-Shutter-Closure-Step4>`.
 
-.. figure:: /AuxTel/Non-Standard-Operations/_static/cRIO_box.jpg
-  :name: AuxTel cRIO
+2. | Verify if the AuxTel dome shutter can close through CSC control. If unable to close, 
+   | **send ATDome CSC to** ``Standby`` before continuing the rest of this procedure.
 
-.. figure:: /AuxTel/Non-Standard-Operations/_static/Switches_in_cRIO_box.jpg
-  :name: Switches inside AuxTel cRIO
+3. Communicate on the *#summit-announce* channel that the observing crew 
+   is going to attempt to close the AuxTel dome via the emergency procedure.
 
-With **EXTREME CAUTION** slide the switch labeled "CLOSE" (yellow arrow) progressively to the left. 
-This is a low-level control switch and there are no limit switches or fail-safes. 
-It is best to stop the shutter movement about 1 cm before it is fully closed to prevent you over drive the shutter until it bangs into the lower shutter or cause damage on the drive.
+.. _AuxTel-Emergency-Shutdown-Shutter-Closure-Step4:
 
+4. Go up to the AuxTel dome (second floor).  Locate the control box at the top of the stairs.  
+   The top black button should close the shutter. **Press and hold** the button to close the dome shutter.
+   
+   .. note::
+      The safety gate at the bottom of the stairs needs to be closed and locked 
+      in order for this button to operate.
+
+   .. admonition:: Slewing ATDome Locally
+      :class: hint
+
+      If slewing the dome remotely was unsuccessful (see Step 1 of procedure), 
+      the same control box can rotate the dome using the Clockwise (CW) and 
+      Counter-Clockwise (CCW) buttons on the bottom row. 
+      
+      To rotate the dome, press and hold one of the buttons until that the 
+      dome shutter faces West (az = 270 deg). If local control does not work, 
+      prioritize closing the shutter.
+
+   .. figure:: /AuxTel/Non-Standard-Operations/_static/Box_at_Top_of_Stairs.png
+
+     AuxTel Level 2 Control Box
+
+5. If the above step fails (i.e., no movement after pressing for more than 5 seconds), 
+   locate the AuxTel cRIO box. This box rotates with the AuxTel dome and opens/closes the shutter. 
+   Attempt to close the shutter by **pressing and holding** the ``CLOSE`` button on the outside of the box 
+   (see yellow arrow).
+
+   .. figure:: /AuxTel/Non-Standard-Operations/_static/cRIO_box.png
+     
+     AuxTel Dome Shutter Control Box
+
+6. If the above step fails (i.e., no movement after pressing for more than 5 seconds), open the box and identify the cRIO switches.
+   **Press and hold** the white ridges on the switch labeled ``CLOSE`` (see yellow arrow). 
+   
+
+   .. admonition:: **Execute this step with EXTREME CAUTION!** 
+      :class: warning
+    
+      This is a low-level control switch for the dome. There are **no limit switches** and **no fail-safes**. 
+
+      It is best to *stop the shutter movement a few centimeters* before it is fully closed. 
+      This prevents over-driving of the shutter, which could bang into the lower shutter or cause damage on the drive.
+
+
+   .. figure:: /AuxTel/Non-Standard-Operations/_static/Switches_in_cRIO_box.png
+
+     AuxTel cRIO Low-Level Control Switch
+
+7. If none of these steps were successful, the safest course of action is the leave the dome in its current
+   state and **contact AuxTel personnel** using the *#summit-auxtel* Slack channel. 
+   They will address the issue the following morning.
+
+   .. admonition:: (Optional) Manually Closing Shutter
+      :class: note
+
+      If observers feel comfortable attempting to manually close the shutter by hand, 
+      they can follow the steps in :ref:`AuxTel-Emergency-Shutdown-Shutter-Closure-Without-Power`.
+  
 .. _AuxTel-Emergency-Shutdown-Shutter-Closure-Without-Power:
 
 Shutter Closure without Power
 -----------------------------
 
-1. In the absence of electrical power, the shutter must be closed manually. On AuxTel first floor there is a crank that fits into a ring at the top of the dome. Rotating the ring manually with the crank assistance close the shutter. Note this is a long and physically demanding procedure and the hand crank just does not have enough torque to lift the weight of the shutter if it is all the way open. If you cannot safely insert the crank into the drive motor and operate the crank, then remove the crank and do not proceed.
+In the absence of electrical power, the shutter must be closed manually. 
 
-.. figure:: /AuxTel/Non-Standard-Operations/_static/Hand_Crank.jpg
-  :name: AuxTel Hand Crank
+1.  On AuxTel first (or sometimes second) floor, there is a hand crank that fits into a ring 
+    at the top of the dome.
 
+    .. note::
+      
+      The crank handle has a removable rotating grip may be loose or detached.
+      To properly use it, secure the handle using a short rigid tool (e.g., one of the nearby Allen keys).
 
-.. figure:: /AuxTel/Non-Standard-Operations/_static/Top_of_Dome.jpg
-  :name: Top of Dome
+    .. figure:: /AuxTel/Non-Standard-Operations/_static/Hand_Crank.jpg
+      :height: 400px
+     
+      AuxTel Hand Crank
+    
+2.  Connect the tip of the crank to the ring at the top of the dome.
+
+    .. figure:: /AuxTel/Non-Standard-Operations/_static/Top_of_Dome.png
+      :height: 400px
+      
+      Manual Close Ring (Top of Dome)
+
+3.  Rotate the ring manually with the crank assistance to close the shutter. 
+
+.. note:: 
+  
+  This is a long and physically demanding procedure as the hand crank does not have enough 
+  torque to lift the weight of the shutter if it is all the way open. 
+  
+  If you cannot safely insert the crank into the drive motor and operate the crank, 
+  then remove the crank and do not proceed. Instead, **inform AuxTel personnel** 
+  so they can assist the following morning.
+
 
 .. _AuxTel-Emergency-Shutdown-Contingency:
 
 Contingency
 ===========
-If the procedure was not successful, report the issue on the *#summit-announce* channel and/or activate the :ref:`Out of hours support <Safety-out-of-hours-support>`.
+If the procedure was not successful, report the issue on the *#summit-auxtel* channel and/or activate the :ref:`Out of hours support <Safety-out-of-hours-support>`.
 
 
 This procedure was last modified |today|.

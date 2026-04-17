@@ -10,7 +10,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Manuel Gomez*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Ioana Sotuela*, *Gonzalo Aravena*
+.. |contributors| replace:: *Ioana Sotuela*, *Gonzalo Aravena, Kris Mortensen*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -134,15 +134,15 @@ Dome VFD
 Dome Shutter Control Box
 ------------------------
 
-.. figure:: ./_static/DomeShutter.png
+.. figure:: ./_static/DomeTopBox.png
     :name: Shutter
-    :scale: 25 %
+    :scale: 40 %
 
     Dome Shutter Control Box
 
-.. figure:: ./_static/IMG_4234.JPG
+.. figure:: ./_static/DomeTopBoxControls.png
     :name: ShutterIN
-    :scale: 20 %
+    :scale: 40 %
 
     Inner Dome Shutter Control Box
 

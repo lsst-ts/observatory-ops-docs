@@ -77,8 +77,8 @@ Procedure Steps
    Load the ``auxtel/prepare_for/vent.py`` script from the LOVE ``ATQueue`` panel, under ``AVAILABLE SCRIPTS`` by clicking on the blue icon. 
 
    .. note::
-     The ``auxtel/prepare_for/vent.py`` will only run when the Sun's elevation is between 55 deg and 5 deg above horizon. 
-     Otherwise, it will give you a warning and fail. 
+     The ``auxtel/prepare_for/vent.py`` can be queued at any point during the day and will run until sunset. This is by design to allow more 
+     time for dome conditions to match outdoor conditions, particularly during the summer time. 
      
    In the ``configuring script:vent`` screen that pops up, leave the ``CONFIG`` box empty. 
 
@@ -102,8 +102,8 @@ Procedure Steps
        * Partially opens the dome to allow consistent air flow.
 
    .. note::
-     The ``auxtel/prepare_for/vent.py`` script will keep running until the Sun's elevation is 5 degrees above the horizon, 
-     repositioning the dome azimuth position every minute. 
+     The ``auxtel/prepare_for/vent.py`` script will keep running until the Sun's elevation is 0 degrees above the horizon, 
+     repositioning the dome azimuth position every minute.
      
    .. figure:: ./_static/PrepareforVent_AuxTel_running.png
      :name: script prepareforonsky_AuxTel running

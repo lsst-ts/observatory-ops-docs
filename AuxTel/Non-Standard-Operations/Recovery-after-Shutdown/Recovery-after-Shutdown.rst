@@ -7,7 +7,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| *Craig Lage*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *I. Sotuela, G. Aravena*
+.. |contributors| replace:: *I. Sotuela, G. Aravena, Kris Mortensen*
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
 
@@ -259,21 +259,22 @@ The reset procedure is briefly outlined here:
 #. Reset the *Dome Shutter cRIO* inside the :ref:`Dome Shutter Control Box <Cabinet-Content-Diagrams-Dome-Shutter-Control-Box>`, located on the second floor and which rotates with the dome. 
    Perform the same reset procedure as with the *Main Box cRIO*. The reset button is indicated by the yellow arrow.
 
-   .. figure:: /AuxTel/Non-Standard-Operations/_static/Top_Box_cRIO.JPG
-      :width: 400
-
-      Figure 9: Dome Shutter Control Box.
-
    .. admonition:: Important
-      
+         
       Always reset the Main Box cRIO first, followed by the Dome Shutter cRIO. Resetting them in the wrong order may cause communication issues.
 
 
-   .. note::
+   .. list-table::
+      :widths: 50 50
+      :header-rows: 0
+      
+      * - .. figure:: /AuxTel/Non-Standard-Operations/_static/Top_Box_cRIO.png
 
-      The NOIRLab team is making an entirely new box since the current one is too small. 
-      Once the work is completed, likely by the end of April 2025, the Dome Shutter Control Box will be different as it being shown in the image.
+            Figure 9: Dome Shutter Control Box.
 
+        - .. figure:: /AuxTel/Non-Standard-Operations/_static/Top_Box_cRIO_Reset.png
+
+            Figure 10: Dome Shutter cRIO.
 
 #. :ref:`Close and re-lock the safety gate <Safety-Gate-Procedures-Gate-operation-Closing-the-gate>`, ensuring it is securely in place. 
    Then, press the :ref:`Safety Gate Bypass button <Safety-Gate-Introduction-Emergency-safety-mechanisms-Gate-override-AuxTel-safety-gate-bypass>` again to **Deactivate** the bypass mode and restore normal safety protections.
