@@ -517,7 +517,7 @@
          y="108.43597"
          style="font-size:8.53336px;stroke-width:0.801256">Humidity<tspan
    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:'Arial Bold'"
-   id="tspan9"> &gt; 70%</tspan></tspan></text>
+   id="tspan9"> &gt; 65%</tspan></tspan></text>
     <g
        id="g5"
        transform="translate(-0.00223749,112.92094)">
@@ -626,11 +626,11 @@
        inkscape:label="Wind High Risk 1"><tspan
          sodipodi:role="line"
          id="tspan14"
-         x="196.72063"
+         x="193.72063"
          y="107.82224"
          style="stroke-width:0.801256">Velocity <tspan
    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:'Arial Bold'"
-   id="tspan23">&lt; 12 m/s</tspan></tspan></text>
+   id="tspan23">= 8<tspan dx="1">–</tspan>15 m/s</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.53336px;font-family:Arial;-inkscape-font-specification:Arial;fill:#ffffff;fill-opacity:1;stroke-width:0.801256;stroke-dasharray:none;stroke-dashoffset:0.100157"
@@ -644,7 +644,7 @@
          y="108.37502"
          style="stroke-width:0.801256">Velocity <tspan
    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:'Arial Bold'"
-   id="tspan25">&gt; 12 m/s</tspan></tspan></text>
+   id="tspan25">&gt; 15 m/s</tspan></tspan></text>
     <g
        id="g4"
        transform="translate(-3.7767903,112.92109)">
