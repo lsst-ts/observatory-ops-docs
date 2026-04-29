@@ -62,6 +62,16 @@ If the humidity is above 70%, go outside and look for incoming cloud fronts, and
 Be more cautious to open if there will not be someone in the control room to monitor changing weather conditions, 
 e.g. opening before going to dinner, or leaving the control room to complete another task.
 
+The following graphic provides a quick reference to the weather conditions and their equivalent risk states. 
+For more details as to the necessary actions, continue reading the :ref:`auxtel-weather-constraints-wind` and 
+:ref:`auxtel-weather-constraints-humidity-and-dew-point` constraint sections.
+
+.. figure:: /AuxTel/_static/AuxTel_weather_constraints.png
+   :align: center
+   :alt: AuxTel weather constraints overview
+
+.. For the left-hand side navigation menu 
+
 .. warning::
     Vent gates:
         The vent gates on the first floor of the AuxTel dome can add turbulence if winds are high. 
