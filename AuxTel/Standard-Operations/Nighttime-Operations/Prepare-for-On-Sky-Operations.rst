@@ -95,7 +95,8 @@ Procedure Steps
        * Activate AOS open loop corrections.
        * Enable dome following. 
 
-#. If the wind speed is below 8 m/s, open vent gate #3 and set the extractor fan to 20 Hz via :ref:`ATBuilding CSC <support-and-monitoring>`. If the wind speed is at or above 8 m/s, keep the vent gate closed and the extractor fan off.
+#. If the vent gate and extraction fan were used for venting, navigate to the :ref:`Vent-Gate-Extraction-Fan-Operation-Deactivate` procedure, and
+   follow the instructions to close vent gate #3 and power off the extraction fan.
 
 #. Visually confirm in `LOVE displays <http://love01.cp.lsst.org/uif/view?id=68>`__:
 
