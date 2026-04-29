@@ -56,6 +56,20 @@ one:
 - :ref:`Soft Reboot <MTRot-PXI-Controller-Reboot-Soft-Reboot>`
 - :ref:`Hard Reboot or Power off <MTRot-PXI-Controller-Reboot-Hard-Reboot>`
 
+.. warning::
+
+    	If the intention is to clear the interlock indicated in the EFD/EUI, rebooting the controller
+	may not resolve the issue, as the interlock signal is likely real rather than a result of a 
+	malfunctioning controller. It is most probable that the rotator locking pin is not properly positioned, 
+	especially after telescope tasks such as a Camera Filter Swap.
+
+	**Always check that the pin is securely in the unlocked position** 
+
+	Keep in mind that the hexapod and rotator controllers will automatically clear the cached interlock 
+	fault once the physical interlock signal is no longer present
+
+
+
 .. _MTRot-PXI-Controller-Reboot-Prerequisites:
 
 Prerequisites
