@@ -166,28 +166,66 @@ To recover the ATSpectrograph we need to clear these faults and ensure the stage
 4.  Use telnet commands to move the linear stage to its negative limit:
 
     a. Check ATSpectrograph CSC is in ``STANDBY`` Status.
-    #. Open a terminal on your local machine. If the cRIO was recently rebooted, make sure that at least 60 seconds have passed since the cRIO EUI is accesible to give the application time to complete its setup.
+    #. Open a terminal on your local machine. If the cRIO was recently rebooted, 
+       make sure that at least 60 seconds have passed since the cRIO EUI is accesible 
+       to give the application time to complete its setup.
     #. Execute the command :file:`telnet auxtel-latiss-crio.cp.lsst.org 9999` to connect directly to the cRIO. 
-    #. Note that the port you are using needs to remain clear in order for the cRIO to connect to the CSC, so the EUI is setup to boot users from this port after 5 seconds if no commands are sent.
-       **You may need to reconnect via telnet several times during this process if you get booted**. 
+       
+       .. admonition:: Executing Telnet Commands:
+         :class: hint
+         
+         The port you are using needs to remain clear in order for the cRIO to connect to the CSC, 
+         so the EUI is setup to boot users from this port after 5 seconds if no commands are sent.
+         **You may need to reconnect via telnet several times during this process if you get booted**.
+
+         To execute commands properly, wait until the :guilabel:`>` command prompt appears.
+         Any commands executed before the command prompt appears *will be ignored*.
+
     #. Execute :file:`!LSI`. This command will move the linear stage to its negative limit.
-    #. Execute :file:`!LSL`. This command will display the status of the limit switches of the linear stage. 
+    #. Execute :file:`?LSL`. This command will display the status of the limit switches of the linear stage. 
        It should return a :guilabel:`-` sign, indicating that the linear stage reached the negative limit and the switch is pressed.
     #. In the :ref:`EUI <SpectrographEUI>`, the green indicator for the grating stage negative limit should have been activated.
     #. The position of the linear stage may still read -324mm after this move has been commanded, and that is okay. 
        To recover the position of the linear stage, we now need to reboot the cRIO. 
 
-5.  With the linear stage in its negative limit position, power cycle the ATSpectrograph cRIO:
+5.  With the linear stage in its negative limit position, power cycle the ATSpectrograph cRIO. 
+    There are two ways to power cycle the cRIO: :ref:`Remote <Remote-Power-Cycle>` (preferred) 
+    or :ref:`Manual <Manual-Power-Cycle>`.
 
-    a. Check ATSpectrograph CSC is in ``STANDBY`` Status.
-    #. Connect to *http://aux-pdu-spectrograph.cp.lsst.org/* (only accessible from the summit).
-    #. Log in with the username and password available in the AuxTel 1Password AuxTel vault.
-    #. For **outlet 2** (power and cRIO) click :guilabel:`Off`, wait 10 seconds, and then click :guilabel:`On`. 
+    .. admonition:: Remote cRIO Power Cycle
+      :class: note
+      :name: Remote-Power-Cycle
 
-    .. figure:: ./_static/power-cycle-ATSpec.png
-       :width: 500px
+      **NOTE:** If connection to PDU is not working, :ref:`Manual Power Cycle <Manual-Power-Cycle>` is required.
       
-       PDU webpage to power On/Off ATSpectrograph.
+      a. Check ATSpectrograph CSC is in ``STANDBY`` Status.
+      #. Connect to `<http://aux-pdu-spectrograph.cp.lsst.org/>`_ (only accessible from the summit).
+      #. Log in with the username and password available in the AuxTel 1Password AuxTel vault.
+      #. For **outlet 2** (power and cRIO) click :guilabel:`Off`, wait 10 seconds, and then click :guilabel:`On`. 
+
+      .. figure:: ./_static/power-cycle-ATSpec.png
+         :width: 500px
+         
+         PDU webpage to power On/Off ATSpectrograph.
+
+
+    .. admonition:: Manual cRIO Power Cycle
+      :class: warning
+      :name: Manual-Power-Cycle
+
+      **CAUTION:** This procedure works directly with AuxTel hardware. Follow these steps carefully!
+
+      a. Go to the :ref:`Cabinet-Content-Diagrams-Spectrograph-Power-Switch` on the first floor of AuxTel, 
+         and locate the :ref:`Spectrograph cRIO <ATSpectrographIN>` inside the cabinet.
+      #. Press and hold the **power button** :guilabel:`⏻` (NOT the reset button) until the lights on the cRIO turn off.
+      #. Wait 10-15 seconds, and then press and hold the **power button** again to turn on the cRIO.
+      #. Once the lights return, check that your connection ATSpectrograph EUI was disconnected. 
+         Reload the page to reconnect, and verify the grating position reads around **0 nm**.
+
+      .. figure:: ./_static/power-cycle-cRIO-manual.jpg
+         :width: 400px
+         
+         Power button on ATSpectrograh cRIO
 
 6. When the cRIO is rebooted, it might take a few minutes to see the EUI again in the webpage. 
    If the EUI does not come up on its own after 10 minutes, then a second cRIO reboot is necessary.
@@ -257,8 +295,17 @@ Procedure Steps
     a. Check ATSpectrograph CSC is in ``STANDBY`` Status.
     #. Open a terminal on your local machine. If the cRIO was recently rebooted, make sure that at least 60 seconds have passed since the cRIO EUI is accesible to give the application time to complete its setup.
     #. Execute the command :file:`telnet auxtel-latiss-crio.cp.lsst.org 9999` to connect directly to the cRIO. 
-    #. Note that the port you are using needs to remain clear in order for the cRIO to connect to the CSC, so the EUI is setup to boot users from this port after 5 seconds if no commands are sent.
-       **You may need to reconnect via telnet several times during this process if you get booted**. 
+
+       .. admonition:: Executing Telnet Commands:
+         :class: hint
+         
+         The port you are using needs to remain clear in order for the cRIO to connect to the CSC, 
+         so the EUI is setup to boot users from this port after 5 seconds if no commands are sent.
+         **You may need to reconnect via telnet several times during this process if you get booted**.
+
+         To execute commands properly, wait until the :guilabel:`>` command prompt appears.
+         Any commands executed before the command prompt appears *will be ignored*.
+
     #. Execute the commands :file:`?FWS` and :file:`?GRS`. These commands will display the current filter wheel and grating wheel statuses, respectively.
        
        - Each command will return an array of three characters: ``X # Y``:
