@@ -72,6 +72,9 @@ Procedure Steps
 
 #. Announce in the #summit-announce and #summit-auxtel Slack channel that AuxTel is going to vent, and telescope and dome will move. 
 
+#. If the wind speed is below 10 m/s, navigate to the :ref:`Vent-Gate-Extraction-Fan-Operation-Activate` procedure, and
+   follow the instructions to open vent gate #3 and power on the extraction fan to 20Hz.
+
 #. Command the telescope and dome to prepare for venting. 
 
    Load the ``auxtel/prepare_for/vent.py`` script from the LOVE ``ATQueue`` panel, under ``AVAILABLE SCRIPTS`` by clicking on the blue icon. 
@@ -109,14 +112,6 @@ Procedure Steps
      :name: script prepareforonsky_AuxTel running
 
      ``auxtel/prepare_for/vent.py`` script running until observer manually stops it or the Sun reaches 5 deg above horizon. 
-
-#. If the wind speed is below 10 m/s, manually open **only** vent gate #3 using the switch and turn on the extraction fan to **20-25Hz**. 
-   If wind speed is above or close to 10 m/s, keep vent gates closed and extraction fan off. 
-
-   .. figure:: ./_static/PrepareforVent_AuxTel_VentGate3andFan.png
-      :name: Dome Vent Gate 3 and Extraction Fan 
-
-      AuxTel dome vent gate #3 and extraction fan with its controller located at the dome pier. 
 
 #. Visually confirm in `LOVE displays <http://love01.cp.lsst.org/uif/view?id=68>`__ that the system is venting. 
         
