@@ -10,7 +10,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: Ioana Sotuela, Te-Wei Tsai
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: Kshitija Kelkar
+.. |contributors| replace:: Kshitija Kelkar, Paulina Venegas
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -63,11 +63,11 @@ one:
 	malfunctioning controller. It is most probable that the rotator locking pin is not properly positioned, 
 	especially after telescope tasks such as a Camera Filter Swap.
 
-	**Always check that the pin is securely in the unlocked position** 
+	**Always check that the pin is securely in the unlocked position.** 
 
-	Keep in mind that the hexapod and rotator controllers will automatically clear the cached interlock 
-	fault once the physical interlock signal is no longer present
+	The rotator (and the hexapod) controller will automatically clear the cached interlock fault once the physical interlock signal is no longer present.
 
+Link to the procedure for MTRotator to unlock the locking pin: https://rubinobs.atlassian.net/wiki/x/8KddAg
 
 
 .. _MTRot-PXI-Controller-Reboot-Prerequisites:
@@ -224,7 +224,7 @@ Hard Reboot
 
 .. warning::
 
-    **Only proceed with a hard reboot, if the EUI control connection remains unsucessful after 
+    **Only proceed with a hard reboot, if the EUI control connection remains unsuccessful after 
     a** :ref:`soft reboot <MTRot-PXI-Controller-Reboot-Soft-Reboot>`.
 
     This method involves cutting power to the PXI and drives and should only be used as a last resort 
