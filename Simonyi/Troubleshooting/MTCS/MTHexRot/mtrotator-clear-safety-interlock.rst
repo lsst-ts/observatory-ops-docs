@@ -66,13 +66,14 @@ Procedure Steps
 
     Most MTRotator low-level interlocks can be cleared through the GIS GUI panel on level 2.
 
-    Before attempting to clear low-level interlocks, try and :ref:`clear the MTrotator GIS <MTRotator-Clear-Interlocks-Procedure-Step6>` first,
+    Before manually clearing the low-level interlocks, first try to 
+    :ref:`reset the MTrotator GIS <MTRotator-Clear-Interlocks-Procedure-Step6>`,
     and then attempt to re-enable the MTRotator CSC.
 
 1.  **Transition MTRotator CSC to** ``STANDBY``.
 
-    a.  This can be done via `ASummary State View <https://summit-lsp.lsst.codes/love/uif/view?id=51>`_
-        or through the `ScriptQueue <https://summit-lsp.lsst.codes/love/uif/view?id=43>`_.
+    a.  This can be done in `ASummary State View <https://summit-lsp.lsst.codes/love/uif/view?id=51>`_
+        or in a `ScriptQueue <https://summit-lsp.lsst.codes/love/uif/view?id=43>`_.
 
         .. code-block:: python
             :caption: set_summary_state.py
