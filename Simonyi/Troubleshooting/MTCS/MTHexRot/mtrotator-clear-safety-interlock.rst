@@ -28,12 +28,12 @@
     <style> .green {color:green} </style>
 .. role:: green
 
-#########################
-MTRotator Recovery
-#########################
+####################################
+MTRotator Clear Safety Interlocks
+####################################
 
 
-.. _MTRotator-Recovery-Overview:
+.. _MTRotator-Clear-Interlocks-Overview:
 
 Overview
 ========
@@ -43,7 +43,7 @@ Overview
 In the event of a fault occurrence within the MTRotator, following the proper recovery procedure is essential to maintaining operational safety. 
 This document will outline the necessary step-by-step actions to return to normal MTRotator functioning.
 
-.. _MTRotator-Recovery-Error-Diagnosis:
+.. _MTRotator-Clear-Interlocks-Error-Diagnosis:
 
 Error diagnosis
 ===============
@@ -83,7 +83,7 @@ Error diagnosis
 
     2. **Moving the Camera Rotator to the CCW** (see the :ref:`Procedure Steps <MTRotator-Recovery-Procedure-Steps>` below).
 
-.. _MTRotator-Recovery-Procedure-Steps:
+.. _MTRotator-Clear-Interlocks-Procedure-Steps:
 
 Procedure Steps
 ===============
@@ -127,7 +127,7 @@ Procedure Steps
 
         [(username)@hexrot-vm01 ~]$ run_rotgui
 
-.. _MTRotator-Recovery-Procedure-Step4:
+.. _MTRotator-Clear-Interlocks-Procedure-Step4:
 
 4.  **Change the Command Source from CSC to GUI mode:** 
 
@@ -176,7 +176,7 @@ Procedure Steps
 
         Rotator Telemetry without Faults (CSC Command Source)
 
-.. _MTRotator-Recovery-Procedure-Step6:
+.. _MTRotator-Clear-Interlocks-Procedure-Step6:
 
 6.  **Reset MTRotator in GIS GUI on Level 2:**
 
@@ -225,7 +225,7 @@ Procedure Steps
 11.  **Transition MTMount and MTRotator Back to** ``ENABLED``.
 
 
-
+.. _MTRotator-Clear-Interlocks-Post-Condition:
 Post-Condition
 ==============
 
@@ -237,7 +237,7 @@ Post-Condition
 - MTRotator is operational and can be re-enabled from :guilabel:`LOVE` to safely continue operations. 
  
 
-.. _MTRotator-Recovery-Contingency:
+.. _MTRotator-Clear-Interlocks-Contingency:
 
 Contingency
 ===========
