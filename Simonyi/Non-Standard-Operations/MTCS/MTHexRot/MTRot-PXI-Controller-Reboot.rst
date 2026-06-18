@@ -15,6 +15,7 @@
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
 .. _MTRot-PXI-Controller-Reboot:
+.. _MTRotator to unlock the locking pin: https://rubinobs.atlassian.net/wiki/x/8KddAg
 .. Each section should includes a label for cross referencing to a given area.
 .. Recommended format for all labels is "Title Name"-"Section Name" -- Spaces should be replaced by hyphens.
 .. To reference a label that isn't associated with an reST object such as a title or figure, you must include the link an explicit title using the syntax :ref:`link text <label-name>`.
@@ -67,7 +68,11 @@ one:
 
 	The rotator (and the hexapod) controller will automatically clear the cached interlock fault once the physical interlock signal is no longer present.
 
+<<<<<<< HEAD
 Link to the procedure for MTRotator to unlock the locking pin: https://rubinobs.atlassian.net/wiki/x/8KddAg
+=======
+    Link to the procedure for `MTRotator to unlock the locking pin`_
+>>>>>>> b53a88b (link added:MTRotator to unlock the locking pin)
 
 
 .. _MTRot-PXI-Controller-Reboot-Prerequisites:
