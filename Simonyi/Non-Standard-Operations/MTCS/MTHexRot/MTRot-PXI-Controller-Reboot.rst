@@ -67,7 +67,6 @@ one:
 	**Always check that the pin is securely in the unlocked position.** 
 
 	The rotator (and the hexapod) controller will automatically clear the cached interlock fault once the physical interlock signal is no longer present.
-    
     Link to the procedure for `MTRotator to unlock the locking pin`_
 
 .. _MTRot-PXI-Controller-Reboot-Prerequisites:
