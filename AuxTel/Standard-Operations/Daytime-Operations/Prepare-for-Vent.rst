@@ -8,7 +8,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *isotuela*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Kristopher Mortensen, Kate Napier, Alysha Shugart*
+.. |contributors| replace:: *Kristopher Mortensen, Kate Napier, Alysha Shugart, Erik Dennihy*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -100,6 +100,10 @@ Procedure Steps
        * Disable AOS open loop corrections. 
        * Slew dome to face opposite the Sun; az = Sun's azimuth - 180 deg.
        * Partially opens the dome to allow consistent air flow.
+       * Check the average wind speed over the last 10 minutes.
+       * If the average wind speed is below 10 m/s, open Vent Gate 3 and turn the extraction fan on to 20% speed.
+       * Continuously monitor the wind speed. If it exceeds 10 m/s, it will close the vent gate and turn of the extraction fan.
+       * When the script is terminated or completes, it will turn the extraction fan off and close the vent gate.
 
    .. note::
      The ``auxtel/prepare_for/vent.py`` script will keep running until the Sun's elevation is 0 degrees above the horizon, 
@@ -110,8 +114,10 @@ Procedure Steps
 
      ``auxtel/prepare_for/vent.py`` script running until observer manually stops it or the Sun reaches 5 deg above horizon. 
 
-#. If the wind speed is below 10 m/s, manually open **only** vent gate #3 using the switch and turn on the extraction fan to **20-25Hz**. 
-   If wind speed is above or close to 10 m/s, keep vent gates closed and extraction fan off. 
+#. If the average wind speed is below 10 m/s, the script will automatically open the vent gate and turn on the extraction fan to 20%. 
+   If the average wind speed is above 10 m/s, the script will NOT open vent gates closed or turn the extraction fan on.
+   If the average wind speed exceeds 10 m/s while the script is running, it will turn the extraction fan off and close the vent gate, 
+   and will NOT attempt to re-open them. 
 
    .. figure:: ./_static/PrepareforVent_AuxTel_VentGate3andFan.png
       :name: Dome Vent Gate 3 and Extraction Fan 
