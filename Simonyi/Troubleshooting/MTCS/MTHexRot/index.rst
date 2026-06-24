@@ -9,4 +9,4 @@ MTHexapods and MTRotator
     :titlesonly:
     :glob:
     
-    MTRotator-Recovery/index.rst
+    *
