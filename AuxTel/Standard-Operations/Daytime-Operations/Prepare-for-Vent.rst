@@ -8,7 +8,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *isotuela*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Kristopher Mortensen, Kate Napier, Alysha Shugart*
+.. |contributors| replace:: *Kristopher Mortensen, Kate Napier, Alysha Shugart, Erik Dennihy*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -19,7 +19,7 @@
 .. An error will alert you of identical labels during the build process.
 
 ################
-Prepare for vent
+Prepare for Vent
 ################
 
 .. _Prepare-for-vent-Overview:
@@ -35,7 +35,7 @@ This way, the local thermal imbalances in the air inside the dome, that could de
 In a typical observing night, observers must start venting in the afternoon following the execution of :ref:`daytime checkout <AuxTel-DayTime-Operations-Daytime-Checkout>` and 
 :ref:`calibrations <AuxTel-Daytime-Operations-LATISS-Combined-Calibrations-Generation-Procedure>`, when applicable.  
 
-Once the Sun's elevation above horizon is below 25 degrees, please proceed to :ref:`prepare for on-sky operations <AuxTel-Nighttime-Operations-Open-for-On-Sky-Operations>`. 
+Once the Sun's elevation above horizon drops below 25 degrees, please proceed to :ref:`prepare for on-sky operations <AuxTel-Nighttime-Operations-Open-for-On-Sky-Operations>`. 
 The Sun's coordinates at any given time, along with several other useful ephemeris, can be found at the :ref:`sky almanac <Visualization-and-Monitoring-Tools-Sky-Almanac>`.
 
 .. _Prepare-for-vent-Precondition:
@@ -58,11 +58,9 @@ Precondition
 Post-Condition
 ==============
 
-- Telescope is venting. 
-
-  The ``auxtel/prepare_for/vent.py`` script will run until the Sun's elevation is 5 degrees above the horizon, if there's no operator interaction prior to that. 
+- Telescope is venting. The ``auxtel/prepare_for/vent.py`` script will run until the Sun's elevation is 0 degrees above the horizon, if there's no operator interaction prior to that. 
   
-  Once the Sun's elevation is past below 25 degrees above horizon, please :ref:`prepare for on-sky operations <AuxTel-Nighttime-Operations-Open-for-On-Sky-Operations>`. 
+- Once the Sun's elevation is less than 25 degrees above the horizon, please :ref:`prepare for on-sky operations <AuxTel-Nighttime-Operations-Open-for-On-Sky-Operations>`. 
 
 .. _Prepare-for-vent-Procedure-Steps:
 
@@ -100,6 +98,10 @@ Procedure Steps
        * Disable AOS open loop corrections. 
        * Slew dome to face opposite the Sun; az = Sun's azimuth - 180 deg.
        * Partially opens the dome to allow consistent air flow.
+       * Check the average wind speed over the last 10 minutes.
+       * If the average wind speed is below 10 m/s, open Vent Gate 3 and turn the extraction fan on to 20% speed.
+       * Continuously monitor the wind speed. If it exceeds 10 m/s, it will close the vent gate and turn of the extraction fan.
+       * When the script is terminated or completes, it will turn the extraction fan off and close the vent gate.
 
    .. note::
      The ``auxtel/prepare_for/vent.py`` script will keep running until the Sun's elevation is 0 degrees above the horizon, 
@@ -108,15 +110,21 @@ Procedure Steps
    .. figure:: ./_static/PrepareforVent_AuxTel_running.png
      :name: script prepareforonsky_AuxTel running
 
-     ``auxtel/prepare_for/vent.py`` script running until observer manually stops it or the Sun reaches 5 deg above horizon. 
+     ``auxtel/prepare_for/vent.py`` script running until observer manually stops it or the Sun reaches 0 deg above horizon. 
 
-#. If the wind speed is below 10 m/s, manually open **only** vent gate #3 using the switch and turn on the extraction fan to **20-25Hz**. 
-   If wind speed is above or close to 10 m/s, keep vent gates closed and extraction fan off. 
+#. Monitor the state of the Vent Gate 3 and its extraction fault using the 
+   `ATBuilding Chronograf Dashboard <https://summit-lsp.lsst.codes/chronograf/sources/1/dashboards/462?refresh=Paused&lower=now%28%29%20-%2024h>`_.
 
-   .. figure:: ./_static/PrepareforVent_AuxTel_VentGate3andFan.png
-      :name: Dome Vent Gate 3 and Extraction Fan 
+   - If the average wind speed is **below 10 m/s**, the script will automatically open the vent gate and turn on the extraction fan to 20%. 
+   - If the average wind speed is **above 10 m/s**, the script will NOT open vent gates closed or turn the extraction fan on.
+   - If the average wind speed **exceeds 10 m/s** *while the script is running*, it will turn the extraction fan off and close the vent gate. 
+     The script will *NOT* attempt to re-open them.
 
-      AuxTel dome vent gate #3 and extraction fan with its controller located at the dome pier. 
+   .. note::
+
+    Should observers need to override the current state of Vent Gate 3 and its extraction fan, 
+    navigate to the :ref:`Vent-Gate-Extraction-Fan-Operation-Activate` procedure.
+    The page provides non-standard instructions to open/close Vent Gate 3 and power on/off the extraction fan.
 
 #. Visually confirm in `LOVE displays <http://love01.cp.lsst.org/uif/view?id=68>`__ that the system is venting. 
         

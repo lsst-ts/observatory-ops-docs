@@ -8,7 +8,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *isotuela*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Gonzalo Aravena*
+.. |contributors| replace:: *Gonzalo Aravena, Erik Dennihy*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -38,7 +38,7 @@ The Sun's coordinates at any given time, along with several other useful ephemer
 .. _Open-for-On-Sky-Operations-Precondition:
 
 Precondition
-=============
+============
 
 * Before deciding to open, review the weather conditions and :ref:`weather constraints <auxtel-weather-constraints-deciding-to-open>` page.
 
@@ -66,7 +66,8 @@ Procedure Steps
 ===============
 #. Review :ref:`preconditions <Open-for-On-Sky-Operations-Precondition>` and confirm they have been executed. 
 
-#. Announce in the #summit-announce and #summit-auxtel Slack channel that AuxTel is preparing to go on-sky. 
+#. Announce in the `#summit-announce <https://rubin-obs.slack.com/archives/C07QCJ7F962>`_ and `#summit-auxtel <https://rubin-obs.slack.com/archives/C07Q45NUK4P>`_ 
+   Slack channel that AuxTel is preparing to go on-sky. 
 
 #. Command the telescope and dome to prepare for on-sky observations. 
 
@@ -74,7 +75,7 @@ Procedure Steps
    The script will then be added to the script queue. 
    
    .. note::
-     If the ``auxtel/prepare_for/vent.py`` script is still running, the queue will run ``auxtel/prepare_for/onsky.py`` once venting is done, around 20 minutes before sunset.  
+     If the ``auxtel/prepare_for/vent.py`` script is still running, the queue will run ``auxtel/prepare_for/onsky.py`` once venting is done, which is right at sunset.  
 
    In the ``Configuring script:onsky`` screen that pops up, leave the ``CONFIG`` box empty. 
    Make sure there are no spaces in the ``CONFIG`` box, as this may prevent the script from configuring and loading correctly.
@@ -86,6 +87,8 @@ Procedure Steps
 
    The script includes the following steps:
 
+       * Take 3 bias exposures with LATISS to clear any residual accumulated charge.
+       * If the vent gates are open, it will close them and turn the extraction fan off. 
        * Slew telescope to az = 90 and el = 80, where it is least likely to be hit by the Sun. 
        * If primary mirror cover is open, the script will now close it. 
          This will protect the mirror and avoid particles and dust falling on it when the dome shutter opens.
@@ -95,7 +98,15 @@ Procedure Steps
        * Activate AOS open loop corrections.
        * Enable dome following. 
 
-#. If the wind speed is below 8 m/s, open vent gate #3 and set the extractor fan to 20 Hz via :ref:`ATBuilding CSC <support-and-monitoring>`. If the wind speed is at or above 8 m/s, keep the vent gate closed and the extractor fan off.
+#. Visually confirm Vent Gate 3 is closed and its extraction fault is off using the 
+   `ATBuilding Chronograf Dashboard <https://summit-lsp.lsst.codes/chronograf/sources/1/dashboards/462?refresh=Paused&lower=now%28%29%20-%2024h>`_.
+
+   .. note::
+
+    Should observers need to override the current state of Vent Gate 3 and its extraction fan, 
+    navigate to the :ref:`Vent-Gate-Extraction-Fan-Operation-Activate` procedure.
+    The page provides non-standard instructions to open/close Vent Gate 3 and power on/off the extraction fan.
+
 
 #. Visually confirm in `LOVE displays <http://love01.cp.lsst.org/uif/view?id=68>`__:
 
