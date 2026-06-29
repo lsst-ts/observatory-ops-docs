@@ -68,7 +68,9 @@ ignore = [
     'https://docushare.lsstcorp.org/',
     'https://www.gemini.edu/observing/telescopes-and-sites/sites/cloud-cameras/gemini-south-all-sky-camera',
     'https://docutils.sourceforge.io/',
-    'https://www.sourcetreeapp.com/*'
+    'https://www.sourcetreeapp.com/*',
+    'https://lsst-daorg.slack.com/',
+    'https://lsstc.slack.com'
 
 ]
 
