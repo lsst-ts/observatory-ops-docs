@@ -78,7 +78,7 @@ The following steps provide a guideline for how to prepare your local computer t
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
-   :widths: 5 40 55
+   :widths: 5 50 45
 
    * - 
      - Steps
@@ -117,6 +117,10 @@ The following steps provide a guideline for how to prepare your local computer t
          >> pip install --upgrade pip  
          >> pip install -r requirements.txt
 
+       .. warning::
+
+        The Python version must be version 3.10 or later.
+
    * - 5.
      -  **Install** `SourceTree <https://www.sourcetreeapp.com/>`_.
      - | This program helps **visualize** the repository tree **interact** with local and remote branches. To open the repository, select: 
@@ -146,37 +150,39 @@ This workflow should help either start a new Jira ticket or to continue with a p
        .. admonition:: Jira Ticket Layout
          :class: hint
 
-         | **Project:** SITCOM Work Management
-         | **Issue Type:** Story
-         | **Component:** SIT-Com Organizational Support
-         | **Labels:** documentation
-         | **Assignee:** The person that's going to write it (you or someone else).
-         | **Reviewer:** Subsystem specialist/manager or one of the other members from the OS team.
-         | **Start and End Date:** Estimate time interval.
-         * Add links to pages if applicable.
+         |  **Project:** Rubin Summit Operations
+         |  **Work Type:** Story
+         |  **Component:** Choose the appropiate *OBS System*, *Sub-System*, and *Component*.
+         |  **Assignee:** The person that's going to write it (you or someone else).
+         |  **Reviewer:** Subsystem specialist/manager or one of the other members from the OS team.
+         |  **Priority** and  **Start/End Dates:** Estimate time of completion based on *ticket priority*,
+           
+         1. *High Priority* -- One Week
+         2. *Medium Priority* -- One Month
+         3. *Low Priority* -- Two or Three Months
+
+         |  *NOTE:* Add links to pages if applicable.
    * - 2.
      - Remember the ticket number and **update your progress** on the ticket.
      - 
-       * The new Jira Ticket will have a unique 4-number identifier (e.g., **SITCOM-1811**).
-       * | Once you start working, move ticket from: 
-         | :guilabel:`To-Do` :math:`\Rightarrow` :guilabel:`In Progress`
+       * The new Jira Ticket will have a unique 4-number identifier (e.g., **RSO-505**).
+       * | Once you are ready to start working, move ticket from: 
+         | :guilabel:`Proposed` :math:`\Rightarrow` :guilabel:`To-Do` :math:`\Rightarrow` :guilabel:`In Progress`
    * - 3.
      - **Set up** the necessary tools for editing documentation.
      - 
-       * Open VSCode and access the cloned repository to have a visual to its structure and edit the files.
-       * Open SourceTree and access the cloned repo to have a visual of the branch structure.
-       * Open a terminal on your laptop and enter the folder of the cloned repository:
+       *  Open VSCode and access the cloned repository to have a visual to its structure and edit the files.
+       *  Open SourceTree and access the cloned repo to have a visual of the branch structure.
+       *  Open a terminal on your laptop and enter the folder of the cloned repository:
 
-       In your terminal:
+          .. code-block:: bash
 
-       .. code-block:: bash
+            # Navigate to the folder:
+            >> cd /path/to/observatory-ops-docs
 
-        # Navigate to the folder:
-        >> cd /path/to/observatory-ops-docs
-
-        # Check that you are in correct folder:
-        >> pwd
-           /path/to/observatory-ops-docs
+            # Check that you are in correct folder:
+            >> pwd
+              /path/to/observatory-ops-docs
    * - 4.
      - **Initialize** your local directory and **check your connection** to the obs-ops-docs repository.
      - In your terminal:
@@ -216,11 +222,11 @@ This workflow should help either start a new Jira ticket or to continue with a p
          >> git fetch --all
          >> git pull
 
-         # Create ticket branch (e.g., SITCOM-1811)
-         >> git branch tickets/SITCOM-1811
+         # Create ticket branch (e.g., RSO-505)
+         >> git branch tickets/RSO-505
 
          # Move to ticket branch:
-         >> git checkout tickets/SITCOM-1811
+         >> git checkout tickets/RSO-505
 
        .. note::
          If you are continuing previous work:
@@ -304,7 +310,7 @@ This workflow should help either start a new Jira ticket or to continue with a p
        .. code-block:: bash
 
           # Pushing for the first time:
-          >> git push --set-upstream origin tickets/SITCOM-1811
+          >> git push -u origin tickets/RSO-505
 
           # Successive pushes are simply:
           >> git push
@@ -345,7 +351,7 @@ The following steps will guide you through creating and managing a pull request 
     - Notes & Configurations
   * - 1.
     - | **Navigate to obs-ops GitHub** main page, and in the :guilabel:`branch` menu, choose the branch with your commits (e.g., 
-      | :guilabel:`tickets/SITCOM-1811`).
+      | :guilabel:`tickets/RSO-505`).
     - 
      .. image:: _static/Obs-Ops-GitHub-Main.png
       :width: 100%
@@ -356,27 +362,30 @@ The following steps will guide you through creating and managing a pull request 
      | :guilabel:`Compare & pull request`:
 
      .. image:: _static/pull-request-compare-pull-request.png
-      :width: 125%
+      :width: 150%
 
      | If there is no banner, you can create a new pull request on Github by selecting 
      | :guilabel:`Pull requests` :math:`\Rightarrow` :guilabel:`New pull request`:
 
      .. image:: _static/create-pull-request.png
-      :width: 125%
+      :width: 150%
   * - 3.
     - Use the :guilabel:`base` branch dropdown menu to **select the main branch** you'd like to merge your changes into, then use the 
       :guilabel:`compare` branch drop-down menu to **select the ticket branch** where you made your changes.
-    - 
-     .. image:: _static/Compare-changes.png
-      :width: 100%
 
-     | :guilabel:`base` :math:`\Rightarrow` :guilabel:`main`
-     | :guilabel:`compare` :math:`\Rightarrow` :guilabel:`tickets/SITCOM-1811`
+      Once branches are selected, click on :guilabel:`Create pull request`.
+    - | Select: 
+      | :guilabel:`base` :math:`\Rightarrow` :guilabel:`main`
+      | :guilabel:`compare` :math:`\Rightarrow` :guilabel:`tickets/RSO-505`
+
+      .. image:: _static/Compare-changes.png
+        :width: 150%
+
 
   * - 4.
     - **Add a title and description** for your pull request and **include reviewers**.
     - 
-       * **Title** should be the Jira ticket number: *"Tickets/SITCOM-1811''*.
+       * **Title** should be the Jira ticket number: *"tickets/RSO-505''*.
        * **Description** should *summarize all of the commits* that have been pushed onto the ticket branch.
        * | To **add reviewers**, click on the 
          | :guilabel:`Reviewers` tab to the right side of the pull request page, and 
@@ -387,13 +396,15 @@ The following steps will guide you through creating and managing a pull request 
     - Click :guilabel:`Create Pull Request` to **begin review process**.
     - 
      * | Move your Jira ticket from: 
-       | :guilabel:`In Progress` :math:`\Rightarrow` :guilabel:`In Review`.
+       | :guilabel:`In Progress` :math:`\Rightarrow` :guilabel:`Technical Review`.
+     * | When first reviews are finished:
+       | :guilabel:`Tech Reviewed` :math:`\Rightarrow` :guilabel:`Editorial Review`
   * - 6.
     - | Once comments are given, **fix corrections** using the 
       | :ref:`Jira-and-Git-Workflow` steps. When the reviewers approve of the Pull Request, **proceed** to the :ref:`Contributing-Merge-PR` steps.
     - 
      * | Move your Jira ticket from: 
-       | :guilabel:`In Review` :math:`\Rightarrow` :guilabel:`Reviewed`.
+       | :guilabel:`Editorial Review` :math:`\Rightarrow` :guilabel:`Reviewed`.
 
      .. note:: 
        After you have opened your pull request, **you can continue making changes to files** by adding new commits 
@@ -430,7 +441,7 @@ that were created into a single commit, and merge our branch into the main proje
 
         # Rebase main branch so that
         # ticket branch is leading:
-        >> git checkout tickets/SITCOM-1811
+        >> git checkout tickets/RSO-505
         >> git rebase origin/main
 
         # FORCE push the changes into your
@@ -476,7 +487,7 @@ that were created into a single commit, and merge our branch into the main proje
 
         # Merge the head branch into the 
         # base branch safely and preserve history.
-        >> git merge tickets/SITCOM-1811 --no-ff
+        >> git merge tickets/RSO-505 --no-ff
 
         # Push the changes.
         >> git push -u origin main
@@ -497,7 +508,7 @@ that were created into a single commit, and merge our branch into the main proje
         >> git pull
 
         # (Optional) to prune a local branch:
-        >> git branch -d tickets/SITCOM-1811
+        >> git branch -d tickets/RSO-505
 
 .. _Contributing-Doc-Style-Guide:
 
