@@ -179,15 +179,17 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/`
    * - Command
      - SAL Script
      - Script Configuration
-   * - Turning on compensation mode
-     - | :file:`enable_hexapod_compensation_mode.py`
-       | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/enable_hexapod_compensation_mode.py>`__)
+   * - Enable/Disable Compensation Mode
+     - | :file:`enable_hexapod_compensation_mode.py` [`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/enable_hexapod_compensation_mode.py>`__]
        | :file:`disable_hexapod_compensation_mode.py`
        |
        | Default config applies to both hexapods:
-       |
-       | ``components: ["M2Hexapod", "CameraHexapod"]``
-     - | For M2 Hexapod only:
+
+       .. code-block:: python
+        
+        components: ["M2Hexapod", "CameraHexapod"]
+
+     - For M2 Hexapod only:
 
        .. code-block:: python
           :caption: enable_hexapod_compensation_mode.py
@@ -195,24 +197,25 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/`
           components:
             - M2Hexapod
 
-       | For Camera Hexapod only:
+       For Camera Hexapod only:
 
        .. code-block:: python
 
           components:
             - CameraHexapod
 
-   * - Resetting M2 Hexapod (MTHexapod:2) or Camera Hexapod (MTHexapod:1) to a zero position
+   * - Reset M2/Camera Hexapod Positions
      - | ``run_command.py``
        |
        | For Camera Hexapod use ``component: MTHexapod:1``
        | For M2 Hexapod use ``component: MTHexapod:2``
-     - | .. code-block:: python
-          :caption: run_command.py
+     - 
+       .. code-block:: python
+        :caption: run_command.py
 
-          component: MTHexapod:2
-          cmd: move
-          parameters:
+        component: MTHexapod:2
+        cmd: move
+        parameters:
             x: 0
             y: 0
             z: 0
@@ -222,20 +225,11 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/`
 
        | **x, y, z** position in **microns** and **u, v, w** rotation in **degrees**.
 
-   * - Offset Camera Hexapod / Offset M2 Hexapod
+   * - Offset M2/Camera Hexapods
      - | :file:`offset_camera_hexapod.py`
        | :file:`offset_m2_hexapod.py`
        |
-       | Same schema for both SAL scripts.
-       | Properties:
-       |
-       | ``x:``
-       | ``y:``
-       | ``z:``
-       | ``u:``
-       | ``v:``
-       | ``reset_axes: false``
-       |
+       | **Properties:** ``x``, ``y``, ``z``, ``u``, ``v``, and ``reset_axes``.
        | **x, y, z** position in **microns** and **u, v** rotation in **degrees**.
      - | Reset the positions before applying offsets in x, z and u axes:
 
@@ -259,26 +253,27 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/`
 
           reset_axes: ["x", "z", "u"]
 
-   * - Enable Hexapods with new Configuration
+   * - Change Hexapod YAML Configuration
      - ``set_summary_state.py``
-     - | .. code-block:: python
-          :caption: set_summary_state.py
+     - 
+       .. code-block:: python
+        :caption: set_summary_state.py
 
-          data:
-            -
-              - MTHexapod:1
-              - Standby
-            -
-              - MTHexapod:1
-              - Enabled
-              - laser_rotation_elevation_v18.yaml
-            -
-              - MTHexapod:2
-              - Standby
-            -
-              - MTHexapod:2
-              - Enabled
-              - laser_rotation_elevation_v18.yaml
+        data:
+          -
+            - MTHexapod:1
+            - Standby
+          -
+            - MTHexapod:1
+            - Enabled
+            - laser_rotation_elevation_v18.yaml
+          -
+            - MTHexapod:2
+            - Standby
+          -
+            - MTHexapod:2
+            - Enabled
+            - laser_rotation_elevation_v18.yaml
 
 
 .. _Simonyi-SAL-Scripts-MTRotator:
