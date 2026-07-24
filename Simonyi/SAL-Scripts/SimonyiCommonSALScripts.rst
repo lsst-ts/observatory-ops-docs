@@ -127,26 +127,29 @@ MTM2
 Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/m2`
 
 .. list-table::
-   :widths: 20 40 40
+   :widths: 40 30 30
    :header-rows: 1
 
    * - Command
      - SAL Script
      - Script Configuration
-   * - Enable/disable M2 closed-loop
+   * - Enable/Disable M2 Closed-Loop
      - | :file:`/enable_m2_closed_loop.py`
-       | :file:`/m2/disable_m2_closed_loop.py`
+       | :file:`/disable_m2_closed_loop.py`
      - No configuration
-   * - Perform a M2 bump test on either a selection of individual actuators or on all axial actuators
+   * - M2 Bump Test Any/All Actuators
      - | :file:`/check_actuators.py`
        |
        | Default config:
-       |
-       | ``actuators: all``
-       | ``ignore_actuators: []``
-       | ``period: 60``
-       | ``force: 10``
-     - | Write specific actuators in an array to bump test only those:
+       
+       .. code-block:: python
+        
+        actuators: all
+        ignore_actuators: []
+        period: 60
+        force: 10
+
+     - Write specific actuators in an array to bump test only those:
 
        .. code-block:: python
           :caption: check_actuators.py
@@ -155,7 +158,7 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/m
           period: 5
           force: 10
 
-       | Or ignore certain actuators:
+       Or ignore certain actuators:
 
        .. code-block:: python
 
