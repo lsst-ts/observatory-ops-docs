@@ -290,17 +290,17 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/m
    * - Command
      - SAL Script
      - Script Configuration
-   * - Move rotator to specific angle
-     - | :file:`/move_rotator.py`
-       | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/mtrotator/move_rotator.py>`__)
+   * - Move Rotator Angle
+     - | :file:`/move_rotator.py` (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/mtrotator/move_rotator.py>`__)
        |
-       | ``angle`` range [-89, +89]
-     - | .. code-block:: python
-          :caption: move_rotator.py
+       | ``angle`` range: [-89, +89] degrees.
+     - 
+       .. code-block:: python
+        :caption: move_rotator.py
 
-          angle: -45
+        angle: -45
 
-   * - Stop rotator
+   * - Stop Rotator
      - :file:`stop_rotator.py`
      - No configuration
 
