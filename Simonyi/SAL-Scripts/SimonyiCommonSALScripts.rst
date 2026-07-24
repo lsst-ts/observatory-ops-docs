@@ -23,7 +23,7 @@ The tables contain the following information:
 - The script name to search for in the ScriptQueue as well as a link to its
   GitHub documentation.
 - Examples of common SAL script and/or ``run_command.py`` configurations.
-  Scripts that require empty configurations are labeled as "No configuration."
+  Scripts that require empty configurations are labeled as "No Configuration.."
 
 
 .. _Simonyi-SAL-Scripts-MTM1M3:
@@ -43,7 +43,7 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/m
    * - Raise/Lower M1M3
      - | :file:`/raise_m1m3.py` [`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/m1m3/raise_m1m3.py>`__]
        | :file:`/lower_m1m3.py`
-     - No configuration
+     - No Configuration.
    * - Slew Flags
      - :file:`/enable_m1m3_slew_controller_flags.py`
      - Default Configuration:
@@ -59,7 +59,7 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/m
    * - Enable/Disable Force Balance System
      - | :file:`/enable_m1m3_balance_system.py`
        | :file:`/disable_m1m3_balance_system.py`
-     - No configuration
+     - No Configuration.
    * - Check M1M3 Hardpoint Breakaway
      - | :file:`/check_hardpoint.py`
        |
@@ -136,7 +136,7 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/m
    * - Enable/Disable M2 Closed-Loop
      - | :file:`/enable_m2_closed_loop.py`
        | :file:`/disable_m2_closed_loop.py`
-     - No configuration
+     - No Configuration.
    * - M2 Bump Test Any/All Actuators
      - | :file:`/check_actuators.py`
        |
@@ -302,7 +302,7 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/m
 
    * - Stop Rotator
      - :file:`stop_rotator.py`
-     - No configuration
+     - No Configuration.
 
 
 .. _Simonyi-SAL-Scripts-MTMount:
@@ -314,39 +314,42 @@ MTMount
 | Path 2 (p2): :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/mtmount`
 
 .. list-table::
-   :widths: 20 40 40
+   :widths: 20 50 30
    :header-rows: 1
 
    * - Command
      - SAL Script
      - Script Configuration
-   * - Home TMA axes
-     - | :file:`{p1}/home_both_axes.py`
-       | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/home_both_axes.py>`__)
+   * - Home TMA Axes
+     - :file:`{p1}/home_both_axes.py` [`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/home_both_axes.py>`__]
+       
+       | Requires MTDome CSC in ``ENABLED`` or ``DISABLED``.
        |
-       | Requires MTDome to be ``ENABLED`` or ``DISABLED``.
        | Enables **M1M3 force balance system** and M2Hex and Cam Hex **compensation mode**.
+       |
        | Offers the option to move to another position and home again.
-     - | .. code-block:: python
-          :caption: home_both_axes.py
+     - 
+       .. code-block:: python
+        :caption: home_both_axes.py
 
-          final_home_position:
-            az: 1
-            el: 46
+        final_home_position:
+          az: 1
+          el: 46
 
-       | The position (Az:1, El 46) was chosen to be run every time we home the axes,
-       | to avoid offsets inconsistency when homing at different positions.
+       The position (Az: 1, El: 46) was chosen to be run every time we home the axes, 
+       to avoid offsets inconsistency when homing at different positions.
 
-   * - Move TMA point to point
-     - | :file:`{p1}/move_p2p.py`
-       | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/move_p2p.py>`__)
+   * - Move TMA Point-to-Point
+     - | :file:`{p1}/move_p2p.py` [`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/move_p2p.py>`__]
        |
        | Default config:
-       | ``pause_for: 0``
-       | ``move_timeout: 120.0``
-       |
-       | If slewing to more than one target, use an array and the ``pause_for`` function.
-     - | Az [deg] / El [deg]:
+
+       .. code-block:: python
+        
+        pause_for: 0
+        move_timeout: 120.0
+       
+     - Select a single point in Az (deg), El (deg) or in RA (hrs), Dec (deg):
 
        .. code-block:: python
           :caption: move_p2p.py
@@ -354,59 +357,69 @@ MTMount
           az: 70
           el: 70
 
-       | Example for arrays:
-
-       .. code-block:: python
-
-          az: [70, 90, 110]
-          el: [70, 70, 70]
-
-       | Or RA [hrs] / Dec [deg]:
-
        .. code-block:: python
 
           ra: 4.59867
           dec: 16.5092
 
-       | Array (sexagesimal as strings):
+       If slewing to more than one target, use an array and the ``pause_for`` function.
+
+       .. code-block:: python
+
+          az: [70, 90, 110]
+          el: [70, 70, 70]
+          pause_for: 30
 
        .. code-block:: python
 
           ra: [4.59867, 20.2, "12:20:56.5"]
           dec: [16.5092, 10.1, "-13:34:04.5"]
+          pause_for: 15
 
-   * - Point AzEl
-     - | :file:`{p1}/point_azel.py`
-       | (`base code <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/base_point_azel.py>`__)
-       |
-       | Default config:
-       | ``rot_tel: 0.0``
-       | ``target_name: "AzEl"``
-       | ``wait_dome: false``
-       | ``slew_timeout: 240.0``
-     - | .. code-block:: python
-          :caption: point_azel.py
+       .. note::
+        
+        For (RA, Dec) arrays, sexagesimals may be added as strings.
 
-          az: 80
-          el: 80
+   * - Point (Az, El)
+     - | :file:`{p1}/point_azel.py` [`code <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/base_point_azel.py>`__]
+       |
+       | Default Config:
 
-   * - Track a target
-     - | :file:`{p1}/track_target.py`
-       | (`base code <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/base_track_target.py>`__)
-       |
-       | Default config:
-       | ``offset: {x: 0, y: 0}``
-       | ``differential_tracking: {dra: 0.0, ddec: 0.0}``
-       | ``rot_type: "SkyAuto"``
-       | ``rot_value: 0``
-       | ``track_for: 0``
-       | ``stop_when_done: false``
-       | ``az_wrap_strategy: "OPTIMIZE"``
-       | ``slew_timeout: 240``
-       |
-       | `rot_type options <https://github.com/lsst-ts/ts_standardscripts/blob/3e27256466ac0b4dc0c3b7fa66c88304225d301a/python/lsst/ts/standardscripts/base_track_target.py#L230>`__
-       | `az_wrap_strategy options <https://github.com/lsst-ts/ts_standardscripts/blob/3e27256466ac0b4dc0c3b7fa66c88304225d301a/python/lsst/ts/standardscripts/base_track_target.py#L270>`__
-     - | Slew and track ICRS RaDec coordinates.
+       .. code-block:: python
+        
+        rot_tel: 0.0
+        target_name: "AzEl"
+        wait_dome: false
+        slew_timeout: 240.0
+
+     - 
+       .. code-block:: python
+        :caption: point_azel.py
+
+        az: 80
+        el: 80
+
+   * - Track Target
+     - :file:`{p1}/track_target.py` [`code <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/base_track_target.py>`__]
+       
+       * `rot_type Options <https://github.com/lsst-ts/ts_standardscripts/blob/3e27256466ac0b4dc0c3b7fa66c88304225d301a/python/lsst/ts/standardscripts/base_track_target.py#L230>`__
+       * `az_wrap_strategy Options <https://github.com/lsst-ts/ts_standardscripts/blob/3e27256466ac0b4dc0c3b7fa66c88304225d301a/python/lsst/ts/standardscripts/base_track_target.py#L270>`__
+
+       | Default Config:
+       
+       .. code-block:: python
+        
+        offset: {x: 0, y: 0}``
+        differential_tracking: {dra: 0.0, ddec: 0.0}``
+        rot_type: "SkyAuto"
+        rot_value: 0
+        track_for: 0
+        stop_when_done: false
+        az_wrap_strategy: "OPTIMIZE"
+        slew_timeout: 240
+       
+       
+     - | Slew and track ICRS RA, Dec coordinates.
        | RA in hours (0, 24), DEC in degrees (-90, +90):
 
        .. code-block:: python
@@ -416,7 +429,7 @@ MTMount
             ra: 20.2
             dec: 10.1
 
-       | RA, DEC in sexagesimal (as strings):
+       | RA, DEC in sexagesimals (as strings):
 
        .. code-block:: python
 
@@ -424,7 +437,7 @@ MTMount
             ra: "12:20:56.5"
             dec: "-13:34:04.5"
 
-       | Slew to AzEl and start tracking:
+       | Slew to Az, El and start tracking:
 
        .. code-block:: python
 
@@ -447,47 +460,55 @@ MTMount
             el: 25
             mag_limit: 8
 
-   * - Stop telescope tracking
-     - | :file:`{p1}/stop_tracking.py`
-       | (`base code <https://github.com/lsst-ts/ts_standardscripts/blob/3e27256466ac0b4dc0c3b7fa66c88304225d301a/python/lsst/ts/standardscripts/base_stop_tracking.py>`__)
-     - No configuration
-   * - Mirror cover operations
-     - | :file:`{p1}/close_mirror_covers.py`
-       | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/close_mirror_covers.py>`__)
-       | :file:`{p1}/open_mirror_covers.py`
-       | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/open_mirror_covers.py>`__)
-       |
-       | If El < 20°, script moves TMA to El 20°.
-       | Close (deploy) OR open (retract) the mirror covers.
-       | Lock M1M3 mirror covers.
-     - No configuration
-   * - Change the performance setting for the TMA
-     - | ``run_command.py``
-       |
-       | Remember to restore to default, as the settings are cumulative.
-     - | .. code-block:: python
-          :caption: run_command.py
+   * - Stop Telescope Tracking
+     - | :file:`{p1}/stop_tracking.py` [`code <https://github.com/lsst-ts/ts_standardscripts/blob/3e27256466ac0b4dc0c3b7fa66c88304225d301a/python/lsst/ts/standardscripts/base_stop_tracking.py>`__]
+     - No Configuration.
+   * - Open/Close Mirror Covers
+     - | :file:`{p1}/open_mirror_covers.py` [`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/open_mirror_covers.py>`__]
+       | :file:`{p1}/close_mirror_covers.py` [`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/close_mirror_covers.py>`__]
 
-          cmd: applySettingsSet
-          component: MTMount
-          parameters:
-            restoreDefaults: true
-            settings: 10percentperformance
-
-   * - Restore to TMA default settings
+       * If El < 20°, script moves TMA to El 20°.
+       * Closes (deploys) OR opens (retracts) the mirror covers.
+       * Lock M1M3 mirror covers.
+     - No Configuration.
+   * - Change TMA Performance Settings
      - ``run_command.py``
-     - | .. code-block:: python
-          :caption: run_command.py
+     
+       .. note:: 
+        
+        Remember to restore to default, as the settings are cumulative.
 
-          cmd: restoreDefaultSettings
-          component: MTMount
+     - 
+       .. code-block:: python
+        :caption: run_command.py
 
-   * - Unpark mount
+        cmd: applySettingsSet
+        component: MTMount
+        parameters:
+          restoreDefaults: true
+          settings: 10percentperformance
+
+   * - Restore TMA to Default Settings
+     - ``run_command.py``
+     - 
+       .. code-block:: python
+        :caption: run_command.py
+
+        component: MTMount
+        cmd: restoreDefaultSettings
+
+   * - Unpark Mount
      - :file:`{p2}/unpark_mount.py`
-     - No configuration
-   * - Park mount
+     - No Configuration.
+   * - Park Mount
      - :file:`{p2}/park_mount.py`
-     - In testing. DO NOT use (2026-6-16).
+
+       .. admonition:: DO NOT USE!
+        :class: warning
+
+        Currently in testing (2026-6-16).
+
+     - No Configuration.
 
 
 .. _Simonyi-SAL-Scripts-MTAOS:
@@ -664,7 +685,7 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/m
      - | :file:`/enable_dome_following.py`
        | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/mtdome/enable_dome_following.py>`__)
        | :file:`/disable_dome_following.py`
-     - No configuration
+     - No Configuration.
    * - Offset MTDome in Az
      - | :file:`/offset_dome.py`
        |
@@ -711,7 +732,7 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/m
        | Both scripts have the ``force`` property, useful to bypass errors
        | or conditions (e.g., dome telemetry reports shutters in wrong state,
        | mirror covers lost instead of closed).
-     - | No configuration, but you can ignore certain CSCs:
+     - | No Configuration., but you can ignore certain CSCs:
 
        .. code-block:: python
           :caption: open_dome.py
@@ -805,7 +826,7 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/m
        |
        | Clears a dome controller fault, moves the dome slightly to confirm
        | it works again, and re-enables dome following if successful.
-     - No configuration required
+     - No Configuration. required
    * - Exit Fault/Clear fault in subsystem
      - | ``run_command.py``
        |
@@ -1125,7 +1146,7 @@ MTCalSys
    * -
      - Park the calibration projector
      - :file:`maintel/park_calibration_projector.py`
-     - No configuration
+     - No Configuration.
    * -
      - Setup LEDProjector for White light flats
      - | :file:`maintel/setup_whitelight_flats.py`
@@ -1302,10 +1323,10 @@ Scheduler
 
    * - Start scheduler-driven observations
      - :file:`maintel/scheduler/resume.py`
-     - No configuration
+     - No Configuration.
    * - Stop scheduler-driven observations
      - :file:`maintel/scheduler/stop.py`
-     - No configuration
+     - No Configuration.
    * - Start a testing BLOCK
      - | :file:`maintel/scheduler/add_block.py`
        |
