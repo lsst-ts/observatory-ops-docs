@@ -63,7 +63,7 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/m
    * - Check M1M3 Hardpoint Breakaway
      - | :file:`/check_hardpoint.py`
        |
-       | Default config:
+       | Default Configuration:
        
        .. code-block:: python
         
@@ -79,7 +79,7 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/m
    * - M1M3 Bump Test Any/All Actuators
      - | :file:`/check_actuators.py`
        |
-       | Default config:
+       | Default Configuration:
 
        .. code-block:: python
         
@@ -140,7 +140,7 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/m
    * - M2 Bump Test Any/All Actuators
      - | :file:`/check_actuators.py`
        |
-       | Default config:
+       | Default Configuration:
        
        .. code-block:: python
         
@@ -183,7 +183,7 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/`
      - | :file:`enable_hexapod_compensation_mode.py` [`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/enable_hexapod_compensation_mode.py>`__]
        | :file:`disable_hexapod_compensation_mode.py`
        |
-       | Default config applies to both hexapods:
+       | Default Configuration applies to both hexapods:
 
        .. code-block:: python
         
@@ -342,7 +342,7 @@ MTMount
    * - Move TMA Point-to-Point
      - | :file:`{p1}/move_p2p.py` [`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/move_p2p.py>`__]
        |
-       | Default config:
+       | Default Configuration:
 
        .. code-block:: python
         
@@ -383,7 +383,7 @@ MTMount
    * - Point (Az, El)
      - | :file:`{p1}/point_azel.py` [`code <https://github.com/lsst-ts/ts_standardscripts/blob/develop/python/lsst/ts/standardscripts/base_point_azel.py>`__]
        |
-       | Default Config:
+       | Default Configuration:
 
        .. code-block:: python
         
@@ -405,12 +405,12 @@ MTMount
        * `rot_type Options <https://github.com/lsst-ts/ts_standardscripts/blob/3e27256466ac0b4dc0c3b7fa66c88304225d301a/python/lsst/ts/standardscripts/base_track_target.py#L230>`__
        * `az_wrap_strategy Options <https://github.com/lsst-ts/ts_standardscripts/blob/3e27256466ac0b4dc0c3b7fa66c88304225d301a/python/lsst/ts/standardscripts/base_track_target.py#L270>`__
 
-       | Default Config:
+       | Default Configuration:
        
        .. code-block:: python
         
-        offset: {x: 0, y: 0}``
-        differential_tracking: {dra: 0.0, ddec: 0.0}``
+        offset: {x: 0, y: 0}
+        differential_tracking: {dra: 0.0, ddec: 0.0}
         rot_type: "SkyAuto"
         rot_value: 0
         track_for: 0
@@ -525,54 +525,67 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/`
    * - Command
      - SAL Script
      - Script Configuration
-   * - Issue correction
+   * - Issue MTAOS Correction
      - ``run_command.py``
-     - | .. code-block:: python
-          :caption: run_command.py
+     - 
+       .. code-block:: python
+        :caption: run_command.py
 
-          component: MTAOS
-          cmd: issueCorrection
+        component: MTAOS
+        cmd: issueCorrection
 
-   * - Reset correction
+   * - Reset MTAOS Correction
      - ``run_command.py``
-     - | .. code-block:: python
-          :caption: run_command.py
+     - 
+       .. code-block:: python
+        :caption: run_command.py
 
-          component: MTAOS
-          cmd: resetCorrection
+        component: MTAOS
+        cmd: resetCorrection
 
-   * - Reset Offset DOF
+   * - Reset Applied Offsets to Degrees of Freedom (DOF)
      - ``run_command.py``
-     - | .. code-block:: python
-          :caption: run_command.py
+     - 
+       .. code-block:: python
+        :caption: run_command.py
 
-          component: MTAOS
-          cmd: resetOffsetDOF
+        component: MTAOS
+        cmd: resetOffsetDOF
 
    * - Enable/Disable AOS closed-loop
-     - | :file:`enable_aos_closed_loop.py`
-       | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/enable_aos_closed_loop.py>`__)
-       | :file:`disable_aos_closed_loop.py`
-       | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/disable_aos_closed_loop.py>`__)
-     - | .. code-block:: python
-          :caption: enable_aos_closed_loop.py
+     - | :file:`enable_aos_closed_loop.py` [`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/enable_aos_closed_loop.py>`__]
+       | :file:`disable_aos_closed_loop.py` [`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/disable_aos_closed_loop.py>`__]
+     - Default Configuration:
+       
+       .. code-block:: python
+        :caption: enable_aos_closed_loop.py
+        
+        truncation_index: 12
+        used_dofs: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,30,31,32,33,34]
+       
+       Higher selectivity of DOFs, truncation, zernikes, etc. 
+       can be done, with the approval of the AOS team:
+       
+       .. code-block:: python
 
-          used_dofs: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-          truncation_index: [2]
-          zn_selected: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 20, 21, 22, 27, 28]
+        used_dofs: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        truncation_index: [2]
+        zn_selected: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 20, 21, 22, 27, 28]
 
-   * - Set the absolute state of the telescope DOFs
+   * - Set Telescope DOFs
      - | :file:`set_dof.py`
        |
-       | No default configuration.
-       | To ignore a component:
-       |
-       | ``ignore:``
-       | ``- mtmount``
-       | ``- mthexapod_1``
-       | ``- mthexapod_2``
-       | ``- mtrotator``
-     - | Uses a **previous image**:
+       | To ignore specific components:
+
+       .. code-block:: python
+        
+        ignore:
+          - mtmount
+          - mthexapod_1
+          - mthexapod_2
+          - mtrotator
+
+     - Select DOFs from a **previous image**:
 
        .. code-block:: python
           :caption: set_dof.py
@@ -580,7 +593,7 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/`
           day: 20250630
           seq: 457
 
-       | Apply **individual dofs** (microns or arcsec):
+       Apply **individual DOFs** (microns or arcsec):
 
        .. code-block:: python
 
@@ -590,44 +603,47 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/`
           # Example: M2 hexapod offset in x
           M2_dx: 5
 
-       | Apply **multiple dofs** (50-dimensional vector):
-       | [0-4]: M2 Rigid Body Motions
-       | [5-9]: Camera Rigid Body Motions
-       | [10-29]: M1M3 Bending Modes
-       | [30-49]: M2 Bending Modes
+       Apply **multiple DOFs** (50-dimensional vector):
+       
+       * [0-4]: M2 Rigid Body Motions
+       * [5-9]: Camera Rigid Body Motions
+       * [10-29]: M1M3 Bending Modes
+       * [30-49]: M2 Bending Modes
 
        .. code-block:: python
 
           dofs: [0.0, 1.0, 2.0, 3.0, 4.0,
-          5.0, 6.0, 7.0, 8.0, 9.0,
-          10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0,
-          20.0, 21.0, 22.0, 23.0, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0,
-          30.0, 31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0,
-          40.0, 41.0, 42.0, 43.0, 44.0, 45.0, 46.0, 47.0, 48.0, 49.0]
+                 5.0, 6.0, 7.0, 8.0, 9.0,
+                 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0,
+                 20.0, 21.0, 22.0, 23.0, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0,
+                 30.0, 31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0,
+                 40.0, 41.0, 42.0, 43.0, 44.0, 45.0, 46.0, 47.0, 48.0, 49.0]
 
-   * - Apply a DOF to the main telescope (bending mode or hexapod offset)
+   * - Apply DOFs to Telescope
      - :file:`apply_dof.py`
      - Same configurations as ``set_dof.py``.
-   * - Enable and run closed-loop system on the AOS for LSSTCam
+   * - Run Closed-Loop System on AOS
      - :file:`close_loop_lsstcam.py`
-     - | .. code-block:: python
-          :caption: close_loop_lsstcam.py
+     - Higher selectivity of script parameters can be done, with the approval of the AOS team.
 
-          exposure_time: 15
-          max_iter: 5
-          mode: "FAM"
-          program: "BLOCK-T249"
-          note: "initial_focus_dzs_tilts_bending_modes"
-          used_dofs: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 17, 18, 19, 20, 21, 22, 23, 28, 29, 30, 31, 32, 33, 34, 37, 38, 39, 40, 41, 42, 45, 46]
-          apply_corrections: true
-          use_ocps: true
-          filter: "r_03"
+       .. code-block:: python
+        :caption: close_loop_lsstcam.py
 
-   * - Adjust M2/Camera Hexapods to focus PSFs manually
+        exposure_time: 15
+        max_iter: 5
+        mode: "FAM"
+        program: "BLOCK-T249"
+        note: "initial_focus_dzs_tilts_bending_modes"
+        used_dofs: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 17, 18, 19, 20, 21, 22, 23, 28, 29, 30, 31, 32, 33, 34, 37, 38, 39, 40, 41, 42, 45, 46]
+        apply_corrections: true
+        use_ocps: true
+        filter: "r_03"
+
+   * - Offset M2/Camera Hexapods (PSF Focus)
      - | :file:`offset_m2_hexapod.py`
        | :file:`offset_camera_hexapod.py`
      - | If the first image shows a donut rather than a PSF, adjust by hand.
-       | Change the camera hexapod z by Dz = [(donut diameter in pixels) * 12] microns.
+       | Change the camera hexapod z by **Dz = [(donut diameter in pixels) * 12]** microns.
 
        .. code-block:: python
           :caption: offset_camera_hexapod.py
@@ -643,22 +659,27 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/`
    * - Take Triplet Sequence with LSSTCam
      - | :file:`take_aos_sequence_lsstcam.py`
        |
-       | Defaults:
-       | ``filter:``
-       | ``exposure_time: 30``
-       | ``dz: 1500``
-       | ``n_sequences: 1``
-       | ``mode: TRIPLET``
-       | ``program: AOSSEQUENCE``
-     - | .. code-block:: python
-          :caption: take_aos_sequence_lsstcam.py
+       | Default Configurations:
 
-          filter: z_03
-          exposure_time: 10
-          dz: 800
-          mode: TRIPLET
-          program: AOSSEQUENCE
-          reason: "test"
+       .. code-block:: python
+        
+        filter: current_filter
+        exposure_time: 30
+        dz: 1500
+        n_sequences: 1
+        mode: TRIPLET
+        program: AOSSEQUENCE
+
+     - 
+       .. code-block:: python
+        :caption: take_aos_sequence_lsstcam.py
+
+        filter: z_20
+        exposure_time: 10
+        dz: 800
+        mode: TRIPLET
+        program: AOSSEQUENCE
+        reason: "test"
 
 
 .. _Simonyi-SAL-Scripts-MTDome:
@@ -681,58 +702,61 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/m
    * - Command
      - SAL Script
      - Script Configuration
-   * - Enable/Disable dome following mode
-     - | :file:`/enable_dome_following.py`
-       | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/mtdome/enable_dome_following.py>`__)
+   * - Enable/Disable Dome Following Mode
+     - | :file:`/enable_dome_following.py` [`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/mtdome/enable_dome_following.py>`__]
        | :file:`/disable_dome_following.py`
      - No Configuration.
-   * - Offset MTDome in Az
-     - | :file:`/offset_dome.py`
-       |
-       | Units of ``az`` in degrees.
-     - | .. code-block:: python
-          :caption: offset_dome.py
+   * - Offset Dome Azimuth
+     - :file:`/offset_dome.py`
+     - Units of ``az`` in degrees.
 
-          offset: 10
+       .. code-block:: python
+        :caption: offset_dome.py
 
-   * - Slew MTDome in Az
-     - | :file:`/slew_dome.py`
-       |
-       | Units of ``az`` in degrees.
-     - | .. code-block:: python
-          :caption: slew_dome.py
+        offset: 10
 
-          az: 70
-          ignore:
-            - mtmount
-            - mthexapod_1
-            - mthexapod_2
+   * - Slew Dome in Azimuth
+     - :file:`/slew_dome.py`
+     - | Units of ``az`` in degrees. 
+       | If needed, CSC components can be ignored with the ``ignore`` parameter.
 
-   * - Park / Unpark MTDome
-     - | :file:`/park_dome.py`
-       | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/mtdome/park_dome.py>`__)
-       | :file:`/unpark_dome.py`
-       | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/mtdome/unpark_dome.py>`__)
-     - | .. code-block:: python
-          :caption: park_dome.py
+       .. code-block:: python
+        :caption: slew_dome.py
 
-          ignore:
-            - mtm1m3
-            - mtm2
-            - mtaos
-            - mtdometrajectory
-            - mthexapod_1
-            - mthexapod_2
+        az: 70
+        ignore:
+          - mtmount
+          - mthexapod_1
+          - mthexapod_2
+
+   * - Park/Unpark Dome
+     - | :file:`/park_dome.py` [`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/mtdome/park_dome.py>`__]
+       | :file:`/unpark_dome.py` [`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/mtdome/unpark_dome.py>`__]
+     - If needed, CSC components can be ignored with the ``ignore`` parameter. 
+     
+       .. code-block:: python
+        :caption: park_dome.py
+
+        ignore:
+          - mtm1m3
+          - mtm2
+          - mtaos
+          - mtdometrajectory
+          - mthexapod_1
+          - mthexapod_2
 
    * - Open/Close MTDome
-     - | :file:`/open_dome.py`
-       | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/mtdome/open_dome.py>`__)
+     - | :file:`/open_dome.py` [`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/mtdome/open_dome.py>`__]
        | :file:`/close_dome.py`
        |
        | Both scripts have the ``force`` property, useful to bypass errors
-       | or conditions (e.g., dome telemetry reports shutters in wrong state,
-       | mirror covers lost instead of closed).
-     - | No Configuration., but you can ignore certain CSCs:
+         or conditions (e.g., dome telemetry reports shutters in wrong state,
+         mirror covers lost instead of closed).
+       |
+       | The dome can also open/close via a direct override using a ``run_command.py`` script,
+         if the normal SAL Script fails to execute properly.
+
+     - No Configuration., but you can ignore CSCs with the ``ignore`` parameter:
 
        .. code-block:: python
           :caption: open_dome.py
@@ -748,10 +772,8 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/m
             - mtmount
             - mtptg
             - mtrotator
-
-   * - Open/Close MTDome (via run_command)
-     - ``run_command.py``
-     - | To open:
+      
+       To open the dome with a ``run_command.py``:
 
        .. code-block:: python
           :caption: run_command.py
@@ -759,121 +781,131 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/m
           component: MTDome
           cmd: openShutter
 
-       | To close:
+       To close the dome with a ``run_command.py``:
 
        .. code-block:: python
 
           component: MTDome
           cmd: closeShutter
 
-   * - Open Dome Louvers
+   * - Open/Close Dome Louvers
      - | ``run_command.py``
        |
        | The array values are between 0.0 (**closed**) and 100.0 (fully **open**).
        |
-       | Louver index (0-based):
+       | Louver Index (0-based):
        | [A1, A2, **B1**, B2, B3, C1, C2, C3, D1, D2, D3, **E1**, **E2**, E3,
-       | F1, F2, F3, G1, G2, G3, **H1**, **H2**, H3, I1, I2, I3, L1, L2, L3,
-       | **M1**, M2, M3, N1, N2]
-       |
-       | Bold = louvers available as of 2026-2-14.
-     - | .. code-block:: python
+         F1, F2, F3, G1, G2, G3, **H1**, **H2**, H3, I1, I2, I3, L1, L2, L3,
+         **M1**, M2, M3, N1, N2]
+
+     - If one wants to open the mechanical louvers **highlighted in bold** in the *Louver Index*:
+
+       .. code-block:: python
           :caption: run_command.py
 
           component: MTDome
           cmd: setLouvers
           parameters:
             position: [0.0, 0.0, 100.0, 0.0, 0.0,
-          0.0, 0.0, 0.0, 0.0, 0.0,
-          0.0, 100.0, 100.0, 0.0, 0.0,
-          0.0, 0.0, 0.0, 0.0, 0.0,
-          100.0, 100.0, 0.0, 0.0, 0.0,
-          0.0, 0.0, 0.0, 0.0, 100.0,
-          0.0, 0.0, 0.0, 0.0]
+                       0.0, 0.0, 0.0, 0.0, 0.0,
+                       0.0, 100.0, 100.0, 0.0, 0.0,
+                       0.0, 0.0, 0.0, 0.0, 0.0,
+                       100.0, 100.0, 0.0, 0.0, 0.0,
+                       0.0, 0.0, 0.0, 0.0, 100.0,
+                       0.0, 0.0, 0.0, 0.0]
+    
+       To close all louvers:
 
-   * - Close Dome Louvers
-     - | ``run_command.py``
-       |
-       | Alternatively use the ``setLouvers`` command with value 0 in the
-       | louver index you want to close.
-     - | .. code-block:: python
+       .. code-block:: python
           :caption: run_command.py
 
           component: MTDome
           cmd: closeLouvers
 
-   * - Stop dome and engage brakes
+       Alternatively, one can use the ``setLouvers`` command with value 0 in the
+       louver indices to close specific louvers and leave others open.
+
+   * - Stop Dome and Engage Brakes
      - | ``run_command.py``
        |
-       | ``stop`` `command <https://ts-xml.lsst.io/sal_interfaces/MTDome.html#stop>`__
-       | DomeAz: ``subSystemIds: 0x1``
-       | Dome shutter: ``subSystemIds: 0x4``
-       | Louvers: ``subSystemIds: 0x8``
-     - | .. code-block:: python
-          :caption: run_command.py
+       | Dome ``subSystemIds``:
+       * Dome Azimuth: ``0x1``
+       * Dome Shutter: ``0x4``
+       * Louvers: ``0x8``
+     - 
+       .. code-block:: python
+        :caption: run_command.py
 
-          component: MTDome
-          cmd: stop
-          parameters:
-            engageBrakes: true
-            subSystemIds: 0x?
+        component: MTDome
+        cmd: stop
+        parameters:
+          engageBrakes: true
+          subSystemIds: 0x1
 
-   * - Recover from Dome Az FAULT
-     - | :file:`/recover_from_controller_fault.py`
-       | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/mtdome/recover_from_controller_fault.py>`__)
-       |
-       | ``delta_move: 3.0``
-       |
-       | Clears a dome controller fault, moves the dome slightly to confirm
-       | it works again, and re-enables dome following if successful.
-     - No Configuration. required
-   * - Exit Fault/Clear fault in subsystem
+   * - Recover from Dome Azimuth Fault
+     - :file:`/recover_from_controller_fault.py` [`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/mtdome/recover_from_controller_fault.py>`__]
+       
+       #. Clears the current dome controller fault.
+       #. Turns on drives and moves the dome slightly to confirm fault is cleared.
+       #. Re-enables dome following if able to move again.
+     - No Configuration.
+   * - Clear Dome Subsystem Fault
      - | ``run_command.py``
        |
-       | DomeAz: ``subSystemIds: 0x1``
-       | Dome shutter: ``subSystemIds: 0x4``
-       | Louvers: ``subSystemIds: 0x8``
-     - | .. code-block:: python
-          :caption: run_command.py
-
-          component: MTDome
-          cmd: exitFault
-          parameters:
-            subSystemIds: 0x?
-
-   * - Reset dome drives
-     - | ``run_command.py``
+       | Command will also reset dome/shutter drives (see below)
+         internally when attempting to clear faults on those subsystems.
        |
-       | (``exitFault`` will issue a ``resetDrivesAz`` internally; probably not needed)
-     - | .. code-block:: python
-          :caption: run_command.py
+       | Dome ``subSystemIds``:
+       * Dome Azimuth: ``0x1``
+       * Dome Shutter: ``0x4``
+       * Louvers: ``0x8``
+     - Most common subsystem fault is the Dome Azimuth Drives:
 
-          component: MTDome
-          cmd: resetDrivesAz
-          parameters:
-            reset: [1,1,1,1,1]
+       .. code-block:: python
+        :caption: run_command.py
 
-   * - Reset Dome shutter drives
+        component: MTDome
+        cmd: exitFault
+        parameters:
+          subSystemIds: 0x1
+
+   * - Reset Dome Azimuth Drives
      - ``run_command.py``
-     - | .. code-block:: python
-          :caption: run_command.py
+     - To reset all dome azimuth drives:
 
-          component: MTDome
-          cmd: resetDrivesShutter
-          parameters:
-            reset: [1,1,1,1]
+       .. code-block:: python
+        :caption: run_command.py
 
-   * - Home Dome Az
+        component: MTDome
+        cmd: resetDrivesAz
+        parameters:
+          reset: [1,1,1,1,1]
+
+   * - Reset Dome Shutter Drives
+     - ``run_command.py``
+     - To reset all dome shutter drives:
+     
+       .. code-block:: python
+        :caption: run_command.py
+
+        component: MTDome
+        cmd: resetDrivesShutter
+        parameters:
+          reset: [1,1,1,1]
+
+   * - Home Dome Azimuth
      - | :file:`/home_dome.py`
        |
-       | Required: ``physical_az`` (azimuth position as read by markings).
+       | Required: ``physical_az`` (azimuth position as read by markings inside the dome).
        |
-       | See `Homing MTDome procedure <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/705003522>`__.
-     - | .. code-block:: python
-          :caption: home_dome.py
+       | See `Homing MTDome Procedure <https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/705003522>`__.
+     - If the dome is parked, and its physical azimuth reads **310 deg**, instead of its true home position (328 deg):
 
-          physical_az: <physical position as read by markings>
-          ignore:
+       .. code-block:: python
+        :caption: home_dome.py
+
+        physical_az: 310
+        ignore:
             - mtm1m3
             - mtm2
             - mtaos
@@ -884,45 +916,56 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/m
             - mtptg
             - mtrotator
 
-   * - Home Dome shutter
+   * - Home Dome Shutter
      - ``run_command.py``
-     - | .. code-block:: python
-          :caption: run_command.py
+     - Remember to include the ``subSystemIds`` parameter:
 
-          component: MTDome
-          cmd: home
-          parameters:
-            subSystemIds: 0x4
+       .. code-block:: python
+        :caption: run_command.py
 
-   * - Set dome shutter to degraded mode
-     - | ``run_command.py``
-       |
-       | Dome operational modes:
-       | **1:** Normal mode
-       | **2:** Degraded mode
-     - | .. code-block:: python
-          :caption: run_command.py
+        component: MTDome
+        cmd: home
+        parameters:
+          subSystemIds: 0x4
 
-          component: MTDome
-          cmd: setOperationalMode
-          parameters:
-            operationalMode: 2
-            subSystemIds: 0x4
+   * - Set Dome Shutter to Degraded Mode
+     - ``run_command.py``
+       
+       Dome operational modes:
 
-   * - Crawl - Move the azimuth axis at constant velocity
-     - | :file:`/crawl_az.py`
-       | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/mtdome/crawl_az.py>`__)
+       * ``1``: Normal Mode
+       * ``2``: Degraded Mode (10% Performance)
+
+     - Remember to include the ``subSystemIds`` parameter:
+
+       .. code-block:: python
+        :caption: run_command.py
+
+        component: MTDome
+        cmd: setOperationalMode
+        parameters:
+          operationalMode: 2
+          subSystemIds: 0x4
+
+   * - Rotate Dome at Constant Velocity
+     - | :file:`/crawl_az.py` [`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/mtdome/crawl_az.py>`__]
        |
        | Includes ``position`` and ``velocity`` properties.
-       | Speed in deg/second.
+         Velocity is measured in deg/second.
        |
-       | Default config:
-       | ``direction: ClockWise``
-     - | .. code-block:: python
-          :caption: crawl_az.py
+       | Default Configuration:
 
-          direction: CounterClockWise
-          velocity: 0.5
+       .. code-block:: python
+        
+        direction: ClockWise
+
+     - If we want to move the dome counter-clockwise at a rate of 0.5 deg/second:
+
+       .. code-block:: python
+        :caption: crawl_az.py
+
+        direction: CounterClockWise
+        velocity: 0.5
 
 
 .. _Simonyi-SAL-Scripts-LSSTCam:
@@ -949,7 +992,7 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/`
    * - Focus Sweep
      - | :file:`focus_sweep_lsstcam.py`
        |
-       | Properties with default config:
+       | Properties with Default Configuration:
        | ``sim: false``
        | ``hexapod: Camera``
        | ``filter: null``
@@ -1086,7 +1129,7 @@ LaserTracker
      - | :file:`laser_tracker/align.py`
        | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/laser_tracker/align.py>`__)
        |
-       | Default config:
+       | Default Configuration:
        | ``max_iter: 10``
        | ``tolerance_linear: 0.0001`` (meters)
        | ``tolerance_angular: 0.00138`` (deg, ~5 arcsec)
@@ -1151,7 +1194,7 @@ MTCalSys
      - Setup LEDProjector for White light flats
      - | :file:`maintel/setup_whitelight_flats.py`
        |
-       | Default config:
+       | Default Configuration:
        | ``sequence_name: "whitelight_u_source"``
        | ``ignore: ['TunableLaser','LinearStage:104','FiberSpectrograph:101','FiberSpectrograph:102','CBP','Electrometer:102','Electrometer:101']``
      - | .. code-block:: python
@@ -1397,7 +1440,7 @@ General Scripts
    * - Checks and prepares key telescope systems
      - | :file:`ensure_on_sky_readiness.py`
        | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/ensure_onsky_readiness.py>`__)
-     - | Default config:
+     - | Default Configuration:
 
        .. code-block:: python
           :caption: ensure_on_sky_readiness.py
