@@ -506,7 +506,7 @@ MTMount
        .. admonition:: DO NOT USE!
         :class: warning
 
-        Currently in testing (2026-6-16).
+        Currently in testing as of |today|.
 
      - No Configuration.
 
@@ -884,7 +884,7 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/m
    * - Reset Dome Shutter Drives
      - ``run_command.py``
      - To reset all dome shutter drives:
-     
+
        .. code-block:: python
         :caption: run_command.py
 
@@ -983,30 +983,45 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/`
      - SAL Script
      - Script Configuration
    * - Enable LSSTCam
-     - | :file:`enable_lsstcam.py`
-       | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/enable_lsstcam.py>`__)
-     - Not available
-   * - Put LSSTCam in STANDBY
-     -
-     - Not available
-   * - Focus Sweep
+     - :file:`enable_lsstcam.py` [`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/enable_lsstcam.py>`__]
+
+       .. admonition:: DO NOT USE!
+        :class: warning
+
+        Not available as of |today|.
+
+     - No Configuration.
+   * - Standby LSSTCam
+     - :file:`standby_lsstcam.py`
+       
+       .. admonition:: DO NOT USE!
+        :class: warning
+
+        Not available as of |today|.
+
+     - No Configuration.
+   * - Execute Focus Sweep
      - | :file:`focus_sweep_lsstcam.py`
-       |
-       | Properties with Default Configuration:
-       | ``sim: false``
-       | ``hexapod: Camera``
-       | ``filter: null``
-       | ``exp_time: 10``
-       | ``axis: ["x", "y", "z", "u", "v"]``
-       | ``focus_window:``
-       | ``n_steps:``
-       | ``focus_step_sequence:``
-       | ``n_images_per_step: 1``
-       | ``program: FOCUS_SWEEP``
-       | ``reason: null``
-       | ``ignore:``
-       |
-       | Units are microns.
+       | 
+       | Properties with Default Configurations:
+
+       .. code-block:: python
+
+        sim: false
+        hexapod: Camera
+        filter: null
+        exp_time: 10
+        axis: ["x", "y", "z", "u", "v"]
+        focus_window:
+        n_steps:
+        focus_step_sequence:
+        n_images_per_step: 1
+        program: FOCUS_SWEEP
+        reason: null
+        ignore:
+        
+       | Units for ``focus_window`` and ``focus_step_sequence`` are in *microns*.
+
      - | Required for defined focus window — use ``axis``, ``focus_window`` and ``n_steps``:
 
        .. code-block:: python
@@ -1029,88 +1044,121 @@ Path: :file:`ts_maintel_standardscripts/python/lsst/ts/maintel/standardscripts/`
           reason: "Sweep in y"
 
    * - Change Filter
-     - | :file:`change_filter_lsstcam.py`
-       |
-       | Required: ``filter``
-     - | .. code-block:: python
+     - :file:`change_filter_lsstcam.py`
+
+       .. warning::
+
+        MTMount and MTRotator CSCs must be ``ENABLED`` for the script to run.
+       
+     - The ``filter`` parameter is required for this script. 
+       To change to the ``z_20`` filter:
+
+       .. code-block:: python
           :caption: change_filter_lsstcam.py
 
-          filter: <filter_name>
+          filter: z_20
 
    * - Take Image
-     - | :file:`take_image_lsstcam.py`
-       |
-       | ``filter:``
-       | ``nimages: null``
-       | ``exp_times: 0``
-       | ``image_type: ["BIAS", "DARK", "FLAT", "OBJECT", "ENGTEST", "ACQ", "SPOT", "CWFS", "FOCUS"]``
-       | ``reason:``
-       | ``program:``
-       | ``note:``
-       |
-       | Required: ``image_type``
-     - | .. code-block:: python
-          :caption: take_image_lsstcam.py
-
-          image_type: BIAS
+     - :file:`take_image_lsstcam.py`
+       
+       Typical Configurations Include:
 
        .. code-block:: python
 
-          image_type: FLAT
-          exp_times: 5
-          nimages: 2
-          reason: "flat_test"
+        filter: # Current Filter.
+        nimages: # (Optional) Number of images.
+        exp_times: # Number of seconds (scalar or array).
+        image_type: # One of ["BIAS", "DARK", "FLAT", 
+                    #         "OBJECT", "ENGTEST", "ACQ", 
+                    #         "SPOT", "CWFS", "FOCUS"].
+        reason: # (Optional) Short reason for image(s).
+        program: # (Optional) Test case used for the images.
+        note: # (Optional) Additional notes to add.
+       
+       .. note::
+        
+        Required Parameters: ``exp_times`` and ``image_type``.
+
+     - Take a single five-second bias image:
+
+       .. code-block:: python
+        
+        :caption: take_image_lsstcam.py
+
+        image_type: BIAS
+        exp_times: 5
+
+       Take two five-second flat images (with a reason):
 
        .. code-block:: python
 
-          image_type: ACQ
-          exp_times: 1
-          program: "BLOCK-TXXXX"
+        image_type: FLAT
+        exp_times: 5
+        nimages: 2
+        reason: "flat_test"
+
+       Take a single one-second acquisition image for a test case:
 
        .. code-block:: python
 
-          image_type: ENGTEST
-          exp_times: 30
-          nimages: 1
+        image_type: ACQ
+        exp_times: 1
+        program: "BLOCK-TXXXX"
 
-   * - Track target and take image
+       Take a single 30-second engineering test image:
+
+       .. code-block:: python
+
+        image_type: ENGTEST
+        exp_times: 30
+        nimages: 1
+
+   * - Track Target and Take Image
      - :file:`track_target_and_take_image_lsstcam.py`
-     - | All these are required:
+     - | All of the following parameters are required:
 
        .. code-block:: python
           :caption: track_target_and_take_image_lsstcam.py
 
-          ra:
-          dec:
-          rot_sky:
-          name:
-          obs_time:
-          num_exp:
-          exp_times:
-          band_filter:
+          ra: # ICRS right ascension (hour) in decimal hours or sexagesimal strings.
+          dec: # ICRS declination (deg) in decimal hours or sexagesimal strings.
+          rot_sky: # The position angle (deg) in the sky.
+          name: # Target name.
+          obs_time: # Time given for starting the slew
+          num_exp: # Number of exposures.
+          exp_times: # Array of exposure times in seconds.
+          band_filter: # Filter used for observation.
 
-   * - Take Stuttered
+   * - Take Stuttered Sequence
      - :file:`take_stuttered_lsstcam.py`
-     - | Configuration in
-       | `take_stuttered_lsstcam.py source <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/take_stuttered_lsstcam.py>`__
-   * - Take Triplets
-     - | :file:`maintel/take_aos_sequence_lsstcam.py`
-       |
-       | ``filter:``
-       | ``exposure_time: 30``
-       | ``dz: 1500``
-       | ``n_sequences: 1``
-       | ``mode: TRIPLET``
-       | ``program: AOSSEQUENCE``
-     - | .. code-block:: python
-          :caption: take_aos_sequence_lsstcam.py
+     - Configuration can be found in `take_stuttered_lsstcam.py source <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/take_stuttered_lsstcam.py>`__.
+   * - Take AOS Triplet Sequence
+     - :file:`maintel/take_aos_sequence_lsstcam.py`
+       
+       Default Configurations:
 
-          filter: z_03
-          exposure_time: 10
-          dz: 800
-          mode: TRIPLET
-          program: AOSSEQUENCE
-          reason: "test"
+       .. code-block:: python
+        
+        filter: # Current filter.
+        exposure_time: 30
+        dz: 1500
+        n_sequences: 1
+        mode: TRIPLET
+        program: AOSSEQUENCE
+
+       | Units for ``dz`` are in *microns*.
+
+     - One can always add a ``reason`` to the triplet sequence.
+     
+       .. code-block:: python
+        :caption: take_aos_sequence_lsstcam.py
+
+        filter: z_20
+        exposure_time: 10
+        dz: 800
+        mode: TRIPLET
+        program: AOSSEQUENCE
+        reason: "test"
 
 
 .. _Simonyi-SAL-Scripts-LaserTracker:
