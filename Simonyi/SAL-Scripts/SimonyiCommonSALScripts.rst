@@ -1239,57 +1239,75 @@ MTCalSys
      - Command
      - SAL Script
      - Script Configuration
-   * - MTReflector
+   * - General
      - Open/close MTReflector
      - ``run_command.py``
-     - | .. code-block:: python
-          :caption: run_command.py
+     - To open MTReflector
+       
+       .. code-block:: python
+        :caption: run_command.py
 
-          component: MTReflector
-          cmd: open
+        component: MTReflector
+        cmd: open
 
-       | (or ``cmd: close``)
+       To close the reflector, use ``cmd: close``.
 
    * -
-     - Park the calibration projector
+     - Park the Calibration Projector
      - :file:`maintel/park_calibration_projector.py`
      - No Configuration.
    * -
-     - Setup LEDProjector for White light flats
+     - Setup LEDProjector for White Light Flats
      - | :file:`maintel/setup_whitelight_flats.py`
        |
        | Default Configuration:
-       | ``sequence_name: "whitelight_u_source"``
-       | ``ignore: ['TunableLaser','LinearStage:104','FiberSpectrograph:101','FiberSpectrograph:102','CBP','Electrometer:102','Electrometer:101']``
-     - | .. code-block:: python
-          :caption: setup_whitelight_flats.py
+       
+       .. code-block:: python
+        
+        sequence_name: "whitelight_u_source"
+        ignore: ['TunableLaser','LinearStage:104',
+                 'CBP','Electrometer:101','Electrometer:102',
+                 'FiberSpectrograph:101', 'FiberSpectrograph:102']
 
-          sequence_name: 'laser_functional'
-          ignore: ['LinearStage:104','FiberSpectrograph:101','FiberSpectrograph:102','CBP','Electrometer:102','Electrometer:101']
+     - We can change the ``sequence_name`` and ``ignore`` unnecessary CSCs 
+       based on the provided test cases on Zephyr Scale.
+
+       .. code-block:: python
+        :caption: setup_whitelight_flats.py
+
+        sequence_name: 'laser_functional'
+        ignore: ['LinearStage:104', 'CBP',
+                 'Electrometer:102','Electrometer:101',
+                 'FiberSpectrograph:101','FiberSpectrograph:102']
 
    * -
-     - Take whitelight flats for a given setup
-     - | :file:`maintel/take_whitelight_flats_lsstcam.py`
-       | (`code <https://github.com/lsst-ts/ts_externalscripts/blob/develop/python/lsst/ts/externalscripts/maintel/take_whitelight_flats_lsstcam.py>`__)
+     - Take Specified Whitelight Flats
+     - | :file:`maintel/take_whitelight_flats_lsstcam.py` [`code <https://github.com/lsst-ts/ts_externalscripts/blob/develop/python/lsst/ts/externalscripts/maintel/take_whitelight_flats_lsstcam.py>`__]
        |
-       | Default will run for all installed filters:
-       | ``sequence_names: ["daily"]``
-       | Metadata: ``note``, ``reason``, ``program``
-     - | .. code-block:: python
-          :caption: take_whitelight_flats_lsstcam.py
+       | Default ``sequence_names: ["daily"]`` will run for all installed filters available (g, r, i, z, and u/y).
+       | Metadata parameters available: ``note``, ``reason``, and ``program``.
+     - The following is an example of a specific type Photon Transfer Curve (PTC) script used, 
+       where the data is collected for the test case **BLOCK-T572**:
 
-          sequence_names: ['low_level_ptc']
-          reason: "low_level_led_ptc"
-          program: "BLOCK-T572"
+       .. code-block:: python
+        :caption: take_whitelight_flats_lsstcam.py
+
+        sequence_names: ['low_level_ptc']
+        reason: "low_level_led_ptc"
+        program: "BLOCK-T572"
 
    * - CBP
-     - Move the CBP Az, El position
+     - Move the CBP to (Az, El) Position
      - | ``run_command.py``
        |
-       | ``azimuth`` and ``elevation`` are float in degrees.
+       | The ``azimuth`` and ``elevation`` parameters require floating point numbers measured in *degrees*.
+       |
+       | **Limits:**
        | Az: [-45.0 to 45.0 deg]
        | El: [-69.0 to 45.0 deg]
-     - | .. code-block:: python
+     - If we want to move the CBP to *Az = -0.05 deg* and *El = -46.5 deg*:
+
+       .. code-block:: python
           :caption: run_command.py
 
           component: CBP
@@ -1299,11 +1317,24 @@ MTCalSys
             elevation: -46.5
 
    * -
-     - Change the CBP mask
-     - | ``run_command.py``
-       |
-       | There are 5 masks to characterize the beam projection.
-     - | .. code-block:: python
+     - Change the CBP Mask
+     - ``run_command.py``
+       
+       .. note::
+        There are 5 masks to characterize the beam projection. 
+        These are represented by strings of numbers: 
+        
+        * ``'1'``: LSSTCam 1 Pinhole per CCD Mask
+        * ``'2'``: 1mm Pinhole Mask
+        * ``'3'``: Empty Slot
+        * ``'4'``: ComCam 1 Pinhole per CCD Mask
+        * ``'5'``: 1 Pinhole per Amp Mask
+        
+        Selection of the mask type for a test case is determined typically by calibration team.
+
+     - If we want to change the current CBP mask to *mask position 1*:
+
+       .. code-block:: python
           :caption: run_command.py
 
           component: CBP
@@ -1312,24 +1343,34 @@ MTCalSys
             mask: '1'
 
    * -
-     - Rotate the CBP mask
-     - | ``run_command.py``
-       |
-       | Rotation is between 1 and 360 deg.
-     - | .. code-block:: python
-          :caption: run_command.py
+     - Rotate the CBP Mask
+     - ``run_command.py``
 
-          component: CBP
-          cmd: changeMaskRotation
-          parameters:
-            mask_rotation: 96.5
+       .. note::
+        
+        Rotation is between 1 deg and 360 deg.
+
+     - If we want to rotate the CBP mask to 96.5 deg:
+
+       .. code-block:: python
+        :caption: run_command.py
+
+        component: CBP
+        cmd: changeMaskRotation
+        parameters:
+          mask_rotation: 96.5
 
    * -
-     - Set CBP focus
-     - | ``run_command.py``
-       |
-       | Focus in microns. Range is (0, 13000).
-     - | .. code-block:: python
+     - Set CBP Focus
+     - ``run_command.py``
+
+       .. note::
+
+        Focus is measured in microns, and its range is [0, 13000] microns.
+
+     - If we want to set the focus to *3800 microns*:
+
+       .. code-block:: python
           :caption: run_command.py
 
           component: CBP
@@ -1338,18 +1379,32 @@ MTCalSys
             focus: 3800
 
    * -
-     - Park CBP (moves to elevation -70, locks the motors)
+     - Park CBP
      - ``run_command.py``
-     - | .. code-block:: python
+
+       .. note::
+
+        The CBP moves to elevation -70 deg, and it locks its motors when parking.
+
+     - 
+       .. code-block:: python
           :caption: run_command.py
 
           component: CBP
           cmd: park
 
    * - Tunable Laser
-     - Set tunable laser wavelength
+     - Set Tunable Laser Wavelength
      - ``run_command.py``
-     - | .. code-block:: python
+
+       .. note::
+
+        Laser wavelengths are measured in nanometers (nm), and the range is between 
+        350 - 1100nm during normal operations.
+
+     - To change the laser wavelength to *750nm*:
+
+       .. code-block:: python
           :caption: run_command.py
 
           component: TunableLaser
@@ -1358,11 +1413,16 @@ MTCalSys
             wavelength: 750
 
    * -
-     - Set laser output configuration
-     - | ``run_command.py``
-       |
-       | Configurations available: (see XML documentation)
-     - | .. code-block:: python
+     - Set Laser Output Configuration
+     - ``run_command.py``
+       
+       .. note::
+        
+        Available optical configurations are located in the `XML documentation <https://ts-xml.lsst.io/sal_interfaces/TunableLaser.html#enumerations>`__.
+
+     - To set the configuration to *F2 SCU*:
+
+       .. code-block:: python
           :caption: run_command.py
 
           cmd: setOpticalConfiguration
@@ -1370,39 +1430,39 @@ MTCalSys
             configuration: F2 SCU
 
    * -
-     - Change tunable laser mode
-     - | ``run_command.py``
-       |
-       | Available modes: ``setBurstMode`` and ``setContinuousMode``.
-     - | .. code-block:: python
+     - Change Tunable Laser Mode
+     - ``run_command.py``
+
+       .. note::
+
+        There are two available laser modes: *Burst Mode* (``setBurstMode``) 
+        and *Continuous Mode* (``setContinuousMode``).
+
+     - To set the tunable laser to *burst mode*:
+
+       .. code-block:: python
           :caption: run_command.py
 
           component: TunableLaser
           cmd: setBurstMode
 
    * -
-     - Start/stop tunable laser propagation
-     - | ``run_command.py``
-       |
-       | Start cmd: ``startPropagateLaser``
-       | Stop cmd: ``stopPropagateLaser``
-       |
-       | Note: requires setting the mode first.
-     - | .. code-block:: python
-          :caption: run_command.py
-
-          component: TunableLaser
-          cmd: startPropagateLaser
-
-   * -
-     - Set laser output to F2 SCU
+     - Start/Stop Tunable Laser Propagation
      - ``run_command.py``
-     - | .. code-block:: python
-          :caption: run_command.py
 
-          cmd: setOpticalConfiguration
-          parameters:
-            configuration: F2 SCU
+       .. note::
+        It is required to set the laser mode (burst/continous) *first* before 
+        activating the laser propagation.
+
+     - To start propagation:
+
+       .. code-block:: python
+        :caption: run_command.py
+
+        component: TunableLaser
+        cmd: startPropagateLaser
+
+       To stop propagation, set ``cmd: stopPropagateLaser``.
 
 
 .. _Simonyi-SAL-Scripts-Scheduler:
