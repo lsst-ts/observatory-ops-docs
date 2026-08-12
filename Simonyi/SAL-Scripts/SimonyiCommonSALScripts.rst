@@ -1173,41 +1173,57 @@ LaserTracker
    * - Command
      - SAL Script
      - Script Configuration
-   * - Align the TMA to the calibration screen
-     - | :file:`laser_tracker/align.py`
-       | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/laser_tracker/align.py>`__)
+   * - Align the TMA to the Calibration Screen
+     - | :file:`laser_tracker/align.py` [`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/laser_tracker/align.py>`__]
        |
        | Default Configuration:
-       | ``max_iter: 10``
-       | ``tolerance_linear: 0.0001`` (meters)
-       | ``tolerance_angular: 0.00138`` (deg, ~5 arcsec)
-       | ``target: M2`` (REQUIRED)
-       |
-       | ``target`` options: "M2", "Camera", "CALIBRATION_SCREEN"
-     - | .. code-block:: python
-          :caption: laser_tracker/align.py
 
-          target: CALIBRATION_SCREEN
-          tolerance_angular: 0.01
-          reason: "Align TMA to Calibration Screen"
-          program: "BLOCK-T495"
+       .. code-block:: python
+        
+        max_iter: 10
+        tolerance_linear: 0.0001 # in meters
+        tolerance_angular: 0.00138 # in deg (~5 arcsec)
+        target: "M2" 
+        # Target Options (REQUIRED): 
+        # "M2", "Camera", or "CALIBRATION_SCREEN"
 
        .. note::
+        
+        The LaserTracker alignment of the Calibration Screen is now done by
+        using ``id: BLOCK-T495`` in the :ref:`scheduler/add_block.py <Simonyi-SAL-Scripts-Scheduler>` script.
 
-          The LaserTracker Measurement of the Calibration screen is done now
-          using ``id: BLOCK-T495``.
+        
+     - To align to the calibration screen with a 0.01 deg angular tolerance:
+       
+       .. code-block:: python
+        :caption: laser_tracker/align.py
 
-   * - Park the lasertracker
+        target: CALIBRATION_SCREEN
+        tolerance_angular: 0.01
+        reason: "Align TMA to Calibration Screen"
+        program: "BLOCK-T495"
+
+       
+   * - Park the LaserTracker
      - ``run_command.py``
-     - | .. code-block:: python
-          :caption: run_command.py
 
-          component: LaserTracker:1
-          cmd: measurePoint
-          parameters:
-            collection: A
-            pointgroup: M1M3
-            target: p2
+       .. note::
+        
+        The LaserTracker parking command is now done by
+        using ``id: BLOCK-T495`` in the :ref:`scheduler/add_block.py <Simonyi-SAL-Scripts-Scheduler>` script.
+
+     - To park the lasertracker at the p2 point on M1M3:
+
+       .. code-block:: python
+        :caption: run_command.py
+
+        component: LaserTracker:1
+        cmd: measurePoint
+        parameters:
+          collection: A
+          pointgroup: M1M3
+          target: p2
+
 
 
 .. _Simonyi-SAL-Scripts-MTCalSys:
