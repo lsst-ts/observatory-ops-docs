@@ -26,6 +26,158 @@ The tables contain the following information:
   Scripts that require empty configurations are labeled as "No Configuration.."
 
 
+.. _Simonyi-SAL-Scripts-General:
+
+General Scripts
+===============
+
+.. list-table::
+   :widths: 20 60 20
+   :header-rows: 1
+
+   * - Command
+     - SAL Script
+     - Script Configuration
+   * - Set Summary State CSC Component
+     - ``set_summary_state.py``
+       
+       .. note::
+        
+        | Available Simonyi Subsystems: 
+        | ``MTMount``, ``MTRotator``, ``MTHexapod:1`` (Cam),
+          ``MTHexapod:2`` (M2), ``MTM2``, ``MTPtg``, ``MTAOS``, ``MTDome``, ``MTM1M3``, ``LSSTCam``
+        |
+        | Available States: 
+        | ``STANDBY``, ``ENABLED``, ``DISABLED``, ``OFFLINE``
+
+     - If we want to send ``MTMount`` to the ``DISABLED`` state:
+     
+       .. code-block:: python
+          :caption: set_summary_state.py
+
+          data:
+            - [MTMount, DISABLED]
+
+       | Or, we can use another format to send ``MTAOS`` to ``STANDBY``:
+
+       .. code-block:: python
+
+          data:
+            -
+              - MTAOS
+              - STANDBY
+
+   * - ``self.group.components`` Naming Convention
+     - 
+       .. note::
+        
+        The name of the CSC must match the name of the CSC in ``group.components``,
+        which is the name of the CSC in *lowercase*, replacing the ":" with "_"
+        for indexed components.
+
+        | Examples:
+        | ``ATMCS`` → ``atmcs``
+        | ``MTHexapod:1`` → ``mthexapod_1``
+
+     - To use an ``ignore`` property in a SAL Script the format is as follows:
+
+       .. code-block:: python
+
+          ignore:
+            - mtdometrajectory
+            - mthexapod_1
+            - mtaos
+       
+       Or, the components can also be written as a list:
+
+       .. code-block:: python
+
+          ignore: [mtdometrajectory, mthexapod_1, mtaos]
+
+
+   * - Check and Prepare Telescope Systems for Observing
+     - | :file:`ensure_on_sky_readiness.py`
+       | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/ensure_onsky_readiness.py>`__)
+     - | Default Configuration:
+
+       .. code-block:: python
+          :caption: ensure_on_sky_readiness.py
+
+          slew_flags = ["ACCELERATIONFORCES", "BALANCEFORCES",
+                        "VELOCITYFORCES", "BOOSTERVALVES"]
+          enable_flags = [True, True, True, False]
+
+   * - Enable EAS with Different Configurations
+     - ``set_summary_state.py``
+
+       .. note::
+
+        | In normal operations, this command is not necessary.
+        | Only perform this task with *approval* from support scientists.
+     - If we want to disable the M1M3 thermal system component of the EAS:
+     
+       .. code-block:: python
+        :caption: set_summary_state.py
+
+        data:
+          - [EAS, STANDBY]
+          - [EAS, ENABLED, "disable_m1m3ts.yaml"]
+
+.. _Simonyi-SAL-Scripts-Scheduler:
+
+Scheduler
+=========
+
+.. list-table::
+   :widths: 20 50 30
+   :header-rows: 1
+
+   * - Command
+     - SAL Script
+     - Script Configuration
+   * - Enable Simonyi Scheduler
+     - :file:`maintel/scheduler/enable.py`
+       
+       .. note::
+        
+        Properties: ``config`` (string): Name of the configuration .yaml file.
+        
+        This loads the .yaml configuration file and can also be used to state-cycle the scheduler.
+
+     - If we want to enable the standard configuration for the LSST survey:
+     
+       .. code-block:: python
+        :caption: maintel/scheduler/enable.py
+
+        config: fbs_config_lsst_survey.yaml
+
+   * - Start Scheduler-Driven Observations
+     - :file:`maintel/scheduler/resume.py`
+     - No Configuration.
+   * - Stop Scheduler-Driven Observations
+     - :file:`maintel/scheduler/stop.py`
+     - No Configuration.
+   * - Start a Testing BLOCK
+     - :file:`maintel/scheduler/add_block.py`
+       
+       .. note::
+        
+        Properties:
+        
+        * ``id`` (string): Name of the BLOCK to be run.
+        * ``override``: List of parameters to be changed/updated in the BLOCK.
+       
+        Current available BLOCKs listed
+        `here <https://rubinobs.atlassian.net/projects/BLOCK?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page#!/v2/testCases?projectId=10064>`__.
+
+     - If we wanted to run the initial alignment for Simonyi (BLOCK-T539):
+
+       .. code-block:: python
+          :caption: maintel/scheduler/add_block.py
+
+          id: BLOCK-T539
+
+
 .. _Simonyi-SAL-Scripts-MTM1M3:
 
 MTM1M3
@@ -1372,12 +1524,12 @@ MTCalSys
        
        .. note::
 
-        | The ``azimuth`` and ``elevation`` parameters require floating point numbers measured in *degrees*.
+        | The ``azimuth`` and ``elevation`` parameters require floating point numbers measured in **degrees**.
         |
         | **Limits:**
         | Az: [-45.0 to 45.0 deg]
         | El: [-69.0 to 45.0 deg]
-        
+
      - If we want to move the CBP to *Az = -0.05 deg* and *El = -46.5 deg*:
 
        .. code-block:: python
@@ -1536,134 +1688,6 @@ MTCalSys
         cmd: startPropagateLaser
 
        To stop propagation, set ``cmd: stopPropagateLaser``.
-
-
-.. _Simonyi-SAL-Scripts-Scheduler:
-
-Scheduler
-=========
-
-.. list-table::
-   :widths: 20 50 30
-   :header-rows: 1
-
-   * - Command
-     - SAL Script
-     - Script Configuration
-   * - Enable Simonyi Scheduler
-     - :file:`maintel/scheduler/enable.py`
-       
-       .. note::
-        
-        Properties: ``config`` (string): Name of the configuration .yaml file.
-        
-        This loads the .yaml configuration file and can also be used to state-cycle the scheduler.
-
-     - If we want to enable the standard configuration for the LSST survey:
-     
-       .. code-block:: python
-        :caption: maintel/scheduler/enable.py
-
-        config: fbs_config_lsst_survey.yaml
-
-   * - Start Scheduler-Driven Observations
-     - :file:`maintel/scheduler/resume.py`
-     - No Configuration.
-   * - Stop Scheduler-Driven Observations
-     - :file:`maintel/scheduler/stop.py`
-     - No Configuration.
-   * - Start a Testing BLOCK
-     - :file:`maintel/scheduler/add_block.py`
-       
-       .. note::
-        
-        Properties:
-        
-        * ``id`` (string): Name of the BLOCK to be run.
-        * ``override``: List of parameters to be changed/updated in the BLOCK.
-       
-        Current available BLOCKs listed
-        `here <https://rubinobs.atlassian.net/projects/BLOCK?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page#!/v2/testCases?projectId=10064>`__.
-
-     - If we wanted to run the initial alignment for Simonyi (BLOCK-T539):
-
-       .. code-block:: python
-          :caption: maintel/scheduler/add_block.py
-
-          id: BLOCK-T539
-
-
-.. _Simonyi-SAL-Scripts-General:
-
-General Scripts
-===============
-
-.. list-table::
-   :widths: 20 40 40
-   :header-rows: 1
-
-   * - Command
-     - SAL Script
-     - Script Configuration
-   * - Set Summary State to OFFLINE/ENABLED/DISABLED/STANDBY
-     - | ``set_summary_state.py``
-       |
-       | Subsystems accepted: ``MTMount``, ``MTRotator``, ``MTHexapod:1`` (Cam),
-       | ``MTHexapod:2`` (M2), ``MTM2``, ``MTPtg``, ``MTAOS``, ``MTDome``, ``MTM1M3``
-       |
-       | States accepted: ``STANDBY``, ``ENABLED``, ``DISABLED``, ``OFFLINE``
-     - | .. code-block:: python
-          :caption: set_summary_state.py
-
-          data:
-            - [MTMount, DISABLED]
-
-       | or:
-
-       .. code-block:: python
-
-          data:
-            -
-              - MTAOS
-              - STANDBY
-
-   * - self.group.components naming convention
-     - | The name of the CSC must match the name of the CSC in ``group.components``,
-       | which is the name of the CSC in lowercase, replacing the ":" with "_"
-       | for indexed components.
-     - | e.g. ``ATMCS`` → ``atmcs``
-       | ``MTHexapod:1`` → ``hexapod_1``
-       |
-       | To use an ``ignore`` property:
-
-       .. code-block:: python
-
-          ignore:
-            - mtdometrajectory
-            - hexapod_1
-            - mtaos
-
-   * - Checks and prepares key telescope systems
-     - | :file:`ensure_on_sky_readiness.py`
-       | (`code <https://github.com/lsst-ts/ts_maintel_standardscripts/blob/develop/python/lsst/ts/maintel/standardscripts/ensure_onsky_readiness.py>`__)
-     - | Default Configuration:
-
-       .. code-block:: python
-          :caption: ensure_on_sky_readiness.py
-
-          slew_flags = ["ACCELERATIONFORCES", "BALANCEFORCES",
-            "VELOCITYFORCES", "BOOSTERVALVES"]
-          enable_flags = [True, True, True, False]
-
-   * - Enable EAS with different configuration
-     - ``set_summary_state.py``
-     - | .. code-block:: python
-          :caption: set_summary_state.py
-
-          data:
-            - [EAS, STANDBY]
-            - [EAS, ENABLED, "disable_m1m3ts.yaml"]
-
 
 This procedure was last modified on |today|.
 
