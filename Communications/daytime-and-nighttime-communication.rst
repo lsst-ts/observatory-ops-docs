@@ -59,11 +59,13 @@ Afternoon Checkout
 Afternoon checkouts are important procedures to ensure that the telescopes and instruments are functional before the beginning of the night. 
 The full procedures for the different afternoon or recommended daily checkouts are described on these pages:
 
-* AuxTel Daily Checkout 
+* AuxTel Daily Checkout
 
 * LATISS Calibrations
 
 * Comcam Calibrations
+
+* :ref:`LSSTCam Daily Checkout <Daytime-Operations-LSSTCam-Daily-Checkout>`
 
 .. _daytime-and-nighttime-communication-Reporting-Faults:
 

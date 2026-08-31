@@ -11,4 +11,5 @@ Preparations for the observing night
     :titlesonly:
     :glob:
 
+    LSSTCam-Daily-Checkout/index.rst
     *
