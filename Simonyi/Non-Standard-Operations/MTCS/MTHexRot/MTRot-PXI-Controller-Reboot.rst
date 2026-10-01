@@ -8,9 +8,9 @@
     - If a file cannot include a title (surrounded by ampersands (#)), comment out the title from the template and include a comment explaining why this is implemented (in addition to applying the ``title`` directive).
 
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
-.. |author| replace:: Ioana Sotuela, Te-Wei Tsai
+.. |author| replace:: *Ioana Sotuela, Te-Wei Tsai*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: Kshitija Kelkar, Paulina Venegas
+.. |contributors| replace:: *Kshitija Kelkar, Paulina Venegas, Kris Mortensen*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -58,8 +58,8 @@ one:
 - :ref:`Hard Reboot or Power off <MTRot-PXI-Controller-Reboot-Hard-Reboot>`
 
 .. warning::
-
-    	If the intention is to clear the interlock indicated in the EFD/EUI, rebooting the controller
+    
+    If the intention is to clear the interlock indicated in the EFD/EUI, rebooting the controller
 	may not resolve the issue, as the interlock signal is likely real rather than a result of a 
 	malfunctioning controller. It is most probable that the rotator locking pin is not properly positioned, 
 	especially after telescope tasks such as a Camera Filter Swap.
@@ -75,7 +75,8 @@ one:
 Prerequisites
 =============
 
-- Ensure you have access to LSST-WAP network.
+- Camera Rotator :guilabel:`MTRotator` CSC is in ``STANDBY``.
+- Ensure you have VPN access to the summit.
 - Obtain the necessary IP, account user, and password information from the *LSST 1Password MainTel Vault*.
 - Familiarity with Linux commands and the use of general *Power Distribution Unit (PDU)* or *netbooter* for power cycling.
 
@@ -159,13 +160,13 @@ Restart Control System
         
         It will tell you whether the control system is running or not. To stop it, do:
 
-         .. prompt::
+        .. prompt::
 
             /etc/init.d/rotator stop
 
         To start it do:
 
-         .. prompt::
+        .. prompt::
 
             /etc/init.d/rotator start
         
@@ -233,7 +234,7 @@ Hard Reboot
     If a power shutdown is scheduled, you can proceed until step 2 before the power on.
 
 
-#.  **Login into Utilities cabinet Power Distribution Unit (PDU)**: While in the LSST-WAP, 
+#.  **Login into Utilities cabinet Power Distribution Unit (PDU)**: While have VPN access to the summit, 
     connect to *https://tea-pdu01.cp.lsst.org/* using the credentials stored in the *Operators vault* 
     of *LSST 1Password* as *PDU Utilities Cabinet*. 
     Click on :guilabel:`Outlets` on the left hand 
@@ -242,9 +243,11 @@ Hard Reboot
     .. figure:: /Simonyi/Non-Standard-Operations/_static/mtrot-controller-pxi-reboot-1.jpeg
    
 
-#.  **Power Cycle PXI and drives**: To **power** :guilabel:`Off` the system, first power off the PXI, followed by 
-    the drive. For MTRotator (:guilabel:`Camera Rotator` in *PDU*), the PXI is connected to outlet 6, 
-    and drives in outlet 5. 
+#.  | **Power Cycle PXI and drives**: 
+    | To **power** :guilabel:`Off` the MTRotator system (:guilabel:`Cam Rotator` in *PDU*): 
+
+    a.  *First power off the PXI,* which is connected to :guilabel:`Outlet 6`.
+    b.  *Then power off the drives,* which is connected to :guilabel:`Outlet 5`.
 
     .. note::
 
@@ -254,7 +257,7 @@ Hard Reboot
         procedure here.
 
 
-    When **powering** :guilabel:`On`, activate the drives first, and wait for at least 3 minutes before powering 
+    When **powering** :guilabel:`On`, *activate the drives first*, and **wait for at least 3 minutes** before powering 
     on the PXI. This delay is **crucial** for the Ethercat application within the PXI to establish a 
     connection with the Copley drive.
 
@@ -267,10 +270,10 @@ Hard Reboot
 
 .. warning:: 
 
-    When the MTRotator is in the ``OFFLINE Publish only`` state in the :guilabel:`runRotEui` you need to go to the 
-    :guilabel:`Offline Substate Commands` and then send the :guilabel:`System Ready` command. The 
-    DDS can then be enabled from ``OFFLINE`` state. Refer to :ref:`MTRotator Recovery 
-    procedure <MTRotator-Recovery>` for more details.
+    | When the MTRotator is in the ``OFFLINE Publish only`` state in the :guilabel:`runRotEui` you need to go to the 
+      :guilabel:`Offline Substate Commands` and then send the 
+    | :guilabel:`System Ready` command. The DDS can then be enabled from ``OFFLINE`` state. 
+      Refer to :ref:`MTRotator Recovery procedure <MTRotator-Recovery>` for more details.
 
 
 

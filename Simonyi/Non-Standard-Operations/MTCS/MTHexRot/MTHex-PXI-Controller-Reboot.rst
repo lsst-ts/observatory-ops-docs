@@ -10,7 +10,7 @@
 .. Include one Primary Author and list of Contributors (comma separated) between the asterisks (*):
 .. |author| replace:: *Ioana Sotuela, Te-Wei Tsai*
 .. If there are no contributors, write "none" between the asterisks. Do not remove the substitution.
-.. |contributors| replace:: *Kshitija Kelkar*
+.. |contributors| replace:: *Kshitija Kelkar, Kris Mortensen*
 
 .. This is the label that can be used as for cross referencing this procedure.
 .. Recommended format is "Directory Name"-"Title Name"  -- Spaces should be replaced by hyphens.
@@ -61,7 +61,8 @@ one:
 Prerequisites
 =============
 
-- Ensure you have access to LSST-WAP network.
+- Camera Hexapod :guilabel:`MTHexapod.1` and/or M2 Hexapod :guilabel:`MTHexapod.2` CSCs are in ``STANDBY``.
+- Ensure you have VPN access to the summit.
 - Obtain the necessary IP, account user, and password information from the *LSST 1Password MainTel Vault*.
 - Familiarity with Linux commands and the use of general *Power Distribution Unit (PDU)* for power cycling.
 
@@ -105,7 +106,7 @@ Restart Control System
 
 .. _MTHex-PXI-Controller-ssh-connection:
 #.  **Establish an SSH connection to the MTHexapod PXI**: Using the credentials and hostnames found 
-    in the *LSST 1Password MainTel Vault* create an ssh tunnel from the terminal in the LSST-WAP network. 
+    in the *LSST 1Password MainTel Vault* create an ssh tunnel from a terminal with VPN access to the summit network. 
     
     For the *MTCamHexapod*, the command would look like:
 
@@ -143,13 +144,13 @@ Restart Control System
         
         It will tell you whether the control system is running or not. To stop it, do:
 
-         .. prompt::
+        .. prompt::
 
             /etc/init.d/hexapod stop
 
         To start it do:
 
-         .. prompt::
+        .. prompt::
 
             /etc/init.d/hexapod start
        
@@ -173,7 +174,7 @@ Soft Reboot
 
 
 #.  **Establish an SSH connection to the MTCamHexapod/MTM2Hexapod PXI**: Using the credentials and hostnames found in 
-    the *LSST 1Password MainTel Vault* create an ssh tunnel from your terminal in the LSST-WAP network. 
+    the *LSST 1Password MainTel Vault* create an ssh tunnel from a terminal with VPN access to the summit network. 
     (See command explicitly described in :ref:`above <MTHex-PXI-Controller-ssh-connection>`).
 
 #.  **Execute the reboot command**: To initiate a soft reboot of the PXI, type in the terminal:
@@ -207,7 +208,7 @@ Hard Reboot
 #.  **Login into Utilities cabinet Power Distribution Unit (PDU) or MTM2Hexapod PDU**:
     Depending on which hexapod you are rebooting, you need to follow either A or B.
     
-    A.  For *MTCamHexapod*, while in the LSST-WAP, 
+    A.  For *MTCamHexapod*, while having VPN access to the summit, 
         connect to *https://tea-pdu01.cp.lsst.org/* using the credentials stored in the *Operators vault* 
         of *LSST 1Password* as *PDU Utilities Cabinet*. Click on :guilabel:`Outlets` on the left hand 
         side menu to open the outlets screen. The description of each outlet can be found here.
@@ -217,7 +218,7 @@ Hard Reboot
 
         *MTCamHexapod* *https://tea-pdu01.cp.lsst.org* PDU outlets.
    
-    B.  For *MTM2Hexapod* while in the LSST-WAP, 
+    B.  For *MTM2Hexapod*, while having VPN access to the summit, 
         connect to *https://pdu1-tea-as02.cp.lsst.org* using the credentials stored in the *MainTel vault* 
         of *LSST 1Password* as *pdu1-tea-as02.cp.lsst.org*. Click on :guilabel:`Outlets` on the left hand 
         side menu to open the outlets screen. 
@@ -227,12 +228,12 @@ Hard Reboot
 
         *MTM2Hexapod* *https://pdu1-tea-as02.cp.lsst.org* PDU outlets. 
    
-#.  **Power Cycle PXI and drives**: To **power** :guilabel:`Off` the system, first power off the PXI, followed by 
-    the drive. 
+#.  | **Power Cycle PXI and drives**: 
+    | To **power** :guilabel:`Off` the system, first power off the PXI, followed by the drive. 
     
     A.  For *MTCamHexapod*, PXI is energized through :guilabel:`Outlet 8`, while the drives correspond to :guilabel:`Outlet 4` in the *https://tea-pdu01.cp.lsst.org PDU*.
 
-    B.  For *MTM2Hexapod*, power off the PXI which is :guilabel:`Outlet 2`, then turn off the drives in :guilabel:`Outlet 1`` in the *https://pdu1-tea-as02.cp.lsst.org PDU*.
+    B.  For *MTM2Hexapod*, power off the PXI which is :guilabel:`Outlet 2`, then turn off the drives in :guilabel:`Outlet 1` in the *https://pdu1-tea-as02.cp.lsst.org PDU*.
 
     .. note::
 
@@ -242,8 +243,8 @@ Hard Reboot
         procedure here.
 
 
-    When **powering** :guilabel:`On`, power on the cabinet first and wait for 1-3 min to let the EtherCAT slaves 
-    finish the setup on the drives. Power on the PXI controller and wait for 5 min to let the EtherCAT master finish the setup.
+    When **powering** :guilabel:`On`, *power on the cabinet first* and **wait for at least 3 min** to let the EtherCAT slaves 
+    finish the setup on the drives. Then, *power on the PXI controller* and **wait for at least 5 min** to let the EtherCAT master finish the setup.
     This delay is crucial for the Ethercat application within the PXI to establish a connection with the Copley drive.
 
 
