@@ -32,7 +32,8 @@ Rubin Observatory welcomes contributions that make this documentation more usefu
 Raising an Issue
 ================
 
-If you spot an issue with the documentation, the best thing to do is `raise a GitHub issue in the observatory-ops-docs repositiry (repo) <https://github.com/lsst-ts/observatory-ops-docs/issues/new>`__.
+If you spot an issue with the documentation, the best thing to do is `create an RSO Documentation ticket on Jira <https://rubinobs.atlassian.net/jira/software/c/projects/RSO/boards/1633>`__.
+Details for ticket creation are in the :ref:`Jira-and-Git-Workflow` section of this document.
 Include any relevant URLs with your issue description.
 
 .. _Contributing-Add-Update:
@@ -151,7 +152,7 @@ This workflow should help either start a new Jira ticket or to continue with a p
          :class: hint
 
          |  **Project:** Rubin Summit Operations
-         |  **Work Type:** Story
+         |  **Work Type:** Documentation
          |  **Component:** Choose the appropiate *OBS System*, *Sub-System*, and *Component*.
          |  **Assignee:** The person that's going to write it (you or someone else).
          |  **Reviewer:** Subsystem specialist/manager or one of the other members from the OS team.
@@ -165,7 +166,7 @@ This workflow should help either start a new Jira ticket or to continue with a p
    * - 2.
      - Remember the ticket number and **update your progress** on the ticket.
      - 
-       * The new Jira Ticket will have a unique 4-number identifier (e.g., **RSO-505**).
+       * The new Jira Ticket will have a unique number identifier (e.g., **RSO-505**).
        * | Once you are ready to start working, move ticket from: 
          | :guilabel:`Proposed` :math:`\Rightarrow` :guilabel:`To-Do` :math:`\Rightarrow` :guilabel:`In Progress`
    * - 3.
@@ -401,7 +402,12 @@ The following steps will guide you through creating and managing a pull request 
        | :guilabel:`Tech Reviewed` :math:`\Rightarrow` :guilabel:`Editorial Review`
   * - 6.
     - | Once comments are given, **fix corrections** using the 
-      | :ref:`Jira-and-Git-Workflow` steps. When the reviewers approve of the Pull Request, **proceed** to the :ref:`Contributing-Merge-PR` steps.
+      | :ref:`Jira-and-Git-Workflow`: 
+      
+      * If you need to open your workspace: *Steps 3-12*.
+      * If you workspace is already set: *Steps 7-12*.
+
+      | When the reviewers approve of the Pull Request, **proceed** to the :ref:`Contributing-Merge-PR` steps.
     - 
      * | Move your Jira ticket from: 
        | :guilabel:`Editorial Review` :math:`\Rightarrow` :guilabel:`Reviewed`.
@@ -460,6 +466,7 @@ that were created into a single commit, and merge our branch into the main proje
       
       .. vimeo:: 1063614564
         :width: 100%
+        :aspect: 16:10
 
       |
       
@@ -467,6 +474,7 @@ that were created into a single commit, and merge our branch into the main proje
 
       .. vimeo:: 1063607809
         :width: 100%
+        :aspect: 71:36
 
       a. | Verify which commits you should squash using 
          | :command:`git log` to display them.
@@ -522,12 +530,12 @@ New to reStructuredText and Sphinx
 
 Check out these resources and guides. Sources files are available to compare raw reST and HTML outputs.
 
-  * `reStructuredText Introductory and Tutorial Material <https://docutils.sourceforge.io/rst.html>`__ and references therein.
+* `reStructuredText Introductory and Tutorial Material <https://docutils.sourceforge.io/rst.html>`__ and references therein.
 
-  * `reStructuredText Primer <https://docutils.sourceforge.io/docs/user/rst/quickstart.html>`__
+* `reStructuredText Primer <https://docutils.sourceforge.io/docs/user/rst/quickstart.html>`__
 
-  * `reStructuredText Quick Reference <https://docutils.sourceforge.io/docs/user/rst/quickref.html>`__
+* `reStructuredText Quick Reference <https://docutils.sourceforge.io/docs/user/rst/quickref.html>`__
 
-  * `reStructuredText Primer from Sphinx <https://www.sphinx-doc.org/en/1.8/usage/restructuredtext/basics.html>`_
+* `reStructuredText Primer from Sphinx <https://www.sphinx-doc.org/en/1.8/usage/restructuredtext/basics.html>`_
 
-  * `reStructuredText Style Guide for Rubin Observatory Data Management Developers <https://developer.lsst.io/restructuredtext/style.html>`__
+* `reStructuredText Style Guide for Rubin Observatory Data Management Developers <https://developer.lsst.io/restructuredtext/style.html>`__
