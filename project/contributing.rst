@@ -32,7 +32,8 @@ Rubin Observatory welcomes contributions that make this documentation more usefu
 Raising an Issue
 ================
 
-If you spot an issue with the documentation, the best thing to do is `raise a GitHub issue in the observatory-ops-docs repositiry (repo) <https://github.com/lsst-ts/observatory-ops-docs/issues/new>`__.
+If you spot an issue with the documentation, the best thing to do is `create an RSO Documentation ticket on Jira <https://rubinobs.atlassian.net/jira/software/c/projects/RSO/boards/1633>`__.
+Details for ticket creation are in the :ref:`Jira-and-Git-Workflow` section of this document.
 Include any relevant URLs with your issue description.
 
 .. _Contributing-Add-Update:
@@ -78,7 +79,7 @@ The following steps provide a guideline for how to prepare your local computer t
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
-   :widths: 5 40 55
+   :widths: 5 50 45
 
    * - 
      - Steps
@@ -117,8 +118,12 @@ The following steps provide a guideline for how to prepare your local computer t
          >> pip install --upgrade pip  
          >> pip install -r requirements.txt
 
+       .. warning::
+
+        The Python version must be version 3.10 or later.
+
    * - 5.
-     -  **Install** `SourceTree <https://www.sourcetreeapp.com/>`_.
+     -  **Install** `SourceTree <https://www.sourcetreeapp.com/>`_ **(Optional)**.
      - | This program helps **visualize** the repository tree **interact** with local and remote branches. To open the repository, select: 
        | :guilabel:`File` :math:`\Rightarrow` :guilabel:`Open...` :math:`\Rightarrow` :guilabel:`observatory-ops-docs`
 
@@ -146,45 +151,44 @@ This workflow should help either start a new Jira ticket or to continue with a p
        .. admonition:: Jira Ticket Layout
          :class: hint
 
-         | **Project:** SITCOM Work Management
-         | **Issue Type:** Story
-         | **Component:** SIT-Com Organizational Support
-         | **Labels:** documentation
-         | **Assignee:** The person that's going to write it (you or someone else).
-         | **Reviewer:** Subsystem specialist/manager or one of the other members from the OS team.
-         | **Start and End Date:** Estimate time interval.
-         * Add links to pages if applicable.
+         |  **Project:** Rubin Summit Operations
+         |  **Work Type:** Documentation
+         |  **Component:** Choose the appropiate *OBS System*, *Sub-System*, and *Component*.
+         |  **Assignee:** The person that's going to write it (you or someone else).
+         |  **Reviewer:** Subsystem specialist/manager or one of the other members from the OS team.
+         |  **Priority** and  **Start/End Dates:** Estimate time of completion based on *ticket priority*,
+           
+         1. *High Priority* -- One Week
+         2. *Medium Priority* -- One Month
+         3. *Low Priority* -- Two or Three Months
+
+         |  *NOTE:* Add links to pages if applicable.
    * - 2.
      - Remember the ticket number and **update your progress** on the ticket.
      - 
-       * The new Jira Ticket will have a unique 4-number identifier (e.g., **SITCOM-1811**).
-       * | Once you start working, move ticket from: 
-         | :guilabel:`To-Do` :math:`\Rightarrow` :guilabel:`In Progress`
+       * The new Jira Ticket will have a unique number identifier (e.g., **RSO-505**).
+       * | Once you are ready to start working, move ticket from: 
+         | :guilabel:`Proposed` :math:`\Rightarrow` :guilabel:`To-Do` :math:`\Rightarrow` :guilabel:`In Progress`
    * - 3.
      - **Set up** the necessary tools for editing documentation.
      - 
-       * Open VSCode and access the cloned repository to have a visual to its structure and edit the files.
-       * Open SourceTree and access the cloned repo to have a visual of the branch structure.
-       * Open a terminal on your laptop and enter the folder of the cloned repository:
+       *  Open VSCode and access the cloned repository to have a visual to its structure and edit the files.
+       *  Open SourceTree and access the cloned repo to have a visual of the branch structure.
+       *  Open a terminal on your laptop and enter the folder of the cloned repository:
 
-       In your terminal:
+          .. code-block:: bash
 
-       .. code-block:: bash
+            # Navigate to the folder:
+            >> cd /path/to/observatory-ops-docs
 
-        # Navigate to the folder:
-        >> cd /path/to/observatory-ops-docs
-
-        # Check that you are in correct folder:
-        >> pwd
-           /path/to/observatory-ops-docs
+            # Check that you are in correct folder:
+            >> pwd
+              /path/to/observatory-ops-docs
    * - 4.
-     - **Initialize** your local directory and **check your connection** to the obs-ops-docs repository.
+     - **Check your connection** to the obs-ops-docs repository.
      - In your terminal:
 
        .. code-block:: bash
-
-          # Initialize:
-          >> git init
 
           # Check remote is correct:
           >> git remote -v
@@ -213,21 +217,20 @@ This workflow should help either start a new Jira ticket or to continue with a p
 
          # Update main branch
          >> git checkout main
-         >> git fetch --all
          >> git pull
 
-         # Create ticket branch (e.g., SITCOM-1811)
-         >> git branch tickets/SITCOM-1811
+         # Create ticket branch (e.g., RSO-505)
+         >> git branch tickets/RSO-505
 
          # Move to ticket branch:
-         >> git checkout tickets/SITCOM-1811
+         >> git checkout tickets/RSO-505
 
        .. note::
          If you are continuing previous work:
 
          * Check that you are on the correct branch with ``git branch``.
          * If on the wrong branch, move to the branch of interest using ``git checkout``.
-         * Make sure to update the ``main`` branch each time before working in your ticket branch.
+         * Make sure to update the ``main`` branch periodically to see new changes that have been added.
    * - 7.
      - **Start editing** RST files in obs-ops-docs using VSCode. 
      - Additonal aid for working with RST files:
@@ -304,7 +307,7 @@ This workflow should help either start a new Jira ticket or to continue with a p
        .. code-block:: bash
 
           # Pushing for the first time:
-          >> git push --set-upstream origin tickets/SITCOM-1811
+          >> git push -u origin tickets/RSO-505
 
           # Successive pushes are simply:
           >> git push
@@ -345,7 +348,7 @@ The following steps will guide you through creating and managing a pull request 
     - Notes & Configurations
   * - 1.
     - | **Navigate to obs-ops GitHub** main page, and in the :guilabel:`branch` menu, choose the branch with your commits (e.g., 
-      | :guilabel:`tickets/SITCOM-1811`).
+      | :guilabel:`tickets/RSO-505`).
     - 
      .. image:: _static/Obs-Ops-GitHub-Main.png
       :width: 100%
@@ -356,27 +359,30 @@ The following steps will guide you through creating and managing a pull request 
      | :guilabel:`Compare & pull request`:
 
      .. image:: _static/pull-request-compare-pull-request.png
-      :width: 125%
+      :width: 150%
 
      | If there is no banner, you can create a new pull request on Github by selecting 
      | :guilabel:`Pull requests` :math:`\Rightarrow` :guilabel:`New pull request`:
 
      .. image:: _static/create-pull-request.png
-      :width: 125%
+      :width: 150%
   * - 3.
     - Use the :guilabel:`base` branch dropdown menu to **select the main branch** you'd like to merge your changes into, then use the 
       :guilabel:`compare` branch drop-down menu to **select the ticket branch** where you made your changes.
-    - 
-     .. image:: _static/Compare-changes.png
-      :width: 100%
 
-     | :guilabel:`base` :math:`\Rightarrow` :guilabel:`main`
-     | :guilabel:`compare` :math:`\Rightarrow` :guilabel:`tickets/SITCOM-1811`
+      Once branches are selected, click on :guilabel:`Create pull request`.
+    - | Select: 
+      | :guilabel:`base` :math:`\Rightarrow` :guilabel:`main`
+      | :guilabel:`compare` :math:`\Rightarrow` :guilabel:`tickets/RSO-505`
+
+      .. image:: _static/Compare-changes.png
+        :width: 150%
+
 
   * - 4.
     - **Add a title and description** for your pull request and **include reviewers**.
     - 
-       * **Title** should be the Jira ticket number: *"Tickets/SITCOM-1811''*.
+       * **Title** should be the Jira ticket number: *"tickets/RSO-505''*.
        * **Description** should *summarize all of the commits* that have been pushed onto the ticket branch.
        * | To **add reviewers**, click on the 
          | :guilabel:`Reviewers` tab to the right side of the pull request page, and 
@@ -387,13 +393,20 @@ The following steps will guide you through creating and managing a pull request 
     - Click :guilabel:`Create Pull Request` to **begin review process**.
     - 
      * | Move your Jira ticket from: 
-       | :guilabel:`In Progress` :math:`\Rightarrow` :guilabel:`In Review`.
+       | :guilabel:`In Progress` :math:`\Rightarrow` :guilabel:`Technical Review`.
+     * | When first reviews are finished:
+       | :guilabel:`Tech Reviewed` :math:`\Rightarrow` :guilabel:`Editorial Review`
   * - 6.
     - | Once comments are given, **fix corrections** using the 
-      | :ref:`Jira-and-Git-Workflow` steps. When the reviewers approve of the Pull Request, **proceed** to the :ref:`Contributing-Merge-PR` steps.
+      | :ref:`Jira-and-Git-Workflow`: 
+      
+      * If you need to open your workspace: *Steps 3-12*.
+      * If you workspace is already set: *Steps 7-12*.
+
+      | When the reviewers approve of the Pull Request, **proceed** to the :ref:`Contributing-Merge-PR` steps.
     - 
      * | Move your Jira ticket from: 
-       | :guilabel:`In Review` :math:`\Rightarrow` :guilabel:`Reviewed`.
+       | :guilabel:`Editorial Review` :math:`\Rightarrow` :guilabel:`Reviewed`.
 
      .. note:: 
        After you have opened your pull request, **you can continue making changes to files** by adding new commits 
@@ -423,24 +436,59 @@ that were created into a single commit, and merge our branch into the main proje
 
       .. code-block:: bash
 
-        # Update main branch:
-        >> git checkout main
-        >> git fetch --all
-        >> git pull
+        # Update main branch.
+        # This works on any branch.
+        >> git fetch origin main
 
-        # Rebase main branch so that
-        # ticket branch is leading:
-        >> git checkout tickets/SITCOM-1811
+        # Check that you are on your ticket branch,
+        # and then rebase to the main branch.
+        >> git checkout tickets/RSO-505
         >> git rebase origin/main
-
-        # FORCE push the changes into your
-        # remote repository:
-        >> git push --force-with-lease
 
       .. warning::
 
         | **DO NOT REBASE USING GITHUB!** 
         | Updating on GitHub will likely cause issues between your local and remote repositories.
+  * - 2.
+    - **Resolve any conflicts** during the rebase, and then **force push** the commits to your remote branch.
+    - *If a rebase produces conflicts*, Git pauses and tells you which files have problems.
+
+      .. code-block:: bash
+
+          # Check the status to see the files 
+          # listed under "both modified":
+          >> git status
+
+          # Open each conflicted file on VSCode
+          # and look for the conflict markers:
+
+          <<<<<<< HEAD
+          code from the main branch
+          =======
+          code from your tickets/RSO-505 commit
+          >>>>>>> your commit message
+
+          # Edit the file to keep what you want,
+          # delete the markers, and save the changes. 
+          
+          # Then mark the files as resolved
+          # and CONTINUE:
+          >> git add -A
+          >> git rebase --continue
+
+          # If you need to SKIP a single commit, 
+          # or ABORT the process entirely:
+          >> git rebase --skip
+          >> git rebase --abort
+
+      When all conflicts are cleared in the documentation, you can safely push the changes to the remote repository.
+
+      .. code-block:: bash
+
+        # FORCE push the changes into your
+        # remote repository:
+        >> git push --force-with-lease
+    
   * - 3.
     - Once the rebase is successful, **squash your commits** into a single commit to reduce clutter in the log of the obs-ops workflow.
     - There are two options to use when squashing commits:
@@ -449,6 +497,7 @@ that were created into a single commit, and merge our branch into the main proje
       
       .. vimeo:: 1063614564
         :width: 100%
+        :aspect: 16:10
 
       |
       
@@ -456,36 +505,46 @@ that were created into a single commit, and merge our branch into the main proje
 
       .. vimeo:: 1063607809
         :width: 100%
+        :aspect: 71:36
 
       a. | Verify which commits you should squash using 
          | :command:`git log` to display them.
       b. Once the commits are squashed, force push them again: :command:`git push --force-with-lease`.
   * - 4.
     - **Merge your ticket** branch into the main branch.
-    - In your terminal:
+    - 
+      * Move Jira ticket from: :guilabel:`Reviewed` :math:`\Rightarrow` :guilabel:`Done`
+
+      .. note::
+        You can merge directly in GitHub using the 
+        :guilabel:`Merge pull request` button 
+        at the bottom of your pull request page.
+    
+      If you are using your terminal:
 
       .. code-block:: bash
-
-        # Update local repository 
-        # with the latest changes.
-        >> git pull origin main
 
         # Switch to the base branch 
         # of the pull request.
         >> git checkout main
+        
+        # Update local repository 
+        # with the latest changes.
+        >> git pull
 
         # Merge the head branch into the 
         # base branch safely and preserve history.
-        >> git merge tickets/SITCOM-1811 --no-ff
+        >> git merge --no-ff tickets/RSO-505
+
+        # Text editor will display the message: 
+          Merge branch 'tickets/RSO-505'
+
+        # Save the message in the text editor.
+        >> :wq
 
         # Push the changes.
-        >> git push -u origin main
+        >> git push
 
-      * Move Jira ticket from: :guilabel:`Reviewed` :math:`\Rightarrow` :guilabel:`Done`
-
-      .. note::
-        You can merge directly in GitHub as well using the 
-        :guilabel:`Merge pull request` button at the bottom of your pull request page.
   * - 5.
     - Once merge was successful, **update** your local repository and **prune any branches** that have already merged in remote.
     - In your terminal:
@@ -497,7 +556,7 @@ that were created into a single commit, and merge our branch into the main proje
         >> git pull
 
         # (Optional) to prune a local branch:
-        >> git branch -d tickets/SITCOM-1811
+        >> git branch -d tickets/RSO-505
 
 .. _Contributing-Doc-Style-Guide:
 
@@ -511,12 +570,16 @@ New to reStructuredText and Sphinx
 
 Check out these resources and guides. Sources files are available to compare raw reST and HTML outputs.
 
-  * `reStructuredText Introductory and Tutorial Material <https://docutils.sourceforge.io/rst.html>`__ and references therein.
+.. note::
 
-  * `reStructuredText Primer <https://docutils.sourceforge.io/docs/user/rst/quickstart.html>`__
+  If you are having trouble accessing this links on a public network, try to access them through a summit VPN.
 
-  * `reStructuredText Quick Reference <https://docutils.sourceforge.io/docs/user/rst/quickref.html>`__
+* `reStructuredText Introductory and Tutorial Material <https://docutils.sourceforge.io/rst.html>`__ and references therein.
 
-  * `reStructuredText Primer from Sphinx <https://www.sphinx-doc.org/en/1.8/usage/restructuredtext/basics.html>`_
+* `reStructuredText Primer <https://docutils.sourceforge.io/docs/user/rst/quickstart.html>`__
 
-  * `reStructuredText Style Guide for Rubin Observatory Data Management Developers <https://developer.lsst.io/restructuredtext/style.html>`__
+* `reStructuredText Quick Reference <https://docutils.sourceforge.io/docs/user/rst/quickref.html>`__
+
+* `reStructuredText Primer from Sphinx <https://www.sphinx-doc.org/en/1.8/usage/restructuredtext/basics.html>`_
+
+* `reStructuredText Style Guide for Rubin Observatory Data Management Developers <https://developer.lsst.io/restructuredtext/style.html>`__
