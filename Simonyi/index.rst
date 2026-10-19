@@ -102,4 +102,16 @@ Most common troubleshooting procedures with associated faults.
 
     Troubleshooting/index.rst
 
+.. _Simonyi-Telescope-Operations-SAL-Scripts:
+.. SAL Scripts
+.. ===========
+
+.. toctree::
+   :glob:
+   :maxdepth: 3
+   :titlesonly:
+   :caption: SAL Scripts
+
+   SAL-Scripts/SimonyiCommonSALScripts.rst
+
 
