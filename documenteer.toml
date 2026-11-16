@@ -70,7 +70,10 @@ ignore = [
     'https://docutils.sourceforge.io/',
     'https://www.sourcetreeapp.com/*',
     'https://lsst-daorg.slack.com/',
-    'https://lsstc.slack.com'
+    'https://lsstc.slack.com',
+    'https://www.lsst.org/',
+    'http://lsst.org',
+    'http://main-brick01.cp.lsst.org'
 
 ]
 
